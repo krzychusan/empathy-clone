@@ -213,13 +213,70 @@ chat_window_find_chat (EmpathyChat *chat)
 }
 
 static void
+confirm_close_response_cb (GtkWidget *dialog,
+                           int response,
+                           EmpathyChatWindow *window)
+{
+	EmpathyChat *chat;
+
+	chat = g_object_get_data (G_OBJECT (dialog), "chat");
+
+	gtk_widget_destroy (dialog);
+
+	if (response == GTK_RESPONSE_ACCEPT)
+		empathy_chat_window_remove_chat (window, chat);
+}
+
+static void
+maybe_close_chat (EmpathyChatWindow *window,
+                  EmpathyChat *chat)
+{
+	EmpathyChatWindowPriv *priv;
+
+	priv = GET_PRIV (window);
+
+	if (empathy_chat_is_room (chat)) {
+		gchar *chat_name = empathy_chat_dup_name (chat);
+		GtkWidget *dialog = gtk_message_dialog_new (
+			GTK_WINDOW (priv->dialog),
+			GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+			GTK_MESSAGE_WARNING,
+			GTK_BUTTONS_CANCEL,
+			_("Leave %s?"),
+			chat_name);
+
+		gtk_window_set_title (GTK_WINDOW (dialog), "");
+
+		gtk_message_dialog_format_secondary_text (
+			GTK_MESSAGE_DIALOG (dialog),
+			_("You will not receive any further messages from "
+			  "this chat room unless you rejoin."));
+
+		gtk_dialog_add_button (GTK_DIALOG (dialog),
+			_("Leave chat room"), GTK_RESPONSE_ACCEPT);
+		gtk_dialog_set_default_response (GTK_DIALOG (dialog),
+			GTK_RESPONSE_ACCEPT);
+
+		g_object_set_data (G_OBJECT (dialog), "chat", chat);
+
+		g_signal_connect (dialog, "response",
+			G_CALLBACK (confirm_close_response_cb), window);
+
+		gtk_window_present (GTK_WINDOW (dialog));
+		g_free (chat_name);
+	} else {
+		empathy_chat_window_remove_chat (window, chat);
+	}
+}
+
+static void
 chat_window_close_clicked_cb (GtkAction   *action,
 			      EmpathyChat *chat)
 {
 	EmpathyChatWindow *window;
 
 	window = chat_window_find_chat (chat);
-	empathy_chat_window_remove_chat (window, chat);
+	maybe_close_chat (window, chat);
 }
 
 static void
@@ -1027,7 +1084,7 @@ chat_window_close_activate_cb (GtkAction         *action,
 
 	g_return_if_fail (priv->current_chat != NULL);
 
-	empathy_chat_window_remove_chat (window, priv->current_chat);
+	maybe_close_chat (window, priv->current_chat);
 }
 
 static void
