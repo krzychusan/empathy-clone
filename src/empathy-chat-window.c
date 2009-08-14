@@ -268,6 +268,19 @@ confirm_close (EmpathyChatWindow *window,
 
 	priv = GET_PRIV (window);
 
+	/* If there are no chats in this window, how could we possibly have got
+	 * here?
+	 */
+	g_return_if_fail (priv->chats != NULL);
+
+	/* Treat closing a window which only has one tab exactly like closing
+	 * that tab.
+	 */
+	if (close_window && priv->chats->next == NULL) {
+		close_window = FALSE;
+		chat = priv->chats->data;
+	}
+
 	if (close_window) {
 		primary = g_strdup (_("Close this window?"));
 
