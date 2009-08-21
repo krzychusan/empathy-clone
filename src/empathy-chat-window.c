@@ -327,7 +327,7 @@ confirm_close (EmpathyChatWindow *window,
 	g_free (secondary);
 
 	gtk_dialog_add_button (GTK_DIALOG (dialog),
-		close_window ? _("Close window") : _("Leave chat room"),
+		close_window ? _("Close window") : _("Leave room"),
 		GTK_RESPONSE_ACCEPT);
 	gtk_dialog_set_default_response (GTK_DIALOG (dialog),
 		GTK_RESPONSE_ACCEPT);
