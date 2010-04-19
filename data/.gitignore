@@ -10,3 +10,4 @@ empathy-accounts.desktop
 empathy-accounts.desktop.in
 org.freedesktop.Telepathy.Client.Empathy.Auth.service
 org.freedesktop.Telepathy.Client.Empathy.FileTransfer.service
+icons/local-copy/*

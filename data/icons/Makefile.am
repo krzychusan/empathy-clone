@@ -192,6 +192,8 @@ EXTRA_DIST = \
 	local-xmpp.svg		\
 	$(NULL)
 
+include $(srcdir)/utils.mk
+
 ###############################################################################
 
 gtk_update_icon_cache = gtk-update-icon-cache -f -t
@@ -252,3 +254,31 @@ uninstall-icons:
 install-data-local: install-icons update-icon-cache
 
 uninstall-local: uninstall-icons update-icon-cache
+
+# Local copy of the "installed" icon. This is used to be able to run empathy
+# from source (see bgo #616159)
+local_icons_dir = local-copy
+
+# Generate the lists of destination paths
+public_icons_local_install_paths = $(foreach obj, $(public_icons), $(local_icons_dir)/$(subst _,/,$(call reorder,_,1 3 2 4,$(obj))))
+private_icons_local_install_paths = $(foreach obj, $(private_icons), $(local_icons_dir)/$(subst _,/,$(call reorder,_,1 3 2 4,$(obj))))
+
+# For each destination path we'll need to compute back the original icon
+# and create a rule that will ensure that the destination directory exists
+# and then copy the original file
+define icon_local_install_rule_template
+$(local_icons_dir)/$$(subst _,/,$$(call reorder,_,1 3 2 4,$1)): $1
+	$$(AM_V_GEN)mkdir -p $$(@D)
+	$$(AM_V_GEN)cp $$^ $$@
+endef
+
+# Instantiate the template above for each icon
+$(foreach icon,$(public_icons),$(eval $(call icon_local_install_rule_template,$(icon))))
+$(foreach icon,$(private_icons),$(eval $(call icon_local_install_rule_template,$(icon))))
+
+install-icons-src: $(public_icons_local_install_paths) $(private_icons_local_install_paths)
+
+all: install-icons-src
+
+clean-local:
+	-rm -rf $(local_icons_dir)
