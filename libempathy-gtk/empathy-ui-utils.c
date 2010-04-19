@@ -64,6 +64,19 @@ empathy_gtk_init (void)
 	gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (),
 					   PKGDATADIR G_DIR_SEPARATOR_S "icons");
 
+	/* Add icons from source dir if available */
+	if (g_getenv ("EMPATHY_SRCDIR") != NULL) {
+		gchar *path;
+
+		path = g_build_filename (g_getenv ("EMPATHY_SRCDIR"), "data",
+				"icons", "local-copy", NULL);
+		if (g_file_test (path, G_FILE_TEST_EXISTS)) {
+			gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (), path);
+		}
+
+		g_free (path);
+	}
+
 	initialized = TRUE;
 }
 
