@@ -39,6 +39,7 @@
 #include <libempathy/empathy-utils.h>
 #include <libempathy/empathy-connection-managers.h>
 #include <libempathy/empathy-connectivity.h>
+#include <libempathy/empathy-tp-contact-factory.h>
 
 #include <libempathy-gtk/empathy-ui-utils.h>
 #include <libempathy-gtk/empathy-protocol-chooser.h>
@@ -46,6 +47,7 @@
 #include <libempathy-gtk/empathy-account-widget-irc.h>
 #include <libempathy-gtk/empathy-account-widget-sip.h>
 #include <libempathy-gtk/empathy-cell-renderer-activatable.h>
+#include <libempathy-gtk/empathy-contact-widget.h>
 #include <libempathy-gtk/empathy-images.h>
 
 #include "empathy-accounts-dialog.h"
@@ -100,7 +102,7 @@ typedef struct {
   GtkWidget *image_type;
   GtkWidget *label_name;
   GtkWidget *label_type;
-  GtkWidget *settings_widget;
+  GtkWidget *dialog_content;
 
   GtkWidget *notebook_account;
   GtkWidget *spinner;
@@ -542,19 +544,21 @@ accounts_dialog_has_valid_accounts (EmpathyAccountsDialog *dialog)
 }
 
 static void
-account_dialog_create_settings_widget (EmpathyAccountsDialog *dialog,
-    EmpathyAccountSettings *settings)
+account_dialog_create_edit_params_dialog (EmpathyAccountsDialog *dialog)
 {
   EmpathyAccountsDialogPriv *priv = GET_PRIV (dialog);
-  const gchar               *icon_name;
-  TpAccount                 *account;
+  EmpathyAccountSettings *settings;
+  GtkWidget *subdialog, *content;
 
-  if (priv->setting_widget_object != NULL)
-    g_object_remove_weak_pointer (G_OBJECT (priv->setting_widget_object),
-        (gpointer *) &priv->setting_widget_object);
+  settings = accounts_dialog_model_get_selected_settings (dialog);
+
+  subdialog = gtk_dialog_new_with_buttons (_("Edit Connection Parameters"),
+      GTK_WINDOW (dialog),
+      GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+      NULL);
 
   priv->setting_widget_object =
-      empathy_account_widget_new_for_protocol (settings, FALSE);
+    empathy_account_widget_new_for_protocol (settings, FALSE);
 
   g_object_add_weak_pointer (G_OBJECT (priv->setting_widget_object),
       (gpointer *) &priv->setting_widget_object);
@@ -563,17 +567,156 @@ account_dialog_create_settings_widget (EmpathyAccountsDialog *dialog,
     empathy_account_widget_set_other_accounts_exist (
         priv->setting_widget_object, TRUE);
 
-  priv->settings_widget =
-      empathy_account_widget_get_widget (priv->setting_widget_object);
+  content = empathy_account_widget_get_widget (priv->setting_widget_object);
 
   g_signal_connect (priv->setting_widget_object, "account-created",
         G_CALLBACK (empathy_account_dialog_account_created_cb), dialog);
   g_signal_connect (priv->setting_widget_object, "cancelled",
           G_CALLBACK (empathy_account_dialog_widget_cancelled_cb), dialog);
 
+  /* FIXME: need to hook up apply button, where to buttons belong? */
+  /* FIXME: yes? */
+  g_signal_connect_swapped (priv->setting_widget_object, "account-created",
+      G_CALLBACK (gtk_widget_destroy), subdialog);
+  g_signal_connect_swapped (priv->setting_widget_object, "cancelled",
+      G_CALLBACK (gtk_widget_destroy), subdialog);
+
+  gtk_container_add (
+      GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (subdialog))),
+      content);
+
+  gtk_widget_show (content);
+  gtk_widget_show (subdialog);
+}
+
+static void
+account_dialow_show_edit_params_dialog (EmpathyAccountsDialog *dialog,
+    GtkButton *button)
+{
+  DEBUG ("clicked");
+
+  account_dialog_create_edit_params_dialog (dialog);
+}
+
+static void
+account_dialog_show_contact_details_failed (EmpathyAccountsDialog *dialog,
+    gboolean error)
+{
+  EmpathyAccountsDialogPriv *priv = GET_PRIV (dialog);
+  GtkWidget *infobar, *label;
+
+  infobar = gtk_info_bar_new ();
+
+  if (error)
+    {
+      gtk_info_bar_set_message_type (GTK_INFO_BAR (infobar), GTK_MESSAGE_ERROR);
+      label = gtk_label_new (_("Failed to retrieve your personal information "
+                               "from the server."));
+    }
+  else
+    {
+      gtk_info_bar_set_message_type (GTK_INFO_BAR (infobar), GTK_MESSAGE_INFO);
+      label = gtk_label_new (_("Go online to edit your personal information."));
+    }
+
+  gtk_container_add (
+      GTK_CONTAINER (gtk_info_bar_get_content_area (GTK_INFO_BAR (infobar))),
+      label);
+  gtk_box_pack_start (GTK_BOX (priv->dialog_content), infobar, FALSE, FALSE, 0);
+  gtk_widget_show_all (infobar);
+}
+
+static void
+account_dialog_got_self_contact (TpConnection *conn,
+    EmpathyContact *contact,
+    const GError *in_error,
+    gpointer user_data,
+    GObject *dialog)
+{
+  EmpathyAccountsDialogPriv *priv = GET_PRIV (dialog);
+  GtkWidget *editor;
+
+  if (in_error != NULL)
+    {
+      DEBUG ("Failed to get self-contact: %s", in_error->message);
+      account_dialog_show_contact_details_failed (
+          EMPATHY_ACCOUNTS_DIALOG (dialog), TRUE);
+      return;
+    }
+
+  /* create the contact info editor for this account */
+  editor = empathy_contact_widget_new (contact,
+      EMPATHY_CONTACT_WIDGET_EDIT_ALIAS |
+      EMPATHY_CONTACT_WIDGET_EDIT_AVATAR |
+      EMPATHY_CONTACT_WIDGET_EDIT_DETAILS);
+  gtk_box_pack_start (GTK_BOX (priv->dialog_content), editor, FALSE, FALSE, 0);
+  gtk_widget_show (editor);
+}
+
+static void
+conn_prepared (GObject *src,
+    GAsyncResult *result,
+    gpointer user_data)
+{
+  TpConnection *conn = TP_CONNECTION (src);
+  EmpathyAccountsDialog *dialog = user_data;
+  GError *error = NULL;
+
+  if (!tp_proxy_prepare_finish (conn, result, &error))
+    {
+      DEBUG ("Failed to get self-contact: %s", error->message);
+      account_dialog_show_contact_details_failed (dialog, TRUE);
+      g_error_free (error);
+      return;
+    }
+
+  empathy_tp_contact_factory_get_from_handle (conn,
+      tp_connection_get_self_handle (conn),
+      account_dialog_got_self_contact,
+      NULL, NULL, G_OBJECT (dialog));
+}
+
+static void
+account_dialog_create_dialog_content (EmpathyAccountsDialog *dialog,
+    EmpathyAccountSettings *settings)
+{
+  EmpathyAccountsDialogPriv *priv = GET_PRIV (dialog);
+  const gchar *icon_name;
+  TpAccount *account;
+  TpConnection *conn;
+  GtkWidget *bbox, *button;
+
+  account = empathy_account_settings_get_account (settings);
+
+  if (priv->setting_widget_object != NULL)
+    g_object_remove_weak_pointer (G_OBJECT (priv->setting_widget_object),
+        (gpointer *) &priv->setting_widget_object);
+
+  priv->dialog_content = gtk_vbox_new (FALSE, 6);
+  // FIXME: should align to the top
   gtk_container_add (GTK_CONTAINER (priv->alignment_settings),
-      priv->settings_widget);
-  gtk_widget_show (priv->settings_widget);
+      priv->dialog_content);
+  gtk_widget_show (priv->dialog_content);
+
+  /* request the self contact */
+  conn = tp_account_get_connection (account);
+
+  if (conn != NULL)
+    tp_proxy_prepare_async (conn, NULL, conn_prepared, dialog);
+  else
+    account_dialog_show_contact_details_failed (dialog, FALSE);
+
+  bbox = gtk_hbutton_box_new ();
+  gtk_button_box_set_layout (GTK_BUTTON_BOX (bbox), GTK_BUTTONBOX_END);
+  gtk_box_pack_end (GTK_BOX (priv->dialog_content), bbox, FALSE, TRUE, 0);
+  gtk_widget_show (bbox);
+
+  /* FIXME: make this handle external accounts */
+  button = gtk_button_new_with_label (_("Edit Connection Parameters..."));
+  gtk_box_pack_start (GTK_BOX (bbox), button, FALSE, TRUE, 0);
+  gtk_widget_show (button);
+  g_signal_connect_swapped (button, "clicked",
+      G_CALLBACK (account_dialow_show_edit_params_dialog), dialog);
 
   icon_name = empathy_account_settings_get_icon_name (settings);
 
@@ -594,7 +737,6 @@ account_dialog_create_settings_widget (EmpathyAccountsDialog *dialog,
   accounts_dialog_update_name_label (dialog,
       empathy_account_settings_get_display_name (settings));
 
-  account = empathy_account_settings_get_account (settings);
   accounts_dialog_update_status_infobar (dialog, account);
 }
 
@@ -604,7 +746,7 @@ account_dialog_settings_ready_cb (EmpathyAccountSettings *settings,
     EmpathyAccountsDialog *dialog)
 {
   if (empathy_account_settings_is_ready (settings))
-    account_dialog_create_settings_widget (dialog, settings);
+    account_dialog_create_dialog_content (dialog, settings);
 }
 
 static void
@@ -906,15 +1048,15 @@ accounts_dialog_update_settings (EmpathyAccountsDialog *dialog,
   gtk_widget_show (priv->vbox_details);
   gtk_widget_hide (priv->hbox_protocol);
 
-  if (priv->settings_widget)
+  if (priv->dialog_content)
     {
-      gtk_widget_destroy (priv->settings_widget);
-      priv->settings_widget = NULL;
+      gtk_widget_destroy (priv->dialog_content);
+      priv->dialog_content = NULL;
     }
 
   if (empathy_account_settings_is_ready (settings))
     {
-      account_dialog_create_settings_widget (dialog, settings);
+      account_dialog_create_dialog_content (dialog, settings);
     }
   else
     {

@@ -217,8 +217,8 @@ account_widget_set_control_buttons_sensitivity (EmpathyAccountWidget *self,
         return;
 
       gtk_widget_set_sensitive (priv->apply_button, sensitive);
-      gtk_widget_set_sensitive (priv->cancel_button,
-          (sensitive || priv->creating_account) && priv->other_accounts_exist);
+      // gtk_widget_set_sensitive (priv->cancel_button,
+      //     (sensitive || priv->creating_account) && priv->other_accounts_exist);
 
       if (sensitive)
         {
@@ -2197,6 +2197,7 @@ do_constructed (GObject *obj)
 
       /*  We can't use the stock button as its accelerator ('C') clashes with
        *  the Close button. */
+      /* FIXME: this no longer applies! */
       priv->cancel_button = gtk_button_new ();
       gtk_button_set_label (GTK_BUTTON (priv->cancel_button), _("Ca_ncel"));
       gtk_button_set_use_underline (GTK_BUTTON (priv->cancel_button), TRUE);
