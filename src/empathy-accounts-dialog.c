@@ -21,6 +21,7 @@
  *          Xavier Claessens <xclaesse@gmail.com>
  *          Cosimo Cecchi <cosimo.cecchi@collabora.co.uk>
  *          Jonathan Tellier <jonathan.tellier@gmail.com>
+ *          Danielle Madeley <danielle.madeley@collabora.co.uk>
  */
 
 #include <config.h>
@@ -560,6 +561,7 @@ account_dialog_create_edit_params_dialog (EmpathyAccountsDialog *dialog)
   priv->setting_widget_object =
     empathy_account_widget_new_for_protocol (settings, FALSE);
 
+  // FIXME: why doesn't this work for cancel, but does for apply?
   g_object_add_weak_pointer (G_OBJECT (priv->setting_widget_object),
       (gpointer *) &priv->setting_widget_object);
 
@@ -574,11 +576,7 @@ account_dialog_create_edit_params_dialog (EmpathyAccountsDialog *dialog)
   g_signal_connect (priv->setting_widget_object, "cancelled",
           G_CALLBACK (empathy_account_dialog_widget_cancelled_cb), dialog);
 
-  /* FIXME: need to hook up apply button, where to buttons belong? */
-  /* FIXME: yes? */
-  g_signal_connect_swapped (priv->setting_widget_object, "account-created",
-      G_CALLBACK (gtk_widget_destroy), subdialog);
-  g_signal_connect_swapped (priv->setting_widget_object, "cancelled",
+  g_signal_connect_swapped (priv->setting_widget_object, "close",
       G_CALLBACK (gtk_widget_destroy), subdialog);
 
   gtk_container_add (
@@ -787,6 +785,7 @@ accounts_dialog_has_pending_change (EmpathyAccountsDialog *dialog,
   if (gtk_tree_selection_get_selected (selection, &model, &iter))
     gtk_tree_model_get (model, &iter, COL_ACCOUNT, account, -1);
 
+  // FIXME: this is called before @setting_widget_object is cleared
   return priv->setting_widget_object != NULL
       && empathy_account_widget_contains_pending_changes (
           priv->setting_widget_object);

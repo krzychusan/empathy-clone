@@ -21,6 +21,7 @@
  *          Martyn Russell <martyn@imendio.com>
  *          Cosimo Cecchi <cosimo.cecchi@collabora.co.uk>
  *          Jonathan Tellier <jonathan.tellier@gmail.com>
+ *          Danielle Madeley <danielle.madeley@collabora.co.uk>
  */
 
 #include <config.h>
@@ -130,6 +131,7 @@ enum {
   HANDLE_APPLY,
   ACCOUNT_CREATED,
   CANCELLED,
+  CLOSE,
   LAST_SIGNAL
 };
 
@@ -890,6 +892,7 @@ account_widget_cancel_clicked_cb (GtkWidget *button,
     EmpathyAccountWidget *self)
 {
   g_signal_emit (self, signals[CANCELLED], 0);
+  g_signal_emit (self, signals[CLOSE], 0, GTK_RESPONSE_CANCEL);
 }
 
 static void
@@ -954,6 +957,7 @@ account_widget_applied_cb (GObject *source_object,
           tp_account_set_enabled_async (account, TRUE,
               account_widget_account_enabled_cb, widget);
           g_signal_emit (widget, signals[ACCOUNT_CREATED], 0, account);
+          // FIXME: should we emit a signal here?
         }
       else
         {
@@ -980,6 +984,9 @@ account_widget_applied_cb (GObject *source_object,
     account_widget_set_control_buttons_sensitivity (widget, FALSE);
 
   priv->contains_pending_changes = FALSE;
+
+  /* announce the widget can be closed */
+  g_signal_emit (widget, signals[CLOSE], 0, GTK_RESPONSE_APPLY);
 
   /* unref the widget - part of the workaround */
   g_object_unref (widget);
@@ -2375,6 +2382,13 @@ empathy_account_widget_class_init (EmpathyAccountWidgetClass *klass)
           g_cclosure_marshal_generic,
           G_TYPE_NONE,
           0);
+
+  signals[CLOSE] =
+    g_signal_new ("close", G_TYPE_FROM_CLASS (klass),
+        G_SIGNAL_RUN_LAST, 0, NULL, NULL,
+        g_cclosure_marshal_VOID__INT,
+        G_TYPE_NONE,
+        1, G_TYPE_INT);
 
   g_type_class_add_private (klass, sizeof (EmpathyAccountWidgetPriv));
 }
