@@ -194,6 +194,9 @@ static void accounts_dialog_model_selection_changed (
     GtkTreeSelection *selection,
     EmpathyAccountsDialog *dialog);
 
+static gboolean accounts_dialog_has_pending_change (
+    EmpathyAccountsDialog *dialog, TpAccount **account);
+
 static void
 accounts_dialog_update_name_label (EmpathyAccountsDialog *dialog,
     const gchar *display_name)
@@ -561,7 +564,6 @@ account_dialog_create_edit_params_dialog (EmpathyAccountsDialog *dialog)
   priv->setting_widget_object =
     empathy_account_widget_new_for_protocol (settings, FALSE);
 
-  // FIXME: why doesn't this work for cancel, but does for apply?
   g_object_add_weak_pointer (G_OBJECT (priv->setting_widget_object),
       (gpointer *) &priv->setting_widget_object);
 
@@ -681,14 +683,14 @@ account_dialog_create_dialog_content (EmpathyAccountsDialog *dialog,
   EmpathyAccountsDialogPriv *priv = GET_PRIV (dialog);
   const gchar *icon_name;
   TpAccount *account;
-  TpConnection *conn;
+  TpConnection *conn = NULL;
   GtkWidget *bbox, *button;
 
   account = empathy_account_settings_get_account (settings);
 
-  if (priv->setting_widget_object != NULL)
-    g_object_remove_weak_pointer (G_OBJECT (priv->setting_widget_object),
-        (gpointer *) &priv->setting_widget_object);
+  // if (priv->setting_widget_object != NULL)
+  //   g_object_remove_weak_pointer (G_OBJECT (priv->setting_widget_object),
+  //       (gpointer *) &priv->setting_widget_object);
 
   priv->dialog_content = gtk_vbox_new (FALSE, 6);
   // FIXME: should align to the top
@@ -697,7 +699,8 @@ account_dialog_create_dialog_content (EmpathyAccountsDialog *dialog,
   gtk_widget_show (priv->dialog_content);
 
   /* request the self contact */
-  conn = tp_account_get_connection (account);
+  if (account != NULL)
+    conn = tp_account_get_connection (account);
 
   if (conn != NULL)
     tp_proxy_prepare_async (conn, NULL, conn_prepared, dialog);
@@ -785,7 +788,6 @@ accounts_dialog_has_pending_change (EmpathyAccountsDialog *dialog,
   if (gtk_tree_selection_get_selected (selection, &model, &iter))
     gtk_tree_model_get (model, &iter, COL_ACCOUNT, account, -1);
 
-  // FIXME: this is called before @setting_widget_object is cleared
   return priv->setting_widget_object != NULL
       && empathy_account_widget_contains_pending_changes (
           priv->setting_widget_object);
@@ -922,24 +924,6 @@ accounts_dialog_show_question_dialog (EmpathyAccountsDialog *dialog,
   gtk_widget_show (message_dialog);
 }
 
-static void
-accounts_dialog_add_pending_changes_response_cb (GtkDialog *message_dialog,
-  gint response_id,
-  gpointer *user_data)
-{
-  EmpathyAccountsDialog *dialog = EMPATHY_ACCOUNTS_DIALOG (user_data);
-  EmpathyAccountsDialogPriv *priv = GET_PRIV (dialog);
-
-  gtk_widget_destroy (GTK_WIDGET (message_dialog));
-
-  if (response_id == GTK_RESPONSE_YES)
-    {
-      empathy_account_widget_discard_pending_changes (
-          priv->setting_widget_object);
-      accounts_dialog_setup_ui_to_add_account (dialog);
-    }
-}
-
 static gchar *
 get_dialog_primary_text (TpAccount *account)
 {
@@ -960,35 +944,8 @@ static void
 accounts_dialog_button_add_clicked_cb (GtkWidget *button,
     EmpathyAccountsDialog *dialog)
 {
-  TpAccount *account = NULL;
-  EmpathyAccountsDialogPriv *priv = GET_PRIV (dialog);
-
-  if (accounts_dialog_has_pending_change (dialog, &account))
-    {
-      gchar *question_dialog_primary_text = get_dialog_primary_text (account);
-
-      accounts_dialog_show_question_dialog (dialog,
-          question_dialog_primary_text,
-          _("You are about to create a new account, which will discard\n"
-              "your changes. Are you sure you want to proceed?"),
-          G_CALLBACK (accounts_dialog_add_pending_changes_response_cb),
-          dialog,
-          GTK_STOCK_CANCEL, GTK_RESPONSE_NO,
-          GTK_STOCK_DISCARD, GTK_RESPONSE_YES, NULL);
-
-      g_free (question_dialog_primary_text);
-    }
-  else
-    {
-      accounts_dialog_setup_ui_to_add_account (dialog);
-      gtk_widget_set_sensitive (priv->treeview, FALSE);
-      gtk_widget_set_sensitive (priv->button_add, FALSE);
-      gtk_widget_set_sensitive (priv->button_remove, FALSE);
-      gtk_widget_set_sensitive (priv->button_import, FALSE);
-    }
-
-  if (account != NULL)
-    g_object_unref (account);
+  accounts_dialog_setup_ui_to_add_account (dialog);
+  account_dialog_create_edit_params_dialog (dialog);
 }
 
 static void
