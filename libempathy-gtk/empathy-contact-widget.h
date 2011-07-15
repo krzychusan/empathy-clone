@@ -63,6 +63,7 @@ typedef enum
   EMPATHY_CONTACT_WIDGET_NO_SET_ALIAS = 1 << 7,
   EMPATHY_CONTACT_WIDGET_SHOW_DETAILS = 1 << 8,
   EMPATHY_CONTACT_WIDGET_EDIT_DETAILS = 1 << 9,
+  EMPATHY_CONTACT_WIDGET_NO_STATUS    = 1 << 10,
 } EmpathyContactWidgetFlags;
 
 GtkWidget * empathy_contact_widget_new (EmpathyContact *contact,

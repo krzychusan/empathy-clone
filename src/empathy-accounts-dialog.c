@@ -648,6 +648,7 @@ account_dialog_got_self_contact (TpConnection *conn,
   editor = empathy_contact_widget_new (contact,
       EMPATHY_CONTACT_WIDGET_EDIT_ALIAS |
       EMPATHY_CONTACT_WIDGET_EDIT_AVATAR |
+      EMPATHY_CONTACT_WIDGET_NO_STATUS |
       EMPATHY_CONTACT_WIDGET_EDIT_DETAILS);
   gtk_box_pack_start (GTK_BOX (priv->dialog_content), editor, FALSE, FALSE, 0);
   gtk_widget_show (editor);

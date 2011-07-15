@@ -1436,8 +1436,10 @@ contact_widget_contact_update (EmpathyContactWidget *information)
 
       gtk_widget_show (information->label_alias);
       gtk_widget_show (information->widget_alias);
-      gtk_widget_show (information->hbox_presence);
       gtk_widget_show (information->widget_avatar);
+
+      gtk_widget_set_visible (information->hbox_presence,
+          !(information->flags & EMPATHY_CONTACT_WIDGET_NO_STATUS));
     }
   else
     {
