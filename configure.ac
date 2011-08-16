@@ -106,7 +106,6 @@ AC_PATH_XTRA
 LT_PREREQ([2.2])
 LT_INIT
 
-GNOME_DOC_INIT([0.17.3])
 AC_PATH_PROG(DBUS_BINDING_TOOL, dbus-binding-tool)
 GLIB_GSETTINGS
 GLIB_GENMARSHAL=`$PKG_CONFIG glib-2.0 --variable=glib_genmarshal`
@@ -646,6 +645,8 @@ else
 fi
 AM_CONDITIONAL(BUILD_CHEESE, test x${have_cheese} = xyes)
 
+# Help documentation
+YELP_HELP_INIT
 
 # -----------------------------------------------------------
 # Coding style checks

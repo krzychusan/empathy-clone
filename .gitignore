@@ -42,6 +42,5 @@ compile
 cscope.out
 tags
 TAGS
-gnome-doc-utils.make
 ABOUT-NLS
 config.rpath

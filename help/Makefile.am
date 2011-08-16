@@ -1,7 +1,6 @@
-include $(top_srcdir)/gnome-doc-utils.make
 
-DOC_ID = empathy
-DOC_FIGURES = \
+HELP_ID = empathy
+HELP_MEDIA = \
 	figures/audio-input-microphone.png \
 	figures/available.png \
 	figures/away.png \
@@ -14,7 +13,7 @@ DOC_FIGURES = \
 	figures/gtk-remove.png \
 	figures/offline.png
 
-DOC_PAGES = \
+HELP_FILES = \
 	account-irc.page \
 	account-jabber.page \
 	accounts-window.page \
@@ -61,5 +60,4 @@ DOC_PAGES = \
 	status-icons.page \
 	video-call.page
 
-DOC_LINGUAS = ca cs de el en_GB es eu fi fr gl hu it pl ru sl sv zh_CN
-dist-hook: doc-dist-hook
+HELP_LINGUAS = ca cs de el en_GB es eu fi fr gl hu it pl ru sl sv zh_CN
