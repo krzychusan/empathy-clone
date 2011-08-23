@@ -129,6 +129,7 @@ struct _EmpathyRosterWindowPriv {
   GtkWidget *search_bar;
   GtkWidget *notebook;
   GtkWidget *no_entry_label;
+  GtkWidget *button_account_settings;
 
   GtkToggleAction *show_protocols;
   GtkRadioAction *sort_by_name;
@@ -608,8 +609,17 @@ OUT:
 }
 
 static void
+button_account_settings_clicked_cb (GtkButton *button,
+    EmpathyRosterWindow *self)
+{
+  empathy_accounts_dialog_show_application (gdk_screen_get_default (),
+      NULL, FALSE, FALSE);
+}
+
+static void
 display_page_message (EmpathyRosterWindow *self,
-    const gchar *msg)
+    const gchar *msg,
+    gboolean display_accounts_button)
 {
   gchar *tmp;
 
@@ -619,6 +629,9 @@ display_page_message (EmpathyRosterWindow *self,
   g_free (tmp);
 
   gtk_label_set_line_wrap (GTK_LABEL (self->priv->no_entry_label), TRUE);
+
+  gtk_widget_set_visible (self->priv->button_account_settings,
+      display_accounts_button);
 
   gtk_notebook_set_current_page (GTK_NOTEBOOK (self->priv->notebook),
       PAGE_MESSAGE);
@@ -637,7 +650,7 @@ roster_window_row_deleted_cb (GtkTreeModel *model,
 
       if (empathy_individual_view_is_searching (self->priv->individual_view))
         {
-          display_page_message (self, _("No match found"));
+          display_page_message (self, _("No match found"), FALSE);
         }
     }
 }
@@ -2317,6 +2330,7 @@ empathy_roster_window_init (EmpathyRosterWindow *self)
       "notebook", &self->priv->notebook,
       "no_entry_label", &self->priv->no_entry_label,
       "roster_scrolledwindow", &sw,
+      "button_account_settings", &self->priv->button_account_settings,
       NULL);
   g_free (filename);
 
@@ -2568,6 +2582,9 @@ empathy_roster_window_init (EmpathyRosterWindow *self)
 
   roster_window_notify_contact_list_size_cb (self->priv->gsettings_ui,
       EMPATHY_PREFS_UI_SHOW_AVATARS, self);
+
+  g_signal_connect (self->priv->button_account_settings, "clicked",
+      G_CALLBACK (button_account_settings_clicked_cb), self);
 }
 
 GtkWidget *
