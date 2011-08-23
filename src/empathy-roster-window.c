@@ -92,7 +92,7 @@
 enum
 {
   PAGE_CONTACT_LIST = 0,
-  PAGE_NO_MATCH
+  PAGE_MESSAGE
 };
 
 enum
@@ -608,6 +608,23 @@ OUT:
 }
 
 static void
+display_page_message (EmpathyRosterWindow *self,
+    const gchar *msg)
+{
+  gchar *tmp;
+
+  tmp = g_strdup_printf ("<b><span size='xx-large'>%s</span></b>", msg);
+
+  gtk_label_set_markup (GTK_LABEL (self->priv->no_entry_label), tmp);
+  g_free (tmp);
+
+  gtk_label_set_line_wrap (GTK_LABEL (self->priv->no_entry_label), TRUE);
+
+  gtk_notebook_set_current_page (GTK_NOTEBOOK (self->priv->notebook),
+      PAGE_MESSAGE);
+}
+
+static void
 roster_window_row_deleted_cb (GtkTreeModel *model,
     GtkTreePath *path,
     EmpathyRosterWindow *self)
@@ -620,21 +637,16 @@ roster_window_row_deleted_cb (GtkTreeModel *model,
 
       if (empathy_individual_view_is_searching (self->priv->individual_view))
         {
-          gchar *tmp;
-
-          tmp = g_strdup_printf ("<b><span size='xx-large'>%s</span></b>",
-              _("No match found"));
-
-          gtk_label_set_markup (GTK_LABEL (self->priv->no_entry_label), tmp);
-          g_free (tmp);
-
-          gtk_label_set_line_wrap (GTK_LABEL (self->priv->no_entry_label),
-              TRUE);
-
-          gtk_notebook_set_current_page (GTK_NOTEBOOK (self->priv->notebook),
-              PAGE_NO_MATCH);
+          display_page_message (self, _("No match found"));
         }
     }
+}
+
+static void
+display_page_contact_list (EmpathyRosterWindow *self)
+{
+  gtk_notebook_set_current_page (GTK_NOTEBOOK (self->priv->notebook),
+      PAGE_CONTACT_LIST);
 }
 
 static void
@@ -646,8 +658,8 @@ roster_window_row_inserted_cb (GtkTreeModel      *model,
   if (self->priv->empty)
     {
       self->priv->empty = FALSE;
-      gtk_notebook_set_current_page (GTK_NOTEBOOK (self->priv->notebook),
-          PAGE_CONTACT_LIST);
+
+      display_page_contact_list (self);
       gtk_widget_grab_focus (GTK_WIDGET (self->priv->individual_view));
 
       /* The store is being filled, it will be done after an idle cb.
