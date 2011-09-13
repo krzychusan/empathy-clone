@@ -40,6 +40,8 @@
 #include <folks/folks.h>
 #include <folks/folks-telepathy.h>
 
+#include <dbus/dbus-protocol.h>
+
 #include <telepathy-glib/account-manager.h>
 #include <telepathy-glib/connection.h>
 #include <telepathy-glib/channel.h>
@@ -369,6 +371,8 @@ create_errors_to_message_hash (void)
     "cryptography library"));
   g_hash_table_insert (errors, TP_ERROR_STR_SOFTWARE_UPGRADE_REQUIRED,
     _("Your software is too old"));
+  g_hash_table_insert (errors, DBUS_ERROR_NO_REPLY,
+    _("Internal error"));
 
   return errors;
 }
