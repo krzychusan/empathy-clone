@@ -1675,6 +1675,17 @@ individual_grid_destroy (EmpathyIndividualWidget *self)
 
   gtk_container_remove (GTK_CONTAINER (priv->vbox_individual),
       GTK_WIDGET (priv->individual_grid));
+
+#ifdef HAVE_LIBCHAMPLAIN
+  if (priv->map_view_embed != NULL)
+    {
+      gtk_container_remove (GTK_CONTAINER (priv->viewport_map),
+          priv->map_view_embed);
+
+      priv->map_view_embed = NULL;
+    }
+#endif
+
   priv->individual_grid = NULL;
 }
 
