@@ -680,8 +680,7 @@ location_update (EmpathyIndividualWidget *self)
 
 #ifdef HAVE_LIBCHAMPLAIN
   if ((g_hash_table_lookup (location, EMPATHY_LOCATION_LAT) != NULL) &&
-      (g_hash_table_lookup (location, EMPATHY_LOCATION_LON) != NULL) &&
-      !(priv->flags & EMPATHY_INDIVIDUAL_WIDGET_FOR_TOOLTIP))
+      (g_hash_table_lookup (location, EMPATHY_LOCATION_LON) != NULL))
     {
       /* Cannot be displayed in tooltips until Clutter-Gtk can deal with such
        * windows */
