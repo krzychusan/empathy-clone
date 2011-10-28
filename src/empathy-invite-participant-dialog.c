@@ -114,6 +114,8 @@ get_tp_contact_for_chat (EmpathyInviteParticipantDialog *self,
   TpConnection *chat_conn;
 
   chat_conn = tp_channel_borrow_connection (TP_CHANNEL (self->priv->tp_chat));
+  if (chat_conn == NULL)
+    return NULL;
 
   return empathy_get_tp_contact_for_individual (individual, chat_conn);
 }
