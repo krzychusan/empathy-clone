@@ -111,12 +111,17 @@ typedef struct
   /* Service (CM, Client) chooser store */
   GtkListStore *service_store;
 
+  /* Counters on services detected and added */
+  guint services_detected;
+  guint name_owner_cb_count;
+
   /* Debug to show upon creation */
   gchar *select_name;
 
   /* Misc. */
   gboolean dispose_run;
   TpAccountManager *am;
+  GtkListStore *all_active_buffer;
 } EmpathyDebugWindowPriv;
 
 static const gchar *
@@ -792,6 +797,9 @@ debug_window_get_name_owner_cb (TpDBusDaemon *proxy,
   FillServiceChooserData *data = (FillServiceChooserData *) user_data;
   EmpathyDebugWindow *self = EMPATHY_DEBUG_WINDOW (data->debug_window);
   EmpathyDebugWindowPriv *priv = GET_PRIV (data->debug_window);
+  GtkTreeIter iter;
+
+  priv->name_owner_cb_count++;
 
   if (error != NULL)
     {
@@ -801,7 +809,6 @@ debug_window_get_name_owner_cb (TpDBusDaemon *proxy,
 
   if (!debug_window_service_is_in_model (data->debug_window, out, NULL, FALSE))
     {
-      GtkTreeIter iter;
       char *name;
       GtkListStore *active_buffer, *pause_buffer;
 
@@ -840,6 +847,20 @@ debug_window_get_name_owner_cb (TpDBusDaemon *proxy,
       g_free (name);
     }
 
+    if (priv->services_detected == priv->name_owner_cb_count)
+      {
+        /* Time to add "All" selection to service_store */
+        gtk_list_store_prepend (priv->service_store, &iter);
+        gtk_list_store_set (priv->service_store, &iter,
+            COL_NAME, "All",
+            COL_ACTIVE_BUFFER, NULL,
+            -1);
+
+        priv->all_active_buffer = new_list_store_for_service ();
+
+        gtk_combo_box_set_active (GTK_COMBO_BOX (priv->chooser), 0);
+      }
+
 OUT:
   fill_service_chooser_data_free (data);
 }
@@ -854,6 +875,7 @@ debug_window_list_connection_names_cb (const gchar * const *names,
     GObject *weak_object)
 {
   EmpathyDebugWindow *debug_window = (EmpathyDebugWindow *) user_data;
+  EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
   guint i;
   TpDBusDaemon *dbus;
   GError *error2 = NULL;
@@ -881,6 +903,8 @@ debug_window_list_connection_names_cb (const gchar * const *names,
       tp_cli_dbus_daemon_call_get_name_owner (dbus, -1,
           names[i], debug_window_get_name_owner_cb,
           data, NULL, NULL);
+
+      priv->services_detected ++;
     }
 
   g_object_unref (dbus);
@@ -1018,6 +1042,8 @@ add_client (EmpathyDebugWindow *self,
 
   tp_cli_dbus_daemon_call_get_name_owner (priv->dbus, -1,
       name, debug_window_get_name_owner_cb, data, NULL, NULL);
+
+  priv->services_detected ++;
 }
 
 static void
@@ -1062,6 +1088,10 @@ debug_window_fill_service_chooser (EmpathyDebugWindow *debug_window)
       return;
     }
 
+  /* Keep a count of the services detected and added */
+  priv->services_detected = 0;
+  priv->name_owner_cb_count = 0;
+
   /* Add CMs to list */
   tp_list_connection_names (priv->dbus, debug_window_list_connection_names_cb,
       debug_window, NULL, NULL);
@@ -1081,8 +1111,6 @@ debug_window_fill_service_chooser (EmpathyDebugWindow *debug_window)
       -1);
   g_object_unref (active_buffer);
   g_object_unref (pause_buffer);
-
-  gtk_combo_box_set_active (GTK_COMBO_BOX (priv->chooser), 0);
 
   /* add clients */
   tp_dbus_daemon_list_names (priv->dbus, 2000,
@@ -1782,6 +1810,8 @@ am_prepared_cb (GObject *am,
 
   priv->view_visible = FALSE;
 
+  priv->all_active_buffer = NULL;
+
   debug_window_set_toolbar_sensitivity (EMPATHY_DEBUG_WINDOW (object), FALSE);
   debug_window_fill_service_chooser (EMPATHY_DEBUG_WINDOW (object));
   gtk_widget_show (GTK_WIDGET (object));
@@ -1871,6 +1901,8 @@ debug_window_dispose (GObject *object)
       g_object_unref (priv->am);
       priv->am = NULL;
     }
+
+  tp_clear_object (&priv->all_active_buffer);
 
   (G_OBJECT_CLASS (empathy_debug_window_parent_class)->dispose) (object);
 }
