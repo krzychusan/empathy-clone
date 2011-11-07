@@ -397,6 +397,59 @@ debug_window_get_messages_cb (TpProxy *proxy,
   debug_window_set_enabled (proxy, TRUE);
 }
 
+static void
+create_proxy_to_get_messages (EmpathyDebugWindow *debug_window,
+    GtkTreeIter *iter,
+    TpDBusDaemon *dbus)
+{
+  EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
+  gchar *bus_name, *name = NULL;
+  TpProxy *new_proxy, *stored_proxy = NULL;
+  gboolean gone;
+
+  gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store), iter,
+      COL_NAME, &name,
+      COL_GONE, &gone,
+      COL_PROXY, &stored_proxy,
+      -1);
+
+  /* If the stored_proxy is not NULL then messages have been obtained and
+   * new-debug-message-signal has been set on it. Also, the proxy is valid.
+   * If the service is gone, we still display the messages-cached till now. */
+  if (gone ||
+      (!gone && stored_proxy != NULL))
+    {
+      /* Nothing needs to be done. The associated active-buffer has already
+       * been set as view's model */
+      goto finally;
+    }
+
+  DEBUG ("Preparing proxy to obtain messages for service %s", name);
+
+  gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store), iter,
+      COL_UNIQUE_NAME, &bus_name, -1);
+  new_proxy = g_object_new (TP_TYPE_PROXY,
+      "bus-name", bus_name,
+      "dbus-daemon", dbus,
+      "object-path", DEBUG_OBJECT_PATH,
+      NULL);
+  g_free (bus_name);
+
+  /* Now we call GetMessages with fresh proxy.
+   * The old proxy is NULL due to one of the following -
+   * * Wasn't saved as last GetMessages call failed
+   * * The service has newly arrived and no proxy has been prepared yet for it
+   * * A service with the same name has reappeared but the owner maybe new */
+  tp_proxy_add_interface_by_id (new_proxy, emp_iface_quark_debug ());
+
+  emp_cli_debug_call_get_messages (new_proxy, -1,
+      debug_window_get_messages_cb, debug_window, NULL, NULL);
+
+finally:
+  g_free (name);
+  tp_clear_object (&stored_proxy);
+}
+
 static gboolean
 debug_window_visible_func (GtkTreeModel *model,
     GtkTreeIter *iter,
@@ -426,6 +479,7 @@ static gboolean
 tree_view_search_equal_func_cb (GtkTreeModel *model,
     gint column,
     const gchar *key,
+
     GtkTreeIter *iter,
     gpointer search_data)
 {
@@ -460,9 +514,8 @@ debug_window_service_chooser_changed_cb (GtkComboBox *chooser,
   EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
   TpDBusDaemon *dbus;
   GError *error = NULL;
-  gchar *bus_name, *name = NULL;
-  TpProxy *new_proxy, *stored_proxy = NULL;
   GtkListStore *stored_active_buffer = NULL;
+  gchar *name = NULL;
   GtkTreeIter iter;
   gboolean gone;
 
@@ -477,20 +530,21 @@ debug_window_service_chooser_changed_cb (GtkComboBox *chooser,
       return;
     }
 
+  debug_window_set_toolbar_sensitivity (debug_window, TRUE);
+
   gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store), &iter,
       COL_NAME, &name,
       COL_GONE, &gone,
       COL_ACTIVE_BUFFER, &stored_active_buffer,
-      COL_PROXY, &stored_proxy,
       -1);
+
+  DEBUG ("Service chosen: %s", name);
 
   if (stored_active_buffer == NULL)
     {
       DEBUG ("No list store assigned to service %s", name);
       goto finally;
     }
-
-  debug_window_set_toolbar_sensitivity (debug_window, TRUE);
 
   tp_clear_object (&priv->store_filter);
   priv->store_filter = gtk_tree_model_filter_new (
@@ -509,17 +563,6 @@ debug_window_service_chooser_changed_cb (GtkComboBox *chooser,
   gtk_tree_view_set_search_equal_func (GTK_TREE_VIEW (priv->view),
       tree_view_search_equal_func_cb, NULL, NULL);
 
-  /* If the stored_proxy is not NULL then messages have been obtained and
-   * new-debug-message-signal has been set on it. Also, the proxy is valid.
-   * If the service is gone, we still display the messages-cached till now. */
-  if (gone ||
-      (!gone && stored_proxy != NULL))
-    {
-      /* Nothing needs to be done. The associated active-buffer has already
-       * been set as view's model */
-      goto finally;
-    }
-
   dbus = tp_dbus_daemon_dup (&error);
 
   if (error != NULL)
@@ -527,31 +570,13 @@ debug_window_service_chooser_changed_cb (GtkComboBox *chooser,
       DEBUG ("Failed at duping the dbus daemon: %s", error->message);
     }
 
-  gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store), &iter,
-      COL_UNIQUE_NAME, &bus_name, -1);
-  new_proxy = g_object_new (TP_TYPE_PROXY,
-      "bus-name", bus_name,
-      "dbus-daemon", dbus,
-      "object-path", DEBUG_OBJECT_PATH,
-      NULL);
-  g_free (bus_name);
-
-  /* Now we call GetMessages with fresh proxy.
-   * The old proxy is NULL due to one of the following -
-   * * Wasn't saved as last GetMessages call failed
-   * * The service has newly arrived and no proxy has been prepared yet for it
-   * * A service with the same name has reappeared but the owner maybe new */
-  tp_proxy_add_interface_by_id (new_proxy, emp_iface_quark_debug ());
-
-  emp_cli_debug_call_get_messages (new_proxy, -1,
-      debug_window_get_messages_cb, debug_window, NULL, NULL);
+  create_proxy_to_get_messages (debug_window, &iter, dbus);
 
   g_object_unref (dbus);
 
 finally:
   g_free (name);
   tp_clear_object (&stored_active_buffer);
-  tp_clear_object (&stored_proxy);
 }
 
 typedef struct
