@@ -316,6 +316,36 @@ debug_window_set_toolbar_sensitivity (EmpathyDebugWindow *debug_window,
     }
 }
 
+static gboolean
+debug_window_get_iter_for_active_buffer (GtkListStore *active_buffer,
+    GtkTreeIter *iter,
+    EmpathyDebugWindow *debug_window)
+{
+  EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
+  gboolean valid_iter;
+  GtkTreeModel *model = GTK_TREE_MODEL (priv->service_store);
+
+  gtk_tree_model_get_iter_first (model, iter);
+  for (valid_iter = gtk_tree_model_iter_next (model, iter);
+       valid_iter;
+       valid_iter = gtk_tree_model_iter_next (model, iter))
+    {
+      GtkListStore *stored_active_buffer;
+
+      gtk_tree_model_get (model, iter,
+          COL_ACTIVE_BUFFER, &stored_active_buffer,
+          -1);
+      if (active_buffer == stored_active_buffer)
+        {
+          g_object_unref (stored_active_buffer);
+          return valid_iter;
+        }
+      g_object_unref (stored_active_buffer);
+    }
+
+  return valid_iter;
+}
+
 static void
 proxy_invalidated_cb (TpProxy *proxy,
     guint domain,
@@ -338,8 +368,13 @@ debug_window_get_messages_cb (TpProxy *proxy,
   EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
   gchar *name;
   guint i;
+  GtkListStore *active_buffer;
+  gboolean valid_iter;
   GtkTreeIter iter;
-  GtkTreeModel *pause_buffer, *active_buffer;
+
+  active_buffer = g_object_get_data (G_OBJECT (proxy), "active-buffer");
+  valid_iter = debug_window_get_iter_for_active_buffer (active_buffer, &iter,
+      debug_window);
 
   if (error != NULL)
     {
@@ -355,17 +390,6 @@ debug_window_get_messages_cb (TpProxy *proxy,
   DEBUG ("Retrieved debug messages for %s", name);
   g_free (name);
 
-  gtk_combo_box_get_active_iter (GTK_COMBO_BOX (priv->chooser), &iter);
-  gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store), &iter,
-      COL_ACTIVE_BUFFER, &active_buffer,
-      COL_PAUSE_BUFFER, &pause_buffer,
-      -1);
-
-  g_object_set_data (G_OBJECT (proxy), "active-buffer", active_buffer);
-  g_object_set_data (G_OBJECT (proxy), "pause-buffer", pause_buffer);
-  g_object_unref (active_buffer);
-  g_object_unref (pause_buffer);
-
   for (i = 0; i < messages->len; i++)
     {
       GValueArray *values = g_ptr_array_index (messages, i);
@@ -378,7 +402,22 @@ debug_window_get_messages_cb (TpProxy *proxy,
     }
 
   /* Now we save this precious proxy in the service_store along its service */
-  gtk_list_store_set (priv->service_store, &iter, COL_PROXY, proxy, -1);
+  if (valid_iter)
+    {
+      gchar *proxy_service_name;
+
+      gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store), &iter,
+          COL_NAME, &proxy_service_name,
+          -1);
+
+      DEBUG ("Proxy for service: %s was successful in fetching debug"
+          " messages. Saving it.", proxy_service_name);
+      g_free (proxy_service_name);
+
+      gtk_list_store_set (priv->service_store, &iter,
+          COL_PROXY, proxy,
+          -1);
+    }
 
   /* Connect to "invalidated" signal */
   g_signal_connect (proxy, "invalidated",
@@ -405,11 +444,14 @@ create_proxy_to_get_messages (EmpathyDebugWindow *debug_window,
   EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
   gchar *bus_name, *name = NULL;
   TpProxy *new_proxy, *stored_proxy = NULL;
+  GtkTreeModel *pause_buffer, *active_buffer;
   gboolean gone;
 
   gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store), iter,
       COL_NAME, &name,
       COL_GONE, &gone,
+      COL_ACTIVE_BUFFER, &active_buffer,
+      COL_PAUSE_BUFFER, &pause_buffer,
       COL_PROXY, &stored_proxy,
       -1);
 
@@ -435,6 +477,9 @@ create_proxy_to_get_messages (EmpathyDebugWindow *debug_window,
       NULL);
   g_free (bus_name);
 
+  g_object_set_data (G_OBJECT (new_proxy), "active-buffer", active_buffer);
+  g_object_set_data (G_OBJECT (new_proxy), "pause-buffer", pause_buffer);
+
   /* Now we call GetMessages with fresh proxy.
    * The old proxy is NULL due to one of the following -
    * * Wasn't saved as last GetMessages call failed
@@ -448,6 +493,8 @@ create_proxy_to_get_messages (EmpathyDebugWindow *debug_window,
 finally:
   g_free (name);
   tp_clear_object (&stored_proxy);
+  g_object_unref (active_buffer);
+  g_object_unref (pause_buffer);
 }
 
 static gboolean
