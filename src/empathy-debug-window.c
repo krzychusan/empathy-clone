@@ -1289,12 +1289,14 @@ debug_window_pause_toggled_cb (GtkToggleToolButton *pause_,
   if (!priv->paused)
     {
       /* Pause has been released - flush all pause buffers */
+      GtkTreeModel *service_store = GTK_TREE_MODEL (priv->service_store);
 
-      for (valid_iter = gtk_tree_model_get_iter_first (model, &iter);
+      /* Skipping the first iter which is reserved for "All" */
+      gtk_tree_model_get_iter_first (model, &iter);
+      for (valid_iter = gtk_tree_model_iter_next (model, &iter);
            valid_iter;
            valid_iter = gtk_tree_model_iter_next (model, &iter))
         {
-          GtkTreeModel *service_store = GTK_TREE_MODEL (priv->service_store);
           GtkListStore *pause_buffer, *active_buffer;
 
           gtk_tree_model_get (service_store, &iter,
@@ -1304,11 +1306,14 @@ debug_window_pause_toggled_cb (GtkToggleToolButton *pause_,
 
           gtk_tree_model_foreach (GTK_TREE_MODEL (pause_buffer),
               copy_buffered_messages, active_buffer);
+          gtk_tree_model_foreach (GTK_TREE_MODEL (pause_buffer),
+              copy_buffered_messages, priv->all_active_buffer);
+
           gtk_list_store_clear (pause_buffer);
 
           g_object_unref (active_buffer);
           g_object_unref (pause_buffer);
-       }
+        }
     }
 }
 
