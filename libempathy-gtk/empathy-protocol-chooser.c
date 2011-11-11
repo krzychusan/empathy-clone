@@ -184,6 +184,10 @@ protocol_choosers_add_cm (EmpathyProtocolChooser *chooser,
         /* Haze's SIP implementation is pretty useless (bgo #629736) */
         continue;
 
+      if (!tp_strdiff (cm->name, "butterfly"))
+        /* Butterfly isn't supported any more */
+        continue;
+
       if (tp_strdiff (cm->name, "haze") && !tp_strdiff (saved_cm_name, "haze"))
         {
           GtkTreeIter titer;
