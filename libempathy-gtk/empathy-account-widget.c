@@ -1881,7 +1881,7 @@ do_constructed (GObject *obj)
     { "salut", "local-xmpp", "empathy-account-widget-local-xmpp.ui",
         account_widget_build_salut },
     WIDGET (gabble, jabber),
-    WIDGET (butterfly, msn),
+    WIDGET (haze, msn),
     WIDGET (haze, icq),
     WIDGET (haze, aim),
     WIDGET (haze, yahoo),
