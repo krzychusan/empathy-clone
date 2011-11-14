@@ -26,41 +26,11 @@
 #include "empathy-tp-chat.h"
 #include "empathy-utils.h"
 
-#include <telepathy-yell/telepathy-yell.h>
-
 G_DEFINE_TYPE (EmpathyClientFactory, empathy_client_factory,
     TP_TYPE_AUTOMATIC_CLIENT_FACTORY)
 
 #define chainup ((TpSimpleClientFactoryClass *) \
     empathy_client_factory_parent_class)
-
-/* FIXME: move to yell */
-static TpyCallChannel *
-call_channel_new_with_factory (TpSimpleClientFactory *factory,
-    TpConnection *conn,
-    const gchar *object_path,
-    const GHashTable *immutable_properties,
-    GError **error)
-{
-  TpProxy *conn_proxy = (TpProxy *) conn;
-
-  g_return_val_if_fail (TP_IS_CONNECTION (conn), NULL);
-  g_return_val_if_fail (object_path != NULL, NULL);
-  g_return_val_if_fail (immutable_properties != NULL, NULL);
-
-  if (!tp_dbus_check_valid_object_path (object_path, error))
-    return NULL;
-
-  return g_object_new (TPY_TYPE_CALL_CHANNEL,
-      "factory", factory,
-      "connection", conn,
-      "dbus-daemon", conn_proxy->dbus_daemon,
-      "bus-name", conn_proxy->bus_name,
-      "object-path", object_path,
-      "handle-type", (guint) TP_UNKNOWN_HANDLE_TYPE,
-      "channel-properties", immutable_properties,
-      NULL);
-}
 
 static TpChannel *
 empathy_client_factory_create_channel (TpSimpleClientFactory *factory,
@@ -82,11 +52,6 @@ empathy_client_factory_create_channel (TpSimpleClientFactory *factory,
       return TP_CHANNEL (empathy_tp_chat_new (
             TP_SIMPLE_CLIENT_FACTORY (factory), account, conn, path,
             properties));
-    }
-  else if (!tp_strdiff (chan_type, TPY_IFACE_CHANNEL_TYPE_CALL))
-    {
-      return TP_CHANNEL (call_channel_new_with_factory (
-            TP_SIMPLE_CLIENT_FACTORY (factory), conn, path, properties, error));
     }
 
   return chainup->create_channel (factory, conn, path, properties, error);

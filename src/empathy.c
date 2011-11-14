@@ -44,8 +44,6 @@
 #include <telepathy-glib/connection-manager.h>
 #include <telepathy-glib/interfaces.h>
 
-#include <telepathy-yell/telepathy-yell.h>
-
 #include <telepathy-logger/log-manager.h>
 
 #include <libempathy/empathy-client-factory.h>
@@ -854,7 +852,6 @@ main (int argc, char *argv[])
 #endif
 
   g_type_init ();
-  tpy_cli_init ();
   empathy_init ();
   gtk_init (&argc, &argv);
   empathy_gtk_init ();

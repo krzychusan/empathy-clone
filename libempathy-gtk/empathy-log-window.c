@@ -34,8 +34,6 @@
 #include <telepathy-glib/telepathy-glib.h>
 #include <telepathy-glib/proxy-subclass.h>
 
-#include <telepathy-yell/telepathy-yell.h>
-
 #include <telepathy-logger/telepathy-logger.h>
 #ifdef HAVE_CALL_LOGS
 # include <telepathy-logger/call-event.h>
@@ -873,7 +871,7 @@ maybe_refresh_logs (TpChannel *channel,
       !(event_mask & TPL_EVENT_MASK_TEXT))
     goto out;
   if ((!tp_strdiff (type, TP_IFACE_CHANNEL_TYPE_STREAMED_MEDIA) ||
-       !tp_strdiff (type, TPY_IFACE_CHANNEL_TYPE_CALL)) &&
+       !tp_strdiff (type, TP_IFACE_CHANNEL_TYPE_CALL)) &&
       !(event_mask & TPL_EVENT_MASK_CALL))
     goto out;
 
@@ -1015,7 +1013,7 @@ observe_channels (TpSimpleObserver *observer,
           tp_g_signal_connect_object (channel, "invalidated",
               G_CALLBACK (on_channel_ended), self, 0);
         }
-      else if (!tp_strdiff (type, TPY_IFACE_CHANNEL_TYPE_CALL) ||
+      else if (!tp_strdiff (type, TP_IFACE_CHANNEL_TYPE_CALL) ||
           !tp_strdiff (type, TP_IFACE_CHANNEL_TYPE_STREAMED_MEDIA))
         {
           g_hash_table_insert (self->priv->channels,
@@ -1060,7 +1058,7 @@ log_window_create_observer (EmpathyLogWindow *self)
   tp_base_client_take_observer_filter (self->priv->observer,
       tp_asv_new (
           TP_PROP_CHANNEL_CHANNEL_TYPE, G_TYPE_STRING,
-            TPY_IFACE_CHANNEL_TYPE_CALL,
+            TP_IFACE_CHANNEL_TYPE_CALL,
           NULL));
 
   tp_base_client_register (self->priv->observer, NULL);

@@ -66,7 +66,7 @@ EmpathyCallWindow *empathy_call_window_new (EmpathyCallHandler *handler);
 void empathy_call_window_present (EmpathyCallWindow *window,
   EmpathyCallHandler *handler);
 void empathy_call_window_start_ringing (EmpathyCallWindow *self,
-  TpyCallChannel *channel,
+  TpCallChannel *channel,
   TpChannelDispatchOperation *dispatch_operation,
   TpAddDispatchOperationContext *context);
 

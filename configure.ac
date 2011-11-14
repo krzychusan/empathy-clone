@@ -71,15 +71,6 @@ CHAMPLAIN_REQUIRED=0.12.1
 # those warnings later during the cycle (bgo #662662)
 AC_DEFINE(GLIB_DISABLE_DEPRECATION_WARNINGS, 1, [Build with GLib deprecated])
 
-# telepathy-yell
-prev_top_build_prefix=$ac_top_build_prefix
-prev_ac_configure_args=$ac_configure_args
-ac_configure_args="$ac_configure_args --disable-shared-library"
-AX_CONFIG_DIR([telepathy-yell])
-ac_top_build_prefix=$prev_top_build_prefix
-ac_configure_args=$prev_ac_configure_args
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:"$ac_top_build_prefix"telepathy-yell/telepathy-yell
-
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([configure.ac])
@@ -204,8 +195,6 @@ PKG_CHECK_MODULES(EMPATHY,
    libsoup-2.4
 ])
 
-PKG_CHECK_MODULES(YELL, [telepathy-yell])
-
 PKG_CHECK_MODULES(EMPATHY_AV,
 [
    farsight2-0.10
@@ -225,8 +214,8 @@ AC_ARG_ENABLE(call,
 if test "x$enable_call" != "xno" ; then
    PKG_CHECK_MODULES(EMPATHY_CALL,
    [
-      farsight2-0.10
-      telepathy-farstream >= 0.1.2
+      farstream-0.1
+      telepathy-farstream >= 0.2.0
       clutter-1.0 >= $CLUTTER_REQUIRED
       clutter-gtk-1.0
       clutter-gst-1.0

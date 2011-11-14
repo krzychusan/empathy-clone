@@ -53,6 +53,7 @@
 #include <libempathy-gtk/empathy-sound-manager.h>
 #include <libempathy-gtk/empathy-geometry.h>
 #include <libempathy-gtk/empathy-images.h>
+#include <libempathy-gtk/empathy-call-utils.h>
 
 #define DEBUG_FLAG EMPATHY_DEBUG_VOIP
 #include <libempathy/empathy-debug.h>
@@ -194,7 +195,7 @@ struct _EmpathyCallWindowPriv
   /* These are used to accept or reject an incoming call when the status
      is RINGING. */
   GtkWidget *incoming_call_dialog;
-  TpyCallChannel *pending_channel;
+  TpCallChannel *pending_channel;
   TpChannelDispatchOperation *pending_cdo;
   TpAddDispatchOperationContext *pending_context;
 
@@ -1550,7 +1551,7 @@ empathy_call_window_set_state_ringing (EmpathyCallWindow *self)
 
   g_assert (self->priv->call_state != CONNECTED);
 
-  video = tpy_call_channel_has_initial_video (self->priv->pending_channel);
+  video = tp_call_channel_has_initial_video (self->priv->pending_channel, NULL);
 
   empathy_call_window_status_message (self, _("Incoming call"));
   self->priv->call_state = RINGING;
@@ -1594,7 +1595,7 @@ empathy_call_window_cdo_invalidated_cb (TpProxy *channel,
 
 void
 empathy_call_window_start_ringing (EmpathyCallWindow *self,
-    TpyCallChannel *channel,
+    TpCallChannel *channel,
     TpChannelDispatchOperation *dispatch_operation,
     TpAddDispatchOperationContext *context)
 {
@@ -2247,14 +2248,14 @@ empathy_call_window_constructed (GObject *object)
 {
   EmpathyCallWindow *self = EMPATHY_CALL_WINDOW (object);
   EmpathyCallWindowPriv *priv = GET_PRIV (self);
-  TpyCallChannel *call;
-  TpyCallState state;
+  TpCallChannel *call;
+  TpCallState state;
 
   g_assert (priv->handler != NULL);
 
   g_object_get (priv->handler, "call-channel", &call, NULL);
-  state = tpy_call_channel_get_state (call, NULL, NULL);
-  priv->outgoing = (state == TPY_CALL_STATE_PENDING_INITIATOR);
+  state = tp_call_channel_get_state (call, NULL, NULL, NULL);
+  priv->outgoing = (state == TP_CALL_STATE_PENDING_INITIATOR);
   tp_clear_object (&call);
 
   g_object_get (priv->handler, "target-contact", &priv->contact, NULL);
@@ -3055,7 +3056,7 @@ display_error (EmpathyCallWindow *self,
 #if 0
 static gchar *
 media_stream_error_to_txt (EmpathyCallWindow *self,
-    TpyCallChannel *call,
+    TpCallChannel *call,
     gboolean audio,
     TpMediaStreamError error)
 {
@@ -3127,7 +3128,7 @@ media_stream_error_to_txt (EmpathyCallWindow *self,
 
 static void
 empathy_call_window_stream_error (EmpathyCallWindow *self,
-    TpyCallChannel *call,
+    TpCallChannel *call,
     gboolean audio,
     guint code,
     const gchar *msg,
@@ -3151,7 +3152,7 @@ empathy_call_window_stream_error (EmpathyCallWindow *self,
 }
 
 static void
-empathy_call_window_audio_stream_error (TpyCallChannel *call,
+empathy_call_window_audio_stream_error (TpCallChannel *call,
     guint code,
     const gchar *msg,
     EmpathyCallWindow *self)
@@ -3161,7 +3162,7 @@ empathy_call_window_audio_stream_error (TpyCallChannel *call,
 }
 
 static void
-empathy_call_window_video_stream_error (TpyCallChannel *call,
+empathy_call_window_video_stream_error (TpCallChannel *call,
     guint code,
     const gchar *msg,
     EmpathyCallWindow *self)
@@ -3220,22 +3221,22 @@ show_balance_error (EmpathyCallWindow *self)
 
 static void
 empathy_call_window_state_changed_cb (EmpathyCallHandler *handler,
-    TpyCallState state,
+    TpCallState state,
     gchar *reason,
     EmpathyCallWindow *self)
 {
   EmpathyCallWindowPriv *priv = GET_PRIV (self);
-  TpyCallChannel *call;
+  TpCallChannel *call;
   gboolean can_send_video;
 
-  if (state == TPY_CALL_STATE_ENDED &&
+  if (state == TP_CALL_STATE_ENDED &&
       !tp_strdiff (reason, TP_ERROR_STR_INSUFFICIENT_BALANCE))
     {
       show_balance_error (self);
       return;
     }
 
-  if (state != TPY_CALL_STATE_ACCEPTED)
+  if (state != TP_CALL_STATE_ACCEPTED)
     return;
 
   if (priv->call_state == CONNECTED)
@@ -3252,7 +3253,7 @@ empathy_call_window_state_changed_cb (EmpathyCallHandler *handler,
 
   g_object_get (priv->handler, "call-channel", &call, NULL);
 
-  if (tpy_call_channel_has_dtmf (call))
+  if (tp_call_channel_has_dtmf (call))
     gtk_widget_set_sensitive (priv->dtmf_panel, TRUE);
 
   if (priv->video_input == NULL)
@@ -3597,20 +3598,20 @@ start_call (EmpathyCallWindow *self)
 
   if (empathy_call_handler_has_initial_video (priv->handler))
     {
-      TpyCallChannel *call;
-      TpySendingState s;
+      TpCallChannel *call;
+      TpSendingState s;
 
       g_object_get (priv->handler, "call-channel", &call, NULL);
       /* If the call channel isn't set yet we're requesting it, if we're
        * requesting it with initial video it should be PENDING_SEND when we get
        * it */
       if (call == NULL)
-        s = TPY_SENDING_STATE_PENDING_SEND;
+        s = TP_SENDING_STATE_PENDING_SEND;
       else
-        s = tpy_call_channel_get_video_state (call);
+        s = empathy_call_channel_get_video_state (call);
 
-      if (s == TPY_SENDING_STATE_PENDING_SEND ||
-          s == TPY_SENDING_STATE_SENDING)
+      if (s == TP_SENDING_STATE_PENDING_SEND ||
+          s == TP_SENDING_STATE_SENDING)
         {
           /* Enable 'send video' buttons and display the preview */
           gtk_toggle_tool_button_set_active (
@@ -3726,8 +3727,10 @@ empathy_call_window_bus_message (GstBus *bus, GstMessage *message,
 }
 
 static void
-empathy_call_window_members_changed_cb (TpyCallChannel *call,
-    GHashTable *members,
+empathy_call_window_members_changed_cb (TpCallChannel *call,
+    GHashTable *updates,
+    GPtrArray *removed,
+    TpCallStateReason *reason,
     EmpathyCallWindow *self)
 {
   EmpathyCallWindowPriv *priv = GET_PRIV (self);
@@ -3735,10 +3738,10 @@ empathy_call_window_members_changed_cb (TpyCallChannel *call,
   gpointer key, value;
   gboolean held = FALSE;
 
-  g_hash_table_iter_init (&iter, members);
+  g_hash_table_iter_init (&iter, updates);
   while (g_hash_table_iter_next (&iter, &key, &value))
     {
-      if (GPOINTER_TO_INT (value) & TPY_CALL_MEMBER_FLAG_HELD)
+      if (GPOINTER_TO_INT (value) & TP_CALL_MEMBER_FLAG_HELD)
         {
           /* This assumes this is a 1-1 call, otherwise one participant
            * putting the call on hold wouldn't mean the call is on hold
@@ -3760,7 +3763,7 @@ call_handler_notify_call_cb (EmpathyCallHandler *handler,
     EmpathyCallWindow *self)
 {
   EmpathyCallWindowPriv *priv = GET_PRIV (self);
-  TpyCallChannel *call;
+  TpCallChannel *call;
 
   g_object_get (priv->handler, "call-channel", &call, NULL);
   if (call == NULL)
@@ -3787,7 +3790,7 @@ static void
 empathy_call_window_connect_handler (EmpathyCallWindow *self)
 {
   EmpathyCallWindowPriv *priv = GET_PRIV (self);
-  TpyCallChannel *call;
+  TpCallChannel *call;
 
   g_signal_connect (priv->handler, "state-changed",
     G_CALLBACK (empathy_call_window_state_changed_cb), self);
@@ -4000,7 +4003,7 @@ empathy_call_window_set_send_video (EmpathyCallWindow *window,
   CameraState state)
 {
   EmpathyCallWindowPriv *priv = GET_PRIV (window);
-  TpyCallChannel *call;
+  TpCallChannel *call;
 
   priv->sending_video = (state == CAMERA_STATE_ON);
 
@@ -4020,7 +4023,7 @@ empathy_call_window_set_send_video (EmpathyCallWindow *window,
 
   g_object_get (priv->handler, "call-channel", &call, NULL);
   DEBUG ("%s sending video", priv->sending_video ? "start": "stop");
-  tpy_call_channel_send_video (call, priv->sending_video);
+  empathy_call_channel_send_video (call, priv->sending_video);
   g_object_unref (call);
 }
 

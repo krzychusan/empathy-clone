@@ -27,8 +27,6 @@
 #include <telepathy-glib/interfaces.h>
 #include <telepathy-glib/util.h>
 
-#include <telepathy-yell/telepathy-yell.h>
-
 #include <libempathy/empathy-client-factory.h>
 #include <libempathy/empathy-request-util.h>
 #include <libempathy/empathy-tp-contact-factory.h>
@@ -76,32 +74,32 @@ empathy_call_factory_init (EmpathyCallFactory *obj)
 
   tp_base_client_take_approver_filter (client, tp_asv_new (
         TP_PROP_CHANNEL_CHANNEL_TYPE, G_TYPE_STRING,
-          TPY_IFACE_CHANNEL_TYPE_CALL,
+          TP_IFACE_CHANNEL_TYPE_CALL,
         TP_PROP_CHANNEL_TARGET_HANDLE_TYPE,
           G_TYPE_UINT, TP_HANDLE_TYPE_CONTACT,
         NULL));
 
   tp_base_client_take_handler_filter (client, tp_asv_new (
         TP_PROP_CHANNEL_CHANNEL_TYPE, G_TYPE_STRING,
-          TPY_IFACE_CHANNEL_TYPE_CALL,
+          TP_IFACE_CHANNEL_TYPE_CALL,
         TP_PROP_CHANNEL_TARGET_HANDLE_TYPE,
           G_TYPE_UINT, TP_HANDLE_TYPE_CONTACT,
         NULL));
 
   tp_base_client_take_handler_filter (client, tp_asv_new (
         TP_PROP_CHANNEL_CHANNEL_TYPE, G_TYPE_STRING,
-          TPY_IFACE_CHANNEL_TYPE_CALL,
+          TP_IFACE_CHANNEL_TYPE_CALL,
         TP_PROP_CHANNEL_TARGET_HANDLE_TYPE,
           G_TYPE_UINT, TP_HANDLE_TYPE_CONTACT,
-        TPY_PROP_CHANNEL_TYPE_CALL_INITIAL_AUDIO, G_TYPE_BOOLEAN, TRUE,
+        TP_PROP_CHANNEL_TYPE_CALL_INITIAL_AUDIO, G_TYPE_BOOLEAN, TRUE,
         NULL));
 
   tp_base_client_take_handler_filter (client, tp_asv_new (
         TP_PROP_CHANNEL_CHANNEL_TYPE, G_TYPE_STRING,
-          TPY_IFACE_CHANNEL_TYPE_CALL,
+          TP_IFACE_CHANNEL_TYPE_CALL,
         TP_PROP_CHANNEL_TARGET_HANDLE_TYPE,
           G_TYPE_UINT, TP_HANDLE_TYPE_CONTACT,
-        TPY_PROP_CHANNEL_TYPE_CALL_INITIAL_VIDEO, G_TYPE_BOOLEAN, TRUE,
+        TP_PROP_CHANNEL_TYPE_CALL_INITIAL_VIDEO, G_TYPE_BOOLEAN, TRUE,
         NULL));
 
   tp_base_client_add_handler_capabilities_varargs (client,
@@ -151,7 +149,7 @@ empathy_call_factory_class_init (EmpathyCallFactoryClass *klass)
       NULL, NULL,
       g_cclosure_marshal_generic,
       G_TYPE_BOOLEAN,
-      4, G_TYPE_UINT, TPY_TYPE_CALL_CHANNEL,
+      4, G_TYPE_UINT, TP_TYPE_CALL_CHANNEL,
       TP_TYPE_CHANNEL_DISPATCH_OPERATION,
       TP_TYPE_ADD_DISPATCH_OPERATION_CONTEXT);
 }
@@ -189,66 +187,6 @@ empathy_call_factory_get (void)
 }
 
 static void
-call_channel_got_contact (TpConnection *connection,
-  EmpathyContact *contact,
-  const GError *error,
-  gpointer user_data,
-  GObject *weak_object)
-{
-  EmpathyCallFactory *factory = EMPATHY_CALL_FACTORY (weak_object);
-  EmpathyCallHandler *handler;
-  TpyCallChannel *call = TPY_CALL_CHANNEL (user_data);
-
-  if (contact == NULL)
-    {
-      /* FIXME use hangup with an appropriate error */
-      tp_channel_close_async (TP_CHANNEL (call), NULL, NULL);
-      return;
-    }
-
-  handler = empathy_call_handler_new_for_channel (call, contact);
-
-  g_signal_emit (factory, signals[NEW_CALL_HANDLER], 0,
-    handler, FALSE);
-
-  g_object_unref (handler);
-}
-
-static void
-call_channel_ready (EmpathyCallFactory *factory,
-  TpyCallChannel *call)
-{
-  TpChannel *channel = TP_CHANNEL (call);
-  const gchar *id;
-
-  id = tp_channel_get_identifier (channel);
-
-  /* The ready callback has a reference, so pass that on */
-  empathy_tp_contact_factory_get_from_id (
-    tp_channel_borrow_connection (channel),
-    id,
-    call_channel_got_contact,
-    channel,
-    g_object_unref,
-    (GObject *) factory);
-}
-
-static void
-call_channel_ready_cb (TpyCallChannel *call,
-  GParamSpec *spec,
-  EmpathyCallFactory *factory)
-{
-  gboolean ready;
-
-  g_object_get (call, "ready", &ready, NULL);
-  if (!ready)
-    return;
-
-  call_channel_ready (factory, call);
-}
-
-
-static void
 handle_channels (TpBaseClient *client,
     TpAccount *account,
     TpConnection *connection,
@@ -263,36 +201,38 @@ handle_channels (TpBaseClient *client,
   for (l = channels; l != NULL; l = g_list_next (l))
     {
       TpChannel *channel = l->data;
-      TpyCallChannel *call;
-      gboolean ready;
+      TpCallChannel *call;
+      TpContact *tp_contact;
+      EmpathyContact *contact;
+      EmpathyCallHandler *handler;
 
       if (tp_proxy_get_invalidated (channel) != NULL)
         continue;
 
       if (tp_channel_get_channel_type_id (channel) !=
-          TPY_IFACE_QUARK_CHANNEL_TYPE_CALL)
+          TP_IFACE_QUARK_CHANNEL_TYPE_CALL)
         continue;
 
-      if (!TPY_IS_CALL_CHANNEL (channel))
+      if (!TP_IS_CALL_CHANNEL (channel))
         continue;
 
-      call = TPY_CALL_CHANNEL (channel);
+      call = TP_CALL_CHANNEL (channel);
 
-      /* Take a ref to keep while hopping through the async callbacks */
-      g_object_ref (call);
-      g_object_get (call, "ready", &ready, NULL);
+      tp_contact = tp_channel_get_target_contact (channel);
+      contact = empathy_contact_dup_from_tp_contact (tp_contact);
+      handler = empathy_call_handler_new_for_channel (call, contact);
 
-      if (!ready)
-        tp_g_signal_connect_object (call, "notify::ready",
-          G_CALLBACK (call_channel_ready_cb), self, 0);
-      else
-        call_channel_ready (self, call);
+      g_signal_emit (self, signals[NEW_CALL_HANDLER], 0,
+          handler, FALSE);
+
+      g_object_unref (handler);
+      g_object_unref (contact);
     }
 
   tp_handle_channels_context_accept (context);
 }
 
-static TpyCallChannel *
+static TpCallChannel *
 find_call_channel (GList *channels)
 {
   GList *l;
@@ -307,8 +247,8 @@ find_call_channel (GList *channels)
 
       channel_type = tp_channel_get_channel_type_id (channel);
 
-      if (channel_type == TPY_IFACE_QUARK_CHANNEL_TYPE_CALL)
-        return TPY_CALL_CHANNEL (channel);
+      if (channel_type == TP_IFACE_QUARK_CHANNEL_TYPE_CALL)
+        return TP_CALL_CHANNEL (channel);
     }
 
   return NULL;
@@ -323,7 +263,7 @@ approve_channels (TpBaseClient *client,
     TpAddDispatchOperationContext *context)
 {
   EmpathyCallFactory *self = EMPATHY_CALL_FACTORY (client);
-  TpyCallChannel *channel;
+  TpCallChannel *channel;
   guint handle;
   GError error = { TP_ERRORS, TP_ERROR_INVALID_ARGUMENT, "" };
   gboolean handled = FALSE;
