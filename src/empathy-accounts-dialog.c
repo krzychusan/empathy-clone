@@ -433,8 +433,19 @@ accounts_dialog_update_status_infobar (EmpathyAccountsDialog *dialog,
     }
   else
     {
-      accounts_dialog_status_infobar_set_message (dialog,
-          _("Offline — Account Disabled"));
+      if (!tp_strdiff (tp_account_get_connection_manager (account),
+            "butterfly"))
+        {
+          accounts_dialog_status_infobar_set_message (dialog,
+              _("This account has been disabled because it relies on an old, "
+                "unsupported backend. Please install telepathy-haze and "
+                "restart your session to migrate the account."));
+        }
+      else
+        {
+          accounts_dialog_status_infobar_set_message (dialog,
+              _("Offline — Account Disabled"));
+        }
 
       gtk_info_bar_set_message_type (GTK_INFO_BAR (priv->infobar),
           GTK_MESSAGE_WARNING);
