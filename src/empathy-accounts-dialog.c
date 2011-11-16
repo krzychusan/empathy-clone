@@ -278,6 +278,7 @@ accounts_dialog_update_status_infobar (EmpathyAccountsDialog *dialog,
   gboolean                  account_enabled;
   gboolean                  creating_account;
   TpStorageRestrictionFlags storage_restrictions = 0;
+  gboolean display_switch = TRUE;
 
   view = GTK_TREE_VIEW (priv->treeview);
   selection = gtk_tree_view_get_selection (view);
@@ -314,6 +315,13 @@ accounts_dialog_update_status_infobar (EmpathyAccountsDialog *dialog,
         presence = TP_CONNECTION_PRESENCE_TYPE_OFFLINE;
 
       storage_restrictions = tp_account_get_storage_restrictions (account);
+      if (storage_restrictions & TP_STORAGE_RESTRICTION_FLAG_CANNOT_SET_ENABLED)
+        display_switch = FALSE;
+
+      /* Butterfly accounts shouldn't be used any more */
+      if (!tp_strdiff (tp_account_get_connection_manager (account),
+            "butterfly"))
+        display_switch = FALSE;
     }
   else
     {
@@ -335,8 +343,7 @@ accounts_dialog_update_status_infobar (EmpathyAccountsDialog *dialog,
       accounts_dialog_enable_switch_active_cb, dialog);
 
   /* Display the Enable switch if account supports it */
-  gtk_widget_set_visible (priv->enabled_switch,
-      !(storage_restrictions & TP_STORAGE_RESTRICTION_FLAG_CANNOT_SET_ENABLED));
+  gtk_widget_set_visible (priv->enabled_switch, display_switch);
 
   if (account_enabled)
     {
