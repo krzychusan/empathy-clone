@@ -88,6 +88,11 @@ present them to the user immediately.</_description>
       <_summary>The position for the chat window side pane</_summary>
       <_description>The stored position (in pixels) of the chat window side pane.</_description>
     </key>
+    <key name="show-groups" type="b">
+      <default>true</default>
+      <_summary>Show contact groups</_summary>
+      <_description>Whether to show groups in the contact list.</_description>
+    </key>
   </schema>
   <schema id="org.gnome.Empathy.contacts" path="/org/gnome/empathy/contacts/">
     <key name="sort-criterium" type="s">

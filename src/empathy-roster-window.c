@@ -2634,6 +2634,9 @@ empathy_roster_window_init (EmpathyRosterWindow *self)
       self->priv->balance_vbox, "visible",
       G_BINDING_SYNC_CREATE);
 
+  g_settings_bind (self->priv->gsettings_ui, "show-groups",
+      self->priv->individual_store, "show-groups", G_SETTINGS_BIND_DEFAULT);
+
   /* Enable event handling */
   self->priv->call_observer = empathy_call_observer_dup_singleton ();
   self->priv->event_manager = empathy_event_manager_dup_singleton ();

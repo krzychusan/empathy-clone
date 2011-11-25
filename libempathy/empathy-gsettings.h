@@ -77,6 +77,7 @@ G_BEGIN_DECLS
 #define EMPATHY_PREFS_UI_COMPACT_CONTACT_LIST      "compact-contact-list"
 #define EMPATHY_PREFS_UI_CHAT_WINDOW_PANED_POS     "chat-window-paned-pos"
 #define EMPATHY_PREFS_UI_SHOW_OFFLINE              "show-offline"
+#define EMPATHY_PREFS_UI_SHOW_GROUPS               "show-groups"
 
 #define EMPATHY_PREFS_CONTACTS_SCHEMA EMPATHY_PREFS_SCHEMA ".contacts"
 #define EMPATHY_PREFS_CONTACTS_SORT_CRITERIUM      "sort-criterium"
