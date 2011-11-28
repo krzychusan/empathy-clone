@@ -51,7 +51,6 @@
 #include "empathy-contact-dialogs.h"
 #include "empathy-individual-store-channel.h"
 #include "empathy-individual-view.h"
-#include "empathy-contact-menu.h"
 #include "empathy-input-text-view.h"
 #include "empathy-search-bar.h"
 #include "empathy-theme-manager.h"
@@ -3989,16 +3988,29 @@ empathy_chat_get_contact_menu (EmpathyChat *chat)
 {
 	EmpathyChatPriv *priv = GET_PRIV (chat);
 	GtkWidget       *menu = NULL;
+	FolksIndividual *individual;
+	TpContact *contact;
 
 	g_return_val_if_fail (EMPATHY_IS_CHAT (chat), NULL);
 
-	if (priv->remote_contact) {
-		menu = empathy_contact_menu_new (priv->remote_contact,
-						 EMPATHY_CONTACT_FEATURE_CALL |
-						 EMPATHY_CONTACT_FEATURE_LOG |
-						 EMPATHY_CONTACT_FEATURE_INFO |
-						 EMPATHY_CONTACT_FEATURE_BLOCK);
-	}
+	if (priv->remote_contact == NULL)
+		return NULL;
+
+	contact = empathy_contact_get_tp_contact (priv->remote_contact);
+	if (contact == NULL)
+		return NULL;
+
+	individual = empathy_create_individual_from_tp_contact (contact);
+	if (individual == NULL)
+		return NULL;
+
+	menu = empathy_individual_menu_new (individual,
+					 EMPATHY_INDIVIDUAL_FEATURE_CALL |
+					 EMPATHY_INDIVIDUAL_FEATURE_LOG |
+					 EMPATHY_INDIVIDUAL_FEATURE_INFO |
+					 EMPATHY_INDIVIDUAL_FEATURE_BLOCK, NULL);
+
+	g_object_unref (individual);
 
 	return menu;
 }
