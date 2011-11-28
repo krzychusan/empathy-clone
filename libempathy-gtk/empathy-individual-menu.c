@@ -60,7 +60,7 @@
 typedef struct {
   FolksIndividual *individual; /* owned */
   EmpathyIndividualFeatureFlags features;
-  EmpathyIndividualStore *store;
+  EmpathyIndividualStore *store; /* may be NULL */
 } EmpathyIndividualMenuPriv;
 
 enum {
@@ -705,7 +705,8 @@ empathy_individual_menu_new (FolksIndividual *individual,
     EmpathyIndividualStore *store)
 {
   g_return_val_if_fail (FOLKS_IS_INDIVIDUAL (individual), NULL);
-  g_return_val_if_fail (EMPATHY_IS_INDIVIDUAL_STORE (store), NULL);
+  g_return_val_if_fail (store == NULL ||
+      EMPATHY_IS_INDIVIDUAL_STORE (store), NULL);
   g_return_val_if_fail (features != EMPATHY_INDIVIDUAL_FEATURE_NONE, NULL);
 
   return g_object_new (EMPATHY_TYPE_INDIVIDUAL_MENU,
