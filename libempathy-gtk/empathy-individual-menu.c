@@ -44,6 +44,7 @@
 #include "empathy-log-window.h"
 #include "empathy-contact-dialogs.h"
 #include "empathy-gtk-enum-types.h"
+#include "empathy-individual-dialogs.h"
 #include "empathy-individual-edit-dialog.h"
 #include "empathy-individual-information-dialog.h"
 #include "empathy-ui-utils.h"
@@ -443,6 +444,207 @@ add_phone_numbers (EmpathyIndividualMenu *self)
     }
 }
 
+/* return a list of TpContact supporting the blocking iface */
+static GList *
+get_contacts_supporting_blocking (FolksIndividual *individual)
+{
+  GeeSet *personas;
+  GeeIterator *iter;
+  GList *result = NULL;
+
+  personas = folks_individual_get_personas (individual);
+
+  iter = gee_iterable_iterator (GEE_ITERABLE (personas));
+  while (gee_iterator_next (iter))
+    {
+      TpfPersona *persona = gee_iterator_get (iter);
+      TpContact *contact;
+      TpConnection *conn;
+
+      if (!TPF_IS_PERSONA (persona))
+        continue;
+
+      contact = tpf_persona_get_contact (persona);
+      if (contact == NULL)
+        continue;
+
+      conn = tp_contact_get_connection (contact);
+
+      if (tp_proxy_has_interface_by_id (conn,
+        TP_IFACE_QUARK_CONNECTION_INTERFACE_CONTACT_BLOCKING))
+        result = g_list_prepend (result, contact);
+    }
+
+  g_clear_object (&iter);
+
+  return result;
+}
+
+typedef struct
+{
+  gboolean blocked;
+  GtkWidget *parent;
+} GotAvatarCtx;
+
+static GotAvatarCtx *
+got_avatar_ctx_new (gboolean blocked,
+    GtkWidget *parent)
+{
+  GotAvatarCtx *ctx = g_slice_new0 (GotAvatarCtx);
+
+  ctx->blocked = blocked;
+  ctx->parent = parent != NULL ? g_object_ref (parent) : NULL;
+  return ctx;
+}
+
+static void
+got_avatar_ctx_free (GotAvatarCtx *ctx)
+{
+  g_clear_object (&ctx->parent);
+  g_slice_free (GotAvatarCtx, ctx);
+}
+
+static void
+got_avatar (GObject *source_object,
+    GAsyncResult *result,
+    gpointer user_data)
+{
+  FolksIndividual *individual = FOLKS_INDIVIDUAL (source_object);
+  GotAvatarCtx *ctx = user_data;
+  GdkPixbuf *avatar;
+  GError *error = NULL;
+  gboolean abusive = FALSE;
+  EmpathyIndividualManager *manager;
+
+  avatar = empathy_pixbuf_avatar_from_individual_scaled_finish (individual,
+      result, &error);
+
+  if (error != NULL)
+    {
+      DEBUG ("Could not get avatar: %s", error->message);
+      g_error_free (error);
+    }
+
+  if (ctx->blocked) {
+    /* confirm the user really wishes to block the contact */
+    if (!empathy_block_individual_dialog_show (GTK_WINDOW (ctx->parent),
+          individual, avatar, &abusive))
+      goto out;
+  }
+
+  manager = empathy_individual_manager_dup_singleton ();
+
+  empathy_individual_manager_set_blocked (manager, individual,
+      ctx->blocked, abusive);
+
+  g_object_unref (manager);
+
+out:
+  g_clear_object (&avatar);
+  got_avatar_ctx_free (ctx);
+}
+
+static void
+empathy_individual_block_menu_item_toggled (GtkCheckMenuItem *item,
+    FolksIndividual *individual)
+{
+  GotAvatarCtx *ctx;
+  gboolean blocked;
+  GtkWidget *parent;
+
+  /* @item may be destroyed while the async call is running to get the things
+   * we need from it right now. */
+  blocked = gtk_check_menu_item_get_active (item);
+
+  parent = g_object_get_data (
+    G_OBJECT (gtk_widget_get_parent (GTK_WIDGET (item))),
+    "window");
+
+  ctx = got_avatar_ctx_new (blocked, parent);
+
+  empathy_pixbuf_avatar_from_individual_scaled_async (individual,
+      48, 48, NULL, got_avatar, ctx);
+}
+
+static void
+update_block_menu_item (GtkWidget *item,
+    FolksIndividual *individual)
+{
+  GList *contacts, *l;
+  gboolean is_blocked = FALSE;
+
+  contacts = get_contacts_supporting_blocking (individual);
+
+  /* Check the menu item if there is at least one persona blocked */
+  for (l = contacts; l != NULL; l = g_list_next (l))
+    {
+      TpContact *contact = l->data;
+
+      if (tp_contact_is_blocked (contact))
+        {
+          is_blocked = TRUE;
+          break;
+        }
+    }
+
+  g_signal_handlers_block_by_func (item,
+      empathy_individual_block_menu_item_toggled, individual);
+
+  gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (item), is_blocked);
+
+  g_signal_handlers_unblock_by_func (item,
+      empathy_individual_block_menu_item_toggled, individual);
+
+  g_list_free (contacts);
+}
+
+static void
+contact_blocked_changed_cb (TpContact *contact,
+    GParamSpec *spec,
+    GtkWidget *item)
+{
+  FolksIndividual *individual;
+
+  individual = g_object_get_data (G_OBJECT (item), "individual");
+
+  update_block_menu_item (item, individual);
+}
+
+static GtkWidget *
+empathy_individiual_block_menu_item_new (FolksIndividual *individual)
+{
+  GtkWidget *item;
+  GList *contacts, *l;
+
+  contacts = get_contacts_supporting_blocking (individual);
+
+  /* Can't block, no persona supports blocking */
+  if (contacts == NULL)
+    return NULL;
+
+  item = gtk_check_menu_item_new_with_mnemonic (_("_Block Contact"));
+
+  g_object_set_data_full (G_OBJECT (item), "individual",
+      g_object_ref (individual), g_object_unref);
+
+  for (l = contacts; l != NULL; l = g_list_next (l))
+    {
+      TpContact *contact = l->data;
+
+      tp_g_signal_connect_object (contact, "notify::is-blocked",
+          G_CALLBACK (contact_blocked_changed_cb), item, 0);
+    }
+
+  g_signal_connect (item, "toggled",
+      G_CALLBACK (empathy_individual_block_menu_item_toggled), individual);
+
+  update_block_menu_item (item, individual);
+
+  g_list_free (contacts);
+
+  return item;
+}
+
 static void
 constructed (GObject *object)
 {
@@ -581,6 +783,19 @@ constructed (GObject *object)
       gtk_menu_shell_append (shell, item);
       gtk_widget_show (item);
     }
+
+  /* Separator & Block */
+  if (features & EMPATHY_INDIVIDUAL_FEATURE_BLOCK &&
+      (item = empathy_individiual_block_menu_item_new (individual)) != NULL) {
+    GtkWidget *sep;
+
+    sep = gtk_separator_menu_item_new ();
+    gtk_menu_shell_append (shell, sep);
+    gtk_widget_show (sep);
+
+    gtk_menu_shell_append (shell, item);
+    gtk_widget_show (item);
+  }
 }
 
 static void
