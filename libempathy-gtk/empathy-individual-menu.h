@@ -41,7 +41,6 @@ typedef enum {
 	EMPATHY_INDIVIDUAL_FEATURE_SMS = 1 << 7,
 	EMPATHY_INDIVIDUAL_FEATURE_CALL_PHONE = 1 << 8,
 	EMPATHY_INDIVIDUAL_FEATURE_ADD_CONTACT = 1 << 9,
-	EMPATHY_INDIVIDUAL_FEATURE_ALL = (1 << 10) - 1,
 } EmpathyIndividualFeatureFlags;
 
 #define EMPATHY_TYPE_INDIVIDUAL_MENU (empathy_individual_menu_get_type ())
