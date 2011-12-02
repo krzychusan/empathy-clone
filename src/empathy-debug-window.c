@@ -424,29 +424,39 @@ debug_window_get_messages_cb (TpProxy *proxy,
 {
   EmpathyDebugWindow *debug_window = (EmpathyDebugWindow *) user_data;
   EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
-  gchar *name;
+  gchar *active_service_name;
   guint i;
   GtkListStore *active_buffer;
   gboolean valid_iter;
   GtkTreeIter iter;
+  gchar *proxy_service_name;
 
   active_buffer = g_object_get_data (G_OBJECT (proxy), "active-buffer");
   valid_iter = debug_window_get_iter_for_active_buffer (active_buffer, &iter,
       debug_window);
+  gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store), &iter,
+      COL_NAME, &proxy_service_name,
+      -1);
 
+  active_service_name = get_active_service_name (debug_window);
   if (error != NULL)
     {
       DEBUG ("GetMessages failed: %s", error->message);
-      debug_window_set_toolbar_sensitivity (debug_window, FALSE);
+
+      /* We want to set the window sensitivity to false only when proxy for the
+       * selected service is unable to fetch debug messages */
+      if (!tp_strdiff (active_service_name, proxy_service_name))
+        debug_window_set_toolbar_sensitivity (debug_window, FALSE);
 
       /* We created the proxy for GetMessages call. Now destroy it. */
       tp_clear_object (&proxy);
       return;
     }
 
-  name = get_active_service_name (debug_window);
-  DEBUG ("Retrieved debug messages for %s", name);
-  g_free (name);
+  DEBUG ("Retrieved debug messages for %s", active_service_name);
+  g_free (active_service_name);
+  debug_window_set_toolbar_sensitivity (debug_window, TRUE);
+
 
   for (i = 0; i < messages->len; i++)
     {
@@ -462,20 +472,15 @@ debug_window_get_messages_cb (TpProxy *proxy,
   /* Now we save this precious proxy in the service_store along its service */
   if (valid_iter)
     {
-      gchar *proxy_service_name;
-
-      gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store), &iter,
-          COL_NAME, &proxy_service_name,
-          -1);
-
       DEBUG ("Proxy for service: %s was successful in fetching debug"
           " messages. Saving it.", proxy_service_name);
-      g_free (proxy_service_name);
 
       gtk_list_store_set (priv->service_store, &iter,
           COL_PROXY, proxy,
           -1);
     }
+
+  g_free (proxy_service_name);
 
   /* Connect to "invalidated" signal */
   g_signal_connect (proxy, "invalidated",
