@@ -208,6 +208,26 @@ copy_buffered_messages (GtkTreeModel *buffer,
 }
 
 static void
+insert_values_in_buffer (GtkListStore *store,
+        gdouble timestamp,
+        const gchar *domain,
+        const gchar *category,
+        guint level,
+        const gchar *string)
+{
+  GtkTreeIter iter;
+
+  gtk_list_store_insert_with_values (store, &iter, -1,
+      COL_DEBUG_TIMESTAMP, timestamp,
+      COL_DEBUG_DOMAIN, domain,
+      COL_DEBUG_CATEGORY, category,
+      COL_DEBUG_LEVEL_STRING, log_level_to_string (level),
+      COL_DEBUG_MESSAGE, string,
+      COL_DEBUG_LEVEL_VALUE, level,
+      -1); 
+}
+
+static void
 debug_window_add_message (EmpathyDebugWindow *debug_window,
     TpProxy *proxy,
     gdouble timestamp,
@@ -217,7 +237,6 @@ debug_window_add_message (EmpathyDebugWindow *debug_window,
 {
   EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
   gchar *domain, *category;
-  GtkTreeIter iter;
   gchar *string;
   GtkListStore *active_buffer, *pause_buffer;
 
@@ -242,16 +261,23 @@ debug_window_add_message (EmpathyDebugWindow *debug_window,
   pause_buffer = g_object_get_data (G_OBJECT (proxy), "pause-buffer");
   active_buffer = g_object_get_data (G_OBJECT (proxy), "active-buffer");
 
-  gtk_list_store_append (priv->paused ? pause_buffer : active_buffer,
-      &iter);
-  gtk_list_store_set (priv->paused ? pause_buffer : active_buffer, &iter,
-      COL_DEBUG_TIMESTAMP, timestamp,
-      COL_DEBUG_DOMAIN, domain,
-      COL_DEBUG_CATEGORY, category,
-      COL_DEBUG_LEVEL_STRING, log_level_to_string (level),
-      COL_DEBUG_MESSAGE, string,
-      COL_DEBUG_LEVEL_VALUE, level,
-      -1);
+  if (priv->paused)
+    {
+      insert_values_in_buffer (pause_buffer, timestamp,
+          domain, category, level,
+          string);
+    }
+  else
+    {
+      /* Append 'this' message to this service's and All's active-buffers */
+      insert_values_in_buffer (active_buffer, timestamp,
+          domain, category, level,
+          string);
+
+      insert_values_in_buffer (priv->all_active_buffer, timestamp,
+          domain, category, level,
+          string);
+    }
 
   g_free (string);
   g_free (domain);
