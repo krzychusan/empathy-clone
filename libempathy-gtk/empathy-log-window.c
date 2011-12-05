@@ -2113,6 +2113,14 @@ do_update_buttons_sensitivity (EmpathyLogWindow *self)
 }
 
 static void
+contact_capabilities_changed_cb (EmpathyContact *contact,
+    GParamSpec *spec,
+    EmpathyLogWindow *self)
+{
+  do_update_buttons_sensitivity (self);
+}
+
+static void
 log_window_update_buttons_sensitivity (EmpathyLogWindow *self)
 {
   GtkTreeView *view;
@@ -2124,7 +2132,13 @@ log_window_update_buttons_sensitivity (EmpathyLogWindow *self)
   GList *paths;
   GtkTreePath *path;
 
-  tp_clear_object (&self->priv->selected_contact);
+  if (self->priv->selected_contact != NULL)
+    {
+      g_signal_handlers_disconnect_by_func (self->priv->selected_contact,
+          contact_capabilities_changed_cb, self);
+
+      tp_clear_object (&self->priv->selected_contact);
+    }
 
   view = GTK_TREE_VIEW (self->priv->treeview_who);
   model = gtk_tree_view_get_model (view);
@@ -2168,6 +2182,13 @@ log_window_update_buttons_sensitivity (EmpathyLogWindow *self)
     self->priv->selected_contact = g_object_ref (self->priv->events_contact);
 
  out:
+  if (self->priv->selected_contact != NULL)
+    {
+      tp_g_signal_connect_object (self->priv->selected_contact,
+          "notify::capabilities", G_CALLBACK (contact_capabilities_changed_cb),
+          self, 0);
+    }
+
   do_update_buttons_sensitivity (self);
 }
 
