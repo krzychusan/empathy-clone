@@ -694,6 +694,34 @@ contact_is_tpl_entity (gpointer key,
          !tp_strdiff (tp_proxy_get_object_path (data->account), path);
 }
 
+static void
+get_contacts_cb (TpConnection *connection,
+    guint n_contacts,
+    TpContact * const *contacts,
+    const gchar * const *requested_ids,
+    GHashTable *failed_id_errors,
+    const GError *error,
+    gpointer user_data,
+    GObject *weak_object)
+{
+  EmpathyContact *self = (EmpathyContact *) weak_object;
+  EmpathyContactPriv *priv = GET_PRIV (self);
+  TpContact *tp_contact;
+
+  if (n_contacts != 1)
+    return;
+
+  tp_contact = contacts[0];
+
+  g_return_if_fail (priv->tp_contact == NULL);
+  priv->tp_contact = g_object_ref (tp_contact);
+  g_object_notify (G_OBJECT (self), "tp-contact");
+
+  /* Update capabilities now that we have a TpContact */
+  set_capabilities_from_tp_caps (self,
+      tp_contact_get_capabilities (tp_contact));
+}
+
 EmpathyContact *
 empathy_contact_from_tpl_contact (TpAccount *account,
     TplEntity *tpl_entity)
@@ -724,14 +752,33 @@ empathy_contact_from_tpl_contact (TpAccount *account,
     }
   else
     {
+      TpConnection *conn;
+      const gchar *id;
+
       is_user = (TPL_ENTITY_SELF == tpl_entity_get_entity_type (tpl_entity));
 
+      id = tpl_entity_get_identifier (tpl_entity);
+
       retval = g_object_new (EMPATHY_TYPE_CONTACT,
-          "id", tpl_entity_get_identifier (tpl_entity),
+          "id", id,
           "alias", tpl_entity_get_alias (tpl_entity),
           "account", account,
           "is-user", is_user,
           NULL);
+
+      /* Try to get a TpContact associated to have at least contact
+       * capabilities if possible. This is useful for CM supporting calling
+       * offline contacts for example. */
+      conn = tp_account_get_connection (account);
+      if (conn != NULL)
+        {
+          TpContactFeature features[] = { TP_CONTACT_FEATURE_CAPABILITIES };
+          conn = tp_account_get_connection (account);
+
+          tp_connection_get_contacts_by_id (conn, 1, &id,
+              G_N_ELEMENTS (features), features, get_contacts_cb,
+              NULL, NULL, G_OBJECT (retval));
+        }
     }
 
   if (!EMP_STR_EMPTY (tpl_entity_get_avatar_token (tpl_entity)))
