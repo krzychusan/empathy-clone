@@ -2073,29 +2073,62 @@ log_window_search_entry_icon_pressed_cb (GtkEntry *entry,
 }
 
 static void
+do_update_buttons_sensitivity (EmpathyLogWindow *self)
+{
+  EmpathyCapabilities capabilities;
+  gboolean profile, chat, call, video;
+
+  tp_clear_object (&self->priv->button_video_binding);
+
+  if (self->priv->selected_contact != NULL)
+    {
+      capabilities = empathy_contact_get_capabilities (
+          self->priv->selected_contact);
+
+      profile = chat = TRUE;
+      call = capabilities & EMPATHY_CAPABILITIES_AUDIO;
+      video = capabilities & EMPATHY_CAPABILITIES_VIDEO;
+    }
+  else
+    {
+      profile = chat = call = video = FALSE;
+    }
+
+  gtk_widget_set_sensitive (self->priv->button_profile, profile);
+  gtk_widget_set_sensitive (self->priv->button_chat, chat);
+  gtk_widget_set_sensitive (self->priv->button_call, call);
+
+  if (video)
+    {
+      self->priv->button_video_binding = g_object_bind_property (
+          self->priv->camera_monitor, "available",
+          self->priv->button_video, "sensitive",
+          G_BINDING_SYNC_CREATE);
+    }
+  else
+    {
+      /* Don't override the binding */
+      gtk_widget_set_sensitive (self->priv->button_video, video);
+    }
+}
+
+static void
 log_window_update_buttons_sensitivity (EmpathyLogWindow *self)
 {
   GtkTreeView *view;
   GtkTreeModel *model;
   GtkTreeSelection *selection;
-  EmpathyCapabilities capabilities;
   TpAccount *account;
   TplEntity *target;
   GtkTreeIter iter;
   GList *paths;
   GtkTreePath *path;
-  gboolean profile, chat, call, video;
 
-  profile = chat = call = video = FALSE;
-
-  tp_clear_object (&self->priv->button_video_binding);
   tp_clear_object (&self->priv->selected_contact);
 
   view = GTK_TREE_VIEW (self->priv->treeview_who);
   model = gtk_tree_view_get_model (view);
   selection = gtk_tree_view_get_selection (view);
-
-  profile = chat = call = video = FALSE;
 
   if (!gtk_tree_model_get_iter_first (model, &iter))
     goto events;
@@ -2124,12 +2157,6 @@ log_window_update_buttons_sensitivity (EmpathyLogWindow *self)
   g_object_unref (account);
   g_object_unref (target);
 
-  capabilities = empathy_contact_get_capabilities (self->priv->selected_contact);
-
-  profile = chat = TRUE;
-  call = capabilities & EMPATHY_CAPABILITIES_AUDIO;
-  video = capabilities & EMPATHY_CAPABILITIES_VIDEO;
-
   goto out;
 
  events:
@@ -2139,29 +2166,9 @@ log_window_update_buttons_sensitivity (EmpathyLogWindow *self)
 
   if (self->priv->events_contact != NULL)
     self->priv->selected_contact = g_object_ref (self->priv->events_contact);
-  else
-    goto out;
-
-  capabilities = empathy_contact_get_capabilities (self->priv->selected_contact);
-
-  profile = chat = TRUE;
-  call = capabilities & EMPATHY_CAPABILITIES_AUDIO;
-  video = capabilities & EMPATHY_CAPABILITIES_VIDEO;
-
-  if (video)
-    self->priv->button_video_binding = g_object_bind_property (
-        self->priv->camera_monitor, "available",
-        self->priv->button_video, "sensitive",
-        G_BINDING_SYNC_CREATE);
 
  out:
-  gtk_widget_set_sensitive (self->priv->button_profile, profile);
-  gtk_widget_set_sensitive (self->priv->button_chat, chat);
-  gtk_widget_set_sensitive (self->priv->button_call, call);
-
-  /* Don't override the binding */
-  if (!video)
-    gtk_widget_set_sensitive (self->priv->button_video, video);
+  do_update_buttons_sensitivity (self);
 }
 
 static void
