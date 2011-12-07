@@ -3365,7 +3365,7 @@ empathy_call_window_src_added_cb (EmpathyCallHandler *handler,
             G_CALLBACK (empathy_call_window_video_probe_cb), self);
         if (priv->got_video_src > 0)
           g_source_remove (priv->got_video_src);
-        priv->got_video_src = g_timeout_add_seconds (5,
+        priv->got_video_src = g_timeout_add_seconds (1,
             empathy_call_window_check_video_cb, self);
         break;
       default:
