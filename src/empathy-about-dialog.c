@@ -88,24 +88,26 @@ static const char *license[] = {
 	   "GNU General Public License for more details."),
 	N_("You should have received a copy of the GNU General Public License "
 	   "along with Empathy; if not, write to the Free Software Foundation, Inc., "
-	   "51 Franklin Street, Fifth Floor, Boston, MA 02110-130159 USA")
+	   "51 Franklin Street, Fifth Floor, Boston, MA 02110-130159 USA"),
+	NULL
 };
 
 void
 empathy_about_dialog_new (GtkWindow *parent)
 {
-	gchar *license_trans;
+	GString *license_trans = g_string_new (NULL);
+	int i;
 
-	license_trans = g_strconcat (_(license[0]), "\n\n",
-				     _(license[1]), "\n\n",
-				     _(license[2]), "\n\n",
-				     NULL);
+	for (i = 0; license[i] != NULL; i++) {
+		g_string_append (license_trans, _(license[i]));
+		g_string_append (license_trans, "\n\n");
 
+	}
 	gtk_show_about_dialog (parent,
 			       "artists", artists,
 			       "authors", authors,
 			       "comments", _("An Instant Messaging client for GNOME"),
-			       "license", license_trans,
+			       "license", license_trans->str,
 			       "wrap-license", TRUE,
 			       "copyright", "Imendio AB 2002-2007\nCollabora Ltd 2007-2011",
 			       "documenters", documenters,
@@ -115,7 +117,7 @@ empathy_about_dialog_new (GtkWindow *parent)
 			       "website", WEB_SITE,
 			       NULL);
 
-	g_free (license_trans);
+	g_string_free (license_trans, TRUE);
 }
 
 
