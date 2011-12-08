@@ -231,6 +231,8 @@ auth_factory_new_sasl_handler_cb (EmpathyAuthFactory *factory,
   /* If the handler has the password it will deal with it itself. */
   if (!empathy_server_sasl_handler_has_password (handler))
     {
+      DEBUG ("SASL handler doesn't have a password, prompt for one");
+
       dialog = empathy_password_dialog_new (handler);
       gtk_widget_show (dialog);
     }

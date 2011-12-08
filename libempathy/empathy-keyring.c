@@ -78,7 +78,7 @@ find_items_cb (GnomeKeyringResult result,
    * modified or something but we don't have this information from
    * gnome-keyring atm. */
   found = list->data;
-  DEBUG ("Got secret");
+  DEBUG ("Got %d secrets; use the first one", g_list_length (list));
 
   g_simple_async_result_set_op_res_gpointer (simple, g_strdup (found->secret),
       g_free);
