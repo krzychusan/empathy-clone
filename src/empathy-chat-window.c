@@ -2488,8 +2488,12 @@ empathy_chat_window_present_chat (EmpathyChat *chat,
 	}
 
 	empathy_chat_window_switch_to_chat (window, chat);
-	empathy_window_present_with_time (GTK_WINDOW (priv->dialog),
-	  x_timestamp);
+
+	/* Don't use empathy_window_present_with_time () which would move the window
+	 * to our current desktop but move to the window's desktop instead. This is
+	 * more coherent with Shell's 'app is ready' notication which moves the view
+	 * to the app desktop rather than moving the app itself. */
+	empathy_move_to_window_desktop (GTK_WINDOW (priv->dialog), x_timestamp);
 
 	gtk_widget_grab_focus (chat->input_text_view);
 }
