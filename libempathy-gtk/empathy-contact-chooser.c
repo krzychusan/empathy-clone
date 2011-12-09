@@ -221,6 +221,8 @@ get_contacts_cb (TpConnection *connection,
     return;
 
   individual =  empathy_create_individual_from_tp_contact (contacts[0]);
+  if (individual == NULL)
+    return;
 
   /* listen for updates to the capabilities */
   tp_g_signal_connect_object (contacts[0], "notify::capabilities",

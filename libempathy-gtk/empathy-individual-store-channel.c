@@ -82,6 +82,8 @@ add_members (EmpathyIndividualStoreChannel *self,
         continue;
 
       individual = empathy_create_individual_from_tp_contact (contact);
+      if (individual == NULL)
+        return;
 
       DEBUG ("%s joined channel %s", tp_contact_get_identifier (contact),
           tp_proxy_get_object_path (self->priv->channel));
