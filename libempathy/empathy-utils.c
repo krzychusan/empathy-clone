@@ -1167,23 +1167,21 @@ empathy_sasl_channel_supports_mechanism (TpChannel *channel,
 FolksIndividual *
 empathy_create_individual_from_tp_contact (TpContact *contact)
 {
-  TpAccount *account;
-  TpConnection *connection;
-  TpfPersonaStore *store;
   GeeSet *personas;
   TpfPersona *persona;
   FolksIndividual *individual;
 
-  connection = tp_contact_get_connection (contact);
-  account = tp_connection_get_account (connection);
-
-  store = tpf_persona_store_new (account);
+  persona = tpf_persona_dup_for_contact (contact);
+  if (persona == NULL)
+    {
+      DEBUG ("Failed to get a persona for %s",
+          tp_contact_get_identifier (contact));
+      return NULL;
+    }
 
   personas = GEE_SET (
       gee_hash_set_new (FOLKS_TYPE_PERSONA, g_object_ref, g_object_unref,
       g_direct_hash, g_direct_equal));
-
-  persona = tpf_persona_new (contact, store);
 
   gee_collection_add (GEE_COLLECTION (personas), persona);
 
@@ -1191,7 +1189,6 @@ empathy_create_individual_from_tp_contact (TpContact *contact)
 
   g_clear_object (&persona);
   g_clear_object (&personas);
-  g_object_unref (store);
 
   return individual;
 }
