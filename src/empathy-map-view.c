@@ -35,7 +35,7 @@
 #include <libempathy/empathy-utils.h>
 #include <libempathy/empathy-location.h>
 
-#include <libempathy-gtk/empathy-contact-menu.h>
+#include <libempathy-gtk/empathy-individual-menu.h>
 #include <libempathy-gtk/empathy-ui-utils.h>
 
 #include "empathy-map-view.h"
@@ -192,21 +192,32 @@ marker_clicked_cb (ChamplainMarker *marker,
 {
   GtkWidget *menu;
   EmpathyContact *contact;
+  TpContact *tp_contact;
+  FolksIndividual *individual;
 
   if (event->button != 3)
     return FALSE;
 
   contact = g_object_get_data (G_OBJECT (marker), "contact");
+  if (contact == NULL)
+    return FALSE;
 
-  menu = empathy_contact_menu_new (contact,
-      EMPATHY_CONTACT_FEATURE_CHAT |
-      EMPATHY_CONTACT_FEATURE_CALL |
-      EMPATHY_CONTACT_FEATURE_LOG |
-      EMPATHY_CONTACT_FEATURE_FT |
-      EMPATHY_CONTACT_FEATURE_INFO);
+  tp_contact = empathy_contact_get_tp_contact (contact);
+  if (tp_contact == NULL)
+    return FALSE;
+
+  individual = empathy_create_individual_from_tp_contact (tp_contact);
+  if (individual == NULL)
+    return FALSE;
+
+  menu = empathy_individual_menu_new (individual,
+      EMPATHY_INDIVIDUAL_FEATURE_CHAT |
+      EMPATHY_INDIVIDUAL_FEATURE_CALL |
+      EMPATHY_INDIVIDUAL_FEATURE_LOG |
+      EMPATHY_INDIVIDUAL_FEATURE_INFO, NULL);
 
   if (menu == NULL)
-    return FALSE;
+    goto out;
 
   gtk_menu_attach_to_widget (GTK_MENU (menu), GTK_WIDGET (self), NULL);
 
@@ -214,6 +225,8 @@ marker_clicked_cb (ChamplainMarker *marker,
   gtk_menu_popup (GTK_MENU (menu), NULL, NULL, NULL, NULL,
       event->button, event->time);
 
+out:
+  g_object_unref (individual);
   return FALSE;
 }
 
