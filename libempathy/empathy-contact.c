@@ -1003,46 +1003,14 @@ empathy_contact_get_persona (EmpathyContact *contact)
 
   if (priv->persona == NULL && priv->tp_contact != NULL)
     {
-      /* FIXME: This is disgustingly slow */
-      /* Query for the persona */
-      EmpathyIndividualManager *manager;
-      GList *individuals, *l;
+      TpfPersona *persona;
 
-      manager = empathy_individual_manager_dup_singleton ();
-      individuals = empathy_individual_manager_get_members (manager);
-
-      for (l = individuals; l != NULL; l = l->next)
+      persona = tpf_persona_dup_for_contact (priv->tp_contact);
+      if (persona != NULL)
         {
-          FolksIndividual *individual = FOLKS_INDIVIDUAL (l->data);
-          GeeSet *personas;
-          GeeIterator *iter;
-          gboolean persona_found = FALSE;
-
-          personas = folks_individual_get_personas (individual);
-          iter = gee_iterable_iterator (GEE_ITERABLE (personas));
-          while (!persona_found && gee_iterator_next (iter))
-            {
-              TpfPersona *persona = gee_iterator_get (iter);
-
-              if (empathy_folks_persona_is_interesting (FOLKS_PERSONA (persona)))
-                {
-                  TpContact *tp_contact = tpf_persona_get_contact (persona);
-
-                  if (tp_contact == priv->tp_contact)
-                    {
-                      /* Found the right persona */
-                      empathy_contact_set_persona (contact,
-                          (FolksPersona *) persona);
-                      persona_found = TRUE;
-                    }
-                  g_clear_object (&persona);
-                }
-            }
-          g_clear_object (&iter);
+          empathy_contact_set_persona (contact, (FolksPersona *) persona);
+          g_object_unref (persona);
         }
-
-      g_list_free (individuals);
-      g_object_unref (manager);
     }
 
   return priv->persona;
