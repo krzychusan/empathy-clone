@@ -2178,3 +2178,120 @@ out:
   g_free (path);
   g_free (cmd);
 }
+
+/* Most of the workspace manipulation code has been copied from libwnck
+ * Copyright (C) 2001 Havoc Pennington
+ * Copyright (C) 2005-2007 Vincent Untz
+ */
+static void
+_wnck_activate_workspace (Screen *screen,
+    int new_active_space,
+    Time timestamp)
+{
+  Display *display;
+  Window   root;
+  XEvent   xev;
+
+  display = DisplayOfScreen (screen);
+  root = RootWindowOfScreen (screen);
+
+  xev.xclient.type = ClientMessage;
+  xev.xclient.serial = 0;
+  xev.xclient.send_event = True;
+  xev.xclient.display = display;
+  xev.xclient.window = root;
+  xev.xclient.message_type = gdk_x11_get_xatom_by_name ("_NET_CURRENT_DESKTOP");
+  xev.xclient.format = 32;
+  xev.xclient.data.l[0] = new_active_space;
+  xev.xclient.data.l[1] = timestamp;
+  xev.xclient.data.l[2] = 0;
+  xev.xclient.data.l[3] = 0;
+  xev.xclient.data.l[4] = 0;
+
+  gdk_error_trap_push ();
+  XSendEvent (display, root, False,
+      SubstructureRedirectMask | SubstructureNotifyMask,
+      &xev);
+  XSync (display, False);
+  gdk_error_trap_pop_ignored ();
+}
+
+static gboolean
+_wnck_get_cardinal (Screen *screen,
+    Window xwindow,
+    Atom atom,
+    int *val)
+{
+  Display *display;
+  Atom type;
+  int format;
+  gulong nitems;
+  gulong bytes_after;
+  gulong *num;
+  int err, result;
+
+  display = DisplayOfScreen (screen);
+
+  *val = 0;
+
+  gdk_error_trap_push ();
+  type = None;
+  result = XGetWindowProperty (display, xwindow, atom,
+      0, G_MAXLONG, False, XA_CARDINAL, &type, &format, &nitems,
+      &bytes_after, (void*)&num);
+  err = gdk_error_trap_pop ();
+  if (err != Success ||
+      result != Success)
+    return FALSE;
+
+  if (type != XA_CARDINAL)
+    {
+      XFree (num);
+      return FALSE;
+    }
+
+  *val = *num;
+
+  XFree (num);
+
+  return TRUE;
+}
+
+static int
+window_get_workspace (Screen *xscreen,
+    Window win)
+{
+  int number;
+
+  if (!_wnck_get_cardinal (xscreen, win,
+        gdk_x11_get_xatom_by_name ("_NET_WM_DESKTOP"), &number))
+    return -1;
+
+  return number;
+}
+
+/* Ask X to move to the desktop on which @window currently is
+ * and the present @window. */
+void
+empathy_move_to_window_desktop (GtkWindow *window,
+    guint32 timestamp)
+{
+  GdkScreen *screen;
+  Screen *xscreen;
+  GdkWindow *gdk_window;
+  int workspace;
+
+  screen = gtk_window_get_screen (window);
+  xscreen = gdk_x11_screen_get_xscreen (screen);
+  gdk_window = gtk_widget_get_window (GTK_WIDGET (window));
+
+  workspace = window_get_workspace (xscreen,
+      gdk_x11_window_get_xid (gdk_window));
+  if (workspace == -1)
+    goto out;
+
+  _wnck_activate_workspace (xscreen, workspace, timestamp);
+
+out:
+  gtk_window_present_with_time (window, timestamp);
+}

@@ -126,6 +126,9 @@ void        empathy_window_present_with_time            (GtkWindow        *windo
 							 guint32 timestamp);
 GtkWindow * empathy_get_toplevel_window                 (GtkWidget        *widget);
 
+void empathy_move_to_window_desktop (GtkWindow *window,
+    guint32 timestamp);
+
 /* URL */
 gchar *     empathy_make_absolute_url                   (const gchar      *url);
 
