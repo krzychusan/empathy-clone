@@ -4,17 +4,19 @@
 # Lavande  <lavande@thislove.cz.cc>, 2010
 # Tao Wang <dancefire@gmail.com>, 2010
 # lainme <lainme993@gmail.com>, 2011
+# Guanhao Yin <yinguanhao@gmail.com>, 2011
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: empathy master\n"
-"POT-Creation-Date: 2011-07-11 12:41+0000\n"
-"PO-Revision-Date: 2011-07-11 20:40+0800\n"
-"Last-Translator: lainme <lainme993@gmail.com>\n"
+"POT-Creation-Date: 2011-12-08 09:11+0000\n"
+"PO-Revision-Date: 2011-12-09 21:36+0800\n"
+"Last-Translator: Guanhao Yin <yinguanhao@gmail.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
@@ -27,17 +29,17 @@ msgstr ""
 
 #: C/video-call.page:10(desc)
 msgid "Start a video conversation with one of your contacts."
-msgstr "向您的联系人发起视频会话。"
+msgstr "同您的联系人进行视频聊天。"
 
 #: C/video-call.page:21(name) C/status-icons.page:16(name)
-#: C/share-desktop.page:13(name) C/set-custom-status.page:19(name)
+#: C/share-desktop.page:14(name) C/set-custom-status.page:19(name)
 #: C/send-file.page:21(name) C/salut-protocol.page:18(name)
 #: C/remove-account.page:18(name) C/prob-conn-neterror.page:18(name)
 #: C/prob-conn-name.page:17(name) C/prob-conn-auth.page:21(name)
 #: C/prob-conn-acctdisabled.page:18(name) C/prev-conv.page:16(name)
 #: C/link-contacts.page:15(name) C/irc-start-conversation.page:15(name)
 #: C/irc-send-file.page:16(name) C/irc-nick-password.page:18(name)
-#: C/irc-manage.page:19(name) C/irc-join-room.page:16(name)
+#: C/irc-manage.page:20(name) C/irc-join-room.page:16(name)
 #: C/irc-join-pwd.page:17(name) C/irc-commands.page:10(name)
 #: C/introduction.page:13(name) C/index.page:19(name)
 #: C/import-account.page:23(name) C/hide-contacts.page:11(name)
@@ -52,14 +54,14 @@ msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
 
 #: C/video-call.page:22(email) C/status-icons.page:17(email)
-#: C/share-desktop.page:14(email) C/set-custom-status.page:20(email)
+#: C/share-desktop.page:15(email) C/set-custom-status.page:20(email)
 #: C/send-file.page:22(email) C/salut-protocol.page:19(email)
 #: C/remove-account.page:19(email) C/prob-conn-neterror.page:19(email)
 #: C/prob-conn-name.page:18(email) C/prob-conn-auth.page:22(email)
 #: C/prob-conn-acctdisabled.page:19(email) C/prev-conv.page:17(email)
 #: C/link-contacts.page:16(email) C/irc-start-conversation.page:16(email)
 #: C/irc-send-file.page:17(email) C/irc-nick-password.page:19(email)
-#: C/irc-manage.page:20(email) C/irc-join-room.page:17(email)
+#: C/irc-manage.page:21(email) C/irc-join-room.page:17(email)
 #: C/irc-join-pwd.page:18(email) C/irc-commands.page:11(email)
 #: C/introduction.page:14(email) C/index.page:20(email)
 #: C/import-account.page:24(email) C/hide-contacts.page:12(email)
@@ -74,7 +76,7 @@ msgid "milo@ubuntu.com"
 msgstr "milo@ubuntu.com"
 
 #: C/video-call.page:25(p) C/status-icons.page:24(p)
-#: C/share-desktop.page:17(p) C/set-custom-status.page:23(p)
+#: C/share-desktop.page:22(p) C/set-custom-status.page:23(p)
 #: C/send-message.page:21(p) C/send-file.page:25(p)
 #: C/salut-protocol.page:22(p) C/remove-account.page:22(p)
 #: C/prob-conn.page:18(p) C/prob-conn-neterror.page:22(p)
@@ -82,7 +84,7 @@ msgstr "milo@ubuntu.com"
 #: C/prob-conn-acctdisabled.page:22(p) C/prev-conv.page:24(p)
 #: C/link-contacts.page:19(p) C/irc-start-conversation.page:19(p)
 #: C/irc-send-file.page:20(p) C/irc-nick-password.page:22(p)
-#: C/irc-manage.page:23(p) C/irc-join-room.page:20(p)
+#: C/irc-manage.page:24(p) C/irc-join-room.page:20(p)
 #: C/irc-join-pwd.page:21(p) C/irc-commands.page:14(p)
 #: C/introduction.page:17(p) C/index.page:23(p) C/import-account.page:31(p)
 #: C/hide-contacts.page:15(p) C/group-conversations.page:23(p)
@@ -99,32 +101,19 @@ msgstr "知识共享-相同方式共享 (Creative Commons Share Alike) 3.0"
 
 #: C/video-call.page:28(title)
 msgid "Start a video conversation"
-msgstr "发起视频会话"
+msgstr "开始视频聊天"
 
 #: C/video-call.page:30(p)
-#, fuzzy
-#| msgid ""
-#| "If you have a webcam, you can call your contacts and have an video "
-#| "conversation with them. This features only works with certain types of "
-#| "accounts, and it requires the other person to have an application that "
-#| "supports video calls."
 msgid ""
 "If you have a webcam, you can call your contacts and have a video "
 "conversation with them. This features only works with certain types of "
 "accounts, and it requires the other person to have an application that "
 "supports video calls."
 msgstr ""
-"如果您有网络摄像头，您可以呼叫您的联系人并和他们进行视频会话。此功能仅可用于"
-"特定类型的帐号，并需要对方也安装了支持视频呼叫的程序。"
+"如果您有网络摄像头，您可以呼叫您的联系人并和他们进行视频聊天。此功能仅特定类"
+"型的账户可用，并需要对方使用的程序支持视频呼叫。"
 
 #: C/video-call.page:37(p)
-#, fuzzy
-#| msgid ""
-#| "From the <gui>Contact List</gui> window, click the <media type=\"image\" "
-#| "mime=\"image/png\" src=\"figures/camera-web.png\">video call</media> icon "
-#| "next to the name of the contact you wish to call and choose <gui style="
-#| "\"menuitem\">Video Call</gui>. Alternatively, right click the contact and "
-#| "choose <gui style=\"menuitem\">Video Call</gui>."
 msgid ""
 "From the <gui>Contact List</gui> window, click the <media type=\"image\" "
 "mime=\"image/png\" src=\"figures/camera-web.png\">video call</media> icon "
@@ -133,8 +122,7 @@ msgid ""
 msgstr ""
 "在<gui>联系人列表</gui>窗口，点击您想呼叫的联系人的名字旁的<media type="
 "\"image\" mime=\"image/png\" src=\"figures/camera-web.png\">视频呼叫</media>"
-"图标并选择<gui style=\"menuitem\">视频呼叫</gui>。同样，也可以右击联系人并选"
-"择<gui style=\"menuitem\">视频呼叫</gui>。"
+"图标并选择<gui style=\"menuitem\">视频呼叫</gui>。"
 
 #: C/video-call.page:43(p) C/audio-call.page:42(p)
 msgid ""
@@ -142,54 +130,36 @@ msgid ""
 "<gui>Connected</gui> at the bottom of the window, along with the total "
 "conversation time."
 msgstr ""
-"连接建立后，会打开新的窗口，您将在窗口底部看见<gui>已连接</gui>，以及总会话时"
-"间。"
+"一个新窗口会被打开。连接建立后，您将在窗口底部看到<gui>已连接</gui>，以及总会"
+"话时间。"
 
 #: C/video-call.page:48(p) C/audio-call.page:48(p)
 msgid "To end the conversation, click on <gui style=\"button\">Hang up</gui>."
 msgstr "点击<gui style=\"button\">挂断</gui>以结束会话。"
 
 #: C/video-call.page:54(p)
-#, fuzzy
-#| msgid ""
-#| "To turn a video conversation into an audio conversation, choose "
-#| "<guiseq><gui style=\"menu\">Video</gui><gui style=\"menuitem\">Video Off</"
-#| "gui></guiseq>, or click the <media type=\"image\" mime=\"image/png\" src="
-#| "\"figures/camera-web.png\">video call</media> toolbar button to deselect "
-#| "it."
 msgid ""
 "To turn a video conversation into an audio conversation, choose <guiseq><gui "
 "style=\"menu\">Video</gui><gui style=\"menuitem\">Video Off</gui></guiseq>."
 msgstr ""
-"要将视频会话转为音频会话，则选择<guiseq><gui style=\"menu\">视频</gui><gui "
-"style=\"menuitem\">关闭视频</gui></guiseq>，或者点击工具栏上的<media type="
-"\"image\" mime=\"image/png\" src=\"figures/camera-web.png\">视频呼叫</media>"
-"按钮以取消选择。"
+"要将视频会话转为语音会话，选择 <guiseq><gui style=\"menu\">视频</gui><gui "
+"style=\"menuitem\">视频关闭</gui></guiseq>。"
 
 #: C/video-call.page:60(title)
-#, fuzzy
-#| msgid "Start a video conversation with one of your contacts."
 msgid "Start a video conversation with a meta-contact"
-msgstr "向您的联系人发起视频会话。"
+msgstr "和一位元联系人进行视频聊天。"
 
 #: C/video-call.page:63(p) C/send-message.page:53(p) C/audio-call.page:66(p)
-#, fuzzy
-#| msgid ""
-#| "From the <gui>Contact List</gui> window, click on the drop-down list at "
-#| "the top."
 msgid ""
 "From the <gui>Contact List</gui> window, right-click on the meta-contact."
-msgstr "从 <gui>联系人列表</gui> 窗口，点击顶部的下拉菜单。"
+msgstr "在<gui>联系人列表</gui>窗口，右键点击该元联系人。"
 
 #: C/video-call.page:68(p)
-#, fuzzy
-#| msgid ""
-#| "Right-click on the name of the contact you want to have a conversation "
-#| "with, and choose <gui>Chat</gui>."
 msgid ""
 "Select the contact you want to have the conversation, and from the menu "
 "select <gui style=\"menuitem\">Video Call</gui>."
-msgstr "右键点击您想要进行交谈的联系人的名字，然后选择 <gui>聊天</gui>"
+msgstr ""
+"选择要聊天的联系人，然后在菜单中选择<gui style=\"menuitem\">视频呼叫</gui>"
 
 #: C/video-call.page:75(p) C/send-message.page:65(p) C/audio-call.page:78(p)
 msgid ""
@@ -198,6 +168,9 @@ msgid ""
 "second: a small pop-up message will appear showing the number of the "
 "contacts that form the meta-contact."
 msgstr ""
+"要识别一个联系人是否是<em>元联系人</em>，将您的鼠标移动到<gui>联系人列表</"
+"gui>窗口中的一个联系人上，并停留几秒钟：一个小弹出消息会显示这个元联系人是由"
+"几个联系人组成的。"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -300,7 +273,7 @@ msgid ""
 "away. You can set a custom message for this status."
 msgstr ""
 "当您不在电脑旁时，使用<em>离开</em>状态。如果您一段时间内不使用电脑，或者屏幕"
-"保护打开了，<app>Empathy</app>将自动设置您的状态为离开。默认地，当您离开时，"
+"保护打开了，<app>Empathy</app> 将自动设置您的状态为离开。默认地，当您离开时，"
 "<app>Empathy</app> 不会使用气泡提示和声音提示。您可以为此状态自定一条消息。"
 
 #: C/status-icons.page:62(media) C/status-icons.page:69(media)
@@ -317,8 +290,8 @@ msgid ""
 "to your contacts. You will still be connected to your accounts, and you "
 "still see your contacts’ statuses and start conversations with them."
 msgstr ""
-"当您将状态设置为<em>隐身</em>时，您的联系人看到您是离线的状态。您仍然连接上了"
-"您的帐号，并且仍然可以看见您的联系人的状态且可以向他们发起会话。"
+"当您将状态设置为<em>隐身</em>时，您的联系人会看到您已离线。但您仍然连接着您的"
+"账户，并且可以看到您的联系人的状态，或者和他们聊天。"
 
 #: C/status-icons.page:70(gui)
 msgid "Offline"
@@ -328,87 +301,96 @@ msgstr "离线"
 msgid ""
 "Setting your status to <em>Offline</em> disconnects you from all of your "
 "accounts."
-msgstr "将状态设置为<em>离线</em>将会断开您所有帐号的连接。"
+msgstr "将状态设置为<em>离线</em>将会断开您所有账户的连接。"
 
 #: C/share-desktop.page:7(desc)
-msgid "Share the desktop with your contacts."
-msgstr "与您的联系人共享桌面。"
+msgid "Show your desktop to your contacts."
+msgstr "向您的联系人展示您的桌面。"
 
-#: C/share-desktop.page:28(title)
+#: C/share-desktop.page:18(name)
+msgid "Ekaterina Gerasimova"
+msgstr "Ekaterina Gerasimova"
+
+#: C/share-desktop.page:19(email)
+msgid "kittykat3756@gmail.com"
+msgstr "kittykat3756@gmail.com"
+
+#: C/share-desktop.page:33(title)
 msgid "Share your desktop"
 msgstr "共享您的桌面"
 
-#: C/share-desktop.page:30(p)
+#: C/share-desktop.page:35(p)
 msgid ""
-"It is possible, with some of your contacts, to share your desktop with them, "
-"or to start using your contacts desktop. You can use this functionality to "
-"show your desktop to your contacts, to ask for help or to help your contacts "
-"resolve a problem."
+"It is possible to share your desktop with some of your contacts. You can use "
+"this functionality to show your desktop to your contacts to, for example, "
+"ask for help or help your contacts resolve a problem."
 msgstr ""
-"可以和您的一些联系人共享您的桌面，或者使用您联系人的桌面。您可以使用这个功能"
-"向您的联系人展示您的桌面，来寻求帮助或帮助您的联系人解决问题。"
+"您可以和联系人共享桌面。使用这个功能，您可以向联系人展示您的桌面，来寻求帮助"
+"或帮助联系人解决问题。"
 
-#: C/share-desktop.page:38(p)
+#: C/share-desktop.page:42(p)
 msgid ""
-"In order to be able to share your desktop or to remotely use your contacts "
-"desktop, it is necessary to have a remote desktop viewer application "
-"installed in your system."
+"To be able to share your desktop, you need to have a VNC server, which has "
+"support for the feature, installed on your system. <app>Vino</app>, the "
+"GNOME VNC server, has the required support."
 msgstr ""
-"为了能够共享您的桌面或者远程使用您联系人的桌面，需要在您的系统中安装远程桌面"
-"查看应用程序。"
-
-#: C/share-desktop.page:46(p) C/send-file.page:40(p)
-#: C/favorite-rooms.page:66(p)
-msgid "From the <gui>Contact List</gui> window, perform one of the following:"
-msgstr "从 <gui>联系人列表</gui> 窗口，执行下列操作中的一个："
+"要共享您的桌面，您的系统中必须安装支持此功能的 VNC 服务器。<app>Vino</app>，"
+"GNOME 的 VNC 服务器，就有这项功能。"
 
 #: C/share-desktop.page:51(p)
+msgid "From the <gui>Contact List</gui> window, do one of the following:"
+msgstr "在<gui>联系人列表</gui>窗口，执行下列操作之一："
+
+#: C/share-desktop.page:56(p)
 msgid ""
-"Select the contact you want to share your desktop with, and choose "
-"<guiseq><gui>Edit</gui><gui>Contact</gui><gui>Share my desktop</gui></"
+"Select the contact you want to share your desktop with and choose "
+"<guiseq><gui>Edit</gui><gui>Contact</gui><gui>Share My Desktop</gui></"
 "guiseq>."
 msgstr ""
 "选择您想要共享您的桌面的联系人，并选择 <guiseq><gui>编辑</gui><gui>联系人</"
 "gui><gui>共享我的桌面</gui></guiseq>。"
 
-#: C/share-desktop.page:57(p)
+#: C/share-desktop.page:63(p)
 msgid ""
-"Right-click on the name of the contact you want to share your desktop with, "
-"and select <gui>Share my desktop</gui>."
+"Right-click on the name of the contact you want to share your desktop with "
+"and select <gui>Share My Desktop</gui>."
 msgstr ""
-"右键点击您想要共享您桌面的联系人的名字，然后选择 <gui>共享我的桌面</gui>。"
+"右键点击您想要共享您桌面的联系人的名字，然后选择<gui>共享我的桌面</gui>。"
 
-#: C/share-desktop.page:65(p)
+#: C/share-desktop.page:71(p)
 msgid ""
-"A request will be sent to the contact you want to share your desktop with. "
-"If they accept, the default remote desktop viewer application will be "
-"launched in order to permit you to disconnect the user that is controlling "
-"your desktop."
+"An invitation to view your desktop will be sent to the contact you have "
+"selected. To view your desktop, they will need to accept it."
 msgstr ""
-"会向要共享您的桌面的联系人发送一个请求。如果他们接受了这个请求，那么将会运行"
-"默认的远程桌面查看器应用程序，这样您就可以 随时断开正在控制您桌面用户的链接。"
-
-#: C/share-desktop.page:70(p)
-msgid ""
-"For more information about how to use the remote desktop viewer application, "
-"refer to its help."
-msgstr "如果需要更多关于如何使用远程桌面查看器应用程序，请参看其帮助。"
+"您选择的联系人会收到一个查看您桌面的邀请。要查看您的桌面，他们需要接受邀请。"
 
 #: C/share-desktop.page:77(p)
+msgid ""
+"You can disconnect the contact from your computer using your desktop sharing "
+"application."
+msgstr "在您的桌面共享程序中，您可以断开您的联系人到您的计算机的连接。"
+
+#: C/share-desktop.page:82(p)
+msgid ""
+"For more information about how to use the remote desktop sharing "
+"application, refer to its help."
+msgstr "如果需要更多关于如何使用远程桌面查共享程序的信息，请参看其帮助。"
+
+#: C/share-desktop.page:90(p)
 msgid ""
 "When you share your desktop with someone else, it is possible to experience "
 "system performance slowdown and low Internet speed."
 msgstr ""
 "当您与其他人共享您的桌面的时候，可能会出现系统性能降低和网络速度下降的现象。"
 
-#: C/share-desktop.page:83(p)
+#: C/share-desktop.page:96(p)
 msgid ""
-"Not all your contacts might be able to support this functionality. It is "
-"necessary for them to have at least the 2.28 version of <app>Empathy</app> "
-"and a remote desktop viewer application installed in their system."
+"Some of your contacts may not be able to use this feature. It is necessary "
+"for them to have version 2.28, or newer, of <app>Empathy</app> and a "
+"compatible remote desktop viewer application installed in their system."
 msgstr ""
-"不是所有的您的联系人都能够支持这个功能。他们必须至少有 2.28 版本以上的 "
-"<app>Empathy</app> 并且在系统上安装了远程桌面查看器程序。"
+"并非您的所有联系人都可以使用这个功能。他们必须使用 2.28 或更新版本的 "
+"<app>Empathy</app> 并且在安装了兼容的远程桌面查看器程序。"
 
 #: C/set-custom-status.page:9(desc)
 msgid "Add, edit or delete personal messages for your status."
@@ -444,22 +426,22 @@ msgstr "可以根据不同的状态来设置自定义消息。"
 msgid ""
 "From the <gui>Contact List</gui> window, click on the drop-down list at the "
 "top."
-msgstr "从 <gui>联系人列表</gui> 窗口，点击顶部的下拉菜单。"
+msgstr "在<gui>联系人列表</gui>窗口，点击顶部的下拉列表。"
 
 #: C/set-custom-status.page:52(p)
 msgid ""
 "Select the status you want to add a custom message to. You have to select "
 "the one identified with the label <gui>Custom Message</gui>."
 msgstr ""
-"选择您希望添加到定制消息的状态。您必须选择一个标明是 <gui>自定义消息</gui> 的"
-"标签。"
+"选择您希望添加自定义消息的状态。您必须选择有<gui>自定义消息</gui>标签标记的状"
+"态。"
 
 #: C/set-custom-status.page:58(p)
 msgid ""
 "Enter your custom message in the text box at the top of the window, and "
 "press <key>Enter</key> to set the message."
 msgstr ""
-"在窗口顶部的文本框中输入您的自定义消息，然后按<key>回车键</key>来设定这个消"
+"在窗口顶部的文本框中输入您的自定义消息，然后按<key>Enter</key>来设定这个消"
 "息。"
 
 #: C/set-custom-status.page:64(p)
@@ -468,16 +450,16 @@ msgid ""
 "use it again, click on the little star on the right of the text box where "
 "you wrote your custom message."
 msgstr ""
-"如果您希望设置自定义消息为喜好，那么可以保存下来以方便以后使用，在您撰写您的"
-"自定义消息的文本框的右侧有一个小星星，点击它就可以保存。"
+"如果您希望收藏一个自定义消息，即将它保存下来方便日后使用，请点击您撰写自定义"
+"消息的文本框右侧的小星星。"
 
 #: C/set-custom-status.page:69(p)
 msgid ""
 "If you do not do it, the custom message will not be available the next time "
 "you use <app>Empathy</app>. It will be saved only for the current session."
 msgstr ""
-"如果您不这么做，那么下回您使用 <app>Empathy</app> 的时候，这个自定义消息就不"
-"会再出现。它只保留到当前会话结束。"
+"如果您不这么做，那么下次您使用 <app>Empathy</app> 的时候，这个自定义消息就不"
+"会再出现。它只在 <app>Empathy</app> 本次运行期间被保留。"
 
 #: C/set-custom-status.page:78(title)
 msgid "Edit, remove and add a custom message"
@@ -485,7 +467,7 @@ msgstr "编辑、删除和添加自定义消息"
 
 #: C/set-custom-status.page:88(p)
 msgid "Select <gui>Edit Custom Message</gui>."
-msgstr "选择 <gui>编辑自定义消息</gui>"
+msgstr "选择<gui>编辑自定义消息</gui>。"
 
 #: C/set-custom-status.page:95(p)
 msgid "To edit a custom message:"
@@ -495,12 +477,11 @@ msgstr "要编辑自定义消息："
 msgid ""
 "From the <gui>Saved Presets</gui> box, select the status message you want to "
 "edit and double-click on it."
-msgstr ""
-"从 <gui>已保存的自定义状态</gui> 框中，选择您想要编辑的状态消息，然后双击它。"
+msgstr "在<gui>已保存的自定义状态</gui>中，选择您想要编辑的状态消息并双击它。"
 
 #: C/set-custom-status.page:106(p)
 msgid "Type the new custom message and press <key>Enter</key> to modify it."
-msgstr "输入新的自定义消息并且按<key>回车键</key>来修改它。"
+msgstr "输入新的自定义消息并且按<key>Enter</key>来修改它。"
 
 #: C/set-custom-status.page:113(p)
 msgid "To remove a custom message:"
@@ -510,22 +491,22 @@ msgstr "要删除自定义消息："
 msgid ""
 "From the <gui>Saved Presets</gui> box, select the status message you want to "
 "remove."
-msgstr "从 <gui>已保存的自定义状态</gui> 框中，选择您想要删除的状态消息。"
+msgstr "在<gui>已保存的自定义状态</gui>中，选择要删除的状态消息。"
 
 #: C/set-custom-status.page:124(p)
 msgid "Click on the <gui>Remove</gui> button."
-msgstr "点击 <gui>删除</gui> 按钮。"
+msgstr "点击<gui>删除</gui>按钮。"
 
 #: C/set-custom-status.page:131(p)
 msgid ""
 "To add a new custom message, from the <gui>Add New Preset</gui> section:"
-msgstr "要添加一条新的自定义消息，从 <gui>添加新自定义状态</gui> 部分："
+msgstr "要添加一条新的自定义消息，在<gui>添加新自定义状态</gui>选项卡："
 
 #: C/set-custom-status.page:136(p)
 msgid ""
 "Click on the drop-down list to select the status you want to set a custom "
 "message to."
-msgstr "点击下拉菜单来选择您想要设定自定义消息的状态。"
+msgstr "点击下拉列表选择您想要设定自定义消息的状态。"
 
 #: C/set-custom-status.page:142(p)
 msgid "Click on the text box, and type the new custom message."
@@ -533,11 +514,11 @@ msgstr "点击文本框，输入新的自定义消息。"
 
 #: C/set-custom-status.page:147(p)
 msgid "Click on <gui>Add</gui> to add the new message to the presets ones."
-msgstr "点击 <gui>添加</gui> 来添加新消息到已保存的的自定义消息列表中。"
+msgstr "点击<gui>添加</gui>将新消息添加到已保存的的自定义消息列表中。"
 
 #: C/set-custom-status.page:156(p)
 msgid "When finished, click on <gui>Close</gui>."
-msgstr "当这些做完后，点击 <gui>关闭</gui>。"
+msgstr "完成后，点击<gui>关闭</gui>。"
 
 #: C/set-custom-status.page:163(p)
 msgid ""
@@ -545,8 +526,8 @@ msgid ""
 "status message. You will need to select it from the <gui>Contact List</gui> "
 "window."
 msgstr ""
-"当你编辑或添加新自定义消息的时候，它不会被设为当前状态消息。您需要从 <gui>联"
-"系人列表</gui>窗口中选中它。"
+"当你编辑或添加新自定义消息的时候，它不会被设为当前状态消息。您需要在<gui>联系"
+"人列表</gui>窗口中选中它。"
 
 #: C/send-message.page:8(desc)
 msgid "Send a message to one of your contacts."
@@ -568,83 +549,79 @@ msgstr "philbull@gmail.com"
 
 #: C/send-message.page:32(title)
 msgid "Send a message to someone"
-msgstr "发送一条消息给某人"
+msgstr "向某人发送消息"
 
 #: C/send-message.page:36(p)
-#, fuzzy
-#| msgid ""
-#| "Double click the name of the contact that you want to have a conversation "
-#| "with."
 msgid ""
 "From the <gui>Contact List</gui> window, double-click the name of the "
 "contact that you want to have a conversation with."
-msgstr "双击您想要进行交谈的联系人的名字。"
+msgstr "在<gui>联系人列表</gui>窗口中，双击要与之聊天的联系人的名字。"
 
 #: C/send-message.page:42(p)
 msgid ""
 "A new window will open. Type a message into the box at the bottom of the "
 "window and press <key>Enter</key> to send it."
 msgstr ""
-"这时会打开一个新的窗口。在窗口底部的文本框中输入一条消息，然后按<key>回车键</"
-"key>来发送。"
+"一个新窗口会被打开。在窗口底部的文本框中输入一条消息，然后按<key>Enter</key>"
+"发送。"
 
 #: C/send-message.page:50(title)
-#, fuzzy
-#| msgid "Send a message to someone"
 msgid "Send a message to a meta-contact"
-msgstr "发送一条消息给某人"
+msgstr "向一位元联系人发送消息"
 
 #: C/send-message.page:58(p)
-#, fuzzy
-#| msgid ""
-#| "Right-click on the name of the contact you want to have a conversation "
-#| "with, and choose <gui>Chat</gui>."
 msgid ""
 "Select the contact you want to have the conversation, and from the menu "
 "select <gui style=\"menuitem\">Chat</gui>."
-msgstr "右键点击您想要进行交谈的联系人的名字，然后选择 <gui>聊天</gui>"
+msgstr ""
+"选择您想要与之聊天的联系人，并在菜单中选择 <gui style=\"menuitem\">聊天</"
+"gui>。"
 
 #: C/send-file.page:8(desc)
 msgid "Send a file from your computer to one of your contacts."
-msgstr "从您的计算机上发送一个文件至您的联系人。"
+msgstr "从您的计算机发送文件给您的联系人。"
 
 #: C/send-file.page:36(title)
 msgid "Send files"
-msgstr "发送文件。"
+msgstr "发送文件"
+
+#: C/send-file.page:40(p) C/favorite-rooms.page:66(p)
+msgid "From the <gui>Contact List</gui> window, perform one of the following:"
+msgstr "在<gui>联系人列表</gui>窗口，执行下列操作之一："
 
 #: C/send-file.page:45(p)
 msgid ""
 "Right click on the contact you want to send a file to, and choose <gui>Send "
 "file</gui>."
-msgstr "右键点击要发送文件的联系人，然后选择 <gui>发送文件</gui>。"
+msgstr "右键点击要向其发送文件的联系人，然后选择<gui>发送文件</gui>。"
 
 #: C/send-file.page:50(p)
 msgid ""
 "Click on the contact you want to send a file, and choose <guiseq><gui>Edit</"
 "gui><gui>Contact</gui><gui>Send file</gui></guiseq>."
 msgstr ""
-"点击您要发送文件的联系人，然后选择<guiseq><gui>编辑</gui><gui>联系人</"
+"点击要向其发送文件的联系人，然后选择<guiseq><gui>编辑</gui><gui>联系人</"
 "gui><gui>发送文件</gui></guiseq>。"
 
 #: C/send-file.page:58(p)
 msgid "Select the file to send, and click on <gui>Send</gui>."
-msgstr "选择要发送的文件，然后点击 <gui>发送</gui>。"
+msgstr "选择要发送的文件，并点击<gui>发送</gui>。"
 
 #: C/send-file.page:63(p)
 msgid "The <gui>File Transfers</gui> window will appear."
-msgstr "这时会显示 <gui>文件传输</gui>窗口。"
+msgstr "<gui>文件传输</gui>窗口会被显示。"
 
 #: C/send-file.page:66(p)
 msgid ""
 "Wait for your contact to accept the file transfer, or click <gui>Stop</gui> "
 "to halt the transfer."
-msgstr "等待您的联系人接受文件传输，或点击 <gui>停止</gui> 来终止传输。"
+msgstr "请等待您的联系人接受文件传输，或点击<gui>停止</gui>来终止传输。"
 
 #: C/send-file.page:72(p)
 msgid ""
 "Once the transfer is finished, it is possible to close the <gui>File "
 "Transfers</gui> window."
-msgstr "只要传输终止，就可以关闭 <gui>文件传输</gui> 窗口。"
+msgstr "传输结束之后，就可以关闭<gui>文件传输</gui>窗口了。"
 
 #: C/send-file.page:80(p)
 msgid ""
@@ -652,22 +629,22 @@ msgid ""
 "<gui>Clear</gui> to empty the list. This will only remove the files from the "
 "list and will not delete them from your computer."
 msgstr ""
-"如果窗口中列出了很多已经完成的传输，点击 <gui>清除</gui> 可以清空列表。这只会"
-"将列表清空，而不会从您的计算机上删除这些文件。"
+"如果窗口中列出了很多已经完成的传输，点击<gui>清除</gui>可以清空列表。这只会将"
+"列表清空，而不会从您的计算机上删除这些文件。"
 
 #: C/send-file.page:87(p)
 msgid ""
 "It is possible to send files only using the following services: <em>Jabber</"
 "em>, <em>Google Talk</em> and <em>People Nearby</em>."
 msgstr ""
-"只可能使用下列服务进行发送文件：<em>Jabber</em>、<em>Google Talk</em> 和 "
-"<em>People Nearby</em>。"
+"只有使用下列服务才能发送文件：<em>Jabber</em>、<em>Google Talk</em>和<em>附近"
+"的人</em>。"
 
 #: C/send-file.page:93(p)
 msgid ""
 "In order to send a file to someone, you need to be connected to the "
 "Internet, or to a local area network."
-msgstr "为了给别人发送文件，您需要连接到互联网，或本地局域网。"
+msgstr "要向别人发送文件，您需要连接到互联网，或本地局域网。"
 
 #: C/salut-protocol.page:8(desc)
 msgid "Understanding the People Nearby feature."
@@ -712,7 +689,7 @@ msgstr "所有现代的本地局域网都应该可以支持这类服务。"
 
 #: C/remove-account.page:8(desc)
 msgid "Completely remove an account from <app>Empathy</app>."
-msgstr "从 <app>Empathy</app> 中完全的删除一个账户。"
+msgstr "从 <app>Empathy</app> 中完全地删除一个账户。"
 
 #: C/remove-account.page:33(title)
 msgid "Remove an account"
@@ -725,7 +702,7 @@ msgid ""
 "<app>Empathy</app> again in the future, you will have to add your account "
 "details again."
 msgstr ""
-"如果你不想再使用某个账户，您可以从 <app>Empathy</app> 中完全的删除这个账户。"
+"如果你不想再使用某个账户，您可以从 <app>Empathy</app> 中完全地删除这个账户。"
 "如果您将来又希望在 <app>Empathy</app> 中使用这个账户了，您可以再添加这个账"
 "户。"
 
@@ -735,8 +712,8 @@ msgid ""
 "From the <gui>Contact List</gui> window, choose <guiseq><gui>Edit</"
 "gui><gui>Accounts</gui></guiseq>, or press <key>F4</key>."
 msgstr ""
-"从 <gui>联系人列表</gui> 窗口，选择 <guiseq><gui>编辑</gui><gui>账户</gui></"
-"guiseq>，或按 <key>F4</key>。"
+"在<gui>联系人列表</gui>窗口中，选择<guiseq><gui>编辑</gui><gui>账户</gui></"
+"guiseq>，或按<key>F4</key>。"
 
 #: C/remove-account.page:46(p)
 msgid ""
@@ -746,15 +723,14 @@ msgstr "在窗口左侧的账户列表中选择您想要删除的账户。"
 
 #: C/remove-account.page:50(p)
 msgid "Click on <gui style=\"button\">Remove</gui>."
-msgstr "点击 <gui style=\"button\">删除</gui>。"
+msgstr "点击<gui style=\"button\">删除</gui>。"
 
 #: C/remove-account.page:53(p)
 msgid ""
 "A dialog will be shown asking for confirmation. Click the <gui>Remove</gui> "
 "button to permanently remove the account."
 msgstr ""
-"这时会弹出一个窗口来询问是否确认。点击 <gui>删除</gui> 按钮来永久的删除这个账"
-"户。"
+"一个弹出对话框会要求您确认删除。点击<gui>删除</gui>按钮来永久的删除这个账户。"
 
 #: C/remove-account.page:59(p)
 msgid ""
@@ -781,15 +757,15 @@ msgstr "@@image: 'figures/gtk-edit.png'; md5=4f21b451732817be0604fe3e2c8da98b"
 msgid ""
 "An error message which says “<gui>Network error</gui>” appears in the main "
 "window."
-msgstr "一个显示“<gui>网络错误</gui>”的信息显示在主窗口中。"
+msgstr "主窗口中显示了一个错误提示信息，“<gui>网络错误</gui>”。"
 
 #: C/prob-conn-neterror.page:33(title)
 msgid "I get a message that says “Network error”"
-msgstr "我收到“网络错误”的信息"
+msgstr "我收到“网络错误”的错误提示信息"
 
 #: C/prob-conn-neterror.page:36(cite)
 msgid "shaunm"
-msgstr ""
+msgstr "shaunm"
 
 #: C/prob-conn-neterror.page:37(p)
 msgid ""
@@ -822,8 +798,8 @@ msgid ""
 "Click the <media type=\"image\" mime=\"image/png\" src=\"figures/gtk-edit.png"
 "\">edit</media> icon in the error message."
 msgstr ""
-"点击错误信息上的<media type=\"image\" mime=\"image/png\" src=\"figures/gtk-"
-"edit.png\">编辑</media>图标。"
+"点击错误提示信息上的<media type=\"image\" mime=\"image/png\" src=\"figures/"
+"gtk-edit.png\">编辑</media>图标。"
 
 #: C/prob-conn-neterror.page:65(p) C/prob-conn-acctdisabled.page:59(p)
 msgid ""
@@ -831,7 +807,7 @@ msgid ""
 "You should be able to find these details from the website of the messaging "
 "service."
 msgstr ""
-"检查<gui>高级</gui>选项卡中是否所有细节都是正确的。您可以从即时通讯服务商的网"
+"检查<gui>高级</gui>选项卡中的所有细节是否正确。您应当可以从即时通讯服务商的网"
 "站上找到这些信息。"
 
 #: C/prob-conn-neterror.page:82(p) C/prob-conn-auth.page:68(p)
@@ -857,11 +833,11 @@ msgstr "“用户名已经被占用”"
 msgid ""
 "An error message which says “<gui>Name in use</gui>” appears in the main "
 "window."
-msgstr "一个显示“<gui>用户名已经被占用</gui>”的信息显示在主窗口中。"
+msgstr "主窗口中显示了一个错误提示信息，“<gui>用户名已被占用</gui>”。"
 
 #: C/prob-conn-name.page:32(title)
 msgid "I get a message that says “Name in use”"
-msgstr "我收到“用户名已经被占用”的信息"
+msgstr "我收到“用户名已经被占用”的错误提示信息"
 
 #: C/prob-conn-name.page:34(p)
 msgid ""
@@ -882,7 +858,7 @@ msgid ""
 "the password for that nickname. For more information, see <link xref=\"irc-"
 "nick-password\"/>."
 msgstr ""
-"如果您已经在所用的网路中注册了昵称，请为该昵称设置密码。更多信息参见 <link "
+"如果您在所用的网路中注册了这个昵称，请为该昵称设置密码。更多信息参见<link "
 "xref=\"irc-nick-password\"/>。"
 
 #: C/prob-conn-name.page:64(p)
@@ -890,17 +866,17 @@ msgid ""
 "Deselect the <gui>Enabled</gui> check-box next to the name of your account, "
 "and then select it again to try to reconnect to the service."
 msgstr ""
-"取消选择账户旁边的<gui>已启用</gui>选框，然后再次选中以重新连接到服务器。"
+"取消选择账户旁边的<gui>已启用</gui>复选框，然后再次选中以重新连接到服务器。"
 
 #: C/prob-conn-auth.page:8(desc)
 msgid ""
 "An error message which says “<gui>Authentication failed</gui>” appears in "
 "the main window."
-msgstr "一个显示“<gui>验证失败</gui>”的信息显示在主窗口中。"
+msgstr "主窗口中显示了一个错误提示信息，“<gui>验证失败</gui>”。"
 
 #: C/prob-conn-auth.page:36(title)
 msgid "I get a message that says “Authentication failed”"
-msgstr "我收到“验证失败”的信息"
+msgstr "我收到“验证失败”的错误提示信息"
 
 #: C/prob-conn-auth.page:38(p)
 msgid ""
@@ -908,8 +884,8 @@ msgid ""
 "allowing you to connect because it does not recognize your username or "
 "password for some reason."
 msgstr ""
-"这种错误是由于您的即时通信服务器不允许您连接，由于某种原因，它不识别您的用户"
-"名或者密码。"
+"这种错误发生在您的即时通信服务器无法确认您的身份，不允许您连接时。比如，因为"
+"某种原因，它无法识别您的用户名或者密码。"
 
 #: C/prob-conn-auth.page:50(p)
 msgid ""
@@ -929,7 +905,7 @@ msgstr "再次输入您的用户名和密码，以确保它们是正确的。"
 msgid ""
 "The instant messaging account that you want to use is not enabled in the "
 "list of accounts."
-msgstr "您要连接的即时通信账户没有在帐号列表中启用。"
+msgstr "您要连接的即时通信账户没有在账户列表中启用。"
 
 #: C/prob-conn-acctdisabled.page:33(title)
 msgid "My account is not enabled"
@@ -985,7 +961,7 @@ msgid ""
 msgstr ""
 "<app>Empathy</app> 自动保存您和联系人的所有文字会话。您可以<link xref="
 "\"#search\">搜索之前全部的会话</link>或者根据联系人和日期<link xref=\"#browse"
-"\">浏览之前的会话。"
+"\">浏览之前的会话</link>。"
 
 #: C/prev-conv.page:54(p)
 msgid ""
@@ -1021,19 +997,21 @@ msgid ""
 "In the <gui>For</gui> field, type the text you want to search for. Click "
 "<gui>Find</gui> or press <key>Enter</key>."
 msgstr ""
+"在<gui>关键词</gui>中，输入您想要搜索的文字。点击<gui>查找</gui>或按"
+"<key>Enter</key>。"
 
 #: C/prev-conv.page:78(p)
 msgid ""
 "Any conversations that matched your search terms will be shown in the list "
 "below the search field. By default, conversations are ordered by date."
-msgstr ""
-"任何符合搜索项的会话都会显示在搜索域下面的列表中。会话默认安装时间排序。"
+msgstr "符合搜索条件的会话会显示在下面的列表中。会话默认按日期排序。"
 
 #: C/prev-conv.page:82(p)
 msgid ""
 "Click on a conversation to view it. <app>Empathy</app> will select the text "
 "in the conversation that matched your search terms."
 msgstr ""
+"点击一个会话以查看。<app>Empathy</app> 会选择这个会话中符合您搜索条件的文字。"
 
 #: C/prev-conv.page:89(title)
 msgid "Browse previous conversations"
@@ -1054,12 +1032,13 @@ msgid ""
 "Select an account from the drop-down list in the top left. A list of "
 "contacts and chat room for that account will be shown below."
 msgstr ""
+"在左上的下拉列表中选择一个账户。下方会显示这个账户的联系人和聊天室列表。"
 
 #: C/prev-conv.page:107(p)
 msgid ""
 "Select a contact or chat room to view your previous conversations from. By "
 "default the most recent conversation will be shown."
-msgstr ""
+msgstr "选择一个联系人或聊天室以查看之前的会话。默认显示的是最近的会话。"
 
 #: C/prev-conv.page:111(p)
 msgid ""
@@ -1068,12 +1047,16 @@ msgid ""
 "date to select it. Click the arrows next to the month and year to browse "
 "earlier dates."
 msgstr ""
+"您可以按日期浏览您的会话。如果在某日您所选择的账户有过会话，该日会以粗体显"
+"示。点击一个日期以选择它。点击月和年旁的箭头以浏览更早的日期。"
 
 #: C/prev-conv.page:117(p)
 msgid ""
 "You can search for text in the displayed conversation by typing into the "
 "search field at the top. The matching text will be highlighted."
 msgstr ""
+"您可以在上方的搜索栏中输入文字，以在显示的会话中搜索文字。匹配的文字会被高亮"
+"显示。"
 
 #: C/prev-conv.page:121(p)
 msgid ""
@@ -1082,10 +1065,13 @@ msgid ""
 "choose <gui>View Previous Conversations</gui>. The <gui>Previous "
 "Conversations</gui> window will open with that contact already selected."
 msgstr ""
+"在 <gui>联系人列表</gui> 窗口中，您可以快速的查看与某个联系人之前进行过的会"
+"话。右键点击该联系人并选择 <gui>查看以前的对话</gui>。<gui>最近会话</gui>窗口"
+"会打开，且该联系人会被选中。"
 
 #: C/link-contacts.page:11(desc)
 msgid "Merge and separate different contacts into a single one."
-msgstr ""
+msgstr "将不同的联系人合并分割为一个联系人。"
 
 #: C/link-contacts.page:25(title)
 msgid "Combine and separate contacts"
@@ -1095,19 +1081,19 @@ msgstr "合并和分割联系人"
 msgid ""
 "If one, or more, of your contacts has multiple accounts with different "
 "messaging services, you can combine these contacts into a single one."
-msgstr ""
+msgstr "如果您的联系人有多个聊天服务的多个账户，您可以将他们合并成一个联系人。"
 
 #: C/link-contacts.page:30(p)
 msgid ""
 "The resulting contact is called a <em>meta-contact</em>: a contact composed "
 "from different single contacts."
-msgstr ""
+msgstr "产生的联系人称为一个<em>元联系人</em>：由多个不同联系人组成的联系人。"
 
 #: C/link-contacts.page:34(p)
 msgid ""
 "If you have a Jane Smith contact that is using three different messaging "
 "services like:"
-msgstr ""
+msgstr "如果您有一个叫做 Jane Smith 的联系人，她使用三种不同的聊天服务："
 
 #: C/link-contacts.page:40(p)
 msgid "janes@facebook"
@@ -1123,7 +1109,7 @@ msgstr "jane_smith@hotmail"
 
 #: C/link-contacts.page:55(p)
 msgid "You can combine these contacts into a single Jane Smith one."
-msgstr ""
+msgstr "您可以将这些联系人合并成一个 Jane Smith."
 
 #: C/link-contacts.page:60(title)
 msgid "Combining contacts"
@@ -1135,22 +1121,18 @@ msgid ""
 "has different accounts, and select <gui style=\"menuitem\">Link Contacts...</"
 "gui>."
 msgstr ""
+"在 <gui>联系人列表</gui> 窗口，右键点击有不同账户的联系人，并选择 <gui style="
+"\"menuitem\">绑定联系人…</gui>"
 
 #: C/link-contacts.page:70(p)
-#, fuzzy
-#| msgid ""
-#| "From the <gui>Saved Presets</gui> box, select the status message you want "
-#| "to remove."
 msgid ""
 "From the left pane in the <gui>Link Contacts</gui> window, select the "
 "contacts you want to combine."
-msgstr "从 <gui>已保存的自定义状态</gui> 框中，选择您想要删除的状态消息。"
+msgstr "在 <gui>绑定联系人</gui> 窗口的左窗格，选择您想要关联起来的联系人。"
 
 #: C/link-contacts.page:76(p)
-#, fuzzy
-#| msgid "Click on <gui style=\"button\">Remove</gui>."
 msgid "Click <gui style=\"button\">Link</gui>."
-msgstr "点击 <gui style=\"button\">删除</gui>。"
+msgstr "点击 <gui style=\"button\">绑定</gui>."
 
 #: C/link-contacts.page:82(p)
 msgid ""
@@ -1158,6 +1140,8 @@ msgid ""
 "to have a conversation with when you double-click on it, is the contact with "
 "the highest presence on-line."
 msgstr ""
+"当一个元联系人被创建后，您双击该联系人时默认使用的联系人是有最高的在线状态的"
+"联系人。"
 
 #: C/link-contacts.page:91(title)
 msgid "Separating contacts"
@@ -1168,12 +1152,12 @@ msgid ""
 "From the <gui>Contact List</gui>, right-click the contact to separate, and "
 "select <gui style=\"menuitem\">Link Contacts...</gui>."
 msgstr ""
+"在 <gui>联系人列表</gui> 窗口中，右键点击要分割的联系人，并选择 <gui style="
+"\"menuitem\">绑定联系人…</gui>"
 
 #: C/link-contacts.page:100(p)
-#, fuzzy
-#| msgid "Click on <gui style=\"button\">Remove</gui>."
 msgid "Click <gui style=\"button\">Unlink</gui>."
-msgstr "点击 <gui style=\"button\">删除</gui>。"
+msgstr "点击 <gui style=\"button\">解除绑定</gui>。"
 
 #: C/license.page:8(desc)
 msgid "Legal information."
@@ -1251,10 +1235,8 @@ msgstr ""
 "creativecommons.org/licenses/by-sa/3.0/\">通俗协议</link>。"
 
 #: C/irc-start-conversation.page:8(desc)
-#, fuzzy
-#| msgid "Start a video conversation with one of your contacts."
 msgid "Start a conversation with an IRC contact."
-msgstr "向您的联系人发起视频会话。"
+msgstr "向一位 IRC 联系人发起会话。"
 
 #: C/irc-start-conversation.page:30(title)
 msgid "Chat with somebody on IRC"
@@ -1265,6 +1247,8 @@ msgid ""
 "You can hold private conversations with other IRC users, outside of the "
 "public IRC chat rooms. To start a conversation with another IRC user:"
 msgstr ""
+"您可以在公共的 IRC 聊天室之外与其他的 IRC 用户进行私人聊天。要与另一位 IRC 用"
+"户进行会话："
 
 #: C/irc-start-conversation.page:37(p)
 msgid ""
@@ -1272,6 +1256,8 @@ msgid ""
 "you want to chat with. Alternatively, right click the name of the user and "
 "choose <gui>Chat</gui>."
 msgstr ""
+"在一个 IRC 聊天室的联系人列表中，双击您想要聊天的用户。或者，右键点击用户的姓"
+"名并选择 <gui>聊天</gui>"
 
 #: C/irc-start-conversation.page:45(p)
 msgid ""
@@ -1279,6 +1265,8 @@ msgid ""
 "list. It contains a list of users in the IRC chat room you joined. Different "
 "rooms can have different contacts listed."
 msgstr ""
+"IRC 聊天室的联系人列表与 <app>Empathy</app> 的联系人列表不同。它包含了您加入"
+"的这个 IRC 聊天室中的用户列表。不同的聊天室可能有不同的联系人列表。"
 
 #: C/irc-start-conversation.page:52(p)
 msgid ""
@@ -1286,6 +1274,8 @@ msgid ""
 "window. If you do not see it, choose <guiseq><gui>Conversation</"
 "gui><gui>Show Contact List</gui></guiseq>."
 msgstr ""
+"IRC 聊天室的联系人列表通常位于窗口右侧。如果您没有看到它，选择 <guiseq><gui>"
+"对话</gui><gui>显示联系人列表</gui></guiseq>。"
 
 #: C/irc-send-file.page:9(desc)
 msgid "<app>Empathy</app> does not currently support sending files using IRC."
@@ -1314,6 +1304,9 @@ msgid ""
 "and identify yourself. Some IRC chat rooms may not allow you to join without "
 "a registered nickname."
 msgstr ""
+"在某些 IRC 网络上，您可以通过 NickServ 服务注册您的昵称。通过向 NickServ 发送"
+"特殊的消息，您可以设置密码来认证您自己。一些 IRC 聊天室可能不允许您加入，除非"
+"您有注册过的昵称。"
 
 #: C/irc-nick-password.page:40(p)
 msgid ""
@@ -1323,6 +1316,9 @@ msgid ""
 "<app>Empathy</app> to identify yourself to NickServ. The popular freenode "
 "network is known to have this feature."
 msgstr ""
+"<app>Empathy</app> 目前还不支持昵称注册。但一些 IRC 网络会自动向 NickServ 发"
+"送一个 <em>服务器密码</em>。在这样的网络上，您可以在 <app>Empathy</app> 中使"
+"用这样的密码向 NickServ 认证您自己。流行的 freenode 网络就有这个功能。"
 
 #: C/irc-nick-password.page:46(p)
 msgid "To set an IRC server password:"
@@ -1330,13 +1326,13 @@ msgstr "设置一个 IRC 密码："
 
 #: C/irc-nick-password.page:54(p)
 msgid "Select the IRC account from the list on the left of the dialog."
-msgstr ""
+msgstr "在左侧的对话框中选择一个 IRC 账户"
 
 #: C/irc-nick-password.page:57(p)
 msgid ""
 "In the <gui>Password</gui> field, type the password you used to register "
 "your nikcname."
-msgstr ""
+msgstr "在 <gui>密码</gui> 一栏中，输入您注册您的昵称时使用的密码。"
 
 #: C/irc-nick-password.page:63(p) C/import-account.page:61(p)
 msgid "Click <gui style=\"button\">Apply</gui>."
@@ -1348,34 +1344,41 @@ msgid ""
 "certain IRC networks. It is not currently possible to register an IRC "
 "nickname or change your nickname password using <app>Empathy</app>."
 msgstr ""
+"这些说明只是允许您在特定的 IRC 网络上使用密码保护的昵称。目前在 "
+"<app>Empathy</app> 中还不能注册 IRC 昵称或修改密码。"
 
-#: C/irc-manage.page:9(desc)
+#: C/irc-manage.page:10(desc)
 msgid "How to use IRC with <app>Empathy</app>."
 msgstr "如何在 <app>Empathy</app> 中使用 IRC。"
 
-#: C/irc-manage.page:34(title)
+#: C/irc-manage.page:35(title)
 msgid "Internet Relay Chat (IRC)"
 msgstr "互联网中继聊天(IRC)"
 
-#: C/irc-manage.page:37(p) C/account-irc.page:39(p)
+#: C/irc-manage.page:38(p) C/account-irc.page:39(p)
 msgid ""
 "You must have the <sys>telepathy-idle</sys> package installed to use IRC in "
 "<app>Empathy</app>."
 msgstr ""
+"要在 <app>Empathy</app> 中使用 IRC，您必须安装 <sys>telepathy-idle</sys> 包。"
 
-#: C/irc-manage.page:43(title)
+#: C/irc-manage.page:42(link)
+msgid "Install telepathy-idle"
+msgstr "安装 telepathy-idle"
+
+#: C/irc-manage.page:49(title)
 msgid "IRC Chat Rooms and Conversations"
 msgstr "IRC 聊天室和会话"
 
-#: C/irc-manage.page:45(title)
+#: C/irc-manage.page:51(title)
 msgid "Chat Rooms and Conversations"
 msgstr "聊天室和会话"
 
-#: C/irc-manage.page:50(title)
+#: C/irc-manage.page:56(title)
 msgid "Common IRC Problems"
 msgstr "常见 IRC 问题"
 
-#: C/irc-manage.page:52(title) C/index.page:55(title)
+#: C/irc-manage.page:58(title) C/index.page:55(title)
 msgid "Common Problems"
 msgstr "常见问题"
 
@@ -1393,6 +1396,9 @@ msgid ""
 "you’re connected to. To connect to an IRC network, see <link xref=\"add-"
 "account\"/> and <link xref=\"account-irc\"/>."
 msgstr ""
+"您可以加入您已经连接的所有 IRC 网络上的 IRC 聊天室(也称为 IRC 频道)。要连接一"
+"个 IRC 网络，参见 <link xref=\"add-account\"/> and <link xref=\"account-irc"
+"\"/>。"
 
 #: C/irc-join-room.page:39(p) C/group-conversations.page:58(p)
 #: C/group-conversations.page:122(p)
@@ -1400,18 +1406,22 @@ msgid ""
 "From the <gui>Contact List</gui> window, choose <guiseq><gui>Room</"
 "gui><gui>Join</gui></guiseq>."
 msgstr ""
+"在 <gui>联系人列表</gui> 窗口，选择 <guiseq><gui>聊天室</gui><gui>加入</"
+"gui></guiseq>。"
 
 #: C/irc-join-room.page:45(p)
 msgid ""
 "From the <gui>Account</gui> drop-down list, select the IRC account that "
 "corresponds to the network you want to use."
-msgstr ""
+msgstr "在 <gui>账户</gui> 下拉列表中，选择与您想要使用的网络对应的 IRC 账户。"
 
 #: C/irc-join-room.page:51(p)
 msgid ""
 "In the <gui>Room</gui> text box, type the name of the channel you want to "
 "join. IRC channel names start with the hash character (<sys>#</sys>)."
 msgstr ""
+"在 <gui>聊天室</gui> 文本框中，输入您想要加入的频道的名称。IRC 频道名称以井号"
+"(<sys>#</sys>)开头。"
 
 #: C/irc-join-room.page:57(p)
 msgid "Click <gui>Join</gui> to enter the room."
@@ -1435,6 +1445,8 @@ msgid ""
 "On some IRC networks, private IRC rooms may be protected with a password. If "
 "you know the password, use the following steps to join:"
 msgstr ""
+"在某些 IRC 网络上，私人的 IRC 房间可以被密码保护。如果您知道这密码，按照下面"
+"的步骤加入："
 
 #: C/irc-join-pwd.page:33(p)
 msgid "<link xref=\"irc-join-room\">Join the room</link> as normal."
@@ -1445,6 +1457,8 @@ msgid ""
 "Empathy will prompt you for a password. Enter the password for the IRC chat "
 "room and click <gui style=\"button\">Join</gui>."
 msgstr ""
+"Empathy 会提示您输入密码。输入这个 IRC 聊天室的密码并点击 <gui style=\"button"
+"\">加入</gui>。"
 
 #: C/irc-commands.page:7(desc)
 msgid "The supported IRC commands."
@@ -1459,6 +1473,8 @@ msgid ""
 "To see the list of the supported IRC commands, in a chat room type <input>/"
 "help</input> and press <key>Enter</key>."
 msgstr ""
+"要查看支持的 IRC 命令的列表，在一个聊天室中输入<input>/help</input>并按"
+"<key>Enter</key>。"
 
 #: C/irc-commands.page:24(p)
 msgid "All commands available have a small description on their usage."
@@ -1489,12 +1505,16 @@ msgid ""
 "transfers, and all the most used messaging systems such as MSN and Google "
 "Talk."
 msgstr ""
+"<app>Empathy</app> 是 GNOME 桌面的即时通讯程序。它支持文字消息，语音和视频呼"
+"叫，文件传输，支持最常用的即时通讯系统，包括 MSN 和 Google Talk."
 
 #: C/introduction.page:28(p)
 msgid ""
 "<app>Empathy</app> includes features that help you better collaborate while "
 "at work, and that let you easily keep in touch with your friends."
 msgstr ""
+"<app>Empathy</app> 可以帮助您在工作中更好的合作，也可以帮助您与您的朋友们保持"
+"联系。"
 
 #: C/introduction.page:32(p)
 msgid ""
@@ -1503,6 +1523,9 @@ msgid ""
 "search through your previous conversations, and share your desktop in just "
 "two clicks."
 msgstr ""
+"使用 <app>Empathy</app>，您可以将所有的会话组织在同一个窗口中，或者为不同类型"
+"的会话使用不同的窗口，还可以很容易地搜索之前的会话，或者共享您的桌面，只需要"
+"两次点击。"
 
 #: C/introduction.page:39(title)
 msgid "<gui>Contact List</gui> window"
@@ -1550,11 +1573,11 @@ msgstr "文字聊天"
 
 #: C/index.page:47(title)
 msgid "Audio and Video Conversations"
-msgstr "音频和视频聊天"
+msgstr "语音和视频聊天"
 
 #: C/index.page:51(title)
 msgid "Advanced Actions"
-msgstr ""
+msgstr "高级操作"
 
 #: C/import-account.page:10(desc)
 msgid "Import an account from another instant messaging application."
@@ -1578,32 +1601,35 @@ msgid ""
 "accounts from other instant messaging applications. Currently, the only "
 "supported application is <app>Pidgin</app>."
 msgstr ""
+"<app>Empathy</app> 第一次运行时，会提示您可以从其他即时通讯程序中导入账户。目"
+"前，支持的程序只有 <app>Pidgin</app>。"
 
 #: C/import-account.page:50(p)
 msgid ""
 "Run <app>Empathy</app> for the first time. An assistant will offer you a "
 "number of options to create new accounts."
 msgstr ""
+"第一次运行 <app>Empathy</app>，一个助理程序会提供若干选项以创建新账户。"
 
 #: C/import-account.page:54(p)
 msgid ""
 "Select <gui>Yes, import my account details from</gui> and click "
 "<gui>Forward</gui>."
-msgstr ""
+msgstr "选择 <gui>有，请导入我的账户信息</gui> 并点击 <gui>前进</gui>。"
 
 #: C/import-account.page:58(p)
 msgid "Select the check box next to each account you wish to import."
-msgstr ""
+msgstr "选择每个您想要导入的账户旁的复选框。"
 
 #: C/import-account.page:66(p)
 msgid ""
 "It is not currently possible to import accounts after you have completed the "
 "first-run assistant."
-msgstr ""
+msgstr "目前，您只能在第一次运行时的助理程序中导入账户。"
 
 #: C/hide-contacts.page:8(desc)
 msgid "Hide the offline contacts from your <gui>Contact List</gui>."
-msgstr ""
+msgstr "在 <gui>联系人列表</gui> 中隐藏离线联系人。"
 
 #: C/hide-contacts.page:19(title)
 msgid "Hide offline contacts"
@@ -1614,6 +1640,8 @@ msgid ""
 "Normally, <app>Empathy</app> shows all your contacts: those that are online, "
 "with which you can have a conversation, and also those that are offline."
 msgstr ""
+"一般情况下，<app>Empathy</app> 会显示您所有的联系人：您可以与之进行会话的在线"
+"的联系人，和那些离线的联系人。"
 
 #: C/hide-contacts.page:25(p)
 msgid "To hide the contacts that are offline:"
@@ -1625,6 +1653,8 @@ msgid ""
 "gui><gui>Offline Contacts</gui></guiseq>, or press <keyseq><key>Ctrl</"
 "key><key>H</key></keyseq>."
 msgstr ""
+"在 <gui>联系人列表</gui> 窗口，选择 <guiseq><gui>查看</gui><gui>离线联系人</"
+"gui></guiseq>，或按下 <keyseq><key>Ctrl</key><key>H</key></keyseq>。"
 
 #: C/hide-contacts.page:36(p)
 msgid "To show the offline contacts again, repeat the same procedure above."
@@ -1632,55 +1662,57 @@ msgstr "要再次显示离线的联系人，重复上面的步骤。"
 
 #: C/group-conversations.page:8(desc)
 msgid "Start or join a group conversation with your contacts."
-msgstr ""
+msgstr "开始和您的联系人进行群组聊天，或加入群组聊天。"
 
 #: C/group-conversations.page:34(title)
 msgid "Group conversations"
-msgstr ""
+msgstr "群组聊天"
 
 #: C/group-conversations.page:36(p)
 msgid ""
 "Group conversations permits you to have text conversations with more than "
 "one contact at the same time."
-msgstr ""
+msgstr "在群组聊天中，您可以和不止一位联系人同时进行文字交谈。"
 
 #: C/group-conversations.page:40(p)
 msgid ""
 "To have a group conversation you need to have a registered account with "
 "either Jabber or Google Talk, or a People Nearby account."
 msgstr ""
+"要进行群组聊天您需要注册有 Jabber 账户或者 Google Talk 账户，或者“附近的人”账"
+"户。"
 
 #: C/group-conversations.page:46(p)
 msgid ""
 "You can have a group conversation only with the contacts that are using the "
 "same service as yours."
-msgstr ""
+msgstr "您只能和那些与您使用同样的服务的联系人进行群组聊天。"
 
 #: C/group-conversations.page:54(title)
 msgid "Start a group conversation"
-msgstr ""
+msgstr "开始群组聊天"
 
 #: C/group-conversations.page:63(p)
 msgid ""
 "From the <gui>Account</gui> drop-down list, select the account you want to "
 "use for the group conversation."
-msgstr ""
+msgstr "在 <gui>账户</gui> 下拉列表中，选择一个账户用来进行群组聊天。"
 
 #: C/group-conversations.page:69(p)
 msgid ""
 "In the <gui>Server</gui> text box, type the name of server in which the "
 "conversation will be hosted."
-msgstr ""
+msgstr "在 <gui>服务器</gui> 文本框中，输入将会承载这次聊天的服务器名称。"
 
 #: C/group-conversations.page:73(p)
 msgid "Leave it empty if it will be on the current server."
-msgstr ""
+msgstr "如果要使用当前服务器，请将其留空。"
 
 #: C/group-conversations.page:78(p)
 msgid ""
 "In the <gui>Room</gui> text box, type the name you want to give to the "
 "conversation."
-msgstr ""
+msgstr "在 <gui>聊天室</gui> 文本框中，输入您为这次群组聊天起的名字。"
 
 #: C/group-conversations.page:82(p)
 msgid ""
@@ -1688,6 +1720,8 @@ msgid ""
 "name will be publicly available for other people to join. It is not possible "
 "to create a private room."
 msgstr ""
+"这将是您进行群组聊天的聊天室的名字。这个名字会被大家看到以使大家可以加入。您"
+"不能建立一个私人的聊天室。"
 
 #: C/group-conversations.page:90(p)
 msgid ""
@@ -1695,34 +1729,38 @@ msgid ""
 "<gui>Contact List</gui> window, select the contact you want to invite, and "
 "perform one of the following:"
 msgstr ""
+"要邀请其他联系人加入这次群组聊天，在 <gui>联系人列表</gui> 窗口，选择您想要邀"
+"请的联系人，并进行下列操作中的某一项："
 
 #: C/group-conversations.page:97(p)
 msgid "Right-click on the contact and choose <gui>Invite to chatroom</gui>."
-msgstr ""
+msgstr "右键点击联系人，并选择 <gui>邀请到聊天室</gui>。"
 
 #: C/group-conversations.page:102(p)
 msgid ""
 "Choose <guiseq><gui>Edit</gui><gui>Contact</gui><gui>Invite to chatroom</"
 "gui></guiseq>."
 msgstr ""
+"选择 <guiseq><gui>编辑</gui><gui>联系人</gui><gui>邀请到聊天室</gui></"
+"guiseq>。"
 
 #: C/group-conversations.page:107(p)
 msgid ""
 "If you have more than one group conversation open, select the one you want "
 "to invite your contacts."
-msgstr ""
+msgstr "如果您打开了不止一个群组聊天，选择您想要邀请联系人加入的那个。"
 
 #: C/group-conversations.page:118(title)
 msgid "Join a group conversation"
-msgstr ""
+msgstr "加入群组聊天。"
 
 #: C/group-conversations.page:128(p)
 msgid "Expand the <gui>Room List</gui> section to see all the existing rooms."
-msgstr "展开<gui>房间列表</gui>部分来查看所有存在的房间。"
+msgstr "展开<gui>聊天室列表</gui>选项卡来查看所有存在的房间。"
 
 #: C/group-conversations.page:133(p)
 msgid "Double-click on the name of a room to join it."
-msgstr "双击房间的名称来加入它。"
+msgstr "双击房间的名称加入。"
 
 #: C/group-conversations.page:139(p)
 msgid ""
@@ -1730,6 +1768,8 @@ msgid ""
 "require a password, or might be invitation only. <app>Empathy</app> does not "
 "support these kind of rooms."
 msgstr ""
+"并非所有的聊天室都可以加入。有些聊天室可能需要密码，有些只有收到邀请才能加"
+"入。<app>Empathy</app> 不支持这些房间。"
 
 #: C/geolocation-what-is.page:9(desc)
 msgid "Understanding geolocation."
@@ -1761,13 +1801,13 @@ msgstr "查看联系人的地址位置并快速联系他们。"
 msgid ""
 "Set the accuracy of your location and the device used to discover your "
 "location."
-msgstr ""
+msgstr "设置您的地理位置的精度及可以用来发现您的地理位置的设备。"
 
 #: C/geolocation-what-is.page:60(p)
 msgid ""
 "In order to see your contacts’ geographical locations, they need to use a "
 "service and an application that supports geolocation."
-msgstr ""
+msgstr "您的联系人必须使用支持地理位置的程序，您才能看到他们的地理位置。"
 
 #: C/geolocation-turn.page:9(desc)
 msgid "How to activate and deactivate geolocation in <app>Empathy</app>."
@@ -1788,17 +1828,17 @@ msgstr "选择<gui>位置</gui>标签。"
 #: C/geolocation-turn.page:47(p)
 msgid ""
 "Select <gui>Publish location to my contacts</gui> to activate geolocation."
-msgstr ""
+msgstr "选择 <gui>向我的联系人公布位置信息</gui> 以激活地理位置。"
 
 #: C/geolocation-turn.page:50(p)
 msgid "To deactivate geolocation, deselect it."
-msgstr ""
+msgstr "要禁用地理位置，请取消选择。"
 
 #: C/geolocation-turn.page:55(p)
 msgid ""
 "To increase the accuracy of your position, deselect <gui>Reduce location "
 "accuracy</gui>."
-msgstr ""
+msgstr "要提高您的位置的精度，请取消选择 <gui>降低位置信息精度</gui>。"
 
 #: C/geolocation-turn.page:61(p)
 msgid ""
@@ -1806,10 +1846,12 @@ msgid ""
 "position, select the appropriate option in the <gui>Location sources</gui> "
 "section."
 msgstr ""
+"如果您有 GPS 这样的外部设备，或者想要发送更加精确的位置信息，在<gui>位置来源"
+"</gui>选项卡中选择适当的选项。"
 
 #: C/geolocation-supported.page:7(desc)
 msgid "Services that supports geolocation and compatibility."
-msgstr ""
+msgstr "支持地理位置的服务和及其兼容性。"
 
 #: C/geolocation-supported.page:31(title)
 msgid "Supported services"
@@ -1821,6 +1863,8 @@ msgid ""
 "service. In order to use it, you and your contacts need to have a Jabber "
 "account."
 msgstr ""
+"目前，只有 Jabber 服务与地理位置功能兼容。要使用地理位置，您和您的联系人必须"
+"有 Jabber 账户。"
 
 #: C/geolocation-supported.page:39(p)
 msgid ""
@@ -1828,10 +1872,12 @@ msgid ""
 "feature. Most of the Jabber servers support it. See your service website "
 "documentation for more information."
 msgstr ""
+"而且，您使用的服务器也需要支持地理位置功能。大多 Jabber 服务器都支持。要了解"
+"更多，请参看您的服务提供者的网站文档。"
 
 #: C/geolocation-supported.page:47(title)
 msgid "Compatibility"
-msgstr ""
+msgstr "兼容性"
 
 #: C/geolocation-supported.page:49(p)
 msgid ""
@@ -1839,10 +1885,12 @@ msgid ""
 "geographical position services such as <em>Google Latitude</em>, <em>Yahoo "
 "Fire Eagle</em> or <em>Brightkite</em>."
 msgstr ""
+"<app>Empathy</app> 的地理位置功能与其他一些地理位置信息服务并不兼容，如 "
+"<em>Google Latitude</em>，<em>Yahoo Fire Eggle</em> 和 <em>Brightkite</em>。"
 
 #: C/geolocation-privacy.page:8(desc)
 msgid "What information are sent and to who."
-msgstr ""
+msgstr "发送了什么信息，发送给谁了？"
 
 #: C/geolocation-privacy.page:32(title)
 msgid "Geolocation Privacy"
@@ -1850,7 +1898,7 @@ msgstr "地理位置隐私"
 
 #: C/geolocation-privacy.page:35(title)
 msgid "What information is sent"
-msgstr ""
+msgstr "什么信息被发送了"
 
 #: C/geolocation-privacy.page:36(p)
 msgid ""
@@ -1858,13 +1906,15 @@ msgid ""
 "building, floor, room, and postal code, longitude, latitude and altitude, "
 "speed and bearing."
 msgstr ""
+"有可能被发送的信息：您所在的国家，地区，地方，区域，街道，建筑，楼层，房间，"
+"邮政编码及经纬度，您的速度和方向。"
 
 #: C/geolocation-privacy.page:40(p)
 msgid ""
 "The accuracy and the quantity of information about your geographical "
 "position are based on the software or on the infrastructure used to discover "
 "your position."
-msgstr ""
+msgstr "您的地理位置信息的精度和质量取决于软件或者用于发现您的位置的设施。"
 
 #: C/geolocation-privacy.page:44(p)
 msgid ""
@@ -1872,20 +1922,23 @@ msgid ""
 "send different information. The use of external devices such as GPS or "
 "mobile phone will increase the accuracy of the information sent."
 msgstr ""
+"不同的网络可能有不同的精度设置，可能发送不同的信息。使用外部设备，如 GPS 或手"
+"机，可以增加发送的信息的精度。"
 
 #: C/geolocation-privacy.page:49(p)
 msgid ""
 "When the privacy mode is enabled, nothing more precise than your city will "
 "be sent, even if you are using an external device."
 msgstr ""
+"当隐私模式被启用后，只有您所在的城市信息会被发送，即使您正在使用外部设备。"
 
 #: C/geolocation-privacy.page:56(title)
 msgid "Who can see the information sent"
-msgstr ""
+msgstr "谁会看到这些发送出去的信息"
 
 #: C/geolocation-privacy.page:57(p)
 msgid "Only your contacts can see your geographical position."
-msgstr ""
+msgstr "只有您的联系人可以看到您的地理位置。"
 
 #: C/geolocation-privacy.page:63(title)
 msgid "What is the privacy mode"
@@ -1896,19 +1949,21 @@ msgid ""
 "The privacy mode, enabled by default, is a reduced accuracy mode that will "
 "decrease the accuracy of the geographical position sent to your contacts."
 msgstr ""
+"隐私模式是精度降低模式，它会降低发送给您的联系人的地理位置信息的精度。隐私模"
+"式默认开启。"
 
 #: C/geolocation-privacy.page:71(title)
 msgid "Privacy overview"
-msgstr ""
+msgstr "隐私概述"
 
 #: C/geolocation-privacy.page:72(p)
 msgid ""
 "Overview of the various geolocation privacy settings in <app>Empathy</app>."
-msgstr ""
+msgstr "<app>Empathy</app> 中一些关于地理位置隐私的选项的概况。"
 
 #: C/geolocation-privacy.page:77(p)
 msgid "Geolocation is not enabled by default."
-msgstr ""
+msgstr "地理位置默认不开启。"
 
 #: C/geolocation-privacy.page:82(p)
 msgid "Privacy mode is enabled by default."
@@ -1917,7 +1972,7 @@ msgstr "隐私模式默认被激活"
 #: C/geolocation-privacy.page:87(p)
 msgid ""
 "Privacy mode prevails even when using external and more precise devices."
-msgstr ""
+msgstr "即使在使用精度更高的外部设备，隐私模式也会发挥作用。"
 
 #: C/geolocation-privacy.page:92(p)
 msgid "Only your contacts can see your position."
@@ -1925,29 +1980,32 @@ msgstr "只有您的联系人可以看到您的位置。"
 
 #: C/geolocation-not-showing.page:8(desc)
 msgid "<app>Empathy</app> does not publish my geographical position."
-msgstr ""
+msgstr "<app>Empathy</app> 没有发布我的地理位置。"
 
 #: C/geolocation-not-showing.page:32(title)
 msgid "Geographical position not published"
-msgstr ""
+msgstr "地理位置没有被公布。"
 
 #: C/geolocation-not-showing.page:34(p)
 msgid ""
 "If your contacts cannot see your location, <app>Empathy</app> might not be "
 "able to discover with a good margin of precision your geographical position."
 msgstr ""
+"如果您的联系人不能看到您的位置，可能是因为 <app>Empathy</app> 无法发现有一定"
+"精度的您的地理位置信息。"
 
 #: C/geolocation-not-showing.page:38(p)
 msgid ""
 "In this case, your position will not be published, but you are still able to "
 "see the location of your contacts."
 msgstr ""
+"在这种情况下，您的位置信息不会被公布，但您仍可以看到您的联系人的位置信息。"
 
 #: C/geolocation-not-showing.page:42(p)
 msgid ""
 "If you want to publish your geographical position, you can try to use an "
 "external device such as a GPS."
-msgstr ""
+msgstr "如果您想要公布您的地理位置，您可以试一试使用 GPS 等外部设备。"
 
 #: C/geolocation-not-showing.page:48(p)
 msgid ""
@@ -1957,6 +2015,10 @@ msgid ""
 "PEP</link> is maintained online. Google Talk does not support this feature "
 "at this time."
 msgstr ""
+"要发布您的地理位置，您的 Jabber 服务器必须支持 Personal Eventing Protocal "
+"(PEP)。互联网上有人维护着一份<link href=\"http://coccinella.im/servers/"
+"servers_by_pubsub_pep.html\">支持 PEP 的服务器列表</link>。Google Talk 目前不"
+"支持 PEP。"
 
 #: C/geolocation.page:8(desc)
 msgid "Use and understand geolocation in <app>Empathy</app>."
@@ -1964,11 +2026,11 @@ msgstr "使用和了解 <app>Empathy</app> 中的地理位置。"
 
 #: C/geolocation.page:32(title)
 msgid "Geographical position"
-msgstr ""
+msgstr "地理位置"
 
 #: C/geolocation.page:35(title)
 msgid "Geolocation"
-msgstr ""
+msgstr "地理位置"
 
 #: C/geolocation.page:39(title)
 msgid "Fix common problems"
@@ -1976,41 +2038,43 @@ msgstr "修复常见问题"
 
 #: C/favorite-rooms.page:10(desc)
 msgid "Set, join and manage favorite rooms."
-msgstr ""
+msgstr "设立，加入或管理聊天室收藏。"
 
 #: C/favorite-rooms.page:29(title)
 msgid "Favorite rooms"
-msgstr ""
+msgstr "聊天室收藏"
 
 #: C/favorite-rooms.page:32(title)
 msgid "Set a room as a favorite"
-msgstr ""
+msgstr "收藏一个聊天室"
 
 #: C/favorite-rooms.page:35(p)
 msgid "Join a room."
-msgstr "加入一个房间。"
+msgstr "加入一个聊天室。"
 
 #: C/favorite-rooms.page:40(p)
 msgid ""
 "See <link xref=\"irc-join-room\"/> for more information on how to join an "
 "IRC room."
-msgstr ""
+msgstr "关于如何加入 IRC 聊天室，参见 <link xref=\"irc-join-room\">。"
 
 #: C/favorite-rooms.page:46(p)
 msgid ""
 "See <link xref=\"group-conversations\"/> for more information on how to "
 "start or join a group conversation."
 msgstr ""
+"关于如何发起或加入群组聊天，参见 <link xref=\"group-conversations\"/>。"
 
 #: C/favorite-rooms.page:54(p)
 msgid ""
 "From the conversation window, choose <guiseq><gui>Conversation</"
 "gui><gui>Favorite Chat Room</gui></guiseq>."
 msgstr ""
+"在会话窗口，选择 <guiseq><gui>会话</gui><gui>收藏聊天室</gui></guiseq>。"
 
 #: C/favorite-rooms.page:63(title)
 msgid "Join favorite rooms"
-msgstr ""
+msgstr "加入收藏的聊天室"
 
 #: C/favorite-rooms.page:71(p)
 msgid "Press <key>F5</key>."
@@ -2021,58 +2085,62 @@ msgid ""
 "Choose <guiseq><gui>Room</gui><gui>Join Favorites</gui></guiseq>, to join "
 "all your favorite rooms."
 msgstr ""
+"选择 <guiseq><gui>聊天室</gui><gui>加入已收藏的聊天室</gui></guiseq>，以加入"
+"您之前收藏的聊天室。"
 
 #: C/favorite-rooms.page:82(p)
 msgid "Choose <gui>Room</gui>, and select the favorite room you want to join."
-msgstr ""
+msgstr "选择 <gui>聊天室</gui>，并选择您要加入的已收藏的聊天室。"
 
 #: C/favorite-rooms.page:90(p)
 msgid ""
 "To join a favorite room, you need to be connected to the Internet and to "
 "your account."
-msgstr ""
+msgstr "要加入一个已收藏的聊天室，您必须连接互联网和您的账户。"
 
 #: C/favorite-rooms.page:98(title)
 msgid "Manage favorite rooms"
-msgstr ""
+msgstr "管理聊天室收藏"
 
 #: C/favorite-rooms.page:101(p)
 msgid ""
 "From the <gui>Contact List</gui> window, choose <guiseq><gui>Room</"
 "gui><gui>Manage Favorites</gui></guiseq>."
 msgstr ""
+"在 <gui>联系人列表</gui> 窗口，选择 <guiseq><gui>聊天室</gui><gui>管理收藏夹"
+"</gui></guiseq>。"
 
 #: C/favorite-rooms.page:107(p)
 msgid ""
 "From the <gui>Account</gui> drop-down list, select the account you want to "
 "manage the favorite rooms of."
-msgstr ""
+msgstr "在 <gui>账户</gui> 下拉列表中，选择您要管理聊天室收藏的账户。"
 
 #: C/favorite-rooms.page:111(p)
 msgid "Select <gui>All</gui> to see all you favorite rooms."
-msgstr ""
+msgstr "选择 <gui>全部</gui> 以看到搜有您收藏的聊天室。"
 
 #: C/favorite-rooms.page:116(p)
 msgid "Select the favorite room you want to manage:"
-msgstr ""
+msgstr "选择您要管理的收藏："
 
 #: C/favorite-rooms.page:121(p)
 msgid ""
 "Select the <gui>Auto-Connect</gui> check-box in order to automatically join "
 "that room when you connect to your account."
-msgstr ""
+msgstr "选择 <gui>自动连接</gui>，则您连接到您的账户后，会自动加入这个聊天室。"
 
 #: C/favorite-rooms.page:127(p)
 msgid "Click on <gui>Remove</gui> to remove the room from your favorites."
-msgstr ""
+msgstr "点击 <gui>删除</gui> 以从收藏夹中删除这个聊天室。"
 
 #: C/favorite-rooms.page:134(p)
 msgid "When done, click <gui>Close</gui>."
-msgstr "完成后点<gui>关闭</gui>。"
+msgstr "完成后，点击 <gui>关闭</gui>。"
 
 #: C/disable-account.page:9(desc)
 msgid "Prevent <app>Empathy</app> from automatically logging in to an account."
-msgstr ""
+msgstr "使 <app>Empathy</app> 不要自动登录一个账户。"
 
 #: C/disable-account.page:39(title)
 msgid "Disable an account"
@@ -2085,28 +2153,31 @@ msgid ""
 "enable an account if you only want to be logged in to the account at certain "
 "times, but you still want to use <app>Empathy</app> for other accounts."
 msgstr ""
+"您可以禁用一个账户以阻止 <app>Empathy</app> 自动登录这个账户而不必将其彻底删"
+"除。您可能想要禁用、启用某个账户如果您只想偶尔登录这个账户，但又想使用 "
+"<app>Empathy</app> 中的其他账户。"
 
 #: C/disable-account.page:52(p)
 msgid ""
 "Select the account you wish to disable from the accounts list on the left "
 "side of the window."
-msgstr ""
+msgstr "在窗口左侧的账户列表中，选择您想要禁用的账户。"
 
 #: C/disable-account.page:56(p)
 msgid ""
 "Deselect <gui style=\"checkbox\">Enabled</gui> on the right side of the "
 "window."
-msgstr ""
+msgstr "在窗口右侧，取消选择 <gui style=\"checkbox\">启用</gui>。"
 
 #: C/disable-account.page:62(p)
 msgid ""
 "To re-enable the account, simply select <gui style=\"checkbox\">Enabled</"
 "gui>."
-msgstr ""
+msgstr "要重新启用这个账户，只需选择 <gui style=\"checkbox\">启用</gui>。"
 
 #: C/create-account.page:9(desc)
 msgid "Register for an account with one of the supported messaging services."
-msgstr ""
+msgstr "为某种支持的服务注册账户。"
 
 #: C/create-account.page:34(title)
 msgid "Register for a new account"
@@ -2120,6 +2191,9 @@ msgid ""
 "app> to register for a new account, using the same steps as you would to "
 "<link xref=\"add-account\">add an account</link>."
 msgstr ""
+"大多账户类型需要您在使用 <app>Empathy</app> 这样的即时通讯软件连接之前先建立"
+"账户。但对于某些账户提供商，您可以使用 <app>Empathy</app> 来注册新账户，使用"
+"与 <link xref=\"add-account\">添加账户</link> 相同的步骤。"
 
 #: C/create-account.page:42(p)
 msgid ""
@@ -2128,6 +2202,8 @@ msgid ""
 "password, as well as any additional information you need to connect using "
 "<app>Empathy</app>."
 msgstr ""
+"这一页是关于建立各种类型的账户的。您应当已经从您的账户提供商那里得到了登录 "
+"ID 和密码，以及其他使用 <app>Empathy</app> 连接这个账户需要的信息。"
 
 #: C/create-account.page:47(title)
 msgid "Facebook"
@@ -2138,6 +2214,8 @@ msgid ""
 "Facebook is one of the most-used social networks. It allows users to create "
 "their own profile and to communicate with their friends."
 msgstr ""
+"Facebook 是最常用的社交网络之一。它允许用户对自己进行个性化的描述并与朋友们交"
+"流。"
 
 #: C/create-account.page:52(p)
 msgid ""
@@ -2145,6 +2223,8 @@ msgid ""
 "new account from the website: <link href=\"http://www.facebook.com\">www."
 "facebook.com</link>."
 msgstr ""
+"要使用 Facebook 与您的朋友们交流，您需要在其网站上建立一个新账户：<link href="
+"\"http://www.facebook.com\">www.facebook.com</link>。"
 
 #: C/create-account.page:60(title) C/audio-video.page:170(p)
 msgid "Jabber"
@@ -2156,6 +2236,8 @@ msgid ""
 "choose your account provider and communicate with all other Jabber users, "
 "regardless of their account provider."
 msgstr ""
+"Jabber 是一种开放的即时通讯系统。像 email 一样，Jabber 允许您选择账户提供商，"
+"并与其他 Jabber 用户交流，无论他们使用哪里账户提供商。"
 
 #: C/create-account.page:66(p)
 msgid ""
@@ -2163,6 +2245,8 @@ msgid ""
 "free providers; one popular provider is <link href=\"http://register.jabber."
 "org/\">Jabber.org</link>."
 msgstr ""
+"您需要在某个 Jabber 服务提供商那里建立账户。有许多 Jabber 服务提供商，<link "
+"href=\"http://register.jabber.org/\">Jabber.org</link> 是很流行的一个。"
 
 #: C/create-account.page:71(p)
 msgid ""
@@ -2170,10 +2254,13 @@ msgid ""
 "Google Talk is a Jabber service. Simply use your Google Mail address and "
 "password in <app>Empathy</app> to connect."
 msgstr ""
+"如果您使用 Google Mail 或者 Google Talk，那么您已经拥有 Jabber 账户了。"
+"Google Talk 就是一个 Jabber 服务。您只需要使用您的 Google Mail 地址和密码在 "
+"<app>Empathy</app> 中连接。"
 
 #: C/create-account.page:78(title) C/audio-video.page:190(p)
 msgid "People Nearby"
-msgstr ""
+msgstr "附近的人"
 
 #: C/create-account.page:80(p)
 msgid ""
@@ -2182,10 +2269,12 @@ msgid ""
 "such as a wireless hotspot. It automatically finds all other users on the "
 "network who are also using this service."
 msgstr ""
+"要使用这个服务，您并不需要在某个服务提供商那里创建账户，只需要连接到一个本地"
+"网络，比如一个无线热点。它会自动发现网络中使用这个服务的其他用户。"
 
 #: C/create-account.page:85(p)
 msgid "For more information, see <link xref=\"salut-protocol\"/>."
-msgstr ""
+msgstr "更多信息参见<link xref=\"salut-protocol\"/>。"
 
 #: C/create-account.page:89(title) C/audio-video.page:205(p)
 msgid "SIP"
@@ -2198,6 +2287,9 @@ msgid ""
 "provider. You can communicate with all other SIP users, regardless of which "
 "SIP provider they use."
 msgstr ""
+"SIP 是一种允许用户通过互联网进行语音和视频会话的开放系统。您需要在某个 SIP 服"
+"务提供商处创建账户。您可以和其他的 SIP 用户交流，无论他们的 SIP 服务提供商与"
+"您是否相同。"
 
 #: C/create-account.page:97(p)
 msgid ""
@@ -2205,12 +2297,16 @@ msgid ""
 "index.php?page=register\">Ekiga.net</link> service does not currently work "
 "with <app>Empathy</app>."
 msgstr ""
+"由于技术上的差别，免费的 <link href=\"https://www.ekiga.net/index.php?"
+"page=register\">Ekiga.net</link> 服务目前在 <app>Empathy</app> 中还不能使用。"
 
 #: C/create-account.page:102(p)
 msgid ""
 "Some SIP providers allow you to call normal phones from your computer. "
 "Generally, you will need to subscribe to a paid service for this feature."
 msgstr ""
+"有些 SIP 服务提供商允许用您的计算机呼叫一般的电话。通常，您需要订阅某种付费服"
+"务才能使用这个功能。"
 
 #: C/create-account.page:107(title) C/audio-video.page:165(p)
 msgid "IRC"
@@ -2223,22 +2319,29 @@ msgid ""
 "is only established each time you connect. If another user is using the "
 "nickname, you will need to choose a new nickname."
 msgstr ""
+"您不需要注册账户就可以使用 IRC。尽管您在 <app>Empathy</app> 中添加 IRC 账户时"
+"指定了一个昵称，这个昵称只是您每次连接时才建立。如果有其他用户在使用这个昵"
+"称，您需要选择一个其他昵称。"
 
 #: C/create-account.page:114(p)
 msgid ""
 "Some IRC networks use a service called NickServ to allow users to protect "
 "their nicknames. See <link xref=\"irc-nick-password\"/> for more information."
 msgstr ""
+"有些 IRC 网络上有一种叫做 NickServ 的服务，允许用户保护他们的昵称。更多信息参"
+"见<link xref=\"irc-nick-password\"/>。"
 
 #: C/create-account.page:117(p)
 msgid ""
 "Some IRC servers are password protected. You will need to know the password "
 "to connect to these servers. Generally, these are private IRC networks."
 msgstr ""
+"有些 IRC 服务器是被密码保护的。您需要知道密码才能连接到这些服务器。通常，这样"
+"的服务器是私有的。"
 
 #: C/create-account.page:122(title)
 msgid "Proprietary Services"
-msgstr ""
+msgstr "专有的服务"
 
 #: C/create-account.page:124(p)
 msgid ""
@@ -2248,6 +2351,9 @@ msgid ""
 "new account with one of these services, you will need to visit the service’s "
 "web site and agree to its terms of use."
 msgstr ""
+"许多不同的公司或组织开发了一些专营的即时消息服务。<app>Empathy</app> 允许您连"
+"接大多常见服务的既存账户。要为这样的服务创建账户，您需要访问其网站并同意其使"
+"用条款。"
 
 #: C/create-account.page:133(link) C/audio-video.page:135(p)
 msgid "AIM"
@@ -2267,7 +2373,7 @@ msgstr "Yahoo!"
 
 #: C/change-status.page:9(desc)
 msgid "Change your status to advertise your availability to your contacts."
-msgstr ""
+msgstr "改变您的状态以向您的联系人表明您是否闲暇。"
 
 #: C/change-status.page:34(title)
 msgid "Change your status"
@@ -2278,15 +2384,17 @@ msgid ""
 "You can set your status to indicate your availability to your contacts. "
 "<app>Empathy</app> allows you to select from a list of defined statuses."
 msgstr ""
+"您可以改变您的状态，从而向联系人表明您现在是否闲暇。<app>Empathy</app> 允许您"
+"从一些定义好的状态中选择一个。"
 
 #: C/change-status.page:41(p)
 msgid ""
 "Click on the drop-down list at the top of the <gui>Contact List</gui> window."
-msgstr ""
+msgstr "点击 <gui>联系人列表</gui> 窗口顶部的下拉列表。"
 
 #: C/change-status.page:46(p)
 msgid "Select a status from the list."
-msgstr ""
+msgstr "从列表中选择一个状态。"
 
 #: C/change-status.page:52(p)
 msgid ""
@@ -2295,12 +2403,16 @@ msgid ""
 "status messages</link> to provide more information about your availability "
 "to your contacts."
 msgstr ""
+"内置的状态和它们的含义参见<link xref=\"status-icons\"/>。您也可以<link xref="
+"\"set-custom-message\">添加自定义的状态信息</link>来向您的联系人提供更多有关"
+"您当前状态的信息。"
 
 #: C/change-status.page:58(p)
 msgid ""
 "If you do not use your computer for a while, or if the screensaver is on, "
 "the status will be automatically set to Away."
 msgstr ""
+"如果您一段时间不使用计算机，或屏幕保护开始运行，您的状态会自动变为“离开”。"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -2315,11 +2427,11 @@ msgstr ""
 #: C/audio-video.page:8(desc)
 msgid ""
 "Information on when it is possible to have an audio or video conversation."
-msgstr ""
+msgstr "语音或视频会话的条件。"
 
 #: C/audio-video.page:32(title)
 msgid "Audio and video support"
-msgstr "音频和视频支持"
+msgstr "语音和视频支持"
 
 #: C/audio-video.page:34(p)
 msgid ""
@@ -2328,6 +2440,9 @@ msgid ""
 "audio or video conversations, you will see the following icons next to their "
 "names in the contact list:"
 msgstr ""
+"您的联系人也在使用支持语音和视频会话的程序时，您才可以和他们进行语音、视频会"
+"话。如果您的联系人可以进行语音或视频会话，您将在联系人列表中他们的姓名旁看到"
+"下列图标："
 
 #: C/audio-video.page:43(p)
 msgid "Icon"
@@ -2339,11 +2454,11 @@ msgstr "描述"
 
 #: C/audio-video.page:58(media)
 msgid "Icon for audio conversation"
-msgstr "音频聊天的图标"
+msgstr "语音聊天的图标"
 
 #: C/audio-video.page:64(p)
 msgid "The contact is able to have an audio conversation."
-msgstr ""
+msgstr "联系人可以进行语音聊天。"
 
 #: C/audio-video.page:70(media)
 msgid "Icon for video conversation"
@@ -2351,19 +2466,21 @@ msgstr "视频聊天的图标"
 
 #: C/audio-video.page:76(p)
 msgid "The contact is able to have a video conversation."
-msgstr ""
+msgstr "联系人可以进行视频聊天。"
 
 #: C/audio-video.page:83(p)
 msgid ""
 "In order to have an audio conversation, you need to have a sound card that "
 "is supported by your operating system, and a working microphone."
 msgstr ""
+"要进行语音聊天，您需要有一块声卡，且您的操作系统必需支持它，还需要一个能正常"
+"工作的麦克风。"
 
 #: C/audio-video.page:87(p)
 msgid ""
 "In order to have a video conversation, you need to have a webcam that is "
 "supported by your operating system, and a working microphone."
-msgstr ""
+msgstr "要进行视频聊天，您需要操作系统支持的摄像头，及可以正常工作的麦克风。"
 
 #: C/audio-video.page:95(title)
 msgid "Supported Account Types"
@@ -2375,6 +2492,8 @@ msgid ""
 "supported services. The following table lists whether audio and video is "
 "supported for each type of account."
 msgstr ""
+"只有一些特定类型的账户支持语音或视频聊天。下表列出了每种类型的账户的语音、视"
+"频支持情况。"
 
 #: C/audio-video.page:102(p)
 msgid ""
@@ -2383,6 +2502,8 @@ msgid ""
 "plugins may make audio or video conversations possible on account types that "
 "are listed as unsupported here."
 msgstr ""
+"账户类型是由插件提供的。您的系统上不一定有以下列出的全部类型，也可能有一些类"
+"型没有在下面列出。插件的升级可能使下表中不支持语音或视频的账户类型获得支持。"
 
 #: C/audio-video.page:110(p)
 msgid ""
@@ -2406,7 +2527,7 @@ msgstr "服务"
 
 #: C/audio-video.page:129(p)
 msgid "Audio"
-msgstr "音频"
+msgstr "语音"
 
 #: C/audio-video.page:130(p)
 msgid "Video"
@@ -2426,7 +2547,7 @@ msgstr "视频"
 #: C/audio-video.page:211(p) C/audio-video.page:212(p)
 #: C/audio-video.page:216(p) C/audio-video.page:217(p)
 msgid "No"
-msgstr ""
+msgstr "否"
 
 #: C/audio-video.page:140(p)
 msgid "Facebook Chat"
@@ -2445,7 +2566,7 @@ msgstr "Google Talk"
 #: C/audio-video.page:176(p) C/audio-video.page:177(p)
 #: C/audio-video.page:206(p) C/audio-video.page:207(p)
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: C/audio-video.page:155(p)
 msgid "Groupwise"
@@ -2473,11 +2594,11 @@ msgstr "zephyr"
 
 #: C/audio-call.page:9(desc)
 msgid "Call your contacts over the Internet."
-msgstr ""
+msgstr "通过互联网呼叫您的联系人。"
 
 #: C/audio-call.page:27(title)
 msgid "Start an audio conversation"
-msgstr "开始音频聊天"
+msgstr "开始语音聊天"
 
 #: C/audio-call.page:29(p)
 msgid ""
@@ -2485,58 +2606,39 @@ msgid ""
 "features only works with certain types of accounts, and it requires the "
 "other person to have an application that supports audio calls."
 msgstr ""
+"您可以呼叫您的联系人，与他们进行语音聊天。这个功能仅对于一些特定类型的账户可"
+"用，并且需要另一个人使用的应用程序也支持语音呼叫。"
 
 #: C/audio-call.page:34(p)
-#, fuzzy
-#| msgid ""
-#| "From the <gui>Contact List</gui> window, click the <media type=\"image\" "
-#| "mime=\"image/png\" src=\"figures/camera-web.png\">video call</media> icon "
-#| "next to the name of the contact you wish to call and choose <gui style="
-#| "\"menuitem\">Video Call</gui>. Alternatively, right click the contact and "
-#| "choose <gui style=\"menuitem\">Video Call</gui>."
 msgid ""
 "From the <gui>Contact List</gui> window, click the <media type=\"image\" "
 "mime=\"image/png\" src=\"figures/camera-web.png\">video call</media> icon "
 "next to the name of the contact you wish to call and choose <gui style="
 "\"menuitem\">Audio Call</gui>."
 msgstr ""
-"在<gui>联系人列表</gui>窗口，点击您想呼叫的联系人的名字旁的<media type="
-"\"image\" mime=\"image/png\" src=\"figures/camera-web.png\">视频呼叫</media>"
-"图标并选择<gui style=\"menuitem\">视频呼叫</gui>。同样，也可以右击联系人并选"
-"择<gui style=\"menuitem\">视频呼叫</gui>。"
+"在 <gui>联系人列表</gui> 窗口，点击您想呼叫的联系人的名字旁的 <media type="
+"\"image\" mime=\"image/png\" src=\"figures/camera-web.png\">视频呼叫</media> "
+"图标并选择 <gui style=\"menuitem\">语音呼叫</gui>。"
 
 #: C/audio-call.page:55(p)
-#, fuzzy
-#| msgid ""
-#| "To turn a video conversation into an audio conversation, choose "
-#| "<guiseq><gui style=\"menu\">Video</gui><gui style=\"menuitem\">Video Off</"
-#| "gui></guiseq>, or click the <media type=\"image\" mime=\"image/png\" src="
-#| "\"figures/camera-web.png\">video call</media> toolbar button to deselect "
-#| "it."
 msgid ""
 "To turn an audio conversation into a video conversation, choose <guiseq><gui "
 "style=\"menu\">Video</gui><gui style=\"menuitem\">Video On</gui></guiseq>."
 msgstr ""
-"要将视频会话转为音频会话，则选择<guiseq><gui style=\"menu\">视频</gui><gui "
-"style=\"menuitem\">关闭视频</gui></guiseq>，或者点击工具栏上的<media type="
-"\"image\" mime=\"image/png\" src=\"figures/camera-web.png\">视频呼叫</media>"
-"按钮以取消选择。"
+"要将语音会话转为视频会话，选择 <guiseq><gui style=\"menu\">视频</gui><gui "
+"style=\"menuitem\">视频开启</gui></guiseq>。"
 
 #: C/audio-call.page:63(title)
-#, fuzzy
-#| msgid "Start a video conversation with one of your contacts."
 msgid "Start an audio conversation with a meta-contact"
-msgstr "向您的联系人发起视频会话。"
+msgstr "向一位元联系人发起语音会话"
 
 #: C/audio-call.page:71(p)
-#, fuzzy
-#| msgid ""
-#| "Right-click on the name of the contact you want to have a conversation "
-#| "with, and choose <gui>Chat</gui>."
 msgid ""
 "Select the contact you want to have the conversation, and from the menu "
 "select <gui style=\"menuitem\">Audio Call</gui>."
-msgstr "右键点击您想要进行交谈的联系人的名字，然后选择 <gui>聊天</gui>"
+msgstr ""
+"选择您想要交谈的联系人，然后在菜单中选择<gui style=\"menuitem\">语音呼叫</"
+"gui>。"
 
 #: C/add-contact.page:9(desc)
 msgid "Add someone to the contact list."
@@ -2556,28 +2658,32 @@ msgid ""
 "use to connect to your contact. Your contact will need to be using the same "
 "service as the account you select."
 msgstr ""
+"在 <gui>账户</gui> 下拉列表中，选择您用来与您的联系人联系的账户。您的联系人需"
+"要使用与您选择的账户相同的服务。"
 
 #: C/add-contact.page:45(p)
 msgid ""
 "In the <gui>Identifier</gui> field, enter your contact’s login ID, username, "
 "screen name, or other appropriate identifier for the service type."
 msgstr ""
+"在 <gui>标识符</gui> 一栏中，输入这种服务中您的联系人的登录 ID，用户名，显示"
+"名或其他合适的标识符。"
 
 #: C/add-contact.page:49(p)
 msgid ""
 "In the <gui>Alias</gui> field, type your contact’s name as you would like it "
 "to appear in your contact list."
-msgstr ""
+msgstr "在 <gui>别名</gui> 中，输入您希望这个联系人显示在联系人列表中的名字。"
 
 #: C/add-contact.page:53(p)
 msgid "Click <gui>Add</gui> to add the person to your list of contacts."
-msgstr ""
+msgstr "点击<gui>添加</gui>将此人添加到您的联系人列表。"
 
 #: C/add-contact.page:61(p)
 msgid ""
 "To add a new person to your list of contacts, you need to be connected to "
 "the Internet and to your account."
-msgstr ""
+msgstr "要添加联系人到您的联系人列表，您需要连接因特网和您的账户。"
 
 #: C/add-account.page:9(desc)
 msgid "Add a new account to <app>Empathy</app>."
@@ -2594,6 +2700,9 @@ msgid ""
 "account providers, these steps will also allow you to register for a new "
 "account. For more details, see <link xref=\"create-account\"/>."
 msgstr ""
+"您可以添加任何支持的服务的即时消息账户，以在 <app>Empathy</app> 中与您的联系"
+"人交流。对于某些账户提供商，这些步骤也允许您注册新账户。更多细节参见<link "
+"xref=\"create-account\"/>。"
 
 #: C/add-account.page:52(p)
 msgid "Click <gui style=\"button\">Add</gui>."
@@ -2603,7 +2712,7 @@ msgstr "点击<gui style=\"button\">添加</gui>。"
 msgid ""
 "From the <gui>Protocol</gui> drop-down list, select the type of account you "
 "wish to add."
-msgstr ""
+msgstr "在<gui>协议</gui>下拉列表，选择您要创建的账户类型。"
 
 #: C/add-account.page:61(p)
 msgid ""
@@ -2612,6 +2721,9 @@ msgid ""
 "types, and may not work with some account providers. See <link xref=\"create-"
 "account\"/> for more information."
 msgstr ""
+"如果您还没有注册账户，选择<gui>在服务器上创建新的账户</gui>。这个功能并不是对"
+"于每一种账户都可用，也可能对于某些账户提供商不可用。更多信息参见<link xref="
+"\"create-account\"/>。"
 
 #: C/add-account.page:66(p)
 msgid ""
@@ -2619,10 +2731,12 @@ msgid ""
 "login ID and a password. Some accounts may require additional information. "
 "See <link xref=\"accounts-window#details\"/> for more information."
 msgstr ""
+"输入必要的信息。对于大多数账户，您只需要输入登录 ID 和密码。有些账户可能需要"
+"更多信息。参见<link xref=\"accounts-window#details\"/>。"
 
 #: C/add-account.page:71(p)
 msgid "Click <gui style=\"button\">Log in</gui>."
-msgstr ""
+msgstr "点击<gui style=\"button\">登入</gui>。"
 
 #: C/add-account.page:78(p)
 msgid ""
@@ -2631,6 +2745,8 @@ msgid ""
 "name or press the space bar. Edit the account name and press <key>Enter</"
 "key> when you’re finished."
 msgstr ""
+"要改变账户在<gui>账户</gui>窗口中的作为标识的名字，在左侧的列表中选择账户，然"
+"后点击名字或者按空格键。编辑账户的名字，完成后按<key>Enter</key>。"
 
 #: C/accounts-window.page:11(desc)
 msgid "Add, modify, and delete accounts."
@@ -2656,14 +2772,16 @@ msgid ""
 "Certain accounts or account types, however, may require additional "
 "information."
 msgstr ""
+"对于大多数的账户，您只需要输入登录 ID 和密码。但有些账户或有些类型的账户可能"
+"需要额外的信息。"
 
 #: C/account-jabber.page:7(desc)
 msgid "Advanced options for Jabber and Google Talk accounts."
-msgstr ""
+msgstr "Jabber 和 Google Talk 账户的高级选项。"
 
 #: C/account-jabber.page:29(title)
 msgid "Jabber account details"
-msgstr "Jabber 账户信息"
+msgstr "Jabber 账户详情"
 
 #: C/account-jabber.page:31(p)
 msgid ""
@@ -2673,12 +2791,15 @@ msgid ""
 "will not need to use the advanced options below. For general instructions on "
 "adding an account, see <link xref=\"add-account\"/>."
 msgstr ""
+"大多 Jabber 账户只需要登录 ID 和密码就可以连接。但对于某些账户或某些网络，您"
+"可能需要在<gui>高级</gui>选项卡中输入一些额外的信息。通常，您不需要使用下面的"
+"这些高级选项。添加账户的一般指导参见<link xref=\"add-account\"/>。"
 
 #: C/account-jabber.page:39(p)
 msgid ""
 "Google Talk is a type of Jabber account. These instructions hold for Google "
 "Talk accounts as well."
-msgstr ""
+msgstr "Google Talk 是一种 Jabber 账户。这些指南对 Google Talk 账户同样适用。"
 
 #: C/account-jabber.page:45(gui)
 msgid "Encryption required (TLS/SSL)"
@@ -2696,6 +2817,9 @@ msgid ""
 "<app>Empathy</app> from communicating with the Jabber server when encryption "
 "is not possible."
 msgstr ""
+"只要有可能，<app>Empathy</app> 与 Jabber 服务器之间的通讯就会被加密。如果不可"
+"能加密，消息就可能被明文发送。选择<gui>需要加密</gui>以阻止不能加密时 "
+"<app>Empathy</app> 与 Jabber 服务器进行明文通讯。"
 
 #: C/account-jabber.page:52(p)
 msgid ""
@@ -2704,6 +2828,9 @@ msgid ""
 "connecting to, you can select <gui>Ignore SSL certificate errors</gui> to "
 "allow encrypted communication with invalid certificates."
 msgstr ""
+"有些 Jabber 服务器可能使用不合法的证书加密数据，或者使用来自未知的证书认证机"
+"构的证书。如果您信任您的服务器，您可以选择<gui>忽略 SSL 证书错误</gui>以允许"
+"使用不合法的证书进行加密通讯。"
 
 #: C/account-jabber.page:59(gui)
 msgid "Resource"
@@ -2720,6 +2847,9 @@ msgid ""
 "uniquely identify each one. By default, <app>Empathy</app> will use "
 "<input>Telepathy</input> as the resource."
 msgstr ""
+"如果您有多个应用程序(比如，在另一台计算机上)同时连接了您的账户，您可以设置“资"
+"源”以唯一地标识每一个连接的程序。默认地，<app>Empathy</app> 会使用 "
+"<input>Telepathy</input> 作为“资源”。"
 
 #: C/account-jabber.page:65(p)
 msgid ""
@@ -2727,10 +2857,12 @@ msgid ""
 "incoming messages from your contacts. New messages will be sent to the "
 "application with the highest priority."
 msgstr ""
+"您可以设置优先级以指定哪一个程序优先收到您的联系人发送来的消息。新的消息会被"
+"发送给优先级最高的程序。"
 
 #: C/account-jabber.page:70(gui)
 msgid "Override server settings"
-msgstr ""
+msgstr "覆盖服务器设置"
 
 #: C/account-jabber.page:71(p)
 msgid ""
@@ -2739,6 +2871,9 @@ msgid ""
 "custom server settings manually. These settings should be provided for you "
 "by your Jabber provider."
 msgstr ""
+"<app>Empathy</app> 会根据您的登录 ID 以默认的设置连接 Jabber 服务器。对某些 "
+"Jabber 服务器，您需要人工输入一些服务器设置。这些设置应该由您的 Jabber 服务提"
+"供商提供。"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -2755,11 +2890,11 @@ msgstr ""
 
 #: C/account-irc.page:8(desc)
 msgid "Additional information necessary for connecting to IRC networks."
-msgstr ""
+msgstr "连接 IRC 网络需要的额外信息。"
 
 #: C/account-irc.page:31(title)
 msgid "IRC account details"
-msgstr "IRC 账户信息"
+msgstr "IRC 账户详情"
 
 #: C/account-irc.page:33(p)
 msgid ""
@@ -2768,6 +2903,8 @@ msgid ""
 "and a nickname. This page details the information you can provide for an IRC "
 "account."
 msgstr ""
+"IRC 账户需要与其他类型的账户不同的信息。要创建 IRC 账户，您至少需要指定一个 "
+"IRC 网络和一个昵称。本页详细介绍了您可以为一个 IRC 账户提供的信息。"
 
 #: C/account-irc.page:45(gui) C/account-irc.page:120(gui)
 msgid "Network"
@@ -2780,6 +2917,9 @@ msgid ""
 "lists the most popular networks in the <gui>Network</gui> drop-down list. "
 "You can add additional networks. See <link xref=\"#networks\"/> below."
 msgstr ""
+"IRC 是一种开放的系统，它允许人们运行各自的 IRC 网络。每个网络是独立的，有特有"
+"的用户和聊天室。<app>Empathy</app> 在 <gui>网络</gui> 下拉列表中列出了一些最"
+"流行的网络。您可以添加其他的网络。参看下面的<link xref=\"#networks\"/>。"
 
 #: C/account-irc.page:53(gui)
 msgid "Nickname"
@@ -2792,6 +2932,9 @@ msgid ""
 "<link xref=\"prob-conn-name\" role=\"error-msg\"/> you will need to change "
 "your nickname."
 msgstr ""
+"您的昵称是您在 IRC 网络上的唯一性的名字。只有一个人可以使用某个特定的昵称。如"
+"果您得到<link xref=\"prob-conn-name\" role=\"error-msg\"/错误信息，您需要改变"
+"您的昵称。"
 
 #: C/account-irc.page:60(gui)
 msgid "Password"
@@ -2803,6 +2946,8 @@ msgid ""
 "connect. If you are authorized to use the network, the network "
 "administrators should provide you with a password."
 msgstr ""
+"一些服务器，尤其是那些私有网络，需要密码才能连接。如果您被授权使用，网络的管"
+"理员应当为您提供了密码。"
 
 #: C/account-irc.page:65(title)
 msgid "NickServ Passwords"
@@ -2817,20 +2962,26 @@ msgid ""
 "identify yourself with NickServ. See <link xref=\"irc-nick-password\"/> for "
 "more details."
 msgstr ""
+"在某些网络上，昵称可以通过一种叫做 NickServ 的服务被注册。<app>Empathy</app> "
+"并不直接支持昵称密码。在某些网络上，包括流行的 freenode 网络，服务器密码会被"
+"自动转发给 NickServ，从而允许您设置此项向 NickServ 证明您自己。更多信息参见"
+"<link xref=\"irc-nick-password\"/>。"
 
 #: C/account-irc.page:76(gui)
 msgid "Real name"
-msgstr ""
+msgstr "真实姓名"
 
 #: C/account-irc.page:77(p)
 msgid ""
 "You can provide your real name in addition to your nickname. Other users "
 "will be able to see this when they view your information."
 msgstr ""
+"除了昵称，您还可以提供您的真实姓名。其他用户查看您的信息时可以看到您的真实姓"
+"名。"
 
 #: C/account-irc.page:81(gui)
 msgid "Quit message"
-msgstr ""
+msgstr "退出消息"
 
 #: C/account-irc.page:82(p)
 msgid ""
@@ -2838,6 +2989,8 @@ msgid ""
 "and to all the users you’re having a private conversation with. Use this "
 "field to provide a custom quit message."
 msgstr ""
+"当您离线时，一个退出消息会被发送给所有您加入的聊天室和正在与您进行私人聊天的"
+"用户。设置此项以提供自定义的退出消息。"
 
 #: C/account-irc.page:94(title)
 msgid "IRC Networks"
@@ -2853,12 +3006,16 @@ msgid ""
 "another IRC network, you can add it to the list. You can also modify "
 "networks and remove them from the list."
 msgstr ""
+"<app>Empathy</app> 包括了一份常用 IRC 网络的列表。如果您想使用其他的 IRC 网"
+"络，您可以将其添加到这个列表中。您也可以修改网络或从列表中删除网络。"
 
 #: C/account-irc.page:104(p)
 msgid ""
 "To add a network to the list, click <media type=\"image\" mime=\"image/png\" "
 "src=\"figures/gtk-add.png\" width=\"16\" height=\"16\">Add</media>."
 msgstr ""
+"要想列表中添加网络，点击<media type=\"image\" mime=\"image/png\" src="
+"\"figures/gtk-add.png\" width=\"16\" height=\"16\">添加</media>。"
 
 #: C/account-irc.page:107(p)
 msgid ""
@@ -2866,6 +3023,8 @@ msgid ""
 "\"image\" mime=\"image/png\" src=\"figures/gtk-edit.png\" width=\"16\" "
 "height=\"16\">Edit</media>."
 msgstr ""
+"要修改列表中的网络，选择那个网络并点击<media type=\"image\" mime=\"image/png"
+"\" src=\"figures/gtk-edit.png\" width=\"16\" height=\"16\">编辑</media>。"
 
 #: C/account-irc.page:110(p)
 msgid ""
@@ -2873,17 +3032,20 @@ msgid ""
 "\"image\" mime=\"image/png\" src=\"figures/gtk-remove.png\" width=\"16\" "
 "height=\"16\">Remove</media>."
 msgstr ""
+"要从列表中删除网络，选择要删除的网络并点击<media type=\"image\" mime=\"image/"
+"png\" src=\"figures/gtk-remove.png\" width=\"16\" height=\"16\">删除</"
+"media>。"
 
 #: C/account-irc.page:115(p)
 msgid ""
 "When adding or modifying a network, you can enter the following information:"
-msgstr ""
+msgstr "在添加或修改一个网络时，您可以输入下列信息："
 
 #: C/account-irc.page:121(p)
 msgid ""
 "This is the name of the network as you want it to appear in the list of "
 "networks."
-msgstr ""
+msgstr "这是您希望网络显示在网络列表中的名字。"
 
 #: C/account-irc.page:125(gui)
 msgid "Charset"
@@ -2897,6 +3059,9 @@ msgid ""
 "to use the same character encoding as other users to see their messages "
 "correctly."
 msgstr ""
+"这指明了网络上常用的字符编码。字符编码是计算机内部记录字符的一种特定方式。有"
+"许多不同的字符编码，您需要与其他用户使用同样的字符编码才能正确地看到他们的信"
+"息。"
 
 #. Translators: Recommend character encodings that are common
 #.             for your language.
@@ -2906,6 +3071,8 @@ msgid ""
 "can handle text from most of the world's languages. Another common encoding "
 "for English and some other Western languages is ISO-8859-1."
 msgstr ""
+"默认地，<app>Empathy</app> 使用 UTF-8，一种能够处理世界上大多数语言的现代化的"
+"字符编码。简体中文常用的编码还有 GB18030，GBK 和 GB2312。"
 
 #: C/account-irc.page:141(gui)
 msgid "Servers"
@@ -2918,6 +3085,9 @@ msgid ""
 "users on all other servers on that network. You can add and remove servers "
 "for this network using the <gui>Add</gui> and <gui>Remove</gui> buttons."
 msgstr ""
+"一个 IRC 网络可能有许多服务器供您连接。当您连接到一个特定网络的服务器后，您可"
+"以和同一网络中所有服务器的用户交流。您可以为一个网络添加或删除服务器，使用"
+"<gui>添加</gui>或<gui>删除</gui>按钮。"
 
 #: C/account-irc.page:147(p)
 msgid ""
@@ -2925,6 +3095,8 @@ msgid ""
 "<gui>Port</gui> to edit it. Alternatively, use the left and right arrow keys "
 "to focus the field, and press the space bar to begin editing."
 msgstr ""
+"当一个服务器被选择后，点击<gui>服务器</gui>或<gui>端口</gui>下方的字段来编辑"
+"它。或者，使用左右方向键来聚焦某个字段，并按空格键开始编辑。"
 
 #: C/account-irc.page:151(p)
 msgid ""
@@ -2932,10 +3104,14 @@ msgid ""
 "communication with a server. Note that this does not prevent other users on "
 "the network from seeing what you write on public chat rooms."
 msgstr ""
+"选择 <gui>SSL</gui> 列中的复选框以加密与服务器间的所有通讯。注意这并不能意味"
+"着其他用户不能看到您在公共聊天室中的发言。"
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/index.page:0(None)
 msgid "translator-credits"
 msgstr ""
 "Lavande  <lavande@thislove.cz.cc>, 2010\n"
-"Tao Wang <dancefire@gmail.com>, 2010lainme <lainme993@gmail.com>, 2011"
+"Tao Wang <dancefire@gmail.com>, 2010\n"
+"lainme <lainme993@gmail.com>, 2011\n"
+"Guanhao Yin <yinguanhao@gmail.com>, 2011"
