@@ -4044,7 +4044,7 @@ msgstr "Збігів не знайдено"
 #, c-format
 msgid "Sorry, %s accounts can’t be used until your %s software is updated."
 msgstr ""
-"Вибачте, обліковий запис %s неможливо використовувати, поки програму не буде "
+"Вибачте, обліковий запис %s неможливо використовувати, поки програму %s не буде "
 "оновлено."
 
 #: ../src/empathy-main-window.c:813
