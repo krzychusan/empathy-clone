@@ -2381,17 +2381,17 @@ msgstr "<b>%s:</b> %s"
 #, c-format
 msgid "%s second"
 msgid_plural "%s seconds"
-msgstr[0] "%d секунду"
-msgstr[1] "%d секунди"
-msgstr[2] "%d секунд"
+msgstr[0] "%s секунду"
+msgstr[1] "%s секунди"
+msgstr[2] "%s секунд"
 
 #: ../libempathy-gtk/empathy-log-window.c:1389
 #, c-format
 msgid "%s minute"
 msgid_plural "%s minutes"
-msgstr[0] "%d хвилину"
-msgstr[1] "%d хвилини"
-msgstr[2] "%d хвилин"
+msgstr[0] "%s хвилину"
+msgstr[1] "%s хвилини"
+msgstr[2] "%s хвилин"
 
 #: ../libempathy-gtk/empathy-log-window.c:1397
 #, c-format
