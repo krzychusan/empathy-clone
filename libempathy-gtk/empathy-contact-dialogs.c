@@ -39,7 +39,6 @@
 
 static GList *subscription_dialogs = NULL;
 static GList *information_dialogs = NULL;
-static GList *edit_dialogs = NULL;
 static GtkWidget *personal_dialog = NULL;
 static GtkWidget *new_contact_dialog = NULL;
 
@@ -254,65 +253,6 @@ empathy_contact_information_dialog_show (EmpathyContact *contact,
 	g_signal_connect (dialog, "response",
 			  G_CALLBACK (contact_dialogs_response_cb),
 			  &information_dialogs);
-
-	if (parent) {
-		gtk_window_set_transient_for (GTK_WINDOW (dialog), parent);
-	}
-
-	gtk_widget_show (dialog);
-}
-
-void
-empathy_contact_edit_dialog_show (EmpathyContact *contact,
-				  GtkWindow      *parent)
-{
-	GtkWidget *dialog;
-	GtkWidget *button;
-	GtkWidget *contact_widget;
-	GList     *l;
-
-	g_return_if_fail (EMPATHY_IS_CONTACT (contact));
-
-	l = g_list_find_custom (edit_dialogs,
-				contact,
-				(GCompareFunc) contact_dialogs_find);
-	if (l) {
-		gtk_window_present (GTK_WINDOW (l->data));
-		return;
-	}
-
-	/* Create dialog */
-	dialog = gtk_dialog_new ();
-	gtk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
-	gtk_window_set_title (GTK_WINDOW (dialog), _("Edit Contact Information"));
-
-	/* Close button */
-	button = gtk_button_new_with_label (GTK_STOCK_CLOSE);
-	gtk_button_set_use_stock (GTK_BUTTON (button), TRUE);
-	gtk_dialog_add_action_widget (GTK_DIALOG (dialog),
-				      button,
-				      GTK_RESPONSE_CLOSE);
-	gtk_widget_set_can_default (button, TRUE);
-	gtk_window_set_default (GTK_WINDOW (dialog), button);
-	gtk_widget_show (button);
-
-	/* Contact info widget */
-	contact_widget = empathy_contact_widget_new (contact,
-		EMPATHY_CONTACT_WIDGET_EDIT_ALIAS |
-		EMPATHY_CONTACT_WIDGET_EDIT_GROUPS |
-		EMPATHY_CONTACT_WIDGET_EDIT_FAVOURITE);
-	gtk_container_set_border_width (GTK_CONTAINER (contact_widget), 8);
-	gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))),
-			    contact_widget,
-			    TRUE, TRUE, 0);
-	gtk_widget_show (contact_widget);
-
-	g_object_set_data (G_OBJECT (dialog), "contact_widget", contact_widget);
-	edit_dialogs = g_list_prepend (edit_dialogs, dialog);
-
-	g_signal_connect (dialog, "response",
-			  G_CALLBACK (contact_dialogs_response_cb),
-			  &edit_dialogs);
 
 	if (parent) {
 		gtk_window_set_transient_for (GTK_WINDOW (dialog), parent);
