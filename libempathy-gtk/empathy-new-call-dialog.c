@@ -32,7 +32,6 @@
 
 #include <libempathy/empathy-tp-contact-factory.h>
 #include <libempathy/empathy-camera-monitor.h>
-#include <libempathy/empathy-contact-manager.h>
 #include <libempathy/empathy-utils.h>
 #include <libempathy/empathy-request-util.h>
 

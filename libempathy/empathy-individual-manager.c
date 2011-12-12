@@ -36,7 +36,6 @@
 
 #include "empathy-individual-manager.h"
 #include "empathy-utils.h"
-#include "empathy-contact-manager.h"
 
 #define DEBUG_FLAG EMPATHY_DEBUG_CONTACT
 #include "empathy-debug.h"

@@ -33,7 +33,6 @@
 
 #include <libempathy/empathy-individual-manager.h>
 #include <libempathy/empathy-utils.h>
-#include <libempathy/empathy-contact-manager.h>
 
 #include "empathy-individual-dialogs.h"
 #include "empathy-contact-widget.h"
