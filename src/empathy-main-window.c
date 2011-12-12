@@ -39,7 +39,6 @@
 #include <libempathy/empathy-chatroom-manager.h>
 #include <libempathy/empathy-chatroom.h>
 #include <libempathy/empathy-contact-list.h>
-#include <libempathy/empathy-contact-manager.h>
 #include <libempathy/empathy-gsettings.h>
 #include <libempathy/empathy-individual-manager.h>
 #include <libempathy/empathy-gsettings.h>
@@ -106,7 +105,6 @@ G_DEFINE_TYPE (EmpathyMainWindow, empathy_main_window, GTK_TYPE_WINDOW);
 #define GET_PRIV(self) ((EmpathyMainWindowPriv *)((EmpathyMainWindow *) self)->priv)
 
 struct _EmpathyMainWindowPriv {
-	EmpathyContactList      *contact_manager;
 	EmpathyIndividualStore  *individual_store;
 	EmpathyIndividualView   *individual_view;
 	TpAccountManager        *account_manager;
@@ -1371,7 +1369,6 @@ empathy_main_window_finalize (GObject *window)
 
 	g_object_unref (priv->account_manager);
 	g_object_unref (priv->individual_store);
-	g_object_unref (priv->contact_manager);
 	g_object_unref (priv->sound_mgr);
 	g_hash_table_unref (priv->errors);
 	g_hash_table_unref (priv->auths);
@@ -2459,8 +2456,6 @@ empathy_main_window_init (EmpathyMainWindow *window)
 	 * so it's got a race condition between its signal handlers and its
 	 * finalization. The class is planned to be removed, so we won't fix
 	 * this before then. */
-	priv->contact_manager = EMPATHY_CONTACT_LIST (
-			empathy_contact_manager_dup_singleton ());
 	individual_manager = empathy_individual_manager_dup_singleton ();
 	priv->individual_store = EMPATHY_INDIVIDUAL_STORE (
 			empathy_individual_store_manager_new (individual_manager));
