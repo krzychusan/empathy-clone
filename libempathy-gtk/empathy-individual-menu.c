@@ -79,6 +79,9 @@ static guint signals[LAST_SIGNAL];
 
 G_DEFINE_TYPE (EmpathyIndividualMenu, empathy_individual_menu, GTK_TYPE_MENU);
 
+static GtkWidget * empathy_individiual_block_menu_item_new (
+    FolksIndividual *individual);
+
 static void
 individual_menu_add_personas (GtkMenuShell *menu,
     FolksIndividual *individual,
@@ -131,6 +134,8 @@ individual_menu_add_personas (GtkMenuShell *menu,
       FolksPersonaStore *store;
       const gchar *account;
       GtkWidget *action;
+      /* Individual containing only persona */
+      FolksIndividual *single_individual;
 
       if (!empathy_folks_persona_is_interesting (FOLKS_PERSONA (persona)))
         goto while_finish;
@@ -140,6 +145,8 @@ individual_menu_add_personas (GtkMenuShell *menu,
         goto while_finish;
 
       contact = empathy_contact_dup_from_tp_contact (tp_contact);
+      single_individual = empathy_create_individual_from_tp_contact (
+          tp_contact);
 
       store = folks_persona_get_store (FOLKS_PERSONA (persona));
       account = folks_persona_store_get_display_name (store);
@@ -213,11 +220,26 @@ individual_menu_add_personas (GtkMenuShell *menu,
       gtk_menu_shell_append (GTK_MENU_SHELL (contact_submenu), action);
       gtk_widget_show (action);
 
+      /* Block */
+      if (features & EMPATHY_INDIVIDUAL_FEATURE_BLOCK &&
+          (item = empathy_individiual_block_menu_item_new (single_individual))
+          != NULL) {
+        GtkWidget *sep;
+
+        sep = gtk_separator_menu_item_new ();
+        gtk_menu_shell_append (GTK_MENU_SHELL (contact_submenu), sep);
+        gtk_widget_show (sep);
+
+        gtk_menu_shell_append (GTK_MENU_SHELL (contact_submenu), item);
+        gtk_widget_show (item);
+      }
+
       gtk_menu_shell_append (GTK_MENU_SHELL (menu), contact_item);
       gtk_widget_show (contact_item);
 
       g_free (label);
       g_object_unref (contact);
+      g_object_unref (single_individual);
 
 while_finish:
       g_clear_object (&persona);
