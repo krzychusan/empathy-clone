@@ -1073,12 +1073,12 @@ individual_view_call_activated_cb (EmpathyCellRendererActivatable *cell,
   shell = GTK_MENU_SHELL (menu);
 
   /* audio */
-  item = empathy_individual_audio_call_menu_item_new (individual, NULL);
+  item = empathy_individual_audio_call_menu_item_new (individual);
   gtk_menu_shell_append (shell, item);
   gtk_widget_show (item);
 
   /* video */
-  item = empathy_individual_video_call_menu_item_new (individual, NULL);
+  item = empathy_individual_video_call_menu_item_new (individual);
   gtk_menu_shell_append (shell, item);
   gtk_widget_show (item);
 
