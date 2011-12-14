@@ -593,18 +593,21 @@ update_block_menu_item (GtkWidget *item,
     FolksIndividual *individual)
 {
   GList *contacts, *l;
-  gboolean is_blocked = FALSE;
+  gboolean is_blocked = TRUE;
 
   contacts = get_contacts_supporting_blocking (individual);
 
-  /* Check the menu item if there is at least one persona blocked */
+  if (contacts == NULL)
+    is_blocked = FALSE;
+
+  /* Check the menu item if all his personas are blocked */
   for (l = contacts; l != NULL; l = g_list_next (l))
     {
       TpContact *contact = l->data;
 
-      if (tp_contact_is_blocked (contact))
+      if (!tp_contact_is_blocked (contact))
         {
-          is_blocked = TRUE;
+          is_blocked = FALSE;
           break;
         }
     }
