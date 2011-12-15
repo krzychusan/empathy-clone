@@ -1,19 +1,20 @@
 # Italian translation of empathy help.
-# Copyright (C) 2008, 2009, 2010 Free Software Foundation, Inc.
+# Copyright (C) 2008, 2009, 2010, 2011 Free Software Foundation, Inc.
 # This package is distributed under the same license as the empathy package.
+# Milo Casagrande <milo@ubuntu.com>, 2008, 2009, 2010, 2011.
 #
-# Milo Casagrande <milo@ubuntu.com>, 2008, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: empathy help\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-29 11:54+0000\n"
-"PO-Revision-Date: 2010-10-02 10:42+0200\n"
+"PO-Revision-Date: 2011-12-15 22:20+0100\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8-bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -131,7 +132,7 @@ msgstr ""
 "Dalla finestra <gui>Elenco contatti</gui>, fare clic sull'icona <media type="
 "\"image\" mime=\"image/png\" src=\"figures/camera-web.png\">della chiamata "
 "video</media> a fianco del nome del contatto da chiamare e scegliere <gui "
-"style=\"menuitem>Chiamata video</gui>."
+"style=\"menuitem\">Chiamata video</gui>."
 
 #: C/video-call.page:43(p) C/audio-call.page:42(p)
 msgid ""
@@ -749,8 +750,8 @@ msgid ""
 "The People Nearby service is a serverless communication service: you do not "
 "need to connect and authenticate to a central server in order to use it."
 msgstr ""
-"Il servizio «Persone nelle vicinanze» è un servizio di comunicazione privo di "
-"server centrale: non è necessario connettersi e autenticarsi a un server "
+"Il servizio «Persone nelle vicinanze» è un servizio di comunicazione privo "
+"di server centrale: non è necessario connettersi e autenticarsi a un server "
 "centrale per poterlo utilizzare."
 
 #: C/salut-protocol.page:45(p)
@@ -3422,11 +3423,12 @@ msgid ""
 "more details."
 msgstr ""
 "All'interno di alcune reti è possibile registrare i soprannomi utilizzando "
-"un servizio chiamato «NickServ». <app>Empathy</app> non supporta direttamente "
-"le password per i soprannomi, ma con alcune reti, compresa la molto diffusa "
-"FreeNode, le password relative al server vengono inoltrare al «NickServ», "
-"consentendo di usare questo campo per identificarsi con il «NickServ». Per "
-"maggiori informazioni, consultare <link xref=\"irc-nick-password\"/>."
+"un servizio chiamato «NickServ». <app>Empathy</app> non supporta "
+"direttamente le password per i soprannomi, ma con alcune reti, compresa la "
+"molto diffusa FreeNode, le password relative al server vengono inoltrare al "
+"«NickServ», consentendo di usare questo campo per identificarsi con il "
+"«NickServ». Per maggiori informazioni, consultare <link xref=\"irc-nick-"
+"password\"/>."
 
 #: C/account-irc.page:76(gui)
 msgid "Real name"
@@ -3480,8 +3482,8 @@ msgid ""
 "src=\"figures/gtk-add.png\" width=\"16\" height=\"16\">Add</media>."
 msgstr ""
 "Per aggiungere una rete all'elenco, fare clic su <media type=\"image\" mime="
-"\"image/png\" src=\"figures/gtk-add.png\" width=\"16\" height=\"16"
-"\">Aggiungi</media>."
+"\"image/png\" src=\"figures/gtk-add.png\" width=\"16\" height="
+"\"16\">Aggiungi</media>."
 
 #: C/account-irc.page:107(p)
 msgid ""
