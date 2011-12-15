@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: empathy master\n"
-"POT-Creation-Date: 2011-12-08 09:11+0000\n"
+"POT-Creation-Date: 2011-12-11 14:58+0000\n"
 "PO-Revision-Date: 2011-12-09 21:36+0800\n"
 "Last-Translator: Guanhao Yin <yinguanhao@gmail.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
@@ -2056,7 +2056,7 @@ msgstr "加入一个聊天室。"
 msgid ""
 "See <link xref=\"irc-join-room\"/> for more information on how to join an "
 "IRC room."
-msgstr "关于如何加入 IRC 聊天室，参见 <link xref=\"irc-join-room\">。"
+msgstr "关于如何加入 IRC 聊天室，参见 <link xref=\"irc-join-room\"/>。"
 
 #: C/favorite-rooms.page:46(p)
 msgid ""
@@ -2933,7 +2933,7 @@ msgid ""
 "your nickname."
 msgstr ""
 "您的昵称是您在 IRC 网络上的唯一性的名字。只有一个人可以使用某个特定的昵称。如"
-"果您得到<link xref=\"prob-conn-name\" role=\"error-msg\"/错误信息，您需要改变"
+"果您得到<link xref=\"prob-conn-name\" role=\"error-msg\"/>错误信息，您需要改变"
 "您的昵称。"
 
 #: C/account-irc.page:60(gui)
