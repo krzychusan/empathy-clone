@@ -200,7 +200,7 @@ import_widget_add_account (EmpathyImportWidget *self,
     EmpathyImportAccountData *data)
 {
   TpAccountManager *account_manager;
-  gchar *display_name;
+  gchar *display_name = NULL;
   GHashTable *properties;
   GValue *username;
 
@@ -210,9 +210,23 @@ import_widget_add_account (EmpathyImportWidget *self,
 
   /* Set the display name of the account */
   username = g_hash_table_lookup (data->settings, "account");
-  display_name = g_strdup_printf ("%s (%s)",
-      data->protocol,
-      g_value_get_string (username));
+
+  if (!tp_strdiff (data->protocol, "irc"))
+    {
+      const gchar *server;
+
+      server = tp_asv_get_string (data->settings, "server");
+
+      if (server != NULL)
+        display_name = g_strdup_printf ("%s on %s",
+            g_value_get_string (username), server);
+    }
+
+  if (display_name == NULL)
+    {
+      display_name = g_strdup_printf ("%s (%s)",
+          data->protocol, g_value_get_string (username));
+    }
 
   DEBUG ("display name: %s\n", display_name);
 
