@@ -660,29 +660,6 @@ account_dialog_got_self_contact (TpConnection *conn,
 }
 
 static void
-conn_prepared (GObject *src,
-    GAsyncResult *result,
-    gpointer user_data)
-{
-  TpConnection *conn = TP_CONNECTION (src);
-  EmpathyAccountsDialog *dialog = user_data;
-  GError *error = NULL;
-
-  if (!tp_proxy_prepare_finish (conn, result, &error))
-    {
-      DEBUG ("Failed to get self-contact: %s", error->message);
-      account_dialog_show_contact_details_failed (dialog, TRUE);
-      g_error_free (error);
-      return;
-    }
-
-  empathy_tp_contact_factory_get_from_handle (conn,
-      tp_connection_get_self_handle (conn),
-      account_dialog_got_self_contact,
-      NULL, NULL, G_OBJECT (dialog));
-}
-
-static void
 account_dialog_create_dialog_content (EmpathyAccountsDialog *dialog,
     EmpathyAccountSettings *settings)
 {
@@ -709,9 +686,16 @@ account_dialog_create_dialog_content (EmpathyAccountsDialog *dialog,
     conn = tp_account_get_connection (account);
 
   if (conn != NULL)
-    tp_proxy_prepare_async (conn, NULL, conn_prepared, dialog);
+    {
+      empathy_tp_contact_factory_get_from_handle (conn,
+          tp_connection_get_self_handle (conn),
+          account_dialog_got_self_contact,
+          NULL, NULL, G_OBJECT (dialog));
+    }
   else
-    account_dialog_show_contact_details_failed (dialog, FALSE);
+    {
+      account_dialog_show_contact_details_failed (dialog, FALSE);
+    }
 
   bbox = gtk_hbutton_box_new ();
   gtk_button_box_set_layout (GTK_BUTTON_BOX (bbox), GTK_BUTTONBOX_END);
