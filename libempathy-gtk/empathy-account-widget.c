@@ -2195,19 +2195,10 @@ do_constructed (GObject *obj)
         TP_STORAGE_RESTRICTION_FLAG_CANNOT_SET_PARAMETERS))
     {
       GtkWidget *hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 3);
-      GtkWidget *image;
 
       gtk_box_set_homogeneous (GTK_BOX (hbox), TRUE);
 
-      /*  We can't use the stock button as its accelerator ('C') clashes with
-       *  the Close button. */
-      /* FIXME: this no longer applies! */
-      priv->cancel_button = gtk_button_new ();
-      gtk_button_set_label (GTK_BUTTON (priv->cancel_button), _("Ca_ncel"));
-      gtk_button_set_use_underline (GTK_BUTTON (priv->cancel_button), TRUE);
-
-      image = gtk_image_new_from_stock (GTK_STOCK_CANCEL, GTK_ICON_SIZE_BUTTON);
-      gtk_button_set_image (GTK_BUTTON (priv->cancel_button), image);
+      priv->cancel_button = gtk_button_new_from_stock (GTK_STOCK_CLOSE);
 
       priv->apply_button = gtk_button_new ();
       set_apply_button (self);
