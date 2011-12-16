@@ -552,7 +552,7 @@ account_dialog_create_edit_params_dialog (EmpathyAccountsDialog *dialog)
 {
   EmpathyAccountsDialogPriv *priv = GET_PRIV (dialog);
   EmpathyAccountSettings *settings;
-  GtkWidget *subdialog, *content;
+  GtkWidget *subdialog, *content, *content_area, *align;
 
   settings = accounts_dialog_model_get_selected_settings (dialog);
 
@@ -581,11 +581,16 @@ account_dialog_create_edit_params_dialog (EmpathyAccountsDialog *dialog)
   g_signal_connect_swapped (priv->setting_widget_object, "close",
       G_CALLBACK (gtk_widget_destroy), subdialog);
 
-  gtk_container_add (
-      GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (subdialog))),
-      content);
+  content_area = gtk_dialog_get_content_area (GTK_DIALOG (subdialog));
+
+  align = gtk_alignment_new (0.5, 0.5, 1, 1);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (align), 6, 0, 6, 6);
+
+  gtk_container_add (GTK_CONTAINER (align), content);
+  gtk_box_pack_start (GTK_BOX (content_area), align, TRUE, TRUE, 0);
 
   gtk_widget_show (content);
+  gtk_widget_show (align);
   gtk_widget_show (subdialog);
 }
 
