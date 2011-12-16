@@ -559,7 +559,7 @@ account_dialog_create_edit_params_dialog (EmpathyAccountsDialog *dialog)
   subdialog = gtk_dialog_new_with_buttons (_("Edit Connection Parameters"),
       GTK_WINDOW (dialog),
       GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
-      NULL);
+      NULL, NULL);
 
   priv->setting_widget_object =
     empathy_account_widget_new_for_protocol (settings, FALSE);
