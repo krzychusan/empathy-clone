@@ -955,7 +955,6 @@ account_widget_applied_cb (GObject *source_object,
           tp_account_set_enabled_async (account, TRUE,
               account_widget_account_enabled_cb, widget);
           g_signal_emit (widget, signals[ACCOUNT_CREATED], 0, account);
-          // FIXME: should we emit a signal here?
         }
       else
         {
