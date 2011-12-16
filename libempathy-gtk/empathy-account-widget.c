@@ -219,8 +219,6 @@ account_widget_set_control_buttons_sensitivity (EmpathyAccountWidget *self,
         return;
 
       gtk_widget_set_sensitive (priv->apply_button, sensitive);
-      // gtk_widget_set_sensitive (priv->cancel_button,
-      //     (sensitive || priv->creating_account) && priv->other_accounts_exist);
 
       if (sensitive)
         {
