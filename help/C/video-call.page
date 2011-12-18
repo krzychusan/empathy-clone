@@ -16,19 +16,20 @@
       <e:review by="shaunm@gnome.org" date="2009-09-04" status="done"/>
       -->
     </revision>
-    <revision pkgversion="2.30" version="0.3" date="2010-02-14" status="review"/>    
+    <revision pkgversion="2.30" version="0.3" date="2010-02-14" status="review"/>
+    <revision pkgversion="3.2" version="0.4" date="2011-12-18" status="review"/>
     <credit type="author">
       <name>Milo Casagrande</name>
       <email>milo@ubuntu.com</email>
     </credit>
     <license>
       <p>Creative Commons Share Alike 3.0</p>
-    </license>    
+    </license>
   </info>
   <title>Start a video conversation</title>
 
   <p>If you have a webcam, you can call your contacts and have a video
-  conversation with them. This features only works with certain types of
+  conversation with them. This feature only works with certain types of
   accounts, and it requires the other person to have an application that
   supports video calls.</p>
 
@@ -61,7 +62,7 @@
     <steps>
       <item>
         <p>
-          From the <gui>Contact List</gui> window, right-click on the meta-contact.   
+          From the <gui>Contact List</gui> window, right-click on the meta-contact.
         </p>
       </item>
       <item>
@@ -80,6 +81,4 @@
       </p>
     </note>
   </section>
-
-  
 </page>

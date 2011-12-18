@@ -16,6 +16,7 @@
       -->
     </revision>
     <revision pkgversion="2.30" version="0.5" date="2010-02-03" status="review"/>
+    <revision pkgversion="3.2" version="0.6" date="2011-12-18" status="review"/>
     <credit type="author">
       <name>Milo Casagrande</name>
       <email>milo@ubuntu.com</email>
@@ -53,13 +54,12 @@
       side of the window.</p>
     </item>
     <item>
-      <p>Deselect <gui style="checkbox">Enabled</gui> on the right side of the
-      window.
+      <p>On the right side of the window, switch it off.
       </p>
     </item>
   </steps>
 
   <p>
-    To re-enable the account, simply select <gui style="checkbox">Enabled</gui>.
+    To re-enable the account, switch it on.
   </p>
 </page>
