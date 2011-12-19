@@ -12,6 +12,7 @@
       <e:review by="shaunm@gnome.org" date="2009-08-31" status="done"/>
       -->
     </revision>
+    <revision pkgversion="3.2" version="0.2" date="2011-12-19" status="review"/>
     <credit type="author">
       <name>Milo Casagrande</name>
       <email>milo@ubuntu.com</email>
@@ -22,7 +23,7 @@
     </credit>
     <license>
       <p>Creative Commons Share Alike 3.0</p>
-    </license>    
+    </license>
 <!--
     <copyright>
       <year>2009</year>
@@ -33,15 +34,6 @@
   </info>
 
   <title>View previous conversations</title>
-
-  <comment>
-    <cite date="2009-08-31">Shaun McCance</cite>
-    <p>Highlighting text is quirky:
-    <link href="http://bugzilla.gnome.org/show_bug.cgi?id=593733">#593733</link>.
-    If there's an actual highlighting going on, independent of the selection
-    (like in yellow or something), we can use the term "highlight".  Otherwise
-    we need to use the term "select".  Watch that bug.</p>
-  </comment>
 
   <p>
     <app>Empathy</app> automatically saves all your text conversations you have
@@ -68,19 +60,18 @@
       <gui>Previous Conversations</gui></guiseq>.  Alternatively, press <key>F3</key>.</p>
     </item>
     <item>
-      <p>Select the <gui>Search</gui> tab.</p>
+      <p>Select an account from the drop-down list in the top.  A list of
+      contacts and chat room for that account will be shown below.</p>
     </item>
     <item>
-      <p>In the <gui>For</gui> field, type the text you want to search for.
-      Click <gui>Find</gui> or press <key>Enter</key>.</p>
+      <p>Type the text you want to search for in the <gui>Search</gui> text field.
+      </p>
     </item>
     <item>
-      <p>Any conversations that matched your search terms will be shown in the list below
-      the search field.  By default, conversations are ordered by date.</p>
-    </item>
-    <item>
-      <p>Click on a conversation to view it.  <app>Empathy</app> will select the text
-      in the conversation that matched your search terms.</p>
+      <p>
+        Any conversations that matched your search terms will be shown. By
+        default, conversations are ordered by date.
+      </p>
     </item>
   </steps>
   </section>
@@ -97,9 +88,6 @@
       <gui>Previous Conversations</gui></guiseq>.  Alternatively, press <key>F3</key>.</p>
     </item>
     <item>
-      <p>Select the <gui>Conversations</gui> tab.</p>
-    </item>
-    <item>
       <p>Select an account from the drop-down list in the top left.  A list of
       contacts and chat room for that account will be shown below.</p>
     </item>
@@ -114,16 +102,17 @@
     </item>
   </steps>
 
-  <p>You can search for text in the displayed conversation by typing into the
-  search field at the top.  The matching text will be highlighted.</p>
+  <p>
+    You can search for text in the conversations by typing into the
+    search field at the top. The matching conversations will be showed.
+  </p>
 
   <note style="tip">
     <p>You can quickly view the previous conversations with one of your contacts
     from the <gui>Contact List</gui> window.  Simply right click the contact and
-    choose <gui>View Previous Conversations</gui>.  The <gui>Previous
+    choose <gui>Previous Conversations</gui>.  The <gui>Previous
     Conversations</gui> window will open with that contact already selected.</p>
   </note>
-    
-  </section>
 
+  </section>
 </page>
