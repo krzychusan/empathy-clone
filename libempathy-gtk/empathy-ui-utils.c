@@ -2238,7 +2238,7 @@ _wnck_get_cardinal (Screen *screen,
   type = None;
   result = XGetWindowProperty (display, xwindow, atom,
       0, G_MAXLONG, False, XA_CARDINAL, &type, &format, &nitems,
-      &bytes_after, (void*)&num);
+      &bytes_after, (void *) &num);
   err = gdk_error_trap_pop ();
   if (err != Success ||
       result != Success)
