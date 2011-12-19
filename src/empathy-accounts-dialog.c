@@ -746,7 +746,7 @@ account_dialog_got_self_contact (TpConnection *conn,
     GObject *dialog)
 {
   EmpathyAccountsDialogPriv *priv = GET_PRIV (dialog);
-  GtkWidget *editor;
+  GtkWidget *editor, *alig;
 
   if (in_error != NULL)
     {
@@ -756,13 +756,18 @@ account_dialog_got_self_contact (TpConnection *conn,
       return;
     }
 
+  alig = gtk_alignment_new (0.5, 0, 1, 1);
+
   /* create the contact info editor for this account */
   editor = empathy_contact_widget_new (contact,
       EMPATHY_CONTACT_WIDGET_EDIT_ALIAS |
       EMPATHY_CONTACT_WIDGET_EDIT_AVATAR |
       EMPATHY_CONTACT_WIDGET_NO_STATUS |
       EMPATHY_CONTACT_WIDGET_EDIT_DETAILS);
-  gtk_box_pack_start (GTK_BOX (priv->dialog_content), editor, FALSE, FALSE, 0);
+
+  gtk_box_pack_start (GTK_BOX (priv->dialog_content), alig, TRUE, TRUE, 0);
+  gtk_container_add (GTK_CONTAINER (alig), editor);
+  gtk_widget_show (alig);
   gtk_widget_show (editor);
 }
 
@@ -783,7 +788,6 @@ account_dialog_create_dialog_content (EmpathyAccountsDialog *dialog,
   //       (gpointer *) &priv->setting_widget_object);
 
   priv->dialog_content = gtk_vbox_new (FALSE, 6);
-  // FIXME: should align to the top
   gtk_container_add (GTK_CONTAINER (priv->alignment_settings),
       priv->dialog_content);
   gtk_widget_show (priv->dialog_content);
