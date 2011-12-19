@@ -32,6 +32,7 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n-lib.h>
 #include <dbus/dbus-glib.h>
+#include <gio/gdesktopappinfo.h>
 
 #include <telepathy-glib/account-manager.h>
 #include <telepathy-glib/defs.h>
@@ -595,12 +596,118 @@ account_dialog_create_edit_params_dialog (EmpathyAccountsDialog *dialog)
 }
 
 static void
+start_external_app (GAppInfo *app_info)
+{
+  GError *error = NULL;
+  GdkAppLaunchContext *context = NULL;
+  GdkDisplay *display;
+
+  display = gdk_display_get_default ();
+  context = gdk_display_get_app_launch_context (display);
+
+  if (!g_app_info_launch (app_info, NULL, (GAppLaunchContext *) context,
+        &error))
+    {
+      g_critical ("Failed to bisho: %s", error->message);
+      g_clear_error (&error);
+    }
+
+  tp_clear_object (&context);
+}
+
+static void
+use_external_storage_provider (EmpathyAccountsDialog *self,
+    TpAccount *account)
+{
+  const gchar *provider;
+
+  provider = tp_account_get_storage_provider (account);
+  if (!tp_strdiff (provider, "com.meego.libsocialweb"))
+    {
+      GDesktopAppInfo *desktop_info;
+      gchar *cmd;
+      GAppInfo *app_info;
+      GError *error = NULL;
+
+      desktop_info = g_desktop_app_info_new ("gnome-control-center.desktop");
+      if (desktop_info == NULL)
+        {
+          g_critical ("Could not locate 'gnome-control-center.desktop'");
+          return;
+        }
+
+      /* glib doesn't have API to start a desktop file with args... (#637875) */
+      cmd = g_strdup_printf ("%s bisho.desktop", g_app_info_get_commandline (
+            (GAppInfo *) desktop_info));
+
+      app_info = g_app_info_create_from_commandline (cmd, NULL, 0, &error);
+
+      if (app_info == NULL)
+        {
+          DEBUG ("Failed to create app info: %s", error->message);
+          g_error_free (error);
+        }
+      else
+        {
+          start_external_app (app_info);
+          g_object_unref (app_info);
+        }
+
+      g_object_unref (desktop_info);
+      g_free (cmd);
+      return;
+    }
+  else if (!tp_strdiff (provider, "org.gnome.OnlineAccounts"))
+    {
+      GDesktopAppInfo *desktop_info;
+
+      desktop_info = g_desktop_app_info_new (
+          "gnome-online-accounts-panel.desktop");
+      if (desktop_info == NULL)
+        {
+          g_critical ("Could not locate 'gnome-online-accounts-panel.desktop'");
+        }
+      else
+        {
+          start_external_app (G_APP_INFO (desktop_info));
+          g_object_unref (desktop_info);
+        }
+
+      return;
+    }
+  else
+    {
+      DEBUG ("Don't know how to handle %s", provider);
+      return;
+    }
+}
+
+static void
 account_dialow_show_edit_params_dialog (EmpathyAccountsDialog *dialog,
     GtkButton *button)
 {
-  DEBUG ("clicked");
+  EmpathyAccountSettings *settings;
+  TpAccount *account;
+  TpStorageRestrictionFlags storage_restrictions;
 
-  account_dialog_create_edit_params_dialog (dialog);
+  settings = accounts_dialog_model_get_selected_settings (dialog);
+
+  account = empathy_account_settings_get_account (settings);
+  g_return_if_fail (account != NULL);
+
+  storage_restrictions = tp_account_get_storage_restrictions (account);
+
+  /* Empathy can only edit accounts without the Cannot_Set_Parameters flag */
+  if (storage_restrictions & TP_STORAGE_RESTRICTION_FLAG_CANNOT_SET_PARAMETERS)
+    {
+      DEBUG ("Account is provided by an external storage provider");
+
+      use_external_storage_provider (dialog, account);
+    }
+  else
+    {
+      account_dialog_create_edit_params_dialog (dialog);
+    }
 }
 
 static void
@@ -702,7 +809,6 @@ account_dialog_create_dialog_content (EmpathyAccountsDialog *dialog,
   gtk_box_pack_end (GTK_BOX (priv->dialog_content), bbox, FALSE, TRUE, 0);
   gtk_widget_show (bbox);
 
-  /* FIXME: make this handle external accounts */
   button = gtk_button_new_with_mnemonic (_("_Edit Connection Parameters..."));
   gtk_box_pack_start (GTK_BOX (bbox), button, FALSE, TRUE, 0);
   gtk_widget_show (button);

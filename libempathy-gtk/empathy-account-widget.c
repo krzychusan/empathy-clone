@@ -1089,175 +1089,6 @@ account_widget_build_generic (EmpathyAccountWidget *self,
 }
 
 static void
-account_widget_launch_external_clicked (GtkWidget *button,
-    TpAccount *account)
-{
-  GdkAppLaunchContext *context = NULL;
-  GdkDisplay *display;
-  GAppInfo *app_info;
-  GError *error = NULL;
-
-  app_info = g_object_get_data (G_OBJECT (button), "app-info");
-
-  g_return_if_fail (G_IS_APP_INFO (app_info));
-
-  display = gdk_display_get_default ();
-  context = gdk_display_get_app_launch_context (display);
-
-  if (!g_app_info_launch (app_info, NULL, (GAppLaunchContext *) context,
-        &error))
-    {
-      g_critical ("Failed to bisho: %s", error->message);
-      g_clear_error (&error);
-    }
-}
-
-static void
-account_widget_launch_external_clicked_meego (GtkWidget *button,
-    TpAccount *account)
-{
-  if (!tp_strdiff (tp_account_get_storage_provider (account),
-        "com.meego.libsocialweb"))
-    {
-      /* we know how to handle this external provider */
-      GDesktopAppInfo *desktop_info;
-      GError *error = NULL;
-      GdkAppLaunchContext *context = NULL;
-      GdkDisplay *display;
-      gchar *cmd;
-      GAppInfo *app_info;
-
-      desktop_info = g_desktop_app_info_new ("gnome-control-center.desktop");
-      if (desktop_info == NULL)
-        {
-          g_critical ("Could not locate 'gnome-control-center.desktop'");
-          return;
-        }
-
-      /* glib doesn't have API to start a desktop file with args... (#637875) */
-      cmd = g_strdup_printf ("%s bisho.desktop", g_app_info_get_commandline (
-            (GAppInfo *) desktop_info));
-
-      app_info = g_app_info_create_from_commandline (cmd, NULL, 0, &error);
-      g_free (cmd);
-
-      if (app_info == NULL)
-        {
-          DEBUG ("Failed to create app info: %s", error->message);
-          g_error_free (error);
-          goto out;
-        }
-
-      display = gdk_display_get_default ();
-      context = gdk_display_get_app_launch_context (display);
-
-      if (!g_app_info_launch (app_info, NULL, (GAppLaunchContext *) context,
-            &error))
-        {
-          g_critical ("Failed to bisho: %s", error->message);
-          g_clear_error (&error);
-        }
-
-out:
-      g_object_unref (desktop_info);
-      tp_clear_object (&app_info);
-      tp_clear_object (&context);
-    }
-}
-
-static void
-account_widget_build_external (EmpathyAccountWidget *self,
-    EmpathyAccountSettings *settings)
-{
-  EmpathyAccountWidgetPriv *priv = GET_PRIV (self);
-  TpAccount *account = empathy_account_settings_get_account (settings);
-  GtkWidget *bar, *widget;
-  gchar *str;
-  const gchar *provider, *name = NULL;
-  GDesktopAppInfo *desktop_info = NULL;
-
-  self->ui_details->widget = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
-  priv->grid_common_settings = gtk_grid_new ();
-
-  provider = tp_account_get_storage_provider (account);
-
-  if (!tp_strdiff (provider, "com.meego.libsocialweb"))
-    {
-      name = _("My Web Accounts");
-    }
-  else if (!tp_strdiff (provider, "org.gnome.OnlineAccounts"))
-    {
-      /* FIXME: we should publish the .desktop file in some general way */
-      desktop_info = g_desktop_app_info_new (
-          "gnome-online-accounts-panel.desktop");
-
-      if (desktop_info == NULL)
-        g_critical ("Could not locate 'gnome-online-accounts-panel.desktop'");
-      else
-        name = g_app_info_get_name (G_APP_INFO (desktop_info));
-    }
-
-  if (name != NULL)
-    {
-      str = g_strdup_printf (
-          _("The account %s is edited via %s."),
-          empathy_account_settings_get_display_name (settings), name);
-    }
-  else
-    {
-      str = g_strdup_printf (
-          _("The account %s cannot be edited in Empathy."),
-          empathy_account_settings_get_display_name (settings));
-    }
-
-  widget = gtk_label_new (str);
-  gtk_label_set_line_wrap (GTK_LABEL (widget), TRUE);
-  g_free (str);
-
-  bar = gtk_info_bar_new ();
-  gtk_info_bar_set_message_type (GTK_INFO_BAR (bar), GTK_MESSAGE_INFO);
-  gtk_container_add (
-      GTK_CONTAINER (gtk_info_bar_get_content_area (GTK_INFO_BAR (bar))),
-      widget);
-  gtk_container_set_border_width (GTK_CONTAINER (bar), 6);
-
-  if (!tp_strdiff (provider, "com.meego.libsocialweb"))
-    {
-      /* we know how to handle this external provider */
-      widget = gtk_info_bar_add_button (GTK_INFO_BAR (bar),
-          _("Launch My Web Accounts"), RESPONSE_LAUNCH);
-
-      g_signal_connect (widget, "clicked",
-          G_CALLBACK (account_widget_launch_external_clicked_meego), account);
-    }
-  else if (desktop_info != NULL)
-    {
-      /* general handler */
-      str = g_strdup_printf (_("Edit %s"), name);
-
-      widget = gtk_info_bar_add_button (GTK_INFO_BAR (bar),
-          str, RESPONSE_LAUNCH);
-
-      g_object_set_data_full (G_OBJECT (widget), "app-info",
-          g_object_ref (desktop_info), g_object_unref);
-
-      g_signal_connect (widget, "clicked",
-          G_CALLBACK (account_widget_launch_external_clicked), account);
-
-      g_free (str);
-    }
-
-  gtk_box_pack_start (GTK_BOX (self->ui_details->widget), bar,
-      FALSE, TRUE, 0);
-  gtk_box_pack_start (GTK_BOX (self->ui_details->widget),
-      priv->grid_common_settings, FALSE, TRUE, 0);
-
-  gtk_widget_show_all (self->ui_details->widget);
-
-  tp_clear_object (&desktop_info);
-}
-
-static void
 account_widget_build_salut (EmpathyAccountWidget *self,
     const char *filename)
 {
@@ -2067,7 +1898,6 @@ do_constructed (GObject *obj)
   EmpathyAccountWidget *self = EMPATHY_ACCOUNT_WIDGET (obj);
   EmpathyAccountWidgetPriv *priv = GET_PRIV (self);
   TpAccount *account;
-  TpStorageRestrictionFlags storage_restrictions;
   const gchar *display_name, *default_display_name;
   guint i = 0;
   struct {
@@ -2087,51 +1917,35 @@ do_constructed (GObject *obj)
     WIDGET (idle, irc),
     WIDGET (sofiasip, sip),
   };
+  const gchar *protocol, *cm_name;
 
   account = empathy_account_settings_get_account (priv->settings);
 
-  if (account != NULL)
-    storage_restrictions = tp_account_get_storage_restrictions (account);
-  else
-    storage_restrictions = 0;
+  cm_name = empathy_account_settings_get_cm (priv->settings);
+  protocol = empathy_account_settings_get_protocol (priv->settings);
 
-  /* Empathy can only edit accounts without the Cannot_Set_Parameters flag */
-  if (storage_restrictions & TP_STORAGE_RESTRICTION_FLAG_CANNOT_SET_PARAMETERS)
+  for (i = 0 ; i < G_N_ELEMENTS (widgets); i++)
     {
-      DEBUG ("Account is provided by an external storage provider");
-
-      account_widget_build_external (self, priv->settings);
-    }
-  else
-    {
-      const gchar *protocol, *cm_name;
-
-      cm_name = empathy_account_settings_get_cm (priv->settings);
-      protocol = empathy_account_settings_get_protocol (priv->settings);
-
-      for (i = 0 ; i < G_N_ELEMENTS (widgets); i++)
+      if (!tp_strdiff (widgets[i].cm_name, cm_name) &&
+          !tp_strdiff (widgets[i].protocol, protocol))
         {
-          if (!tp_strdiff (widgets[i].cm_name, cm_name) &&
-              !tp_strdiff (widgets[i].protocol, protocol))
-            {
-              gchar *filename;
+          gchar *filename;
 
-              filename = empathy_file_lookup (widgets[i].file,
-                  "libempathy-gtk");
-              widgets[i].func (self, filename);
-              g_free (filename);
-
-              break;
-            }
-        }
-
-      if (i == G_N_ELEMENTS (widgets))
-        {
-          gchar *filename = empathy_file_lookup (
-              "empathy-account-widget-generic.ui", "libempathy-gtk");
-          account_widget_build_generic (self, filename);
+          filename = empathy_file_lookup (widgets[i].file,
+              "libempathy-gtk");
+          widgets[i].func (self, filename);
           g_free (filename);
+
+          break;
         }
+    }
+
+  if (i == G_N_ELEMENTS (widgets))
+    {
+      gchar *filename = empathy_file_lookup (
+          "empathy-account-widget-generic.ui", "libempathy-gtk");
+      account_widget_build_generic (self, filename);
+      g_free (filename);
     }
 
   /* handle default focus */
@@ -2190,9 +2004,7 @@ do_constructed (GObject *obj)
       account_manager_ready_cb, self);
 
   /* handle apply and cancel button */
-  if (!priv->simple &&
-      !(storage_restrictions &
-        TP_STORAGE_RESTRICTION_FLAG_CANNOT_SET_PARAMETERS))
+  if (!priv->simple)
     {
       GtkWidget *hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 3);
 
