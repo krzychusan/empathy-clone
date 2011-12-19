@@ -1,3 +1,58 @@
+NEW in 3.3.3 (19/12/2011)
+============
+
+The "Where else?" release.
+
+A lot of code has been refactored in this release so if you experience any
+regression please report them. Note that inviting IRC contacts is currently
+broken (#666531), it should hopefully be fixed soon.
+
+Dependencies:
+
+ • telepathy-glib ≥ 0.17.3
+ • folks ≥ 0.6.6
+
+Bugs fixed:
+ - Fixed #649208, Should move to empathy-chat's workspace rather than moving the window to the current workspace (Guillaume Desmottes)
+ - Fixed #654171, [pidgin importer] IRC accounts all show up as "irc (nick)", making them hard to distinguish (Guillaume Desmottes)
+ - Fixed #660547, Get rid of EmpathyContactManager (Guillaume Desmottes)
+ - Fixed #661640, Can't update the password of a Google account added with gnome-online-accounts (Guillaume Desmottes)
+ - Fixed #662873, empathy-chat crashed with SIGSEGV in tp_proxy_get_object_path() (Guillaume Desmottes)
+ - Fixed #663124, improvements to pulsesink/pulsesrc usage (Arun Raghavan)
+ - Fixed #663328, Stop using EmpathyContactListFlags (Guillaume Desmottes)
+ - Fixed #663387, Use the individual manager to display muc members (Guillaume Desmottes)
+ - Fixed #663682, remove EmpathyTpFile (Jonny Lamb)
+ - Fixed #664459, Always start video preview when using a non default webcam (Guillaume Desmottes)
+ - Fixed #664564, Doesn't handle TP_DELIVERY_STATUS_PERMANENTLY_FAILED (Guillaume Desmottes)
+ - Fixed #664795, Theme previews are not rendered correctly (depending on which theme is previewed beforehand) (Guillaume Desmottes)
+ - Fixed #664935, [Patch] Simple little patch to fix the FSF address in the COPYING file. (Brian Pepple)
+ - Fixed #665038, Stop using EmpathyContactMenu (Guillaume Desmottes)
+ - Fixed #665121, Stop using empathy_contact_list_get_all_groups (Guillaume Desmottes)
+ - Fixed #665171, audio-sink: sigsegv while starting a call (Guillaume Desmottes)
+ - Fixed #665256, possible memleak in camera-monitor: on_camera_added (Raluca Elena Podiuc)
+ - Fixed #665403, map-view: stop using EmpathyContactManager (Guillaume Desmottes)
+ - Fixed #665592, Can't call offline contacts from the log viewer (Guillaume Desmottes)
+ - Fixed #665853, Use new folks API to ensure personas (Guillaume Desmottes)
+ - Fixed #666163, EmpathyIndividualMenu cleanup (Guillaume Desmottes)
+ - Fixed #653812, Errors in the user manual (Milo Casagrande)
+ - Fixed #665244, new cheese camera device monitor crashes Empathy (Guillaume Desmottes)
+
+Translations:
+ - Updated es Translation (Daniel Mustieles)
+ - Updated he Translation (Yaron Shahrabani)
+ - Updated nb Translation (Kjartan Maraas)
+ - Updated ro Translation (Lucian Adrian Grijincu)
+ - Updated ru Translation (Vladislav Boboshko)
+ - Updated sl Translation (Matej Urbančič)
+ - Updated uk Translation (Daniel Korostil)
+ - Updated zh_CN Translation (Yangtse Su)
+
+Documentation translations:
+ - Updated es Documentation translation (Daniel Mustieles)
+ - Updated it Documentation translation (Milo Casagrande)
+ - Updated sl Documentation translation (Matej Urbančič)
+ - Updated zh_CN Documentation translation (Funda Wang, Guanhao Yin)
+
 NEW in 3.3.2 (21/11/2011)
 ============
 
