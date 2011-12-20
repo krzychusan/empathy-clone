@@ -787,7 +787,7 @@ account_dialog_create_dialog_content (EmpathyAccountsDialog *dialog,
   //   g_object_remove_weak_pointer (G_OBJECT (priv->setting_widget_object),
   //       (gpointer *) &priv->setting_widget_object);
 
-  priv->dialog_content = gtk_vbox_new (FALSE, 6);
+  priv->dialog_content = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
   gtk_container_add (GTK_CONTAINER (priv->alignment_settings),
       priv->dialog_content);
   gtk_widget_show (priv->dialog_content);
@@ -808,7 +808,7 @@ account_dialog_create_dialog_content (EmpathyAccountsDialog *dialog,
       account_dialog_show_contact_details_failed (dialog, FALSE);
     }
 
-  bbox = gtk_hbutton_box_new ();
+  bbox = gtk_button_box_new (GTK_ORIENTATION_HORIZONTAL);
   gtk_button_box_set_layout (GTK_BUTTON_BOX (bbox), GTK_BUTTONBOX_END);
   gtk_box_pack_end (GTK_BOX (priv->dialog_content), bbox, FALSE, TRUE, 0);
   gtk_widget_show (bbox);
