@@ -68,6 +68,7 @@ libempathy_gtk_handwritten_source =            	\
 	empathy-irc-network-chooser-dialog.c \
 	empathy-irc-network-dialog.c		\
 	empathy-log-window.c			\
+	empathy-new-account-dialog.c		\
 	empathy-new-message-dialog.c		\
 	empathy-new-call-dialog.c		\
 	empathy-notify-manager.c		\
@@ -137,6 +138,7 @@ libempathy_gtk_headers =			\
 	empathy-irc-network-chooser-dialog.h \
 	empathy-irc-network-dialog.h		\
 	empathy-log-window.h			\
+	empathy-new-account-dialog.h		\
 	empathy-new-message-dialog.h		\
 	empathy-new-call-dialog.h		\
 	empathy-notify-manager.h		\
