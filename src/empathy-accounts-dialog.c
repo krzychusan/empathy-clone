@@ -51,6 +51,7 @@
 #include <libempathy-gtk/empathy-cell-renderer-activatable.h>
 #include <libempathy-gtk/empathy-contact-widget.h>
 #include <libempathy-gtk/empathy-images.h>
+#include <libempathy-gtk/empathy-new-account-dialog.h>
 
 #include "empathy-accounts-dialog.h"
 #include "empathy-import-dialog.h"
@@ -1018,10 +1019,28 @@ get_dialog_primary_text (TpAccount *account)
 
 static void
 accounts_dialog_button_add_clicked_cb (GtkWidget *button,
-    EmpathyAccountsDialog *dialog)
+    EmpathyAccountsDialog *self)
 {
-  accounts_dialog_setup_ui_to_add_account (dialog);
-  account_dialog_create_edit_params_dialog (dialog);
+  GtkWidget *dialog;
+  gint response;
+
+  dialog = empathy_new_account_dialog_new (GTK_WINDOW (self));
+  gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
+
+  response = gtk_dialog_run (GTK_DIALOG (dialog));
+
+  if (response == GTK_RESPONSE_OK)
+    {
+      EmpathyAccountSettings *settings;
+
+      settings = empathy_new_account_dialog_get_settings (
+          EMPATHY_NEW_ACCOUNT_DIALOG (dialog));
+
+      accounts_dialog_add (self, settings);
+      accounts_dialog_model_set_selected (self, settings);
+    }
+
+  gtk_widget_destroy (dialog);
 }
 
 static void
