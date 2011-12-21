@@ -99,7 +99,6 @@ typedef struct {
   GtkWidget *button_remove;
   GtkWidget *button_import;
 
-  GtkWidget *combobox_protocol;
   GtkWidget *hbox_protocol;
 
   GtkWidget *image_type;
@@ -868,97 +867,6 @@ accounts_dialog_has_pending_change (EmpathyAccountsDialog *dialog,
   return priv->setting_widget_object != NULL
       && empathy_account_widget_contains_pending_changes (
           priv->setting_widget_object);
-}
-
-static void
-accounts_dialog_setup_ui_to_add_account (EmpathyAccountsDialog *dialog)
-{
-  EmpathyAccountsDialogPriv *priv = GET_PRIV (dialog);
-  EmpathyAccountSettings *settings;
-
-  settings = empathy_protocol_chooser_create_account_settings (
-      EMPATHY_PROTOCOL_CHOOSER (priv->combobox_protocol));
-  if (settings == NULL)
-    return;
-
-  accounts_dialog_add (dialog, settings);
-  accounts_dialog_model_set_selected (dialog, settings);
-
-  gtk_widget_show_all (priv->hbox_protocol);
-
-  g_object_unref (settings);
-}
-
-static void
-accounts_dialog_protocol_changed_cb (GtkWidget *widget,
-    EmpathyAccountsDialog *dialog)
-{
-  EmpathyAccountsDialogPriv *priv = GET_PRIV (dialog);
-  GtkTreeSelection *selection;
-  GtkTreeModel *model;
-  GtkTreeIter iter;
-  gboolean creating;
-  EmpathyAccountSettings *settings;
-  gchar *account = NULL, *password = NULL;
-
-  /* The "changed" signal is fired during the initiation of the
-   * EmpathyProtocolChooser while populating the widget. Such signals should
-   * be ignored so we check if we are actually creating a new account. */
-  if (priv->setting_widget_object == NULL)
-    return;
-
-  g_object_get (priv->setting_widget_object,
-      "creating-account", &creating, NULL);
-  if (!creating)
-    return;
-
-  selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (priv->treeview));
-
-  if (!gtk_tree_selection_get_selected (selection, &model, &iter))
-    return;
-
-  /* Save "account" and "password" parameters */
-  g_object_get (priv->setting_widget_object, "settings", &settings, NULL);
-
-  if (settings != NULL)
-    {
-      account = g_strdup (empathy_account_settings_get_string (settings,
-            "account"));
-      password = g_strdup (empathy_account_settings_get_string (settings,
-            "password"));
-      g_object_unref (settings);
-    }
-
-  /* We are creating a new widget to replace the current one, don't ask
-   * confirmation to the user. */
-  priv->force_change_row = TRUE;
-
-  /* We'll update the selection after we create the new account widgets;
-   * updating it right now causes problems for the # of accounts = zero case */
-  g_signal_handlers_block_by_func (selection,
-      accounts_dialog_model_selection_changed, dialog);
-
-  gtk_list_store_remove (GTK_LIST_STORE (model), &iter);
-
-  g_signal_handlers_unblock_by_func (selection,
-      accounts_dialog_model_selection_changed, dialog);
-
-  accounts_dialog_setup_ui_to_add_account (dialog);
-
-  /* Restore "account" and "password" parameters in the new widget */
-  if (account != NULL)
-    {
-      empathy_account_widget_set_account_param (priv->setting_widget_object,
-          account);
-      g_free (account);
-    }
-
-  if (password != NULL)
-    {
-      empathy_account_widget_set_password_param (priv->setting_widget_object,
-          password);
-      g_free (password);
-    }
 }
 
 static void
@@ -2440,13 +2348,6 @@ accounts_dialog_build_ui (EmpathyAccountsDialog *dialog)
   gtk_widget_set_sensitive (priv->button_add, FALSE);
   gtk_widget_set_sensitive (priv->button_import, FALSE);
   gtk_widget_set_sensitive (priv->treeview, FALSE);
-
-  priv->combobox_protocol = empathy_protocol_chooser_new ();
-  gtk_box_pack_start (GTK_BOX (priv->hbox_protocol), priv->combobox_protocol,
-      TRUE, TRUE, 0);
-  g_signal_connect (priv->combobox_protocol, "changed",
-      G_CALLBACK (accounts_dialog_protocol_changed_cb),
-      dialog);
 
   if (priv->parent_window)
     gtk_window_set_transient_for (GTK_WINDOW (dialog),
