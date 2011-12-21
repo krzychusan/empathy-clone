@@ -504,28 +504,6 @@ empathy_account_dialog_widget_cancelled_cb (
   empathy_account_dialog_cancel (dialog);
 }
 
-static void
-empathy_account_dialog_account_created_cb (EmpathyAccountWidget *widget_object,
-    TpAccount *account,
-    EmpathyAccountsDialog *dialog)
-{
-  EmpathyAccountSettings *settings =
-      accounts_dialog_model_get_selected_settings (dialog);
-  EmpathyAccountsDialogPriv *priv = GET_PRIV (dialog);
-
-  accounts_dialog_update_settings (dialog, settings);
-  accounts_dialog_update_status_infobar (dialog,
-      empathy_account_settings_get_account (settings));
-
-  gtk_widget_set_sensitive (priv->treeview, TRUE);
-  gtk_widget_set_sensitive (priv->button_add, TRUE);
-  gtk_widget_set_sensitive (priv->button_remove, TRUE);
-  gtk_widget_set_sensitive (priv->button_import, TRUE);
-
-  if (settings)
-    g_object_unref (settings);
-}
-
 static gboolean
 accounts_dialog_has_valid_accounts (EmpathyAccountsDialog *dialog)
 {
@@ -574,8 +552,6 @@ account_dialog_create_edit_params_dialog (EmpathyAccountsDialog *dialog)
 
   content = empathy_account_widget_get_widget (priv->setting_widget_object);
 
-  g_signal_connect (priv->setting_widget_object, "account-created",
-        G_CALLBACK (empathy_account_dialog_account_created_cb), dialog);
   g_signal_connect (priv->setting_widget_object, "cancelled",
           G_CALLBACK (empathy_account_dialog_widget_cancelled_cb), dialog);
 
