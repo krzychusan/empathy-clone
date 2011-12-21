@@ -42,6 +42,7 @@ G_BEGIN_DECLS
 #define EMPATHY_ACCOUNT_WIDGET_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), EMPATHY_TYPE_ACCOUNT_WIDGET, EmpathyAccountWidgetClass))
 
+typedef struct _EmpathyAccountWidgetPriv EmpathyAccountWidgetPriv;
 typedef struct _EmpathyAccountWidgetUIDetails EmpathyAccountWidgetUIDetails;
 
 typedef struct {
@@ -49,8 +50,7 @@ typedef struct {
 
   EmpathyAccountWidgetUIDetails *ui_details;
 
-  /* private */
-  gpointer priv;
+  EmpathyAccountWidgetPriv *priv;
 } EmpathyAccountWidget;
 
 typedef struct {
