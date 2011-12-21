@@ -115,8 +115,6 @@ struct _EmpathyAccountWidgetPriv {
   /* Used for 'special' XMPP account having a service associated ensuring that
    * JIDs have a specific suffix; such as Facebook for example */
   gchar *jid_suffix;
-
-  gboolean dispose_run;
 };
 
 enum {
@@ -2057,22 +2055,8 @@ do_dispose (GObject *obj)
 {
   EmpathyAccountWidget *self = EMPATHY_ACCOUNT_WIDGET (obj);
 
-  if (self->priv->dispose_run)
-    return;
-
-  self->priv->dispose_run = TRUE;
-
-  if (self->priv->settings != NULL)
-    {
-      g_object_unref (self->priv->settings);
-      self->priv->settings = NULL;
-    }
-
-  if (self->priv->account_manager != NULL)
-    {
-      g_object_unref (self->priv->account_manager);
-      self->priv->account_manager = NULL;
-    }
+  g_clear_object (&self->priv->settings);
+  g_clear_object (&self->priv->account_manager);
 
   if (G_OBJECT_CLASS (empathy_account_widget_parent_class)->dispose != NULL)
     G_OBJECT_CLASS (empathy_account_widget_parent_class)->dispose (obj);
@@ -2174,8 +2158,6 @@ empathy_account_widget_init (EmpathyAccountWidget *self)
 {
   self->priv = G_TYPE_INSTANCE_GET_PRIVATE ((self), EMPATHY_TYPE_ACCOUNT_WIDGET,
         EmpathyAccountWidgetPriv);
-
-  self->priv->dispose_run = FALSE;
 
   self->ui_details = g_slice_new0 (EmpathyAccountWidgetUIDetails);
 }
