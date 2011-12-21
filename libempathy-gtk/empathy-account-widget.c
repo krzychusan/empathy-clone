@@ -81,6 +81,7 @@ struct _EmpathyAccountWidgetPriv {
   GtkWidget *entry_password;
   GtkWidget *spinbutton_port;
   GtkWidget *radiobutton_reuse;
+  GtkWidget *hbox_buttons;
 
   gboolean simple;
 
@@ -206,28 +207,25 @@ static void
 account_widget_set_control_buttons_sensitivity (EmpathyAccountWidget *self,
     gboolean sensitive)
 {
-  if (!self->priv->simple)
+  /* we hit this case because of the 'other-accounts-exist' property handler
+   * being called during init (before constructed()) */
+  if (self->priv->apply_button == NULL || self->priv->cancel_button == NULL)
+    return;
+
+  gtk_widget_set_sensitive (self->priv->apply_button, sensitive);
+
+  if (sensitive)
     {
-      /* we hit this case because of the 'other-accounts-exist' property handler
-       * being called during init (before constructed()) */
-      if (self->priv->apply_button == NULL || self->priv->cancel_button == NULL)
-        return;
+      /* We can't grab default if the widget hasn't be packed in a
+       * window */
+      GtkWidget *window;
 
-      gtk_widget_set_sensitive (self->priv->apply_button, sensitive);
-
-      if (sensitive)
+      window = gtk_widget_get_toplevel (self->priv->apply_button);
+      if (window != NULL &&
+          gtk_widget_is_toplevel (window))
         {
-          /* We can't grab default if the widget hasn't be packed in a
-           * window */
-          GtkWidget *window;
-
-          window = gtk_widget_get_toplevel (self->priv->apply_button);
-          if (window != NULL &&
-              gtk_widget_is_toplevel (window))
-            {
-              gtk_widget_set_can_default (self->priv->apply_button, TRUE);
-              gtk_widget_grab_default (self->priv->apply_button);
-            }
+          gtk_widget_set_can_default (self->priv->apply_button, TRUE);
+          gtk_widget_grab_default (self->priv->apply_button);
         }
     }
 }
@@ -269,8 +267,7 @@ account_widget_handle_control_buttons_sensitivity (EmpathyAccountWidget *self)
 
   is_valid = empathy_account_settings_is_valid (self->priv->settings);
 
-  if (!self->priv->simple)
-      account_widget_set_control_buttons_sensitivity (self, is_valid);
+  account_widget_set_control_buttons_sensitivity (self, is_valid);
 
   g_signal_emit (self, signals[HANDLE_APPLY], 0, is_valid);
 }
@@ -1978,48 +1975,45 @@ do_constructed (GObject *obj)
       account_manager_ready_cb, self);
 
   /* handle apply and cancel button */
-  if (!self->priv->simple)
-    {
-      GtkWidget *hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 3);
+  self->priv->hbox_buttons = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 3);
 
-      gtk_box_set_homogeneous (GTK_BOX (hbox), TRUE);
+  gtk_box_set_homogeneous (GTK_BOX (self->priv->hbox_buttons), TRUE);
 
-      self->priv->cancel_button = gtk_button_new_from_stock (GTK_STOCK_CLOSE);
+  self->priv->cancel_button = gtk_button_new_from_stock (GTK_STOCK_CLOSE);
 
-      self->priv->apply_button = gtk_button_new ();
-      set_apply_button (self);
+  self->priv->apply_button = gtk_button_new ();
+  set_apply_button (self);
 
-      /* We'll change this button to a "Log in" one if we are creating a new
-       * account and are connected. */
-      tp_g_signal_connect_object (self->priv->account_manager,
-          "most-available-presence-changed",
-          G_CALLBACK (presence_changed_cb), obj, 0);
+  /* We'll change this button to a "Log in" one if we are creating a new
+   * account and are connected. */
+  tp_g_signal_connect_object (self->priv->account_manager,
+      "most-available-presence-changed",
+      G_CALLBACK (presence_changed_cb), obj, 0);
 
-      gtk_box_pack_end (GTK_BOX (hbox), self->priv->apply_button, TRUE,
-          TRUE, 3);
-      gtk_box_pack_end (GTK_BOX (hbox), self->priv->cancel_button, TRUE,
-          TRUE, 3);
+  gtk_box_pack_end (GTK_BOX (self->priv->hbox_buttons),
+      self->priv->apply_button, TRUE, TRUE, 3);
+  gtk_box_pack_end (GTK_BOX (self->priv->hbox_buttons),
+      self->priv->cancel_button, TRUE, TRUE, 3);
 
-      gtk_box_pack_end (GTK_BOX (self->ui_details->widget), hbox, FALSE,
-          FALSE, 3);
+  gtk_box_pack_end (GTK_BOX (self->ui_details->widget), self->priv->hbox_buttons, FALSE,
+      FALSE, 3);
 
-      g_signal_connect (self->priv->cancel_button, "clicked",
-          G_CALLBACK (account_widget_cancel_clicked_cb),
-          self);
-      g_signal_connect (self->priv->apply_button, "clicked",
-          G_CALLBACK (account_widget_apply_clicked_cb),
-          self);
-      gtk_widget_show_all (hbox);
+  g_signal_connect (self->priv->cancel_button, "clicked",
+      G_CALLBACK (account_widget_cancel_clicked_cb),
+      self);
+  g_signal_connect (self->priv->apply_button, "clicked",
+      G_CALLBACK (account_widget_apply_clicked_cb),
+      self);
+  gtk_widget_show_all (self->priv->hbox_buttons);
 
-      if (self->priv->creating_account)
-        /* When creating an account, the user might have nothing to enter.
-         * That means that no control interaction might occur,
-         * so we update the control button sensitivity manually.
-         */
-        account_widget_handle_control_buttons_sensitivity (self);
-      else
-        account_widget_set_control_buttons_sensitivity (self, FALSE);
-    }
+  if (self->priv->creating_account)
+    /* When creating an account, the user might have nothing to enter.
+     * That means that no control interaction might occur,
+     * so we update the control button sensitivity manually.
+     */
+    account_widget_handle_control_buttons_sensitivity (self);
+  else
+    account_widget_set_control_buttons_sensitivity (self, FALSE);
 
 #ifndef HAVE_MEEGO
   add_register_buttons (self, account);
@@ -2310,4 +2304,10 @@ EmpathyAccountSettings *
 empathy_account_widget_get_settings (EmpathyAccountWidget *self)
 {
   return self->priv->settings;
+}
+
+void
+empathy_account_widget_hide_buttons (EmpathyAccountWidget *self)
+{
+  gtk_widget_hide (self->priv->hbox_buttons);
 }

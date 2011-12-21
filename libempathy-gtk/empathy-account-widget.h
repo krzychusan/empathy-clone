@@ -82,6 +82,8 @@ void empathy_account_widget_set_password_param (EmpathyAccountWidget *self,
 void empathy_account_widget_set_other_accounts_exist (
     EmpathyAccountWidget *self, gboolean others_exist);
 
+void empathy_account_widget_hide_buttons (EmpathyAccountWidget *self);
+
 /* protected methods */
 void empathy_account_widget_changed (EmpathyAccountWidget *widget);
 

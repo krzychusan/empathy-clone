@@ -407,6 +407,8 @@ account_assistant_protocol_changed_cb (GtkComboBox *chooser,
       gtk_widget_destroy (priv->current_account_widget);
     }
 
+  empathy_account_widget_hide_buttons (widget_object);
+
   priv->current_account_widget = account_widget;
   priv->current_widget_object = widget_object;
 
