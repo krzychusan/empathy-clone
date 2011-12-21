@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: empathy help fr\n"
-"POT-Creation-Date: 2011-10-01 17:42+0000\n"
-"PO-Revision-Date: 2011-10-04 20:07+0200p\n"
+"POT-Creation-Date: 2011-12-20 12:18+0000\n"
+"PO-Revision-Date: 2011-12-20 21:45+0100\n"
 "Last-Translator: Bruno Brouard <annoa.b@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/video-call.page:38(None) C/audio-video.page:70(None)
+#: C/video-call.page:39(None) C/audio-video.page:70(None)
 #: C/audio-call.page:36(None)
 msgid "@@image: 'figures/camera-web.png'; md5=8166b4372f25b78cbf5a64fe2eac2ce5"
 msgstr ""
@@ -32,12 +32,12 @@ msgstr ""
 msgid "Start a video conversation with one of your contacts."
 msgstr "Commencer une conversation vidéo avec un de vos contacts."
 
-#: C/video-call.page:21(name) C/status-icons.page:16(name)
+#: C/video-call.page:22(name) C/status-icons.page:16(name)
 #: C/share-desktop.page:14(name) C/set-custom-status.page:19(name)
 #: C/send-file.page:21(name) C/salut-protocol.page:18(name)
-#: C/remove-account.page:18(name) C/prob-conn-neterror.page:18(name)
-#: C/prob-conn-name.page:17(name) C/prob-conn-auth.page:21(name)
-#: C/prob-conn-acctdisabled.page:18(name) C/prev-conv.page:16(name)
+#: C/remove-account.page:19(name) C/prob-conn-neterror.page:19(name)
+#: C/prob-conn-name.page:18(name) C/prob-conn-auth.page:21(name)
+#: C/prob-conn-acctdisabled.page:19(name) C/prev-conv.page:17(name)
 #: C/link-contacts.page:15(name) C/irc-start-conversation.page:15(name)
 #: C/irc-send-file.page:16(name) C/irc-nick-password.page:18(name)
 #: C/irc-manage.page:20(name) C/irc-join-room.page:16(name)
@@ -48,18 +48,18 @@ msgstr "Commencer une conversation vidéo avec un de vos contacts."
 #: C/geolocation-turn.page:18(name) C/geolocation-supported.page:16(name)
 #: C/geolocation-privacy.page:17(name) C/geolocation-not-showing.page:17(name)
 #: C/geolocation.page:17(name) C/favorite-rooms.page:14(name)
-#: C/disable-account.page:20(name) C/create-account.page:19(name)
+#: C/disable-account.page:21(name) C/create-account.page:19(name)
 #: C/audio-video.page:17(name) C/audio-call.page:19(name)
-#: C/add-account.page:20(name)
+#: C/add-account.page:21(name)
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
 
-#: C/video-call.page:22(email) C/status-icons.page:17(email)
+#: C/video-call.page:23(email) C/status-icons.page:17(email)
 #: C/share-desktop.page:15(email) C/set-custom-status.page:20(email)
 #: C/send-file.page:22(email) C/salut-protocol.page:19(email)
-#: C/remove-account.page:19(email) C/prob-conn-neterror.page:19(email)
-#: C/prob-conn-name.page:18(email) C/prob-conn-auth.page:22(email)
-#: C/prob-conn-acctdisabled.page:19(email) C/prev-conv.page:17(email)
+#: C/remove-account.page:20(email) C/prob-conn-neterror.page:20(email)
+#: C/prob-conn-name.page:19(email) C/prob-conn-auth.page:22(email)
+#: C/prob-conn-acctdisabled.page:20(email) C/prev-conv.page:18(email)
 #: C/link-contacts.page:16(email) C/irc-start-conversation.page:16(email)
 #: C/irc-send-file.page:17(email) C/irc-nick-password.page:19(email)
 #: C/irc-manage.page:21(email) C/irc-join-room.page:17(email)
@@ -70,19 +70,19 @@ msgstr "Milo Casagrande"
 #: C/geolocation-turn.page:19(email) C/geolocation-supported.page:17(email)
 #: C/geolocation-privacy.page:18(email)
 #: C/geolocation-not-showing.page:18(email) C/geolocation.page:18(email)
-#: C/favorite-rooms.page:15(email) C/disable-account.page:21(email)
+#: C/favorite-rooms.page:15(email) C/disable-account.page:22(email)
 #: C/create-account.page:20(email) C/audio-video.page:18(email)
-#: C/audio-call.page:20(email) C/add-account.page:21(email)
+#: C/audio-call.page:20(email) C/add-account.page:22(email)
 msgid "milo@ubuntu.com"
 msgstr "milo@ubuntu.com"
 
-#: C/video-call.page:25(p) C/status-icons.page:24(p)
+#: C/video-call.page:26(p) C/status-icons.page:24(p)
 #: C/share-desktop.page:22(p) C/set-custom-status.page:23(p)
 #: C/send-message.page:21(p) C/send-file.page:25(p)
-#: C/salut-protocol.page:22(p) C/remove-account.page:22(p)
-#: C/prob-conn.page:18(p) C/prob-conn-neterror.page:22(p)
-#: C/prob-conn-name.page:21(p) C/prob-conn-auth.page:25(p)
-#: C/prob-conn-acctdisabled.page:22(p) C/prev-conv.page:24(p)
+#: C/salut-protocol.page:22(p) C/remove-account.page:23(p)
+#: C/prob-conn.page:18(p) C/prob-conn-neterror.page:23(p)
+#: C/prob-conn-name.page:22(p) C/prob-conn-auth.page:25(p)
+#: C/prob-conn-acctdisabled.page:23(p) C/prev-conv.page:25(p)
 #: C/link-contacts.page:19(p) C/irc-start-conversation.page:19(p)
 #: C/irc-send-file.page:20(p) C/irc-nick-password.page:22(p)
 #: C/irc-manage.page:24(p) C/irc-join-room.page:20(p)
@@ -92,22 +92,22 @@ msgstr "milo@ubuntu.com"
 #: C/geolocation-what-is.page:22(p) C/geolocation-turn.page:22(p)
 #: C/geolocation-supported.page:20(p) C/geolocation-privacy.page:21(p)
 #: C/geolocation-not-showing.page:21(p) C/geolocation.page:21(p)
-#: C/favorite-rooms.page:18(p) C/disable-account.page:28(p)
-#: C/create-account.page:23(p) C/change-status.page:23(p)
+#: C/favorite-rooms.page:18(p) C/disable-account.page:29(p)
+#: C/create-account.page:23(p) C/change-status.page:28(p)
 #: C/audio-video.page:21(p) C/audio-call.page:23(p) C/add-contact.page:22(p)
-#: C/add-account.page:28(p) C/accounts-window.page:22(p)
+#: C/add-account.page:29(p) C/accounts-window.page:22(p)
 #: C/account-jabber.page:18(p) C/account-irc.page:20(p)
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
-#: C/video-call.page:28(title)
+#: C/video-call.page:29(title)
 msgid "Start a video conversation"
 msgstr "Mise en place d'une conversation vidéo"
 
-#: C/video-call.page:30(p)
+#: C/video-call.page:31(p)
 msgid ""
 "If you have a webcam, you can call your contacts and have a video "
-"conversation with them. This features only works with certain types of "
+"conversation with them. This feature only works with certain types of "
 "accounts, and it requires the other person to have an application that "
 "supports video calls."
 msgstr ""
@@ -116,7 +116,7 @@ msgstr ""
 "certains types de comptes et votre contact doit utiliser une application qui "
 "supporte les appels vidéos."
 
-#: C/video-call.page:37(p)
+#: C/video-call.page:38(p)
 msgid ""
 "From the <gui>Contact List</gui> window, click the <media type=\"image\" "
 "mime=\"image/png\" src=\"figures/camera-web.png\">video call</media> icon "
@@ -128,7 +128,7 @@ msgstr ""
 "\">Appel vidéo</media> à côté du contact que vous souhaitez appeler et "
 "choisissez <gui style=\"menuitem\">Appel vidéo</gui>."
 
-#: C/video-call.page:43(p) C/audio-call.page:42(p)
+#: C/video-call.page:44(p) C/audio-call.page:42(p)
 msgid ""
 "A new window will open. When the connection is established, you will see "
 "<gui>Connected</gui> at the bottom of the window, along with the total "
@@ -138,14 +138,14 @@ msgstr ""
 "apparaître <gui>Connecté</gui> en bas de la fenêtre, ainsi que la durée "
 "totale de la conversation."
 
-#: C/video-call.page:48(p) C/audio-call.page:48(p)
+#: C/video-call.page:49(p) C/audio-call.page:48(p)
 msgid "To end the conversation, click on <gui style=\"button\">Hang up</gui>."
 msgstr ""
 "Pour terminer la conversation, cliquez sur <gui style=\"button\">Raccrocher</"
 "gui>."
 
 # "Send video" pour transformer une conversation video en audio ?
-#: C/video-call.page:54(p)
+#: C/video-call.page:55(p)
 msgid ""
 "To turn a video conversation into an audio conversation, choose <guiseq><gui "
 "style=\"menu\">Video</gui><gui style=\"menuitem\">Video Off</gui></guiseq>."
@@ -154,18 +154,18 @@ msgstr ""
 "choisissez <guiseq><gui style=\"menu\">Vidéo</gui><gui style=\"menuitem"
 "\">Vidéo désactivée</gui></guiseq>."
 
-#: C/video-call.page:60(title)
+#: C/video-call.page:61(title)
 msgid "Start a video conversation with a meta-contact"
 msgstr "Commencer une conversation vidéo avec un méta-contact"
 
-#: C/video-call.page:63(p) C/send-message.page:53(p) C/audio-call.page:66(p)
+#: C/video-call.page:64(p) C/send-message.page:53(p) C/audio-call.page:66(p)
 msgid ""
 "From the <gui>Contact List</gui> window, right-click on the meta-contact."
 msgstr ""
 "Dans la fenêtre <gui>Liste des contacts</gui>, faites un clic droit sur le "
 "méta-contact."
 
-#: C/video-call.page:68(p)
+#: C/video-call.page:69(p)
 msgid ""
 "Select the contact you want to have the conversation, and from the menu "
 "select <gui style=\"menuitem\">Video Call</gui>."
@@ -173,7 +173,7 @@ msgstr ""
 "Sélectionnez le contact avec lequel vous voulez discuter et choisissez <gui "
 "style=\"menuitem\">Appel vidéo</gui> dans le menu."
 
-#: C/video-call.page:75(p) C/send-message.page:65(p) C/audio-call.page:78(p)
+#: C/video-call.page:76(p) C/send-message.page:65(p) C/audio-call.page:78(p)
 msgid ""
 "To recognize if a contact is a <em>meta-contact</em>, move your mouse on a "
 "contact in the <gui>Contact List</gui> window, and stop over it for a "
@@ -214,17 +214,17 @@ msgid "Understanding the various statuses and status icons."
 msgstr "Comprendre les différents états et les icônes d'état."
 
 #: C/status-icons.page:20(name) C/salut-protocol.page:36(cite)
-#: C/prev-conv.page:20(name) C/prev-conv.page:38(cite)
-#: C/import-account.page:27(name) C/disable-account.page:24(name)
-#: C/audio-video.page:109(cite) C/audio-video.page:117(cite)
-#: C/add-account.page:24(name) C/accounts-window.page:18(name)
-#: C/account-jabber.page:14(name) C/account-irc.page:16(name)
+#: C/prev-conv.page:21(name) C/import-account.page:27(name)
+#: C/disable-account.page:25(name) C/audio-video.page:109(cite)
+#: C/audio-video.page:117(cite) C/add-account.page:25(name)
+#: C/accounts-window.page:18(name) C/account-jabber.page:14(name)
+#: C/account-irc.page:16(name)
 msgid "Shaun McCance"
 msgstr "Shaun McCance"
 
-#: C/status-icons.page:21(email) C/prev-conv.page:21(email)
-#: C/import-account.page:28(email) C/disable-account.page:25(email)
-#: C/add-account.page:25(email) C/accounts-window.page:19(email)
+#: C/status-icons.page:21(email) C/prev-conv.page:22(email)
+#: C/import-account.page:28(email) C/disable-account.page:26(email)
+#: C/add-account.page:26(email) C/accounts-window.page:19(email)
 #: C/account-jabber.page:15(email) C/account-irc.page:17(email)
 msgid "shaunm@gnome.org"
 msgstr "shaunm@gnome.org"
@@ -597,16 +597,16 @@ msgid "Send a message to one of your contacts."
 msgstr "Envoyer un message à l'un de vos contacts."
 
 #: C/send-message.page:17(name) C/send-file.page:17(name)
-#: C/prob-conn.page:14(name) C/prob-conn-neterror.page:14(name)
-#: C/prob-conn-auth.page:17(name) C/prob-conn-acctdisabled.page:14(name)
-#: C/change-status.page:19(name) C/add-contact.page:18(name)
+#: C/prob-conn.page:14(name) C/prob-conn-neterror.page:15(name)
+#: C/prob-conn-auth.page:17(name) C/prob-conn-acctdisabled.page:15(name)
+#: C/change-status.page:24(name) C/add-contact.page:18(name)
 msgid "Phil Bull"
 msgstr "Phil Bull"
 
 #: C/send-message.page:18(email) C/send-file.page:18(email)
-#: C/prob-conn.page:15(email) C/prob-conn-neterror.page:15(email)
-#: C/prob-conn-auth.page:18(email) C/prob-conn-acctdisabled.page:15(email)
-#: C/change-status.page:20(email) C/add-contact.page:19(email)
+#: C/prob-conn.page:15(email) C/prob-conn-neterror.page:16(email)
+#: C/prob-conn-auth.page:18(email) C/prob-conn-acctdisabled.page:16(email)
+#: C/change-status.page:25(email) C/add-contact.page:19(email)
 msgid "philbull@gmail.com"
 msgstr "philbull@gmail.com"
 
@@ -774,11 +774,11 @@ msgstr ""
 msgid "Completely remove an account from <app>Empathy</app>."
 msgstr "Supprimer complètement un compte dans <app>Empathy</app>."
 
-#: C/remove-account.page:33(title)
+#: C/remove-account.page:34(title)
 msgid "Remove an account"
 msgstr "Suppression d'un compte"
 
-#: C/remove-account.page:35(p)
+#: C/remove-account.page:36(p)
 msgid ""
 "You can completely remove an account from <app>Empathy</app> if you no "
 "longer wish to use the account. If you wish to use the account in "
@@ -789,8 +789,8 @@ msgstr ""
 "ne souhaitez plus l'utiliser. Si vous souhaitez réutiliser ce compte dans "
 "<app>Empathy</app>, il faudra le créer de nouveau avec tous ses paramètres."
 
-#: C/remove-account.page:42(p) C/irc-nick-password.page:50(p)
-#: C/disable-account.page:48(p) C/add-account.page:48(p)
+#: C/remove-account.page:43(p) C/irc-nick-password.page:50(p)
+#: C/disable-account.page:49(p) C/add-account.page:49(p)
 msgid ""
 "From the <gui>Contact List</gui> window, choose <guiseq><gui>Edit</"
 "gui><gui>Accounts</gui></guiseq>, or press <key>F4</key>."
@@ -799,7 +799,7 @@ msgstr ""
 "<guiseq><gui>Édition</gui><gui>Comptes</gui></guiseq>, ou appuyez sur "
 "<key>F4</key>."
 
-#: C/remove-account.page:46(p)
+#: C/remove-account.page:47(p)
 msgid ""
 "Select the account you wish to remove from the accounts list on the left "
 "side of the window."
@@ -807,11 +807,11 @@ msgstr ""
 "Sélectionnez le compte que vous voulez supprimer dans la liste de comptes de "
 "la partie gauche de la fenêtre."
 
-#: C/remove-account.page:50(p)
-msgid "Click on <gui style=\"button\">Remove</gui>."
-msgstr "Cliquez sur <gui style=\"button\">Supprimer</gui>."
+#: C/remove-account.page:51(p)
+msgid "Click <gui style=\"button\">-</gui>."
+msgstr "Cliquez sur le bouton <gui style=\"button\">-</gui>."
 
-#: C/remove-account.page:53(p)
+#: C/remove-account.page:54(p)
 msgid ""
 "A dialog will be shown asking for confirmation. Click the <gui>Remove</gui> "
 "button to permanently remove the account."
@@ -820,7 +820,7 @@ msgstr ""
 "suppression. Cliquez sur <gui>Supprimer</gui> pour supprimer le compte "
 "définitivement."
 
-#: C/remove-account.page:59(p)
+#: C/remove-account.page:60(p)
 msgid ""
 "Even after removing an account, <app>Empathy</app> does not delete your "
 "conversation history for that account."
@@ -840,7 +840,7 @@ msgstr "Problèmes de connexion à un service de messagerie instantanée"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/prob-conn-neterror.page:58(None) C/prob-conn-name.page:43(None)
+#: C/prob-conn-neterror.page:59(None) C/prob-conn-name.page:44(None)
 #: C/prob-conn-auth.page:58(None) C/account-irc.page:109(None)
 msgid "@@image: 'figures/gtk-edit.png'; md5=4f21b451732817be0604fe3e2c8da98b"
 msgstr "@@image: 'figures/gtk-edit.png'; md5=4f21b451732817be0604fe3e2c8da98b"
@@ -853,15 +853,15 @@ msgstr ""
 "Un message d'erreur indiquant « <gui>Erreur réseau</gui> » apparaît dans la "
 "fenêtre principale."
 
-#: C/prob-conn-neterror.page:33(title)
+#: C/prob-conn-neterror.page:34(title)
 msgid "I get a message that says “Network error”"
 msgstr "J'obtiens le message « Erreur réseau »"
 
-#: C/prob-conn-neterror.page:36(cite)
+#: C/prob-conn-neterror.page:37(cite)
 msgid "shaunm"
 msgstr "shaunm"
 
-#: C/prob-conn-neterror.page:37(p)
+#: C/prob-conn-neterror.page:38(p)
 msgid ""
 "Empathy no longer allows you to create an IRC account without a valid nick. "
 "I've removed the guide link. Remove the text."
@@ -869,7 +869,7 @@ msgstr ""
 "Empathy ne vous autorise plus à créer un compte IRC sans pseudo valide. J'ai "
 "supprimé le lien du guide et supprimé le texte."
 
-#: C/prob-conn-neterror.page:41(p)
+#: C/prob-conn-neterror.page:42(p)
 msgid ""
 "This kind of error happens when <app>Empathy</app> cannot communicate with "
 "the instant messaging service for some reason."
@@ -877,7 +877,7 @@ msgstr ""
 "Ce type d'erreur se produit quand <app>Empathy</app> ne parvient pas à "
 "communiquer avec le service de messagerie instantanée."
 
-#: C/prob-conn-neterror.page:45(p)
+#: C/prob-conn-neterror.page:46(p)
 msgid ""
 "Also, this kind of error happens when you try to use an IRC account without "
 "setting a nickname."
@@ -885,13 +885,13 @@ msgstr ""
 "Ce type d'erreur se produit aussi quand vous essayez d'utiliser un compte "
 "IRC sans paramétrer de pseudonyme."
 
-#: C/prob-conn-neterror.page:52(p) C/prob-conn-auth.page:45(p)
-#: C/prob-conn-acctdisabled.page:43(p)
+#: C/prob-conn-neterror.page:53(p) C/prob-conn-auth.page:45(p)
+#: C/prob-conn-acctdisabled.page:44(p)
 msgid ""
 "Make sure that you are connected to the Internet, or to a local area network."
 msgstr "Assurez-vous d'être connecté à internet ou au réseau local."
 
-#: C/prob-conn-neterror.page:57(p) C/prob-conn-name.page:42(p)
+#: C/prob-conn-neterror.page:58(p) C/prob-conn-name.page:43(p)
 #: C/prob-conn-auth.page:57(p)
 msgid ""
 "Click the <media type=\"image\" mime=\"image/png\" src=\"figures/gtk-edit.png"
@@ -900,7 +900,7 @@ msgstr ""
 "Cliquez sur l'icône <media type=\"image\" mime=\"image/png\" src=\"figures/"
 "gtk-edit.png\">Modifier</media> dans le message d'erreur."
 
-#: C/prob-conn-neterror.page:65(p) C/prob-conn-acctdisabled.page:59(p)
+#: C/prob-conn-neterror.page:64(p) C/prob-conn-acctdisabled.page:60(p)
 msgid ""
 "Check in the <gui>Advanced</gui> section that all the details are correct. "
 "You should be able to find these details from the website of the messaging "
@@ -910,19 +910,19 @@ msgstr ""
 "corrects.Vous devriez trouver ces paramètres sur le site internet de votre "
 "service de messagerie."
 
-#: C/prob-conn-neterror.page:82(p) C/prob-conn-auth.page:68(p)
+#: C/prob-conn-neterror.page:79(p) C/prob-conn-name.page:65(p)
 msgid ""
-"Deselect the <gui>Enabled</gui>, and then select it again to try to "
-"reconnect to the service."
+"Switch the account off, and then switch it on to try to reconnect to the "
+"service."
 msgstr ""
-"Décochez la case à cocher <gui>Activé</gui> et cochez-la de nouveau pour "
-"essayer de vous reconnecter au service."
+"Désactivez le compte, puis activez-le pour essayer de vous reconnecter au "
+"service."
 
-#: C/prob-conn-neterror.page:90(title)
+#: C/prob-conn-neterror.page:87(title)
 msgid "Proxy support"
 msgstr "Prise en charge d'un service mandataire"
 
-#: C/prob-conn-neterror.page:91(p)
+#: C/prob-conn-neterror.page:88(p)
 msgid ""
 "At the moment <app>Empathy</app> can not be configured to work with a proxy."
 msgstr ""
@@ -941,11 +941,11 @@ msgstr ""
 "Un message d'erreur indiquant « <gui>Nom déjà utilisé</gui> » apparaît dans "
 "la fenêtre principale."
 
-#: C/prob-conn-name.page:32(title)
+#: C/prob-conn-name.page:33(title)
 msgid "I get a message that says “Name in use”"
 msgstr "J'obtiens le message « Nom déjà utilisé »"
 
-#: C/prob-conn-name.page:34(p)
+#: C/prob-conn-name.page:35(p)
 msgid ""
 "This kind of error happens when you try to connect to your IRC account and "
 "you are using a nickname that is already being used by someone else on that "
@@ -955,12 +955,12 @@ msgstr ""
 "IRC et que vous utilisez un pseudonyme qui est déjà utilisé par quelqu'un "
 "sur ce réseau."
 
-#: C/prob-conn-name.page:50(p)
+#: C/prob-conn-name.page:51(p)
 msgid "In the <gui>Nickname</gui> text box, type a new nickname."
 msgstr ""
 "Dans la zone de texte <gui>Pseudonyme</gui>, saisissez un nouveau pseudonyme."
 
-#: C/prob-conn-name.page:55(p)
+#: C/prob-conn-name.page:56(p)
 msgid ""
 "If you have registered that nickname within the network you are using, set "
 "the password for that nickname. For more information, see <link xref=\"irc-"
@@ -969,14 +969,6 @@ msgstr ""
 "Si vous avez enregistré ce pseudonyme sur le réseau utilisé, saisissez le "
 "mot de passe pour ce pseudonyme. Pour plus d'informations, consultez <link "
 "xref=\"irc-nick-password\"/>."
-
-#: C/prob-conn-name.page:64(p)
-msgid ""
-"Deselect the <gui>Enabled</gui> check-box next to the name of your account, "
-"and then select it again to try to reconnect to the service."
-msgstr ""
-"Décochez la case à cocher <gui>Activé</gui> à côté du nom du compte, et "
-"cochez-la de nouveau pour essayer de vous reconnecter au service."
 
 # traduction du message d'erreur
 #: C/prob-conn-auth.page:8(desc)
@@ -1011,12 +1003,20 @@ msgstr ""
 "connecter. Si vous n'avez pas de compte enregistré, la plupart des services "
 "vous refusent la connexion."
 
-#: C/prob-conn-auth.page:63(p) C/prob-conn-acctdisabled.page:54(p)
+#: C/prob-conn-auth.page:63(p) C/prob-conn-acctdisabled.page:55(p)
 msgid ""
 "Type your username and password again to make sure that they are correct."
 msgstr ""
 "Saisissez votre nom d'utilisateur et votre mot de passe afin de vous assurer "
 "qu'ils sont corrects."
+
+#: C/prob-conn-auth.page:68(p)
+msgid ""
+"Deselect the <gui>Enabled</gui>, and then select it again to try to "
+"reconnect to the service."
+msgstr ""
+"Décochez la case à cocher <gui>Activé</gui> et cochez-la de nouveau pour "
+"essayer de vous reconnecter au service."
 
 #: C/prob-conn-acctdisabled.page:7(desc)
 msgid ""
@@ -1026,11 +1026,11 @@ msgstr ""
 "Le compte que vous voulez utiliser n'est pas activé dans la liste des "
 "comptes."
 
-#: C/prob-conn-acctdisabled.page:33(title)
+#: C/prob-conn-acctdisabled.page:34(title)
 msgid "My account is not enabled"
 msgstr "Mon compte n'est pas activé"
 
-#: C/prob-conn-acctdisabled.page:35(p)
+#: C/prob-conn-acctdisabled.page:36(p)
 msgid ""
 "If the instant messaging account that you want to use is not enabled in the "
 "drop-down account list when you try to start a new conversation or join a "
@@ -1041,7 +1041,7 @@ msgstr ""
 "actif dans la liste déroulante, les détails de ce compte sont probablement "
 "incorrects."
 
-#: C/prob-conn-acctdisabled.page:48(p)
+#: C/prob-conn-acctdisabled.page:49(p)
 msgid ""
 "Choose <guiseq><gui>Edit</gui><gui>Accounts</gui></guiseq> and select the "
 "account that is not working."
@@ -1049,35 +1049,19 @@ msgstr ""
 "Sélectionnez <guiseq><gui>Édition</gui><gui>Comptes</gui></guiseq> et "
 "sélectionnez le compte qui ne fonctionne pas."
 
-#: C/prob-conn-acctdisabled.page:65(p)
-msgid ""
-"Check that the <gui style=\"checkbox\">Enabled</gui> check-box is selected. "
-"If it is not, select the check-box to enable the account."
-msgstr ""
-"Vérifiez que la case <gui style=\"checkbox\">Activé</gui> est bien cochée. "
-"Si ce n'est pas le cas, cochez cette case pour activer le compte."
+#: C/prob-conn-acctdisabled.page:66(p)
+msgid "Check that the account is switched on."
+msgstr "Vérifiez que le compte est activé."
 
 #: C/prev-conv.page:8(desc)
 msgid "Browse or search your previous conversations."
 msgstr "Parcourir ou faire une recherche parmi vos conversations précédentes."
 
-#: C/prev-conv.page:35(title)
+#: C/prev-conv.page:36(title)
 msgid "View previous conversations"
 msgstr "Affichage des conversations précédentes"
 
-#: C/prev-conv.page:39(p)
-msgid ""
-"Highlighting text is quirky: <link href=\"http://bugzilla.gnome.org/show_bug."
-"cgi?id=593733\">#593733</link>. If there's an actual highlighting going on, "
-"independent of the selection (like in yellow or something), we can use the "
-"term \"highlight\". Otherwise we need to use the term \"select\". Watch that "
-"bug."
-msgstr ""
-"La mise en surbrillance est étrange....<link href=\"http://bugzilla.gnome."
-"org/show_bug.cgi?id=593733\">#593733</link>. NON TRADUIT VOLONTAIREMENT "
-"CAR N'APPARAIT PAS DANS LA DOC !!!"
-
-#: C/prev-conv.page:46(p)
+#: C/prev-conv.page:38(p)
 msgid ""
 "<app>Empathy</app> automatically saves all your text conversations you have "
 "with your contacts. You can <link xref=\"#search\">search through all of "
@@ -1090,7 +1074,7 @@ msgstr ""
 "<link xref=\"#browse\">Parcourir les conversations précédentes</link> par "
 "contact ou par date."
 
-#: C/prev-conv.page:54(p)
+#: C/prev-conv.page:46(p)
 msgid ""
 "You do not need to be connected to the Internet to view and search your "
 "previous conversations."
@@ -1098,11 +1082,11 @@ msgstr ""
 "Vous n'avez pas besoin d'être connecté à internet pour consulter ou faire "
 "des recherches dans vos anciennes conversations."
 
-#: C/prev-conv.page:61(title)
+#: C/prev-conv.page:53(title)
 msgid "Search previous conversations"
 msgstr "Recherche de conversations précédentes"
 
-#: C/prev-conv.page:63(p)
+#: C/prev-conv.page:55(p)
 msgid ""
 "You can perform a full-text search through all of your previous "
 "conversations."
@@ -1110,7 +1094,7 @@ msgstr ""
 "Vous pouvez faire une recherche de texte intégral à travers toutes vos "
 "conversations précédentes."
 
-#: C/prev-conv.page:67(p) C/prev-conv.page:96(p)
+#: C/prev-conv.page:59(p) C/prev-conv.page:87(p)
 msgid ""
 "From the <gui>Contact List</gui> window, choose <guiseq><gui>View</"
 "gui><gui>Previous Conversations</gui></guiseq>. Alternatively, press "
@@ -1120,41 +1104,34 @@ msgstr ""
 "<guiseq><gui>Affichage</gui><gui>Conversations précédentes</gui></guiseq>. "
 "Vous pouvez aussi appuyer sur <key>F3</key>."
 
-#: C/prev-conv.page:71(p)
-msgid "Select the <gui>Search</gui> tab."
-msgstr "Sélectionnez l'onglet <gui>Rechercher</gui>."
-
-#: C/prev-conv.page:74(p)
+#: C/prev-conv.page:63(p)
 msgid ""
-"In the <gui>For</gui> field, type the text you want to search for. Click "
-"<gui>Find</gui> or press <key>Enter</key>."
+"Select an account from the drop-down list in the top. A list of contacts and "
+"chat room for that account will be shown below."
 msgstr ""
-"Dans la zone de saisie <gui>ce terme</gui>, saisissez le texte que vous "
-"voulez rechercher. Cliquez sur <gui>Rechercher</gui> ou appuyez sur "
-"<key>Entrée</key>."
+"Sélectionnez un compte dans la liste déroulante en haut. Une liste de "
+"contacts et de salons de discussion apparaît en dessous."
 
-#: C/prev-conv.page:78(p)
+#: C/prev-conv.page:67(p)
 msgid ""
-"Any conversations that matched your search terms will be shown in the list "
-"below the search field. By default, conversations are ordered by date."
+"Type the text you want to search for in the <gui>Search</gui> text field."
+msgstr ""
+"Saisissez le texte que vous recherchez dans le champ de texte "
+"<gui>Rechercher</gui>."
+
+#: C/prev-conv.page:71(p)
+msgid ""
+"Any conversations that matched your search terms will be shown. By default, "
+"conversations are ordered by date."
 msgstr ""
 "Toutes les conversations correspondant aux termes que vous avez saisis "
-"apparaissent dans la liste sous le champ de recherche. Par défaut, les "
-"conversations sont classées par date."
+"apparaissent. Par défaut, les conversations sont classées par date."
 
-#: C/prev-conv.page:82(p)
-msgid ""
-"Click on a conversation to view it. <app>Empathy</app> will select the text "
-"in the conversation that matched your search terms."
-msgstr ""
-"Cliquez sur la conversation que vous voulez consulter. <app>Empathy</app> "
-"sélectionne le texte qui correspond aux termes recherchés."
-
-#: C/prev-conv.page:89(title)
+#: C/prev-conv.page:80(title)
 msgid "Browse previous conversations"
 msgstr "Parcours de conversations précédentes"
 
-#: C/prev-conv.page:91(p)
+#: C/prev-conv.page:82(p)
 msgid ""
 "You can browse your previous conversations with your contacts or in chat "
 "rooms by date."
@@ -1162,11 +1139,7 @@ msgstr ""
 "Vous pouvez parcourir vos précédentes conversations avec vos contacts ou "
 "dans des salons de discussion, classées par date."
 
-#: C/prev-conv.page:100(p)
-msgid "Select the <gui>Conversations</gui> tab."
-msgstr "Sélectionnez l'onglet <gui>Conversations</gui>."
-
-#: C/prev-conv.page:103(p)
+#: C/prev-conv.page:91(p)
 msgid ""
 "Select an account from the drop-down list in the top left. A list of "
 "contacts and chat room for that account will be shown below."
@@ -1174,7 +1147,7 @@ msgstr ""
 "Sélectionnez un compte dans la liste déroulante en haut à gauche. Une liste "
 "de contacts et de salons de discussion apparaît en dessous."
 
-#: C/prev-conv.page:107(p)
+#: C/prev-conv.page:95(p)
 msgid ""
 "Select a contact or chat room to view your previous conversations from. By "
 "default the most recent conversation will be shown."
@@ -1183,7 +1156,7 @@ msgstr ""
 "l'historique des conversations. Par défaut la conversation la plus récente "
 "est affichée."
 
-#: C/prev-conv.page:111(p)
+#: C/prev-conv.page:99(p)
 msgid ""
 "You can browse your conversations by date. Days on which you had a "
 "conversation with the selected contact will be shown in bold text. Click a "
@@ -1195,21 +1168,20 @@ msgstr ""
 "sélectionné. Cliquez sur un jour pour le sélectionner et sur les flèches à "
 "côté du mois et de l'année pour parcourir des dates plus anciennes."
 
-#: C/prev-conv.page:117(p)
+#: C/prev-conv.page:105(p)
 msgid ""
-"You can search for text in the displayed conversation by typing into the "
-"search field at the top. The matching text will be highlighted."
+"You can search for text in the conversations by typing into the search field "
+"at the top. The matching conversations will be showed."
 msgstr ""
-"Vous pouvez rechercher du texte dans la conversation actuelle en le "
-"saisissant dans la zone de saisie en haut. Le texte correspondant sera mis "
-"en surbrillance."
+"Vous pouvez rechercher du texte dans les conversations en le saisissant dans "
+"la zone de saisie en haut. Les conversations correspondantes sont affichées."
 
-#: C/prev-conv.page:121(p)
+#: C/prev-conv.page:111(p)
 msgid ""
 "You can quickly view the previous conversations with one of your contacts "
 "from the <gui>Contact List</gui> window. Simply right click the contact and "
-"choose <gui>View Previous Conversations</gui>. The <gui>Previous "
-"Conversations</gui> window will open with that contact already selected."
+"choose <gui>Previous Conversations</gui>. The <gui>Previous Conversations</"
+"gui> window will open with that contact already selected."
 msgstr ""
 "Vous pouvez rapidement afficher vos conversations précédentes avec un de vos "
 "contacts à partir de la fenêtre <gui>Liste des contacts</gui>. Faites tout "
@@ -1519,6 +1491,7 @@ msgstr ""
 "avez utilisé pour inscrire votre pseudonyme."
 
 #: C/irc-nick-password.page:63(p) C/import-account.page:61(p)
+#: C/add-account.page:74(p)
 msgid "Click <gui style=\"button\">Apply</gui>."
 msgstr "Cliquez sur <gui style=\"button\">Appliquer</gui>."
 
@@ -2424,11 +2397,11 @@ msgid "Prevent <app>Empathy</app> from automatically logging in to an account."
 msgstr ""
 "Empêcher <app>Empathy</app> de se connecter automatiquement sur un compte."
 
-#: C/disable-account.page:39(title)
+#: C/disable-account.page:40(title)
 msgid "Disable an account"
 msgstr "Désactivation d'un compte"
 
-#: C/disable-account.page:41(p)
+#: C/disable-account.page:42(p)
 msgid ""
 "You can disable an account to prevent <app>Empathy</app> from logging in to "
 "it without removing the account entirely. You may wish to disable and re-"
@@ -2441,7 +2414,7 @@ msgstr ""
 "sur ce compte qu'à certain instant, mais tout en utilisant <app>Empathy</"
 "app> pour d'autres comptes."
 
-#: C/disable-account.page:52(p)
+#: C/disable-account.page:53(p)
 msgid ""
 "Select the account you wish to disable from the accounts list on the left "
 "side of the window."
@@ -2449,21 +2422,13 @@ msgstr ""
 "Sélectionnez le compte que vous souhaitez désactiver dans la liste des "
 "comptes dans la partie gauche de la fenêtre."
 
-#: C/disable-account.page:56(p)
-msgid ""
-"Deselect <gui style=\"checkbox\">Enabled</gui> on the right side of the "
-"window."
-msgstr ""
-"Décochez <gui style=\"checkbox\">Activé</gui> sur le côté droit de la "
-"fenêtre."
+#: C/disable-account.page:57(p)
+msgid "On the right side of the window, switch it off."
+msgstr "Sur le côté droit de la fenêtre, désactivez-le."
 
 #: C/disable-account.page:62(p)
-msgid ""
-"To re-enable the account, simply select <gui style=\"checkbox\">Enabled</"
-"gui>."
-msgstr ""
-"Pour réactiver le compte, cochez tout simplement <gui style=\"checkbox"
-"\">Activé</gui>."
+msgid "To re-enable the account, switch it on."
+msgstr "Pour réactiver le compte, activez-le."
 
 #: C/create-account.page:9(desc)
 msgid "Register for an account with one of the supported messaging services."
@@ -2690,11 +2655,11 @@ msgstr "Yahoo!"
 msgid "Change your status to advertise your availability to your contacts."
 msgstr "Modifier son statut pour prévenir vos contacts de votre disponibilité."
 
-#: C/change-status.page:34(title)
+#: C/change-status.page:39(title)
 msgid "Change your status"
 msgstr "Modification de votre statut"
 
-#: C/change-status.page:36(p)
+#: C/change-status.page:41(p)
 msgid ""
 "You can set your status to indicate your availability to your contacts. "
 "<app>Empathy</app> allows you to select from a list of defined statuses."
@@ -2703,31 +2668,30 @@ msgstr ""
 "disponibilité. <app>Empathy</app> vous permet de choisir dans une liste de "
 "statuts définis."
 
-#: C/change-status.page:41(p)
+#: C/change-status.page:46(p)
 msgid ""
 "Click on the drop-down list at the top of the <gui>Contact List</gui> window."
 msgstr ""
 "Cliquez sur la liste déroulante au sommet de la fenêtre <gui>Liste des "
 "contacts</gui>."
 
-#: C/change-status.page:46(p)
+#: C/change-status.page:51(p)
 msgid "Select a status from the list."
 msgstr "Choisissez un statut dans la liste."
 
-# Bruno : Ce lien ne fonctionne pas dans la doc anglaise !
-#: C/change-status.page:52(p)
+#: C/change-status.page:57(p)
 msgid ""
 "See <link xref=\"status-icons\"/> for a list of the built-in statuses and "
-"what they mean. You can also <link xref=\"set-custom-message\">add custom "
+"what they mean. You can also <link xref=\"set-custom-status\">add custom "
 "status messages</link> to provide more information about your availability "
 "to your contacts."
 msgstr ""
 "Consultez <link xref=\"status-icons\"/> pour obtenir la liste des statuts "
 "prédéfinis et leur signification. Vous pouvez également <link xref=\"set-"
-"custom-message\">ajouter des messages de statut personnalisé</link> pour "
+"custom-status\">ajouter des messages de statut personnalisé</link> pour "
 "donner plus d'informations à vos contacts sur votre disponibilité."
 
-#: C/change-status.page:58(p)
+#: C/change-status.page:63(p)
 msgid ""
 "If you do not use your computer for a while, or if the screensaver is on, "
 "the status will be automatically set to Away."
@@ -3043,11 +3007,11 @@ msgstr ""
 msgid "Add a new account to <app>Empathy</app>."
 msgstr "Ajouter un nouveau compte à <app>Empathy</app>."
 
-#: C/add-account.page:39(title)
+#: C/add-account.page:40(title)
 msgid "Add a new account"
 msgstr "Ajout d'un nouveau compte"
 
-#: C/add-account.page:41(p)
+#: C/add-account.page:42(p)
 msgid ""
 "You can add instant messaging accounts from any supported service to "
 "communicate with all of your contacts in <app>Empathy</app>. For some "
@@ -3060,11 +3024,11 @@ msgstr ""
 "permettront également de vous inscrire sur un nouveau compte. Pour plus de "
 "détails, consultez <link xref=\"create-account\"/>."
 
-#: C/add-account.page:52(p)
-msgid "Click <gui style=\"button\">Add</gui>."
-msgstr "Cliquez sur <gui style=\"button\">Ajouter</gui>."
+#: C/add-account.page:53(p)
+msgid "Click <gui style=\"button\">+</gui>."
+msgstr "Cliquez sur le bouton <gui style=\"button\">+</gui>."
 
-#: C/add-account.page:57(p)
+#: C/add-account.page:58(p)
 msgid ""
 "From the <gui>Protocol</gui> drop-down list, select the type of account you "
 "wish to add."
@@ -3072,7 +3036,7 @@ msgstr ""
 "Dans la liste déroulante <gui>Protocole</gui>, sélectionnez le type de "
 "compte que vous voulez ajouter."
 
-#: C/add-account.page:61(p)
+#: C/add-account.page:62(p)
 msgid ""
 "If you do not already have a registered account, select <gui>Create a new "
 "account on the server</gui>. This feature is not available for all account "
@@ -3085,22 +3049,18 @@ msgstr ""
 "fonctionne pas avec certains fournisseurs de compte. Consultez <link xref="
 "\"create-account\"/> pour plus d'informations."
 
-#: C/add-account.page:66(p)
+#: C/add-account.page:69(p)
 msgid ""
 "Enter the required information. For most accounts, you will only need a "
 "login ID and a password. Some accounts may require additional information. "
-"See <link xref=\"accounts-window#details\"/> for more information."
+"See <link xref=\"accounts-window#details\"/>for more information."
 msgstr ""
 "Saisissez les informations requises. Pour la plupart des comptes, vous "
 "n'aurez besoin que d'un identifiant de connexion et d'un mot de passe. Il se "
 "peut que certains comptes requièrent plus d'informations. Consultez <link "
 "xref=\"accounts-window#details\"/> pour plus d'informations."
 
-#: C/add-account.page:71(p)
-msgid "Click <gui style=\"button\">Log in</gui>."
-msgstr "Cliquez sur <gui style=\"button\">Se connecter</gui>."
-
-#: C/add-account.page:78(p)
+#: C/add-account.page:81(p)
 msgid ""
 "To change the name that identifies the account in the <gui>Accounts</gui> "
 "window, select the account from the list on the left and either click on the "
