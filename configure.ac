@@ -57,6 +57,7 @@ GEOCLUE_REQUIRED=0.11
 ISO_CODES_REQUIRED=0.35
 NAUTILUS_SENDTO_REQUIRED=2.90.0
 NETWORK_MANAGER_REQUIRED=0.7.0
+CHAMPLAIN_REQUIRED=0.12.1
 
 # Use --enable-maintainer-mode to disable deprecated symbols,
 # disable single include and enable GSEAL. If this is not a released empathy,
@@ -450,7 +451,7 @@ if test "x$enable_map" != "xno"; then
     [
        clutter-gtk-1.0
        champlain-gtk-0.12
-       champlain-0.12
+       champlain-0.12 >= $CHAMPLAIN_REQUIRED
     ], have_libchamplain="yes", have_libchamplain="no")
 
    if test "x$have_libchamplain" = "xyes"; then
