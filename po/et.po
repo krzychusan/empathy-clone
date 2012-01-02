@@ -4,15 +4,15 @@
 # Copyright (C) 2005–2011 Free Software Foundation, Inc.
 #
 # Ivar Smolin <okul linux ee>, 2005–2011.
-# Mattias Põldaru <mahfiaz@gmail.com>, 2009, 2010, 2011.
+# Mattias Põldaru <mahfiaz@gmail.com>, 2009, 2010, 2011, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: empathy MASTER\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=empathy&keywords=I18N+L10N&component=General\n"
-"POT-Creation-Date: 2011-11-05 01:30+0000\n"
-"PO-Revision-Date: 2011-11-06 11:28+0200\n"
+"POT-Creation-Date: 2011-12-31 12:40+0000\n"
+"PO-Revision-Date: 2012-01-02 01:22+0200\n"
 "Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian <>\n"
 "Language: et\n"
@@ -39,12 +39,6 @@ msgstr "Välksõnumiklient"
 
 msgid "Always open a separate chat window for new chats."
 msgstr "Uutele vestlustele avatakse alati eraldi aken."
-
-msgid "Call volume"
-msgstr "Kõne valjus"
-
-msgid "Call volume, as a percentage."
-msgstr "Kõne valjus protsentides."
 
 msgid "Camera device"
 msgstr "Kaameraseade"
@@ -388,6 +382,27 @@ msgstr "Sõnumi- ja VoIP kontode haldamine"
 msgid "Messaging and VoIP Accounts"
 msgstr "Sõnumi- ja VoIP kontod"
 
+msgid "No reason was specified"
+msgstr "Põhjendust pole määratud."
+
+msgid "The change in state was requested"
+msgstr "Nõuti olekumuutust"
+
+msgid "You canceled the file transfer"
+msgstr "Sina katkestasid failiülekande"
+
+msgid "The other participant canceled the file transfer"
+msgstr "Vestluskaaslane katkestas failiülekande"
+
+msgid "Error while trying to transfer the file"
+msgstr "Viga faili ülekandmisel"
+
+msgid "The other participant is unable to transfer the file"
+msgstr "Vestluse teine osapool pole võimeline faili edastama"
+
+msgid "Unknown reason"
+msgstr "Tundmatu põhjus"
+
 msgid "File transfer completed, but the file was corrupted"
 msgstr "Fail on täielikult üle kantud, kuid faili sisu on rikutud"
 
@@ -412,30 +427,6 @@ msgstr "Helistad kasutajale %s"
 #, c-format
 msgid "Call from %s"
 msgstr "Kõne kasutajalt %s"
-
-msgid "Socket type not supported"
-msgstr "Sokli liik pole toetatud."
-
-msgid "No reason was specified"
-msgstr "Põhjendust pole määratud."
-
-msgid "The change in state was requested"
-msgstr "Nõuti olekumuutust"
-
-msgid "You canceled the file transfer"
-msgstr "Sina katkestasid failiülekande"
-
-msgid "The other participant canceled the file transfer"
-msgstr "Vestluskaaslane katkestas failiülekande"
-
-msgid "Error while trying to transfer the file"
-msgstr "Viga faili ülekandmisel"
-
-msgid "The other participant is unable to transfer the file"
-msgstr "Vestluse teine osapool pole võimeline faili edastama"
-
-msgid "Unknown reason"
-msgstr "Tundmatu põhjus"
 
 msgid "Available"
 msgstr "Saadaval"
@@ -616,25 +607,6 @@ msgstr "Port"
 msgid "%s:"
 msgstr "%s:"
 
-msgid "My Web Accounts"
-msgstr "Minu veebikontod"
-
-#, c-format
-msgid "The account %s is edited via %s."
-msgstr "Kontot %s muudetakse %s kaudu."
-
-#, c-format
-msgid "The account %s cannot be edited in Empathy."
-msgstr "Kontot %s pole võimalik Empathy abil muuta."
-
-msgid "Launch My Web Accounts"
-msgstr "Käivita Minu Veebikontod"
-
-#. general handler
-#, c-format
-msgid "Edit %s"
-msgstr "Muuda %s"
-
 msgid "Username:"
 msgstr "Kasutajanimi:"
 
@@ -649,9 +621,6 @@ msgstr "See konto on serveris juba olemas"
 
 msgid "Create a new account on the server"
 msgstr "Loo serverisse uus konto"
-
-msgid "Ca_ncel"
-msgstr "_Loobu"
 
 #. To translators: The first parameter is the login id and the
 #. * second one is the network. The resulting string will be something
@@ -1277,9 +1246,6 @@ msgstr "_Ava link"
 msgid "%A %B %d %Y"
 msgstr "%A, %d. %B %Y"
 
-msgid "Edit Contact Information"
-msgstr "Kontakti andmete redigeerimine"
-
 msgid "Personal Information"
 msgstr "Isiklikud andmed"
 
@@ -1312,64 +1278,6 @@ msgstr "Tellimuse päring"
 
 msgid "_Block User"
 msgstr "_Blokeeri kasutaja"
-
-#, c-format
-msgid "Do you really want to remove the group '%s'?"
-msgstr "Kas tahad tõesti eemaldada grupi '%s'?"
-
-msgid "Removing group"
-msgstr "Grupi eemaldamine"
-
-#. Remove
-msgid "_Remove"
-msgstr "_Eemalda"
-
-#, c-format
-msgid "Do you really want to remove the contact '%s'?"
-msgstr "Kas sa tõesti soovid eemaldada kontakti '%s'?"
-
-msgid "Removing contact"
-msgstr "Kontakti eemaldamine"
-
-msgid "_Add Contact…"
-msgstr "Lisa _kontakt…"
-
-msgid "_Block Contact"
-msgstr "_Blokeeri kontakt"
-
-#. add chat button
-msgid "_Chat"
-msgstr "_Vestlus"
-
-msgctxt "menu item"
-msgid "_Audio Call"
-msgstr "_Audiovestlus"
-
-msgctxt "menu item"
-msgid "_Video Call"
-msgstr "_Videovestlus"
-
-msgid "_Previous Conversations"
-msgstr "_Eelmised vestlused"
-
-msgid "Send File"
-msgstr "Faili saatmine"
-
-msgid "Share My Desktop"
-msgstr "Jaga minu töölauda"
-
-msgid "Infor_mation"
-msgstr "_Andmed"
-
-msgctxt "Edit contact (contextual menu)"
-msgid "_Edit"
-msgstr "_Muuda"
-
-msgid "Inviting you to this room"
-msgstr "Kutse sellesse tuppa"
-
-msgid "_Invite to Chat Room"
-msgstr "_Kutsu jututuppa"
 
 #. Title
 msgid "Search contacts"
@@ -1482,9 +1390,6 @@ msgstr "Avatari salvestamine"
 msgid "Unable to save avatar"
 msgstr "Avatari salvestamine pole võimalik"
 
-msgid "Favorite"
-msgstr "Lemmik"
-
 msgid "Full name"
 msgstr "Täisnimi"
 
@@ -1595,6 +1500,9 @@ msgid_plural "The following identities can not be blocked:"
 msgstr[0] "Järgnevat isikut pole võimalik blokkida:"
 msgstr[1] "Järgnevaid isikuid pole võimalik blokkida:"
 
+msgid "Edit Contact Information"
+msgstr "Kontakti andmete redigeerimine"
+
 #. Translators: the heading at the top of the Information dialogue
 msgid "Linked Contacts"
 msgstr "Liidetud kontaktid"
@@ -1632,9 +1540,39 @@ msgstr "Töö"
 msgid "HOME"
 msgstr "KODU"
 
+msgid "_Block Contact"
+msgstr "_Blokeeri kontakt"
+
+#. add chat button
+msgid "_Chat"
+msgstr "_Vestlus"
+
 #. add SMS button
 msgid "_SMS"
 msgstr "_SMS"
+
+msgctxt "menu item"
+msgid "_Audio Call"
+msgstr "_Audiovestlus"
+
+msgctxt "menu item"
+msgid "_Video Call"
+msgstr "_Videovestlus"
+
+msgid "_Previous Conversations"
+msgstr "_Eelmised vestlused"
+
+msgid "Send File"
+msgstr "Faili saatmine"
+
+msgid "Share My Desktop"
+msgstr "Jaga minu töölauda"
+
+msgid "Favorite"
+msgstr "Lemmik"
+
+msgid "Infor_mation"
+msgstr "_Andmed"
 
 msgctxt "Edit individual (contextual menu)"
 msgid "_Edit"
@@ -1646,8 +1584,32 @@ msgctxt "Link individual (contextual menu)"
 msgid "_Link Contacts…"
 msgstr "_Ühenda kontaktid…"
 
+msgid "Inviting you to this room"
+msgstr "Kutse sellesse tuppa"
+
+msgid "_Invite to Chat Room"
+msgstr "_Kutsu jututuppa"
+
+msgid "_Add Contact…"
+msgstr "Lisa _kontakt…"
+
 msgid "Delete and _Block"
 msgstr "Kustuta ja _blokeeri"
+
+#, c-format
+msgid "Do you really want to remove the group '%s'?"
+msgstr "Kas tahad tõesti eemaldada grupi '%s'?"
+
+msgid "Removing group"
+msgstr "Grupi eemaldamine"
+
+#. Remove
+msgid "_Remove"
+msgstr "_Eemalda"
+
+#, c-format
+msgid "Do you really want to remove the contact '%s'?"
+msgstr "Kas sa tõesti soovid eemaldada kontakti '%s'?"
 
 #, c-format
 msgid ""
@@ -1656,6 +1618,9 @@ msgid ""
 msgstr ""
 "Kas tõesti tahad eemaldada lingitud kontakti '%s'? See eemaldab kõik "
 "kontaktid, millest lingitud kontakt koosneb."
+
+msgid "Removing contact"
+msgstr "Kontakti eemaldamine"
 
 #, c-format
 msgid "Linked contact containing %u contact"
@@ -1899,6 +1864,10 @@ msgstr "_Audiokõne"
 #. Tweak the dialog
 msgid "New Call"
 msgstr "Uus kõne"
+
+#, c-format
+msgid "Authentification failed for account <b>%s</b>"
+msgstr "Konto <b>%s</b> autentimine nurjus"
 
 #, c-format
 msgid ""
@@ -2399,12 +2368,17 @@ msgstr "Tundmatu olek"
 msgid "Offline — Account Disabled"
 msgstr "Ühendamata — konto keelatud"
 
-msgid ""
-"You are about to create a new account, which will discard\n"
-"your changes. Are you sure you want to proceed?"
-msgstr ""
-"Sa oled loomas uut kontot ja see tühistab tehtud muudatused\n"
-"Kas sa soovid seda teha?"
+msgid "Edit Connection Parameters"
+msgstr "Ühenduse parameetrite muutmine"
+
+msgid "Failed to retrieve your personal information from the server."
+msgstr "Sinu isiklike andmete hankimine serverist nurjus."
+
+msgid "Go online to edit your personal information."
+msgstr "Oma isiklike andmete muutmiseks mine veebilehele."
+
+msgid "_Edit Connection Parameters..."
+msgstr "_Ühenduse parameetrite muutmine..."
 
 #, c-format
 msgid "Do you want to remove %s from your computer?"
@@ -3223,12 +3197,6 @@ msgstr "Õigekirjakontroll on lubatud järgmistele keeltele:"
 msgid "General"
 msgstr "Üldine"
 
-msgid "Input level:"
-msgstr "Sisendtase:"
-
-msgid "Input volume:"
-msgstr "Sisendvaljus:"
-
 msgid "Location sources:"
 msgstr "Asukohaallikad:"
 
@@ -3507,89 +3475,5 @@ msgstr "Lae kontot"
 msgid "_Match case"
 msgstr "_Tõstutundlik"
 
-#~ msgid "Empathy has migrated butterfly logs"
-#~ msgstr "Empathy on üle kandnud butterfly logid"
-
-#~ msgid "Whether Empathy has migrated butterfly logs."
-#~ msgstr "Kas Empathy on üle kandnud butterfly logid."
-
-#~ msgid "All"
-#~ msgstr "Kõik"
-
-#~ msgid "_Enabled"
-#~ msgstr "_Lubatud"
-
-#~ msgid "Ungrouped"
-#~ msgstr "Grupeerimata"
-
-#~ msgid "Favorite People"
-#~ msgstr "Lemmikud"
-
-#~ msgid "Select a contact"
-#~ msgstr "Vali kontakt"
-
-#~ msgid "Date"
-#~ msgstr "Kuupäev"
-
-#~ msgid "Conversations"
-#~ msgstr "Vestlused"
-
-#~ msgid "Find Next"
-#~ msgstr "Otsi järgmine"
-
-#~ msgid "Find Previous"
-#~ msgstr "Otsi eelmine"
-
-#~ msgid "Previous Conversations"
-#~ msgstr "Eelmised vestlused"
-
-#~ msgid "_For:"
-#~ msgstr "_Otsing:"
-
-#~ msgid "Contact ID:"
-#~ msgstr "Kontakti ID:"
-
-#~ msgid "C_hat"
-#~ msgstr "_Vestle"
-
-#~ msgid "C_all"
-#~ msgstr "_Helista"
-
-#~ msgid "Set your presence and current status"
-#~ msgstr "Kohalolu ja praeguse oleku määramine"
-
-#~ msgid "Enter Custom Message"
-#~ msgstr "Sisesta oma teade"
-
-#~ msgid "Save _New Status Message"
-#~ msgstr "Salvesta _uus olekusõnum"
-
-#~ msgid "Saved Status Messages"
-#~ msgstr "Salvestatud olekuteated"
-
-#~ msgid "The selected contact cannot receive files."
-#~ msgstr "Valitud kontakt pole suuteline faile vastu võtma."
-
-#~ msgid "Show and edit accounts"
-#~ msgstr "Kontode näitamine ja redigeerimine"
-
-#~ msgid "%s is now offline."
-#~ msgstr "%s pole enam ühendatud."
-
-#~ msgid "%s is now online."
-#~ msgstr "%s on nüüd ühendatud."
-
-#~ msgid "Context"
-#~ msgstr "Kontekst"
-
-#~ msgid "The hash of the received file and the sent one do not match"
-#~ msgstr "Vastuvõetud faili ja saadetud faili räsi ei kattu"
-
-#~ msgid "Add _New Preset"
-#~ msgstr "_Uue oleku lisamine"
-
-#~ msgid "Saved Presets"
-#~ msgstr "Salvestatud olekud"
-
-#~ msgid "Subscription requested by %s"
-#~ msgstr "Tellimus, mida küsis %s"
+msgid "Adding new account"
+msgstr "Uue konto lisamine"
