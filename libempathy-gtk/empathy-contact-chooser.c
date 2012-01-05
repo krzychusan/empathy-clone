@@ -51,6 +51,9 @@ struct _EmpathyContactChooserPrivate
 
   EmpathyContactChooserFilterFunc filter_func;
   gpointer filter_data;
+
+  /* list of reffed TpContact */
+  GList *tp_contacts;
 };
 
 struct _AddTemporaryIndividualCtx
@@ -103,6 +106,9 @@ contact_chooser_dispose (GObject *object)
   tp_clear_pointer (&self->priv->search_str, g_free);
 
   tp_clear_object (&self->priv->account_mgr);
+
+  g_list_free_full (self->priv->tp_contacts, g_object_unref);
+  self->priv->tp_contacts = NULL;
 
   G_OBJECT_CLASS (empathy_contact_chooser_parent_class)->dispose (
       object);
@@ -212,6 +218,7 @@ get_contacts_cb (TpConnection *connection,
     (EmpathyContactChooser *) weak_object;
   AddTemporaryIndividualCtx *ctx = user_data;
   FolksIndividual *individual;
+  TpContact *contact;
 
   if (self->priv->add_temp_ctx != ctx)
     /* another request has been started */
@@ -220,12 +227,20 @@ get_contacts_cb (TpConnection *connection,
   if (n_contacts != 1)
     return;
 
-  individual =  empathy_create_individual_from_tp_contact (contacts[0]);
+  contact = contacts[0];
+
+  individual =  empathy_create_individual_from_tp_contact (contact);
   if (individual == NULL)
     return;
 
+  /* tp-glib will unref the TpContact once we return from this callback
+   * but folks expect us to keep a reference on the TpContact.
+   * Ideally folks shouldn't force us to do that: bgo #666580 */
+  self->priv->tp_contacts = g_list_prepend (self->priv->tp_contacts,
+      g_object_ref (contact));
+
   /* listen for updates to the capabilities */
-  tp_g_signal_connect_object (contacts[0], "notify::capabilities",
+  tp_g_signal_connect_object (contact, "notify::capabilities",
       G_CALLBACK (contact_capabilities_changed), self, 0);
 
   /* Pass ownership to the list */
@@ -435,6 +450,9 @@ empathy_contact_chooser_new (void)
       NULL);
 }
 
+/* Note that because of bgo #666580 the returned invidivdual is valid until
+ * @self is destroyed. To keep it around after that, the TpContact associated
+ * with the individual needs to be manually reffed. */
 FolksIndividual *
 empathy_contact_chooser_dup_selected (EmpathyContactChooser *self)
 {
