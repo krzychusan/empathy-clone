@@ -212,6 +212,9 @@ accounts_dialog_status_infobar_set_message (EmpathyAccountsDialog *dialog,
 
   message_markup = g_markup_printf_escaped ("<i>%s</i>", message);
   gtk_label_set_markup (GTK_LABEL (priv->label_status), message_markup);
+
+  gtk_widget_set_tooltip_text (priv->label_status, message);
+
   g_free (message_markup);
 }
 
