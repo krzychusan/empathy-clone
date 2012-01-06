@@ -2308,7 +2308,7 @@ accounts_dialog_build_ui (EmpathyAccountsDialog *dialog)
             TP_CONNECTION_PRESENCE_TYPE_OFFLINE), GTK_ICON_SIZE_SMALL_TOOLBAR);
 
   priv->label_status = gtk_label_new (NULL);
-  gtk_label_set_line_wrap (GTK_LABEL (priv->label_status), TRUE);
+  gtk_label_set_ellipsize (GTK_LABEL (priv->label_status), PANGO_ELLIPSIZE_END);
 
   gtk_box_pack_start (GTK_BOX (hbox), priv->throbber, FALSE, FALSE, 0);
   gtk_box_pack_start (GTK_BOX (hbox), priv->image_status, FALSE, FALSE, 0);
