@@ -441,10 +441,16 @@ new_chatroom_dialog_update_widgets (EmpathyNewChatroomDialog *dialog)
 		gtk_widget_set_sensitive (dialog->entry_server, TRUE);
 	}
 
+	if (!tp_strdiff (protocol, "irc"))
+		gtk_entry_set_text (GTK_ENTRY (dialog->entry_room), "#");
+	else
+		gtk_entry_set_text (GTK_ENTRY (dialog->entry_room), "");
+
 	update_join_button_sensitivity (dialog);
 
 	/* Final set up of the dialog */
 	gtk_widget_grab_focus (dialog->entry_room);
+	gtk_editable_set_position (GTK_EDITABLE (dialog->entry_room), -1);
 }
 
 static void
