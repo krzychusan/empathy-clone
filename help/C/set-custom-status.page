@@ -75,7 +75,7 @@
 
   <section id="edit-custom">
 
-  <title>Edit, remove and add a custom message</title>
+  <title>Edit and remove a custom message</title>
 
   <steps>
     <item>
@@ -127,29 +127,6 @@
             </item>
           </steps>
         </item>
-        <item>
-          <p>
-            To add a new custom message, from the <gui>Add New Preset</gui> section:
-          </p>
-          <steps>
-            <item>
-              <p>
-                Click on the drop-down list to select the status you want to set a custom
-                message to.
-              </p>
-            </item>
-            <item>
-              <p>
-                Click on the text box, and type the new custom message.
-              </p>
-            </item>
-            <item>
-              <p>
-                Click on <gui>Add</gui> to add the new message to the presets ones.
-              </p>
-            </item>
-          </steps>
-        </item>
       </list>
     </item>
     <item>
@@ -161,7 +138,7 @@
 
   <note style="tip">
     <p>
-      When you edit or add a new custom message, it will not be set as the current
+      When you edit a new custom message, it will not be set as the current
       status message. You will need to select it from the <gui>Contact List</gui> window.
     </p>
   </note>
