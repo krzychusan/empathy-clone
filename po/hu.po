@@ -1,15 +1,15 @@
 # Hungarian translation of empathy
 # This file is distributed under the same license as the empathy package.
-# Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010, 2011, Free Software Foundation, Inc.
+# Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, Free Software Foundation, Inc.
 #
-# Gabor Kelemen <kelemeng at gnome dot hu>, 2005, 2006, 2007, 2008, 2009, 2010, 2011.
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012.
 # Balázs Meskó <meskobalazs at gmail dot com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: empathy master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-14 20:14+0200\n"
-"PO-Revision-Date: 2011-10-14 20:17+0200\n"
+"PO-Revision-Date: 2012-01-09 12:41+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: \n"
@@ -169,7 +169,7 @@ msgstr "WebKit fejlesztőeszközök engedélyezése"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:31
 msgid "Enable popup notifications for new messages"
-msgstr "Felugró értesítések értesítések engedélyezése új üzenetekre"
+msgstr "Felugró értesítések engedélyezése új üzenetekre"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:32
 msgid "Enable spell checker"
