@@ -395,12 +395,20 @@ static void
 update_join_button_sensitivity (EmpathyNewChatroomDialog *dialog)
 {
 	const gchar           *room;
+	const gchar	      *protocol;
 	gboolean               sensitive = FALSE;
 
 
 	room = gtk_entry_get_text (GTK_ENTRY (dialog->entry_room));
+	protocol = tp_account_get_protocol (dialog->account);
 	if (EMP_STR_EMPTY (room))
 		goto out;
+
+	if (!tp_strdiff (protocol, "irc") && (!tp_strdiff (room, "#") ||
+	                                      !tp_strdiff (room, "&")))
+	{
+		goto out;
+	}
 
 	if (dialog->account == NULL)
 		goto out;
