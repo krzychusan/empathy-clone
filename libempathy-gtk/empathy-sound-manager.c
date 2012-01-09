@@ -126,8 +126,11 @@ repeating_sounds_item_delete (gpointer data)
   if (repeatable_sound->replay_timeout_id != 0)
     g_source_remove (repeatable_sound->replay_timeout_id);
 
-  g_signal_handlers_disconnect_by_func (repeatable_sound->widget,
-      empathy_sound_widget_destroyed_cb, repeatable_sound);
+  if (repeatable_sound->widget != NULL)
+    {
+      g_signal_handlers_disconnect_by_func (repeatable_sound->widget,
+          empathy_sound_widget_destroyed_cb, repeatable_sound);
+    }
 
   g_object_unref (repeatable_sound->self);
 
@@ -252,8 +255,11 @@ empathy_sound_play_internal (GtkWidget *widget, EmpathySound sound_id,
           gettext (entry->event_ca_description)) < 0)
     goto failed;
 
-  if (ca_gtk_proplist_set_for_widget (p, widget) < 0)
-    goto failed;
+  if (widget != NULL)
+    {
+      if (ca_gtk_proplist_set_for_widget (p, widget) < 0)
+        goto failed;
+    }
 
   ca_context_play_full (ca_gtk_context_get (), entry->sound_id, p, callback,
       user_data);
@@ -298,7 +304,7 @@ empathy_sound_manager_play_full (EmpathySoundManager *self,
     ca_finish_callback_t callback,
     gpointer user_data)
 {
-  g_return_val_if_fail (GTK_IS_WIDGET (widget), FALSE);
+  g_return_val_if_fail (widget == NULL || GTK_IS_WIDGET (widget), FALSE);
   g_return_val_if_fail (sound_id < LAST_EMPATHY_SOUND, FALSE);
 
   if (!empathy_sound_pref_is_enabled (self, sound_id))
@@ -329,7 +335,7 @@ empathy_sound_manager_play (EmpathySoundManager *self,
     GtkWidget *widget,
     EmpathySound sound_id)
 {
-  g_return_val_if_fail (GTK_IS_WIDGET (widget), FALSE);
+  g_return_val_if_fail (widget == NULL || GTK_IS_WIDGET (widget), FALSE);
   g_return_val_if_fail (sound_id < LAST_EMPATHY_SOUND, FALSE);
 
   return empathy_sound_manager_play_full (self, widget, sound_id, NULL, NULL);
@@ -401,7 +407,7 @@ empathy_sound_manager_start_playing (EmpathySoundManager *self,
   EmpathyRepeatableSound *repeatable_sound;
   gboolean playing = FALSE;
 
-  g_return_val_if_fail (GTK_IS_WIDGET (widget), FALSE);
+  g_return_val_if_fail (widget == NULL || GTK_IS_WIDGET (widget), FALSE);
   g_return_val_if_fail (sound_id < LAST_EMPATHY_SOUND, FALSE);
 
   if (!empathy_sound_pref_is_enabled (self, sound_id))
@@ -424,9 +430,12 @@ empathy_sound_manager_start_playing (EmpathySoundManager *self,
   g_hash_table_insert (self->priv->repeating_sounds, GINT_TO_POINTER (sound_id),
       repeatable_sound);
 
-  g_signal_connect (G_OBJECT (widget), "destroy",
-      G_CALLBACK (empathy_sound_widget_destroyed_cb),
-      repeatable_sound);
+  if (widget != NULL)
+    {
+      g_signal_connect (G_OBJECT (widget), "destroy",
+          G_CALLBACK (empathy_sound_widget_destroyed_cb),
+          repeatable_sound);
+    }
 
   playing = empathy_sound_play_internal (widget, sound_id, playing_finished_cb,
         repeatable_sound);
