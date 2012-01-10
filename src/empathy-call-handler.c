@@ -91,6 +91,7 @@ struct _EmpathyCallHandlerPriv {
   FsCandidate *video_remote_candidate;
   FsCandidate *audio_local_candidate;
   FsCandidate *video_local_candidate;
+  gboolean accept_when_initialised;
 };
 
 #define GET_PRIV(obj) EMPATHY_GET_PRIV (obj, EmpathyCallHandler)
@@ -134,6 +135,21 @@ empathy_call_handler_init (EmpathyCallHandler *obj)
 }
 
 static void
+on_call_accepted_cb (GObject *source_object,
+    GAsyncResult *res,
+    gpointer user_data)
+{
+  TpCallChannel *call = TP_CALL_CHANNEL (source_object);
+  GError *error = NULL;
+
+  if (!tp_call_channel_accept_finish (call, res, &error))
+    {
+      g_warning ("could not accept Call: %s", error->message);
+      g_error_free (error);
+    }
+}
+
+static void
 on_call_invalidated_cb (TpCallChannel *call,
     guint domain,
     gint code,
@@ -147,6 +163,7 @@ on_call_invalidated_cb (TpCallChannel *call,
       /* Invalidated unexpectedly? Fake call ending */
       g_signal_emit (self, signals[STATE_CHANGED], 0,
           TP_CALL_STATE_ENDED, NULL);
+      priv->accept_when_initialised = FALSE;
       tp_clear_object (&priv->call);
       tp_clear_object (&priv->tfchannel);
     }
@@ -165,10 +182,17 @@ on_call_state_changed_cb (TpCallChannel *call,
   g_signal_emit (handler, signals[STATE_CHANGED], 0, state,
       reason->dbus_reason);
 
+  if (state == TP_CALL_STATE_INITIALISED &&
+      priv->accept_when_initialised)
+    {
+      tp_call_channel_accept_async (priv->call, on_call_accepted_cb, NULL);
+      priv->accept_when_initialised = FALSE;
+    }
+
   if (state == TP_CALL_STATE_ENDED)
     {
       tp_channel_close_async (TP_CHANNEL (call), NULL, NULL);
-
+      priv->accept_when_initialised = FALSE;
       tp_clear_object (&priv->call);
       tp_clear_object (&priv->tfchannel);
     }
@@ -837,21 +861,6 @@ empathy_call_handler_start_tpfs (EmpathyCallHandler *self)
 }
 
 static void
-on_call_accepted_cb (GObject *source_object,
-    GAsyncResult *res,
-    gpointer user_data)
-{
-  TpCallChannel *call = TP_CALL_CHANNEL (source_object);
-  GError *error = NULL;
-
-  if (!tp_call_channel_accept_finish (call, res, &error))
-    {
-      g_warning ("could not accept Call: %s", error->message);
-      g_error_free (error);
-    }
-}
-
-static void
 empathy_call_handler_request_cb (GObject *source,
     GAsyncResult *result,
     gpointer user_data)
@@ -901,7 +910,7 @@ empathy_call_handler_start_call (EmpathyCallHandler *handler,
   if (priv->call != NULL)
     {
       empathy_call_handler_start_tpfs (handler);
-      tp_call_channel_accept_async (priv->call, on_call_accepted_cb, NULL);
+      priv->accept_when_initialised = TRUE;
       return;
     }
 
@@ -938,10 +947,6 @@ empathy_call_handler_stop_call (EmpathyCallHandler *handler)
       tp_call_channel_hangup_async (priv->call,
           TP_CALL_STATE_CHANGE_REASON_USER_REQUESTED,
           "", "", NULL, NULL);
-      tp_channel_close_async (TP_CHANNEL (priv->call),
-        NULL, NULL);
-      tp_clear_object (&priv->call);
-      tp_clear_object (&priv->tfchannel);
     }
 }
 
