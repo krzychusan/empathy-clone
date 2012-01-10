@@ -1,4 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
 /*
  * Copyright (C) 2002-2007 Imendio AB
  * Copyright (C) 2007-2008 Collabora Ltd.
@@ -40,13 +39,15 @@ typedef struct _EmpathyRosterWindow EmpathyRosterWindow;
 typedef struct _EmpathyRosterWindowClass EmpathyRosterWindowClass;
 typedef struct _EmpathyRosterWindowPriv EmpathyRosterWindowPriv;
 
-struct _EmpathyRosterWindow {
-	GtkWindow parent;
-	gpointer priv;
+struct _EmpathyRosterWindow
+{
+  GtkWindow parent;
+  gpointer priv;
 };
 
-struct _EmpathyRosterWindowClass {
-	GtkWindowClass parent_class;
+struct _EmpathyRosterWindowClass
+{
+  GtkWindowClass parent_class;
 };
 
 GType empathy_roster_window_get_type (void);
@@ -55,8 +56,9 @@ GtkWidget *empathy_roster_window_dup (void);
 
 void empathy_roster_window_show_preferences (EmpathyRosterWindow *window,
     const gchar *tab);
+
 void empathy_roster_window_set_shell_running (EmpathyRosterWindow *window,
-                                            gboolean           shell_running);
+    gboolean shell_running);
 
 G_END_DECLS
 
