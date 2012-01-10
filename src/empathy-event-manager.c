@@ -47,7 +47,7 @@
 #include <libempathy-gtk/empathy-ui-utils.h>
 
 #include "empathy-event-manager.h"
-#include "empathy-main-window.h"
+#include "empathy-roster-window.h"
 
 #define DEBUG_FLAG EMPATHY_DEBUG_DISPATCHER
 #include <libempathy/empathy-debug.h>
@@ -617,7 +617,7 @@ event_manager_chat_message_received_cb (EmpathyTpChat *tp_chat,
         EMPATHY_EVENT_TYPE_CHAT, EMPATHY_IMAGE_NEW_MESSAGE, header, msg,
         approval, event_text_channel_process_func, NULL);
 
-  window = empathy_main_window_dup ();
+  window = empathy_roster_window_dup ();
 
   empathy_sound_manager_play (priv->sound_mgr, window,
       EMPATHY_SOUND_CONVERSATION_NEW);
@@ -723,7 +723,7 @@ event_manager_call_channel_got_contact_cb (TpConnection *connection,
   approval->handler = g_signal_connect (call, "state-changed",
     G_CALLBACK (event_manager_call_state_changed_cb), approval);
 
-  window = empathy_main_window_dup ();
+  window = empathy_roster_window_dup ();
   approval->contact = g_object_ref (contact);
 
   g_object_get (G_OBJECT (call), "initial-video", &video, NULL);
@@ -752,7 +752,7 @@ static void
 event_manager_media_channel_got_contact (EventManagerApproval *approval)
 {
   EmpathyEventManagerPriv *priv = GET_PRIV (approval->manager);
-  GtkWidget *window = empathy_main_window_dup ();
+  GtkWidget *window = empathy_roster_window_dup ();
   gchar *header;
   EmpathyTpStreamedMedia *call;
   gboolean video;
@@ -872,7 +872,7 @@ event_room_channel_process_func (EventPriv *event)
 static void
 display_invite_room_dialog (EventManagerApproval *approval)
 {
-  GtkWidget *window = empathy_main_window_dup ();
+  GtkWidget *window = empathy_roster_window_dup ();
   const gchar *invite_msg;
   gchar *msg;
   TpHandle self_handle;
@@ -935,7 +935,7 @@ event_manager_ft_got_contact_cb (TpConnection *connection,
                                  GObject *object)
 {
   EventManagerApproval *approval = (EventManagerApproval *) user_data;
-  GtkWidget *window = empathy_main_window_dup ();
+  GtkWidget *window = empathy_roster_window_dup ();
   char *header;
   EmpathyEventManagerPriv *priv = GET_PRIV (approval->manager);
 
@@ -1252,7 +1252,7 @@ event_manager_presence_changed_cb (EmpathyContact *contact,
   EmpathyEventManagerPriv *priv = GET_PRIV (manager);
   TpAccount *account;
   EmpathyPresenceManager *presence_mgr;
-  GtkWidget *window = empathy_main_window_dup ();
+  GtkWidget *window = empathy_roster_window_dup ();
 
   account = empathy_contact_get_account (contact);
   presence_mgr = empathy_presence_manager_dup_singleton ();

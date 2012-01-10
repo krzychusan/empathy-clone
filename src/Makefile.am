@@ -166,7 +166,7 @@ empathy_handwritten_source = \
 	empathy-event-manager.c empathy-event-manager.h			\
 	empathy-ft-manager.c empathy-ft-manager.h			\
 	empathy-invite-participant-dialog.c empathy-invite-participant-dialog.h \
-	empathy-main-window.c empathy-main-window.h			\
+	empathy-roster-window.c empathy-roster-window.h			\
 	empathy-new-chatroom-dialog.c empathy-new-chatroom-dialog.h	\
 	empathy-notifications-approver.c empathy-notifications-approver.h \
 	empathy-call-observer.c empathy-call-observer.h			\
@@ -207,8 +207,8 @@ ui_DATA = 					\
 	empathy-chatrooms-window.ui		\
 	empathy-ft-manager.ui			\
 	empathy-import-dialog.ui		\
-	empathy-main-window.ui			\
-	empathy-main-window-menubar.ui		\
+	empathy-roster-window.ui			\
+	empathy-roster-window-menubar.ui		\
 	empathy-new-chatroom-dialog.ui		\
 	empathy-preferences.ui			\
 	empathy-status-icon.ui

@@ -65,7 +65,7 @@
 #include <libempathy-gtk/empathy-location-manager.h>
 #include <libempathy-gtk/empathy-notify-manager.h>
 
-#include "empathy-main-window.h"
+#include "empathy-roster-window.h"
 #include "empathy-accounts-common.h"
 #include "empathy-accounts-dialog.h"
 #include "empathy-status-icon.h"
@@ -289,8 +289,8 @@ out:
       /* Rely on GNOME Shell to watch session state */
       empathy_presence_manager_set_auto_away (self->presence_mgr, FALSE);
 
-      empathy_main_window_set_shell_running (EMPATHY_MAIN_WINDOW (self->window),
-                                             TRUE);
+      empathy_roster_window_set_shell_running (
+          EMPATHY_ROSTER_WINDOW (self->window), TRUE);
     }
   else
     {
@@ -355,7 +355,7 @@ empathy_app_command_line (GApplication *app,
       self->activated = TRUE;
 
       /* Setting up UI */
-      self->window = empathy_main_window_dup ();
+      self->window = empathy_roster_window_dup ();
 
       gtk_application_add_window (GTK_APPLICATION (app),
           GTK_WINDOW (self->window));
@@ -381,8 +381,8 @@ empathy_app_command_line (GApplication *app,
     }
 
   if (self->show_preferences)
-    empathy_main_window_show_preferences (EMPATHY_MAIN_WINDOW (self->window),
-        self->preferences_tab);
+    empathy_roster_window_show_preferences (
+        EMPATHY_ROSTER_WINDOW (self->window), self->preferences_tab);
 
   if (!self->start_hidden)
     empathy_window_present (GTK_WINDOW (self->window));
