@@ -42,7 +42,7 @@ typedef struct _EmpathyRosterWindowPriv EmpathyRosterWindowPriv;
 struct _EmpathyRosterWindow
 {
   GtkWindow parent;
-  gpointer priv;
+  EmpathyRosterWindowPriv *priv;
 };
 
 struct _EmpathyRosterWindowClass
@@ -54,10 +54,10 @@ GType empathy_roster_window_get_type (void);
 
 GtkWidget *empathy_roster_window_dup (void);
 
-void empathy_roster_window_show_preferences (EmpathyRosterWindow *window,
+void empathy_roster_window_show_preferences (EmpathyRosterWindow *self,
     const gchar *tab);
 
-void empathy_roster_window_set_shell_running (EmpathyRosterWindow *window,
+void empathy_roster_window_set_shell_running (EmpathyRosterWindow *self,
     gboolean shell_running);
 
 G_END_DECLS

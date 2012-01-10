@@ -103,8 +103,6 @@ enum
 
 G_DEFINE_TYPE (EmpathyRosterWindow, empathy_roster_window, GTK_TYPE_WINDOW);
 
-#define GET_PRIV(self) ((EmpathyRosterWindowPriv *)((EmpathyRosterWindow *) self)->priv)
-
 struct _EmpathyRosterWindowPriv {
   EmpathyIndividualStore *individual_store;
   EmpathyIndividualView *individual_view;
@@ -170,24 +168,22 @@ struct _EmpathyRosterWindowPriv {
 };
 
 static void
-roster_window_flash_stop (EmpathyRosterWindow *window)
+roster_window_flash_stop (EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
-
-  if (priv->flash_timeout_id == 0)
+  if (self->priv->flash_timeout_id == 0)
     return;
 
   DEBUG ("Stop flashing");
-  g_source_remove (priv->flash_timeout_id);
-  priv->flash_timeout_id = 0;
-  priv->flash_on = FALSE;
+  g_source_remove (self->priv->flash_timeout_id);
+  self->priv->flash_timeout_id = 0;
+  self->priv->flash_on = FALSE;
 }
 
 typedef struct
 {
   EmpathyEvent *event;
   gboolean on;
-  EmpathyRosterWindow *window;
+  EmpathyRosterWindow *self;
 } FlashForeachData;
 
 static gboolean
@@ -223,7 +219,7 @@ roster_window_flash_foreach (GtkTreeModel *model,
   else
     {
       pixbuf = empathy_individual_store_get_individual_status_icon (
-              GET_PRIV (data->window)->individual_store,
+              data->self->priv->individual_store,
               individual);
       if (pixbuf != NULL)
         g_object_ref (pixbuf);
@@ -257,23 +253,22 @@ out:
 }
 
 static gboolean
-roster_window_flash_cb (EmpathyRosterWindow *window)
+roster_window_flash_cb (EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GtkTreeModel *model;
   GSList *events, *l;
   gboolean found_event = FALSE;
   FlashForeachData  data;
 
-  priv->flash_on = !priv->flash_on;
-  data.on = priv->flash_on;
-  model = GTK_TREE_MODEL (priv->individual_store);
+  self->priv->flash_on = !self->priv->flash_on;
+  data.on = self->priv->flash_on;
+  model = GTK_TREE_MODEL (self->priv->individual_store);
 
-  events = empathy_event_manager_get_events (priv->event_manager);
+  events = empathy_event_manager_get_events (self->priv->event_manager);
   for (l = events; l; l = l->next)
     {
       data.event = l->data;
-      data.window = window;
+      data.self = self;
       if (!data.event->contact || !data.event->must_ack)
         continue;
 
@@ -284,45 +279,41 @@ roster_window_flash_cb (EmpathyRosterWindow *window)
     }
 
   if (!found_event)
-    roster_window_flash_stop (window);
+    roster_window_flash_stop (self);
 
   return TRUE;
 }
 
 static void
-roster_window_flash_start (EmpathyRosterWindow *window)
+roster_window_flash_start (EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
-
-  if (priv->flash_timeout_id != 0)
+  if (self->priv->flash_timeout_id != 0)
     return;
 
   DEBUG ("Start flashing");
-  priv->flash_timeout_id = g_timeout_add (FLASH_TIMEOUT,
-      (GSourceFunc) roster_window_flash_cb,
-      window);
+  self->priv->flash_timeout_id = g_timeout_add (FLASH_TIMEOUT,
+      (GSourceFunc) roster_window_flash_cb, self);
 
-  roster_window_flash_cb (window);
+  roster_window_flash_cb (self);
 }
 
 static void
-roster_window_remove_auth (EmpathyRosterWindow *window,
+roster_window_remove_auth (EmpathyRosterWindow *self,
     EmpathyEvent *event)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GtkWidget *error_widget;
 
-  error_widget = g_hash_table_lookup (priv->auths, event);
+  error_widget = g_hash_table_lookup (self->priv->auths, event);
   if (error_widget != NULL)
     {
       gtk_widget_destroy (error_widget);
-      g_hash_table_remove (priv->auths, event);
+      g_hash_table_remove (self->priv->auths, event);
     }
 }
 
 static void
 roster_window_auth_add_clicked_cb (GtkButton *button,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
   EmpathyEvent *event;
 
@@ -330,26 +321,25 @@ roster_window_auth_add_clicked_cb (GtkButton *button,
 
   empathy_event_approve (event);
 
-  roster_window_remove_auth (window, event);
+  roster_window_remove_auth (self, event);
 }
 
 static void
 roster_window_auth_close_clicked_cb (GtkButton *button,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
   EmpathyEvent *event;
 
   event = g_object_get_data (G_OBJECT (button), "event");
 
   empathy_event_decline (event);
-  roster_window_remove_auth (window, event);
+  roster_window_remove_auth (self, event);
 }
 
 static void
-roster_window_auth_display (EmpathyRosterWindow *window,
+roster_window_auth_display (EmpathyRosterWindow *self,
     EmpathyEvent *event)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   TpAccount *account = event->account;
   GtkWidget *info_bar;
   GtkWidget *content_area;
@@ -362,14 +352,14 @@ roster_window_auth_display (EmpathyRosterWindow *window,
   const gchar *icon_name;
   gchar *str;
 
-  if (g_hash_table_lookup (priv->auths, event) != NULL)
+  if (g_hash_table_lookup (self->priv->auths, event) != NULL)
     return;
 
   info_bar = gtk_info_bar_new ();
   gtk_info_bar_set_message_type (GTK_INFO_BAR (info_bar), GTK_MESSAGE_QUESTION);
 
   gtk_widget_set_no_show_all (info_bar, TRUE);
-  gtk_box_pack_start (GTK_BOX (priv->auth_vbox), info_bar, FALSE, TRUE, 0);
+  gtk_box_pack_start (GTK_BOX (self->priv->auth_vbox), info_bar, FALSE, TRUE, 0);
   gtk_widget_show (info_bar);
 
   icon_name = tp_account_get_icon_name (account);
@@ -422,13 +412,13 @@ roster_window_auth_display (EmpathyRosterWindow *window,
       "event", event, NULL);
 
   g_signal_connect (add_button, "clicked",
-      G_CALLBACK (roster_window_auth_add_clicked_cb), window);
+      G_CALLBACK (roster_window_auth_add_clicked_cb), self);
   g_signal_connect (close_button, "clicked",
-      G_CALLBACK (roster_window_auth_close_clicked_cb), window);
+      G_CALLBACK (roster_window_auth_close_clicked_cb), self);
 
-  gtk_widget_show (priv->auth_vbox);
+  gtk_widget_show (self->priv->auth_vbox);
 
-  g_hash_table_insert (priv->auths, event, info_bar);
+  g_hash_table_insert (self->priv->auths, event, info_bar);
 }
 
 static void
@@ -477,10 +467,9 @@ static void
 increase_event_count (EmpathyRosterWindow *self,
     EmpathyEvent *event)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (self);
   GtkTreeModel *model;
 
-  model = GTK_TREE_MODEL (priv->individual_store);
+  model = GTK_TREE_MODEL (self->priv->individual_store);
 
   gtk_tree_model_foreach (model, increase_event_count_foreach, event);
 }
@@ -502,10 +491,9 @@ static void
 decrease_event_count (EmpathyRosterWindow *self,
     EmpathyEvent *event)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (self);
   GtkTreeModel *model;
 
-  model = GTK_TREE_MODEL (priv->individual_store);
+  model = GTK_TREE_MODEL (self->priv->individual_store);
 
   gtk_tree_model_foreach (model, decrease_event_count_foreach, event);
 }
@@ -513,44 +501,43 @@ decrease_event_count (EmpathyRosterWindow *self,
 static void
 roster_window_event_added_cb (EmpathyEventManager *manager,
     EmpathyEvent *event,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
   if (event->contact)
     {
-      increase_event_count (window, event);
+      increase_event_count (self, event);
 
-      roster_window_flash_start (window);
+      roster_window_flash_start (self);
     }
   else if (event->type == EMPATHY_EVENT_TYPE_AUTH)
     {
-      roster_window_auth_display (window, event);
+      roster_window_auth_display (self, event);
     }
 }
 
 static void
 roster_window_event_removed_cb (EmpathyEventManager *manager,
     EmpathyEvent *event,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   FlashForeachData data;
 
   if (event->type == EMPATHY_EVENT_TYPE_AUTH)
     {
-      roster_window_remove_auth (window, event);
+      roster_window_remove_auth (self, event);
       return;
     }
 
   if (!event->contact)
     return;
 
-  decrease_event_count (window, event);
+  decrease_event_count (self, event);
 
   data.on = FALSE;
   data.event = event;
-  data.window = window;
+  data.self = self;
 
-  gtk_tree_model_foreach (GTK_TREE_MODEL (priv->individual_store),
+  gtk_tree_model_foreach (GTK_TREE_MODEL (self->priv->individual_store),
       roster_window_flash_foreach,
       &data);
 }
@@ -558,15 +545,14 @@ roster_window_event_removed_cb (EmpathyEventManager *manager,
 static gboolean
 roster_window_load_events_idle_cb (gpointer user_data)
 {
-  EmpathyRosterWindow *window = user_data;
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
+  EmpathyRosterWindow *self = user_data;
   GSList *l;
 
-  l = empathy_event_manager_get_events (priv->event_manager);
+  l = empathy_event_manager_get_events (self->priv->event_manager);
   while (l != NULL)
     {
-      roster_window_event_added_cb (priv->event_manager, l->data,
-          window);
+      roster_window_event_added_cb (self->priv->event_manager, l->data,
+          self);
       l = l->next;
     }
 
@@ -577,16 +563,15 @@ static void
 roster_window_row_activated_cb (EmpathyIndividualView *view,
     GtkTreePath *path,
     GtkTreeViewColumn *col,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   EmpathyContact *contact = NULL;
   FolksIndividual *individual;
   GtkTreeModel *model;
   GtkTreeIter iter;
   GSList *events, *l;
 
-  model = gtk_tree_view_get_model (GTK_TREE_VIEW (priv->individual_view));
+  model = gtk_tree_view_get_model (GTK_TREE_VIEW (self->priv->individual_view));
   gtk_tree_model_get_iter (model, &iter, path);
 
   gtk_tree_model_get (model, &iter, EMPATHY_INDIVIDUAL_STORE_COL_INDIVIDUAL,
@@ -600,7 +585,7 @@ roster_window_row_activated_cb (EmpathyIndividualView *view,
 
   /* If the contact has an event activate it, otherwise the
    * default handler of row-activated will be called. */
-  events = empathy_event_manager_get_events (priv->event_manager);
+  events = empathy_event_manager_get_events (self->priv->event_manager);
   for (l = events; l; l = l->next)
     {
       EmpathyEvent *event = l->data;
@@ -625,29 +610,28 @@ OUT:
 static void
 roster_window_row_deleted_cb (GtkTreeModel *model,
     GtkTreePath *path,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GtkTreeIter help_iter;
 
   if (!gtk_tree_model_get_iter_first (model, &help_iter))
     {
-      priv->empty = TRUE;
+      self->priv->empty = TRUE;
 
-      if (empathy_individual_view_is_searching (priv->individual_view))
+      if (empathy_individual_view_is_searching (self->priv->individual_view))
         {
           gchar *tmp;
 
           tmp = g_strdup_printf ("<b><span size='xx-large'>%s</span></b>",
               _("No match found"));
 
-          gtk_label_set_markup (GTK_LABEL (priv->no_entry_label), tmp);
+          gtk_label_set_markup (GTK_LABEL (self->priv->no_entry_label), tmp);
           g_free (tmp);
 
-          gtk_label_set_line_wrap (GTK_LABEL (priv->no_entry_label),
+          gtk_label_set_line_wrap (GTK_LABEL (self->priv->no_entry_label),
               TRUE);
 
-          gtk_notebook_set_current_page (GTK_NOTEBOOK (priv->notebook),
+          gtk_notebook_set_current_page (GTK_NOTEBOOK (self->priv->notebook),
               PAGE_NO_MATCH);
         }
     }
@@ -657,63 +641,60 @@ static void
 roster_window_row_inserted_cb (GtkTreeModel      *model,
     GtkTreePath *path,
     GtkTreeIter *iter,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
-
-  if (priv->empty)
+  if (self->priv->empty)
     {
-      priv->empty = FALSE;
-      gtk_notebook_set_current_page (GTK_NOTEBOOK (priv->notebook),
+      self->priv->empty = FALSE;
+      gtk_notebook_set_current_page (GTK_NOTEBOOK (self->priv->notebook),
           PAGE_CONTACT_LIST);
-      gtk_widget_grab_focus (GTK_WIDGET (priv->individual_view));
+      gtk_widget_grab_focus (GTK_WIDGET (self->priv->individual_view));
 
       /* The store is being filled, it will be done after an idle cb.
        * So we can then get events. If we do that too soon, event's
        * contact is not yet in the store and it won't get marked as
        * having events. */
-      g_idle_add (roster_window_load_events_idle_cb, window);
+      g_idle_add (roster_window_load_events_idle_cb, self);
     }
 }
 
 static void
-roster_window_remove_error (EmpathyRosterWindow *window,
+roster_window_remove_error (EmpathyRosterWindow *self,
     TpAccount *account)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GtkWidget *error_widget;
 
-  error_widget = g_hash_table_lookup (priv->errors, account);
+  error_widget = g_hash_table_lookup (self->priv->errors, account);
   if (error_widget != NULL)
     {
       gtk_widget_destroy (error_widget);
-      g_hash_table_remove (priv->errors, account);
+      g_hash_table_remove (self->priv->errors, account);
     }
 }
 
 static void
 roster_window_account_disabled_cb (TpAccountManager  *manager,
     TpAccount *account,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  roster_window_remove_error (window, account);
+  roster_window_remove_error (self, account);
 }
 
 static void
 roster_window_error_retry_clicked_cb (GtkButton *button,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
   TpAccount *account;
 
   account = g_object_get_data (G_OBJECT (button), "account");
   tp_account_reconnect_async (account, NULL, NULL);
 
-  roster_window_remove_error (window, account);
+  roster_window_remove_error (self, account);
 }
 
 static void
 roster_window_error_edit_clicked_cb (GtkButton *button,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
   TpAccount *account;
 
@@ -723,30 +704,30 @@ roster_window_error_edit_clicked_cb (GtkButton *button,
       gtk_widget_get_screen (GTK_WIDGET (button)),
       account, FALSE, FALSE);
 
-  roster_window_remove_error (window, account);
+  roster_window_remove_error (self, account);
 }
 
 static void
 roster_window_error_close_clicked_cb (GtkButton *button,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
   TpAccount *account;
 
   account = g_object_get_data (G_OBJECT (button), "account");
-  roster_window_remove_error (window, account);
+  roster_window_remove_error (self, account);
 }
 
 static void
 roster_window_error_upgrade_sw_clicked_cb (GtkButton *button,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
   TpAccount *account;
   GtkWidget *dialog;
 
   account = g_object_get_data (G_OBJECT (button), "account");
-  roster_window_remove_error (window, account);
+  roster_window_remove_error (self, account);
 
-  dialog = gtk_message_dialog_new (GTK_WINDOW (window),
+  dialog = gtk_message_dialog_new (GTK_WINDOW (self),
       GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR,
       GTK_BUTTONS_OK,
       _("Sorry, %s accounts can’t be used until your %s software is updated."),
@@ -761,10 +742,9 @@ roster_window_error_upgrade_sw_clicked_cb (GtkButton *button,
 }
 
 static void
-roster_window_upgrade_software_error (EmpathyRosterWindow *window,
+roster_window_upgrade_software_error (EmpathyRosterWindow *self,
     TpAccount *account)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GtkWidget *info_bar;
   GtkWidget *content_area;
   GtkWidget *label;
@@ -789,13 +769,13 @@ roster_window_upgrade_software_error (EmpathyRosterWindow *window,
       error_message);
 
   /* If there are other errors, remove them */
-  roster_window_remove_error (window, account);
+  roster_window_remove_error (self, account);
 
   info_bar = gtk_info_bar_new ();
   gtk_info_bar_set_message_type (GTK_INFO_BAR (info_bar), GTK_MESSAGE_ERROR);
 
   gtk_widget_set_no_show_all (info_bar, TRUE);
-  gtk_box_pack_start (GTK_BOX (priv->errors_vbox), info_bar, FALSE, TRUE, 0);
+  gtk_box_pack_start (GTK_BOX (self->priv->errors_vbox), info_bar, FALSE, TRUE, 0);
   gtk_widget_show (info_bar);
 
   icon_name = tp_account_get_icon_name (account);
@@ -847,21 +827,20 @@ roster_window_upgrade_software_error (EmpathyRosterWindow *window,
       g_object_unref);
 
   g_signal_connect (upgrade_button, "clicked",
-      G_CALLBACK (roster_window_error_upgrade_sw_clicked_cb), window);
+      G_CALLBACK (roster_window_error_upgrade_sw_clicked_cb), self);
   g_signal_connect (close_button, "clicked",
-      G_CALLBACK (roster_window_error_close_clicked_cb), window);
+      G_CALLBACK (roster_window_error_close_clicked_cb), self);
 
-  gtk_widget_set_tooltip_text (priv->errors_vbox, error_message);
-  gtk_widget_show (priv->errors_vbox);
+  gtk_widget_set_tooltip_text (self->priv->errors_vbox, error_message);
+  gtk_widget_show (self->priv->errors_vbox);
 
-  g_hash_table_insert (priv->errors, g_object_ref (account), info_bar);
+  g_hash_table_insert (self->priv->errors, g_object_ref (account), info_bar);
 }
 
 static void
-roster_window_error_display (EmpathyRosterWindow *window,
-         TpAccount         *account)
+roster_window_error_display (EmpathyRosterWindow *self,
+    TpAccount *account)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GtkWidget *info_bar;
   GtkWidget *content_area;
   GtkWidget *label;
@@ -879,7 +858,7 @@ roster_window_error_display (EmpathyRosterWindow *window,
   if (!tp_strdiff (TP_ERROR_STR_SOFTWARE_UPGRADE_REQUIRED,
        tp_account_get_detailed_error (account, NULL)))
     {
-      roster_window_upgrade_software_error (window, account);
+      roster_window_upgrade_software_error (self, account);
       return;
     }
 
@@ -891,7 +870,7 @@ roster_window_error_display (EmpathyRosterWindow *window,
   str = g_markup_printf_escaped ("<b>%s</b>\n%s",
       tp_account_get_display_name (account), error_message);
 
-  info_bar = g_hash_table_lookup (priv->errors, account);
+  info_bar = g_hash_table_lookup (self->priv->errors, account);
   if (info_bar)
     {
       label = g_object_get_data (G_OBJECT (info_bar), "label");
@@ -907,7 +886,7 @@ roster_window_error_display (EmpathyRosterWindow *window,
   gtk_info_bar_set_message_type (GTK_INFO_BAR (info_bar), GTK_MESSAGE_ERROR);
 
   gtk_widget_set_no_show_all (info_bar, TRUE);
-  gtk_box_pack_start (GTK_BOX (priv->errors_vbox), info_bar, FALSE, TRUE, 0);
+  gtk_box_pack_start (GTK_BOX (self->priv->errors_vbox), info_bar, FALSE, TRUE, 0);
   gtk_widget_show (info_bar);
 
   icon_name = tp_account_get_icon_name (account);
@@ -969,22 +948,21 @@ roster_window_error_display (EmpathyRosterWindow *window,
       g_object_unref);
 
   g_signal_connect (edit_button, "clicked",
-      G_CALLBACK (roster_window_error_edit_clicked_cb), window);
+      G_CALLBACK (roster_window_error_edit_clicked_cb), self);
   g_signal_connect (close_button, "clicked",
-      G_CALLBACK (roster_window_error_close_clicked_cb), window);
+      G_CALLBACK (roster_window_error_close_clicked_cb), self);
   g_signal_connect (retry_button, "clicked",
-      G_CALLBACK (roster_window_error_retry_clicked_cb), window);
+      G_CALLBACK (roster_window_error_retry_clicked_cb), self);
 
-  gtk_widget_set_tooltip_text (priv->errors_vbox, error_message);
-  gtk_widget_show (priv->errors_vbox);
+  gtk_widget_set_tooltip_text (self->priv->errors_vbox, error_message);
+  gtk_widget_show (self->priv->errors_vbox);
 
-  g_hash_table_insert (priv->errors, g_object_ref (account), info_bar);
+  g_hash_table_insert (self->priv->errors, g_object_ref (account), info_bar);
 }
 
 static void
-roster_window_update_status (EmpathyRosterWindow *window)
+roster_window_update_status (EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   gboolean connected, connecting;
   GList *l, *children;
 
@@ -993,21 +971,21 @@ roster_window_update_status (EmpathyRosterWindow *window)
   /* Update the spinner state */
   if (connecting)
     {
-      gtk_spinner_start (GTK_SPINNER (priv->throbber));
-      gtk_widget_show (priv->throbber_tool_item);
+      gtk_spinner_start (GTK_SPINNER (self->priv->throbber));
+      gtk_widget_show (self->priv->throbber_tool_item);
     }
   else
     {
-      gtk_spinner_stop (GTK_SPINNER (priv->throbber));
-      gtk_widget_hide (priv->throbber_tool_item);
+      gtk_spinner_stop (GTK_SPINNER (self->priv->throbber));
+      gtk_widget_hide (self->priv->throbber_tool_item);
     }
 
   /* Update widgets sensibility */
-  for (l = priv->actions_connected; l; l = l->next)
+  for (l = self->priv->actions_connected; l; l = l->next)
     gtk_action_set_sensitive (l->data, connected);
 
   /* Update favourite rooms sensitivity */
-  children = gtk_container_get_children (GTK_CONTAINER (priv->room_menu));
+  children = gtk_container_get_children (GTK_CONTAINER (self->priv->room_menu));
   for (l = children; l != NULL; l = l->next)
     {
       if (g_object_get_data (G_OBJECT (l->data), "is_favorite") != NULL)
@@ -1031,7 +1009,7 @@ roster_window_account_to_action_name (TpAccount *account)
 
 static void
 roster_window_balance_activate_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
   const char *uri;
 
@@ -1040,7 +1018,7 @@ roster_window_balance_activate_cb (GtkAction *action,
   if (!tp_str_empty (uri))
     {
       DEBUG ("Top-up credit URI: %s", uri);
-      empathy_url_show (GTK_WIDGET (window), uri);
+      empathy_url_show (GTK_WIDGET (self), uri);
     }
   else
     {
@@ -1103,23 +1081,22 @@ roster_window_balance_changed_cb (TpConnection *conn,
 }
 
 static GtkAction *
-roster_window_setup_balance_create_action (EmpathyRosterWindow *window,
+roster_window_setup_balance_create_action (EmpathyRosterWindow *self,
     TpAccount *account)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GtkAction *action;
   char *name, *ui;
   guint merge_id;
   GError *error = NULL;
 
   /* create the action group if required */
-  if (priv->balance_action_group == NULL)
+  if (self->priv->balance_action_group == NULL)
     {
-      priv->balance_action_group =
+      self->priv->balance_action_group =
         gtk_action_group_new ("balance-action-group");
 
-      gtk_ui_manager_insert_action_group (priv->ui_manager,
-        priv->balance_action_group, -1);
+      gtk_ui_manager_insert_action_group (self->priv->ui_manager,
+        self->priv->balance_action_group, -1);
     }
 
   /* create the action */
@@ -1132,9 +1109,9 @@ roster_window_setup_balance_create_action (EmpathyRosterWindow *window,
       G_BINDING_SYNC_CREATE);
 
   g_signal_connect (action, "activate",
-      G_CALLBACK (roster_window_balance_activate_cb), window);
+      G_CALLBACK (roster_window_balance_activate_cb), self);
 
-  gtk_action_group_add_action (priv->balance_action_group, action);
+  gtk_action_group_add_action (self->priv->balance_action_group, action);
   g_object_unref (action);
 
   ui = g_strdup_printf (
@@ -1149,7 +1126,7 @@ roster_window_setup_balance_create_action (EmpathyRosterWindow *window,
       "</ui>",
       name);
 
-  merge_id = gtk_ui_manager_add_ui_from_string (priv->ui_manager,
+  merge_id = gtk_ui_manager_add_ui_from_string (self->priv->ui_manager,
       ui, -1, &error);
 
   if (error != NULL)
@@ -1170,11 +1147,10 @@ roster_window_setup_balance_create_action (EmpathyRosterWindow *window,
 }
 
 static GtkWidget *
-roster_window_setup_balance_create_widget (EmpathyRosterWindow *window,
+roster_window_setup_balance_create_widget (EmpathyRosterWindow *self,
     GtkAction *action,
     TpAccount *account)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GtkWidget *hbox, *image, *label, *button;
 
   hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
@@ -1204,7 +1180,7 @@ roster_window_setup_balance_create_widget (EmpathyRosterWindow *window,
   g_signal_connect_swapped (button, "clicked",
       G_CALLBACK (gtk_action_activate), action);
 
-  gtk_box_pack_start (GTK_BOX (priv->balance_vbox), hbox, FALSE, TRUE, 0);
+  gtk_box_pack_start (GTK_BOX (self->priv->balance_vbox), hbox, FALSE, TRUE, 0);
   gtk_widget_show_all (hbox);
 
   /* tie the lifetime of the widget to the lifetime of the action */
@@ -1215,10 +1191,9 @@ roster_window_setup_balance_create_widget (EmpathyRosterWindow *window,
 }
 
 static void
-roster_window_setup_balance (EmpathyRosterWindow *window,
+roster_window_setup_balance (EmpathyRosterWindow *self,
     TpAccount *account)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   TpConnection *conn = tp_account_get_connection (account);
   GtkAction *action;
   const gchar *uri;
@@ -1233,15 +1208,15 @@ roster_window_setup_balance (EmpathyRosterWindow *window,
       tp_account_get_display_name (account));
 
   /* create the action */
-  action = roster_window_setup_balance_create_action (window, account);
+  action = roster_window_setup_balance_create_action (self, account);
 
   if (action == NULL)
     return;
 
-  gtk_action_set_visible (priv->view_balance_show_in_roster, TRUE);
+  gtk_action_set_visible (self->priv->view_balance_show_in_roster, TRUE);
 
   /* create the display widget */
-  roster_window_setup_balance_create_widget (window, action, account);
+  roster_window_setup_balance_create_widget (self, action, account);
 
   /* check the current balance and monitor for any changes */
   uri = tp_connection_get_balance_uri (conn);
@@ -1257,21 +1232,20 @@ roster_window_setup_balance (EmpathyRosterWindow *window,
 }
 
 static void
-roster_window_remove_balance_action (EmpathyRosterWindow *window,
+roster_window_remove_balance_action (EmpathyRosterWindow *self,
     TpAccount *account)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GtkAction *action;
   char *name;
   GList *a;
 
-  if (priv->balance_action_group == NULL)
+  if (self->priv->balance_action_group == NULL)
     return;
 
   name = roster_window_account_to_action_name (account);
 
   action = gtk_action_group_get_action (
-      priv->balance_action_group, name);
+      self->priv->balance_action_group, name);
 
   if (action != NULL)
     {
@@ -1282,18 +1256,18 @@ roster_window_remove_balance_action (EmpathyRosterWindow *window,
       merge_id = GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (action),
             "merge-id"));
 
-      gtk_ui_manager_remove_ui (priv->ui_manager,
+      gtk_ui_manager_remove_ui (self->priv->ui_manager,
           merge_id);
       gtk_action_group_remove_action (
-          priv->balance_action_group, action);
+          self->priv->balance_action_group, action);
     }
 
   g_free (name);
 
   a = gtk_action_group_list_actions (
-      priv->balance_action_group);
+      self->priv->balance_action_group);
 
-  gtk_action_set_visible (priv->view_balance_show_in_roster,
+  gtk_action_set_visible (self->priv->view_balance_show_in_roster,
       g_list_length (a) > 0);
 
   g_list_free (a);
@@ -1306,35 +1280,33 @@ roster_window_connection_changed_cb (TpAccount  *account,
     guint reason,
     gchar *dbus_error_name,
     GHashTable *details,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
-
-  roster_window_update_status (window);
+  roster_window_update_status (self);
 
   if (current == TP_CONNECTION_STATUS_DISCONNECTED &&
       reason != TP_CONNECTION_STATUS_REASON_REQUESTED)
     {
-      roster_window_error_display (window, account);
+      roster_window_error_display (self, account);
     }
 
   if (current == TP_CONNECTION_STATUS_DISCONNECTED)
     {
-      empathy_sound_manager_play (priv->sound_mgr, GTK_WIDGET (window),
+      empathy_sound_manager_play (self->priv->sound_mgr, GTK_WIDGET (self),
               EMPATHY_SOUND_ACCOUNT_DISCONNECTED);
 
       /* remove balance action if required */
-      roster_window_remove_balance_action (window, account);
+      roster_window_remove_balance_action (self, account);
     }
 
   if (current == TP_CONNECTION_STATUS_CONNECTED)
     {
-      empathy_sound_manager_play (priv->sound_mgr, GTK_WIDGET (window),
+      empathy_sound_manager_play (self->priv->sound_mgr, GTK_WIDGET (self),
               EMPATHY_SOUND_ACCOUNT_CONNECTED);
 
       /* Account connected without error, remove error message if any */
-      roster_window_remove_error (window, account);
-      roster_window_setup_balance (window, account);
+      roster_window_remove_error (self, account);
+      roster_window_setup_balance (self, account);
     }
 }
 
@@ -1374,40 +1346,40 @@ roster_window_accels_save (void)
 static void
 empathy_roster_window_finalize (GObject *window)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
+  EmpathyRosterWindow *self = EMPATHY_ROSTER_WINDOW (window);
   GHashTableIter iter;
   gpointer key, value;
 
   /* Save user-defined accelerators. */
   roster_window_accels_save ();
 
-  g_list_free (priv->actions_connected);
+  g_list_free (self->priv->actions_connected);
 
-  g_object_unref (priv->account_manager);
-  g_object_unref (priv->individual_store);
-  g_object_unref (priv->sound_mgr);
-  g_hash_table_unref (priv->errors);
-  g_hash_table_unref (priv->auths);
+  g_object_unref (self->priv->account_manager);
+  g_object_unref (self->priv->individual_store);
+  g_object_unref (self->priv->sound_mgr);
+  g_hash_table_unref (self->priv->errors);
+  g_hash_table_unref (self->priv->auths);
 
   /* disconnect all handlers of status-changed signal */
-  g_hash_table_iter_init (&iter, priv->status_changed_handlers);
+  g_hash_table_iter_init (&iter, self->priv->status_changed_handlers);
   while (g_hash_table_iter_next (&iter, &key, &value))
     g_signal_handler_disconnect (TP_ACCOUNT (key), GPOINTER_TO_UINT (value));
 
-  g_hash_table_unref (priv->status_changed_handlers);
+  g_hash_table_unref (self->priv->status_changed_handlers);
 
-  g_signal_handlers_disconnect_by_func (priv->event_manager,
-      roster_window_event_added_cb, window);
-  g_signal_handlers_disconnect_by_func (priv->event_manager,
-      roster_window_event_removed_cb, window);
+  g_signal_handlers_disconnect_by_func (self->priv->event_manager,
+      roster_window_event_added_cb, self);
+  g_signal_handlers_disconnect_by_func (self->priv->event_manager,
+      roster_window_event_removed_cb, self);
 
-  g_object_unref (priv->call_observer);
-  g_object_unref (priv->event_manager);
-  g_object_unref (priv->ui_manager);
-  g_object_unref (priv->chatroom_manager);
+  g_object_unref (self->priv->call_observer);
+  g_object_unref (self->priv->event_manager);
+  g_object_unref (self->priv->ui_manager);
+  g_object_unref (self->priv->chatroom_manager);
 
-  g_object_unref (priv->gsettings_ui);
-  g_object_unref (priv->gsettings_contacts);
+  g_object_unref (self->priv->gsettings_ui);
+  g_object_unref (self->priv->gsettings_contacts);
 
   G_OBJECT_CLASS (empathy_roster_window_parent_class)->finalize (window);
 }
@@ -1427,78 +1399,76 @@ roster_window_key_press_event_cb  (GtkWidget *window,
 
 static void
 roster_window_chat_quit_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  gtk_widget_destroy (GTK_WIDGET (window));
+  gtk_widget_destroy (GTK_WIDGET (self));
 }
 
 static void
 roster_window_view_history_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  empathy_log_window_show (NULL, NULL, FALSE, GTK_WINDOW (window));
+  empathy_log_window_show (NULL, NULL, FALSE, GTK_WINDOW (self));
 }
 
 static void
 roster_window_chat_new_message_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  empathy_new_message_dialog_show (GTK_WINDOW (window));
+  empathy_new_message_dialog_show (GTK_WINDOW (self));
 }
 
 static void
 roster_window_chat_new_call_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  empathy_new_call_dialog_show (GTK_WINDOW (window));
+  empathy_new_call_dialog_show (GTK_WINDOW (self));
 }
 
 static void
 roster_window_chat_add_contact_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  empathy_new_individual_dialog_show (GTK_WINDOW (window));
+  empathy_new_individual_dialog_show (GTK_WINDOW (self));
 }
 
 static void
 roster_window_chat_search_contacts_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
   GtkWidget *dialog = empathy_contact_search_dialog_new (
-      GTK_WINDOW (window));
+      GTK_WINDOW (self));
 
   gtk_widget_show (dialog);
 }
 
 static void
 roster_window_view_show_ft_manager (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
   empathy_ft_manager_show ();
 }
 
 static void
 roster_window_view_show_offline_cb (GtkToggleAction   *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   gboolean current;
 
   current = gtk_toggle_action_get_active (action);
-  g_settings_set_boolean (priv->gsettings_ui,
+  g_settings_set_boolean (self->priv->gsettings_ui,
       EMPATHY_PREFS_UI_SHOW_OFFLINE,
       current);
 
-  empathy_individual_view_set_show_offline (priv->individual_view,
+  empathy_individual_view_set_show_offline (self->priv->individual_view,
       current);
 }
 
 static void
 roster_window_notify_sort_contact_cb (GSettings         *gsettings,
     const gchar *key,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   gchar *str;
 
   str = g_settings_get_string (gsettings, key);
@@ -1517,7 +1487,7 @@ roster_window_notify_sort_contact_cb (GSettings         *gsettings,
           /* By changing the value of the GtkRadioAction,
              it emits a signal that calls roster_window_view_sort_contacts_cb
              which updates the contacts list */
-          gtk_radio_action_set_current_value (priv->sort_by_name,
+          gtk_radio_action_set_current_value (self->priv->sort_by_name,
                       enum_value->value);
         }
       else
@@ -1531,9 +1501,8 @@ roster_window_notify_sort_contact_cb (GSettings         *gsettings,
 static void
 roster_window_view_sort_contacts_cb (GtkRadioAction *action,
     GtkRadioAction *current,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   EmpathyIndividualStoreSort value;
   GSList *group;
   GType type;
@@ -1552,28 +1521,27 @@ roster_window_view_sort_contacts_cb (GtkRadioAction *action,
     g_warning ("No GEnumValue for EmpathyContactListSort with GtkRadioAction index:%d",
         g_slist_index (group, action));
   else
-    g_settings_set_string (priv->gsettings_contacts,
+    g_settings_set_string (self->priv->gsettings_contacts,
         EMPATHY_PREFS_CONTACTS_SORT_CRITERIUM,
         enum_value->value_nick);
 
-  empathy_individual_store_set_sort_criterium (priv->individual_store,
+  empathy_individual_store_set_sort_criterium (self->priv->individual_store,
       value);
 }
 
 static void
 roster_window_view_show_protocols_cb (GtkToggleAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   gboolean value;
 
   value = gtk_toggle_action_get_active (action);
 
-  g_settings_set_boolean (priv->gsettings_ui,
+  g_settings_set_boolean (self->priv->gsettings_ui,
       EMPATHY_PREFS_UI_SHOW_PROTOCOLS,
       value);
 
-  empathy_individual_store_set_show_protocols (priv->individual_store,
+  empathy_individual_store_set_show_protocols (self->priv->individual_store,
       value);
 }
 
@@ -1585,9 +1553,8 @@ roster_window_view_show_protocols_cb (GtkToggleAction *action,
 static void
 roster_window_view_contacts_list_size_cb (GtkRadioAction *action,
     GtkRadioAction *current,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GSettings *gsettings_ui;
   gint value;
 
@@ -1607,9 +1574,9 @@ roster_window_view_contacts_list_size_cb (GtkRadioAction *action,
   g_settings_apply (gsettings_ui);
 
   /* FIXME: these enums probably have the wrong namespace */
-  empathy_individual_store_set_show_avatars (priv->individual_store,
+  empathy_individual_store_set_show_avatars (self->priv->individual_store,
       value == CONTACT_LIST_NORMAL_SIZE_WITH_AVATARS);
-  empathy_individual_store_set_is_compact (priv->individual_store,
+  empathy_individual_store_set_is_compact (self->priv->individual_store,
       value == CONTACT_LIST_COMPACT_SIZE);
 
   g_object_unref (gsettings_ui);
@@ -1617,11 +1584,9 @@ roster_window_view_contacts_list_size_cb (GtkRadioAction *action,
 
 static void roster_window_notify_show_protocols_cb (GSettings *gsettings,
     const gchar *key,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
-
-  gtk_toggle_action_set_active (priv->show_protocols,
+  gtk_toggle_action_set_active (self->priv->show_protocols,
       g_settings_get_boolean (gsettings, EMPATHY_PREFS_UI_SHOW_PROTOCOLS));
 }
 
@@ -1629,9 +1594,8 @@ static void roster_window_notify_show_protocols_cb (GSettings *gsettings,
 static void
 roster_window_notify_contact_list_size_cb (GSettings *gsettings,
     const gchar *key,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   gint value;
 
   if (g_settings_get_boolean (gsettings,
@@ -1648,21 +1612,19 @@ roster_window_notify_contact_list_size_cb (GSettings *gsettings,
   /* By changing the value of the GtkRadioAction,
      it emits a signal that calls roster_window_view_contacts_list_size_cb
      which updates the contacts list */
-  gtk_radio_action_set_current_value (priv->normal_with_avatars, value);
+  gtk_radio_action_set_current_value (self->priv->normal_with_avatars, value);
 }
 
 static void
 roster_window_edit_search_contacts_cb (GtkCheckMenuItem  *item,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
-
-  empathy_individual_view_start_search (priv->individual_view);
+  empathy_individual_view_start_search (self->priv->individual_view);
 }
 
 static void
 roster_window_view_show_map_cb (GtkCheckMenuItem  *item,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
 #ifdef HAVE_LIBCHAMPLAIN
   empathy_map_view_show ();
@@ -1797,10 +1759,9 @@ roster_window_favorite_chatroom_menu_activate_cb (GtkMenuItem *menu_item,
 }
 
 static void
-roster_window_favorite_chatroom_menu_add (EmpathyRosterWindow *window,
+roster_window_favorite_chatroom_menu_add (EmpathyRosterWindow *self,
     EmpathyChatroom *chatroom)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GtkWidget *menu_item;
   const gchar *name, *account_name;
   gchar *label;
@@ -1822,7 +1783,7 @@ roster_window_favorite_chatroom_menu_add (EmpathyRosterWindow *window,
       G_CALLBACK (roster_window_favorite_chatroom_menu_activate_cb),
       chatroom);
 
-  gtk_menu_shell_insert (GTK_MENU_SHELL (priv->room_menu),
+  gtk_menu_shell_insert (GTK_MENU_SHELL (self->priv->room_menu),
       menu_item, 4);
 
   gtk_widget_show (menu_item);
@@ -1831,22 +1792,19 @@ roster_window_favorite_chatroom_menu_add (EmpathyRosterWindow *window,
 static void
 roster_window_favorite_chatroom_menu_added_cb (EmpathyChatroomManager *manager,
     EmpathyChatroom *chatroom,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
-
-  roster_window_favorite_chatroom_menu_add (window, chatroom);
-  gtk_widget_show (priv->room_separator);
-  gtk_action_set_sensitive (priv->room_join_favorites, TRUE);
+  roster_window_favorite_chatroom_menu_add (self, chatroom);
+  gtk_widget_show (self->priv->room_separator);
+  gtk_action_set_sensitive (self->priv->room_join_favorites, TRUE);
 }
 
 static void
 roster_window_favorite_chatroom_menu_removed_cb (
     EmpathyChatroomManager *manager,
     EmpathyChatroom *chatroom,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GtkWidget *menu_item;
   GList *chatrooms;
 
@@ -1854,67 +1812,65 @@ roster_window_favorite_chatroom_menu_removed_cb (
   g_object_set_data (G_OBJECT (chatroom), "menu_item", NULL);
   gtk_widget_destroy (menu_item);
 
-  chatrooms = empathy_chatroom_manager_get_chatrooms (priv->chatroom_manager,
+  chatrooms = empathy_chatroom_manager_get_chatrooms (self->priv->chatroom_manager,
       NULL);
   if (chatrooms)
-    gtk_widget_show (priv->room_separator);
+    gtk_widget_show (self->priv->room_separator);
   else
-    gtk_widget_hide (priv->room_separator);
+    gtk_widget_hide (self->priv->room_separator);
 
-  gtk_action_set_sensitive (priv->room_join_favorites, chatrooms != NULL);
+  gtk_action_set_sensitive (self->priv->room_join_favorites, chatrooms != NULL);
   g_list_free (chatrooms);
 }
 
 static void
-roster_window_favorite_chatroom_menu_setup (EmpathyRosterWindow *window)
+roster_window_favorite_chatroom_menu_setup (EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GList *chatrooms, *l;
   GtkWidget *room;
 
-  priv->chatroom_manager = empathy_chatroom_manager_dup_singleton (NULL);
+  self->priv->chatroom_manager = empathy_chatroom_manager_dup_singleton (NULL);
   chatrooms = empathy_chatroom_manager_get_chatrooms (
-    priv->chatroom_manager, NULL);
-  room = gtk_ui_manager_get_widget (priv->ui_manager,
+    self->priv->chatroom_manager, NULL);
+  room = gtk_ui_manager_get_widget (self->priv->ui_manager,
     "/menubar/room");
-  priv->room_menu = gtk_menu_item_get_submenu (GTK_MENU_ITEM (room));
-  priv->room_separator = gtk_ui_manager_get_widget (priv->ui_manager,
+  self->priv->room_menu = gtk_menu_item_get_submenu (GTK_MENU_ITEM (room));
+  self->priv->room_separator = gtk_ui_manager_get_widget (self->priv->ui_manager,
     "/menubar/room/room_separator");
 
   for (l = chatrooms; l; l = l->next)
-    roster_window_favorite_chatroom_menu_add (window, l->data);
+    roster_window_favorite_chatroom_menu_add (self, l->data);
 
   if (!chatrooms)
-    gtk_widget_hide (priv->room_separator);
+    gtk_widget_hide (self->priv->room_separator);
 
-  gtk_action_set_sensitive (priv->room_join_favorites, chatrooms != NULL);
+  gtk_action_set_sensitive (self->priv->room_join_favorites, chatrooms != NULL);
 
-  g_signal_connect (priv->chatroom_manager, "chatroom-added",
+  g_signal_connect (self->priv->chatroom_manager, "chatroom-added",
       G_CALLBACK (roster_window_favorite_chatroom_menu_added_cb),
-      window);
+      self);
 
-  g_signal_connect (priv->chatroom_manager, "chatroom-removed",
+  g_signal_connect (self->priv->chatroom_manager, "chatroom-removed",
       G_CALLBACK (roster_window_favorite_chatroom_menu_removed_cb),
-      window);
+      self);
 
   g_list_free (chatrooms);
 }
 
 static void
 roster_window_room_join_new_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  empathy_new_chatroom_dialog_show (GTK_WINDOW (window));
+  empathy_new_chatroom_dialog_show (GTK_WINDOW (self));
 }
 
 static void
 roster_window_room_join_favorites_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GList *chatrooms, *l;
 
-  chatrooms = empathy_chatroom_manager_get_chatrooms (priv->chatroom_manager,
+  chatrooms = empathy_chatroom_manager_get_chatrooms (self->priv->chatroom_manager,
       NULL);
 
   for (l = chatrooms; l; l = l->next)
@@ -1925,65 +1881,64 @@ roster_window_room_join_favorites_cb (GtkAction *action,
 
 static void
 roster_window_room_manage_favorites_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  empathy_chatrooms_window_show (GTK_WINDOW (window));
+  empathy_chatrooms_window_show (GTK_WINDOW (self));
 }
 
 static void
 roster_window_edit_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GtkWidget *submenu;
 
   /* FIXME: It should use the UIManager to merge the contact/group submenu */
   submenu = empathy_individual_view_get_individual_menu (
-      priv->individual_view);
+      self->priv->individual_view);
   if (submenu)
     {
       GtkMenuItem *item;
       GtkWidget   *label;
 
-      item = GTK_MENU_ITEM (priv->edit_context);
+      item = GTK_MENU_ITEM (self->priv->edit_context);
       label = gtk_bin_get_child (GTK_BIN (item));
       gtk_label_set_text (GTK_LABEL (label), _("Contact"));
 
-      gtk_widget_show (priv->edit_context);
-      gtk_widget_show (priv->edit_context_separator);
+      gtk_widget_show (self->priv->edit_context);
+      gtk_widget_show (self->priv->edit_context_separator);
 
       gtk_menu_item_set_submenu (item, submenu);
 
       return;
     }
 
-  submenu = empathy_individual_view_get_group_menu (priv->individual_view);
+  submenu = empathy_individual_view_get_group_menu (self->priv->individual_view);
   if (submenu)
     {
       GtkMenuItem *item;
       GtkWidget   *label;
 
-      item = GTK_MENU_ITEM (priv->edit_context);
+      item = GTK_MENU_ITEM (self->priv->edit_context);
       label = gtk_bin_get_child (GTK_BIN (item));
       gtk_label_set_text (GTK_LABEL (label), _("Group"));
 
-      gtk_widget_show (priv->edit_context);
-      gtk_widget_show (priv->edit_context_separator);
+      gtk_widget_show (self->priv->edit_context);
+      gtk_widget_show (self->priv->edit_context_separator);
 
       gtk_menu_item_set_submenu (item, submenu);
 
       return;
     }
 
-  gtk_widget_hide (priv->edit_context);
-  gtk_widget_hide (priv->edit_context_separator);
+  gtk_widget_hide (self->priv->edit_context);
+  gtk_widget_hide (self->priv->edit_context_separator);
 
   return;
 }
 
 static void
 roster_window_edit_accounts_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
   empathy_accounts_dialog_show_application (gdk_screen_get_default (),
       NULL, FALSE, FALSE);
@@ -1991,18 +1946,18 @@ roster_window_edit_accounts_cb (GtkAction *action,
 
 static void
 roster_window_edit_personal_information_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  empathy_contact_personal_dialog_show (GTK_WINDOW (window));
+  empathy_contact_personal_dialog_show (GTK_WINDOW (self));
 }
 
 static void
 roster_window_edit_blocked_contacts_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
   GtkWidget *dialog;
 
-  dialog = empathy_contact_blocking_dialog_new (GTK_WINDOW (window));
+  dialog = empathy_contact_blocking_dialog_new (GTK_WINDOW (self));
   gtk_widget_show (dialog);
 
   g_signal_connect (dialog, "response",
@@ -2010,62 +1965,60 @@ roster_window_edit_blocked_contacts_cb (GtkAction *action,
 }
 
 void
-empathy_roster_window_show_preferences (EmpathyRosterWindow *window,
+empathy_roster_window_show_preferences (EmpathyRosterWindow *self,
     const gchar *tab)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
-
-  if (priv->preferences == NULL)
+  if (self->priv->preferences == NULL)
     {
-      priv->preferences = empathy_preferences_new (GTK_WINDOW (window),
-                                                   priv->shell_running);
-      g_object_add_weak_pointer (G_OBJECT (priv->preferences),
-               (gpointer) &priv->preferences);
+      self->priv->preferences = empathy_preferences_new (GTK_WINDOW (self),
+                                                   self->priv->shell_running);
+      g_object_add_weak_pointer (G_OBJECT (self->priv->preferences),
+               (gpointer) &self->priv->preferences);
 
-      gtk_widget_show (priv->preferences);
+      gtk_widget_show (self->priv->preferences);
     }
   else
     {
-      gtk_window_present (GTK_WINDOW (priv->preferences));
+      gtk_window_present (GTK_WINDOW (self->priv->preferences));
     }
 
   if (tab != NULL)
     empathy_preferences_show_tab (
-      EMPATHY_PREFERENCES (priv->preferences), tab);
+      EMPATHY_PREFERENCES (self->priv->preferences), tab);
 }
 
 static void
 roster_window_edit_preferences_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  empathy_roster_window_show_preferences (window, NULL);
+  empathy_roster_window_show_preferences (self, NULL);
 }
 
 static void
 roster_window_help_about_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  empathy_about_dialog_new (GTK_WINDOW (window));
+  empathy_about_dialog_new (GTK_WINDOW (self));
 }
 
 static void
 roster_window_help_debug_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
   empathy_launch_program (BIN_DIR, "empathy-debugger", NULL);
 }
 
 static void
 roster_window_help_contents_cb (GtkAction *action,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  empathy_url_show (GTK_WIDGET (window), "ghelp:empathy");
+  empathy_url_show (GTK_WIDGET (self), "ghelp:empathy");
 }
 
 static gboolean
 roster_window_throbber_button_press_event_cb (GtkWidget *throbber,
     GdkEventButton *event,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
   if (event->type != GDK_BUTTON_PRESS ||
       event->button != 1)
@@ -2081,38 +2034,35 @@ roster_window_throbber_button_press_event_cb (GtkWidget *throbber,
 static void
 roster_window_account_removed_cb (TpAccountManager  *manager,
     TpAccount *account,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GList *a;
 
   a = tp_account_manager_get_valid_accounts (manager);
 
-  gtk_action_set_sensitive (priv->view_history,
+  gtk_action_set_sensitive (self->priv->view_history,
     g_list_length (a) > 0);
 
   g_list_free (a);
 
   /* remove errors if any */
-  roster_window_remove_error (window, account);
+  roster_window_remove_error (self, account);
 
   /* remove the balance action if required */
-  roster_window_remove_balance_action (window, account);
+  roster_window_remove_balance_action (self, account);
 }
 
 static void
 roster_window_account_validity_changed_cb (TpAccountManager  *manager,
     TpAccount *account,
     gboolean valid,
-    EmpathyRosterWindow *window)
+    EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
-
   if (valid)
     {
       gulong handler_id;
       handler_id = GPOINTER_TO_UINT (g_hash_table_lookup (
-        priv->status_changed_handlers, account));
+        self->priv->status_changed_handlers, account));
 
       /* connect signal only if it was not connected yet */
       if (handler_id == 0)
@@ -2120,13 +2070,13 @@ roster_window_account_validity_changed_cb (TpAccountManager  *manager,
           handler_id = g_signal_connect (account,
             "status-changed",
             G_CALLBACK (roster_window_connection_changed_cb),
-            window);
-          g_hash_table_insert (priv->status_changed_handlers,
+            self);
+          g_hash_table_insert (self->priv->status_changed_handlers,
             account, GUINT_TO_POINTER (handler_id));
         }
     }
 
-  roster_window_account_removed_cb (manager, account, window);
+  roster_window_account_removed_cb (manager, account, self);
 }
 
 static void
@@ -2139,10 +2089,9 @@ roster_window_notify_show_offline_cb (GSettings *gsettings,
 }
 
 static void
-roster_window_connection_items_setup (EmpathyRosterWindow *window,
+roster_window_connection_items_setup (EmpathyRosterWindow *self,
     GtkBuilder *gui)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
   GList *list;
   GObject *action;
   guint i;
@@ -2164,7 +2113,7 @@ roster_window_connection_items_setup (EmpathyRosterWindow *window,
       list = g_list_prepend (list, action);
     }
 
-  priv->actions_connected = list;
+  self->priv->actions_connected = list;
 }
 
 static void
@@ -2174,8 +2123,7 @@ account_manager_prepared_cb (GObject *source_object,
 {
   GList *accounts, *j;
   TpAccountManager *manager = TP_ACCOUNT_MANAGER (source_object);
-  EmpathyRosterWindow *window = user_data;
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
+  EmpathyRosterWindow *self = user_data;
   GError *error = NULL;
 
   if (!tp_proxy_prepare_finish (manager, result, &error))
@@ -2185,7 +2133,7 @@ account_manager_prepared_cb (GObject *source_object,
       return;
     }
 
-  accounts = tp_account_manager_get_valid_accounts (priv->account_manager);
+  accounts = tp_account_manager_get_valid_accounts (self->priv->account_manager);
   for (j = accounts; j != NULL; j = j->next)
     {
       TpAccount *account = TP_ACCOUNT (j->data);
@@ -2193,36 +2141,34 @@ account_manager_prepared_cb (GObject *source_object,
 
       handler_id = g_signal_connect (account, "status-changed",
           G_CALLBACK (roster_window_connection_changed_cb),
-          window);
-      g_hash_table_insert (priv->status_changed_handlers,
+          self);
+      g_hash_table_insert (self->priv->status_changed_handlers,
           account, GUINT_TO_POINTER (handler_id));
 
-      roster_window_setup_balance (window, account);
+      roster_window_setup_balance (self, account);
     }
 
   g_signal_connect (manager, "account-validity-changed",
-      G_CALLBACK (roster_window_account_validity_changed_cb), window);
+      G_CALLBACK (roster_window_account_validity_changed_cb), self);
 
-  roster_window_update_status (window);
+  roster_window_update_status (self);
 
   /* Disable the "Previous Conversations" menu entry if there is no account */
-  gtk_action_set_sensitive (priv->view_history,
+  gtk_action_set_sensitive (self->priv->view_history,
       g_list_length (accounts) > 0);
 
   g_list_free (accounts);
 }
 
 void
-empathy_roster_window_set_shell_running (EmpathyRosterWindow *window,
+empathy_roster_window_set_shell_running (EmpathyRosterWindow *self,
     gboolean shell_running)
 {
-  EmpathyRosterWindowPriv *priv = GET_PRIV (window);
-
-  if (priv->shell_running == shell_running)
+  if (self->priv->shell_running == shell_running)
     return;
 
-  priv->shell_running = shell_running;
-  g_object_notify (G_OBJECT (window), "shell-running");
+  self->priv->shell_running = shell_running;
+  g_object_notify (G_OBJECT (self), "shell-running");
 }
 
 static GObject *
@@ -2250,12 +2196,11 @@ empathy_roster_window_set_property (GObject *object,
     GParamSpec *pspec)
 {
   EmpathyRosterWindow *self = EMPATHY_ROSTER_WINDOW (object);
-  EmpathyRosterWindowPriv *priv = GET_PRIV (self);
 
   switch (property_id)
     {
       case PROP_SHELL_RUNNING:
-        priv->shell_running = g_value_get_boolean (value);
+        self->priv->shell_running = g_value_get_boolean (value);
         break;
       default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -2270,12 +2215,11 @@ empathy_roster_window_get_property (GObject    *object,
     GParamSpec *pspec)
 {
   EmpathyRosterWindow *self = EMPATHY_ROSTER_WINDOW (object);
-  EmpathyRosterWindowPriv *priv = GET_PRIV (self);
 
   switch (property_id)
     {
       case PROP_SHELL_RUNNING:
-        g_value_set_boolean (value, priv->shell_running);
+        g_value_set_boolean (value, self->priv->shell_running);
         break;
       default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -2306,9 +2250,8 @@ empathy_roster_window_class_init (EmpathyRosterWindowClass *klass)
 }
 
 static void
-empathy_roster_window_init (EmpathyRosterWindow *window)
+empathy_roster_window_init (EmpathyRosterWindow *self)
 {
-  EmpathyRosterWindowPriv *priv;
   EmpathyIndividualManager *individual_manager;
   GtkBuilder *gui, *gui_mgr;
   GtkWidget *sw;
@@ -2321,33 +2264,33 @@ empathy_roster_window_init (EmpathyRosterWindow *window)
   GtkWidget *search_vbox;
   GtkWidget *menubar;
 
-  priv = window->priv = G_TYPE_INSTANCE_GET_PRIVATE (window,
+  self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self,
       EMPATHY_TYPE_ROSTER_WINDOW, EmpathyRosterWindowPriv);
 
-  priv->gsettings_ui = g_settings_new (EMPATHY_PREFS_UI_SCHEMA);
-  priv->gsettings_contacts = g_settings_new (EMPATHY_PREFS_CONTACTS_SCHEMA);
+  self->priv->gsettings_ui = g_settings_new (EMPATHY_PREFS_UI_SCHEMA);
+  self->priv->gsettings_contacts = g_settings_new (EMPATHY_PREFS_CONTACTS_SCHEMA);
 
-  priv->sound_mgr = empathy_sound_manager_dup_singleton ();
+  self->priv->sound_mgr = empathy_sound_manager_dup_singleton ();
 
-  gtk_window_set_title (GTK_WINDOW (window), _("Contact List"));
-  gtk_window_set_role (GTK_WINDOW (window), "contact_list");
-  gtk_window_set_default_size (GTK_WINDOW (window), 225, 325);
+  gtk_window_set_title (GTK_WINDOW (self), _("Contact List"));
+  gtk_window_set_role (GTK_WINDOW (self), "contact_list");
+  gtk_window_set_default_size (GTK_WINDOW (self), 225, 325);
 
   /* don't finalize the widget on delete-event, just hide it */
-  g_signal_connect (window, "delete-event",
+  g_signal_connect (self, "delete-event",
     G_CALLBACK (gtk_widget_hide_on_delete), NULL);
 
   /* Set up interface */
   filename = empathy_file_lookup ("empathy-roster-window.ui", "src");
   gui = empathy_builder_get_file (filename,
-      "main_vbox", &priv->main_vbox,
-      "balance_vbox", &priv->balance_vbox,
-      "errors_vbox", &priv->errors_vbox,
-      "auth_vbox", &priv->auth_vbox,
+      "main_vbox", &self->priv->main_vbox,
+      "balance_vbox", &self->priv->balance_vbox,
+      "errors_vbox", &self->priv->errors_vbox,
+      "auth_vbox", &self->priv->auth_vbox,
       "search_vbox", &search_vbox,
-      "presence_toolbar", &priv->presence_toolbar,
-      "notebook", &priv->notebook,
-      "no_entry_label", &priv->no_entry_label,
+      "presence_toolbar", &self->priv->presence_toolbar,
+      "notebook", &self->priv->notebook,
+      "no_entry_label", &self->priv->no_entry_label,
       "roster_scrolledwindow", &sw,
       NULL);
   g_free (filename);
@@ -2355,18 +2298,18 @@ empathy_roster_window_init (EmpathyRosterWindow *window)
   /* Set UI manager */
   filename = empathy_file_lookup ("empathy-roster-window-menubar.ui", "src");
   gui_mgr = empathy_builder_get_file (filename,
-      "ui_manager", &priv->ui_manager,
+      "ui_manager", &self->priv->ui_manager,
       "view_show_offline", &show_offline_widget,
-      "view_show_protocols", &priv->show_protocols,
-      "view_sort_by_name", &priv->sort_by_name,
-      "view_sort_by_status", &priv->sort_by_status,
-      "view_normal_size_with_avatars", &priv->normal_with_avatars,
-      "view_normal_size", &priv->normal_size,
-      "view_compact_size", &priv->compact_size,
-      "view_history", &priv->view_history,
+      "view_show_protocols", &self->priv->show_protocols,
+      "view_sort_by_name", &self->priv->sort_by_name,
+      "view_sort_by_status", &self->priv->sort_by_status,
+      "view_normal_size_with_avatars", &self->priv->normal_with_avatars,
+      "view_normal_size", &self->priv->normal_size,
+      "view_compact_size", &self->priv->compact_size,
+      "view_history", &self->priv->view_history,
       "view_show_map", &show_map_widget,
-      "room_join_favorites", &priv->room_join_favorites,
-      "view_balance_show_in_roster", &priv->view_balance_show_in_roster,
+      "room_join_favorites", &self->priv->room_join_favorites,
+      "view_balance_show_in_roster", &self->priv->view_balance_show_in_roster,
       "menubar", &menubar,
       NULL);
   g_free (filename);
@@ -2374,16 +2317,16 @@ empathy_roster_window_init (EmpathyRosterWindow *window)
   /* The UI manager is living in its own .ui file as Glade doesn't support
    * those. The GtkMenubar has to be in this file as well to we manually add
    * it to the first position of the vbox. */
-  gtk_box_pack_start (GTK_BOX (priv->main_vbox), menubar, FALSE, FALSE, 0);
-  gtk_box_reorder_child (GTK_BOX (priv->main_vbox), menubar, 0);
+  gtk_box_pack_start (GTK_BOX (self->priv->main_vbox), menubar, FALSE, FALSE, 0);
+  gtk_box_reorder_child (GTK_BOX (self->priv->main_vbox), menubar, 0);
 
-  gtk_container_add (GTK_CONTAINER (window), priv->main_vbox);
-  gtk_widget_show (priv->main_vbox);
+  gtk_container_add (GTK_CONTAINER (self), self->priv->main_vbox);
+  gtk_widget_show (self->priv->main_vbox);
 
-  g_signal_connect (window, "key-press-event",
+  g_signal_connect (self, "key-press-event",
       G_CALLBACK (roster_window_key_press_event_cb), NULL);
 
-  empathy_builder_connect (gui_mgr, window,
+  empathy_builder_connect (gui_mgr, self,
       "chat_quit", "activate", roster_window_chat_quit_cb,
       "chat_new_message", "activate", roster_window_chat_new_message_cb,
       "chat_new_call", "activate", roster_window_chat_new_call_cb,
@@ -2411,9 +2354,9 @@ empathy_roster_window_init (EmpathyRosterWindow *window)
       NULL);
 
   /* Set up connection related widgets. */
-  roster_window_connection_items_setup (window, gui_mgr);
+  roster_window_connection_items_setup (self, gui_mgr);
 
-  g_object_ref (priv->ui_manager);
+  g_object_ref (self->priv->ui_manager);
   g_object_unref (gui);
   g_object_unref (gui_mgr);
 
@@ -2421,65 +2364,65 @@ empathy_roster_window_init (EmpathyRosterWindow *window)
   gtk_action_set_visible (show_map_widget, FALSE);
 #endif
 
-  priv->account_manager = tp_account_manager_dup ();
+  self->priv->account_manager = tp_account_manager_dup ();
 
-  tp_proxy_prepare_async (priv->account_manager, NULL,
-      account_manager_prepared_cb, window);
+  tp_proxy_prepare_async (self->priv->account_manager, NULL,
+      account_manager_prepared_cb, self);
 
-  priv->errors = g_hash_table_new_full (g_direct_hash, g_direct_equal,
+  self->priv->errors = g_hash_table_new_full (g_direct_hash, g_direct_equal,
       g_object_unref, NULL);
 
-  priv->auths = g_hash_table_new (NULL, NULL);
+  self->priv->auths = g_hash_table_new (NULL, NULL);
 
-  priv->status_changed_handlers = g_hash_table_new_full (g_direct_hash,
+  self->priv->status_changed_handlers = g_hash_table_new_full (g_direct_hash,
       g_direct_equal, NULL, NULL);
 
   /* Set up menu */
-  roster_window_favorite_chatroom_menu_setup (window);
+  roster_window_favorite_chatroom_menu_setup (self);
 
-  priv->edit_context = gtk_ui_manager_get_widget (priv->ui_manager,
+  self->priv->edit_context = gtk_ui_manager_get_widget (self->priv->ui_manager,
       "/menubar/edit/edit_context");
-  priv->edit_context_separator = gtk_ui_manager_get_widget (
-      priv->ui_manager,
+  self->priv->edit_context_separator = gtk_ui_manager_get_widget (
+      self->priv->ui_manager,
       "/menubar/edit/edit_context_separator");
-  gtk_widget_hide (priv->edit_context);
-  gtk_widget_hide (priv->edit_context_separator);
+  gtk_widget_hide (self->priv->edit_context);
+  gtk_widget_hide (self->priv->edit_context_separator);
 
   /* Set up contact list. */
   empathy_status_presets_get_all ();
 
   /* Set up presence chooser */
-  priv->presence_chooser = empathy_presence_chooser_new ();
-  gtk_widget_show (priv->presence_chooser);
+  self->priv->presence_chooser = empathy_presence_chooser_new ();
+  gtk_widget_show (self->priv->presence_chooser);
   item = gtk_tool_item_new ();
   gtk_widget_show (GTK_WIDGET (item));
-  gtk_widget_set_size_request (priv->presence_chooser, 10, -1);
-  gtk_container_add (GTK_CONTAINER (item), priv->presence_chooser);
+  gtk_widget_set_size_request (self->priv->presence_chooser, 10, -1);
+  gtk_container_add (GTK_CONTAINER (item), self->priv->presence_chooser);
   gtk_tool_item_set_is_important (item, TRUE);
   gtk_tool_item_set_expand (item, TRUE);
-  gtk_toolbar_insert (GTK_TOOLBAR (priv->presence_toolbar), item, -1);
+  gtk_toolbar_insert (GTK_TOOLBAR (self->priv->presence_toolbar), item, -1);
 
   /* Set up the throbber */
-  priv->throbber = gtk_spinner_new ();
-  gtk_widget_set_size_request (priv->throbber, 16, -1);
-  gtk_widget_set_events (priv->throbber, GDK_BUTTON_PRESS_MASK);
-  g_signal_connect (priv->throbber, "button-press-event",
+  self->priv->throbber = gtk_spinner_new ();
+  gtk_widget_set_size_request (self->priv->throbber, 16, -1);
+  gtk_widget_set_events (self->priv->throbber, GDK_BUTTON_PRESS_MASK);
+  g_signal_connect (self->priv->throbber, "button-press-event",
     G_CALLBACK (roster_window_throbber_button_press_event_cb),
-    window);
-  gtk_widget_show (priv->throbber);
+    self);
+  gtk_widget_show (self->priv->throbber);
 
   item = gtk_tool_item_new ();
   gtk_container_set_border_width (GTK_CONTAINER (item), 6);
-  gtk_toolbar_insert (GTK_TOOLBAR (priv->presence_toolbar), item, -1);
-  gtk_container_add (GTK_CONTAINER (item), priv->throbber);
-  priv->throbber_tool_item = GTK_WIDGET (item);
+  gtk_toolbar_insert (GTK_TOOLBAR (self->priv->presence_toolbar), item, -1);
+  gtk_container_add (GTK_CONTAINER (item), self->priv->throbber);
+  self->priv->throbber_tool_item = GTK_WIDGET (item);
 
   /* XXX: this class is designed to live for the duration of the program,
    * so it's got a race condition between its signal handlers and its
    * finalization. The class is planned to be removed, so we won't fix
    * this before then. */
   individual_manager = empathy_individual_manager_dup_singleton ();
-  priv->individual_store = EMPATHY_INDIVIDUAL_STORE (
+  self->priv->individual_store = EMPATHY_INDIVIDUAL_STORE (
       empathy_individual_store_manager_new (individual_manager));
   g_object_unref (individual_manager);
 
@@ -2487,8 +2430,8 @@ empathy_roster_window_init (EmpathyRosterWindow *window)
    * (e.g. from things such as the EmpathyPersonaView in the linking dialogue).
    * No code is hooked up to do anything on a Persona drop, so allowing them
    * would achieve nothing except confusion. */
-  priv->individual_view = empathy_individual_view_new (
-      priv->individual_store,
+  self->priv->individual_view = empathy_individual_view_new (
+      self->priv->individual_store,
       /* EmpathyIndividualViewFeatureFlags */
       EMPATHY_INDIVIDUAL_VIEW_FEATURE_GROUPS_SAVE |
       EMPATHY_INDIVIDUAL_VIEW_FEATURE_GROUPS_RENAME |
@@ -2509,98 +2452,98 @@ empathy_roster_window_init (EmpathyRosterWindow *window)
       EMPATHY_INDIVIDUAL_FEATURE_SMS |
       EMPATHY_INDIVIDUAL_FEATURE_CALL_PHONE);
 
-  gtk_widget_show (GTK_WIDGET (priv->individual_view));
+  gtk_widget_show (GTK_WIDGET (self->priv->individual_view));
   gtk_container_add (GTK_CONTAINER (sw),
-      GTK_WIDGET (priv->individual_view));
-  g_signal_connect (priv->individual_view, "row-activated",
-     G_CALLBACK (roster_window_row_activated_cb), window);
+      GTK_WIDGET (self->priv->individual_view));
+  g_signal_connect (self->priv->individual_view, "row-activated",
+     G_CALLBACK (roster_window_row_activated_cb), self);
 
   /* Set up search bar */
-  priv->search_bar = empathy_live_search_new (
-      GTK_WIDGET (priv->individual_view));
-  empathy_individual_view_set_live_search (priv->individual_view,
-      EMPATHY_LIVE_SEARCH (priv->search_bar));
-  gtk_box_pack_start (GTK_BOX (search_vbox), priv->search_bar,
+  self->priv->search_bar = empathy_live_search_new (
+      GTK_WIDGET (self->priv->individual_view));
+  empathy_individual_view_set_live_search (self->priv->individual_view,
+      EMPATHY_LIVE_SEARCH (self->priv->search_bar));
+  gtk_box_pack_start (GTK_BOX (search_vbox), self->priv->search_bar,
       FALSE, TRUE, 0);
 
-  g_signal_connect_swapped (window, "map",
-      G_CALLBACK (gtk_widget_grab_focus), priv->individual_view);
+  g_signal_connect_swapped (self, "map",
+      G_CALLBACK (gtk_widget_grab_focus), self->priv->individual_view);
 
   /* Connect to proper signals to check if contact list is empty or not */
-  model = gtk_tree_view_get_model (GTK_TREE_VIEW (priv->individual_view));
-  priv->empty = TRUE;
+  model = gtk_tree_view_get_model (GTK_TREE_VIEW (self->priv->individual_view));
+  self->priv->empty = TRUE;
   g_signal_connect (model, "row-inserted",
-      G_CALLBACK (roster_window_row_inserted_cb), window);
+      G_CALLBACK (roster_window_row_inserted_cb), self);
   g_signal_connect (model, "row-deleted",
-      G_CALLBACK (roster_window_row_deleted_cb), window);
+      G_CALLBACK (roster_window_row_deleted_cb), self);
 
   /* Load user-defined accelerators. */
   roster_window_accels_load ();
 
   /* Set window size. */
-  empathy_geometry_bind (GTK_WINDOW (window), GEOMETRY_NAME);
+  empathy_geometry_bind (GTK_WINDOW (self), GEOMETRY_NAME);
 
   /* bind view_balance_show_in_roster */
-  g_settings_bind (priv->gsettings_ui, "show-balance-in-roster",
-      priv->view_balance_show_in_roster, "active",
+  g_settings_bind (self->priv->gsettings_ui, "show-balance-in-roster",
+      self->priv->view_balance_show_in_roster, "active",
       G_SETTINGS_BIND_DEFAULT);
-  g_object_bind_property (priv->view_balance_show_in_roster, "active",
-      priv->balance_vbox, "visible",
+  g_object_bind_property (self->priv->view_balance_show_in_roster, "active",
+      self->priv->balance_vbox, "visible",
       G_BINDING_SYNC_CREATE);
 
   /* Enable event handling */
-  priv->call_observer = empathy_call_observer_dup_singleton ();
-  priv->event_manager = empathy_event_manager_dup_singleton ();
+  self->priv->call_observer = empathy_call_observer_dup_singleton ();
+  self->priv->event_manager = empathy_event_manager_dup_singleton ();
 
-  g_signal_connect (priv->event_manager, "event-added",
-      G_CALLBACK (roster_window_event_added_cb), window);
-  g_signal_connect (priv->event_manager, "event-removed",
-      G_CALLBACK (roster_window_event_removed_cb), window);
-  g_signal_connect (priv->account_manager, "account-validity-changed",
-      G_CALLBACK (roster_window_account_validity_changed_cb), window);
-  g_signal_connect (priv->account_manager, "account-removed",
-      G_CALLBACK (roster_window_account_removed_cb), window);
-  g_signal_connect (priv->account_manager, "account-disabled",
-      G_CALLBACK (roster_window_account_disabled_cb), window);
+  g_signal_connect (self->priv->event_manager, "event-added",
+      G_CALLBACK (roster_window_event_added_cb), self);
+  g_signal_connect (self->priv->event_manager, "event-removed",
+      G_CALLBACK (roster_window_event_removed_cb), self);
+  g_signal_connect (self->priv->account_manager, "account-validity-changed",
+      G_CALLBACK (roster_window_account_validity_changed_cb), self);
+  g_signal_connect (self->priv->account_manager, "account-removed",
+      G_CALLBACK (roster_window_account_removed_cb), self);
+  g_signal_connect (self->priv->account_manager, "account-disabled",
+      G_CALLBACK (roster_window_account_disabled_cb), self);
 
   /* Show offline ? */
-  show_offline = g_settings_get_boolean (priv->gsettings_ui,
+  show_offline = g_settings_get_boolean (self->priv->gsettings_ui,
       EMPATHY_PREFS_UI_SHOW_OFFLINE);
 
-  g_signal_connect (priv->gsettings_ui,
+  g_signal_connect (self->priv->gsettings_ui,
       "changed::" EMPATHY_PREFS_UI_SHOW_OFFLINE,
       G_CALLBACK (roster_window_notify_show_offline_cb), show_offline_widget);
 
   gtk_toggle_action_set_active (show_offline_widget, show_offline);
 
   /* Show protocol ? */
-  g_signal_connect (priv->gsettings_ui,
+  g_signal_connect (self->priv->gsettings_ui,
       "changed::" EMPATHY_PREFS_UI_SHOW_PROTOCOLS,
-      G_CALLBACK (roster_window_notify_show_protocols_cb), window);
+      G_CALLBACK (roster_window_notify_show_protocols_cb), self);
 
-  roster_window_notify_show_protocols_cb (priv->gsettings_ui,
-      EMPATHY_PREFS_UI_SHOW_PROTOCOLS, window);
+  roster_window_notify_show_protocols_cb (self->priv->gsettings_ui,
+      EMPATHY_PREFS_UI_SHOW_PROTOCOLS, self);
 
   /* Sort by name / by status ? */
-  g_signal_connect (priv->gsettings_contacts,
+  g_signal_connect (self->priv->gsettings_contacts,
       "changed::" EMPATHY_PREFS_CONTACTS_SORT_CRITERIUM,
-      G_CALLBACK (roster_window_notify_sort_contact_cb), window);
+      G_CALLBACK (roster_window_notify_sort_contact_cb), self);
 
-  roster_window_notify_sort_contact_cb (priv->gsettings_contacts,
-      EMPATHY_PREFS_CONTACTS_SORT_CRITERIUM, window);
+  roster_window_notify_sort_contact_cb (self->priv->gsettings_contacts,
+      EMPATHY_PREFS_CONTACTS_SORT_CRITERIUM, self);
 
   /* Contacts list size */
-  g_signal_connect (priv->gsettings_ui,
+  g_signal_connect (self->priv->gsettings_ui,
       "changed::" EMPATHY_PREFS_UI_COMPACT_CONTACT_LIST,
-      G_CALLBACK (roster_window_notify_contact_list_size_cb), window);
+      G_CALLBACK (roster_window_notify_contact_list_size_cb), self);
 
-  g_signal_connect (priv->gsettings_ui,
+  g_signal_connect (self->priv->gsettings_ui,
       "changed::" EMPATHY_PREFS_UI_SHOW_AVATARS,
       G_CALLBACK (roster_window_notify_contact_list_size_cb),
-      window);
+      self);
 
-  roster_window_notify_contact_list_size_cb (priv->gsettings_ui,
-      EMPATHY_PREFS_UI_SHOW_AVATARS, window);
+  roster_window_notify_contact_list_size_cb (self->priv->gsettings_ui,
+      EMPATHY_PREFS_UI_SHOW_AVATARS, self);
 }
 
 GtkWidget *
