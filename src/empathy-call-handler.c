@@ -910,7 +910,13 @@ empathy_call_handler_start_call (EmpathyCallHandler *handler,
   if (priv->call != NULL)
     {
       empathy_call_handler_start_tpfs (handler);
-      priv->accept_when_initialised = TRUE;
+
+      if (tp_call_channel_get_state (priv->call, NULL, NULL, NULL) ==
+          TP_CALL_STATE_INITIALISED)
+        tp_call_channel_accept_async (priv->call, on_call_accepted_cb, NULL);
+      else
+        priv->accept_when_initialised = TRUE;
+
       return;
     }
 
