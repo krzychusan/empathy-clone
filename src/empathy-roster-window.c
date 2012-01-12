@@ -2053,30 +2053,37 @@ roster_window_account_removed_cb (TpAccountManager  *manager,
 }
 
 static void
+add_account (EmpathyRosterWindow *self,
+    TpAccount *account)
+{
+  gulong handler_id;
+
+  handler_id = GPOINTER_TO_UINT (g_hash_table_lookup (
+    self->priv->status_changed_handlers, account));
+
+  /* connect signal only if it was not connected yet */
+  if (handler_id != 0)
+    return;
+
+  handler_id = g_signal_connect (account, "status-changed",
+    G_CALLBACK (roster_window_connection_changed_cb), self);
+
+  g_hash_table_insert (self->priv->status_changed_handlers,
+    account, GUINT_TO_POINTER (handler_id));
+
+  roster_window_setup_balance (self, account);
+}
+
+static void
 roster_window_account_validity_changed_cb (TpAccountManager  *manager,
     TpAccount *account,
     gboolean valid,
     EmpathyRosterWindow *self)
 {
   if (valid)
-    {
-      gulong handler_id;
-      handler_id = GPOINTER_TO_UINT (g_hash_table_lookup (
-        self->priv->status_changed_handlers, account));
-
-      /* connect signal only if it was not connected yet */
-      if (handler_id == 0)
-        {
-          handler_id = g_signal_connect (account,
-            "status-changed",
-            G_CALLBACK (roster_window_connection_changed_cb),
-            self);
-          g_hash_table_insert (self->priv->status_changed_handlers,
-            account, GUINT_TO_POINTER (handler_id));
-        }
-    }
-
-  roster_window_account_removed_cb (manager, account, self);
+    add_account (self, account);
+  else
+    roster_window_account_removed_cb (manager, account, self);
 }
 
 static void
@@ -2137,15 +2144,8 @@ account_manager_prepared_cb (GObject *source_object,
   for (j = accounts; j != NULL; j = j->next)
     {
       TpAccount *account = TP_ACCOUNT (j->data);
-      gulong handler_id;
 
-      handler_id = g_signal_connect (account, "status-changed",
-          G_CALLBACK (roster_window_connection_changed_cb),
-          self);
-      g_hash_table_insert (self->priv->status_changed_handlers,
-          account, GUINT_TO_POINTER (handler_id));
-
-      roster_window_setup_balance (self, account);
+      add_account (self, account);
     }
 
   g_signal_connect (manager, "account-validity-changed",
