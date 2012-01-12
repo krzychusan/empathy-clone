@@ -1294,9 +1294,6 @@ roster_window_connection_changed_cb (TpAccount  *account,
     {
       empathy_sound_manager_play (self->priv->sound_mgr, GTK_WIDGET (self),
               EMPATHY_SOUND_ACCOUNT_DISCONNECTED);
-
-      /* remove balance action if required */
-      roster_window_remove_balance_action (self, account);
     }
 
   if (current == TP_CONNECTION_STATUS_CONNECTED)
@@ -1306,7 +1303,6 @@ roster_window_connection_changed_cb (TpAccount  *account,
 
       /* Account connected without error, remove error message if any */
       roster_window_remove_error (self, account);
-      roster_window_setup_balance (self, account);
     }
 }
 
@@ -2053,6 +2049,26 @@ roster_window_account_removed_cb (TpAccountManager  *manager,
 }
 
 static void
+account_connection_notify_cb (TpAccount *account,
+    GParamSpec *spec,
+    EmpathyRosterWindow *self)
+{
+  TpConnection *conn;
+
+  conn = tp_account_get_connection (account);
+
+  if (conn != NULL)
+    {
+      roster_window_setup_balance (self, account);
+    }
+  else
+    {
+      /* remove balance action if required */
+      roster_window_remove_balance_action (self, account);
+    }
+}
+
+static void
 add_account (EmpathyRosterWindow *self,
     TpAccount *account)
 {
@@ -2070,6 +2086,11 @@ add_account (EmpathyRosterWindow *self,
 
   g_hash_table_insert (self->priv->status_changed_handlers,
     account, GUINT_TO_POINTER (handler_id));
+
+  /* roster_window_setup_balance() relies on the TpConnection to be ready on
+   * the TpAccount so we connect this signal as well. */
+  tp_g_signal_connect_object (account, "notify::connection",
+      G_CALLBACK (account_connection_notify_cb), self, 0);
 
   roster_window_setup_balance (self, account);
 }
