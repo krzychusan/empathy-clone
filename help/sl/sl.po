@@ -4,9 +4,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Empathy manual\n"
-"POT-Creation-Date: 2011-07-19 20:27+0000\n"
+"POT-Creation-Date: 2012-01-10 13:23+0000\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
+"Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/video-call.page:38(None)
+#: C/video-call.page:39(None)
 #: C/audio-video.page:70(None)
 #: C/audio-call.page:36(None)
 msgid "@@image: 'figures/camera-web.png'; md5=8166b4372f25b78cbf5a64fe2eac2ce5"
@@ -29,23 +29,23 @@ msgstr "@@image: 'figures/camera-web.png'; md5=8166b4372f25b78cbf5a64fe2eac2ce5"
 msgid "Start a video conversation with one of your contacts."
 msgstr "Začnite video pogovor z enim od vaših stikov"
 
-#: C/video-call.page:21(name)
+#: C/video-call.page:22(name)
 #: C/status-icons.page:16(name)
-#: C/share-desktop.page:13(name)
+#: C/share-desktop.page:14(name)
 #: C/set-custom-status.page:19(name)
 #: C/send-file.page:21(name)
 #: C/salut-protocol.page:18(name)
-#: C/remove-account.page:18(name)
-#: C/prob-conn-neterror.page:18(name)
-#: C/prob-conn-name.page:17(name)
+#: C/remove-account.page:19(name)
+#: C/prob-conn-neterror.page:19(name)
+#: C/prob-conn-name.page:18(name)
 #: C/prob-conn-auth.page:21(name)
-#: C/prob-conn-acctdisabled.page:18(name)
-#: C/prev-conv.page:16(name)
+#: C/prob-conn-acctdisabled.page:19(name)
+#: C/prev-conv.page:17(name)
 #: C/link-contacts.page:15(name)
 #: C/irc-start-conversation.page:15(name)
 #: C/irc-send-file.page:16(name)
 #: C/irc-nick-password.page:18(name)
-#: C/irc-manage.page:19(name)
+#: C/irc-manage.page:20(name)
 #: C/irc-join-room.page:16(name)
 #: C/irc-join-pwd.page:17(name)
 #: C/irc-commands.page:10(name)
@@ -61,31 +61,31 @@ msgstr "Začnite video pogovor z enim od vaših stikov"
 #: C/geolocation-not-showing.page:17(name)
 #: C/geolocation.page:17(name)
 #: C/favorite-rooms.page:14(name)
-#: C/disable-account.page:20(name)
+#: C/disable-account.page:21(name)
 #: C/create-account.page:19(name)
 #: C/audio-video.page:17(name)
 #: C/audio-call.page:19(name)
-#: C/add-account.page:20(name)
+#: C/add-account.page:21(name)
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
 
-#: C/video-call.page:22(email)
+#: C/video-call.page:23(email)
 #: C/status-icons.page:17(email)
-#: C/share-desktop.page:14(email)
+#: C/share-desktop.page:15(email)
 #: C/set-custom-status.page:20(email)
 #: C/send-file.page:22(email)
 #: C/salut-protocol.page:19(email)
-#: C/remove-account.page:19(email)
-#: C/prob-conn-neterror.page:19(email)
-#: C/prob-conn-name.page:18(email)
+#: C/remove-account.page:20(email)
+#: C/prob-conn-neterror.page:20(email)
+#: C/prob-conn-name.page:19(email)
 #: C/prob-conn-auth.page:22(email)
-#: C/prob-conn-acctdisabled.page:19(email)
-#: C/prev-conv.page:17(email)
+#: C/prob-conn-acctdisabled.page:20(email)
+#: C/prev-conv.page:18(email)
 #: C/link-contacts.page:16(email)
 #: C/irc-start-conversation.page:16(email)
 #: C/irc-send-file.page:17(email)
 #: C/irc-nick-password.page:19(email)
-#: C/irc-manage.page:20(email)
+#: C/irc-manage.page:21(email)
 #: C/irc-join-room.page:17(email)
 #: C/irc-join-pwd.page:18(email)
 #: C/irc-commands.page:11(email)
@@ -101,33 +101,33 @@ msgstr "Milo Casagrande"
 #: C/geolocation-not-showing.page:18(email)
 #: C/geolocation.page:18(email)
 #: C/favorite-rooms.page:15(email)
-#: C/disable-account.page:21(email)
+#: C/disable-account.page:22(email)
 #: C/create-account.page:20(email)
 #: C/audio-video.page:18(email)
 #: C/audio-call.page:20(email)
-#: C/add-account.page:21(email)
+#: C/add-account.page:22(email)
 msgid "milo@ubuntu.com"
 msgstr "milo@ubuntu.com"
 
-#: C/video-call.page:25(p)
+#: C/video-call.page:26(p)
 #: C/status-icons.page:24(p)
-#: C/share-desktop.page:17(p)
+#: C/share-desktop.page:22(p)
 #: C/set-custom-status.page:23(p)
 #: C/send-message.page:21(p)
 #: C/send-file.page:25(p)
 #: C/salut-protocol.page:22(p)
-#: C/remove-account.page:22(p)
+#: C/remove-account.page:23(p)
 #: C/prob-conn.page:18(p)
-#: C/prob-conn-neterror.page:22(p)
-#: C/prob-conn-name.page:21(p)
+#: C/prob-conn-neterror.page:23(p)
+#: C/prob-conn-name.page:22(p)
 #: C/prob-conn-auth.page:25(p)
-#: C/prob-conn-acctdisabled.page:22(p)
-#: C/prev-conv.page:24(p)
+#: C/prob-conn-acctdisabled.page:23(p)
+#: C/prev-conv.page:25(p)
 #: C/link-contacts.page:19(p)
 #: C/irc-start-conversation.page:19(p)
 #: C/irc-send-file.page:20(p)
 #: C/irc-nick-password.page:22(p)
-#: C/irc-manage.page:23(p)
+#: C/irc-manage.page:24(p)
 #: C/irc-join-room.page:20(p)
 #: C/irc-join-pwd.page:21(p)
 #: C/irc-commands.page:14(p)
@@ -143,60 +143,60 @@ msgstr "milo@ubuntu.com"
 #: C/geolocation-not-showing.page:21(p)
 #: C/geolocation.page:21(p)
 #: C/favorite-rooms.page:18(p)
-#: C/disable-account.page:28(p)
+#: C/disable-account.page:29(p)
 #: C/create-account.page:23(p)
-#: C/change-status.page:23(p)
+#: C/change-status.page:28(p)
 #: C/audio-video.page:21(p)
 #: C/audio-call.page:23(p)
 #: C/add-contact.page:22(p)
-#: C/add-account.page:28(p)
+#: C/add-account.page:29(p)
 #: C/accounts-window.page:22(p)
 #: C/account-jabber.page:18(p)
 #: C/account-irc.page:20(p)
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Dovoljenje Creative Commons - deljenje pod istimi pogoji 3.0"
 
-#: C/video-call.page:28(title)
+#: C/video-call.page:29(title)
 msgid "Start a video conversation"
 msgstr "Začenjanje video konference"
 
-#: C/video-call.page:30(p)
-msgid "If you have a webcam, you can call your contacts and have a video conversation with them. This features only works with certain types of accounts, and it requires the other person to have an application that supports video calls."
+#: C/video-call.page:31(p)
+msgid "If you have a webcam, you can call your contacts and have a video conversation with them. This feature only works with certain types of accounts, and it requires the other person to have an application that supports video calls."
 msgstr "V primeru da imate spletno kamero, lahko svoje stike pokličite in imate z njimi video pogovor. Ta zmožnost deluje le z določenimi vrstami računov in zahteva, da ima druga oseba program, ki podpira video klice."
 
-#: C/video-call.page:37(p)
+#: C/video-call.page:38(p)
 msgid "From the <gui>Contact List</gui> window, click the <media type=\"image\" mime=\"image/png\" src=\"figures/camera-web.png\">video call</media> icon next to the name of the contact you wish to call and choose <gui style=\"menuitem\">Video Call</gui>."
 msgstr "V oknu <gui>Seznam stikov</gui> kliknite ikono <media type=\"image\" mime=\"image/png\" src=\"figures/camera-web.png\">video klic</media> poleg imena stika, ki ga želite poklicati, in izberite <gui style=\"menuitem\">Video klic</gui>. Namesto tega lahko desno kliknete na stik in izberete <gui style=\"menuitem\">Video klic</gui>. "
 
-#: C/video-call.page:43(p)
+#: C/video-call.page:44(p)
 #: C/audio-call.page:42(p)
 msgid "A new window will open. When the connection is established, you will see <gui>Connected</gui> at the bottom of the window, along with the total conversation time."
 msgstr "Odprlo se bo novo okno. Ko je povezava vzpostavljena boste na dnu okna videli <gui>Povezano</gui> skupaj s celotnim časom pogovora."
 
-#: C/video-call.page:48(p)
+#: C/video-call.page:49(p)
 #: C/audio-call.page:48(p)
 msgid "To end the conversation, click on <gui style=\"button\">Hang up</gui>."
 msgstr "Za končanje pogovora izberite <guiseq><gui style=\"menu\">Klic</gui><gui style=\"menuitem\">Odloži</gui></guiseq>."
 
-#: C/video-call.page:54(p)
+#: C/video-call.page:55(p)
 msgid "To turn a video conversation into an audio conversation, choose <guiseq><gui style=\"menu\">Video</gui><gui style=\"menuitem\">Video Off</gui></guiseq>."
 msgstr "Za pretvorbo video pogovora v zvočni pogovor izberite <guiseq><gui style=\"menu\">Video</gui><gui style=\"menuitem\">Izklopi</gui></guiseq>."
 
-#: C/video-call.page:60(title)
+#: C/video-call.page:61(title)
 msgid "Start a video conversation with a meta-contact"
 msgstr "Začnite video pogovor z enim od svojih meta-stikov"
 
-#: C/video-call.page:63(p)
+#: C/video-call.page:64(p)
 #: C/send-message.page:53(p)
 #: C/audio-call.page:66(p)
 msgid "From the <gui>Contact List</gui> window, right-click on the meta-contact."
 msgstr "V oknu <gui>Seznam stikov</gui> desno kliknite na meta-stik."
 
-#: C/video-call.page:68(p)
+#: C/video-call.page:69(p)
 msgid "Select the contact you want to have the conversation, and from the menu select <gui style=\"menuitem\">Video Call</gui>."
 msgstr "Desno kliknite na ime stika s katerim želite imeti pogovor in izberite <gui style=\"menuitem\">Klepet</gui>."
 
-#: C/video-call.page:75(p)
+#: C/video-call.page:76(p)
 #: C/send-message.page:65(p)
 #: C/audio-call.page:78(p)
 msgid "To recognize if a contact is a <em>meta-contact</em>, move your mouse on a contact in the <gui>Contact List</gui> window, and stop over it for a second: a small pop-up message will appear showing the number of the contacts that form the meta-contact."
@@ -233,13 +233,12 @@ msgstr "Razumevanje različnih stanj in ikon stanja."
 
 #: C/status-icons.page:20(name)
 #: C/salut-protocol.page:36(cite)
-#: C/prev-conv.page:20(name)
-#: C/prev-conv.page:38(cite)
+#: C/prev-conv.page:21(name)
 #: C/import-account.page:27(name)
-#: C/disable-account.page:24(name)
+#: C/disable-account.page:25(name)
 #: C/audio-video.page:109(cite)
 #: C/audio-video.page:117(cite)
-#: C/add-account.page:24(name)
+#: C/add-account.page:25(name)
 #: C/accounts-window.page:18(name)
 #: C/account-jabber.page:14(name)
 #: C/account-irc.page:16(name)
@@ -247,10 +246,10 @@ msgid "Shaun McCance"
 msgstr "Shaun McCance"
 
 #: C/status-icons.page:21(email)
-#: C/prev-conv.page:21(email)
+#: C/prev-conv.page:22(email)
 #: C/import-account.page:28(email)
-#: C/disable-account.page:25(email)
-#: C/add-account.page:25(email)
+#: C/disable-account.page:26(email)
+#: C/add-account.page:26(email)
 #: C/accounts-window.page:19(email)
 #: C/account-jabber.page:15(email)
 #: C/account-irc.page:17(email)
@@ -319,49 +318,59 @@ msgid "Setting your status to <em>Offline</em> disconnects you from all of your 
 msgstr "Nastavitev vašega stanja na <em>Nepovezano</em> prekine povezavo z vsemi vašimi računi."
 
 #: C/share-desktop.page:7(desc)
-msgid "Share the desktop with your contacts."
-msgstr "Dajanje namizja v souporabo s stiki."
+msgid "Show your desktop to your contacts."
+msgstr "Dajte namizje v souporabo s svojimi stiki."
 
-#: C/share-desktop.page:28(title)
+#: C/share-desktop.page:18(name)
+msgid "Ekaterina Gerasimova"
+msgstr "Ekaterina Gerasimova"
+
+#: C/share-desktop.page:19(email)
+msgid "kittykat3756@gmail.com"
+msgstr "kittykat3756@gmail.com"
+
+#: C/share-desktop.page:33(title)
 msgid "Share your desktop"
 msgstr "Dajte vaše namizje v souporabo"
 
-#: C/share-desktop.page:30(p)
-msgid "It is possible, with some of your contacts, to share your desktop with them, or to start using your contacts desktop. You can use this functionality to show your desktop to your contacts, to ask for help or to help your contacts resolve a problem."
-msgstr "Z nekaterimi stiki je mogoče dati svoje namizje v souporabo ali začeti uporabljati njihovo namizje. To zmožnost lahko uporabljate za prikaz svojega namizja vašim stikom, za iskanje pomoči ali za pomoč svojim stikom pri reševanju težav."
+#: C/share-desktop.page:35(p)
+msgid "It is possible to share your desktop with some of your contacts. You can use this functionality to show your desktop to your contacts to, for example, ask for help or help your contacts resolve a problem."
+msgstr "Z nekaterimi stiki je mogoče dati svoje namizje v souporabo ali začeti uporabljati njihovo namizje. To zmožnost lahko uporabljate za prikaz svojega namizja vašim stikom, za iskanje pomoči ali za pomoč svojim stikom pri odpravljanju težav."
 
-#: C/share-desktop.page:38(p)
-msgid "In order to be able to share your desktop or to remotely use your contacts desktop, it is necessary to have a remote desktop viewer application installed in your system."
-msgstr "Za souporabo svojega namizja ali za oddaljeno uporabo namizja svojega stika morate imeti na svojemu sistemu nameščen program oddaljenega pregledovalnika namizja."
-
-#: C/share-desktop.page:46(p)
-#: C/send-file.page:40(p)
-#: C/favorite-rooms.page:66(p)
-msgid "From the <gui>Contact List</gui> window, perform one of the following:"
-msgstr "V oknu <gui>Seznam stikov</gui> izvedite eno od naslednjega:"
+#: C/share-desktop.page:42(p)
+msgid "To be able to share your desktop, you need to have a VNC server, which has support for the feature, installed on your system. <app>Vino</app>, the GNOME VNC server, has the required support."
+msgstr "Za zmožnost souporabe namizja boste morali imeti nameščen strežnik VNC z ustrezno podporo. <app>Vino</app>, GNOME strežnik VNC ima zahtevano podporo."
 
 #: C/share-desktop.page:51(p)
-msgid "Select the contact you want to share your desktop with, and choose <guiseq><gui>Edit</gui><gui>Contact</gui><gui>Share my desktop</gui></guiseq>."
+msgid "From the <gui>Contact List</gui> window, do one of the following:"
+msgstr "V oknu <gui>Seznam stikov</gui> izvedite eno od naslednjega:"
+
+#: C/share-desktop.page:56(p)
+msgid "Select the contact you want to share your desktop with and choose <guiseq><gui>Edit</gui><gui>Contact</gui><gui>Share My Desktop</gui></guiseq>."
 msgstr "Izberite stik kateremu želite dati svoje namizje v souporabo in izberite  <guiseq><gui>Uredi</gui><gui>Stik</gui><gui>Daj moje namizje v souporabo</gui></guiseq>."
 
-#: C/share-desktop.page:57(p)
-msgid "Right-click on the name of the contact you want to share your desktop with, and select <gui>Share my desktop</gui>."
+#: C/share-desktop.page:63(p)
+msgid "Right-click on the name of the contact you want to share your desktop with and select <gui>Share My Desktop</gui>."
 msgstr "Desno kliknite na ime stika kateremu želite dati namizje v souporabo in izberite <gui>Daj moje namizje v souporabo</gui>."
 
-#: C/share-desktop.page:65(p)
-msgid "A request will be sent to the contact you want to share your desktop with. If they accept, the default remote desktop viewer application will be launched in order to permit you to disconnect the user that is controlling your desktop."
-msgstr "Vašemu stiku bo poslana zahteva za souporabo namizja. V primeru da zahtevo sprejme, se bo zagnal privzeti oddaljeni pregledovalnik namizja, ki vam bo omogočal prekinitev povezave z uporabnikom, ki nadzira vaše namizje."
-
-#: C/share-desktop.page:70(p)
-msgid "For more information about how to use the remote desktop viewer application, refer to its help."
-msgstr "Za več podrobnosti kako uporabiti program oddaljenega pregledovalnika namizja se sklicujte na pomoč."
+#: C/share-desktop.page:71(p)
+msgid "An invitation to view your desktop will be sent to the contact you have selected. To view your desktop, they will need to accept it."
+msgstr "Povabilo za ogled vašega namizja bo bilo poslano izbranemu stiku. Za ogled vašega namizja ga bo moral sprejeti."
 
 #: C/share-desktop.page:77(p)
+msgid "You can disconnect the contact from your computer using your desktop sharing application."
+msgstr "Povezavo stika s svojim oddaljenim namizjem lahko prekinete s programom souporabe namizja."
+
+#: C/share-desktop.page:82(p)
+msgid "For more information about how to use the remote desktop sharing application, refer to its help."
+msgstr "Za več podrobnosti kako uporabiti program oddaljenega pregledovalnika namizja se sklicujte na pomoč."
+
+#: C/share-desktop.page:90(p)
 msgid "When you share your desktop with someone else, it is possible to experience system performance slowdown and low Internet speed."
 msgstr "Ko svoje namizje date v souporabo z nekom drugim, boste morda opazili upočasnjeno delovanje sistema in nizko hitrost medmrežja."
 
-#: C/share-desktop.page:83(p)
-msgid "Not all your contacts might be able to support this functionality. It is necessary for them to have at least the 2.28 version of <app>Empathy</app> and a remote desktop viewer application installed in their system."
+#: C/share-desktop.page:96(p)
+msgid "Some of your contacts may not be able to use this feature. It is necessary for them to have version 2.28, or newer, of <app>Empathy</app> and a compatible remote desktop viewer application installed in their system."
 msgstr "Vsi stiki morda ne podpirajo te zmožnosti. Stiki morajo imeti vsaj <app>Empathy</app> različico 2.28 in na svojemu sistemu nameščen program pregledovalnika oddaljenega namizja."
 
 #: C/set-custom-status.page:9(desc)
@@ -472,10 +481,10 @@ msgstr "Pošljite sporočilo enemu od vaših stikov."
 #: C/send-message.page:17(name)
 #: C/send-file.page:17(name)
 #: C/prob-conn.page:14(name)
-#: C/prob-conn-neterror.page:14(name)
+#: C/prob-conn-neterror.page:15(name)
 #: C/prob-conn-auth.page:17(name)
-#: C/prob-conn-acctdisabled.page:14(name)
-#: C/change-status.page:19(name)
+#: C/prob-conn-acctdisabled.page:15(name)
+#: C/change-status.page:24(name)
 #: C/add-contact.page:18(name)
 msgid "Phil Bull"
 msgstr "Phil Bull"
@@ -483,10 +492,10 @@ msgstr "Phil Bull"
 #: C/send-message.page:18(email)
 #: C/send-file.page:18(email)
 #: C/prob-conn.page:15(email)
-#: C/prob-conn-neterror.page:15(email)
+#: C/prob-conn-neterror.page:16(email)
 #: C/prob-conn-auth.page:18(email)
-#: C/prob-conn-acctdisabled.page:15(email)
-#: C/change-status.page:20(email)
+#: C/prob-conn-acctdisabled.page:16(email)
+#: C/change-status.page:25(email)
 #: C/add-contact.page:19(email)
 msgid "philbull@gmail.com"
 msgstr "philbull@gmail.com"
@@ -518,6 +527,11 @@ msgstr "Pošljite datoteko s svojega računalnika enemu od svojih stikov."
 #: C/send-file.page:36(title)
 msgid "Send files"
 msgstr "Pošiljanje datotek"
+
+#: C/send-file.page:40(p)
+#: C/favorite-rooms.page:66(p)
+msgid "From the <gui>Contact List</gui> window, perform one of the following:"
+msgstr "V oknu <gui>Seznam stikov</gui> izvedite eno od naslednjega:"
 
 #: C/send-file.page:45(p)
 msgid "Right click on the contact you want to send a file to, and choose <gui>Send file</gui>."
@@ -564,8 +578,9 @@ msgid "What is People Nearby?"
 msgstr "Kaj je \"Ljudje v bližini\"?"
 
 #: C/salut-protocol.page:37(p)
+#, fuzzy
 msgid "I'd like to see this played up a bit more."
-msgstr ""
+msgstr "?"
 
 #: C/salut-protocol.page:40(p)
 msgid "The People Nearby service is a serverless communication service: you do not need to connect and authenticate to a central server in order to use it."
@@ -587,34 +602,34 @@ msgstr "Vsa novejša krajevna omrežja bi morala podpirati to vrsto storitve."
 msgid "Completely remove an account from <app>Empathy</app>."
 msgstr "Popolnoma odstrani račun iz <app>Empathy</app>."
 
-#: C/remove-account.page:33(title)
+#: C/remove-account.page:34(title)
 msgid "Remove an account"
 msgstr "Odstranitev računa"
 
-#: C/remove-account.page:35(p)
+#: C/remove-account.page:36(p)
 msgid "You can completely remove an account from <app>Empathy</app> if you no longer wish to use the account. If you wish to use the account in <app>Empathy</app> again in the future, you will have to add your account details again."
 msgstr "V primeru da računa ne želite več uporabljati, lahko račun popolnoma odstranite iz <app>Empathy</app>. V primeru da želite v prihodnosti račun v <app>Empathy</app> ponovno uporabljati boste morali ponovno dodati podrobnosti svojega računa."
 
-#: C/remove-account.page:42(p)
+#: C/remove-account.page:43(p)
 #: C/irc-nick-password.page:50(p)
-#: C/disable-account.page:48(p)
-#: C/add-account.page:48(p)
+#: C/disable-account.page:49(p)
+#: C/add-account.page:49(p)
 msgid "From the <gui>Contact List</gui> window, choose <guiseq><gui>Edit</gui><gui>Accounts</gui></guiseq>, or press <key>F4</key>."
 msgstr "V oknu <gui>Seznam stikov</gui> izberite <guiseq><gui>Uredi</gui><gui>Računi</gui></guiseq> ali pritisnite <key>F4</key>."
 
-#: C/remove-account.page:46(p)
+#: C/remove-account.page:47(p)
 msgid "Select the account you wish to remove from the accounts list on the left side of the window."
 msgstr "Na seznamu računov na levi strani okna izberite račun, ki ga želite odstraniti."
 
-#: C/remove-account.page:50(p)
-msgid "Click on <gui style=\"button\">Remove</gui>."
-msgstr "Kliknite <gui style=\"button\">Odstrani</gui>."
+#: C/remove-account.page:51(p)
+msgid "Click <gui style=\"button\">-</gui>."
+msgstr "Kliknite <gui style=\"button\">-</gui>."
 
-#: C/remove-account.page:53(p)
+#: C/remove-account.page:54(p)
 msgid "A dialog will be shown asking for confirmation. Click the <gui>Remove</gui> button to permanently remove the account."
 msgstr "Pojavilo se pogovorno okno, ki vas bo spraševalo za potrditev. Kliknite gumb <gui>Odstrani</gui> za odstranitev računa."
 
-#: C/remove-account.page:59(p)
+#: C/remove-account.page:60(p)
 msgid "Even after removing an account, <app>Empathy</app> does not delete your conversation history for that account."
 msgstr "Tudi po odstraniti računa <app>Empathy</app> ne izbriše zgodovine vaših pogovorov za ta račun."
 
@@ -628,8 +643,8 @@ msgstr "Težave s povezovanjem s storitvijo hipnega sporočanja"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/prob-conn-neterror.page:58(None)
-#: C/prob-conn-name.page:43(None)
+#: C/prob-conn-neterror.page:59(None)
+#: C/prob-conn-name.page:44(None)
 #: C/prob-conn-auth.page:58(None)
 #: C/account-irc.page:109(None)
 msgid "@@image: 'figures/gtk-edit.png'; md5=4f21b451732817be0604fe3e2c8da98b"
@@ -639,53 +654,53 @@ msgstr "@@image: 'figures/gtk-edit.png'; md5=4f21b451732817be0604fe3e2c8da98b"
 msgid "An error message which says “<gui>Network error</gui>” appears in the main window."
 msgstr "V glavnemu oknu se pojavi sporočilo napake, ki pravi  “<gui>Network error</gui>”."
 
-#: C/prob-conn-neterror.page:33(title)
+#: C/prob-conn-neterror.page:34(title)
 msgid "I get a message that says “Network error”"
 msgstr "Dobim sporočilo, ki pravi “Napaka omrežja”"
 
-#: C/prob-conn-neterror.page:36(cite)
+#: C/prob-conn-neterror.page:37(cite)
 msgid "shaunm"
 msgstr "shaunm"
 
-#: C/prob-conn-neterror.page:37(p)
+#: C/prob-conn-neterror.page:38(p)
 msgid "Empathy no longer allows you to create an IRC account without a valid nick. I've removed the guide link. Remove the text."
 msgstr "Empathy vam ne dovoli ustvarjanje računa IRC brez veljavnega vzdevka. Povezava vodiča je bila odstranjena. Odstrani besedilo."
 
-#: C/prob-conn-neterror.page:41(p)
+#: C/prob-conn-neterror.page:42(p)
 msgid "This kind of error happens when <app>Empathy</app> cannot communicate with the instant messaging service for some reason."
 msgstr "Ta vrsta napake se zgodi, ko <app>Empathy</app> zaradi nekega vzroka ne more komunicirati s storitvijo hipnega sporočanja. "
 
-#: C/prob-conn-neterror.page:45(p)
+#: C/prob-conn-neterror.page:46(p)
 msgid "Also, this kind of error happens when you try to use an IRC account without setting a nickname."
 msgstr "Ta vrsta napake se zgodi, ko poskušate uporabiti račun IRC brez nastavitve vzdevka."
 
-#: C/prob-conn-neterror.page:52(p)
+#: C/prob-conn-neterror.page:53(p)
 #: C/prob-conn-auth.page:45(p)
-#: C/prob-conn-acctdisabled.page:43(p)
+#: C/prob-conn-acctdisabled.page:44(p)
 msgid "Make sure that you are connected to the Internet, or to a local area network."
 msgstr "Prepričajte se, da ste povezani na medmrežje ali na krajevno omrežje."
 
-#: C/prob-conn-neterror.page:57(p)
-#: C/prob-conn-name.page:42(p)
+#: C/prob-conn-neterror.page:58(p)
+#: C/prob-conn-name.page:43(p)
 #: C/prob-conn-auth.page:57(p)
 msgid "Click the <media type=\"image\" mime=\"image/png\" src=\"figures/gtk-edit.png\">edit</media> icon in the error message."
 msgstr "V sporočilu napake kliknite na ikono <media type=\"image\" mime=\"image/png\" src=\"figures/gtk-edit.png\">uredi</media>."
 
-#: C/prob-conn-neterror.page:65(p)
-#: C/prob-conn-acctdisabled.page:59(p)
+#: C/prob-conn-neterror.page:64(p)
+#: C/prob-conn-acctdisabled.page:60(p)
 msgid "Check in the <gui>Advanced</gui> section that all the details are correct. You should be able to find these details from the website of the messaging service."
 msgstr "V odseku <gui>Napredno</gui> preverite, da so vse podrobnosti pravilne. Te podrobnosti bi morali najti na spletišču storitve sporočanja."
 
-#: C/prob-conn-neterror.page:82(p)
-#: C/prob-conn-auth.page:68(p)
-msgid "Deselect the <gui>Enabled</gui>, and then select it again to try to reconnect to the service."
-msgstr "Odstranite izbiro <gui>Omogočeno</gui> in jo nato ponovno izberite za poskus ponovne povezave s storitvijo."
+#: C/prob-conn-neterror.page:79(p)
+#: C/prob-conn-name.page:65(p)
+msgid "Switch the account off, and then switch it on to try to reconnect to the service."
+msgstr "Izklopite račun in ga ponovno vklopite za poskus ponovne povezave s storitvijo."
 
-#: C/prob-conn-neterror.page:90(title)
+#: C/prob-conn-neterror.page:87(title)
 msgid "Proxy support"
 msgstr "Podpora posredniških strežnikov"
 
-#: C/prob-conn-neterror.page:91(p)
+#: C/prob-conn-neterror.page:88(p)
 msgid "At the moment <app>Empathy</app> can not be configured to work with a proxy."
 msgstr "Trenutno <app>Empathy</app> ni mogoče nastaviti za delo s posredovalnim strežnikom."
 
@@ -697,25 +712,21 @@ msgstr "“Ime v uporabi”"
 msgid "An error message which says “<gui>Name in use</gui>” appears in the main window."
 msgstr "V glavnemu oknu se pojavi sporočilo napake, ki pravi  “<gui>Ime v uporabi</gui>”."
 
-#: C/prob-conn-name.page:32(title)
+#: C/prob-conn-name.page:33(title)
 msgid "I get a message that says “Name in use”"
 msgstr "Dobim sporočilo, ki pravi “Ime v uporabi” "
 
-#: C/prob-conn-name.page:34(p)
+#: C/prob-conn-name.page:35(p)
 msgid "This kind of error happens when you try to connect to your IRC account and you are using a nickname that is already being used by someone else on that particular network."
 msgstr "Ta vrsta napak se zgodi, ko se poskusite povezati s svojim računom IRC in uporabljate vzdevek, ki ga na istemu omrežju že uporablja nekdo drug. "
 
-#: C/prob-conn-name.page:50(p)
+#: C/prob-conn-name.page:51(p)
 msgid "In the <gui>Nickname</gui> text box, type a new nickname."
 msgstr "V besedilno polje <gui>Vzdevek</gui> vpišite nov vzdevek."
 
-#: C/prob-conn-name.page:55(p)
+#: C/prob-conn-name.page:56(p)
 msgid "If you have registered that nickname within the network you are using, set the password for that nickname. For more information, see <link xref=\"irc-nick-password\"/>."
 msgstr "V primeru da ste ta vzdevek ustvarili v omrežju, ki ga uporabljate, nastavite geslo za ta vzdevek. Za več podrobnosti si oglejte  <link xref=\"irc-nick-password\"/>."
-
-#: C/prob-conn-name.page:64(p)
-msgid "Deselect the <gui>Enabled</gui> check-box next to the name of your account, and then select it again to try to reconnect to the service."
-msgstr "Odstranite izbiro izbirnega polja <gui>Omogočeno</gui> poleg imena svojega računa, in jo nato ponovno izberite za poskus ponovne povezave s storitvijo."
 
 #: C/prob-conn-auth.page:8(desc)
 msgid "An error message which says “<gui>Authentication failed</gui>” appears in the main window."
@@ -734,110 +745,102 @@ msgid "Make sure that you have registered an account with the service you are tr
 msgstr "Prepričajte se, da ste ustvarili račun za storitev s katero se želite povezati. V primeru da nimate računa, vam večina storitev ne bo dovolila povezave."
 
 #: C/prob-conn-auth.page:63(p)
-#: C/prob-conn-acctdisabled.page:54(p)
+#: C/prob-conn-acctdisabled.page:55(p)
 msgid "Type your username and password again to make sure that they are correct."
 msgstr "Ponovno vpišite svoje uporabniško ime in geslo ter se prepričajte da sta pravilna."
+
+#: C/prob-conn-auth.page:68(p)
+msgid "Deselect the <gui>Enabled</gui>, and then select it again to try to reconnect to the service."
+msgstr "Odstranite izbiro <gui>Omogočeno</gui> in jo nato ponovno izberite za poskus ponovne povezave s storitvijo."
 
 #: C/prob-conn-acctdisabled.page:7(desc)
 msgid "The instant messaging account that you want to use is not enabled in the list of accounts."
 msgstr "Račun hipnega sporočanja, ki ga želite uporabiti ni omogočen na seznamu računov."
 
-#: C/prob-conn-acctdisabled.page:33(title)
+#: C/prob-conn-acctdisabled.page:34(title)
 msgid "My account is not enabled"
 msgstr "Moj račun ni omogočen"
 
-#: C/prob-conn-acctdisabled.page:35(p)
+#: C/prob-conn-acctdisabled.page:36(p)
 msgid "If the instant messaging account that you want to use is not enabled in the drop-down account list when you try to start a new conversation or join a room, your account details may not be correct."
 msgstr "V primeru da račun hipnega sporočanja, ki ga želite uporabiti, v spustnemu seznamu računov ob poskusu začetka novega pogovora ali pridružitve sobe ni omogočen, so morda podrobnosti vašega računa nepravilne. "
 
-#: C/prob-conn-acctdisabled.page:48(p)
+#: C/prob-conn-acctdisabled.page:49(p)
 msgid "Choose <guiseq><gui>Edit</gui><gui>Accounts</gui></guiseq> and select the account that is not working."
 msgstr "Izberite <guiseq><gui>Uredi</gui><gui>Računi</gui></guiseq> in izberite račun, ki ne deluje."
 
-#: C/prob-conn-acctdisabled.page:65(p)
-msgid "Check that the <gui style=\"checkbox\">Enabled</gui> check-box is selected. If it is not, select the check-box to enable the account."
-msgstr "Preverite, če je izbrano izbirno polje <gui style=\"checkbox\">Omogočeno</gui>. Če ni, ga izberite in s tem omogočite račun."
+#: C/prob-conn-acctdisabled.page:66(p)
+msgid "Check that the account is switched on."
+msgstr "Preverite, da je račun vklopljen."
 
 #: C/prev-conv.page:8(desc)
 msgid "Browse or search your previous conversations."
 msgstr "Brskanje ali iskanje po preteklih pogovorih."
 
-#: C/prev-conv.page:35(title)
+#: C/prev-conv.page:36(title)
 msgid "View previous conversations"
 msgstr "Ogled preteklih pogovorov"
 
-#: C/prev-conv.page:39(p)
-msgid "Highlighting text is quirky: <link href=\"http://bugzilla.gnome.org/show_bug.cgi?id=593733\">#593733</link>. If there's an actual highlighting going on, independent of the selection (like in yellow or something), we can use the term \"highlight\". Otherwise we need to use the term \"select\". Watch that bug."
-msgstr "Poudarjanje besedila je čudno: <link href=\"http://bugzilla.gnome.org/show_bug.cgi?id=593733\">#593733</link>. V primeru da pride do dejanskega poudarjanja neodvisno od izbire (na primer v rumeni barvi), lahko uporabimo izraz \"poudarjanje\". V nasprotnemu primeru moramo uporabiti \"izbira\". Opazujte ta hrošč."
-
-#: C/prev-conv.page:46(p)
+#: C/prev-conv.page:38(p)
 msgid "<app>Empathy</app> automatically saves all your text conversations you have with your contacts. You can <link xref=\"#search\">search through all of your previous conversations</link> or <link xref=\"#browse\">browse previous conversations</link> by contact and date."
 msgstr "<app>Empathy</app> samodejno shrani vse vaše besedilne pogovore z vašimi stiki. Lahko <link xref=\"#search\">iščete po vseh vaših predhodnih pogovorih</link> ali <link xref=\"#browse\">brskate predhodne pogovore</link> po stiku in datumu."
 
-#: C/prev-conv.page:54(p)
+#: C/prev-conv.page:46(p)
 msgid "You do not need to be connected to the Internet to view and search your previous conversations."
 msgstr "Za ogled in iskanje vaših predhodnih pogovorov vam ni treba biti povezan na medmrežje."
 
-#: C/prev-conv.page:61(title)
+#: C/prev-conv.page:53(title)
 msgid "Search previous conversations"
 msgstr "Iskanje predhodnih pogovorov"
 
-#: C/prev-conv.page:63(p)
+#: C/prev-conv.page:55(p)
 msgid "You can perform a full-text search through all of your previous conversations."
 msgstr "Izvedete lahko iskanje celega besedila skozi vse vaše predhodne pogovore."
 
-#: C/prev-conv.page:67(p)
-#: C/prev-conv.page:96(p)
+#: C/prev-conv.page:59(p)
+#: C/prev-conv.page:87(p)
 msgid "From the <gui>Contact List</gui> window, choose <guiseq><gui>View</gui><gui>Previous Conversations</gui></guiseq>. Alternatively, press <key>F3</key>."
 msgstr "V oknu <gui>Seznam stikov</gui> izberite <guiseq><gui>Pogled</gui><gui>Pretekli pogovori</gui></guiseq>. Namesto tega lahko pritisnete <key>F3</key>."
 
+#: C/prev-conv.page:63(p)
+msgid "Select an account from the drop-down list in the top. A list of contacts and chat room for that account will be shown below."
+msgstr "Izberite račun s spustnega seznama na vrhu. Seznam vseh stikov in klepetalnic za ta račun bo prikazan spodaj."
+
+#: C/prev-conv.page:67(p)
+msgid "Type the text you want to search for in the <gui>Search</gui> text field."
+msgstr "Vnesite besedilo, ki ga želite najti, v besedilno polje <gui>Iskanje</gui>."
+
 #: C/prev-conv.page:71(p)
-msgid "Select the <gui>Search</gui> tab."
-msgstr "Izberite zavihek <gui>Iskanje</gui>."
-
-#: C/prev-conv.page:74(p)
-msgid "In the <gui>For</gui> field, type the text you want to search for. Click <gui>Find</gui> or press <key>Enter</key>."
-msgstr "V polje <gui>Za</gui>, vtipkajte besedilo, ki ga želite iskati. Kliknite <gui>išči</gui> ali pritisnite <key>Enter</key>."
-
-#: C/prev-conv.page:78(p)
-msgid "Any conversations that matched your search terms will be shown in the list below the search field. By default, conversations are ordered by date."
+msgid "Any conversations that matched your search terms will be shown. By default, conversations are ordered by date."
 msgstr "Katerikoli pogovori, ki se skladajo z vašimi iskalnimi pogoji bodo prikazani v seznamu pod iskalnim poljem. Privzeto so pogovori razvrščeni po datumu."
 
-#: C/prev-conv.page:82(p)
-msgid "Click on a conversation to view it. <app>Empathy</app> will select the text in the conversation that matched your search terms."
-msgstr "Za ogled pogovora kliknite nanj. <app>Empathy</app> bo izbral besedilo v pogovoru, ki se sklada z vašimi pogoji iskanja."
-
-#: C/prev-conv.page:89(title)
+#: C/prev-conv.page:80(title)
 msgid "Browse previous conversations"
 msgstr "Brskaj predhodne pogovore"
 
-#: C/prev-conv.page:91(p)
+#: C/prev-conv.page:82(p)
 msgid "You can browse your previous conversations with your contacts or in chat rooms by date."
 msgstr "Svoje predhodne pogovore s svojimi stiki ali klepetalnicami lahko brskate po datumu."
 
-#: C/prev-conv.page:100(p)
-msgid "Select the <gui>Conversations</gui> tab."
-msgstr "Izberite zavihek <gui>Pogovori</gui>."
-
-#: C/prev-conv.page:103(p)
+#: C/prev-conv.page:91(p)
 msgid "Select an account from the drop-down list in the top left. A list of contacts and chat room for that account will be shown below."
 msgstr "Izberite račun s spustnega seznama zgoraj levo. Seznam vseh stikov in klepetalnic za ta račun bo prikazan spodaj."
 
-#: C/prev-conv.page:107(p)
+#: C/prev-conv.page:95(p)
 msgid "Select a contact or chat room to view your previous conversations from. By default the most recent conversation will be shown."
 msgstr "Izberite stik ali klepetalnico za ogled svojih predhodnih pogovorov. Privzeto bodo prikazani najbolj nedavni stiki."
 
-#: C/prev-conv.page:111(p)
+#: C/prev-conv.page:99(p)
 msgid "You can browse your conversations by date. Days on which you had a conversation with the selected contact will be shown in bold text. Click a date to select it. Click the arrows next to the month and year to browse earlier dates."
 msgstr "Svoje pogovore lahko brskate po datumu. Dnevi ob katerih ste imeli pogovor z izbranim stikom bodo prikazni krepko. Kliknite na datum za izbiro. Kliknite puščice poleg meseca in leta za brskanje zgodnejših datumov."
 
-#: C/prev-conv.page:117(p)
-msgid "You can search for text in the displayed conversation by typing into the search field at the top. The matching text will be highlighted."
+#: C/prev-conv.page:105(p)
+msgid "You can search for text in the conversations by typing into the search field at the top. The matching conversations will be showed."
 msgstr "Besedilo v prikazanemu pogovoru lahko iščete s pisanjem v iskalno polje na vrhu. Skladajoče besedilo bo poudarjeno."
 
-#: C/prev-conv.page:121(p)
-msgid "You can quickly view the previous conversations with one of your contacts from the <gui>Contact List</gui> window. Simply right click the contact and choose <gui>View Previous Conversations</gui>. The <gui>Previous Conversations</gui> window will open with that contact already selected."
-msgstr "Predhodne pogovore z enim od vašim stikov si lahko hitro ogledate v oknu <gui>Seznam stikov</gui>. Enostavno desno kliknite na stik in izberite <gui>Ogled predhodnih pogovorov</gui>. Okno <gui>Predhodni pogovori</gui> bo bilo odprto s predhodno izbranim stikom."
+#: C/prev-conv.page:111(p)
+msgid "You can quickly view the previous conversations with one of your contacts from the <gui>Contact List</gui> window. Simply right click the contact and choose <gui>Previous Conversations</gui>. The <gui>Previous Conversations</gui> window will open with that contact already selected."
+msgstr "Predhodne pogovore z enim od svojih stikov si lahko hitro ogledate v oknu <gui>Seznam stikov</gui>. Desno kliknite na stik in izberite <gui>Ogled predhodnih pogovorov</gui>. Odprlo se bo okno <gui>Predhodni pogovori</gui> s predhodno izbranim stikom."
 
 #: C/link-contacts.page:11(desc)
 msgid "Merge and separate different contacts into a single one."
@@ -1029,6 +1032,7 @@ msgstr "V polje <gui>Geslo</gui> vtipkajte geslo, ki ste ga uporabili za ustvarj
 
 #: C/irc-nick-password.page:63(p)
 #: C/import-account.page:61(p)
+#: C/add-account.page:74(p)
 msgid "Click <gui style=\"button\">Apply</gui>."
 msgstr "Kliknite <gui style=\"button\">Uveljavi</gui>."
 
@@ -1036,32 +1040,36 @@ msgstr "Kliknite <gui style=\"button\">Uveljavi</gui>."
 msgid "These instructions only allow you to use a password-protected nickname on certain IRC networks. It is not currently possible to register an IRC nickname or change your nickname password using <app>Empathy</app>."
 msgstr "Ta navodila vam dovolijo uporabo z geslom zaščitenega vzdevka na določenih omrežjih IRC. Trenutno z <app>Empathy</app> ni mogoče ustvariti vzdevka IRC ali spremeniti svojega vzdevka ali gesla. "
 
-#: C/irc-manage.page:9(desc)
+#: C/irc-manage.page:10(desc)
 msgid "How to use IRC with <app>Empathy</app>."
 msgstr "Kako uporabiti IRC z <app>Empathy</app>."
 
-#: C/irc-manage.page:34(title)
+#: C/irc-manage.page:35(title)
 msgid "Internet Relay Chat (IRC)"
 msgstr "Klepet IRC"
 
-#: C/irc-manage.page:37(p)
+#: C/irc-manage.page:38(p)
 #: C/account-irc.page:39(p)
 msgid "You must have the <sys>telepathy-idle</sys> package installed to use IRC in <app>Empathy</app>."
 msgstr "Za uporabo IRC-a v <app>Empathy</app> morate imeti nameščen paket <sys>telepathy-idle</sys>."
 
-#: C/irc-manage.page:43(title)
+#: C/irc-manage.page:42(link)
+msgid "Install telepathy-idle"
+msgstr "Namesite telepathy-idle"
+
+#: C/irc-manage.page:49(title)
 msgid "IRC Chat Rooms and Conversations"
 msgstr "Pogovori in klepetalnice IRC"
 
-#: C/irc-manage.page:45(title)
+#: C/irc-manage.page:51(title)
 msgid "Chat Rooms and Conversations"
 msgstr "Klepetalnice in pogovori"
 
-#: C/irc-manage.page:50(title)
+#: C/irc-manage.page:56(title)
 msgid "Common IRC Problems"
 msgstr "Pogoste težave IRC"
 
-#: C/irc-manage.page:52(title)
+#: C/irc-manage.page:58(title)
 #: C/index.page:55(title)
 msgid "Common Problems"
 msgstr "Pogoste težave"
@@ -1625,25 +1633,25 @@ msgstr "Ko ste končali, kliknite <gui>Zapri</gui>."
 msgid "Prevent <app>Empathy</app> from automatically logging in to an account."
 msgstr "Preprečitev samodejnega prijavljanja <app>Empathy</app> v račun."
 
-#: C/disable-account.page:39(title)
+#: C/disable-account.page:40(title)
 msgid "Disable an account"
 msgstr "Onemogočitev računa"
 
-#: C/disable-account.page:41(p)
+#: C/disable-account.page:42(p)
 msgid "You can disable an account to prevent <app>Empathy</app> from logging in to it without removing the account entirely. You may wish to disable and re-enable an account if you only want to be logged in to the account at certain times, but you still want to use <app>Empathy</app> for other accounts."
 msgstr "Za preprečitev prijave v <app>Empaty</app> brez odstranitve računa lahko račun onemogočite. Morda želite račun onemogočiti in ponovno omogočiti v primeru da želite biti v račun prijavljeni le ob določenih časih, toda želite <app>Empathy</app> še vedno uporabiti za druge račune. "
 
-#: C/disable-account.page:52(p)
+#: C/disable-account.page:53(p)
 msgid "Select the account you wish to disable from the accounts list on the left side of the window."
 msgstr "Izberite račun, ki ga želite onemogočiti, s seznama računov na levi strani okna."
 
-#: C/disable-account.page:56(p)
-msgid "Deselect <gui style=\"checkbox\">Enabled</gui> on the right side of the window."
-msgstr "Odstranite izbiro <gui style=\"checkbox\">Omogočeno</gui> na desni strani okna."
+#: C/disable-account.page:57(p)
+msgid "On the right side of the window, switch it off."
+msgstr "Na desni strani okna ga izklopite."
 
 #: C/disable-account.page:62(p)
-msgid "To re-enable the account, simply select <gui style=\"checkbox\">Enabled</gui>."
-msgstr "Za ponovno omogočitev računa enostavno izberite <gui style=\"checkbox\">Omogočeno</gui>."
+msgid "To re-enable the account, switch it on."
+msgstr "Za ponovno omogočitev računa ga vklopite."
 
 #: C/create-account.page:9(desc)
 msgid "Register for an account with one of the supported messaging services."
@@ -1769,27 +1777,27 @@ msgstr "Yahoo!"
 msgid "Change your status to advertise your availability to your contacts."
 msgstr "Spremenite svoje stanje za oglaševanje vaše razpoložljivosti vašim stikom."
 
-#: C/change-status.page:34(title)
+#: C/change-status.page:39(title)
 msgid "Change your status"
 msgstr "Sprememba stanja"
 
-#: C/change-status.page:36(p)
+#: C/change-status.page:41(p)
 msgid "You can set your status to indicate your availability to your contacts. <app>Empathy</app> allows you to select from a list of defined statuses."
 msgstr "Nastavite lahko svoje stanje za nakaz vaše razpoložljivosti vašim stikov. <app>Empathy</app> vam omogoča izbiro s seznama določenih stanj."
 
-#: C/change-status.page:41(p)
+#: C/change-status.page:46(p)
 msgid "Click on the drop-down list at the top of the <gui>Contact List</gui> window."
 msgstr "Kliknite na spustni seznam na vrhu okna <gui>Seznam stikov</gui>."
 
-#: C/change-status.page:46(p)
+#: C/change-status.page:51(p)
 msgid "Select a status from the list."
 msgstr "Izberite stanje s seznama"
 
-#: C/change-status.page:52(p)
-msgid "See <link xref=\"status-icons\"/> for a list of the built-in statuses and what they mean. You can also <link xref=\"set-custom-message\">add custom status messages</link> to provide more information about your availability to your contacts."
-msgstr "Oglejte si <link xref=\"status-icons\"/> za seznam vgrajenih stanj in kaj pomenijo.  Lahko tudi <link xref=\"set-custom-message\">dodate sporočila stanja po meri</link> za več podrobnosti o vaših razpoložljivosti vašim stikom."
+#: C/change-status.page:57(p)
+msgid "See <link xref=\"status-icons\"/> for a list of the built-in statuses and what they mean. You can also <link xref=\"set-custom-status\">add custom status messages</link> to provide more information about your availability to your contacts."
+msgstr "Oglejte si <link xref=\"status-icons\"/> za seznam vgrajenih stanj in kaj pomenijo.  Lahko tudi <link xref=\"set-custom-message\">dodate sporočila stanja po meri</link> za več podrobnosti o vaši razpoložljivosti svojim stikom."
 
-#: C/change-status.page:58(p)
+#: C/change-status.page:63(p)
 msgid "If you do not use your computer for a while, or if the screensaver is on, the status will be automatically set to Away."
 msgstr "V primeru da svojega računalnika nekaj časa ne uporabljate, ali če je ohranjevalnik zaslona vklopljen bo stanje samodejno nastavljeno na Odsoten."
 
@@ -2015,35 +2023,31 @@ msgstr "Za dodajanje nove osebe na vaš seznam stikov morate biti povezani na me
 msgid "Add a new account to <app>Empathy</app>."
 msgstr "Dodajanje novega računa v <app>Empathy</app>."
 
-#: C/add-account.page:39(title)
+#: C/add-account.page:40(title)
 msgid "Add a new account"
 msgstr "Dodajanje novega računa"
 
-#: C/add-account.page:41(p)
+#: C/add-account.page:42(p)
 msgid "You can add instant messaging accounts from any supported service to communicate with all of your contacts in <app>Empathy</app>. For some account providers, these steps will also allow you to register for a new account. For more details, see <link xref=\"create-account\"/>."
 msgstr "Račune hipnega sporočanja za sporazumevanje z vsemi svojimi stiki v <app>Empathy</app> lahko dodate s katerekoli podprte naprave. Za nekatere ponudnike računov vam bodo ti koraki omogočili tudi ustvarjanje novega računa. Za več podrobnosti si oglejte <link xref=\"create-account\"/>."
 
-#: C/add-account.page:52(p)
-msgid "Click <gui style=\"button\">Add</gui>."
-msgstr "Kliknite <gui style=\"button\">Dodaj</gui>."
+#: C/add-account.page:53(p)
+msgid "Click <gui style=\"button\">+</gui>."
+msgstr "Kliknite <gui style=\"button\">+</gui>."
 
-#: C/add-account.page:57(p)
+#: C/add-account.page:58(p)
 msgid "From the <gui>Protocol</gui> drop-down list, select the type of account you wish to add."
 msgstr "Na spustnemu seznamu <gui>Protokol</gui> izberite vrsto računa, ki jo želite dodati."
 
-#: C/add-account.page:61(p)
+#: C/add-account.page:62(p)
 msgid "If you do not already have a registered account, select <gui>Create a new account on the server</gui>. This feature is not available for all account types, and may not work with some account providers. See <link xref=\"create-account\"/> for more information."
 msgstr "V primeru da še niste ustvarili novega račun, izberite <gui>Ustvari nov račun na strežniku</gui>. Ta zmožnost ni na voljo za vse vrste računov in morda ne bo delovala z nekaterimi ponudniki računov. Za več podrobnosti si oglejte <link xref=\"create-account\"/>. "
 
-#: C/add-account.page:66(p)
-msgid "Enter the required information. For most accounts, you will only need a login ID and a password. Some accounts may require additional information. See <link xref=\"accounts-window#details\"/> for more information."
+#: C/add-account.page:69(p)
+msgid "Enter the required information. For most accounts, you will only need a login ID and a password. Some accounts may require additional information. See <link xref=\"accounts-window#details\"/>for more information."
 msgstr "Vnesite zahtevane podatke. Za večino računov boste potrebovali le ID prijave in geslo. Nekateri računi morda zahtevajo dodatne podrobnosti. Za več podrobnosti si oglejte <link xref=\"accounts-window#details\"/>."
 
-#: C/add-account.page:71(p)
-msgid "Click <gui style=\"button\">Log in</gui>."
-msgstr "Kliknite <gui style=\"button\">Prijava</gui>."
-
-#: C/add-account.page:78(p)
+#: C/add-account.page:81(p)
 msgid "To change the name that identifies the account in the <gui>Accounts</gui> window, select the account from the list on the left and either click on the name or press the space bar. Edit the account name and press <key>Enter</key> when you’re finished."
 msgstr "Za spremembo imena, ki identificira račun v oknu <gui>Računi</gui>, izberite račun s seznama na levi ali kliknite na ime ali pritisnite preslednico. Uredite ime računa in pritisnite <key>Enter</key>, ko ste končali."
 
@@ -2262,6 +2266,87 @@ msgstr "Izberite izbirno polje v stolpcu <gui>SSL</gui> za šifriranje vse komun
 #: C/index.page:0(None)
 msgid "translator-credits"
 msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2010"
+
+#~ msgid ""
+#~ "In order to be able to share your desktop or to remotely use your "
+#~ "contacts desktop, it is necessary to have a remote desktop viewer "
+#~ "application installed in your system."
+#~ msgstr ""
+#~ "Za souporabo svojega namizja ali za oddaljeno uporabo namizja svojega "
+#~ "stika morate imeti na svojemu sistemu nameščen program oddaljenega "
+#~ "pregledovalnika namizja."
+
+#~ msgid ""
+#~ "A request will be sent to the contact you want to share your desktop "
+#~ "with. If they accept, the default remote desktop viewer application will "
+#~ "be launched in order to permit you to disconnect the user that is "
+#~ "controlling your desktop."
+#~ msgstr ""
+#~ "Vašemu stiku bo poslana zahteva za souporabo namizja. V primeru da "
+#~ "zahtevo sprejme, se bo zagnal privzeti oddaljeni pregledovalnik namizja, "
+#~ "ki vam bo omogočal prekinitev povezave z uporabnikom, ki nadzira vaše "
+#~ "namizje."
+
+#~ msgid "Click on <gui style=\"button\">Remove</gui>."
+#~ msgstr "Kliknite <gui style=\"button\">Odstrani</gui>."
+
+#~ msgid ""
+#~ "Deselect the <gui>Enabled</gui> check-box next to the name of your "
+#~ "account, and then select it again to try to reconnect to the service."
+#~ msgstr ""
+#~ "Odstranite izbiro izbirnega polja <gui>Omogočeno</gui> poleg imena "
+#~ "svojega računa, in jo nato ponovno izberite za poskus ponovne povezave s "
+#~ "storitvijo."
+
+#~ msgid ""
+#~ "Check that the <gui style=\"checkbox\">Enabled</gui> check-box is "
+#~ "selected. If it is not, select the check-box to enable the account."
+#~ msgstr ""
+#~ "Preverite, če je izbrano izbirno polje <gui style=\"checkbox\">Omogočeno</"
+#~ "gui>. Če ni, ga izberite in s tem omogočite račun."
+
+#~ msgid ""
+#~ "Highlighting text is quirky: <link href=\"http://bugzilla.gnome.org/"
+#~ "show_bug.cgi?id=593733\">#593733</link>. If there's an actual "
+#~ "highlighting going on, independent of the selection (like in yellow or "
+#~ "something), we can use the term \"highlight\". Otherwise we need to use "
+#~ "the term \"select\". Watch that bug."
+#~ msgstr ""
+#~ "Poudarjanje besedila je čudno: <link href=\"http://bugzilla.gnome.org/"
+#~ "show_bug.cgi?id=593733\">#593733</link>. V primeru da pride do dejanskega "
+#~ "poudarjanja neodvisno od izbire (na primer v rumeni barvi), lahko "
+#~ "uporabimo izraz \"poudarjanje\". V nasprotnemu primeru moramo uporabiti "
+#~ "\"izbira\". Opazujte ta hrošč."
+
+#~ msgid "Select the <gui>Search</gui> tab."
+#~ msgstr "Izberite zavihek <gui>Iskanje</gui>."
+
+#~ msgid ""
+#~ "In the <gui>For</gui> field, type the text you want to search for. Click "
+#~ "<gui>Find</gui> or press <key>Enter</key>."
+#~ msgstr ""
+#~ "V polje <gui>Za</gui>, vtipkajte besedilo, ki ga želite iskati. Kliknite "
+#~ "<gui>išči</gui> ali pritisnite <key>Enter</key>."
+
+#~ msgid ""
+#~ "Click on a conversation to view it. <app>Empathy</app> will select the "
+#~ "text in the conversation that matched your search terms."
+#~ msgstr ""
+#~ "Za ogled pogovora kliknite nanj. <app>Empathy</app> bo izbral besedilo v "
+#~ "pogovoru, ki se sklada z vašimi pogoji iskanja."
+
+#~ msgid "Select the <gui>Conversations</gui> tab."
+#~ msgstr "Izberite zavihek <gui>Pogovori</gui>."
+
+#~ msgid ""
+#~ "Deselect <gui style=\"checkbox\">Enabled</gui> on the right side of the "
+#~ "window."
+#~ msgstr ""
+#~ "Odstranite izbiro <gui style=\"checkbox\">Omogočeno</gui> na desni strani "
+#~ "okna."
+
+#~ msgid "Click <gui style=\"button\">Log in</gui>."
+#~ msgstr "Kliknite <gui style=\"button\">Prijava</gui>."
 
 #~ msgid ""
 #~ "To turn a video conversation into an audio conversation, choose "
