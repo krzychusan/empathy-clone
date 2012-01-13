@@ -132,6 +132,9 @@ dup_selected_network (EmpathyIrcNetworkChooserDialog *self,
   GtkTreeModel *model;
 
   selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (priv->treeview));
+  if (selection == NULL)
+    return NULL;
+
   if (!gtk_tree_selection_get_selected (selection, &model, &iter))
     return NULL;
 
@@ -157,7 +160,7 @@ treeview_changed_cb (GtkTreeView *treeview,
   network = dup_selected_network (self, NULL);
   if (network == priv->network)
     {
-      g_object_unref (network);
+      g_clear_object (&network);
       return;
     }
 
