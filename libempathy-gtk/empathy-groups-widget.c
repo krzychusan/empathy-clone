@@ -182,8 +182,6 @@ populate_data (EmpathyGroupsWidget *self)
           COL_EDITABLE, TRUE,
           COL_ENABLED, enabled,
           -1);
-
-      g_free (l->data);
     }
 
   g_list_free (all_groups);
