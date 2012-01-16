@@ -393,7 +393,7 @@ empathy_account_get_error_message (TpAccount *account,
 {
   const gchar *dbus_error;
   const gchar *message;
-        const GHashTable *details = NULL;
+  const GHashTable *details = NULL;
   TpConnectionStatusReason reason;
 
   dbus_error = tp_account_get_detailed_error (account, &details);
