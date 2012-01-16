@@ -90,6 +90,10 @@ filter_result_callback_data_new (EmpathyAccountChooser *self,
 {
   FilterResultCallbackData *data;
 
+  g_return_val_if_fail (self != NULL, NULL);
+  g_return_val_if_fail (account != NULL, NULL);
+  g_return_val_if_fail (iter != NULL, NULL);
+
   data = g_slice_new0 (FilterResultCallbackData);
   data->self = g_object_ref (self);
   data->account = g_object_ref (account);
