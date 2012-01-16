@@ -219,8 +219,10 @@ individual_view_query_tooltip_cb (EmpathyIndividualView *view,
           EMPATHY_INDIVIDUAL_WIDGET_SHOW_CLIENT_TYPES);
       gtk_container_set_border_width (GTK_CONTAINER (priv->tooltip_widget), 8);
       g_object_ref (priv->tooltip_widget);
-      g_signal_connect (priv->tooltip_widget, "destroy",
-          G_CALLBACK (individual_view_tooltip_destroy_cb), view);
+
+      tp_g_signal_connect_object (priv->tooltip_widget, "destroy",
+          G_CALLBACK (individual_view_tooltip_destroy_cb), view, 0);
+
       gtk_widget_show (priv->tooltip_widget);
     }
   else
