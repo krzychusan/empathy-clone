@@ -410,10 +410,10 @@ empathy_account_get_error_message (TpAccount *account,
   if (message != NULL)
     return message;
 
+  tp_account_get_connection_status (account, &reason);
+
   DEBUG ("Don't understand error '%s'; fallback to the status reason (%u)",
     dbus_error, reason);
-
-  tp_account_get_connection_status (account, &reason);
 
   return empathy_status_reason_get_default_message (reason);
 }
