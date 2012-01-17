@@ -199,7 +199,7 @@ static guint signals[LAST_SIGNAL] = { 0 };
 #define ACCOUNT_REGEX_ICQ      "^"ICQ_USER_NAME"$"
 #define ACCOUNT_REGEX_IRC      "^"IRC_NICK_NAME"$"
 #define USERNAME_REGEX_IRC     "^"IRC_USER_NAME"$"
-#define ACCOUNT_REGEX_JABBER   "^"JABBER_USER_NAME"@"HOST"$"
+#define ACCOUNT_REGEX_JABBER   "^"JABBER_USER_NAME"@[^@/]+"
 #define ACCOUNT_REGEX_MSN      "^"MSN_USER_NAME"@"HOST"$"
 #define ACCOUNT_REGEX_YAHOO    "^"YAHOO_USER_NAME"$"
 
