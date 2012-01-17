@@ -1,3 +1,43 @@
+NEW in 3.3.4 (16/01/2012)
+============
+
+The empathy-accounts dialog has been partially re-designed, please report any
+regression you may experience.
+
+Dependencies:
+ • champlain ≥ 0.12.1 (optional)
+
+Bugs fixed:
+ - Fixed #631236, Adding # on mistyping of channel names (Jovanka Gulicoska)
+ - Fixed #652670, Combine account parameter editing and personal information editing (Danielle Madeley, Guillaume Desmottes)
+ - Fixed #661500, Display map in tooltip (Guillaume Desmottes)
+ - Fixed #666864, Can't link contacts
+ - Fixed #667676, segfault in empathy-chat (Guillaume Desmottes)
+ - Fixed #667743, Topup menu item not displayed when re-connecting account (Guillaume Desmottes)
+ - Fixed #667791, Should set Account.Service on IRC accounts (Guillaume Desmottes)
+ - Fixed #666531, Invite IRC contacts to join room broken (Guillaume Desmottes)
+
+Translations:
+ - Updated be Translation (Kasia Bondarava)
+ - Updated es Translation (Daniel Mustieles)
+ - Updated et Translation (Mattias Põldaru)
+ - Updated gl Translation (Fran Diéguez)
+ - Updated he Translation (Yaron Shahrabani)
+ - Updated hu Translation (Gabor Kelemen)
+ - Updated mk Translation (Jovan Naumovski)
+ - Updated nl Translation (Hannie Dumoleyn)
+ - Updated ru Translation (Yuri Myasoedov)
+ - Updated tr Translation (Muhammet Kara)
+ - Updated xh Translation (Andiswa Mvanyashe)
+ - Updated zh_HK Translation (Cheng-Chia Tseng)
+ - Updated zh_TW Translation (Cheng-Chia Tseng)
+
+Documentation translations:
+ - Updated es Documentation translation (Daniel Mustieles)
+ - Updated fr Documentation translation (Bruno Brouard)
+ - Updated pl Documentation translation (Piotr Drąg)
+ - Updated sl Documentation translation (Andrej Žnidaršič)
+
 NEW in 3.3.3 (19/12/2011)
 ============
 

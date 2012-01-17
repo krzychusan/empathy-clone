@@ -118,6 +118,40 @@ unset_server_params (EmpathyIrcNetworkChooser *self)
   empathy_account_settings_unset (priv->settings, "use-ssl");
 }
 
+static gchar *
+dup_network_service (EmpathyIrcNetwork *network)
+{
+  /* Account.Service has to be a lower case alphanumeric string which may
+   * also contain '-' but not start with it. */
+#define VALID G_CSET_a_2_z G_CSET_DIGITS "-"
+  gchar *service, *tmp;
+
+  service = g_strdup (empathy_irc_network_get_name (network));
+  service = g_strstrip (service);
+
+  if (tp_str_empty (service))
+    {
+      g_free (service);
+      return NULL;
+    }
+
+  tmp = service;
+  service = g_ascii_strdown (service, -1);
+  g_free (tmp);
+
+  service = g_strcanon (service, VALID, '-');
+
+  if (service[0] == '-')
+    {
+      tmp = service;
+      service = g_strdup (service + 1);
+
+      g_free (tmp);
+    }
+
+  return service;
+}
+
 static void
 update_server_params (EmpathyIrcNetworkChooser *self)
 {
@@ -139,6 +173,7 @@ update_server_params (EmpathyIrcNetworkChooser *self)
       gchar *address;
       guint port;
       gboolean ssl;
+      gchar *service;
 
       g_object_get (server,
           "address", &address,
@@ -153,7 +188,13 @@ update_server_params (EmpathyIrcNetworkChooser *self)
       DEBUG ("Setting use-ssl to %s", ssl ? "TRUE": "FALSE" );
       empathy_account_settings_set_boolean (priv->settings, "use-ssl", ssl);
 
+      /* Set Account.Service */
+      service = dup_network_service (priv->network);
+      DEBUG ("Setting Service to %s", service);
+      empathy_account_settings_set_service (priv->settings, service);
+
       g_free (address);
+      g_free (service);
     }
   else
     {

@@ -103,6 +103,8 @@ struct _EmpathyAccountSettingsPriv
   /* If TRUE, the account should have 'tel' in its
    * Account.Interface.Addressing.URISchemes property. */
   gboolean uri_scheme_tel;
+  /* If TRUE, Service property needs to be updated when applying changes */
+  gboolean update_service;
 
   GSimpleAsyncResult *apply_result;
 };
@@ -741,6 +743,21 @@ empathy_account_settings_get_service (EmpathyAccountSettings *settings)
   EmpathyAccountSettingsPriv *priv = GET_PRIV (settings);
 
   return priv->service;
+}
+
+void
+empathy_account_settings_set_service (EmpathyAccountSettings *settings,
+    const gchar *service)
+{
+  EmpathyAccountSettingsPriv *priv = GET_PRIV (settings);
+
+  if (!tp_strdiff (priv->service, service))
+    return;
+
+  g_free (priv->service);
+  priv->service = g_strdup (service);
+  g_object_notify (G_OBJECT (settings), "service");
+  priv->update_service = TRUE;
 }
 
 gchar *
@@ -1446,6 +1463,32 @@ update_account_uri_schemes (EmpathyAccountSettings *self)
 }
 
 static void
+set_service_cb (GObject *source,
+    GAsyncResult *result,
+    gpointer user_data)
+{
+  GError *error = NULL;
+
+  if (!tp_account_set_service_finish (TP_ACCOUNT (source), result, &error))
+    {
+      DEBUG ("Failed to set Account.Service: %s", error->message);
+      g_error_free (error);
+    }
+}
+
+static void
+update_account_service (EmpathyAccountSettings *self)
+{
+  EmpathyAccountSettingsPriv *priv = GET_PRIV (self);
+
+  if (!priv->update_service)
+    return;
+
+  tp_account_set_service_async (priv->account,
+      priv->service != NULL ? priv->service : "", set_service_cb, self);
+}
+
+static void
 empathy_account_settings_account_updated (GObject *source,
     GAsyncResult *result,
     gpointer user_data)
@@ -1486,6 +1529,7 @@ empathy_account_settings_account_updated (GObject *source,
     }
 
   update_account_uri_schemes (settings);
+  update_account_service (settings);
 
   g_simple_async_result_set_op_res_gboolean (priv->apply_result,
       g_strv_length (reconnect_required) > 0);

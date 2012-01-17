@@ -81,6 +81,7 @@
                       </object>
                       <packing>
                         <property name="top_attach">1</property>
+                        <property name="left_attach">0</property>
                       </packing>
                     </child>
                     <child>

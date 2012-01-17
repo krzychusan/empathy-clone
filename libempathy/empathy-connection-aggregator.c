@@ -231,6 +231,7 @@ empathy_connection_aggregator_dup_singleton (void)
   return aggregator;
 }
 
+/* (transfer container) */
 GList *
 empathy_connection_aggregator_get_all_groups (EmpathyConnectionAggregator *self)
 {

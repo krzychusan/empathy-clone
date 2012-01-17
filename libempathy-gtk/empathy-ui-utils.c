@@ -718,25 +718,24 @@ empathy_pixbuf_avatar_from_individual_scaled_async (
 
 	avatar_icon =
 		folks_avatar_details_get_avatar (FOLKS_AVATAR_DETAILS (individual));
-	if (avatar_icon == NULL)
-		goto out;
+	if (avatar_icon == NULL) {
+		g_simple_async_result_set_error (result, TP_ERRORS,
+			TP_ERROR_INVALID_ARGUMENT, "no avatar found");
+
+		g_simple_async_result_complete (result);
+		g_object_unref (result);
+		return;
+	}
 
 	closure = pixbuf_avatar_from_individual_closure_new (individual, result,
 							     width, height,
 							     cancellable);
-	if (closure == NULL)
-		goto out;
+
+	g_return_if_fail (closure != NULL);
 
 	g_loadable_icon_load_async (avatar_icon, width, cancellable,
 			avatar_icon_load_cb, closure);
 
-	g_object_unref (result);
-
-	return;
-
-out:
-	g_simple_async_result_set_op_res_gpointer (result, NULL, NULL);
-	g_simple_async_result_complete (result);
 	g_object_unref (result);
 }
 

@@ -134,15 +134,21 @@ empathy_client_factory_dup_contact_features (TpSimpleClientFactory *factory,
         TpConnection *connection)
 {
   GArray *features;
-  TpContactFeature feature;
+  TpContactFeature extra_features[] = {
+      TP_CONTACT_FEATURE_ALIAS,
+      TP_CONTACT_FEATURE_PRESENCE,
+      TP_CONTACT_FEATURE_AVATAR_TOKEN,
+      TP_CONTACT_FEATURE_AVATAR_DATA,
+      TP_CONTACT_FEATURE_CAPABILITIES,
+      /* Needed by empathy_individual_add_menu_item_new to check if a contact
+       * is already in the contact list. This feature is pretty cheap to
+       * prepare as it doesn't prepare the full roster. */
+      TP_CONTACT_FEATURE_SUBSCRIPTION_STATES,
+  };
 
   features = chainup->dup_contact_features (factory, connection);
 
-  /* Needed by empathy_individual_add_menu_item_new to check if a contact is
-   * already in the contact list. This feature is pretty cheap to prepare as
-   * it doesn't prepare the full roster. */
-  feature = TP_CONTACT_FEATURE_SUBSCRIPTION_STATES;
-  g_array_append_val (features, feature);
+  g_array_append_vals (features, extra_features, G_N_ELEMENTS (extra_features));
 
   return features;
 }

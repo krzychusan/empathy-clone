@@ -78,6 +78,9 @@ const gchar *empathy_account_settings_get_protocol (
 const gchar *empathy_account_settings_get_service (
     EmpathyAccountSettings *settings);
 
+void empathy_account_settings_set_service (EmpathyAccountSettings *settings,
+    const gchar *service);
+
 TpAccount *empathy_account_settings_get_account (
     EmpathyAccountSettings *settings);
 

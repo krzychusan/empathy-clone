@@ -219,8 +219,10 @@ individual_view_query_tooltip_cb (EmpathyIndividualView *view,
           EMPATHY_INDIVIDUAL_WIDGET_SHOW_CLIENT_TYPES);
       gtk_container_set_border_width (GTK_CONTAINER (priv->tooltip_widget), 8);
       g_object_ref (priv->tooltip_widget);
-      g_signal_connect (priv->tooltip_widget, "destroy",
-          G_CALLBACK (individual_view_tooltip_destroy_cb), view);
+
+      tp_g_signal_connect_object (priv->tooltip_widget, "destroy",
+          G_CALLBACK (individual_view_tooltip_destroy_cb), view, 0);
+
       gtk_widget_show (priv->tooltip_widget);
     }
   else
@@ -1635,54 +1637,6 @@ individual_view_row_has_child_toggled_cb (GtkTreeModel *model,
   g_free (name);
 }
 
-/* FIXME: This is a workaround for bgo#621076 */
-static void
-individual_view_verify_group_visibility (EmpathyIndividualView *view,
-    GtkTreePath *path)
-{
-  EmpathyIndividualViewPriv *priv = GET_PRIV (view);
-  GtkTreeModel *model;
-  GtkTreePath *parent_path;
-  GtkTreeIter parent_iter;
-
-  if (gtk_tree_path_get_depth (path) < 2)
-    return;
-
-  /* A group row is visible if and only if at least one if its child is visible.
-   * So when a row is inserted/deleted/changed in the base model, that could
-   * modify the visibility of its parent in the filter model.
-  */
-
-  model = GTK_TREE_MODEL (priv->store);
-  parent_path = gtk_tree_path_copy (path);
-  gtk_tree_path_up (parent_path);
-  if (gtk_tree_model_get_iter (model, &parent_iter, parent_path))
-    {
-      /* This tells the filter to verify the visibility of that row, and
-       * show/hide it if necessary */
-      gtk_tree_model_row_changed (GTK_TREE_MODEL (priv->store),
-              parent_path, &parent_iter);
-    }
-  gtk_tree_path_free (parent_path);
-}
-
-static void
-individual_view_store_row_changed_cb (GtkTreeModel *model,
-  GtkTreePath *path,
-  GtkTreeIter *iter,
-  EmpathyIndividualView *view)
-{
-  individual_view_verify_group_visibility (view, path);
-}
-
-static void
-individual_view_store_row_deleted_cb (GtkTreeModel *model,
-  GtkTreePath *path,
-  EmpathyIndividualView *view)
-{
-  individual_view_verify_group_visibility (view, path);
-}
-
 static gboolean
 individual_view_is_visible_individual (EmpathyIndividualView *self,
     FolksIndividual *individual,
@@ -1812,14 +1766,6 @@ individual_view_filter_visible_func (GtkTreeModel *model,
 
       g_object_unref (individual);
       g_free (group);
-
-      /* FIXME: Work around bgo#626552/bgo#621076 */
-      if (visible)
-        {
-          GtkTreePath *path = gtk_tree_model_get_path (model, iter);
-          individual_view_verify_group_visibility (self, path);
-          gtk_tree_path_free (path);
-        }
 
       return visible;
     }
@@ -2818,11 +2764,6 @@ empathy_individual_view_set_store (EmpathyIndividualView *self,
   /* Destroy the old filter and remove the old store */
   if (priv->store != NULL)
     {
-      g_signal_handlers_disconnect_by_func (priv->store,
-          individual_view_store_row_changed_cb, self);
-      g_signal_handlers_disconnect_by_func (priv->store,
-          individual_view_store_row_deleted_cb, self);
-
       g_signal_handlers_disconnect_by_func (priv->filter,
           individual_view_row_has_child_toggled_cb, self);
 
@@ -2849,13 +2790,6 @@ empathy_individual_view_set_store (EmpathyIndividualView *self,
           G_CALLBACK (individual_view_row_has_child_toggled_cb), self);
       gtk_tree_view_set_model (GTK_TREE_VIEW (self),
           GTK_TREE_MODEL (priv->filter));
-
-      tp_g_signal_connect_object (priv->store, "row-changed",
-          G_CALLBACK (individual_view_store_row_changed_cb), self, 0);
-      tp_g_signal_connect_object (priv->store, "row-inserted",
-          G_CALLBACK (individual_view_store_row_changed_cb), self, 0);
-      tp_g_signal_connect_object (priv->store, "row-deleted",
-          G_CALLBACK (individual_view_store_row_deleted_cb), self, 0);
     }
 }
 
