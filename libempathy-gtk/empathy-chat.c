@@ -1420,6 +1420,10 @@ chat_should_highlight (EmpathyChat *chat,
 
 	g_return_val_if_fail (EMPATHY_IS_MESSAGE (message), FALSE);
 
+	if (!empathy_chat_is_room (chat)) {
+		return FALSE;
+	}
+
 	if (!empathy_message_is_incoming (message)) {
 		return FALSE;
 	}
