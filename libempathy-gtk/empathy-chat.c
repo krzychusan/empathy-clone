@@ -73,6 +73,7 @@ struct _EmpathyChatPriv {
 	gchar             *id;
 	gchar             *name;
 	gchar             *subject;
+	EmpathyContact    *self_contact;
 	EmpathyContact    *remote_contact;
 	gboolean           show_contacts;
 
@@ -896,14 +897,12 @@ chat_command_me (EmpathyChat *chat,
 	if (!tp_text_channel_supports_message_type (channel,
 			TP_CHANNEL_TEXT_MESSAGE_TYPE_ACTION)) {
 		/* Action message are not supported, 'simulate' the action */
-		EmpathyContact *self_contact;
 		gchar *tmp;
 
-		self_contact = empathy_tp_chat_get_self_contact (priv->tp_chat);
 		/* The TpChat can't be ready if it doesn't have the self contact */
-		g_assert (self_contact != NULL);
+		g_assert (priv->self_contact != NULL);
 
-		tmp = g_strdup_printf ("%s %s", empathy_contact_get_alias (self_contact),
+		tmp = g_strdup_printf ("%s %s", empathy_contact_get_alias (priv->self_contact),
 			strv[1]);
 		message = tp_client_message_new_text (TP_CHANNEL_TEXT_MESSAGE_TYPE_NORMAL,
 			tmp);
@@ -1412,7 +1411,6 @@ static gboolean
 chat_should_highlight (EmpathyChat *chat,
 	EmpathyMessage *message)
 {
-	EmpathyContact *contact;
 	const gchar   *msg, *to;
 	gboolean       ret_val = FALSE;
 	TpChannelTextMessageFlags flags;
@@ -1433,12 +1431,11 @@ chat_should_highlight (EmpathyChat *chat,
 		return FALSE;
 	}
 
-	contact = empathy_tp_chat_get_self_contact (chat->priv->tp_chat);
-	if (!contact) {
+	if (!chat->priv->self_contact) {
 		return FALSE;
 	}
 
-	to = empathy_contact_get_alias (contact);
+	to = empathy_contact_get_alias (chat->priv->self_contact);
 	if (!to) {
 		return FALSE;
 	}
@@ -2876,6 +2873,19 @@ empathy_chat_set_show_contacts (EmpathyChat *chat,
 }
 
 static void
+chat_self_contact_changed_cb (EmpathyChat *chat)
+{
+	EmpathyChatPriv *priv = GET_PRIV (chat);
+
+	g_clear_object (&priv->self_contact);
+
+	priv->self_contact = empathy_tp_chat_get_self_contact (priv->tp_chat);
+	if (priv->self_contact != NULL) {
+		g_object_ref (priv->self_contact);
+	}
+}
+
+static void
 chat_remote_contact_changed_cb (EmpathyChat *chat)
 {
 	EmpathyChatPriv *priv = GET_PRIV (chat);
@@ -3230,6 +3240,8 @@ chat_finalize (GObject *object)
 		g_signal_handlers_disconnect_by_func (priv->tp_chat,
 			chat_members_changed_cb, chat);
 		g_signal_handlers_disconnect_by_func (priv->tp_chat,
+			chat_self_contact_changed_cb, chat);
+		g_signal_handlers_disconnect_by_func (priv->tp_chat,
 			chat_remote_contact_changed_cb, chat);
 		g_signal_handlers_disconnect_by_func (priv->tp_chat,
 			chat_title_changed_cb, chat);
@@ -3240,6 +3252,9 @@ chat_finalize (GObject *object)
 	}
 	if (priv->account) {
 		g_object_unref (priv->account);
+	}
+	if (priv->self_contact) {
+		g_object_unref (priv->self_contact);
 	}
 	if (priv->remote_contact) {
 		g_object_unref (priv->remote_contact);
@@ -3958,6 +3973,9 @@ empathy_chat_set_tp_chat (EmpathyChat   *chat,
 	g_signal_connect (tp_chat, "member-renamed",
 			  G_CALLBACK (chat_member_renamed_cb),
 			  chat);
+	g_signal_connect_swapped (tp_chat, "notify::self-contact",
+				  G_CALLBACK (chat_self_contact_changed_cb),
+				  chat);
 	g_signal_connect_swapped (tp_chat, "notify::remote-contact",
 				  G_CALLBACK (chat_remote_contact_changed_cb),
 				  chat);
@@ -3979,6 +3997,7 @@ empathy_chat_set_tp_chat (EmpathyChat   *chat,
 
 	/* Get initial value of properties */
 	chat_sms_channel_changed_cb (chat);
+	chat_self_contact_changed_cb (chat);
 	chat_remote_contact_changed_cb (chat);
 	chat_title_changed_cb (chat);
 	chat_subject_changed_cb (chat);
