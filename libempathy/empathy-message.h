@@ -77,7 +77,6 @@ gint64                   empathy_message_get_original_timestamp (EmpathyMessage 
 gboolean                 empathy_message_is_backlog        (EmpathyMessage           *message);
 gboolean                 empathy_message_is_incoming       (EmpathyMessage           *message);
 
-gboolean                 empathy_message_should_highlight  (EmpathyMessage           *message);
 TpChannelTextMessageType empathy_message_type_from_str     (const gchar              *type_str);
 const gchar *            empathy_message_type_to_str       (TpChannelTextMessageType  type);
 

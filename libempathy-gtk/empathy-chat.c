@@ -1383,6 +1383,74 @@ chat_state_changed_cb (EmpathyTpChat      *tp_chat,
 	}
 }
 
+static GRegex *
+get_highlight_regex_for (const gchar *name)
+{
+	GRegex *regex;
+	gchar *name_esc, *pattern;
+	GError *error = NULL;
+
+	name_esc = g_regex_escape_string (name, -1);
+	pattern = g_strdup_printf ("\\b%s\\b", name_esc);
+	regex = g_regex_new (pattern, G_REGEX_CASELESS | G_REGEX_OPTIMIZE, 0,
+		&error);
+
+	if (regex == NULL) {
+		DEBUG ("couldn't compile regex /%s/: %s", pattern,
+			error->message);
+
+		g_error_free (error);
+	}
+
+	g_free (pattern);
+	g_free (name_esc);
+
+	return regex;
+}
+
+static gboolean
+chat_should_highlight (EmpathyChat *chat,
+	EmpathyMessage *message)
+{
+	EmpathyContact *contact;
+	const gchar   *msg, *to;
+	gboolean       ret_val = FALSE;
+	TpChannelTextMessageFlags flags;
+	GRegex *regex;
+
+	g_return_val_if_fail (EMPATHY_IS_MESSAGE (message), FALSE);
+
+	msg = empathy_message_get_body (message);
+	if (!msg) {
+		return FALSE;
+	}
+
+	contact = empathy_tp_chat_get_self_contact (chat->priv->tp_chat);
+	if (!contact) {
+		return FALSE;
+	}
+
+	to = empathy_contact_get_alias (contact);
+	if (!to) {
+		return FALSE;
+	}
+
+	flags = empathy_message_get_flags (message);
+	if (flags & TP_CHANNEL_TEXT_MESSAGE_FLAG_SCROLLBACK) {
+		/* FIXME: Ideally we shouldn't highlight scrollback messages only if they
+		 * have already been received by the user before (and so are in the logs) */
+		return FALSE;
+	}
+
+	regex = get_highlight_regex_for (to);
+	if (regex != NULL) {
+		ret_val = g_regex_match (regex, msg, 0, NULL);
+		g_regex_unref (regex);
+	}
+
+	return ret_val;
+}
+
 static void
 chat_message_received (EmpathyChat *chat,
 	EmpathyMessage *message,
@@ -1400,7 +1468,7 @@ chat_message_received (EmpathyChat *chat,
 
 		empathy_chat_view_edit_message (chat->view, message);
 	} else {
-		gboolean should_highlight = empathy_message_should_highlight (message);
+		gboolean should_highlight = chat_should_highlight (chat, message);
 		DEBUG ("Appending new message '%s' from %s (%d)",
 			empathy_message_get_token (message),
 			empathy_contact_get_alias (sender),
@@ -2494,14 +2562,14 @@ got_filtered_messages_cb (GObject *manager,
 				NULL);
 
 			empathy_chat_view_append_message (chat->view, syn_msg,
-							  empathy_message_should_highlight (syn_msg));
+							  chat_should_highlight (chat, syn_msg));
 			empathy_chat_view_edit_message (chat->view, message);
 
 			g_object_unref (syn_msg);
 		} else {
 			/* append the latest message */
 			empathy_chat_view_append_message (chat->view, message,
-							  empathy_message_should_highlight (message));
+							  chat_should_highlight (chat, message));
 		}
 
 		g_object_unref (message);

@@ -39,9 +39,6 @@
 # include <telepathy-logger/call-event.h>
 #endif
 
-#define DEBUG_FLAG EMPATHY_DEBUG_CHAT
-#include "empathy-debug.h"
-
 #include "empathy-client-factory.h"
 #include "empathy-message.h"
 #include "empathy-utils.h"
@@ -634,73 +631,6 @@ empathy_message_is_backlog (EmpathyMessage *message)
 	priv = GET_PRIV (message);
 
 	return priv->is_backlog;
-}
-
-static GRegex *
-get_highlight_regex_for (const gchar *name)
-{
-	GRegex *regex;
-	gchar *name_esc, *pattern;
-	GError *error = NULL;
-
-	name_esc = g_regex_escape_string (name, -1);
-	pattern = g_strdup_printf ("\\b%s\\b", name_esc);
-	regex = g_regex_new (pattern, G_REGEX_CASELESS | G_REGEX_OPTIMIZE, 0,
-		&error);
-
-	if (regex == NULL) {
-		DEBUG ("couldn't compile regex /%s/: %s", pattern,
-			error->message);
-
-		g_error_free (error);
-	}
-
-	g_free (pattern);
-	g_free (name_esc);
-
-	return regex;
-}
-
-gboolean
-empathy_message_should_highlight (EmpathyMessage *message)
-{
-	EmpathyContact *contact;
-	const gchar   *msg, *to;
-	gboolean       ret_val = FALSE;
-	TpChannelTextMessageFlags flags;
-	GRegex *regex;
-
-	g_return_val_if_fail (EMPATHY_IS_MESSAGE (message), FALSE);
-
-	msg = empathy_message_get_body (message);
-	if (!msg) {
-		return FALSE;
-	}
-
-	contact = empathy_message_get_receiver (message);
-	if (!contact || !empathy_contact_is_user (contact)) {
-		return FALSE;
-	}
-
-	to = empathy_contact_get_alias (contact);
-	if (!to) {
-		return FALSE;
-	}
-
-	flags = empathy_message_get_flags (message);
-	if (flags & TP_CHANNEL_TEXT_MESSAGE_FLAG_SCROLLBACK) {
-		/* FIXME: Ideally we shouldn't highlight scrollback messages only if they
-		 * have already been received by the user before (and so are in the logs) */
-		return FALSE;
-	}
-
-	regex = get_highlight_regex_for (to);
-	if (regex != NULL) {
-		ret_val = g_regex_match (regex, msg, 0, NULL);
-		g_regex_unref (regex);
-	}
-
-	return ret_val;
 }
 
 TpChannelTextMessageType
