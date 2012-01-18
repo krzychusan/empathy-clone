@@ -1413,7 +1413,8 @@ chat_message_received (EmpathyChat *chat,
 			g_object_notify (G_OBJECT (chat), "nb-unread-messages");
 		}
 
-		g_signal_emit (chat, signals[NEW_MESSAGE], 0, message, pending);
+		g_signal_emit (chat, signals[NEW_MESSAGE], 0, message, pending,
+			       should_highlight);
 	}
 
 	/* We received a message so the contact is no longer
@@ -3299,6 +3300,14 @@ empathy_chat_class_init (EmpathyChatClass *klass)
 			      G_TYPE_NONE,
 			      1, G_TYPE_BOOLEAN);
 
+	/**
+	 * EmpathyChat::new-message:
+	 * @self: the #EmpathyChat
+	 * @message: the new message
+	 * @pending: whether the message was in the pending queue when @self
+	 *  was created
+	 * @should_highlight: %TRUE if the message mentions the local user
+	 */
 	signals[NEW_MESSAGE] =
 		g_signal_new ("new-message",
 			      G_OBJECT_CLASS_TYPE (object_class),
@@ -3307,7 +3316,7 @@ empathy_chat_class_init (EmpathyChatClass *klass)
 			      NULL, NULL,
 			      g_cclosure_marshal_generic,
 			      G_TYPE_NONE,
-			      2, EMPATHY_TYPE_MESSAGE, G_TYPE_BOOLEAN);
+			      3, EMPATHY_TYPE_MESSAGE, G_TYPE_BOOLEAN, G_TYPE_BOOLEAN);
 
 	signals[PART_COMMAND_ENTERED] =
 			g_signal_new ("part-command-entered",

@@ -1437,6 +1437,7 @@ static void
 chat_window_new_message_cb (EmpathyChat       *chat,
 			    EmpathyMessage    *message,
 			    gboolean pending,
+			    gboolean should_highlight,
 			    EmpathyChatWindow *window)
 {
 	EmpathyChatWindowPriv *priv;
@@ -1496,7 +1497,7 @@ chat_window_new_message_cb (EmpathyChat       *chat,
 		if (chatroom != NULL && empathy_chatroom_is_always_urgent (chatroom)) {
 			needs_urgency = TRUE;
 		} else {
-			needs_urgency = empathy_message_should_highlight (message);
+			needs_urgency = should_highlight;
 		}
 	} else {
 		needs_urgency = TRUE;
