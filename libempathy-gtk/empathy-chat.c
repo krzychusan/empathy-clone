@@ -156,6 +156,10 @@ struct _EmpathyChatPriv {
 	 * the keyboard or the mouse. We can't ask GTK for the most recent
 	 * event, because it will be a notify event. Instead we track it here */
 	GdkEventType       most_recent_event_type;
+
+	/* A regex matching our own current nickname in the room, or %NULL if
+	 * !empathy_chat_is_room(). */
+	GRegex            *highlight_regex;
 };
 
 typedef struct {
@@ -1407,14 +1411,31 @@ get_highlight_regex_for (const gchar *name)
 	return regex;
 }
 
+/* Called when priv->self_contact changes, or priv->self_contact:alias changes.
+ * Only connected if empathy_chat_is_room() is TRUE, for obvious-ish reasons.
+ */
+static void
+chat_self_contact_alias_changed_cb (EmpathyChat *chat)
+{
+	EmpathyChatPriv *priv = GET_PRIV (chat);
+
+	tp_clear_pointer (&priv->highlight_regex, g_regex_unref);
+
+	if (priv->self_contact != NULL) {
+		const gchar *alias = empathy_contact_get_alias (priv->self_contact);
+
+		g_return_if_fail (alias != NULL);
+		priv->highlight_regex = get_highlight_regex_for (alias);
+	}
+}
+
 static gboolean
 chat_should_highlight (EmpathyChat *chat,
 	EmpathyMessage *message)
 {
-	const gchar   *msg, *to;
-	gboolean       ret_val = FALSE;
+	EmpathyChatPriv *priv = GET_PRIV (chat);
+	const gchar   *msg;
 	TpChannelTextMessageFlags flags;
-	GRegex *regex;
 
 	g_return_val_if_fail (EMPATHY_IS_MESSAGE (message), FALSE);
 
@@ -1431,15 +1452,6 @@ chat_should_highlight (EmpathyChat *chat,
 		return FALSE;
 	}
 
-	if (!chat->priv->self_contact) {
-		return FALSE;
-	}
-
-	to = empathy_contact_get_alias (chat->priv->self_contact);
-	if (!to) {
-		return FALSE;
-	}
-
 	flags = empathy_message_get_flags (message);
 	if (flags & TP_CHANNEL_TEXT_MESSAGE_FLAG_SCROLLBACK) {
 		/* FIXME: Ideally we shouldn't highlight scrollback messages only if they
@@ -1447,13 +1459,11 @@ chat_should_highlight (EmpathyChat *chat,
 		return FALSE;
 	}
 
-	regex = get_highlight_regex_for (to);
-	if (regex != NULL) {
-		ret_val = g_regex_match (regex, msg, 0, NULL);
-		g_regex_unref (regex);
+	if (priv->highlight_regex == NULL) {
+		return FALSE;
 	}
 
-	return ret_val;
+	return g_regex_match (priv->highlight_regex, msg, 0, NULL);
 }
 
 static void
@@ -2877,12 +2887,25 @@ chat_self_contact_changed_cb (EmpathyChat *chat)
 {
 	EmpathyChatPriv *priv = GET_PRIV (chat);
 
+	if (priv->self_contact != NULL) {
+		g_signal_handlers_disconnect_by_func (priv->self_contact,
+						      chat_self_contact_alias_changed_cb,
+						      chat);
+	}
 	g_clear_object (&priv->self_contact);
 
 	priv->self_contact = empathy_tp_chat_get_self_contact (priv->tp_chat);
 	if (priv->self_contact != NULL) {
 		g_object_ref (priv->self_contact);
+
+		if (empathy_chat_is_room (chat)) {
+			g_signal_connect_swapped (priv->self_contact, "notify::alias",
+					  G_CALLBACK (chat_self_contact_alias_changed_cb),
+					  chat);
+		}
 	}
+
+	chat_self_contact_alias_changed_cb (chat);
 }
 
 static void
@@ -3254,6 +3277,9 @@ chat_finalize (GObject *object)
 		g_object_unref (priv->account);
 	}
 	if (priv->self_contact) {
+		g_signal_handlers_disconnect_by_func (priv->self_contact,
+						      chat_self_contact_alias_changed_cb,
+						      chat);
 		g_object_unref (priv->self_contact);
 	}
 	if (priv->remote_contact) {
@@ -3268,6 +3294,8 @@ chat_finalize (GObject *object)
 	g_free (priv->name);
 	g_free (priv->subject);
 	g_completion_free (priv->completion);
+
+	tp_clear_pointer (&priv->highlight_regex, g_regex_unref);
 
 	G_OBJECT_CLASS (empathy_chat_parent_class)->finalize (object);
 }
