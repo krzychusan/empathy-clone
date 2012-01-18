@@ -1400,12 +1400,13 @@ chat_message_received (EmpathyChat *chat,
 
 		empathy_chat_view_edit_message (chat->view, message);
 	} else {
+		gboolean should_highlight = empathy_message_should_highlight (message);
 		DEBUG ("Appending new message '%s' from %s (%d)",
 			empathy_message_get_token (message),
 			empathy_contact_get_alias (sender),
 			empathy_contact_get_handle (sender));
 
-		empathy_chat_view_append_message (chat->view, message);
+		empathy_chat_view_append_message (chat->view, message, should_highlight);
 
 		if (empathy_message_is_incoming (message)) {
 			priv->unread_messages++;
@@ -2491,13 +2492,15 @@ got_filtered_messages_cb (GObject *manager,
 				"sender", empathy_message_get_sender (message),
 				NULL);
 
-			empathy_chat_view_append_message (chat->view, syn_msg);
+			empathy_chat_view_append_message (chat->view, syn_msg,
+							  empathy_message_should_highlight (syn_msg));
 			empathy_chat_view_edit_message (chat->view, message);
 
 			g_object_unref (syn_msg);
 		} else {
 			/* append the latest message */
-			empathy_chat_view_append_message (chat->view, message);
+			empathy_chat_view_append_message (chat->view, message,
+							  empathy_message_should_highlight (message));
 		}
 
 		g_object_unref (message);

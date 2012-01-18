@@ -50,7 +50,8 @@ theme_irc_create_tags (EmpathyThemeIrc *theme)
 
 static void
 theme_irc_append_message (EmpathyChatTextView *view,
-			  EmpathyMessage      *message)
+			  EmpathyMessage      *message,
+			  gboolean             should_highlight)
 {
 	GtkTextBuffer *buffer;
 	const gchar   *name;
@@ -77,7 +78,7 @@ theme_irc_append_message (EmpathyChatTextView *view,
 	if (empathy_contact_is_user (contact)) {
 		nick_tag = EMPATHY_THEME_IRC_TAG_NICK_SELF;
 	} else {
-		if (empathy_message_should_highlight (message)) {
+		if (should_highlight) {
 			nick_tag = EMPATHY_THEME_IRC_TAG_NICK_HIGHLIGHT;
 		} else {
 			nick_tag = EMPATHY_THEME_IRC_TAG_NICK_OTHER;

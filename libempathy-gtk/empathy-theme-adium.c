@@ -132,13 +132,15 @@ typedef struct {
 	guint type;
 	EmpathyMessage *msg;
 	char *str;
+	gboolean should_highlight;
 } QueuedItem;
 
 static QueuedItem *
 queue_item (GQueue *queue,
 	    guint type,
 	    EmpathyMessage *msg,
-	    const char *str)
+	    const char *str,
+	    gboolean should_highlight)
 {
 	QueuedItem *item = g_slice_new0 (QueuedItem);
 
@@ -146,6 +148,7 @@ queue_item (GQueue *queue,
 	if (msg != NULL)
 		item->msg = g_object_ref (msg);
 	item->str = g_strdup (str);
+	item->should_highlight = should_highlight;
 
 	g_queue_push_tail (queue, item);
 
@@ -775,7 +778,8 @@ theme_adium_remove_all_focus_marks (EmpathyThemeAdium *theme)
 
 static void
 theme_adium_append_message (EmpathyChatView *view,
-			    EmpathyMessage  *msg)
+			    EmpathyMessage  *msg,
+			    gboolean         should_highlight)
 {
 	EmpathyThemeAdium     *theme = EMPATHY_THEME_ADIUM (view);
 	EmpathyThemeAdiumPriv *priv = GET_PRIV (theme);
@@ -797,7 +801,7 @@ theme_adium_append_message (EmpathyChatView *view,
 	gboolean               action;
 
 	if (priv->pages_loading != 0) {
-		queue_item (&priv->message_queue, QUEUED_MESSAGE, msg, NULL);
+		queue_item (&priv->message_queue, QUEUED_MESSAGE, msg, NULL, should_highlight);
 		return;
 	}
 
@@ -886,7 +890,7 @@ theme_adium_append_message (EmpathyChatView *view,
 	} else {
 		g_string_append (message_classes, " incoming");
 	}
-	if (empathy_message_should_highlight (msg)) {
+	if (should_highlight) {
 		g_string_append (message_classes, " mention");
 	}
 	if (empathy_message_get_tptype (msg) == TP_CHANNEL_TEXT_MESSAGE_TYPE_AUTO_REPLY) {
@@ -975,7 +979,7 @@ theme_adium_append_event (EmpathyChatView *view,
 	gchar *str_escaped;
 
 	if (priv->pages_loading != 0) {
-		queue_item (&priv->message_queue, QUEUED_EVENT, NULL, str);
+		queue_item (&priv->message_queue, QUEUED_EVENT, NULL, str, FALSE);
 		return;
 	}
 
@@ -1005,7 +1009,7 @@ theme_adium_edit_message (EmpathyChatView *view,
 	GError *error = NULL;
 
 	if (priv->pages_loading != 0) {
-		queue_item (&priv->message_queue, QUEUED_EDIT, message, NULL);
+		queue_item (&priv->message_queue, QUEUED_EDIT, message, NULL, FALSE);
 		return;
 	}
 
@@ -1345,7 +1349,8 @@ theme_adium_load_finished_cb (WebKitWebView  *view,
 		switch (item->type)
 		{
 			case QUEUED_MESSAGE:
-				theme_adium_append_message (chat_view, item->msg);
+				theme_adium_append_message (chat_view, item->msg,
+					item->should_highlight);
 				break;
 
 			case QUEUED_EDIT:

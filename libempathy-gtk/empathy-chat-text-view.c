@@ -717,7 +717,8 @@ chat_text_view_scroll_down (EmpathyChatView *view)
 
 static void
 chat_text_view_append_message (EmpathyChatView *view,
-			       EmpathyMessage  *msg)
+			       EmpathyMessage  *msg,
+			       gboolean         should_highlight)
 {
 	EmpathyChatTextView     *text_view = EMPATHY_CHAT_TEXT_VIEW (view);
 	EmpathyChatTextViewPriv *priv = GET_PRIV (text_view);
@@ -739,7 +740,8 @@ chat_text_view_append_message (EmpathyChatView *view,
 	chat_text_maybe_append_date_and_time (text_view, timestamp);
 	if (EMPATHY_CHAT_TEXT_VIEW_GET_CLASS (view)->append_message) {
 		EMPATHY_CHAT_TEXT_VIEW_GET_CLASS (view)->append_message (text_view,
-									 msg);
+									 msg,
+									 should_highlight);
 	}
 
 	if (bottom) {

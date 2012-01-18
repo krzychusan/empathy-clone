@@ -61,13 +61,15 @@ chat_view_base_init (gpointer klass)
 
 void
 empathy_chat_view_append_message (EmpathyChatView *view,
-				  EmpathyMessage  *msg)
+				  EmpathyMessage  *msg,
+				  gboolean         should_highlight)
 {
 	g_return_if_fail (EMPATHY_IS_CHAT_VIEW (view));
 
 	if (EMPATHY_TYPE_CHAT_VIEW_GET_IFACE (view)->append_message) {
 		EMPATHY_TYPE_CHAT_VIEW_GET_IFACE (view)->append_message (view,
-									 msg);
+									 msg,
+									 should_highlight);
 	}
 }
 

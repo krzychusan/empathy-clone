@@ -43,7 +43,8 @@ struct _EmpathyChatViewIface {
 
 	/* VTabled */
 	void             (*append_message)       (EmpathyChatView *view,
-						  EmpathyMessage  *msg);
+						  EmpathyMessage  *msg,
+						  gboolean         should_highlight);
 	void             (*append_event)         (EmpathyChatView *view,
 						  const gchar     *str);
 	void             (*append_event_markup)  (EmpathyChatView *view,
@@ -81,7 +82,8 @@ struct _EmpathyChatViewIface {
 
 GType            empathy_chat_view_get_type             (void) G_GNUC_CONST;
 void             empathy_chat_view_append_message       (EmpathyChatView *view,
-							 EmpathyMessage  *msg);
+							 EmpathyMessage  *msg,
+							 gboolean         should_highlight);
 void             empathy_chat_view_append_event         (EmpathyChatView *view,
 							 const gchar     *str);
 void             empathy_chat_view_append_event_markup  (EmpathyChatView *view,
