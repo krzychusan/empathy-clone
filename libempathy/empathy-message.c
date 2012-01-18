@@ -39,6 +39,9 @@
 # include <telepathy-logger/call-event.h>
 #endif
 
+#define DEBUG_FLAG EMPATHY_DEBUG_CHAT
+#include "empathy-debug.h"
+
 #include "empathy-client-factory.h"
 #include "empathy-message.h"
 #include "empathy-utils.h"
@@ -633,20 +636,41 @@ empathy_message_is_backlog (EmpathyMessage *message)
 	return priv->is_backlog;
 }
 
-#define IS_SEPARATOR(ch) (ch == ' ' || ch == ',' || ch == '.' || ch == ':')
+static GRegex *
+get_highlight_regex_for (const gchar *name)
+{
+	GRegex *regex;
+	gchar *name_esc, *pattern;
+	GError *error = NULL;
+
+	name_esc = g_regex_escape_string (name, -1);
+	pattern = g_strdup_printf ("\\b%s\\b", name_esc);
+	regex = g_regex_new (pattern, G_REGEX_CASELESS | G_REGEX_OPTIMIZE, 0,
+		&error);
+
+	if (regex == NULL) {
+		DEBUG ("couldn't compile regex /%s/: %s", pattern,
+			error->message);
+
+		g_error_free (error);
+	}
+
+	g_free (pattern);
+	g_free (name_esc);
+
+	return regex;
+}
+
 gboolean
 empathy_message_should_highlight (EmpathyMessage *message)
 {
 	EmpathyContact *contact;
 	const gchar   *msg, *to;
-	gchar         *cf_msg, *cf_to;
-	gchar         *ch;
-	gboolean       ret_val;
+	gboolean       ret_val = FALSE;
 	TpChannelTextMessageFlags flags;
+	GRegex *regex;
 
 	g_return_val_if_fail (EMPATHY_IS_MESSAGE (message), FALSE);
-
-	ret_val = FALSE;
 
 	msg = empathy_message_get_body (message);
 	if (!msg) {
@@ -670,34 +694,11 @@ empathy_message_should_highlight (EmpathyMessage *message)
 		return FALSE;
 	}
 
-	cf_msg = g_utf8_casefold (msg, -1);
-	cf_to = g_utf8_casefold (to, -1);
-
-	ch = strstr (cf_msg, cf_to);
-	if (ch == NULL) {
-		goto finished;
+	regex = get_highlight_regex_for (to);
+	if (regex != NULL) {
+		ret_val = g_regex_match (regex, msg, 0, NULL);
+		g_regex_unref (regex);
 	}
-	if (ch != cf_msg) {
-		/* Not first in the message */
-		if (!IS_SEPARATOR (*(ch - 1))) {
-			goto finished;
-		}
-	}
-
-	ch = ch + strlen (cf_to);
-	if (ch >= cf_msg + strlen (cf_msg)) {
-		ret_val = TRUE;
-		goto finished;
-	}
-
-	if (IS_SEPARATOR (*ch)) {
-		ret_val = TRUE;
-		goto finished;
-	}
-
-finished:
-	g_free (cf_msg);
-	g_free (cf_to);
 
 	return ret_val;
 }
