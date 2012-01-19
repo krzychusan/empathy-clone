@@ -33,9 +33,9 @@ test_empathy_irc_network_manager_add (void)
   g_object_unref (network);
 
   networks = empathy_irc_network_manager_get_networks (mgr);
-  g_assert (g_slist_length (networks) == 1);
+  g_assert_cmpuint (g_slist_length (networks), ==, 1);
   g_object_get (networks->data, "name", &name, NULL);
-  g_assert (name != NULL && strcmp (name, "My Network") == 0);
+  g_assert_cmpstr (name, ==, "My Network");
   g_free (name);
   g_slist_foreach (networks, (GFunc) g_object_unref, NULL);
   g_slist_free (networks);
@@ -47,12 +47,12 @@ test_empathy_irc_network_manager_add (void)
   g_object_unref (network);
 
   networks = empathy_irc_network_manager_get_networks (mgr);
-  g_assert (g_slist_length (networks) == 2);
+  g_assert_cmpuint (g_slist_length (networks), ==, 2);
   g_object_get (networks->data, "name", &name, NULL);
-  g_assert (name != NULL && strcmp (name, "My Network") == 0);
+  g_assert_cmpstr (name, ==, "My Network");
   g_free (name);
   g_object_get (g_slist_next (networks)->data, "name", &name, NULL);
-  g_assert (name != NULL || strcmp (name, "My Network") == 0);
+  g_assert_cmpstr (name, ==, "My Network");
   g_free (name);
   g_slist_foreach (networks, (GFunc) g_object_unref, NULL);
   g_slist_free (networks);
@@ -86,14 +86,13 @@ test_load_global_file (void)
       "global-file", &global_file,
       "user-file", &user_file,
       NULL);
-  g_assert (global_file != NULL || strcmp (global_file, global_file_orig) == 0);
-  g_assert (user_file == NULL);
+  g_assert_cmpstr (global_file, ==, global_file_orig);
   g_free (global_file);
   g_free (global_file_orig);
   g_free (user_file);
 
   networks = empathy_irc_network_manager_get_networks (mgr);
-  g_assert (g_slist_length (networks) == 4);
+  g_assert_cmpuint (g_slist_length (networks), ==, 4);
 
   network_checked[0] = network_checked[1] = network_checked[2] =
     network_checked[3] = FALSE;
@@ -197,7 +196,7 @@ test_empathy_irc_network_manager_remove (void)
   g_assert (result);
 
   networks = empathy_irc_network_manager_get_networks (mgr);
-  g_assert (g_slist_length (networks) == 3);
+  g_assert_cmpuint (g_slist_length (networks), ==, 3);
 
   network_checked[0] = network_checked[1] = network_checked[2] = FALSE;
   /* check networks and servers */
@@ -263,13 +262,13 @@ test_load_user_file (void)
       "user-file", &user_file,
       NULL);
   g_assert (global_file == NULL);
-  g_assert (user_file != NULL && strcmp (user_file, user_file_orig) == 0);
+  g_assert_cmpstr (user_file, ==, user_file_orig);
   g_free (global_file);
   g_free (user_file);
   g_free (user_file_orig);
 
   networks = empathy_irc_network_manager_get_networks (mgr);
-  g_assert (g_slist_length (networks) == 3);
+  g_assert_cmpuint (g_slist_length (networks), ==, 3);
 
   network_checked[0] = network_checked[1] = network_checked[2] = FALSE;
   /* check networks and servers */
@@ -339,15 +338,15 @@ test_load_both_files (void)
       "global-file", &global_file,
       "user-file", &user_file,
       NULL);
-  g_assert (global_file != NULL && strcmp (global_file, global_file_orig) == 0);
-  g_assert (user_file != NULL && strcmp (user_file, user_file_orig) == 0);
+  g_assert_cmpstr (global_file, ==, global_file_orig);
+  g_assert_cmpstr (user_file, ==, user_file_orig);
   g_free (global_file);
   g_free (global_file_orig);
   g_free (user_file);
   g_free (user_file_orig);
 
   networks = empathy_irc_network_manager_get_networks (mgr);
-  g_assert (g_slist_length (networks) == 5);
+  g_assert_cmpuint (g_slist_length (networks), ==, 5);
 
   network_checked[0] = network_checked[1] = network_checked[2] =
     network_checked[3] = network_checked[4] = FALSE;
@@ -427,12 +426,12 @@ test_modify_user_file (void)
       "user-file", &user_file,
       NULL);
   g_assert (global_file == NULL);
-  g_assert (user_file != NULL && strcmp (user_file, user_file_orig) == 0);
+  g_assert_cmpstr (user_file, ==, user_file_orig);
   g_free (global_file);
   g_free (user_file);
 
   networks = empathy_irc_network_manager_get_networks (mgr);
-  g_assert (g_slist_length (networks) == 3);
+  g_assert_cmpuint (g_slist_length (networks), ==, 3);
 
   network_modified[0] = network_modified[1] = FALSE;
   /* check networks and servers */
@@ -523,7 +522,7 @@ test_modify_user_file (void)
   g_free (user_file_orig);
 
   networks = empathy_irc_network_manager_get_networks (mgr);
-  g_assert (g_slist_length (networks) == 3);
+  g_assert_cmpuint (g_slist_length (networks), ==, 3);
 
   network_checked[0] = network_checked[1] = network_checked[2] = FALSE;
   /* check networks and servers */
@@ -594,15 +593,15 @@ test_modify_both_files (void)
       "global-file", &global_file,
       "user-file", &user_file,
       NULL);
-  g_assert (global_file != NULL && strcmp (global_file, global_file_orig) == 0);
-  g_assert (user_file != NULL && strcmp (user_file, user_file_orig) == 0);
+  g_assert_cmpstr (global_file, ==, global_file_orig);
+  g_assert_cmpstr (user_file, ==, user_file_orig);
   g_free (global_file);
   g_free (global_file_orig);
   g_free (user_file);
   g_free (user_file_orig);
 
   networks = empathy_irc_network_manager_get_networks (mgr);
-  g_assert (g_slist_length (networks) == 5);
+  g_assert_cmpuint (g_slist_length (networks), ==, 5);
 
   network_modified[0] = network_modified[1] = network_modified[2] =
     network_modified[3] = FALSE;
@@ -711,7 +710,7 @@ test_modify_both_files (void)
   g_free (user_file_orig);
 
   networks = empathy_irc_network_manager_get_networks (mgr);
-  g_assert (g_slist_length (networks) == 4);
+  g_assert_cmpuint (g_slist_length (networks), ==, 4);
 
   network_checked[0] = network_checked[1] = network_checked[2] =
     network_checked[3] = FALSE;
@@ -811,7 +810,7 @@ test_no_modify_with_empty_user_file (void)
   g_free (user_file_orig);
 
   networks = empathy_irc_network_manager_get_networks (mgr);
-  g_assert (g_slist_length (networks) == 0);
+  g_assert_cmpuint (g_slist_length (networks), ==, 0);
 
   g_slist_foreach (networks, (GFunc) g_object_unref, NULL);
   g_slist_free (networks);
