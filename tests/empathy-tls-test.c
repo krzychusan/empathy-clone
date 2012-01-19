@@ -454,9 +454,10 @@ test_certificate_verify_success_with_pkcs11_lookup (Test *test,
       reference_identities);
   empathy_tls_verifier_verify_async (verifier, fetch_callback_result, test);
   g_main_loop_run (test->loop);
-  if (!empathy_tls_verifier_verify_finish (verifier, test->result, &reason,
-          NULL, &error))
-    g_assert_not_reached ();
+
+  empathy_tls_verifier_verify_finish (verifier, test->result, &reason,
+      NULL, &error);
+  g_assert_no_error (error);
 
   /* Yay the verification was a success! */
 
@@ -494,9 +495,9 @@ test_certificate_verify_success_with_full_chain (Test *test,
       reference_identities);
   empathy_tls_verifier_verify_async (verifier, fetch_callback_result, test);
   g_main_loop_run (test->loop);
-  if (!empathy_tls_verifier_verify_finish (verifier, test->result, &reason,
-          NULL, &error))
-    g_assert_not_reached ();
+  empathy_tls_verifier_verify_finish (verifier, test->result, &reason,
+      NULL, &error);
+  g_assert_no_error (error);
 
   /* Yay the verification was a success! */
 
@@ -528,12 +529,12 @@ test_certificate_verify_root_not_found (Test *test,
   empathy_tls_verifier_verify_async (verifier, fetch_callback_result, test);
   g_main_loop_run (test->loop);
 
-  if (empathy_tls_verifier_verify_finish (verifier, test->result, &reason,
-          NULL, &error))
-    g_assert_not_reached ();
+  empathy_tls_verifier_verify_finish (verifier, test->result, &reason,
+      NULL, &error);
 
   /* And it should say we're self-signed (oddly enough) */
-  g_assert_cmpuint (reason, ==, EMP_TLS_CERTIFICATE_REJECT_REASON_SELF_SIGNED);
+  g_assert_error (error, G_IO_ERROR,
+      EMP_TLS_CERTIFICATE_REJECT_REASON_SELF_SIGNED);
 
   g_clear_error (&error);
   g_object_unref (verifier);
@@ -563,12 +564,12 @@ test_certificate_verify_root_not_anchored (Test *test,
   empathy_tls_verifier_verify_async (verifier, fetch_callback_result, test);
   g_main_loop_run (test->loop);
 
-  if (empathy_tls_verifier_verify_finish (verifier, test->result, &reason,
-          NULL, &error))
-    g_assert_not_reached ();
+  empathy_tls_verifier_verify_finish (verifier, test->result, &reason,
+      NULL, &error);
 
   /* And it should say we're self-signed (oddly enough) */
-  g_assert_cmpuint (reason, ==, EMP_TLS_CERTIFICATE_REJECT_REASON_SELF_SIGNED);
+  g_assert_error (error, G_IO_ERROR,
+      EMP_TLS_CERTIFICATE_REJECT_REASON_SELF_SIGNED);
 
   g_clear_error (&error);
   g_object_unref (verifier);
@@ -600,12 +601,12 @@ test_certificate_verify_identities_invalid (Test *test,
   empathy_tls_verifier_verify_async (verifier, fetch_callback_result, test);
   g_main_loop_run (test->loop);
 
-  if (empathy_tls_verifier_verify_finish (verifier, test->result, &reason,
-          NULL, &error))
-    g_assert_not_reached ();
+  empathy_tls_verifier_verify_finish (verifier, test->result, &reason,
+      NULL, &error);
 
   /* And it should say we're self-signed (oddly enough) */
-  g_assert_cmpuint (reason, ==, EMP_TLS_CERTIFICATE_REJECT_REASON_HOSTNAME_MISMATCH);
+  g_assert_error (error, G_IO_ERROR,
+      EMP_TLS_CERTIFICATE_REJECT_REASON_HOSTNAME_MISMATCH);
 
   g_clear_error (&error);
   g_object_unref (verifier);
@@ -638,12 +639,12 @@ test_certificate_verify_uses_reference_identities (Test *test,
   empathy_tls_verifier_verify_async (verifier, fetch_callback_result, test);
   g_main_loop_run (test->loop);
 
-  if (empathy_tls_verifier_verify_finish (verifier, test->result, &reason,
-          NULL, &error))
-    g_assert_not_reached ();
+  empathy_tls_verifier_verify_finish (verifier, test->result, &reason,
+      NULL, &error);
 
   /* And it should say we're self-signed (oddly enough) */
-  g_assert_cmpuint (reason, ==, EMP_TLS_CERTIFICATE_REJECT_REASON_HOSTNAME_MISMATCH);
+  g_assert_error (error, G_IO_ERROR,
+      EMP_TLS_CERTIFICATE_REJECT_REASON_HOSTNAME_MISMATCH);
 
   g_clear_error (&error);
   g_object_unref (verifier);
