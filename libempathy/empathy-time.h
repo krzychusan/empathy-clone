@@ -1,7 +1,6 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
 /*
  * Copyright (C) 2004 Imendio AB
- * Copyright (C) 2007-2010 Collabora Ltd.
+ * Copyright (C) 2007-2012 Collabora Ltd.
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -40,10 +39,10 @@ G_BEGIN_DECLS
 #define EMPATHY_TIME_DATE_FORMAT_DISPLAY_SHORT _("%a %d %b %Y, %H:%M")
 
 gint64  empathy_time_get_current     (void);
-gchar  *empathy_time_to_string_utc   (gint64       t,
-				      const gchar *format);
-gchar  *empathy_time_to_string_local (gint64       t,
-				      const gchar *format);
+gchar  *empathy_time_to_string_utc   (gint64 t,
+    const gchar *format);
+gchar  *empathy_time_to_string_local (gint64 t,
+    const gchar *format);
 gchar  *empathy_time_to_string_relative (gint64 t);
 gchar *empathy_duration_to_string (guint seconds);
 
