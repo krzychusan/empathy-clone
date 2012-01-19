@@ -29,14 +29,11 @@
 
 G_BEGIN_DECLS
 
-/*
- * Translators: use your locale preferred time format.
- * The fields follow the strftime standard:
- * look at the manual if you need help (man strftime)
- */
-#define EMPATHY_TIME_FORMAT_DISPLAY_SHORT _("%H:%M")
-#define EMPATHY_DATE_FORMAT_DISPLAY_SHORT  _("%a %d %b %Y")
-#define EMPATHY_TIME_DATE_FORMAT_DISPLAY_SHORT _("%a %d %b %Y, %H:%M")
+/* FIXME: ideally we should only display the hour and minutes but
+ * there is no localized format for that (bgo #668323) */
+#define EMPATHY_TIME_FORMAT_DISPLAY_SHORT "%X"
+#define EMPATHY_DATE_FORMAT_DISPLAY_SHORT "%a %d %b %Y"
+#define EMPATHY_TIME_DATE_FORMAT_DISPLAY_SHORT "%a %d %b %Y, %X"
 
 gint64  empathy_time_get_current     (void);
 gchar  *empathy_time_to_string_utc   (gint64 t,
