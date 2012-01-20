@@ -88,7 +88,6 @@ typedef struct
   GtkWidget *vbox_contact_widget;
 
   /* Contact */
-  GtkWidget *hbox_contact;
   GtkWidget *widget_avatar;
   GtkWidget *widget_account;
   GtkWidget *image_account;
@@ -1738,7 +1737,6 @@ empathy_contact_widget_new (EmpathyContact *contact,
       "libempathy-gtk");
   gui = empathy_builder_get_file (filename,
        "vbox_contact_widget", &information->vbox_contact_widget,
-       "hbox_contact", &information->hbox_contact,
        "hbox_presence", &information->hbox_presence,
        "label_alias", &information->label_alias,
        "image_state", &information->image_state,
