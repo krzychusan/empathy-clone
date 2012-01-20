@@ -33,7 +33,6 @@ void empathy_subscription_dialog_show        (EmpathyContact *contact,
 				              GtkWindow      *parent);
 void empathy_contact_information_dialog_show (EmpathyContact *contact,
 					      GtkWindow      *parent);
-void empathy_contact_personal_dialog_show    (GtkWindow      *parent);
 void empathy_new_contact_dialog_show         (GtkWindow     *parent);
 void empathy_new_contact_dialog_show_with_contact (GtkWindow     *parent,
                                                    EmpathyContact *contact);

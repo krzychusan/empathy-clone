@@ -39,7 +39,6 @@
 
 static GList *subscription_dialogs = NULL;
 static GList *information_dialogs = NULL;
-static GtkWidget *personal_dialog = NULL;
 static GtkWidget *new_contact_dialog = NULL;
 
 static gint
@@ -259,58 +258,6 @@ empathy_contact_information_dialog_show (EmpathyContact *contact,
 	}
 
 	gtk_widget_show (dialog);
-}
-
-void
-empathy_contact_personal_dialog_show (GtkWindow *parent)
-{
-	GtkWidget *button;
-	GtkWidget *contact_widget;
-
-	if (personal_dialog) {
-		gtk_window_present (GTK_WINDOW (personal_dialog));
-		return;
-	}
-
-	/* Create dialog */
-	personal_dialog = gtk_dialog_new ();
-	gtk_window_set_resizable (GTK_WINDOW (personal_dialog), FALSE);
-	gtk_window_set_title (GTK_WINDOW (personal_dialog), _("Personal Information"));
-
-	/* Close button */
-	button = gtk_button_new_with_label (GTK_STOCK_CLOSE);
-	gtk_button_set_use_stock (GTK_BUTTON (button), TRUE);
-	gtk_dialog_add_action_widget (GTK_DIALOG (personal_dialog),
-				      button,
-				      GTK_RESPONSE_CLOSE);
-	gtk_widget_set_can_default (button, TRUE);
-	gtk_window_set_default (GTK_WINDOW (personal_dialog), button);
-	gtk_widget_show (button);
-
-	/* Contact info widget */
-	contact_widget = empathy_contact_widget_new (NULL,
-		EMPATHY_CONTACT_WIDGET_EDIT_ACCOUNT |
-		EMPATHY_CONTACT_WIDGET_EDIT_ALIAS |
-		EMPATHY_CONTACT_WIDGET_EDIT_AVATAR |
-		EMPATHY_CONTACT_WIDGET_EDIT_DETAILS);
-	gtk_container_set_border_width (GTK_CONTAINER (contact_widget), 8);
-	gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (personal_dialog))),
-			    contact_widget,
-			    TRUE, TRUE, 0);
-	empathy_contact_widget_set_account_filter (contact_widget,
-		empathy_account_chooser_filter_is_connected, NULL);
-	gtk_widget_show (contact_widget);
-
-	g_signal_connect (personal_dialog, "response",
-			  G_CALLBACK (gtk_widget_destroy), NULL);
-	g_object_add_weak_pointer (G_OBJECT (personal_dialog),
-				   (gpointer) &personal_dialog);
-
-	if (parent) {
-		gtk_window_set_transient_for (GTK_WINDOW (personal_dialog), parent);
-	}
-
-	gtk_widget_show (personal_dialog);
 }
 
 /*
