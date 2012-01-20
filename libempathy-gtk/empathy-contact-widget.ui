@@ -68,6 +68,19 @@
                     <property name="left_attach">0</property>
                   </packing>
                 </child>
+                <child>
+                  <object class="GtkVBox" id="vbox_avatar">
+                    <property name="visible">True</property>
+                    <child>
+                      <placeholder/>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="top-attach">0</property>
+                    <property name="left-attach">2</property>
+                    <property name="height">3</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="position">0</property>
@@ -76,18 +89,6 @@
           </object>
           <packing>
             <property name="top-attach">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkVBox" id="vbox_avatar">
-            <property name="visible">True</property>
-            <child>
-              <placeholder/>
-            </child>
-          </object>
-          <packing>
-            <property name="top-attach">0</property>
-            <property name="left-attach">1</property>
           </packing>
         </child>
       </object>
