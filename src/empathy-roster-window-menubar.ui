@@ -109,12 +109,6 @@
           <accelerator key="F4" modifiers=""/>
         </child>
         <child>
-          <object class="GtkAction" id="edit_personal_information">
-            <property name="name">edit_personal_information</property>
-            <property name="label" translatable="yes">_Personal Information</property>
-          </object>
-        </child>
-        <child>
           <object class="GtkAction" id="edit_blocked_contacts">
             <property name="name">edit_blocked_contacts</property>
             <property name="label" translatable="yes">_Blocked Contacts</property>
@@ -263,7 +257,6 @@
           <menuitem action="edit_context"/>
           <separator name="edit_context_separator"/>
           <menuitem action="edit_accounts"/>
-          <menuitem action="edit_personal_information"/>
           <menuitem action="edit_search_contacts"/>
           <menuitem action="edit_blocked_contacts"/>
           <separator/>

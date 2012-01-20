@@ -1941,13 +1941,6 @@ roster_window_edit_accounts_cb (GtkAction *action,
 }
 
 static void
-roster_window_edit_personal_information_cb (GtkAction *action,
-    EmpathyRosterWindow *self)
-{
-  empathy_contact_personal_dialog_show (GTK_WINDOW (self));
-}
-
-static void
 roster_window_edit_blocked_contacts_cb (GtkAction *action,
     EmpathyRosterWindow *self)
 {
@@ -2365,7 +2358,6 @@ empathy_roster_window_init (EmpathyRosterWindow *self)
       "view_show_map", "activate", roster_window_view_show_map_cb,
       "edit", "activate", roster_window_edit_cb,
       "edit_accounts", "activate", roster_window_edit_accounts_cb,
-      "edit_personal_information", "activate", roster_window_edit_personal_information_cb,
       "edit_blocked_contacts", "activate", roster_window_edit_blocked_contacts_cb,
       "edit_preferences", "activate", roster_window_edit_preferences_cb,
       "edit_search_contacts", "activate", roster_window_edit_search_contacts_cb,
