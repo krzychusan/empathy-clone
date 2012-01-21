@@ -1,13 +1,13 @@
 # translation of empathy-help.master.po to Español
 # Jorge González <jorgegonz@svn.gnome.org>, 2009, 2010, 2011.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: empathy-help.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-19 21:11+0000\n"
-"PO-Revision-Date: 2011-12-20 12:58+0100\n"
+"POT-Creation-Date: 2012-01-20 18:47+0000\n"
+"PO-Revision-Date: 2012-01-21 11:20+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgstr "Iniciar una conversación de vídeo con uno de sus contactos."
 #: C/prob-conn-acctdisabled.page:19(name) C/prev-conv.page:17(name)
 #: C/link-contacts.page:15(name) C/irc-start-conversation.page:15(name)
 #: C/irc-send-file.page:16(name) C/irc-nick-password.page:18(name)
-#: C/irc-manage.page:20(name) C/irc-join-room.page:16(name)
+#: C/irc-manage.page:19(name) C/irc-join-room.page:16(name)
 #: C/irc-join-pwd.page:17(name) C/irc-commands.page:10(name)
 #: C/introduction.page:13(name) C/index.page:19(name)
 #: C/import-account.page:23(name) C/hide-contacts.page:11(name)
@@ -58,7 +58,7 @@ msgstr "Milo Casagrande"
 #: C/prob-conn-acctdisabled.page:20(email) C/prev-conv.page:18(email)
 #: C/link-contacts.page:16(email) C/irc-start-conversation.page:16(email)
 #: C/irc-send-file.page:17(email) C/irc-nick-password.page:19(email)
-#: C/irc-manage.page:21(email) C/irc-join-room.page:17(email)
+#: C/irc-manage.page:20(email) C/irc-join-room.page:17(email)
 #: C/irc-join-pwd.page:18(email) C/irc-commands.page:11(email)
 #: C/introduction.page:14(email) C/index.page:20(email)
 #: C/import-account.page:24(email) C/hide-contacts.page:12(email)
@@ -81,7 +81,7 @@ msgstr "milo@ubuntu.com"
 #: C/prob-conn-acctdisabled.page:23(p) C/prev-conv.page:25(p)
 #: C/link-contacts.page:19(p) C/irc-start-conversation.page:19(p)
 #: C/irc-send-file.page:20(p) C/irc-nick-password.page:22(p)
-#: C/irc-manage.page:24(p) C/irc-join-room.page:20(p)
+#: C/irc-manage.page:23(p) C/irc-join-room.page:20(p)
 #: C/irc-join-pwd.page:21(p) C/irc-commands.page:14(p)
 #: C/introduction.page:17(p) C/index.page:23(p) C/import-account.page:31(p)
 #: C/hide-contacts.page:15(p) C/group-conversations.page:23(p)
@@ -481,14 +481,18 @@ msgstr ""
 "de la ventana y pulse <key>Intro</key> para establecer el mensaje."
 
 #: C/set-custom-status.page:64(p)
+#| msgid ""
+#| "If you want to set the custom message as a favorite, saving it in order "
+#| "to use it again, click on the little star on the right of the text box "
+#| "where you wrote your custom message."
 msgid ""
 "If you want to set the custom message as a favorite, saving it in order to "
-"use it again, click on the little star on the right of the text box where "
+"use it again, click on the little heart on the right of the text box where "
 "you wrote your custom message."
 msgstr ""
 "Si quiere establecer el mensaje personalizado como un favorito, guardándolo "
-"para usarlo de nuevo, pulse en la pequeña estrella a la derecha de la caja "
-"de texto donde escribió su mensaje personalizado."
+"para usarlo de nuevo, pulse en el pequeño corazón a la derecha de la caja de "
+"texto donde escribió su mensaje personalizado."
 
 #: C/set-custom-status.page:69(p)
 msgid ""
@@ -499,8 +503,9 @@ msgstr ""
 "que use <app>Empathy</app>. Sólo se guardará durante la sesión actual."
 
 #: C/set-custom-status.page:78(title)
-msgid "Edit, remove and add a custom message"
-msgstr "Editar, quitar y añadir un mensaje personalizado"
+#| msgid "To remove a custom message:"
+msgid "Edit and remove a custom message"
+msgstr "Editar y quitar un mensaje personalizado"
 
 #: C/set-custom-status.page:88(p)
 msgid "Select <gui>Edit Custom Message</gui>."
@@ -540,42 +545,22 @@ msgstr ""
 msgid "Click on the <gui>Remove</gui> button."
 msgstr "Pulse el botón <gui>Quitar</gui>."
 
-#: C/set-custom-status.page:131(p)
-msgid ""
-"To add a new custom message, from the <gui>Add New Preset</gui> section:"
-msgstr ""
-"Para añadir un mensaje personalizado nuevo, desde la sección <gui>Añadir "
-"estado guardado</gui> "
-
-#: C/set-custom-status.page:136(p)
-msgid ""
-"Click on the drop-down list to select the status you want to set a custom "
-"message to."
-msgstr ""
-"Pulse en la lista desplegable para seleccionar el estado en el que quiere "
-"establecer un mensaje personalizado."
-
-#: C/set-custom-status.page:142(p)
-msgid "Click on the text box, and type the new custom message."
-msgstr "Pulse en la caja de texto y escriba el mensaje personalizado nuevo."
-
-#: C/set-custom-status.page:147(p)
-msgid "Click on <gui>Add</gui> to add the new message to the presets ones."
-msgstr "Pulse <gui>Añadir</gui> para añadir un mensaje nuevo a los guardados."
-
-#: C/set-custom-status.page:156(p)
+#: C/set-custom-status.page:133(p)
 msgid "When finished, click on <gui>Close</gui>."
 msgstr "Cuando haya terminado pulse <gui>Cerrar</gui>."
 
-#: C/set-custom-status.page:163(p)
+#: C/set-custom-status.page:140(p)
+#| msgid ""
+#| "When you edit or add a new custom message, it will not be set as the "
+#| "current status message. You will need to select it from the <gui>Contact "
+#| "List</gui> window."
 msgid ""
-"When you edit or add a new custom message, it will not be set as the current "
-"status message. You will need to select it from the <gui>Contact List</gui> "
-"window."
+"When you edit a custom message, it will not be set as the current status "
+"message. You will need to select it from the <gui>Contact List</gui> window."
 msgstr ""
-"Cuando edita o añade un mensaje personalizado nuevo no se establece como el "
-"mensaje de estado actual. Tiene que seleccionarlo en la ventana de "
-"<gui>Lista de contactos</gui>."
+"Cuando edita un mensaje personalizado nuevo no se establece como el mensaje "
+"de estado actual. Deberá seleccionarlo en la ventana de <gui>Lista de "
+"contactos</gui>."
 
 #: C/send-message.page:8(desc)
 msgid "Send a message to one of your contacts."
@@ -793,7 +778,6 @@ msgstr ""
 "izquierda de la ventana."
 
 #: C/remove-account.page:51(p)
-#| msgid "Click <gui style=\"button\">Add</gui>."
 msgid "Click <gui style=\"button\">-</gui>."
 msgstr "Pulse <gui style=\"button\">-</gui>."
 
@@ -922,8 +906,8 @@ msgid ""
 "An error message which says “<gui>Name in use</gui>” appears in the main "
 "window."
 msgstr ""
-"Aparecen en la ventana principal un mensaje de error que dice «<gui>Nombre en "
-"uso</gui>»."
+"Aparecen en la ventana principal un mensaje de error que dice «<gui>Nombre "
+"en uso</gui>»."
 
 #: C/prob-conn-name.page:33(title)
 msgid "I get a message that says “Name in use”"
@@ -1086,9 +1070,6 @@ msgstr ""
 "<key>F3</key>."
 
 #: C/prev-conv.page:63(p)
-#| msgid ""
-#| "Select an account from the drop-down list in the top left. A list of "
-#| "contacts and chat room for that account will be shown below."
 msgid ""
 "Select an account from the drop-down list in the top. A list of contacts and "
 "chat room for that account will be shown below."
@@ -1103,10 +1084,6 @@ msgstr ""
 "Escriba el texto que quiere buscar en el cuadro de texto <gui>Buscar</gui>"
 
 #: C/prev-conv.page:71(p)
-#| msgid ""
-#| "Any conversations that matched your search terms will be shown in the "
-#| "list below the search field. By default, conversations are ordered by "
-#| "date."
 msgid ""
 "Any conversations that matched your search terms will be shown. By default, "
 "conversations are ordered by date."
@@ -1156,9 +1133,6 @@ msgstr ""
 "examinar fechas anteriores."
 
 #: C/prev-conv.page:105(p)
-#| msgid ""
-#| "You can search for text in the displayed conversation by typing into the "
-#| "search field at the top. The matching text will be highlighted."
 msgid ""
 "You can search for text in the conversations by typing into the search field "
 "at the top. The matching conversations will be showed."
@@ -1168,11 +1142,6 @@ msgstr ""
 "coincidentes."
 
 #: C/prev-conv.page:111(p)
-#| msgid ""
-#| "You can quickly view the previous conversations with one of your contacts "
-#| "from the <gui>Contact List</gui> window. Simply right click the contact "
-#| "and choose <gui>View Previous Conversations</gui>. The <gui>Previous "
-#| "Conversations</gui> window will open with that contact already selected."
 msgid ""
 "You can quickly view the previous conversations with one of your contacts "
 "from the <gui>Contact List</gui> window. Simply right click the contact and "
@@ -1493,15 +1462,15 @@ msgstr ""
 "en ciertas redes de IRC. Actualmente no es posible registrar un apodo IRC o "
 "cambiar la contraseña de su apodo con <app>Empathy</app>."
 
-#: C/irc-manage.page:10(desc)
+#: C/irc-manage.page:9(desc)
 msgid "How to use IRC with <app>Empathy</app>."
 msgstr "Cómo usar el IRC con <app>Empathy</app>."
 
-#: C/irc-manage.page:35(title)
+#: C/irc-manage.page:34(title)
 msgid "Internet Relay Chat (IRC)"
 msgstr "Internet Relay Chat (IRC)"
 
-#: C/irc-manage.page:38(p) C/account-irc.page:39(p)
+#: C/irc-manage.page:37(p) C/account-irc.page:39(p)
 msgid ""
 "You must have the <sys>telepathy-idle</sys> package installed to use IRC in "
 "<app>Empathy</app>."
@@ -1509,23 +1478,23 @@ msgstr ""
 "Debe tener instalado el paquete <sys>telepathy-idle</sys> para poder usar el "
 "IRC en <app>Empathy</app>."
 
-#: C/irc-manage.page:42(link)
+#: C/irc-manage.page:41(link)
 msgid "Install telepathy-idle"
 msgstr "Instale telepathy-idle"
 
-#: C/irc-manage.page:49(title)
+#: C/irc-manage.page:48(title)
 msgid "IRC Chat Rooms and Conversations"
 msgstr "Salas de chat y conversaciones en el IRC"
 
-#: C/irc-manage.page:51(title)
+#: C/irc-manage.page:50(title)
 msgid "Chat Rooms and Conversations"
 msgstr "Salas de chat y conversaciones"
 
-#: C/irc-manage.page:56(title)
+#: C/irc-manage.page:55(title)
 msgid "Common IRC Problems"
 msgstr "Problemas comunes en el IRC"
 
-#: C/irc-manage.page:58(title) C/index.page:55(title)
+#: C/irc-manage.page:57(title) C/index.page:55(title)
 msgid "Common Problems"
 msgstr "Problemas comunes"
 
@@ -2992,7 +2961,6 @@ msgstr ""
 "account\"/>."
 
 #: C/add-account.page:53(p)
-#| msgid "Click <gui style=\"button\">Add</gui>."
 msgid "Click <gui style=\"button\">+</gui>."
 msgstr "Pulse <gui style=\"button\">+</gui>."
 
@@ -3017,11 +2985,6 @@ msgstr ""
 "Para obtener más información consulte la <link xref=\"create-account\"/>."
 
 #: C/add-account.page:69(p)
-#| msgid ""
-#| "Enter the required information. For most accounts, you will only need a "
-#| "login ID and a password. Some accounts may require additional "
-#| "information. See <link xref=\"accounts-window#details\"/> for more "
-#| "information."
 msgid ""
 "Enter the required information. For most accounts, you will only need a "
 "login ID and a password. Some accounts may require additional information. "
@@ -3354,8 +3317,8 @@ msgid ""
 "height=\"16\">Remove</media>."
 msgstr ""
 "Para quitar una red de la lista seleccione y pulse <media type=\"image\" "
-"mime=\"image/png\" src=\"figures/gtk-remove.png\" width=\"16\" height=\"16"
-"\">Quitar</media>."
+"mime=\"image/png\" src=\"figures/gtk-remove.png\" width=\"16\" height="
+"\"16\">Quitar</media>."
 
 #: C/account-irc.page:115(p)
 msgid ""
@@ -3443,6 +3406,29 @@ msgstr ""
 #: C/index.page:0(None)
 msgid "translator-credits"
 msgstr "Jorge González <jorgegonz@svn.gnome.org>, 2008-2010"
+
+#~ msgid "Edit, remove and add a custom message"
+#~ msgstr "Editar, quitar y añadir un mensaje personalizado"
+
+#~ msgid ""
+#~ "To add a new custom message, from the <gui>Add New Preset</gui> section:"
+#~ msgstr ""
+#~ "Para añadir un mensaje personalizado nuevo, desde la sección <gui>Añadir "
+#~ "estado guardado</gui> "
+
+#~ msgid ""
+#~ "Click on the drop-down list to select the status you want to set a custom "
+#~ "message to."
+#~ msgstr ""
+#~ "Pulse en la lista desplegable para seleccionar el estado en el que quiere "
+#~ "establecer un mensaje personalizado."
+
+#~ msgid "Click on the text box, and type the new custom message."
+#~ msgstr "Pulse en la caja de texto y escriba el mensaje personalizado nuevo."
+
+#~ msgid "Click on <gui>Add</gui> to add the new message to the presets ones."
+#~ msgstr ""
+#~ "Pulse <gui>Añadir</gui> para añadir un mensaje nuevo a los guardados."
 
 #~ msgid "Click on <gui style=\"button\">Remove</gui>."
 #~ msgstr "Pulse <gui style=\"button\">Quitar</gui>."
