@@ -60,8 +60,8 @@
                   <object class="GtkGrid" id="greid14">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="column_spacing">12</property>
                     <property name="row_spacing">6</property>
+                    <property name="column_spacing">12</property>
                     <child>
                       <object class="GtkLabel" id="label_network">
                         <property name="visible">True</property>
@@ -70,6 +70,10 @@
                         <property name="label" translatable="yes">Network:</property>
                       </object>
                       <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
                       </packing>
                     </child>
                     <child>
@@ -80,8 +84,10 @@
                         <property name="label" translatable="yes">Character set:</property>
                       </object>
                       <packing>
-                        <property name="top_attach">1</property>
                         <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
                       </packing>
                     </child>
                     <child>
@@ -91,6 +97,9 @@
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
+                        <property name="top_attach">0</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
                       </packing>
                     </child>
                     <child>
@@ -101,6 +110,8 @@
                       <packing>
                         <property name="left_attach">1</property>
                         <property name="top_attach">1</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
                       </packing>
                     </child>
                   </object>
@@ -140,14 +151,15 @@
                   <object class="GtkGrid" id="grid15">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="column_spacing">6</property>
                     <property name="row_spacing">6</property>
+                    <property name="column_spacing">6</property>
                     <child>
-                      <object class="GtkScrolledWindow" id="scrolledwindow19">
+                      <object class="GtkScrolledWindow" id="scrolledwindow_network_server">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="hscrollbar_policy">never</property>
                         <property name="shadow_type">in</property>
+                        <property name="expand">True</property>
                         <child>
                           <object class="GtkTreeView" id="treeview_servers">
                             <property name="visible">True</property>
@@ -160,81 +172,73 @@
                         </child>
                       </object>
                       <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkVButtonBox" id="vbuttonbox1">
+                      <object class="GtkToolbar" id="toolbar_network_server">
                         <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="spacing">6</property>
-                        <property name="layout_style">start</property>
+                        <property name="icon_size">1</property>
+                        <style>
+                          <class name="inline-toolbar"/>
+                        </style>
                         <child>
-                          <object class="GtkButton" id="button_add">
-                            <property name="label">gtk-add</property>
+                          <object class="GtkToolButton" id="button_add">
+                            <property name="tooltip-text" translatable="yes">Add…</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="can_default">True</property>
-                            <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
-                            <property name="use_stock">True</property>
+                            <property name="receives_default">True</property>
+                            <property name="icon_name">list-add-symbolic</property>
+                            <property name="use_underline">True</property>
                           </object>
                           <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">0</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkButton" id="button_remove">
-                            <property name="label">gtk-remove</property>
+                          <object class="GtkToolButton" id="button_remove">
+                            <property name="tooltip-text" translatable="yes">Remove</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="can_default">True</property>
-                            <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
-                            <property name="use_stock">True</property>
+                            <property name="receives_default">True</property>
+                            <property name="icon_name">list-remove-symbolic</property>
+                            <property name="use_underline">True</property>
                           </object>
                           <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">1</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkButton" id="button_up">
-                            <property name="label">gtk-go-up</property>
+                          <object class="GtkToolButton" id="button_up">
+                            <property name="tooltip-text" translatable="yes">Up</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="can_default">True</property>
-                            <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
-                            <property name="use_stock">True</property>
+                            <property name="receives_default">True</property>
+                            <property name="icon_name">go-up-symbolic</property>
+                            <property name="use_underline">True</property>
                           </object>
                           <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">2</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkButton" id="button_down">
-                            <property name="label">gtk-go-down</property>
+                          <object class="GtkToolButton" id="button_down">
+                            <property name="tooltip-text" translatable="yes">Down</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="can_default">True</property>
-                            <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
-                            <property name="use_stock">True</property>
+                            <property name="receives_default">True</property>
+                            <property name="icon_name">go-down-symbolic</property>
+                            <property name="use_underline">True</property>
                           </object>
                           <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">3</property>
                           </packing>
                         </child>
                       </object>
                       <packing>
-                        <property name="left_attach">1</property>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
                       </packing>
                     </child>
                   </object>
@@ -351,12 +355,6 @@
           </packing>
         </child>
         <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
           <object class="GtkLabel" id="label_password">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -385,8 +383,8 @@
           <object class="GtkGrid" id="grid_irc_settings1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="column_spacing">12</property>
             <property name="row_spacing">6</property>
+            <property name="column_spacing">12</property>
             <child>
               <object class="GtkEntry" id="entry_quit_message">
                 <property name="visible">True</property>
@@ -396,6 +394,8 @@
               <packing>
                 <property name="left_attach">1</property>
                 <property name="top_attach">2</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
               </packing>
             </child>
             <child>
@@ -406,7 +406,10 @@
                 <property name="label" translatable="yes">Quit message:</property>
               </object>
               <packing>
+                <property name="left_attach">3</property>
                 <property name="top_attach">2</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
               </packing>
             </child>
             <child>
@@ -419,6 +422,8 @@
               <packing>
                 <property name="left_attach">1</property>
                 <property name="top_attach">1</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
               </packing>
             </child>
             <child>
@@ -431,8 +436,10 @@
                 <property name="mnemonic_widget">entry_nick</property>
               </object>
               <packing>
-                <property name="top_attach">1</property>
                 <property name="left_attach">0</property>
+                <property name="top_attach">1</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
               </packing>
             </child>
             <child>
@@ -445,6 +452,9 @@
               </object>
               <packing>
                 <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
               </packing>
             </child>
             <child>
@@ -456,6 +466,9 @@
               </object>
               <packing>
                 <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
               </packing>
             </child>
           </object>
