@@ -32,7 +32,6 @@
 #include <telepathy-glib/util.h>
 
 #include "empathy-utils.h"
-#include "empathy-connectivity.h"
 
 #define DEBUG_FLAG EMPATHY_DEBUG_OTHER
 #include "empathy-debug.h"
@@ -47,7 +46,6 @@
 struct _EmpathyPresenceManagerPrivate
 {
   DBusGProxy *gs_proxy;
-  EmpathyConnectivity *connectivity;
 
   gboolean ready;
 
@@ -56,8 +54,6 @@ struct _EmpathyPresenceManagerPrivate
   gboolean auto_away;
 
   TpConnectionPresenceType away_saved_state;
-  TpConnectionPresenceType saved_state;
-  gchar *saved_status;
 
   gboolean is_idle;
   guint ext_away_timeout;
@@ -175,9 +171,8 @@ session_status_changed_cb (DBusGProxy *gs_proxy,
     is_idle ? "yes" : "no");
 
   if (!self->priv->auto_away ||
-      (self->priv->saved_state == TP_CONNECTION_PRESENCE_TYPE_UNSET &&
-       (self->priv->state <= TP_CONNECTION_PRESENCE_TYPE_OFFLINE ||
-        self->priv->state == TP_CONNECTION_PRESENCE_TYPE_HIDDEN)))
+      (self->priv->state <= TP_CONNECTION_PRESENCE_TYPE_OFFLINE ||
+        self->priv->state == TP_CONNECTION_PRESENCE_TYPE_HIDDEN))
     {
       /* We don't want to go auto away OR we explicitely asked to be
        * offline, nothing to do here */
@@ -192,13 +187,7 @@ session_status_changed_cb (DBusGProxy *gs_proxy,
 
       ext_away_start (self);
 
-      if (self->priv->saved_state != TP_CONNECTION_PRESENCE_TYPE_UNSET)
-        /* We are disconnected, when coming back from away
-         * we want to restore the presence before the
-         * disconnection. */
-        self->priv->away_saved_state = self->priv->saved_state;
-      else
-        self->priv->away_saved_state = self->priv->state;
+      self->priv->away_saved_state = self->priv->state;
 
     new_state = TP_CONNECTION_PRESENCE_TYPE_AWAY;
     if (self->priv->state == TP_CONNECTION_PRESENCE_TYPE_EXTENDED_AWAY)
@@ -241,37 +230,6 @@ session_status_changed_cb (DBusGProxy *gs_proxy,
 }
 
 static void
-state_change_cb (EmpathyConnectivity *connectivity,
-    gboolean new_online,
-    EmpathyPresenceManager *self)
-{
-  if (!new_online)
-    {
-      /* We are no longer connected */
-      DEBUG ("Disconnected: Save state %d (%s)",
-          self->priv->state, self->priv->status);
-      self->priv->saved_state = self->priv->state;
-      g_free (self->priv->saved_status);
-      self->priv->saved_status = g_strdup (self->priv->status);
-      empathy_presence_manager_set_state (self,
-          TP_CONNECTION_PRESENCE_TYPE_OFFLINE);
-    }
-  else if (new_online
-      && self->priv->saved_state != TP_CONNECTION_PRESENCE_TYPE_UNSET)
-    {
-      /* We are now connected */
-      DEBUG ("Reconnected: Restore state %d (%s)",
-          self->priv->saved_state, self->priv->saved_status);
-      empathy_presence_manager_set_presence (self,
-          self->priv->saved_state,
-          self->priv->saved_status);
-      self->priv->saved_state = TP_CONNECTION_PRESENCE_TYPE_UNSET;
-      g_free (self->priv->saved_status);
-      self->priv->saved_status = NULL;
-    }
-}
-
-static void
 presence_manager_dispose (GObject *object)
 {
   EmpathyPresenceManager *self = (EmpathyPresenceManager *) object;
@@ -279,7 +237,6 @@ presence_manager_dispose (GObject *object)
   tp_clear_object (&self->priv->gs_proxy);
   tp_clear_object (&self->priv->manager);
 
-  tp_clear_object (&self->priv->connectivity);
   tp_clear_pointer (&self->priv->connect_times, g_hash_table_unref);
 
   next_away_stop (EMPATHY_PRESENCE_MANAGER (object));
@@ -530,11 +487,6 @@ empathy_presence_manager_init (EmpathyPresenceManager *self)
 
   g_object_unref (dbus);
 
-  self->priv->connectivity = empathy_connectivity_dup_singleton ();
-
-  tp_g_signal_connect_object (self->priv->connectivity,
-      "state-change", G_CALLBACK (state_change_cb), self, 0);
-
   self->priv->connect_times = g_hash_table_new (g_direct_hash, g_direct_equal);
 }
 
@@ -608,22 +560,6 @@ empathy_presence_manager_set_presence (EmpathyPresenceManager *self,
   default_status = empathy_presence_get_default_message (state);
   if (!tp_strdiff (status, default_status))
     status = NULL;
-
-  if (state != TP_CONNECTION_PRESENCE_TYPE_OFFLINE &&
-      !empathy_connectivity_is_online (self->priv->connectivity))
-    {
-      DEBUG ("Empathy is not online");
-
-      self->priv->saved_state = state;
-      if (tp_strdiff (self->priv->status, status))
-        {
-          g_free (self->priv->saved_status);
-          self->priv->saved_status = NULL;
-          if (!EMP_STR_EMPTY (status))
-            self->priv->saved_status = g_strdup (status);
-        }
-      return;
-    }
 
   empathy_presence_manager_do_set_presence (self, state, status);
 }
