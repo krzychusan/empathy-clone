@@ -1604,15 +1604,19 @@ chat_subject_changed_cb (EmpathyChat *chat)
 			gtk_widget_show (priv->hbox_topic);
 		}
 		if (priv->block_events_timeout_id == 0) {
-			gchar *str;
+			gchar *str = NULL;
 
 			if (!EMP_STR_EMPTY (priv->subject)) {
 				str = g_strdup_printf (_("Topic set to: %s"), priv->subject);
-			} else {
+			} else if (empathy_tp_chat_supports_subject (priv->tp_chat)) {
+				/* No need to display this 'event' is no topic can be defined anyway */
 				str = g_strdup (_("No topic defined"));
 			}
-			empathy_chat_view_append_event (EMPATHY_CHAT (chat)->view, str);
-			g_free (str);
+
+			if (str != NULL) {
+				empathy_chat_view_append_event (EMPATHY_CHAT (chat)->view, str);
+				g_free (str);
+			}
 		}
 }
 
