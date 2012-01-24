@@ -1980,31 +1980,12 @@ accounts_dialog_add_account (EmpathyAccountsDialog *dialog,
 }
 
 static void
-account_prepare_cb (GObject *source_object,
-    GAsyncResult *result,
-    gpointer user_data)
-{
-  EmpathyAccountsDialog *dialog = EMPATHY_ACCOUNTS_DIALOG (user_data);
-  TpAccount *account = TP_ACCOUNT (source_object);
-  GError *error = NULL;
-
-  if (!tp_proxy_prepare_finish (account, result, &error))
-    {
-      DEBUG ("Failed to prepare account: %s", error->message);
-      g_error_free (error);
-      return;
-    }
-
-  accounts_dialog_add_account (dialog, account);
-}
-
-static void
 accounts_dialog_account_validity_changed_cb (TpAccountManager *manager,
     TpAccount *account,
     gboolean valid,
     EmpathyAccountsDialog *dialog)
 {
-  tp_proxy_prepare_async (account, NULL, account_prepare_cb, dialog);
+  accounts_dialog_add_account (dialog, account);
 }
 
 static void
