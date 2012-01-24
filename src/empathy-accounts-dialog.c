@@ -1637,15 +1637,15 @@ accounts_dialog_get_account_iter (EmpathyAccountsDialog *dialog,
        ok;
        ok = gtk_tree_model_iter_next (model, iter))
     {
-      EmpathyAccountSettings *settings;
+      TpAccount *this_account;
       gboolean   equal;
 
       gtk_tree_model_get (model, iter,
-          COL_ACCOUNT_SETTINGS, &settings,
+          COL_ACCOUNT, &this_account,
           -1);
 
-      equal = empathy_account_settings_has_account (settings, account);
-      g_object_unref (settings);
+      equal = (this_account == account);
+      g_object_unref (this_account);
 
       if (equal)
         return TRUE;
