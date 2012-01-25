@@ -144,10 +144,4 @@
       </packing>
     </child>
   </object>
-  <object class="GtkSizeGroup" id="sizegroup1">
-    <widgets>
-      <widget name="add-button"/>
-      <widget name="remove-button"/>
-    </widgets>
-  </object>
 </interface>
