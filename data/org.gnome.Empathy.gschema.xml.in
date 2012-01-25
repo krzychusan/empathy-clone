@@ -93,7 +93,7 @@ present them to the user immediately.</_description>
     <key name="sort-criterium" type="s">
       <default>'state'</default>
       <_summary>Contact list sort criterion</_summary>
-      <_description>Which criterion to use when sorting the contact list. Default is to sort by the contact's name with the value "name". A value of "state" will sort the contact list by state.</_description>
+      <_description>Which criterion to use when sorting the contact list. Default is to sort by the contact's state with the value "state". A value of "name" will sort the contact list by name.</_description>
     </key>
   </schema>
   <schema id="org.gnome.Empathy.sounds" path="/org/gnome/empathy/sounds/">
