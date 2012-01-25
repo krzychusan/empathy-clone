@@ -56,7 +56,8 @@ struct _EmpathyChatTextViewClass {
 
 	/* <vtable> */
 	void (*append_message) (EmpathyChatTextView *view,
-				EmpathyMessage      *message);
+				EmpathyMessage      *message,
+				gboolean             should_highlight);
 };
 
 #define EMPATHY_CHAT_TEXT_VIEW_TAG_CUT "cut"

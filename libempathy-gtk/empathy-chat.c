@@ -73,6 +73,7 @@ struct _EmpathyChatPriv {
 	gchar             *id;
 	gchar             *name;
 	gchar             *subject;
+	EmpathyContact    *self_contact;
 	EmpathyContact    *remote_contact;
 	gboolean           show_contacts;
 
@@ -155,6 +156,10 @@ struct _EmpathyChatPriv {
 	 * the keyboard or the mouse. We can't ask GTK for the most recent
 	 * event, because it will be a notify event. Instead we track it here */
 	GdkEventType       most_recent_event_type;
+
+	/* A regex matching our own current nickname in the room, or %NULL if
+	 * !empathy_chat_is_room(). */
+	GRegex            *highlight_regex;
 };
 
 typedef struct {
@@ -896,14 +901,12 @@ chat_command_me (EmpathyChat *chat,
 	if (!tp_text_channel_supports_message_type (channel,
 			TP_CHANNEL_TEXT_MESSAGE_TYPE_ACTION)) {
 		/* Action message are not supported, 'simulate' the action */
-		EmpathyContact *self_contact;
 		gchar *tmp;
 
-		self_contact = empathy_tp_chat_get_self_contact (priv->tp_chat);
 		/* The TpChat can't be ready if it doesn't have the self contact */
-		g_assert (self_contact != NULL);
+		g_assert (priv->self_contact != NULL);
 
-		tmp = g_strdup_printf ("%s %s", empathy_contact_get_alias (self_contact),
+		tmp = g_strdup_printf ("%s %s", empathy_contact_get_alias (priv->self_contact),
 			strv[1]);
 		message = tp_client_message_new_text (TP_CHANNEL_TEXT_MESSAGE_TYPE_NORMAL,
 			tmp);
@@ -1383,6 +1386,86 @@ chat_state_changed_cb (EmpathyTpChat      *tp_chat,
 	}
 }
 
+static GRegex *
+get_highlight_regex_for (const gchar *name)
+{
+	GRegex *regex;
+	gchar *name_esc, *pattern;
+	GError *error = NULL;
+
+	name_esc = g_regex_escape_string (name, -1);
+	pattern = g_strdup_printf ("\\b%s\\b", name_esc);
+	regex = g_regex_new (pattern, G_REGEX_CASELESS | G_REGEX_OPTIMIZE, 0,
+		&error);
+
+	if (regex == NULL) {
+		DEBUG ("couldn't compile regex /%s/: %s", pattern,
+			error->message);
+
+		g_error_free (error);
+	}
+
+	g_free (pattern);
+	g_free (name_esc);
+
+	return regex;
+}
+
+/* Called when priv->self_contact changes, or priv->self_contact:alias changes.
+ * Only connected if empathy_chat_is_room() is TRUE, for obvious-ish reasons.
+ */
+static void
+chat_self_contact_alias_changed_cb (EmpathyChat *chat)
+{
+	EmpathyChatPriv *priv = GET_PRIV (chat);
+
+	tp_clear_pointer (&priv->highlight_regex, g_regex_unref);
+
+	if (priv->self_contact != NULL) {
+		const gchar *alias = empathy_contact_get_alias (priv->self_contact);
+
+		g_return_if_fail (alias != NULL);
+		priv->highlight_regex = get_highlight_regex_for (alias);
+	}
+}
+
+static gboolean
+chat_should_highlight (EmpathyChat *chat,
+	EmpathyMessage *message)
+{
+	EmpathyChatPriv *priv = GET_PRIV (chat);
+	const gchar   *msg;
+	TpChannelTextMessageFlags flags;
+
+	g_return_val_if_fail (EMPATHY_IS_MESSAGE (message), FALSE);
+
+	if (!empathy_chat_is_room (chat)) {
+		return FALSE;
+	}
+
+	if (!empathy_message_is_incoming (message)) {
+		return FALSE;
+	}
+
+	msg = empathy_message_get_body (message);
+	if (!msg) {
+		return FALSE;
+	}
+
+	flags = empathy_message_get_flags (message);
+	if (flags & TP_CHANNEL_TEXT_MESSAGE_FLAG_SCROLLBACK) {
+		/* FIXME: Ideally we shouldn't highlight scrollback messages only if they
+		 * have already been received by the user before (and so are in the logs) */
+		return FALSE;
+	}
+
+	if (priv->highlight_regex == NULL) {
+		return FALSE;
+	}
+
+	return g_regex_match (priv->highlight_regex, msg, 0, NULL);
+}
+
 static void
 chat_message_received (EmpathyChat *chat,
 	EmpathyMessage *message,
@@ -1400,19 +1483,21 @@ chat_message_received (EmpathyChat *chat,
 
 		empathy_chat_view_edit_message (chat->view, message);
 	} else {
+		gboolean should_highlight = chat_should_highlight (chat, message);
 		DEBUG ("Appending new message '%s' from %s (%d)",
 			empathy_message_get_token (message),
 			empathy_contact_get_alias (sender),
 			empathy_contact_get_handle (sender));
 
-		empathy_chat_view_append_message (chat->view, message);
+		empathy_chat_view_append_message (chat->view, message, should_highlight);
 
 		if (empathy_message_is_incoming (message)) {
 			priv->unread_messages++;
 			g_object_notify (G_OBJECT (chat), "nb-unread-messages");
 		}
 
-		g_signal_emit (chat, signals[NEW_MESSAGE], 0, message, pending);
+		g_signal_emit (chat, signals[NEW_MESSAGE], 0, message, pending,
+			       should_highlight);
 	}
 
 	/* We received a message so the contact is no longer
@@ -2495,13 +2580,15 @@ got_filtered_messages_cb (GObject *manager,
 				"sender", empathy_message_get_sender (message),
 				NULL);
 
-			empathy_chat_view_append_message (chat->view, syn_msg);
+			empathy_chat_view_append_message (chat->view, syn_msg,
+							  chat_should_highlight (chat, syn_msg));
 			empathy_chat_view_edit_message (chat->view, message);
 
 			g_object_unref (syn_msg);
 		} else {
 			/* append the latest message */
-			empathy_chat_view_append_message (chat->view, message);
+			empathy_chat_view_append_message (chat->view, message,
+							  chat_should_highlight (chat, message));
 		}
 
 		g_object_unref (message);
@@ -2797,6 +2884,32 @@ empathy_chat_set_show_contacts (EmpathyChat *chat,
 	chat_update_contacts_visibility (chat, show);
 
 	g_object_notify (G_OBJECT (chat), "show-contacts");
+}
+
+static void
+chat_self_contact_changed_cb (EmpathyChat *chat)
+{
+	EmpathyChatPriv *priv = GET_PRIV (chat);
+
+	if (priv->self_contact != NULL) {
+		g_signal_handlers_disconnect_by_func (priv->self_contact,
+						      chat_self_contact_alias_changed_cb,
+						      chat);
+	}
+	g_clear_object (&priv->self_contact);
+
+	priv->self_contact = empathy_tp_chat_get_self_contact (priv->tp_chat);
+	if (priv->self_contact != NULL) {
+		g_object_ref (priv->self_contact);
+
+		if (empathy_chat_is_room (chat)) {
+			g_signal_connect_swapped (priv->self_contact, "notify::alias",
+					  G_CALLBACK (chat_self_contact_alias_changed_cb),
+					  chat);
+		}
+	}
+
+	chat_self_contact_alias_changed_cb (chat);
 }
 
 static void
@@ -3154,6 +3267,8 @@ chat_finalize (GObject *object)
 		g_signal_handlers_disconnect_by_func (priv->tp_chat,
 			chat_members_changed_cb, chat);
 		g_signal_handlers_disconnect_by_func (priv->tp_chat,
+			chat_self_contact_changed_cb, chat);
+		g_signal_handlers_disconnect_by_func (priv->tp_chat,
 			chat_remote_contact_changed_cb, chat);
 		g_signal_handlers_disconnect_by_func (priv->tp_chat,
 			chat_title_changed_cb, chat);
@@ -3164,6 +3279,12 @@ chat_finalize (GObject *object)
 	}
 	if (priv->account) {
 		g_object_unref (priv->account);
+	}
+	if (priv->self_contact) {
+		g_signal_handlers_disconnect_by_func (priv->self_contact,
+						      chat_self_contact_alias_changed_cb,
+						      chat);
+		g_object_unref (priv->self_contact);
 	}
 	if (priv->remote_contact) {
 		g_object_unref (priv->remote_contact);
@@ -3177,6 +3298,8 @@ chat_finalize (GObject *object)
 	g_free (priv->name);
 	g_free (priv->subject);
 	g_completion_free (priv->completion);
+
+	tp_clear_pointer (&priv->highlight_regex, g_regex_unref);
 
 	G_OBJECT_CLASS (empathy_chat_parent_class)->finalize (object);
 }
@@ -3300,6 +3423,14 @@ empathy_chat_class_init (EmpathyChatClass *klass)
 			      G_TYPE_NONE,
 			      1, G_TYPE_BOOLEAN);
 
+	/**
+	 * EmpathyChat::new-message:
+	 * @self: the #EmpathyChat
+	 * @message: the new message
+	 * @pending: whether the message was in the pending queue when @self
+	 *  was created
+	 * @should_highlight: %TRUE if the message mentions the local user
+	 */
 	signals[NEW_MESSAGE] =
 		g_signal_new ("new-message",
 			      G_OBJECT_CLASS_TYPE (object_class),
@@ -3308,7 +3439,7 @@ empathy_chat_class_init (EmpathyChatClass *klass)
 			      NULL, NULL,
 			      g_cclosure_marshal_generic,
 			      G_TYPE_NONE,
-			      2, EMPATHY_TYPE_MESSAGE, G_TYPE_BOOLEAN);
+			      3, EMPATHY_TYPE_MESSAGE, G_TYPE_BOOLEAN, G_TYPE_BOOLEAN);
 
 	signals[PART_COMMAND_ENTERED] =
 			g_signal_new ("part-command-entered",
@@ -3874,6 +4005,9 @@ empathy_chat_set_tp_chat (EmpathyChat   *chat,
 	g_signal_connect (tp_chat, "member-renamed",
 			  G_CALLBACK (chat_member_renamed_cb),
 			  chat);
+	g_signal_connect_swapped (tp_chat, "notify::self-contact",
+				  G_CALLBACK (chat_self_contact_changed_cb),
+				  chat);
 	g_signal_connect_swapped (tp_chat, "notify::remote-contact",
 				  G_CALLBACK (chat_remote_contact_changed_cb),
 				  chat);
@@ -3895,6 +4029,7 @@ empathy_chat_set_tp_chat (EmpathyChat   *chat,
 
 	/* Get initial value of properties */
 	chat_sms_channel_changed_cb (chat);
+	chat_self_contact_changed_cb (chat);
 	chat_remote_contact_changed_cb (chat);
 	chat_title_changed_cb (chat);
 	chat_subject_changed_cb (chat);

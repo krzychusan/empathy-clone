@@ -337,7 +337,8 @@ theme_boxes_maybe_append_header (EmpathyThemeBoxes *theme,
 
 static void
 theme_boxes_append_message (EmpathyChatTextView *view,
-			    EmpathyMessage      *message)
+			    EmpathyMessage      *message,
+			    gboolean             should_highlight)
 {
 	EmpathyContact *sender;
 

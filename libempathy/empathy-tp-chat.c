@@ -69,6 +69,7 @@ static void tp_chat_iface_init         (EmpathyContactListIface *iface);
 enum {
 	PROP_0,
 	PROP_ACCOUNT,
+	PROP_SELF_CONTACT,
 	PROP_REMOTE_CONTACT,
 	PROP_N_MESSAGES_SENDING,
 	PROP_TITLE,
@@ -948,6 +949,7 @@ tp_chat_got_renamed_contacts_cb (TpConnection            *connection,
 		/* We change our nick */
 		tp_clear_object (&self->priv->user);
 		self->priv->user = g_object_ref (new);
+		g_object_notify (chat, "self-contact");
 	}
 
 	check_almost_ready (self);
@@ -1068,6 +1070,7 @@ tp_chat_got_self_contact_cb (TpConnection            *connection,
 
 	self->priv->user = g_object_ref (contact);
 	empathy_contact_set_is_user (self->priv->user, TRUE);
+	g_object_notify (chat, "self-contact");
 	check_almost_ready (self);
 }
 
@@ -1082,6 +1085,9 @@ tp_chat_get_property (GObject    *object,
 	switch (param_id) {
 	case PROP_ACCOUNT:
 		g_value_set_object (value, self->priv->account);
+		break;
+	case PROP_SELF_CONTACT:
+		g_value_set_object (value, self->priv->user);
 		break;
 	case PROP_REMOTE_CONTACT:
 		g_value_set_object (value, self->priv->remote_contact);
@@ -1170,6 +1176,19 @@ empathy_tp_chat_class_init (EmpathyTpChatClass *klass)
 							      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT_ONLY |
 							      G_PARAM_STATIC_STRINGS));
+
+	/**
+	 * EmpathyTpChat:self-contact:
+	 *
+	 * Not to be confused with TpChannel:group-self-contact.
+	 */
+	g_object_class_install_property (object_class,
+					 PROP_SELF_CONTACT,
+					 g_param_spec_object ("self-contact",
+							      "The local contact",
+							      "The EmpathyContact for the local user on this channel",
+							      EMPATHY_TYPE_CONTACT,
+							      G_PARAM_READABLE));
 
 	g_object_class_install_property (object_class,
 					 PROP_REMOTE_CONTACT,

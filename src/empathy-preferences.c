@@ -678,7 +678,8 @@ static void
 preferences_preview_theme_append_message (EmpathyChatView *view,
 					  EmpathyContact *sender,
 					  EmpathyContact *receiver,
-					  const gchar *text)
+					  const gchar *text,
+					  gboolean should_highlight)
 {
 	EmpathyMessage *message;
 
@@ -688,7 +689,7 @@ preferences_preview_theme_append_message (EmpathyChatView *view,
 		"body", text,
 		NULL);
 
-	empathy_chat_view_append_message (view, message);
+	empathy_chat_view_append_message (view, message, should_highlight);
 	g_object_unref (message);
 }
 
@@ -735,19 +736,20 @@ preferences_preview_theme_changed_cb (EmpathyThemeManager *manager,
 
 	preferences_preview_theme_append_message (priv->chat_theme_preview,
 		/* translators: Quote from Romeo & Julier, for chat theme preview */
-		juliet, romeo, _("O Romeo, Romeo, wherefore art thou Romeo?"));
+		juliet, romeo, _("O Romeo, Romeo, wherefore art thou Romeo?"),
+		TRUE /* this message mentions Romeo */);
 	preferences_preview_theme_append_message (priv->chat_theme_preview,
 		/* translators: Quote from Romeo & Julier, for chat theme preview */
-		juliet, romeo, _("Deny thy father and refuse thy name;"));
+		juliet, romeo, _("Deny thy father and refuse thy name;"), FALSE);
 	preferences_preview_theme_append_message (priv->chat_theme_preview,
 		/* translators: Quote from Romeo & Julier, for chat theme preview */
-		juliet, romeo, _("Or if thou wilt not, be but sworn my love"));
+		juliet, romeo, _("Or if thou wilt not, be but sworn my love"), FALSE);
 	preferences_preview_theme_append_message (priv->chat_theme_preview,
 		/* translators: Quote from Romeo & Julier, for chat theme preview */
-		juliet, romeo, _("And I'll no longer be a Capulet."));
+		juliet, romeo, _("And I'll no longer be a Capulet."), FALSE);
 	preferences_preview_theme_append_message (priv->chat_theme_preview,
 		/* translators: Quote from Romeo & Julier, for chat theme preview */
-		romeo, juliet, _("Shall I hear more, or shall I speak at this?"));
+		romeo, juliet, _("Shall I hear more, or shall I speak at this?"), FALSE);
 
 	/* translators: Quote from Romeo & Julier, for chat theme preview */
 	empathy_chat_view_append_event (priv->chat_theme_preview, _("Juliet has disconnected"));
