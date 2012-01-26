@@ -189,8 +189,7 @@ copy_buffered_messages (GtkTreeModel *buffer,
       COL_DEBUG_MESSAGE, &message,
       COL_DEBUG_LEVEL_VALUE, &level,
       -1);
-  gtk_list_store_append (active_buffer, &active_buffer_iter);
-  gtk_list_store_set (active_buffer, &active_buffer_iter,
+  gtk_list_store_insert_with_values (active_buffer, &active_buffer_iter, -1,
       COL_DEBUG_TIMESTAMP, timestamp,
       COL_DEBUG_DOMAIN, domain,
       COL_DEBUG_CATEGORY, category,
@@ -965,8 +964,7 @@ debug_window_get_name_owner_cb (TpDBusDaemon *proxy,
       active_buffer = new_list_store_for_service ();
       pause_buffer = new_list_store_for_service ();
 
-      gtk_list_store_append (priv->service_store, &iter);
-      gtk_list_store_set (priv->service_store, &iter,
+      gtk_list_store_insert_with_values (priv->service_store, &iter, -1,
           COL_NAME, name,
           COL_UNIQUE_NAME, out,
           COL_GONE, FALSE,
@@ -991,8 +989,7 @@ debug_window_get_name_owner_cb (TpDBusDaemon *proxy,
     if (priv->services_detected == priv->name_owner_cb_count)
       {
         /* Time to add "All" selection to service_store */
-        gtk_list_store_prepend (priv->service_store, &iter);
-        gtk_list_store_set (priv->service_store, &iter,
+        gtk_list_store_insert_with_values (priv->service_store, &iter, 0,
             COL_NAME, "All",
             COL_ACTIVE_BUFFER, NULL,
             -1);
@@ -1104,8 +1101,7 @@ debug_window_name_owner_changed_cb (TpDBusDaemon *proxy,
           active_buffer = new_list_store_for_service ();
           pause_buffer = new_list_store_for_service ();
 
-          gtk_list_store_append (priv->service_store, &iter);
-          gtk_list_store_set (priv->service_store, &iter,
+          gtk_list_store_insert_with_values (priv->service_store, &iter, -1,
               COL_NAME, display_name,
               COL_UNIQUE_NAME, arg2,
               COL_GONE, FALSE,
@@ -1254,8 +1250,7 @@ debug_window_fill_service_chooser (EmpathyDebugWindow *debug_window)
   active_buffer= new_list_store_for_service ();
   pause_buffer = new_list_store_for_service ();
 
-  gtk_list_store_append (priv->service_store, &iter);
-  gtk_list_store_set (priv->service_store, &iter,
+  gtk_list_store_insert_with_values (priv->service_store, &iter, -1,
       COL_NAME, "mission-control",
       COL_UNIQUE_NAME, "org.freedesktop.Telepathy.MissionControl5",
       COL_GONE, FALSE,
@@ -1880,38 +1875,32 @@ am_prepared_cb (GObject *am,
   gtk_combo_box_set_model (GTK_COMBO_BOX (priv->level_filter),
       GTK_TREE_MODEL (level_store));
 
-  gtk_list_store_append (level_store, &iter);
-  gtk_list_store_set (level_store, &iter,
+  gtk_list_store_insert_with_values (level_store, &iter, -1,
       COL_LEVEL_NAME, _("Debug"),
       COL_LEVEL_VALUE, TP_DEBUG_LEVEL_DEBUG,
       -1);
 
-  gtk_list_store_append (level_store, &iter);
-  gtk_list_store_set (level_store, &iter,
+  gtk_list_store_insert_with_values (level_store, &iter, -1,
       COL_LEVEL_NAME, _("Info"),
       COL_LEVEL_VALUE, TP_DEBUG_LEVEL_INFO,
       -1);
 
-  gtk_list_store_append (level_store, &iter);
-  gtk_list_store_set (level_store, &iter,
+  gtk_list_store_insert_with_values (level_store, &iter, -1,
       COL_LEVEL_NAME, _("Message"),
       COL_LEVEL_VALUE, TP_DEBUG_LEVEL_MESSAGE,
       -1);
 
-  gtk_list_store_append (level_store, &iter);
-  gtk_list_store_set (level_store, &iter,
+  gtk_list_store_insert_with_values (level_store, &iter, -1,
       COL_LEVEL_NAME, _("Warning"),
       COL_LEVEL_VALUE, TP_DEBUG_LEVEL_WARNING,
       -1);
 
-  gtk_list_store_append (level_store, &iter);
-  gtk_list_store_set (level_store, &iter,
+  gtk_list_store_insert_with_values (level_store, &iter, -1,
       COL_LEVEL_NAME, _("Critical"),
       COL_LEVEL_VALUE, TP_DEBUG_LEVEL_CRITICAL,
       -1);
 
-  gtk_list_store_append (level_store, &iter);
-  gtk_list_store_set (level_store, &iter,
+  gtk_list_store_insert_with_values (level_store, &iter, -1,
       COL_LEVEL_NAME, _("Error"),
       COL_LEVEL_VALUE, TP_DEBUG_LEVEL_ERROR,
       -1);
