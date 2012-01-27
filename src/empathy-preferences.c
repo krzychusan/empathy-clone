@@ -67,7 +67,7 @@ struct _EmpathyPreferencesPriv {
 
 	GtkWidget *checkbutton_show_smileys;
 	GtkWidget *checkbutton_show_contacts_in_rooms;
-	GtkWidget *checkbutton_separate_chat_windows;
+	GtkWidget *radiobutton_chats_new_windows;
 	GtkWidget *checkbutton_events_notif_area;
 	GtkWidget *checkbutton_autoconnect;
 	GtkWidget *checkbutton_logging;
@@ -248,7 +248,7 @@ preferences_setup_widgets (EmpathyPreferences *preferences)
 
 	g_settings_bind (priv->gsettings_ui,
 			 EMPATHY_PREFS_UI_SEPARATE_CHAT_WINDOWS,
-			 priv->checkbutton_separate_chat_windows,
+			 priv->radiobutton_chats_new_windows,
 			 "active",
 			 G_SETTINGS_BIND_DEFAULT);
 
@@ -1172,7 +1172,7 @@ empathy_preferences_init (EmpathyPreferences *preferences)
 		"combobox_chat_theme_variant", &priv->combobox_chat_theme_variant,
 		"hbox_chat_theme_variant", &priv->hbox_chat_theme_variant,
 		"sw_chat_theme_preview", &priv->sw_chat_theme_preview,
-		"checkbutton_separate_chat_windows", &priv->checkbutton_separate_chat_windows,
+		"radiobutton_chats_new_windows", &priv->radiobutton_chats_new_windows,
 		"checkbutton_events_notif_area", &priv->checkbutton_events_notif_area,
 		"checkbutton_autoconnect", &priv->checkbutton_autoconnect,
 		"checkbutton_logging", &priv->checkbutton_logging,
