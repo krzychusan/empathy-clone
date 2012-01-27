@@ -330,94 +330,100 @@ void
 empathy_individual_store_add_individual (EmpathyIndividualStore *self,
     FolksIndividual *individual)
 {
-  GtkTreeIter iter;
-  GeeIterator *group_iter = NULL;
+  GtkTreeIter iter, iter_group;
+  GeeSet *group_set = NULL;
+  gboolean grouped = FALSE;
 
   if (EMP_STR_EMPTY (folks_alias_details_get_alias (
           FOLKS_ALIAS_DETAILS (individual))))
     return;
 
-  if (self->priv->show_groups)
+  if (!self->priv->show_groups)
     {
-      GeeSet *group_set = NULL;
+      /* add our individual to the toplevel of the store */
+      add_individual_to_store (GTK_TREE_STORE (self), &iter, NULL,
+          individual);
 
-      group_set = folks_group_details_get_groups (
-          FOLKS_GROUP_DETAILS (individual));
-
-      if (gee_collection_get_size (GEE_COLLECTION (group_set)) > 0)
-        group_iter = gee_iterable_iterator (GEE_ITERABLE (group_set));
+      goto finally;
     }
 
-  /* fall-back groups, in case there are no named groups */
-  if (group_iter == NULL)
+  group_set = folks_group_details_get_groups (
+      FOLKS_GROUP_DETAILS (individual));
+
+  if (gee_collection_get_size (GEE_COLLECTION (group_set)) > 0)
     {
-      GtkTreeIter iter_group, *parent;
+      /* add the contact to its groups */
+      GeeIterator *group_iter =
+        gee_iterable_iterator (GEE_ITERABLE (group_set));
+
+      while (group_iter != NULL && gee_iterator_next (group_iter))
+        {
+          gchar *group_name = gee_iterator_get (group_iter);
+
+          individual_store_get_group (self, group_name, &iter_group,
+              NULL, NULL, FALSE);
+
+          add_individual_to_store (GTK_TREE_STORE (self), &iter, &iter_group,
+              individual);
+          grouped = TRUE;
+
+          g_free (group_name);
+        }
+
+      g_clear_object (&group_iter);
+    }
+  else
+    {
+      /* fall-back groups, in case there are no named groups */
       EmpathyContact *contact;
       TpConnection *connection;
-      gchar *protocol_name = NULL;
-
-      parent = &iter_group;
+      const gchar *protocol_name = NULL;
 
       contact = empathy_contact_dup_from_folks_individual (individual);
       if (contact != NULL)
         {
           connection = empathy_contact_get_connection (contact);
-          tp_connection_parse_object_path (connection, &protocol_name, NULL);
+          protocol_name = tp_connection_get_protocol_name (connection);
         }
 
-      if (!self->priv->show_groups)
-        parent = NULL;
-      else if (!tp_strdiff (protocol_name, "local-xmpp"))
+      if (!tp_strdiff (protocol_name, "local-xmpp"))
         {
           /* these are People Nearby */
           individual_store_get_group (self,
               EMPATHY_INDIVIDUAL_STORE_PEOPLE_NEARBY, &iter_group, NULL, NULL,
               TRUE);
-        }
-      else
-        {
-          individual_store_get_group (self,
-              EMPATHY_INDIVIDUAL_STORE_UNGROUPED,
-              &iter_group, NULL, NULL, TRUE);
+          add_individual_to_store (GTK_TREE_STORE (self), &iter, &iter_group,
+              individual);
+          grouped = TRUE;
         }
 
-      add_individual_to_store (GTK_TREE_STORE (self), &iter, parent,
-          individual);
-
-      g_free (protocol_name);
       g_clear_object (&contact);
     }
 
-  /* Else add to each group. */
-  while (group_iter != NULL && gee_iterator_next (group_iter))
-    {
-      gchar *group_name = gee_iterator_get (group_iter);
-      GtkTreeIter iter_group;
-
-      individual_store_get_group (self, group_name, &iter_group, NULL, NULL,
-          FALSE);
-
-      add_individual_to_store (GTK_TREE_STORE (self), &iter, &iter_group,
-          individual);
-
-      g_free (group_name);
-    }
-  g_clear_object (&group_iter);
-
-  if (self->priv->show_groups &&
-      folks_favourite_details_get_is_favourite (
-          FOLKS_FAVOURITE_DETAILS (individual)))
+  if (folks_favourite_details_get_is_favourite (
+        FOLKS_FAVOURITE_DETAILS (individual)))
     {
       /* Add contact to the fake 'Favorites' group */
-      GtkTreeIter iter_group;
-
       individual_store_get_group (self, EMPATHY_INDIVIDUAL_STORE_FAVORITE,
           &iter_group, NULL, NULL, TRUE);
 
       add_individual_to_store (GTK_TREE_STORE (self), &iter, &iter_group,
           individual);
+      grouped = TRUE;
     }
 
+  if (!grouped)
+    {
+      /* Else add the contact to 'Ungrouped' */
+      individual_store_get_group (self,
+          EMPATHY_INDIVIDUAL_STORE_UNGROUPED,
+          &iter_group, NULL, NULL, TRUE);
+      add_individual_to_store (GTK_TREE_STORE (self), &iter, &iter_group,
+          individual);
+    }
+
+
+finally:
   individual_store_contact_update (self, individual);
 }
 

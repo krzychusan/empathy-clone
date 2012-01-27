@@ -284,6 +284,7 @@ empathy_tls_dialog_constructed (GObject *object)
   text = reason_to_string (self);
 
   g_object_set (message_dialog,
+      "title", _("Untrusted connection"),
       "text", _("This connection is untrusted. Would you like to "
           "continue anyway?"),
       "secondary-text", text,
