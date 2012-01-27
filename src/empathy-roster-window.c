@@ -2123,7 +2123,6 @@ roster_window_connection_items_setup (EmpathyRosterWindow *self,
       "chat_new_call",
       "chat_search_contacts",
       "chat_add_contact",
-      "edit_personal_information",
       "edit_blocked_contacts",
       "edit_search_contacts"
   };
