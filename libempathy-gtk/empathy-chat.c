@@ -158,7 +158,7 @@ struct _EmpathyChatPriv {
 	GdkEventType       most_recent_event_type;
 
 	/* A regex matching our own current nickname in the room, or %NULL if
-	 * !empathy_chat_is_room(). */
+	 * !empathy_chat_is_room (). */
 	GRegex            *highlight_regex;
 };
 
