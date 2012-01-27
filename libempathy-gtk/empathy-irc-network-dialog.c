@@ -510,6 +510,9 @@ empathy_irc_network_dialog_show (EmpathyIrcNetwork *network,
       GTK_TREE_VIEW (dialog->treeview_servers),
       -1, _("Server"), renderer, "text", COL_ADR,
       NULL);
+  column = gtk_tree_view_get_column (GTK_TREE_VIEW (dialog->treeview_servers),
+      0);
+  gtk_tree_view_column_set_expand (column, TRUE);
 
   /* port */
   adjustment = (GtkAdjustment *) gtk_adjustment_new (6667, 1, G_MAXUINT16,
@@ -525,9 +528,6 @@ empathy_irc_network_dialog_show (EmpathyIrcNetwork *network,
       GTK_TREE_VIEW (dialog->treeview_servers),
       -1, _("Port"), renderer, "text", COL_PORT,
       NULL);
-  column = gtk_tree_view_get_column (GTK_TREE_VIEW (dialog->treeview_servers),
-      1);
-  gtk_tree_view_column_set_expand (column, TRUE);
 
   /* SSL */
   renderer = gtk_cell_renderer_toggle_new ();
