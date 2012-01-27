@@ -313,6 +313,8 @@ empathy_tls_dialog_constructed (GObject *object)
   gtk_container_add (GTK_CONTAINER (expander), details);
   gtk_widget_show (details);
 
+  gtk_window_set_keep_above (GTK_WINDOW (self), TRUE);
+
   tp_g_signal_connect_object (priv->certificate, "invalidated",
       G_CALLBACK (certificate_invalidated_cb), self, 0);
 }

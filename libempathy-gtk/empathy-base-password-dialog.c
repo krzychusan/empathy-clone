@@ -272,6 +272,8 @@ empathy_base_password_dialog_constructed (GObject *object)
   gtk_widget_grab_focus (self->entry);
 
   gtk_window_set_position (GTK_WINDOW (self), GTK_WIN_POS_CENTER_ALWAYS);
+
+  gtk_window_set_keep_above (GTK_WINDOW (self), TRUE);
 }
 
 static void
