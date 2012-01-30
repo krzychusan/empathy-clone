@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: empathy.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=empathy&keywords=I18N+L10N&component=General\n"
-"POT-Creation-Date: 2012-01-27 10:18+0000\n"
-"PO-Revision-Date: 2012-01-27 12:32+0100\n"
+"POT-Creation-Date: 2012-01-30 13:52+0000\n"
+"PO-Revision-Date: 2012-01-30 18:28+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -1498,7 +1498,7 @@ msgstr "no implementado"
 msgid "unknown"
 msgstr "desconocido"
 
-#: ../libempathy-gtk/empathy-chat.c:1683 ../src/empathy-chat-window.c:761
+#: ../libempathy-gtk/empathy-chat.c:1683 ../src/empathy-chat-window.c:916
 msgid "Topic:"
 msgstr "Tema:"
 
@@ -2209,7 +2209,7 @@ msgid "_Link Contacts…"
 msgstr "_Enlazar contactos…"
 
 #: ../libempathy-gtk/empathy-individual-menu.c:1501
-#: ../src/empathy-chat-window.c:1011
+#: ../src/empathy-chat-window.c:1166
 msgid "Inviting you to this room"
 msgstr "Invitándolo a esta sala"
 
@@ -2793,7 +2793,6 @@ msgid "Continue"
 msgstr "Continuar"
 
 #: ../libempathy-gtk/empathy-tls-dialog.c:287
-#| msgid "User requested disconnect"
 msgid "Untrusted connection"
 msgstr "La conexión no es de confianza"
 
@@ -3686,46 +3685,97 @@ msgstr "_Configuración"
 msgid "_View"
 msgstr "_Ver"
 
-#: ../src/empathy-chat-window.c:481 ../src/empathy-chat-window.c:501
+#: ../src/empathy-chat-window.c:285
+#| msgid "Hide the main window."
+msgid "Close this window?"
+msgstr "¿Cerrar esta ventana?"
+
+#: ../src/empathy-chat-window.c:290
+#, c-format
+msgid ""
+"Closing this window will leave %s. You will not receive any further messages "
+"until you rejoin it."
+msgstr ""
+"Cerrar esta ventana hará que abandone %s. No recibirá más mensajes hasta que "
+"se una de nuevo."
+
+#: ../src/empathy-chat-window.c:301
+#, c-format
+msgid ""
+"Closing this window will leave a chat room. You will not receive any further "
+"messages until you rejoin it."
+msgid_plural ""
+"Closing this window will leave %u chat rooms. You will not receive any "
+"further messages until you rejoin them."
+msgstr[0] ""
+"Cerrar esta ventana hará que abandone una sala de chat. No recibirá más "
+"mensajes hasta que se una de nuevo."
+msgstr[1] ""
+"Cerrar esta ventana hará que abandone %u salas de chat. No recibirá más "
+"mensajes hasta que se una a ellas de nuevo."
+
+#: ../src/empathy-chat-window.c:310
+#, c-format
+#| msgid "Level "
+msgid "Leave %s?"
+msgstr "¿Cerrar %s?"
+
+#: ../src/empathy-chat-window.c:311
+msgid ""
+"You will not receive any further messages from this chat room until you "
+"rejoin it."
+msgstr "No recibirá más mensajes de este chat hasta que se una de nuevo."
+
+#: ../src/empathy-chat-window.c:330
+#| msgid "new _windows"
+msgid "Close window"
+msgstr "Cerrar la ventana"
+
+#: ../src/empathy-chat-window.c:330
+#| msgid "Level "
+msgid "Leave room"
+msgstr "Abandonar la sala"
+
+#: ../src/empathy-chat-window.c:636 ../src/empathy-chat-window.c:656
 #, c-format
 msgid "%s (%d unread)"
 msgid_plural "%s (%d unread)"
 msgstr[0] "%s (%d sin leer)"
 msgstr[1] "%s (%d sin leer)"
 
-#: ../src/empathy-chat-window.c:493
+#: ../src/empathy-chat-window.c:648
 #, c-format
 msgid "%s (and %u other)"
 msgid_plural "%s (and %u others)"
 msgstr[0] "%s (y otra)"
 msgstr[1] "%s (y otras %u)"
 
-#: ../src/empathy-chat-window.c:509
+#: ../src/empathy-chat-window.c:664
 #, c-format
 msgid "%s (%d unread from others)"
 msgid_plural "%s (%d unread from others)"
 msgstr[0] "%s (%d sin leer de otros)"
 msgstr[1] "%s (%d sin leer de otros)"
 
-#: ../src/empathy-chat-window.c:518
+#: ../src/empathy-chat-window.c:673
 #, c-format
 msgid "%s (%d unread from all)"
 msgid_plural "%s (%d unread from all)"
 msgstr[0] "%s (%d sin leer de todos)"
 msgstr[1] "%s (%d sin leer de todos)"
 
-#: ../src/empathy-chat-window.c:733
+#: ../src/empathy-chat-window.c:888
 msgid "SMS:"
 msgstr "SMS:"
 
-#: ../src/empathy-chat-window.c:743
+#: ../src/empathy-chat-window.c:898
 #, c-format
 msgid "Sending %d message"
 msgid_plural "Sending %d messages"
 msgstr[0] "Enviando %d mensaje"
 msgstr[1] "Enviando %d mensajes"
 
-#: ../src/empathy-chat-window.c:765
+#: ../src/empathy-chat-window.c:920
 msgid "Typing a message."
 msgstr "Tecleando un mensaje."
 
@@ -4096,7 +4146,7 @@ msgstr "Recargar…"
 msgid "Contact"
 msgstr "Contacto"
 
-#: ../src/empathy-roster-window.c:2289
+#: ../src/empathy-roster-window.c:2288
 msgid "Contact List"
 msgstr "Lista de contactos"
 
