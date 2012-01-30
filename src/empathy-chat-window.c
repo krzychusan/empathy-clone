@@ -342,13 +342,25 @@ confirm_close (EmpathyChatWindow *window,
 	gtk_window_present (GTK_WINDOW (dialog));
 }
 
+/* Returns TRUE if we should check if the user really wants to leave.  If it's
+ * a multi-user chat, and it has a TpChat (so there's an underlying channel, so
+ * the user is actually in the room as opposed to having been kicked or gone
+ * offline or something), then we should check.
+ */
+static gboolean
+chat_needs_close_confirmation (EmpathyChat *chat)
+{
+	return (empathy_chat_is_room (chat)
+		&& empathy_chat_get_tp_chat (chat) != NULL);
+}
+
 static void
 maybe_close_chat (EmpathyChatWindow *window,
                   EmpathyChat *chat)
 {
 	g_return_if_fail (chat != NULL);
 
-	if (empathy_chat_is_room (chat)) {
+	if (chat_needs_close_confirmation (chat)) {
 		confirm_close (window, FALSE, 1, chat);
 	} else {
 		empathy_chat_window_remove_chat (window, chat);
@@ -1421,7 +1433,7 @@ chat_window_delete_event_cb (GtkWidget        *dialog,
 	DEBUG ("Delete event received");
 
 	for (l = priv->chats; l != NULL; l = l->next) {
-		if (empathy_chat_is_room (l->data)) {
+		if (chat_needs_close_confirmation (l->data)) {
 			chat = l->data;
 			n_rooms++;
 		}
