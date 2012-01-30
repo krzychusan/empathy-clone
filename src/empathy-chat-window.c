@@ -213,6 +213,21 @@ chat_window_find_chat (EmpathyChat *chat)
 }
 
 static void
+remove_all_chats (EmpathyChatWindow *window)
+{
+	EmpathyChatWindowPriv *priv;
+
+	priv = GET_PRIV (window);
+	g_object_ref (window);
+
+	while (priv->chats) {
+		empathy_chat_window_remove_chat (window, priv->chats->data);
+	}
+
+	g_object_unref (window);
+}
+
+static void
 confirm_close_response_cb (GtkWidget *dialog,
                            int response,
                            EmpathyChatWindow *window)
@@ -223,47 +238,105 @@ confirm_close_response_cb (GtkWidget *dialog,
 
 	gtk_widget_destroy (dialog);
 
-	if (response == GTK_RESPONSE_ACCEPT)
+	if (response != GTK_RESPONSE_ACCEPT)
+		return;
+
+	if (chat != NULL) {
 		empathy_chat_window_remove_chat (window, chat);
+	} else {
+		remove_all_chats (window);
+	}
+}
+
+static void
+confirm_close (EmpathyChatWindow *window,
+               gboolean close_window,
+               guint n_rooms,
+               EmpathyChat *chat)
+{
+	EmpathyChatWindowPriv *priv;
+	GtkWidget *dialog;
+	gchar *primary, *secondary;
+
+	g_return_if_fail (n_rooms > 0);
+
+	if (n_rooms > 1) {
+		g_return_if_fail (chat == NULL);
+	} else {
+		g_return_if_fail (chat != NULL);
+	}
+
+	priv = GET_PRIV (window);
+
+	if (close_window) {
+		primary = g_strdup (_("Close this window?"));
+
+		if (n_rooms == 1) {
+			gchar *chat_name = empathy_chat_dup_name (chat);
+			secondary = g_strdup_printf (
+				_("Closing this window will leave %s. You will "
+				  "not receive any further messages until you "
+				  "rejoin it."),
+				chat_name);
+			g_free (chat_name);
+		} else {
+			secondary = g_strdup_printf (
+				/* Note to translators: the number of chats will
+				 * always be at least 2.
+				 */
+				ngettext (
+					"Closing this window will leave a chat room. You will "
+					"not receive any further messages until you rejoin it.",
+					"Closing this window will leave %u chat rooms. You will "
+					"not receive any further messages until you rejoin them.",
+					n_rooms),
+				n_rooms);
+		}
+	} else {
+		gchar *chat_name = empathy_chat_dup_name (chat);
+		primary = g_strdup_printf (_("Leave %s?"), chat_name);
+		secondary = g_strdup (_("You will not receive any further messages from this chat "
+		                        "room until you rejoin it."));
+		g_free (chat_name);
+	}
+
+	dialog = gtk_message_dialog_new (
+		GTK_WINDOW (priv->dialog),
+		GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+		GTK_MESSAGE_WARNING,
+		GTK_BUTTONS_CANCEL,
+		"%s", primary);
+
+	gtk_window_set_title (GTK_WINDOW (dialog), "");
+	g_object_set (dialog, "secondary-text", secondary, NULL);
+
+	g_free (primary);
+	g_free (secondary);
+
+	gtk_dialog_add_button (GTK_DIALOG (dialog),
+		close_window ? _("Close window") : _("Leave chat room"),
+		GTK_RESPONSE_ACCEPT);
+	gtk_dialog_set_default_response (GTK_DIALOG (dialog),
+		GTK_RESPONSE_ACCEPT);
+
+	if (!close_window) {
+		g_object_set_data (G_OBJECT (dialog), "chat", chat);
+	}
+
+	g_signal_connect (dialog, "response",
+		G_CALLBACK (confirm_close_response_cb), window);
+
+	gtk_window_present (GTK_WINDOW (dialog));
 }
 
 static void
 maybe_close_chat (EmpathyChatWindow *window,
                   EmpathyChat *chat)
 {
-	EmpathyChatWindowPriv *priv;
-
-	priv = GET_PRIV (window);
+	g_return_if_fail (chat != NULL);
 
 	if (empathy_chat_is_room (chat)) {
-		gchar *chat_name = empathy_chat_dup_name (chat);
-		GtkWidget *dialog = gtk_message_dialog_new (
-			GTK_WINDOW (priv->dialog),
-			GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
-			GTK_MESSAGE_WARNING,
-			GTK_BUTTONS_CANCEL,
-			_("Leave %s?"),
-			chat_name);
-
-		gtk_window_set_title (GTK_WINDOW (dialog), "");
-
-		gtk_message_dialog_format_secondary_text (
-			GTK_MESSAGE_DIALOG (dialog),
-			_("You will not receive any further messages from "
-			  "this chat room unless you rejoin."));
-
-		gtk_dialog_add_button (GTK_DIALOG (dialog),
-			_("Leave chat room"), GTK_RESPONSE_ACCEPT);
-		gtk_dialog_set_default_response (GTK_DIALOG (dialog),
-			GTK_RESPONSE_ACCEPT);
-
-		g_object_set_data (G_OBJECT (dialog), "chat", chat);
-
-		g_signal_connect (dialog, "response",
-			G_CALLBACK (confirm_close_response_cb), window);
-
-		gtk_window_present (GTK_WINDOW (dialog));
-		g_free (chat_name);
+		confirm_close (window, FALSE, 1, chat);
 	} else {
 		empathy_chat_window_remove_chat (window, chat);
 	}
@@ -1328,14 +1401,25 @@ chat_window_delete_event_cb (GtkWidget        *dialog,
 			     EmpathyChatWindow *window)
 {
 	EmpathyChatWindowPriv *priv = GET_PRIV (window);
+	EmpathyChat *chat = NULL;
+	guint n_rooms = 0;
+	GList *l;
 
 	DEBUG ("Delete event received");
 
-	g_object_ref (window);
-	while (priv->chats) {
-		empathy_chat_window_remove_chat (window, priv->chats->data);
+	for (l = priv->chats; l != NULL; l = l->next) {
+		if (empathy_chat_is_room (l->data)) {
+			chat = l->data;
+			n_rooms++;
+		}
 	}
-	g_object_unref (window);
+
+	if (n_rooms > 0) {
+		confirm_close (window, TRUE, n_rooms,
+			(n_rooms == 1 ? chat : NULL));
+	} else {
+		remove_all_chats (window);
+	}
 
 	return TRUE;
 }
