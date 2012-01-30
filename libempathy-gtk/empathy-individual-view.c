@@ -892,6 +892,12 @@ individual_view_drag_end (GtkWidget *widget,
       gtk_tree_row_reference_free (priv->drag_row);
       priv->drag_row = NULL;
     }
+
+  if (priv->auto_scroll_timeout_id != 0)
+    {
+      g_source_remove (priv->auto_scroll_timeout_id);
+      priv->auto_scroll_timeout_id = 0;
+    }
 }
 
 static gboolean
