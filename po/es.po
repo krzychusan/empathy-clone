@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: empathy.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=empathy&keywords=I18N+L10N&component=General\n"
-"POT-Creation-Date: 2012-01-30 13:52+0000\n"
-"PO-Revision-Date: 2012-01-30 18:28+0100\n"
+"POT-Creation-Date: 2012-01-31 09:25+0000\n"
+"PO-Revision-Date: 2012-01-31 13:13+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -2222,31 +2222,31 @@ msgstr "_Invitar a sala de chat"
 msgid "_Add Contact…"
 msgstr "_Añadir contacto…"
 
-#: ../libempathy-gtk/empathy-individual-view.c:2301
+#: ../libempathy-gtk/empathy-individual-view.c:2307
 msgid "Delete and _Block"
 msgstr "Eliminar y _bloquear"
 
-#: ../libempathy-gtk/empathy-individual-view.c:2336
+#: ../libempathy-gtk/empathy-individual-view.c:2342
 #, c-format
 msgid "Do you really want to remove the group '%s'?"
 msgstr "¿Realmente quiere quitar el grupo «%s»?"
 
-#: ../libempathy-gtk/empathy-individual-view.c:2339
+#: ../libempathy-gtk/empathy-individual-view.c:2345
 msgid "Removing group"
 msgstr "Quitando grupo"
 
 #. Remove
-#: ../libempathy-gtk/empathy-individual-view.c:2394
-#: ../libempathy-gtk/empathy-individual-view.c:2611
+#: ../libempathy-gtk/empathy-individual-view.c:2400
+#: ../libempathy-gtk/empathy-individual-view.c:2617
 msgid "_Remove"
 msgstr "_Quitar"
 
-#: ../libempathy-gtk/empathy-individual-view.c:2471
+#: ../libempathy-gtk/empathy-individual-view.c:2477
 #, c-format
 msgid "Do you really want to remove the contact '%s'?"
 msgstr "¿Realmente quiere quitar el contacto «%s»?"
 
-#: ../libempathy-gtk/empathy-individual-view.c:2480
+#: ../libempathy-gtk/empathy-individual-view.c:2486
 #, c-format
 msgid ""
 "Do you really want to remove the linked contact '%s'? Note that this will "
@@ -2255,7 +2255,7 @@ msgstr ""
 "¿Realmente quiere quitar el contacto enlazado «%s»? Tenga en cuenta que esto "
 "quitará todos los contactos que componen este contacto enlazado."
 
-#: ../libempathy-gtk/empathy-individual-view.c:2492
+#: ../libempathy-gtk/empathy-individual-view.c:2498
 msgid "Removing contact"
 msgstr "Quitando el contacto"
 
@@ -3686,7 +3686,6 @@ msgid "_View"
 msgstr "_Ver"
 
 #: ../src/empathy-chat-window.c:285
-#| msgid "Hide the main window."
 msgid "Close this window?"
 msgstr "¿Cerrar esta ventana?"
 
@@ -3716,7 +3715,6 @@ msgstr[1] ""
 
 #: ../src/empathy-chat-window.c:310
 #, c-format
-#| msgid "Level "
 msgid "Leave %s?"
 msgstr "¿Cerrar %s?"
 
@@ -3727,12 +3725,10 @@ msgid ""
 msgstr "No recibirá más mensajes de este chat hasta que se una de nuevo."
 
 #: ../src/empathy-chat-window.c:330
-#| msgid "new _windows"
 msgid "Close window"
 msgstr "Cerrar la ventana"
 
 #: ../src/empathy-chat-window.c:330
-#| msgid "Level "
 msgid "Leave room"
 msgstr "Abandonar la sala"
 
@@ -4316,7 +4312,8 @@ msgid "New conversation"
 msgstr "Conversación nueva"
 
 #: ../src/empathy-preferences.c:169
-msgid "Contact goes online"
+#| msgid "Contact goes online"
+msgid "Contact comes online"
 msgstr "El contacto se conecta"
 
 #: ../src/empathy-preferences.c:170
