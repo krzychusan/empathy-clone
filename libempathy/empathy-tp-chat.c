@@ -51,6 +51,7 @@ struct _EmpathyTpChatPrivate {
 	gboolean               supports_subject;
 	gboolean               can_set_subject;
 	gchar                 *subject;
+	gchar                 *subject_actor;
 
 	/* Room config (for now, we only track the title and don't support
 	 * setting it) */
@@ -609,12 +610,26 @@ update_subject (EmpathyTpChat *self,
 
 	subject = tp_asv_get_string (properties, "Subject");
 	if (subject != NULL) {
+		const gchar *actor;
+
 		g_free (priv->subject);
 		priv->subject = g_strdup (subject);
+
+		/* If the actor is included with this update, use it;
+		 * otherwise, clear it to avoid showing stale information.
+		 * Why might it not be included? When you join an IRC channel,
+		 * you get a pair of messages: first, the current topic; next,
+		 * who set it, and when. Idle reports these in two separate
+		 * signals.
+		 */
+		actor = tp_asv_get_string (properties, "Actor");
+		g_free (priv->subject_actor);
+		priv->subject_actor = g_strdup (actor);
+
 		g_object_notify (G_OBJECT (self), "subject");
 	}
 
-	/* TODO: track Actor and Timestamp. */
+	/* TODO: track Timestamp. */
 }
 
 static void
@@ -733,6 +748,14 @@ empathy_tp_chat_get_subject (EmpathyTpChat *self)
 	return priv->subject;
 }
 
+const gchar *
+empathy_tp_chat_get_subject_actor (EmpathyTpChat *self)
+{
+	EmpathyTpChatPrivate *priv = self->priv;
+
+	return priv->subject_actor;
+}
+
 static void
 tp_chat_dispose (GObject *object)
 {
@@ -768,6 +791,7 @@ tp_chat_finalize (GObject *object)
 
 	g_free (self->priv->title);
 	g_free (self->priv->subject);
+	g_free (self->priv->subject_actor);
 
 	G_OBJECT_CLASS (empathy_tp_chat_parent_class)->finalize (object);
 }

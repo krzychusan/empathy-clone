@@ -81,6 +81,7 @@ const gchar *  empathy_tp_chat_get_title            (EmpathyTpChat *self);
 
 gboolean       empathy_tp_chat_supports_subject     (EmpathyTpChat *self);
 const gchar *  empathy_tp_chat_get_subject          (EmpathyTpChat *self);
+const gchar *  empathy_tp_chat_get_subject_actor    (EmpathyTpChat *self);
 gboolean       empathy_tp_chat_can_set_subject      (EmpathyTpChat *self);
 void           empathy_tp_chat_set_subject          (EmpathyTpChat *self,
 						     const gchar   *subject);

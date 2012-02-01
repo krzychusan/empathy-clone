@@ -1692,7 +1692,14 @@ chat_subject_changed_cb (EmpathyChat *chat)
 			gchar *str = NULL;
 
 			if (!EMP_STR_EMPTY (priv->subject)) {
-				str = g_strdup_printf (_("Topic set to: %s"), priv->subject);
+				const gchar *actor = empathy_tp_chat_get_subject_actor (priv->tp_chat);
+
+				if (tp_str_empty (actor)) {
+					str = g_strdup_printf (_("Topic set to: %s"), priv->subject);
+				} else {
+					str = g_strdup_printf (_("Topic set by %s to: %s"),
+							       actor, priv->subject);
+				}
 			} else if (empathy_tp_chat_supports_subject (priv->tp_chat)) {
 				/* No need to display this 'event' is no topic can be defined anyway */
 				str = g_strdup (_("No topic defined"));
