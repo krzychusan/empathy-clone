@@ -638,6 +638,13 @@ display_page_message (EmpathyRosterWindow *self,
 }
 
 static void
+display_page_no_account (EmpathyRosterWindow *self)
+{
+  display_page_message (self,
+      _("You need to setup an account to see contacts here."), TRUE);
+}
+
+static void
 roster_window_row_deleted_cb (GtkTreeModel *model,
     GtkTreePath *path,
     EmpathyRosterWindow *self)
@@ -2114,6 +2121,22 @@ add_account (EmpathyRosterWindow *self,
 }
 
 static void
+set_notebook_page (EmpathyRosterWindow *self)
+{
+  GList *accounts;
+
+  accounts = tp_account_manager_get_valid_accounts (
+      self->priv->account_manager);
+
+  if (g_list_length (accounts) == 0)
+    display_page_no_account (self);
+  else
+    display_page_contact_list (self);
+
+  g_list_free (accounts);
+}
+
+static void
 roster_window_account_validity_changed_cb (TpAccountManager  *manager,
     TpAccount *account,
     gboolean valid,
@@ -2123,6 +2146,8 @@ roster_window_account_validity_changed_cb (TpAccountManager  *manager,
     add_account (self, account);
   else
     roster_window_account_removed_cb (manager, account, self);
+
+  set_notebook_page (self);
 }
 
 static void
@@ -2194,6 +2219,8 @@ account_manager_prepared_cb (GObject *source_object,
   /* Disable the "Previous Conversations" menu entry if there is no account */
   gtk_action_set_sensitive (self->priv->view_history,
       g_list_length (accounts) > 0);
+
+  set_notebook_page (self);
 
   g_list_free (accounts);
 }
