@@ -2120,19 +2120,78 @@ add_account (EmpathyRosterWindow *self,
   roster_window_setup_balance (self, account);
 }
 
+/* @account: if not %NULL, the only account which can be enabled */
+static void
+display_page_account_not_enabled (EmpathyRosterWindow *self,
+    TpAccount *account)
+{
+  if (account == NULL)
+    {
+      display_page_message (self,
+          _("You need to enable one of your accounts to see contacts here."),
+          TRUE);
+    }
+  else
+    {
+      gchar *tmp;
+
+      /* translators: argument is an account name */
+      tmp = g_strdup_printf (_("You need to enable %s to see contacts here."),
+          tp_account_get_display_name (account));
+
+      display_page_message (self, tmp, TRUE);
+      g_free (tmp);
+    }
+}
+static gboolean
+has_enabled_account (GList *accounts)
+{
+  GList *l;
+
+  for (l = accounts; l != NULL; l = g_list_next (l))
+    {
+      TpAccount *account = l->data;
+
+      if (tp_account_is_enabled (account))
+        return TRUE;
+    }
+
+  return FALSE;
+}
+
 static void
 set_notebook_page (EmpathyRosterWindow *self)
 {
   GList *accounts;
+  guint len;
 
   accounts = tp_account_manager_get_valid_accounts (
       self->priv->account_manager);
 
-  if (g_list_length (accounts) == 0)
-    display_page_no_account (self);
-  else
-    display_page_contact_list (self);
+  len = g_list_length (accounts);
 
+  if (len == 0)
+    {
+      /* No account */
+      display_page_no_account (self);
+      goto out;
+    }
+
+  if (!has_enabled_account (accounts))
+    {
+      TpAccount *account = NULL;
+
+      /* Pass the account if there is only one which can be enabled */
+      if (len == 1)
+        account = accounts->data;
+
+      display_page_account_not_enabled (self, account);
+      goto out;
+    }
+
+  display_page_contact_list (self);
+
+out:
   g_list_free (accounts);
 }
 
@@ -2187,6 +2246,22 @@ roster_window_connection_items_setup (EmpathyRosterWindow *self,
 }
 
 static void
+account_enabled_cb (TpAccountManager *manager,
+    TpAccount *account,
+    EmpathyRosterWindow *self)
+{
+  set_notebook_page (self);
+}
+
+static void
+account_disabled_cb (TpAccountManager *manager,
+    TpAccount *account,
+    EmpathyRosterWindow *self)
+{
+  set_notebook_page (self);
+}
+
+static void
 account_manager_prepared_cb (GObject *source_object,
     GAsyncResult *result,
     gpointer user_data)
@@ -2213,6 +2288,10 @@ account_manager_prepared_cb (GObject *source_object,
 
   g_signal_connect (manager, "account-validity-changed",
       G_CALLBACK (roster_window_account_validity_changed_cb), self);
+  tp_g_signal_connect_object (manager, "account-disabled",
+      G_CALLBACK (account_disabled_cb), self, 0);
+  tp_g_signal_connect_object (manager, "account-enabled",
+      G_CALLBACK (account_enabled_cb), self, 0);
 
   roster_window_update_status (self);
 
