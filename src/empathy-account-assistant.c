@@ -1121,6 +1121,8 @@ account_assistant_build_salut_page (EmpathyAccountAssistant *self)
   settings = create_salut_account_settings ();
 
   widget_object = empathy_account_widget_new_for_protocol (settings, TRUE);
+  empathy_account_widget_hide_buttons (widget_object);
+
   account_widget = empathy_account_widget_get_widget (widget_object);
 
   priv->salut_settings = settings;
