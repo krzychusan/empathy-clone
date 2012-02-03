@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: empathy.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=empathy&keywords=I18N+L10N&component=General\n"
-"POT-Creation-Date: 2012-02-02 10:55+0000\n"
-"PO-Revision-Date: 2012-02-02 12:22+0100\n"
+"POT-Creation-Date: 2012-02-03 11:58+0000\n"
+"PO-Revision-Date: 2012-02-03 16:28+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -1509,7 +1509,6 @@ msgstr "El tema se ha establecido a: %s"
 
 #: ../libempathy-gtk/empathy-chat.c:1700
 #, c-format
-#| msgid "Topic set to: %s"
 msgid "Topic set by %s to: %s"
 msgstr "Tema establecido por %s a: %s"
 
@@ -2081,7 +2080,7 @@ msgid "Select"
 msgstr "Seleccionar"
 
 #: ../libempathy-gtk/empathy-groups-widget.c:407
-#: ../src/empathy-roster-window.c:1919
+#: ../src/empathy-roster-window.c:1951
 msgid "Group"
 msgstr "Grupo"
 
@@ -3119,7 +3118,7 @@ msgstr ""
 "Editar."
 
 #: ../src/empathy-account-assistant.c:220
-#: ../src/empathy-account-assistant.c:1274
+#: ../src/empathy-account-assistant.c:1276
 msgid "An error occurred"
 msgstr "Ocurrió un error"
 
@@ -3207,7 +3206,7 @@ msgstr ""
 "diálogo «Cuentas»."
 
 #: ../src/empathy-account-assistant.c:1094
-#: ../src/empathy-account-assistant.c:1150
+#: ../src/empathy-account-assistant.c:1152
 msgid "Edit->Accounts"
 msgstr "Editar->Cuentas"
 
@@ -3215,7 +3214,7 @@ msgstr "Editar->Cuentas"
 msgid "I do _not want to enable this feature for now"
 msgstr "_No quiero activar esta característica por ahora"
 
-#: ../src/empathy-account-assistant.c:1146
+#: ../src/empathy-account-assistant.c:1148
 msgid ""
 "You won't be able to chat with people connected to your local network, as "
 "telepathy-salut is not installed. If you want to enable this feature, please "
@@ -3227,23 +3226,23 @@ msgstr ""
 "instale el paquete telepathy-salut y cree una cuenta de Gente cerca desde el "
 "diálogo Cuentas."
 
-#: ../src/empathy-account-assistant.c:1152
+#: ../src/empathy-account-assistant.c:1154
 msgid "telepathy-salut not installed"
 msgstr "telepathy-salut no está instalado"
 
-#: ../src/empathy-account-assistant.c:1198
+#: ../src/empathy-account-assistant.c:1200
 msgid "Messaging and VoIP Accounts Assistant"
 msgstr "Asistente de cuentas de mensajería y Voz IP"
 
-#: ../src/empathy-account-assistant.c:1232
+#: ../src/empathy-account-assistant.c:1234
 msgid "Welcome to Empathy"
 msgstr "Bienvenido a Empathy"
 
-#: ../src/empathy-account-assistant.c:1241
+#: ../src/empathy-account-assistant.c:1243
 msgid "Import your existing accounts"
 msgstr "Importar sus cuentas existentes"
 
-#: ../src/empathy-account-assistant.c:1259
+#: ../src/empathy-account-assistant.c:1261
 msgid "Please enter personal details"
 msgstr "Introduzca los detalles personales"
 
@@ -3937,7 +3936,7 @@ msgstr "Le han invitado a unirse a %s"
 msgid "Incoming file transfer from %s"
 msgstr "Transferencia de archivo entrante de %s"
 
-#: ../src/empathy-event-manager.c:1147 ../src/empathy-roster-window.c:371
+#: ../src/empathy-event-manager.c:1147 ../src/empathy-roster-window.c:372
 msgid "Password required"
 msgstr "Se requiere una contraseña"
 
@@ -4093,64 +4092,83 @@ msgstr "Protocolo"
 msgid "Source"
 msgstr "Origen"
 
-#: ../src/empathy-roster-window.c:388
+#: ../src/empathy-roster-window.c:389
 msgid "Provide Password"
 msgstr "Escriba su contraseña"
 
-#: ../src/empathy-roster-window.c:394
+#: ../src/empathy-roster-window.c:395
 msgid "Disconnect"
 msgstr "Desconectar"
 
-#: ../src/empathy-roster-window.c:626
+#: ../src/empathy-roster-window.c:644
+msgid "You need to setup an account to see contacts here."
+msgstr "Debe configurar una cuenta para ver contactos aquí."
+
+#: ../src/empathy-roster-window.c:660
 msgid "No match found"
 msgstr "No se encontró ninguna coincidencia"
 
-#: ../src/empathy-roster-window.c:733
+#: ../src/empathy-roster-window.c:765
 #, c-format
 msgid "Sorry, %s accounts can’t be used until your %s software is updated."
 msgstr ""
 "Las cuentas de %s no se pueden usar hasta que no se haya actualizado su "
 "software de %s."
 
-#: ../src/empathy-roster-window.c:799
+#: ../src/empathy-roster-window.c:831
 msgid "Update software..."
 msgstr "Actualizar software…"
 
-#: ../src/empathy-roster-window.c:805 ../src/empathy-roster-window.c:922
+#: ../src/empathy-roster-window.c:837 ../src/empathy-roster-window.c:954
 msgid "Close"
 msgstr "Cerrar"
 
-#: ../src/empathy-roster-window.c:910
+#: ../src/empathy-roster-window.c:942
 msgid "Reconnect"
 msgstr "Reconectar"
 
-#: ../src/empathy-roster-window.c:916
+#: ../src/empathy-roster-window.c:948
 msgid "Edit Account"
 msgstr "Editar cuenta"
 
 #. Translators: this string will be something like:
 #. * Top up My Account ($1.23)..."
-#: ../src/empathy-roster-window.c:1060
+#: ../src/empathy-roster-window.c:1092
 #, c-format
 msgid "Top up %s (%s)..."
 msgstr "Recargar %s (%s)…"
 
-#: ../src/empathy-roster-window.c:1106
+#: ../src/empathy-roster-window.c:1138
 msgid "Top up account credit"
 msgstr "Recargar el saldo de la cuenta"
 
 #. top up button
-#: ../src/empathy-roster-window.c:1178
+#: ../src/empathy-roster-window.c:1210
 msgid "Top Up..."
 msgstr "Recargar…"
 
-#: ../src/empathy-roster-window.c:1901
+#: ../src/empathy-roster-window.c:1933
 msgid "Contact"
 msgstr "Contacto"
 
-#: ../src/empathy-roster-window.c:2288
+#: ../src/empathy-roster-window.c:2131
+msgid "You need to enable one of your accounts to see contacts here."
+msgstr "Debe activar una de sus cuentas para ver contactos aquí."
+
+#. translators: argument is an account name
+#: ../src/empathy-roster-window.c:2139
+#, c-format
+msgid "You need to enable %s to see contacts here."
+msgstr "Debe activar %s para ver contactos aquí."
+
+#: ../src/empathy-roster-window.c:2419
 msgid "Contact List"
 msgstr "Lista de contactos"
+
+#: ../src/empathy-roster-window.ui.h:1
+#| msgid "_Accounts"
+msgid "Account settings"
+msgstr "Configuración de la cuenta"
 
 #: ../src/empathy-roster-window-menubar.ui.h:1
 msgid "Contacts on a _Map"
