@@ -50,6 +50,7 @@ typedef struct
 {
   FolksIndividualAggregator *aggregator;
   GHashTable *individuals; /* Individual.id -> Individual */
+  gboolean contacts_loaded;
 } EmpathyIndividualManagerPriv;
 
 enum
@@ -57,6 +58,7 @@ enum
   FAVOURITES_CHANGED,
   GROUPS_CHANGED,
   MEMBERS_CHANGED,
+  CONTACTS_LOADED,
   LAST_SIGNAL
 };
 
@@ -334,8 +336,39 @@ empathy_individual_manager_class_init (EmpathyIndividualManagerClass *klass)
           G_TYPE_NONE,
           4, G_TYPE_STRING, G_TYPE_POINTER, G_TYPE_POINTER, G_TYPE_UINT);
 
+  signals[CONTACTS_LOADED] =
+      g_signal_new ("contacts-loaded",
+          G_TYPE_FROM_CLASS (klass),
+          G_SIGNAL_RUN_LAST,
+          0,
+          NULL, NULL,
+          g_cclosure_marshal_generic,
+          G_TYPE_NONE,
+          0);
+
   g_type_class_add_private (object_class,
       sizeof (EmpathyIndividualManagerPriv));
+}
+
+static void
+aggregator_is_quiescent_notify_cb (FolksIndividualAggregator *aggregator,
+    GParamSpec *spec,
+    EmpathyIndividualManager *self)
+{
+  EmpathyIndividualManagerPriv *priv = GET_PRIV (self);
+  gboolean is_quiescent;
+
+  if (priv->contacts_loaded)
+    return;
+
+  g_object_get (aggregator, "is-quiescent", &is_quiescent, NULL);
+
+  if (!is_quiescent)
+    return;
+
+  priv->contacts_loaded = TRUE;
+
+  g_signal_emit (self, signals[CONTACTS_LOADED], 0);
 }
 
 static void
@@ -351,6 +384,8 @@ empathy_individual_manager_init (EmpathyIndividualManager *self)
   priv->aggregator = folks_individual_aggregator_new ();
   g_signal_connect (priv->aggregator, "individuals-changed-detailed",
       G_CALLBACK (aggregator_individuals_changed_cb), self);
+  g_signal_connect (priv->aggregator, "notify::is-quiescent",
+      G_CALLBACK (aggregator_is_quiescent_notify_cb), self);
   folks_individual_aggregator_prepare (priv->aggregator, NULL, NULL);
 }
 
@@ -719,4 +754,12 @@ empathy_individual_manager_unlink_individual (EmpathyIndividualManager *self,
 
   folks_individual_aggregator_unlink_individual (priv->aggregator, individual,
       (GAsyncReadyCallback) unlink_individual_cb, NULL);
+}
+
+gboolean
+empathy_individual_manager_get_contacts_loaded (EmpathyIndividualManager *self)
+{
+  EmpathyIndividualManagerPriv *priv = GET_PRIV (self);
+
+  return priv->contacts_loaded;
 }
