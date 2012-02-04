@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: empathy 3.3.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-02 13:45+0100\n"
-"PO-Revision-Date: 2012-02-02 13:57+0100\n"
+"POT-Creation-Date: 2012-02-04 12:34+0100\n"
+"PO-Revision-Date: 2012-02-04 12:35+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: no\n"
@@ -2025,7 +2025,7 @@ msgid "Select"
 msgstr "Velg"
 
 #: ../libempathy-gtk/empathy-groups-widget.c:407
-#: ../src/empathy-roster-window.c:1919
+#: ../src/empathy-roster-window.c:1951
 msgid "Group"
 msgstr "Gruppe"
 
@@ -3056,7 +3056,7 @@ msgstr ""
 "avslutte assistenten og legge til kontoer senere fra Rediger-menyen."
 
 #: ../src/empathy-account-assistant.c:220
-#: ../src/empathy-account-assistant.c:1274
+#: ../src/empathy-account-assistant.c:1276
 msgid "An error occurred"
 msgstr "En feil oppsto"
 
@@ -3144,7 +3144,7 @@ msgstr ""
 "funksjonen i «Konto»-dialogen"
 
 #: ../src/empathy-account-assistant.c:1094
-#: ../src/empathy-account-assistant.c:1150
+#: ../src/empathy-account-assistant.c:1152
 msgid "Edit->Accounts"
 msgstr "Rediger->Kontoer"
 
@@ -3152,7 +3152,7 @@ msgstr "Rediger->Kontoer"
 msgid "I do _not want to enable this feature for now"
 msgstr "Jeg vil ikke slå på de_nne funksjonen nå"
 
-#: ../src/empathy-account-assistant.c:1146
+#: ../src/empathy-account-assistant.c:1148
 msgid ""
 "You won't be able to chat with people connected to your local network, as "
 "telepathy-salut is not installed. If you want to enable this feature, please "
@@ -3164,23 +3164,23 @@ msgstr ""
 "funksjonen må du installere pakken telepathy-salut og opprette en «Folk i "
 "nærheten»-konto i Konto-dialogen"
 
-#: ../src/empathy-account-assistant.c:1152
+#: ../src/empathy-account-assistant.c:1154
 msgid "telepathy-salut not installed"
 msgstr "telepathy-salut er ikke installert"
 
-#: ../src/empathy-account-assistant.c:1198
+#: ../src/empathy-account-assistant.c:1200
 msgid "Messaging and VoIP Accounts Assistant"
 msgstr "Assistent for meldings- og VoIP-kontoer"
 
-#: ../src/empathy-account-assistant.c:1232
+#: ../src/empathy-account-assistant.c:1234
 msgid "Welcome to Empathy"
 msgstr "Velkommen til Empathy"
 
-#: ../src/empathy-account-assistant.c:1241
+#: ../src/empathy-account-assistant.c:1243
 msgid "Import your existing accounts"
 msgstr "Importer dine eksisterende kontoer"
 
-#: ../src/empathy-account-assistant.c:1259
+#: ../src/empathy-account-assistant.c:1261
 msgid "Please enter personal details"
 msgstr "Vennligst oppgi personlige detaljer"
 
@@ -3637,7 +3637,9 @@ msgstr "Lukk dette vinduet?"
 msgid ""
 "Closing this window will leave %s. You will not receive any further messages "
 "until you rejoin it."
-msgstr "Hvis du lukker dette vinduet vil du forlate %s. Du vil ikke motta videre meldinger før du blir med igjen."
+msgstr ""
+"Hvis du lukker dette vinduet vil du forlate %s. Du vil ikke motta videre "
+"meldinger før du blir med igjen."
 
 #: ../src/empathy-chat-window.c:301
 #, c-format
@@ -3647,8 +3649,12 @@ msgid ""
 msgid_plural ""
 "Closing this window will leave %u chat rooms. You will not receive any "
 "further messages until you rejoin them."
-msgstr[0] "Hvis du lukker dette vinduet vil du forlate praterommet. Du vil ikke motta videre meldinger før du blir med igjen."
-msgstr[1] "Hvis du lukker dette vinduet vil du forlate %u praterom. Du vil ikke motta videre meldinger før du blir med igjen."
+msgstr[0] ""
+"Hvis du lukker dette vinduet vil du forlate praterommet. Du vil ikke motta "
+"videre meldinger før du blir med igjen."
+msgstr[1] ""
+"Hvis du lukker dette vinduet vil du forlate %u praterom. Du vil ikke motta "
+"videre meldinger før du blir med igjen."
 
 #: ../src/empathy-chat-window.c:310
 #, c-format
@@ -3659,7 +3665,9 @@ msgstr "Forlat %s?"
 msgid ""
 "You will not receive any further messages from this chat room until you "
 "rejoin it."
-msgstr "Du vil ikke motta videre meldinger fra dette praterommet før du blir med igjen."
+msgstr ""
+"Du vil ikke motta videre meldinger fra dette praterommet før du blir med "
+"igjen."
 
 #: ../src/empathy-chat-window.c:330
 msgid "Close window"
@@ -3868,7 +3876,7 @@ msgstr "Du har blitt invitert til å bli med i %s"
 msgid "Incoming file transfer from %s"
 msgstr "Innkommende filoverføring fra %s"
 
-#: ../src/empathy-event-manager.c:1147 ../src/empathy-roster-window.c:371
+#: ../src/empathy-event-manager.c:1147 ../src/empathy-roster-window.c:372
 msgid "Password required"
 msgstr "Passord kreves"
 
@@ -4020,62 +4028,80 @@ msgstr "Protokoll"
 msgid "Source"
 msgstr "Kilde"
 
-#: ../src/empathy-roster-window.c:388
+#: ../src/empathy-roster-window.c:389
 msgid "Provide Password"
 msgstr "Oppgi passord"
 
-#: ../src/empathy-roster-window.c:394
+#: ../src/empathy-roster-window.c:395
 msgid "Disconnect"
 msgstr "Koble fra"
 
-#: ../src/empathy-roster-window.c:626
+#: ../src/empathy-roster-window.c:644
+msgid "You need to setup an account to see contacts here."
+msgstr "Du må sette opp en konto for å se kontakter her."
+
+#: ../src/empathy-roster-window.c:660
 msgid "No match found"
 msgstr "Ingen treff funnet"
 
-#: ../src/empathy-roster-window.c:733
+#: ../src/empathy-roster-window.c:765
 #, c-format
 msgid "Sorry, %s accounts can’t be used until your %s software is updated."
 msgstr "Beklager %s-kontoer kan ikke brukes før %s-programvaren er oppdatert."
 
-#: ../src/empathy-roster-window.c:799
+#: ../src/empathy-roster-window.c:831
 msgid "Update software..."
 msgstr "Oppdater programvare …"
 
-#: ../src/empathy-roster-window.c:805 ../src/empathy-roster-window.c:922
+#: ../src/empathy-roster-window.c:837 ../src/empathy-roster-window.c:954
 msgid "Close"
 msgstr "Lukk"
 
-#: ../src/empathy-roster-window.c:910
+#: ../src/empathy-roster-window.c:942
 msgid "Reconnect"
 msgstr "Koble til på nytt"
 
-#: ../src/empathy-roster-window.c:916
+#: ../src/empathy-roster-window.c:948
 msgid "Edit Account"
 msgstr "Rediger konto"
 
 #. Translators: this string will be something like:
 #. * Top up My Account ($1.23)..."
-#: ../src/empathy-roster-window.c:1060
+#: ../src/empathy-roster-window.c:1092
 #, c-format
 msgid "Top up %s (%s)..."
 msgstr "Fyll opp %s (%s) …"
 
-#: ../src/empathy-roster-window.c:1106
+#: ../src/empathy-roster-window.c:1138
 msgid "Top up account credit"
 msgstr "Fyll opp kreditt for konto"
 
 #. top up button
-#: ../src/empathy-roster-window.c:1178
+#: ../src/empathy-roster-window.c:1210
 msgid "Top Up..."
 msgstr "Fyll opp …"
 
-#: ../src/empathy-roster-window.c:1901
+#: ../src/empathy-roster-window.c:1933
 msgid "Contact"
 msgstr "Kontakt"
 
-#: ../src/empathy-roster-window.c:2288
+#: ../src/empathy-roster-window.c:2131
+msgid "You need to enable one of your accounts to see contacts here."
+msgstr "Du må slå på en av kontoene for å se kontakter her."
+
+#. translators: argument is an account name
+#: ../src/empathy-roster-window.c:2139
+#, c-format
+msgid "You need to enable %s to see contacts here."
+msgstr "Du må slå på %s for å se kontakter her."
+
+#: ../src/empathy-roster-window.c:2419
 msgid "Contact List"
 msgstr "Kontaktliste"
+
+#: ../src/empathy-roster-window.ui.h:1
+msgid "Account settings"
+msgstr "Innstillinger for konto"
 
 #: ../src/empathy-roster-window-menubar.ui.h:2
 #: ../src/empathy-status-icon.ui.h:2
