@@ -111,6 +111,7 @@ struct _EmpathyRosterWindowPriv {
   EmpathyEventManager *event_manager;
   EmpathySoundManager *sound_mgr;
   EmpathyCallObserver *call_observer;
+  EmpathyIndividualManager *individual_manager;
   guint flash_timeout_id;
   gboolean flash_on;
   gboolean empty;
@@ -130,6 +131,7 @@ struct _EmpathyRosterWindowPriv {
   GtkWidget *notebook;
   GtkWidget *no_entry_label;
   GtkWidget *button_account_settings;
+  GtkWidget *spinner_loading;
 
   GtkToggleAction *show_protocols;
   GtkRadioAction *sort_by_name;
@@ -619,19 +621,30 @@ button_account_settings_clicked_cb (GtkButton *button,
 static void
 display_page_message (EmpathyRosterWindow *self,
     const gchar *msg,
-    gboolean display_accounts_button)
+    gboolean display_accounts_button,
+    gboolean display_spinner)
 {
-  gchar *tmp;
+  if (msg != NULL)
+    {
+      gchar *tmp;
 
-  tmp = g_strdup_printf ("<b><span size='xx-large'>%s</span></b>", msg);
+      tmp = g_strdup_printf ("<b><span size='xx-large'>%s</span></b>", msg);
 
-  gtk_label_set_markup (GTK_LABEL (self->priv->no_entry_label), tmp);
-  g_free (tmp);
+      gtk_label_set_markup (GTK_LABEL (self->priv->no_entry_label), tmp);
+      g_free (tmp);
 
-  gtk_label_set_line_wrap (GTK_LABEL (self->priv->no_entry_label), TRUE);
+      gtk_label_set_line_wrap (GTK_LABEL (self->priv->no_entry_label), TRUE);
+      gtk_widget_show (self->priv->no_entry_label);
+    }
+  else
+    {
+      gtk_widget_hide (self->priv->no_entry_label);
+    }
 
   gtk_widget_set_visible (self->priv->button_account_settings,
       display_accounts_button);
+  gtk_widget_set_visible (self->priv->spinner_loading,
+      display_spinner);
 
   gtk_notebook_set_current_page (GTK_NOTEBOOK (self->priv->notebook),
       PAGE_MESSAGE);
@@ -641,7 +654,7 @@ static void
 display_page_no_account (EmpathyRosterWindow *self)
 {
   display_page_message (self,
-      _("You need to setup an account to see contacts here."), TRUE);
+      _("You need to setup an account to see contacts here."), TRUE, FALSE);
 }
 
 static void
@@ -657,7 +670,7 @@ roster_window_row_deleted_cb (GtkTreeModel *model,
 
       if (empathy_individual_view_is_searching (self->priv->individual_view))
         {
-          display_page_message (self, _("No match found"), FALSE);
+          display_page_message (self, _("No match found"), FALSE, FALSE);
         }
     }
 }
@@ -665,6 +678,11 @@ roster_window_row_deleted_cb (GtkTreeModel *model,
 static void
 display_page_contact_list (EmpathyRosterWindow *self)
 {
+  if (!empathy_individual_manager_get_contacts_loaded (
+        self->priv->individual_manager))
+    /* We'll display the contact list once we're done loading */
+    return;
+
   gtk_notebook_set_current_page (GTK_NOTEBOOK (self->priv->notebook),
       PAGE_CONTACT_LIST);
 }
@@ -1408,6 +1426,7 @@ empathy_roster_window_finalize (GObject *window)
 
   g_object_unref (self->priv->gsettings_ui);
   g_object_unref (self->priv->gsettings_contacts);
+  g_object_unref (self->priv->individual_manager);
 
   G_OBJECT_CLASS (empathy_roster_window_parent_class)->finalize (window);
 }
@@ -2129,7 +2148,7 @@ display_page_account_not_enabled (EmpathyRosterWindow *self,
     {
       display_page_message (self,
           _("You need to enable one of your accounts to see contacts here."),
-          TRUE);
+          TRUE, FALSE);
     }
   else
     {
@@ -2139,7 +2158,7 @@ display_page_account_not_enabled (EmpathyRosterWindow *self,
       tmp = g_strdup_printf (_("You need to enable %s to see contacts here."),
           tp_account_get_display_name (account));
 
-      display_page_message (self, tmp, TRUE);
+      display_page_message (self, tmp, TRUE, FALSE);
       g_free (tmp);
     }
 }
@@ -2394,9 +2413,31 @@ empathy_roster_window_class_init (EmpathyRosterWindowClass *klass)
 }
 
 static void
+show_contacts_loading (EmpathyRosterWindow *self)
+{
+  display_page_message (self, NULL, FALSE, TRUE);
+
+  gtk_spinner_start (GTK_SPINNER (self->priv->spinner_loading));
+}
+
+static void
+hide_contacts_loading (EmpathyRosterWindow *self)
+{
+  gtk_spinner_stop (GTK_SPINNER (self->priv->spinner_loading));
+
+  display_page_contact_list (self);
+}
+
+static void
+contacts_loaded_cb (EmpathyIndividualManager *manager,
+    EmpathyRosterWindow *self)
+{
+  hide_contacts_loading (self);
+}
+
+static void
 empathy_roster_window_init (EmpathyRosterWindow *self)
 {
-  EmpathyIndividualManager *individual_manager;
   GtkBuilder *gui, *gui_mgr;
   GtkWidget *sw;
   GtkToggleAction *show_offline_widget;
@@ -2437,6 +2478,7 @@ empathy_roster_window_init (EmpathyRosterWindow *self)
       "no_entry_label", &self->priv->no_entry_label,
       "roster_scrolledwindow", &sw,
       "button_account_settings", &self->priv->button_account_settings,
+      "spinner_loading", &self->priv->spinner_loading,
       NULL);
   g_free (filename);
 
@@ -2565,10 +2607,19 @@ empathy_roster_window_init (EmpathyRosterWindow *self)
    * so it's got a race condition between its signal handlers and its
    * finalization. The class is planned to be removed, so we won't fix
    * this before then. */
-  individual_manager = empathy_individual_manager_dup_singleton ();
+  self->priv->individual_manager = empathy_individual_manager_dup_singleton ();
+
+  if (!empathy_individual_manager_get_contacts_loaded (
+        self->priv->individual_manager))
+    {
+      show_contacts_loading (self);
+
+      tp_g_signal_connect_object (self->priv->individual_manager,
+          "contacts-loaded", G_CALLBACK (contacts_loaded_cb), self, 0);
+    }
+
   self->priv->individual_store = EMPATHY_INDIVIDUAL_STORE (
-      empathy_individual_store_manager_new (individual_manager));
-  g_object_unref (individual_manager);
+      empathy_individual_store_manager_new (self->priv->individual_manager));
 
   /* For the moment, we disallow Persona drops onto the roster contact list
    * (e.g. from things such as the EmpathyPersonaView in the linking dialogue).
