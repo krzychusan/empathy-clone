@@ -694,6 +694,8 @@ account_widget_generic_format_param_name (const gchar *param_name)
   gchar *p;
   static GHashTable *translated_params = NULL;
 
+  g_return_val_if_fail (param_name != NULL, NULL);
+
   if (G_UNLIKELY (translated_params == NULL))
     translated_params = build_translated_params ();
 
