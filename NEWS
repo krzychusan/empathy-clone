@@ -1,3 +1,45 @@
+NEW in 3.3.5 (06/02/2012)
+============
+Bugs fixed:
+ - Fixed #667037, Crash when editing contacts (Guillaume Desmottes)
+ - Fixed #562462, "Open new chats in separate windows" has no obvious opposite (Danielle Madeley)
+ - Fixed #575669, Join Chatroom lists all accounts (Will Thompson)
+ - Fixed #576912, Highlights me in 1-1 conversations for no reason. (Will Thompson)
+ - Fixed #591667, Improve highlighting messages containing your nickname. (Will Thompson)
+ - Fixed #591756, Warn the user before leaving chat rooms (Will Thompson)
+ - Fixed #612216, Default conversation window size is too small (Ken VanDine)
+ - Fixed #643699, empathy-auth-client window should be modal to the desktop (Guillaume Desmottes)
+ - Fixed #660856, can't add a jabber account without a tld in username (Guillaume Desmottes)
+ - Fixed #662916, Empathy keeps scrolling up (Guillaume Desmottes)
+ - Fixed #666522, Notification unsure if a contact is coming or going (Guillaume Desmottes)
+ - Fixed #666714, Personal Information dialog for my XMPP account has a number of glitches (Guillaume Desmottes)
+ - Fixed #668336, Remove Edit -> Personnal information (Guillaume Desmottes)
+ - Fixed #668372, Adding a second Gmail account lists this account twice (Guillaume Desmottes)
+ - Fixed #668498, Stop watching connectivity change (Guillaume Desmottes)
+ - Fixed #668502, "No topic defined" displayed when reconnecting a private chat (Guillaume Desmottes)
+ - Fixed #668663, The default value of "sort-criterium" is NOT consistent with the description. (Guillaume Desmottes)
+ - Fixed #668681, empathy-auth-client window doesn't have proper name (Danielle Madeley)
+ - Fixed #668796, Is someone in Favourite/Favorite People really "Ungrouped" (Danielle Madeley)
+ - Fixed #669300, accounts assistant: salut widget has Close and Apply buttons (Guillaume Desmottes)
+ - Fixed #667467, Remove about Add New Preset section on the Saved Presets box (Yasumichi Akahoshi)
+ - Fixed #668364, I forgot to remove an unnecessary adjective (Yasumichi Akahoshi)
+
+Translations:
+ - Updated cs Translation (Marek Černocký)
+ - Updated es Translation (Daniel Mustieles)
+ - Updated gl Translation (Fran Diéguez)
+ - Updated he Translation (Yaron Shahrabani)
+ - Updated nb Translation (Kjartan Maraas)
+ - Updated sl Translation (Matej Urbančič)
+ - Updated sv Translation (Daniel Nylander)
+ - Updated te Translation (Praveen Illa)
+ - Updated zh_HK Translation (Cheng-Chia Tseng)
+ - Updated zh_TW Translation (Cheng-Chia Tseng)
+
+Documentation translations:
+ - Updated es Documentation translation (Daniel Mustieles)
+ - Updated gl Documentation translation (Fran Diéguez)
+
 NEW in 3.3.4 (16/01/2012)
 ============
 
