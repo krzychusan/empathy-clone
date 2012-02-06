@@ -145,7 +145,6 @@ individual_menu_add_personas (GtkMenuShell *menu,
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), item);
   gtk_widget_show (item);
 
-  personas = folks_individual_get_personas (individual);
   for (c = gee_iterator_first (iter); c; c = gee_iterator_next (iter))
     {
       GtkWidget *image;
