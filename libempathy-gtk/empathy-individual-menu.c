@@ -1292,6 +1292,24 @@ empathy_individual_favourite_menu_item_new (FolksIndividual *individual)
 }
 
 static void
+show_gnome_contacts_error_dialog (void)
+{
+  GtkWidget *dialog;
+
+  dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL,
+      GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
+      _("gnome-contacts not installed"));
+
+  gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
+      _("Please install gnome-contacts to access contacts details."));
+
+  g_signal_connect_swapped (dialog, "response",
+          G_CALLBACK (gtk_widget_destroy), dialog);
+
+  gtk_widget_show (dialog);
+}
+
+static void
 individual_info_menu_item_activate_cb (FolksIndividual *individual)
 {
   GDesktopAppInfo *desktop_info;
@@ -1308,22 +1326,9 @@ individual_info_menu_item_activate_cb (FolksIndividual *individual)
   desktop_info = g_desktop_app_info_new ("gnome-contacts.desktop");
   if (desktop_info == NULL)
     {
-      GtkWidget *dialog;
-
       DEBUG ("gnome-contacts not installed");
 
-      dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL,
-          GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
-          _("gnome-contacts not installed"));
-
-      gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
-          _("Please install gnome-contacts to access contacts details."));
-
-      g_signal_connect_swapped (dialog, "response",
-          G_CALLBACK (gtk_widget_destroy),
-          dialog);
-
-      gtk_widget_show (dialog);
+      show_gnome_contacts_error_dialog ();
       return;
     }
 
