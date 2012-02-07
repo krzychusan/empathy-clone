@@ -39,6 +39,7 @@
 #include <libempathy/empathy-chatroom-manager.h>
 #include <libempathy/empathy-utils.h>
 #include <libempathy/empathy-contact-list.h>
+#include <libempathy/empathy-pkg-kit.h>
 
 #include "empathy-account-selector-dialog.h"
 #include "empathy-individual-menu.h"
@@ -1310,7 +1311,37 @@ show_gnome_contacts_error_dialog (void)
 }
 
 static void
-start_gnome_contacts (FolksIndividual *individual)
+start_gnome_contacts (FolksIndividual *individual,
+    gboolean try_installing);
+
+static void
+install_gnome_contacts_cb (GObject *source,
+    GAsyncResult *result,
+    gpointer user_data)
+{
+  FolksIndividual *individual = user_data;
+  GError *error = NULL;
+
+  if (!empathy_pkg_kit_install_packages_finish (result, &error))
+    {
+      DEBUG ("Failed to install gnome-contacts: %s", error->message);
+      g_error_free (error);
+
+      show_gnome_contacts_error_dialog ();
+      goto out;
+    }
+
+  DEBUG ("gnome-contacts installed");
+
+  start_gnome_contacts (individual, FALSE);
+
+out:
+  g_object_unref (individual);
+}
+
+static void
+start_gnome_contacts (FolksIndividual *individual,
+    gboolean try_installing)
 {
   GDesktopAppInfo *desktop_info;
   gchar *cmd;
@@ -1326,9 +1357,20 @@ start_gnome_contacts (FolksIndividual *individual)
   desktop_info = g_desktop_app_info_new ("gnome-contacts.desktop");
   if (desktop_info == NULL)
     {
-      DEBUG ("gnome-contacts not installed");
+      if (try_installing)
+        {
+          const gchar *packages[] = { "gnome-contacts", NULL };
 
-      show_gnome_contacts_error_dialog ();
+          DEBUG ("gnome-contacts not installed; try to install it");
+
+          empathy_pkg_kit_install_packages_async (0, packages, NULL,
+              NULL, install_gnome_contacts_cb, g_object_ref (individual));
+        }
+      else
+        {
+          show_gnome_contacts_error_dialog ();
+        }
+
       return;
     }
 
@@ -1358,7 +1400,7 @@ start_gnome_contacts (FolksIndividual *individual)
 static void
 individual_info_menu_item_activate_cb (FolksIndividual *individual)
 {
-  start_gnome_contacts (individual);
+  start_gnome_contacts (individual, TRUE);
 }
 
 static GtkWidget *
@@ -1377,7 +1419,7 @@ empathy_individual_info_menu_item_new (FolksIndividual *individual)
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
   gtk_widget_show (image);
 
-  g_signal_connect_swapped (item, "activate",
+  g_signal_connect (item, "activate",
           G_CALLBACK (individual_info_menu_item_activate_cb),
           individual);
 
