@@ -26,6 +26,8 @@
 
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
+#include <gio/gdesktopappinfo.h>
+
 #include <telepathy-glib/util.h>
 
 #include <folks/folks.h>
@@ -46,7 +48,6 @@
 #include "empathy-gtk-enum-types.h"
 #include "empathy-individual-dialogs.h"
 #include "empathy-individual-edit-dialog.h"
-#include "empathy-individual-information-dialog.h"
 #include "empathy-ui-utils.h"
 #include "empathy-share-my-desktop.h"
 #include "empathy-linking-dialog.h"
@@ -1293,7 +1294,60 @@ empathy_individual_favourite_menu_item_new (FolksIndividual *individual)
 static void
 individual_info_menu_item_activate_cb (FolksIndividual *individual)
 {
-  empathy_individual_information_dialog_show (individual, NULL);
+  GDesktopAppInfo *desktop_info;
+  gchar *cmd;
+  GAppInfo *app_info;
+  GError *error = NULL;
+  GdkAppLaunchContext *context = NULL;
+  GdkDisplay *display;
+
+  /* Start gnome-contacts */
+  display = gdk_display_get_default ();
+  context = gdk_display_get_app_launch_context (display);
+
+  desktop_info = g_desktop_app_info_new ("gnome-contacts.desktop");
+  if (desktop_info == NULL)
+    {
+      GtkWidget *dialog;
+
+      DEBUG ("gnome-contacts not installed");
+
+      dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL,
+          GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
+          _("gnome-contacts not installed"));
+
+      gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
+          _("Please install gnome-contacts to access contacts details."));
+
+      g_signal_connect_swapped (dialog, "response",
+          G_CALLBACK (gtk_widget_destroy),
+          dialog);
+
+      gtk_widget_show (dialog);
+      return;
+    }
+
+  /* glib doesn't have API to start a desktop file with args... (#637875) */
+  cmd = g_strdup_printf ("%s -i %s", g_app_info_get_commandline (
+        (GAppInfo *) desktop_info), folks_individual_get_id (individual));
+
+  app_info = g_app_info_create_from_commandline (cmd, NULL, 0, &error);
+  if (app_info == NULL)
+    {
+      DEBUG ("Failed to create app_info: %s", error->message);
+      g_error_free (error);
+      return;
+    }
+
+  if (!g_app_info_launch (app_info, NULL, (GAppLaunchContext *) context,
+        &error))
+    {
+      g_critical ("Failed to start gnome-contacts: %s", error->message);
+      g_error_free (error);
+    }
+
+  g_object_unref (desktop_info);
+  g_object_unref (app_info);
 }
 
 static GtkWidget *
