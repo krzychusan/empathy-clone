@@ -20,6 +20,8 @@
  *          Xavier Claessens <xclaesse@gmail.com>
  */
 
+#include "config.h"
+
 #include <string.h>
 
 #include <telepathy-glib/proxy-subclass.h>
