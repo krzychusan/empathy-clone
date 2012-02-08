@@ -352,7 +352,7 @@ create_errors_to_message_hash (void)
   g_hash_table_insert (errors, TP_ERROR_STR_CONNECTION_LOST,
     _("Connection has been lost"));
   g_hash_table_insert (errors, TP_ERROR_STR_ALREADY_CONNECTED,
-    _("This resource is already connected to the server"));
+    _("This account is already connected to the server"));
   g_hash_table_insert (errors, TP_ERROR_STR_CONNECTION_REPLACED,
     _("Connection has been replaced by a new connection using the "
     "same resource"));
