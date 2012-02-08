@@ -314,7 +314,7 @@ empathy_contact_info_create_channel_list_label (TpAccount *account,
         g_string_append (label_markup, ", ");
 
       g_string_append_printf (label_markup, "<a href='%s'>%s</a>",
-          escaped, channel_name);
+          escaped, escaped);
       g_free (escaped);
     }
 
