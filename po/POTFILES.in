@@ -42,14 +42,12 @@ libempathy-gtk/empathy-contactinfo-utils.c
 libempathy-gtk/empathy-groups-widget.c
 libempathy-gtk/empathy-individual-dialogs.c
 libempathy-gtk/empathy-individual-edit-dialog.c
-libempathy-gtk/empathy-individual-linker.c
 libempathy-gtk/empathy-individual-menu.c
 libempathy-gtk/empathy-individual-view.c
 libempathy-gtk/empathy-individual-widget.c
 [type: gettext/glade]libempathy-gtk/empathy-individual-widget.ui
 libempathy-gtk/empathy-irc-network-chooser-dialog.c
 libempathy-gtk/empathy-irc-network-dialog.c
-libempathy-gtk/empathy-linking-dialog.c
 libempathy-gtk/empathy-log-window.c
 [type: gettext/glade]libempathy-gtk/empathy-log-window.ui
 libempathy-gtk/empathy-new-message-dialog.c
