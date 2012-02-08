@@ -101,6 +101,7 @@ typedef struct
   GtkWidget *grid_contact;
   GtkWidget *vbox_avatar;
   GtkWidget *favourite_checkbox;
+  GtkWidget *label_details;
 
   /* Location */
   GtkWidget *vbox_location;
@@ -1439,6 +1440,13 @@ contact_widget_contact_update (EmpathyContactWidget *information)
 
       gtk_widget_set_visible (information->hbox_presence,
           !(information->flags & EMPATHY_CONTACT_WIDGET_NO_STATUS));
+
+      if (empathy_contact_is_user (information->contact))
+        gtk_label_set_text (GTK_LABEL (information->label_details),
+            _("Personal Details"));
+      else
+        gtk_label_set_text (GTK_LABEL (information->label_details),
+            _("Contact Details"));
     }
   else
     {
@@ -1755,6 +1763,7 @@ empathy_contact_widget_new (EmpathyContact *contact,
        "vbox_client", &information->vbox_client,
        "grid_client", &information->grid_client,
        "hbox_client_requested", &information->hbox_client_requested,
+       "label_details", &information->label_details,
        NULL);
   g_free (filename);
 
