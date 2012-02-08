@@ -70,8 +70,6 @@ libempathy_gtk_handwritten_source =            	\
 	empathy-new-call-dialog.c		\
 	empathy-notify-manager.c		\
 	empathy-password-dialog.c 		\
-	empathy-persona-store.c			\
-	empathy-persona-view.c			\
 	empathy-presence-chooser.c		\
 	empathy-protocol-chooser.c		\
 	empathy-search-bar.c			\
@@ -137,8 +135,6 @@ libempathy_gtk_headers =			\
 	empathy-new-call-dialog.h		\
 	empathy-notify-manager.h		\
 	empathy-password-dialog.h		\
-	empathy-persona-store.h			\
-	empathy-persona-view.h			\
 	empathy-presence-chooser.h		\
 	empathy-protocol-chooser.h		\
 	empathy-search-bar.h			\
