@@ -91,8 +91,6 @@ static GtkWidget * empathy_individual_info_menu_item_new (
     FolksIndividual *individual);
 static GtkWidget * empathy_individual_edit_menu_item_new (
     FolksIndividual *individual);
-static GtkWidget * empathy_individual_link_menu_item_new (
-    FolksIndividual *individual);
 static GtkWidget * empathy_individual_invite_menu_item_new (
     FolksIndividual *individual,
     EmpathyContact *contact);
@@ -274,16 +272,6 @@ while_finish:
     }
 
   g_clear_object (&iter);
-}
-
-static void
-individual_link_menu_item_activate_cb (EmpathyIndividualMenu *self)
-{
-  EmpathyIndividualMenuPriv *priv = GET_PRIV (self);
-  GtkWidget *dialog;
-
-  dialog = empathy_linking_dialog_show (priv->individual, NULL);
-  g_signal_emit (self, signals[SIGNAL_LINK_CONTACTS_ACTIVATED], 0, dialog);
 }
 
 static void
@@ -785,8 +773,7 @@ constructed (GObject *object)
   /* Separator */
   if (features & (EMPATHY_INDIVIDUAL_FEATURE_EDIT |
       EMPATHY_INDIVIDUAL_FEATURE_INFO |
-      EMPATHY_INDIVIDUAL_FEATURE_FAVOURITE |
-      EMPATHY_INDIVIDUAL_FEATURE_LINK))
+      EMPATHY_INDIVIDUAL_FEATURE_FAVOURITE))
     {
       item = gtk_separator_menu_item_new ();
       gtk_menu_shell_append (shell, item);
@@ -798,18 +785,6 @@ constructed (GObject *object)
     {
       item = empathy_individual_edit_menu_item_new (individual);
       gtk_menu_shell_append (shell, item);
-      gtk_widget_show (item);
-    }
-
-  /* Link */
-  if (features & EMPATHY_INDIVIDUAL_FEATURE_LINK)
-    {
-      item = empathy_individual_link_menu_item_new (individual);
-      gtk_menu_shell_append (shell, item);
-
-      g_signal_connect_swapped (item, "activate",
-          (GCallback) individual_link_menu_item_activate_cb, object);
-
       gtk_widget_show (item);
     }
 
@@ -1473,31 +1448,6 @@ empathy_individual_edit_menu_item_new (FolksIndividual *individual)
       G_CALLBACK (individual_edit_menu_item_activate_cb), individual);
 
   g_object_unref (contact);
-
-  return item;
-}
-
-static GtkWidget *
-empathy_individual_link_menu_item_new (FolksIndividual *individual)
-{
-  GtkWidget *item;
-  /*GtkWidget *image;*/
-
-  g_return_val_if_fail (FOLKS_IS_INDIVIDUAL (individual), NULL);
-
-  item = gtk_image_menu_item_new_with_mnemonic (
-      /* Translators: this is a verb meaning "to connect two contacts together
-       * to form a meta-contact". */
-      C_("Link individual (contextual menu)", "_Link Contacts…"));
-  /* TODO */
-  /*image = gtk_image_new_from_icon_name (GTK_STOCK_EDIT, GTK_ICON_SIZE_MENU);
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
-  gtk_widget_show (image);*/
-
-  /* Only allow trusted Individuals to be linked */
-  gtk_widget_set_sensitive (item,
-      folks_individual_get_trust_level (individual) ==
-          FOLKS_TRUST_LEVEL_PERSONAS);
 
   return item;
 }
