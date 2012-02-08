@@ -52,6 +52,7 @@ libempathy_headers =				\
 	empathy-keyring.h 			\
 	empathy-location.h			\
 	empathy-message.h			\
+	empathy-pkg-kit.h		\
 	empathy-request-util.h			\
 	empathy-server-sasl-handler.h		\
 	empathy-server-tls-handler.h		\
@@ -92,6 +93,7 @@ libempathy_handwritten_source =				\
 	empathy-irc-server.c				\
 	empathy-keyring.c				\
 	empathy-message.c				\
+	empathy-pkg-kit.c		\
 	empathy-request-util.c				\
 	empathy-server-sasl-handler.c			\
 	empathy-server-tls-handler.c			\
