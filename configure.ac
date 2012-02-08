@@ -71,6 +71,9 @@ CHAMPLAIN_REQUIRED=0.12.1
 # those warnings later during the cycle (bgo #662662)
 AC_DEFINE(GLIB_DISABLE_DEPRECATION_WARNINGS, 1, [Build with GLib deprecated])
 
+# FIXME: bgo #669673
+AC_DEFINE(CLUTTER_DISABLE_DEPRECATION_WARNINGS, 1, [Build with Clutter deprecated])
+
 # telepathy-yell
 prev_top_build_prefix=$ac_top_build_prefix
 prev_ac_configure_args=$ac_configure_args
