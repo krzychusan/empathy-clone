@@ -49,7 +49,6 @@
 #include "empathy-individual-edit-dialog.h"
 #include "empathy-individual-dialogs.h"
 #include "empathy-images.h"
-#include "empathy-linking-dialog.h"
 #include "empathy-cell-renderer-expander.h"
 #include "empathy-cell-renderer-text.h"
 #include "empathy-cell-renderer-activatable.h"
@@ -2537,19 +2536,6 @@ individual_view_remove_activate_cb (GtkMenuItem *menuitem,
     }
 }
 
-static void
-individual_menu_link_contacts_activated_cb (EmpathyIndividualMenu *menu,
-    EmpathyLinkingDialog *linking_dialog,
-    EmpathyIndividualView *self)
-{
-  EmpathyIndividualViewPriv *priv = GET_PRIV (self);
-  EmpathyIndividualLinker *linker;
-
-  linker = empathy_linking_dialog_get_individual_linker (linking_dialog);
-  empathy_individual_linker_set_search_text (linker,
-      empathy_live_search_get_text (EMPATHY_LIVE_SEARCH (priv->search_widget)));
-}
-
 GtkWidget *
 empathy_individual_view_get_individual_menu (EmpathyIndividualView *view)
 {
@@ -2623,12 +2609,6 @@ empathy_individual_view_get_individual_menu (EmpathyIndividualView *view)
       g_signal_connect (item, "activate",
           G_CALLBACK (individual_view_remove_activate_cb), view);
     }
-
-  /* Connect to EmpathyIndividualMenu::link-contacts-activated so that we can
-   * set the live search text on the new linking dialogue to be the same as
-   * our own. */
-  g_signal_connect (menu, "link-contacts-activated",
-      (GCallback) individual_menu_link_contacts_activated_cb, view);
 
 out:
   g_object_unref (individual);

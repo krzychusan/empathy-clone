@@ -51,7 +51,6 @@
 #include "empathy-individual-edit-dialog.h"
 #include "empathy-ui-utils.h"
 #include "empathy-share-my-desktop.h"
-#include "empathy-linking-dialog.h"
 #include "empathy-call-utils.h"
 #include "empathy-individual-store-channel.h"
 
@@ -71,13 +70,6 @@ enum {
   PROP_FEATURES,
   PROP_STORE,
 };
-
-enum {
-  SIGNAL_LINK_CONTACTS_ACTIVATED,
-  LAST_SIGNAL
-};
-
-static guint signals[LAST_SIGNAL];
 
 G_DEFINE_TYPE (EmpathyIndividualMenu, empathy_individual_menu, GTK_TYPE_MENU);
 
@@ -932,12 +924,6 @@ empathy_individual_menu_class_init (EmpathyIndividualMenuClass *klass)
           "The EmpathyIndividualStore to use to get contact owner",
           EMPATHY_TYPE_INDIVIDUAL_STORE,
           G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS));
-
-  signals[SIGNAL_LINK_CONTACTS_ACTIVATED] =
-      g_signal_new ("link-contacts-activated", G_OBJECT_CLASS_TYPE (klass),
-          G_SIGNAL_RUN_LAST, 0, NULL, NULL,
-          g_cclosure_marshal_generic,
-          G_TYPE_NONE, 1, EMPATHY_TYPE_LINKING_DIALOG);
 
   g_type_class_add_private (object_class, sizeof (EmpathyIndividualMenuPriv));
 }
