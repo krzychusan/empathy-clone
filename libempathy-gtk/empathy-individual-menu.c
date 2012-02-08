@@ -1310,7 +1310,7 @@ show_gnome_contacts_error_dialog (void)
 }
 
 static void
-individual_info_menu_item_activate_cb (FolksIndividual *individual)
+start_gnome_contacts (FolksIndividual *individual)
 {
   GDesktopAppInfo *desktop_info;
   gchar *cmd;
@@ -1353,6 +1353,12 @@ individual_info_menu_item_activate_cb (FolksIndividual *individual)
 
   g_object_unref (desktop_info);
   g_object_unref (app_info);
+}
+
+static void
+individual_info_menu_item_activate_cb (FolksIndividual *individual)
+{
+  start_gnome_contacts (individual);
 }
 
 static GtkWidget *
