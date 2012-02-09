@@ -2,7 +2,7 @@
 <interface>
   <requires lib="gtk+" version="2.16"/>
   <object class="GtkAdjustment" id="adjustment1">
-    <property name="lower">-128</property>
+    <property name="lower">0</property>
     <property name="upper">127</property>
     <property name="step_increment">1</property>
     <property name="page_increment">10</property>
