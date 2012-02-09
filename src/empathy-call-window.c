@@ -439,8 +439,11 @@ create_video_output_widget (EmpathyCallWindow *self)
   clutter_texture_set_keep_aspect_ratio (CLUTTER_TEXTURE (priv->video_output),
       TRUE);
 
-  priv->video_output_sink = clutter_gst_video_sink_new (
-      CLUTTER_TEXTURE (priv->video_output));
+  priv->video_output_sink = gst_element_factory_make ("cluttersink", NULL);
+  if (priv->video_output_sink == NULL)
+    g_error ("Missing cluttersink");
+  else
+    g_object_set (priv->video_output_sink, "texture", priv->video_output, NULL);
 
   clutter_container_add_actor (CLUTTER_CONTAINER (priv->video_box),
       priv->video_output);
@@ -1113,8 +1116,12 @@ create_video_preview (EmpathyCallWindow *self)
   preview = empathy_rounded_texture_new ();
   clutter_actor_set_size (preview,
       SELF_VIDEO_SECTION_WIDTH, SELF_VIDEO_SECTION_HEIGHT);
-  priv->video_preview_sink = clutter_gst_video_sink_new (
-      CLUTTER_TEXTURE (preview));
+
+  priv->video_preview_sink = gst_element_factory_make ("cluttersink", NULL);
+  if (priv->video_preview_sink == NULL)
+    g_error ("Missing cluttersink");
+  else
+    g_object_set (priv->video_preview_sink, "texture", preview, NULL);
 
   /* Add a little offset to the video preview */
   layout = clutter_bin_layout_new (CLUTTER_BIN_ALIGNMENT_CENTER,
