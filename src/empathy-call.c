@@ -30,6 +30,10 @@
 #include <clutter-gtk/clutter-gtk.h>
 #include <clutter-gst/clutter-gst.h>
 
+#ifdef CLUTTER_WINDOWING_X11
+#include <X11/Xlib.h>
+#endif
+
 #include <telepathy-glib/debug-sender.h>
 
 #include <telepathy-yell/telepathy-yell.h>
@@ -186,6 +190,12 @@ main (int argc,
 
   /* Init */
   g_thread_init (NULL);
+
+#ifdef GDK_WINDOWING_X11
+  /* We can't call clutter_gst_init() before gtk_clutter_init(), so no choice
+   * but to intiialise X11 threading ourself */
+  XInitThreads ();
+#endif
 
   /* Clutter needs this */
   gdk_disable_multidevice ();
