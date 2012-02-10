@@ -4169,7 +4169,8 @@ empathy_chat_get_contact_menu (EmpathyChat *chat)
 	if (contact == NULL)
 		return NULL;
 
-	individual = empathy_create_individual_from_tp_contact (contact);
+	individual = empathy_ensure_individual_from_tp_contact (contact);
+
 	if (individual == NULL)
 		return NULL;
 
