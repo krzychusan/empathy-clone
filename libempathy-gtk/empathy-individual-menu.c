@@ -1359,7 +1359,8 @@ start_gnome_contacts (FolksIndividual *individual,
 }
 
 static void
-individual_info_menu_item_activate_cb (FolksIndividual *individual)
+individual_info_menu_item_activate_cb (GtkMenuItem *item,
+    FolksIndividual *individual)
 {
   start_gnome_contacts (individual, TRUE);
 }
