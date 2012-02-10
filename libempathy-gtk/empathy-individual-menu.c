@@ -1311,6 +1311,8 @@ start_gnome_contacts (FolksIndividual *individual,
   GdkAppLaunchContext *context = NULL;
   GdkDisplay *display;
 
+  g_return_if_fail (FOLKS_IS_INDIVIDUAL (individual));
+
   /* Start gnome-contacts */
   display = gdk_display_get_default ();
   context = gdk_display_get_app_launch_context (display);
