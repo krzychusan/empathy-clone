@@ -928,10 +928,19 @@ chat_window_update_chat_tab_full (EmpathyChat *chat,
 	g_free (markup);
 
 	/* Update tab and menu label */
+	if (empathy_chat_is_highlighted (chat)) {
+		markup = g_markup_printf_escaped (
+			"<span color=\"red\" weight=\"bold\">%s</span>",
+			name);
+	} else {
+		markup = g_markup_escape_text (name, -1);
+	}
+
 	widget = g_object_get_data (G_OBJECT (chat), "chat-window-tab-label");
-	gtk_label_set_text (GTK_LABEL (widget), name);
+	gtk_label_set_markup (GTK_LABEL (widget), markup);
 	widget = g_object_get_data (G_OBJECT (chat), "chat-window-menu-label");
-	gtk_label_set_text (GTK_LABEL (widget), name);
+	gtk_label_set_markup (GTK_LABEL (widget), markup);
+	g_free (markup);
 
 	/* Update the window if it's the current chat */
 	if (priv->current_chat == chat) {
@@ -1560,30 +1569,6 @@ chat_window_show_or_update_notification (EmpathyChatWindow *window,
 	g_free (escaped);
 }
 
-static void
-chat_window_set_highlight_room_labels (EmpathyChat *chat)
-{
-	gchar *markup, *name;
-	GtkWidget *widget;
-
-	if (!empathy_chat_is_room (chat))
-		return;
-
-	name = empathy_chat_dup_name (chat);
-	markup = g_markup_printf_escaped (
-		"<span color=\"red\" weight=\"bold\">%s</span>",
-		name);
-
-	widget = g_object_get_data (G_OBJECT (chat), "chat-window-tab-label");
-	gtk_label_set_markup (GTK_LABEL (widget), markup);
-
-	widget = g_object_get_data (G_OBJECT (chat), "chat-window-menu-label");
-	gtk_label_set_markup (GTK_LABEL (widget), markup);
-
-	g_free (name);
-	g_free (markup);
-}
-
 static gboolean
 empathy_chat_window_has_focus (EmpathyChatWindow *window)
 {
@@ -1670,8 +1655,6 @@ chat_window_new_message_cb (EmpathyChat       *chat,
 	}
 
 	if (needs_urgency) {
-		chat_window_set_highlight_room_labels (chat);
-
 		if (!has_focus) {
 			chat_window_set_urgency_hint (window, TRUE);
 		}

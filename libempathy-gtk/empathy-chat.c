@@ -160,6 +160,10 @@ struct _EmpathyChatPriv {
 	/* A regex matching our own current nickname in the room, or %NULL if
 	 * !empathy_chat_is_room (). */
 	GRegex            *highlight_regex;
+
+	/* TRUE if empathy_chat_is_room() and there are unread highlighted messages.
+	 * Cleared by empathy_chat_messages_read(). */
+	gboolean           highlighted;
 };
 
 typedef struct {
@@ -1484,6 +1488,11 @@ chat_message_received (EmpathyChat *chat,
 		empathy_chat_view_edit_message (chat->view, message);
 	} else {
 		gboolean should_highlight = chat_should_highlight (chat, message);
+
+		if (should_highlight) {
+			priv->highlighted = TRUE;
+		}
+
 		DEBUG ("Appending new message '%s' from %s (%d)",
 			empathy_message_get_token (message),
 			empathy_contact_get_alias (sender),
@@ -4308,6 +4317,16 @@ empathy_chat_is_room (EmpathyChat *chat)
 	return (priv->handle_type == TP_HANDLE_TYPE_ROOM);
 }
 
+gboolean
+empathy_chat_is_highlighted (EmpathyChat *chat)
+{
+	EmpathyChatPriv *priv = GET_PRIV (chat);
+
+	g_return_val_if_fail (EMPATHY_IS_CHAT (chat), FALSE);
+
+	return priv->highlighted;
+}
+
 guint
 empathy_chat_get_nb_unread_messages (EmpathyChat *self)
 {
@@ -4335,6 +4354,8 @@ empathy_chat_messages_read (EmpathyChat *self)
 		tp_text_channel_ack_all_pending_messages_async (
 			TP_TEXT_CHANNEL (priv->tp_chat), NULL, NULL);
 	}
+
+	priv->highlighted = FALSE;
 
 	if (priv->unread_messages_when_offline > 0) {
 		/* We can't ack those as the connection has gone away so just consider
