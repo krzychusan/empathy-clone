@@ -1195,3 +1195,23 @@ empathy_create_individual_from_tp_contact (TpContact *contact)
 
   return individual;
 }
+
+/* Look for a FolksIndividual containing @contact as one of his persona
+ * and create one if needed */
+FolksIndividual *
+empathy_ensure_individual_from_tp_contact (TpContact *contact)
+{
+  EmpathyIndividualManager *mgr;
+  FolksIndividual *individual;
+
+  mgr = empathy_individual_manager_dup_singleton ();
+  individual = empathy_individual_manager_lookup_by_contact (mgr, contact);
+
+  if (individual != NULL)
+    g_object_ref (individual);
+  else
+    individual = empathy_create_individual_from_tp_contact (contact);
+
+  g_object_unref (mgr);
+  return individual;
+}

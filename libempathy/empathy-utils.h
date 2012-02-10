@@ -124,6 +124,9 @@ gboolean empathy_sasl_channel_supports_mechanism (TpChannel *channel,
 FolksIndividual * empathy_create_individual_from_tp_contact (
     TpContact *contact);
 
+FolksIndividual * empathy_ensure_individual_from_tp_contact (
+    TpContact *contact);
+
 /* Copied from wocky/wocky-utils.h */
 
 #define empathy_implement_finish_void(source, tag) \
