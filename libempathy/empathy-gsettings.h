@@ -66,6 +66,7 @@ G_BEGIN_DECLS
 #define EMPATHY_PREFS_CHAT_AVATAR_IN_ICON          "avatar-in-icon"
 #define EMPATHY_PREFS_CHAT_WEBKIT_DEVELOPER_TOOLS  "enable-webkit-developer-tools"
 #define EMPATHY_PREFS_CHAT_ROOM_LAST_ACCOUNT       "room-last-account"
+#define EMPATHY_PREFS_CHAT_SEND_CHAT_STATES        "send-chat-states"
 
 #define EMPATHY_PREFS_UI_SCHEMA EMPATHY_PREFS_SCHEMA ".ui"
 #define EMPATHY_PREFS_UI_SEPARATE_CHAT_WINDOWS     "separate-chat-windows"

@@ -206,6 +206,11 @@ present them to the user immediately.</_description>
       <_summary>Enable WebKit Developer Tools</_summary>
       <_description>Whether WebKit developer tools, such as the Web Inspector, should be enabled.</_description>
     </key>
+    <key name="send-chat-states" type="b">
+      <default>true</default>
+      <_summary>Inform other users when you are typing to them</_summary>
+      <_description>Whether to send the 'composing' or 'paused' chat states. Does not currently affect the 'gone' state.</_description>
+    </key>
     <key name="theme-chat-room" type="b">
       <default>true</default>
       <_summary>Use theme for chat rooms</_summary>

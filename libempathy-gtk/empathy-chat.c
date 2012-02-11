@@ -377,11 +377,18 @@ static gboolean
 chat_composing_stop_timeout_cb (EmpathyChat *chat)
 {
 	EmpathyChatPriv *priv;
+	gboolean send_chat_states;
 
 	priv = GET_PRIV (chat);
 
 	priv->composing_stop_timeout_id = 0;
-	set_chat_state (chat, TP_CHANNEL_CHAT_STATE_PAUSED);
+	send_chat_states = g_settings_get_boolean (priv->gsettings_chat,
+	                                 EMPATHY_PREFS_CHAT_SEND_CHAT_STATES);
+	if (!send_chat_states) {
+		set_chat_state (chat, TP_CHANNEL_CHAT_STATE_ACTIVE);
+	} else {
+		set_chat_state (chat, TP_CHANNEL_CHAT_STATE_PAUSED);
+	}
 
 	return FALSE;
 }
@@ -390,8 +397,15 @@ static void
 chat_composing_start (EmpathyChat *chat)
 {
 	EmpathyChatPriv *priv;
+	gboolean send_chat_states;
 
 	priv = GET_PRIV (chat);
+
+	send_chat_states = g_settings_get_boolean (priv->gsettings_chat,
+	                                  EMPATHY_PREFS_CHAT_SEND_CHAT_STATES);
+	if (!send_chat_states) {
+		return;
+	}
 
 	if (priv->composing_stop_timeout_id) {
 		/* Just restart the timeout */
