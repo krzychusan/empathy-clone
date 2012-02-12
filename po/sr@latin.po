@@ -1,5 +1,5 @@
 # Serbian translation of Empathy
-# Courtesy of Prevod.org team (http://prevod.org/) -- 2003-2009.
+# Courtesy of Prevod.org team (http://prevod.org/) -- 2003—2012.
 # This file is distributed under the same license as the Empathy package.
 # From Pidgin translation:
 # Danilo Segan <dsegan@gmx.net>, 2003, 2004, 2005.
@@ -15,18 +15,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: empathy\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=empath"
-"y&keywords=I18N+L10N&component=General\n"
-"POT-Creation-Date: 2012-02-08 15:44+0000\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=empathy&keywords=I18N+L10N&component=General\n"
+"POT-Creation-Date: 2012-02-09 12:26+0000\n"
 "PO-Revision-Date: 2012-02-09 11:53+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
-"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
-"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: sr\n"
+"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : n%"
+"10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/empathy.desktop.in.in.h:1
@@ -174,14 +174,20 @@ msgid "The stored position (in pixels) of the chat window side pane."
 msgstr "Sačuvan položaj (u tačkama) bočne površi prozora za ćaskanje."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:29
+#| msgid "Show contact list in rooms"
+msgid "Show contact groups"
+msgstr "Prikazuje grupe kontakta"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:30
+#| msgid "Whether to show account balances in the contact list."
+msgid "Whether to show groups in the contact list."
+msgstr "Da li da prikazuje grupe u spisku kontakta."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:31
 msgid "Contact list sort criterion"
 msgstr "Kriterijum za sortiranje prijatelja"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:30
-#| msgid ""
-#| "Which criterion to use when sorting the contact list. Default is to sort "
-#| "by the contact's name with the value \"name\". A value of \"state\" will "
-#| "sort the contact list by state."
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:32
 msgid ""
 "Which criterion to use when sorting the contact list. Default is to sort by "
 "the contact's state with the value \"state\". A value of \"name\" will sort "
@@ -191,100 +197,100 @@ msgstr ""
 "koristi „state“ (sortiranje po stanju prijatelja). Ako je vrednost „name“, "
 "sortiranje se vrši po imenu prijatelja."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:31
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:33
 msgid "Use notification sounds"
 msgstr "Koristi zvukove za obaveštenja"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:32
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:34
 msgid "Whether to play a sound to notify of events."
 msgstr "Da li da pusti obaveštajni zvuk za događaje."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:33
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:35
 msgid "Disable sounds when away"
 msgstr "Onemogućava zvuke kada smo odsutni"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:34
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:36
 msgid "Whether to play sound notifications when away or busy."
 msgstr "Da li da pusti obaveštajni zvuk kada postanete zauzeti ili odsutni."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:35
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:37
 msgid "Play a sound for incoming messages"
 msgstr "Pušta zvuk za dolazeće poruke"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:36
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:38
 msgid "Whether to play a sound to notify of incoming messages."
 msgstr "Da li da pusti obaveštajni zvuk kada vam stigne poruka."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:37
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:39
 msgid "Play a sound for outgoing messages"
 msgstr "Pušta zvuk za odlazeće poruke"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:38
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:40
 msgid "Whether to play a sound to notify of outgoing messages."
 msgstr "Da li da pusti obaveštajni zvuk kada pošaljete poruku."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:39
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:41
 msgid "Play a sound for new conversations"
 msgstr "Pušta zvuk za nove razgovore"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:40
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:42
 msgid "Whether to play a sound to notify of new conversations."
 msgstr "Da li da pusti obaveštajni zvuk na novi razgovor."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:41
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:43
 msgid "Play a sound when a contact logs in"
 msgstr "Pušta zvuk kada se prijatelj prijavi"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:42
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:44
 msgid "Whether to play a sound to notify of contacts logging into the network."
 msgstr "Da li da pusti obaveštajni zvuk kada se prijatelji prijave na mrežu."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:43
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:45
 msgid "Play a sound when a contact logs out"
 msgstr "Pušta zvuk kada se prijatelj odjavi"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:44
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:46
 msgid ""
 "Whether to play a sound to notify of contacts logging out of the network."
 msgstr "Da li da pusti obaveštajni zvuk kada se prijatelji odjave sa mreže."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:45
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:47
 msgid "Play a sound when we log in"
 msgstr "Pušta zvuk kada se ja prijavim"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:46
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:48
 msgid "Whether to play a sound when logging into a network."
 msgstr "Da li da pusti zvuk kada se prijavite na mrežu."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:47
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:49
 msgid "Play a sound when we log out"
 msgstr "Pušta zvuk kada se ja odjavim"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:48
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:50
 msgid "Whether to play a sound when logging out of a network."
 msgstr "Da li da pusti zvuk kada se odjavite sa mreže."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:49
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:51
 msgid "Enable popup notifications for new messages"
 msgstr "Omogućava iskačuća obaveštenja za nove poruke"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:50
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:52
 msgid "Whether to show a popup notification when receiving a new message."
 msgstr "Da li da prikazuje oblačić obaveštenja kada primite novu poruku."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:51
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:53
 msgid "Disable popup notifications when away"
 msgstr "Isključuje iskačuća obaveštenja kada smo odsutni"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:52
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:54
 msgid "Whether to show popup notifications when away or busy."
 msgstr "Da li da prikazuje oblačić obaveštenja kada ste zauzeti ili odsutni."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:53
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:55
 msgid "Pop up notifications if the chat isn't focused"
 msgstr "Ispisuje obaveštenja ako ćaskanje nije u fokusu"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:54
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:56
 msgid ""
 "Whether to show a popup notification when receiving a new message even if "
 "the chat is already opened, but not focused."
@@ -292,109 +298,109 @@ msgstr ""
 "Da li da prikazuje oblačić obaveštenja sa pristiglim porukama čak i kada je "
 "prozor za ćaskanje otvoren, ali nije u fokusu."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:55
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:57
 msgid "Pop up notifications when a contact logs in"
 msgstr "Ispisuje obaveštenja kada se prijatelj prijavi"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:56
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:58
 msgid "Whether to show a popup notification when a contact goes online."
 msgstr ""
 "Da li da prikazuje oblačić obaveštenja kada se prijatelj prijavi na mrežu."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:57
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:59
 msgid "Pop up notifications when a contact logs out"
 msgstr "Ispisuje obaveštenja kada se prijatelj odjavi"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:58
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:60
 msgid "Whether to show a popup notification when a contact goes offline."
 msgstr ""
 "Da li da prikazuje oblačić obaveštenja kada se prijatelj odjavi sa mreže."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:59
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:61
 msgid "Use graphical smileys"
 msgstr "Prikazuje sličicu sa smeškom"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:60
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:62
 msgid "Whether to convert smileys into graphical images in conversations."
 msgstr "Da li da prikazuje smeške kao sličice unutar razgovora."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:61
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:63
 msgid "Show contact list in rooms"
 msgstr "Prikazuje spisak prijatelja u sobama"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:62
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:64
 msgid "Whether to show the contact list in chat rooms."
 msgstr "Da li da prikazuje spisak prijatelja u sobama za ćaskanje."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:63
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:65
 msgid "Chat window theme"
 msgstr "Tema prozora za ćaskanje"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:64
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:66
 msgid "The theme that is used to display the conversation in chat windows."
 msgstr "Tema za prikaz razgovora u prozoru ćaskanja."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:65
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:67
 msgid "Chat window theme variant"
 msgstr "Varijanta teme prozora za ćaskanje"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:66
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:68
 msgid ""
 "The theme variant that is used to display the conversation in chat windows."
 msgstr "Varijanta teme koja se koristi za prikaz razgovora u prozoru ćaskanja."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:67
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:69
 msgid "Path of the Adium theme to use"
 msgstr "Putanja do Adijum teme za korišćenje"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:68
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:70
 msgid "Path of the Adium theme to use if the theme used for chat is Adium."
 msgstr ""
 "Putanja do Adijum teme za korišćenje, ako se koristi Adijum tema za ćaskanje."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:69
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:71
 msgid "Enable WebKit Developer Tools"
 msgstr "Omogućava Veb kit razvojne alate"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:70
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:72
 msgid ""
 "Whether WebKit developer tools, such as the Web Inspector, should be enabled."
 msgstr ""
 "Da li će biti omogućeni Veb kit razvojni alati, kao što je Veb Inspektor."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:71
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:73
 msgid "Use theme for chat rooms"
 msgstr "Koristi teme za sobe ćaskanja"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:72
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:74
 msgid "Whether to use the theme for chat rooms."
 msgstr "Da li da koristi temu za sobe razgovora."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:73
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:75
 msgid "Spell checking languages"
 msgstr "Jezici za proveru pisanja"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:74
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:76
 msgid ""
 "Comma-separated list of spell checker languages to use (e.g. \"en, fr, nl\")."
 msgstr ""
 "Spisak jezika odvojen zarezima koje koristi provera pravopisa (npr. „sr, en, "
 "fr“)."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:75
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:77
 msgid "Enable spell checker"
 msgstr "Omogućava proveru pisanja"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:76
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:78
 msgid ""
 "Whether to check words typed against the languages you want to check with."
 msgstr "Da li da proverava pisanje reči za izabrane jezike."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:77
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:79
 msgid "Nick completed character"
 msgstr "Znak za dovršavanje nadimka"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:78
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:80
 msgid ""
 "Character to add after nickname when using nick completion (tab) in group "
 "chat."
@@ -402,56 +408,56 @@ msgstr ""
 "Znak za dodavanje posle nadimka kada se koristi automatsko dovršavanje nadimka "
 "(tab) u grupnim ćaskanjima."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:79
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:81
 msgid "Empathy should use the avatar of the contact as the chat window icon"
 msgstr ""
 "Da li Pismonoša da koristi sliku prijatelja kao ikonicu prozora za ćaskanje"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:80
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:82
 msgid ""
 "Whether Empathy should use the avatar of the contact as the chat window icon."
 msgstr ""
 "Da li Pismonoša da koristi sliku prijatelja kao ikonu u prozoru ćaskanja."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:81
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:83
 msgid "Last account selected in Join Room dialog"
 msgstr "Poslednji izabrani nalog u prozorčetu za pridruživanje sobi"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:82
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:84
 msgid "D-Bus object path of the last account selected to join a room."
 msgstr "Putanja objekta D-basa poslednjeg naloga izabranog za pridruživanje sobi"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:83
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:85
 msgid "Camera device"
 msgstr "Uređaj kamerice"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:84
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:86
 msgid "Default camera device to use in video calls, e.g. /dev/video0."
 msgstr ""
 "Osnovna video kamerica koja će biti korišćena u video pozivima, npr. „/dev/"
 "video0“."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:85
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:87
 msgid "Camera position"
 msgstr "Položaj kamerice"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:86
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:88
 msgid "Position the camera preview should be during a call."
 msgstr "Položaj prikaza kamerice za vreme poziva."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:87
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:89
 msgid "Echo cancellation support"
 msgstr "Podrška za uklanjanje odjeka"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:88
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:90
 msgid "Whether to enable Pulseaudio's echo cancellation filter."
 msgstr "Da li će biti uključen filter Pulse audia za uklanjanje odjeka."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:89
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:91
 msgid "Show hint about closing the main window"
 msgstr "Prikazuje savet u vezi zatvaranja glavnog prozora"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:90
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:92
 msgid ""
 "Whether to show the message dialog about closing the main window with the "
 "'x' button in the title bar."
@@ -459,43 +465,43 @@ msgstr ""
 "Da li da prikazuje poruku o zatvaranju glavnog prozora kada ga zatvorite na "
 "„x“ dugme."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:91
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:93
 msgid "Empathy can publish the user's location"
 msgstr "Da li Pismonoša sme da objavljuje lokaciju korisnika"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:92
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:94
 msgid "Whether Empathy can publish the user's location to their contacts."
 msgstr "Da li Pismonoša da objavljuje lokaciju korisnika njegovim prijateljima."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:93
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:95
 msgid "Empathy can use the network to guess the location"
 msgstr "Da li Pismonoša sme da koristi mrežu da pogodi lokaciju"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:94
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:96
 msgid "Whether Empathy can use the network to guess the location."
 msgstr "Da li Pismonoša sme da koristi mrežu da pogodi lokaciju."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:95
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:97
 msgid "Empathy can use the cellular network to guess the location"
 msgstr "Da li Pismonoša sme da koristi mobilnu mrežu da pogodi lokaciju"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:96
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:98
 msgid "Whether Empathy can use the cellular network to guess the location."
 msgstr "Da li Pismonoša sme da koristi mobilnu mrežu da pogodi lokaciju."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:97
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:99
 msgid "Empathy can use the GPS to guess the location"
 msgstr "Da li Pismonoša sme da koristi GPS da pogodi lokaciju"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:98
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:100
 msgid "Whether Empathy can use the GPS to guess the location."
 msgstr "Da li Pismonoša sme da koristi GPS da pogodi lokaciju."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:99
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:101
 msgid "Empathy should reduce the location's accuracy"
 msgstr "Da li Pismonoša da umanji preciznost lokacije"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:100
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:102
 msgid ""
 "Whether Empathy should reduce the location's accuracy for privacy reasons."
 msgstr ""
@@ -676,7 +682,6 @@ msgid "Connection has been lost"
 msgstr "Veza je izgubljena"
 
 #: ../libempathy/empathy-utils.c:355
-#| msgid "This resource is already connected to the server"
 msgid "This account is already connected to the server"
 msgstr "Ovaj nalog je već povezan sa serverom"
 
@@ -716,7 +721,6 @@ msgid "Your software is too old"
 msgstr "Vaš softver je previše star"
 
 #: ../libempathy/empathy-utils.c:375
-#| msgid "Interval (seconds)"
 msgid "Internal error"
 msgstr "Unutrašnja greška"
 
@@ -1451,7 +1455,6 @@ msgstr "Greška pri slanju poruke: %s"
 #. * account to send the message.
 #: ../libempathy-gtk/empathy-chat.c:1553
 #, c-format
-#| msgid "insufficient balance to send message"
 msgid "insufficient balance to send message. <a href='%s'>Top up</a>."
 msgstr "nema dovoljno gotovine za slanje poruke. <a href='%s'>Dopunite</a>."
 
@@ -1494,7 +1497,6 @@ msgstr "Tema je postavljena na: %s"
 
 #: ../libempathy-gtk/empathy-chat.c:1700
 #, c-format
-#| msgid "Topic set to: %s"
 msgid "Topic set by %s to: %s"
 msgstr "Temu je postavio %s na: %s"
 
@@ -1939,7 +1941,6 @@ msgid "Unable to save avatar"
 msgstr "Ne mogu da sačuvam sliku"
 
 #: ../libempathy-gtk/empathy-contact-widget.c:1446
-#| msgid "Technical Details"
 msgid "Personal Details"
 msgstr "Lični podaci"
 
@@ -1950,27 +1951,22 @@ msgid "Contact Details"
 msgstr "Detalji o prijatelju"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:104
-#| msgid "Full name:"
 msgid "Full name"
 msgstr "Ime i prezime"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:105
-#| msgid "Phone number:"
 msgid "Phone number"
 msgstr "Broj telefona"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:106
-#| msgid "E-mail address:"
 msgid "E-mail address"
 msgstr "Adresa el. pošte"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:107
-#| msgid "Website:"
 msgid "Website"
 msgstr "Veb stranica"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:108
-#| msgid "Birthday:"
 msgid "Birthday"
 msgstr "Rođendan"
 
@@ -1992,27 +1988,22 @@ msgid "Away message:"
 msgstr "Poruka za odsutnost:"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:132
-#| msgid "Work"
 msgid "work"
 msgstr "posao"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:133
-#| msgid "Romeo"
 msgid "home"
 msgstr "kuća"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:134
-#| msgid "Mobile"
 msgid "mobile"
 msgstr "mobilni"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:135
-#| msgid "Favorite"
 msgid "voice"
 msgstr "glasovni"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:136
-#| msgid "Preferences"
 msgid "preferred"
 msgstr "prvenstveni"
 
@@ -2021,7 +2012,6 @@ msgid "postal"
 msgstr "poštanski"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:138
-#| msgid "Appearance"
 msgid "parcel"
 msgstr "pošiljka"
 
@@ -2188,7 +2178,6 @@ msgid "Favorite"
 msgstr "Omiljeni"
 
 #: ../libempathy-gtk/empathy-individual-menu.c:1263
-#| msgid "telepathy-salut not installed"
 msgid "gnome-contacts not installed"
 msgstr "program gnomovi kontakti nije instaliran"
 
@@ -2473,17 +2462,14 @@ msgid "<span size=\"x-large\">Loading...</span>"
 msgstr "<span size=\"x-large\">Učitavam...</span>"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:83
-#| msgid "The specified contact is offline"
 msgid "The contact is offline"
 msgstr "Kontakt nije na vezi"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:85
-#| msgid "The specified contact is not valid"
 msgid "The specified contact is either invalid or unknown"
 msgstr "Navedeni kontakt ili je neispravan ili nepoznat"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:87
-#| msgid "Topic not supported on this conversation"
 msgid "The contact does not support this kind of conversation"
 msgstr "Kontakt ne podržava ovu vrstu razgovora"
 
@@ -2504,22 +2490,18 @@ msgid "This channel is full"
 msgstr "Ovaj kanal je pun"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:101
-#| msgid "You have been invited to join %s"
 msgid "You must be invited to join this channel"
 msgstr "Morate biti pozvani da se pridružite ovom kanalu"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:103
-#| msgid "Contact disconnected"
 msgid "Can't proceed while disconnected"
 msgstr "Ne mogu da nastavim dok je veza prekinuta"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:105
-#| msgid "permission denied"
 msgid "Permission denied"
 msgstr "Zabranjen pristup"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:111
-#| msgid "There was an error starting the call"
 msgid "There was an error starting the conversation"
 msgstr "Došlo je do greške prilikom započinjanja razgovora"
 
@@ -2535,15 +2517,11 @@ msgstr "Novi razgovor"
 
 #. add video button
 #: ../libempathy-gtk/empathy-new-call-dialog.c:225
-#| msgctxt "menu item"
-#| msgid "_Video Call"
 msgid "_Video Call"
 msgstr "_Video poziv"
 
 #. add audio button
 #: ../libempathy-gtk/empathy-new-call-dialog.c:235
-#| msgctxt "menu item"
-#| msgid "_Audio Call"
 msgid "_Audio Call"
 msgstr "_Audio poziv"
 
@@ -2554,7 +2532,6 @@ msgstr "Novi poziv"
 
 #: ../libempathy-gtk/empathy-bad-password-dialog.c:130
 #, c-format
-#| msgid "Authentication failed"
 msgid "Authentification failed for account <b>%s</b>"
 msgstr "Nije uspelo potvrđivanje identiteta za nalog <b>%s</b>"
 
@@ -3257,7 +3234,6 @@ msgid "Offline — Account Disabled"
 msgstr "Nepovezan — Nalog je onemogućen"
 
 #: ../src/empathy-accounts-dialog.c:530
-#| msgid "Connection has been refused"
 msgid "Edit Connection Parameters"
 msgstr "Uredite parametre povezivanja"
 
@@ -3428,7 +3404,6 @@ msgstr "IP adresa grupe za višestruko emitovanje"
 #: ../src/empathy-streamed-media-window.c:1841
 #: ../src/empathy-streamed-media-window.c:1844
 #: ../src/empathy-streamed-media-window.c:1847
-#| msgid "Unknown"
 msgctxt "codec"
 msgid "Unknown"
 msgstr "Nepoznato"
@@ -3656,7 +3631,6 @@ msgid "Audio"
 msgstr "Audio"
 
 #: ../src/empathy-chat-window.c:285
-#| msgid "Hide the main window."
 msgid "Close this window?"
 msgstr "Da zatvorim ovaj prozor?"
 
@@ -3692,7 +3666,6 @@ msgstr[3] ""
 
 #: ../src/empathy-chat-window.c:310
 #, c-format
-#| msgid "Level "
 msgid "Leave %s?"
 msgstr "Da napustim %s?"
 
@@ -3709,7 +3682,6 @@ msgid "Close window"
 msgstr "Zatvori prozor"
 
 #: ../src/empathy-chat-window.c:330
-#| msgid "Level "
 msgid "Leave room"
 msgstr "Napusti sobu"
 
@@ -4137,7 +4109,8 @@ msgstr "Prijatelj"
 
 #: ../src/empathy-roster-window.c:2131
 msgid "You need to enable one of your accounts to see contacts here."
-msgstr "Morate da uključite jedan od vaših naloga da biste ovde videli kontakte."
+msgstr ""
+"Morate da uključite jedan od vaših naloga da biste ovde videli kontakte."
 
 #. translators: argument is an account name
 #: ../src/empathy-roster-window.c:2139
@@ -4150,7 +4123,6 @@ msgid "Contact List"
 msgstr "Spisak prijatelja"
 
 #: ../src/empathy-roster-window.ui.h:1
-#| msgid "_Accounts"
 msgid "Account settings"
 msgstr "Podešavanja naloga"
 
@@ -4319,7 +4291,6 @@ msgid "New conversation"
 msgstr "Novi razgovor"
 
 #: ../src/empathy-preferences.c:169
-#| msgid "Contact goes online"
 msgid "Contact comes online"
 msgstr "Prijatelj se prijavio"
 
@@ -4706,7 +4677,6 @@ msgid "<account-id>"
 msgstr "<identifikacija naloga>"
 
 #: ../src/empathy-accounts.c:196
-#| msgid "Show Balance in contact list"
 msgid "Show account assistant"
 msgstr "Prikazuje pomoćnika naloga"
 
@@ -4809,7 +4779,6 @@ msgid "Sorry, you don’t have enough credit for that call."
 msgstr "Izvinite, ali nemate dovoljno kredita za ovaj poziv."
 
 #: ../src/empathy-call-window.c:3213
-#| msgid "Top Up..."
 msgid "Top Up"
 msgstr "Dopuni"
 
@@ -4818,7 +4787,6 @@ msgid "_Match case"
 msgstr "_Uporedi veličinu slova"
 
 #: ../libempathy-gtk/empathy-new-account-dialog.c:166
-#| msgid "New account"
 msgid "Adding new account"
 msgstr "Dodajem novi nalog"
 
