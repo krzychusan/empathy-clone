@@ -278,7 +278,7 @@ empathy_tls_dialog_constructed (GObject *object)
 
   gtk_dialog_add_buttons (dialog,
       GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-      _("Continue"), GTK_RESPONSE_YES,
+      _("C_ontinue"), GTK_RESPONSE_YES,
       NULL);
 
   text = reason_to_string (self);
