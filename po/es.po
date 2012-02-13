@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: empathy.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=empathy&keywords=I18N+L10N&component=General\n"
-"POT-Creation-Date: 2012-02-13 08:33+0000\n"
-"PO-Revision-Date: 2012-02-13 12:40+0100\n"
+"POT-Creation-Date: 2012-02-13 13:31+0000\n"
+"PO-Revision-Date: 2012-02-13 16:47+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -2756,8 +2756,9 @@ msgid "Certificate hostname: %s"
 msgstr "Nombre del servidor de certificados: %s"
 
 #: ../libempathy-gtk/empathy-tls-dialog.c:281
-msgid "Continue"
-msgstr "Continuar"
+#| msgid "Continue"
+msgid "C_ontinue"
+msgstr "C_ontinuar"
 
 #: ../libempathy-gtk/empathy-tls-dialog.c:287
 msgid "Untrusted connection"
