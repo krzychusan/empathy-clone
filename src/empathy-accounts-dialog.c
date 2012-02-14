@@ -41,6 +41,7 @@
 #include <libempathy/empathy-utils.h>
 #include <libempathy/empathy-connection-managers.h>
 #include <libempathy/empathy-connectivity.h>
+#include <libempathy/empathy-pkg-kit.h>
 #include <libempathy/empathy-tp-contact-factory.h>
 
 #include <libempathy-gtk/empathy-ui-utils.h>
@@ -262,6 +263,21 @@ accounts_dialog_enable_switch_active_cb (GtkSwitch *sw,
 }
 
 static void
+install_haze_cb (GObject *source,
+    GAsyncResult *result,
+    gpointer user_data)
+{
+  GError *error = NULL;
+
+  if (!empathy_pkg_kit_install_packages_finish  (result, &error))
+    {
+      DEBUG ("Failed to install telepathy-haze: %s", error->message);
+
+      g_error_free (error);
+    }
+}
+
+static void
 accounts_dialog_update_status_infobar (EmpathyAccountsDialog *dialog,
     TpAccount *account)
 {
@@ -436,10 +452,15 @@ accounts_dialog_update_status_infobar (EmpathyAccountsDialog *dialog,
       if (!tp_strdiff (tp_account_get_connection_manager (account),
             "butterfly"))
         {
+          const gchar *packages[] = { "telepathy-haze", NULL };
+
           accounts_dialog_status_infobar_set_message (dialog,
               _("This account has been disabled because it relies on an old, "
                 "unsupported backend. Please install telepathy-haze and "
                 "restart your session to migrate the account."));
+
+          empathy_pkg_kit_install_packages_async (0, packages, NULL, NULL,
+              install_haze_cb, NULL);
         }
       else
         {
