@@ -66,7 +66,7 @@ import_dialog_add_import_widget (EmpathyImportDialog *self)
 
   iw = empathy_import_widget_new (EMPATHY_IMPORT_APPLICATION_ALL, priv->cms);
   widget = empathy_import_widget_get_widget (iw);
-  gtk_box_pack_start (GTK_BOX (area), widget, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (area), widget, TRUE, TRUE, 0);
   gtk_widget_show (widget);
 
   priv->iw = iw;
