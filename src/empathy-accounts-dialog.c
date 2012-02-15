@@ -78,7 +78,8 @@ G_DEFINE_TYPE (EmpathyAccountsDialog, empathy_accounts_dialog, GTK_TYPE_DIALOG);
 enum
 {
   NOTEBOOK_PAGE_ACCOUNT = 0,
-  NOTEBOOK_PAGE_LOADING
+  NOTEBOOK_PAGE_LOADING,
+  NOTEBOOK_PAGE_NO_PROTOCOL
 };
 
 typedef struct {
@@ -91,7 +92,6 @@ typedef struct {
   GtkWidget *image_status;
   GtkWidget *throbber;
   GtkWidget *enabled_switch;
-  GtkWidget *frame_no_protocol;
 
   GtkWidget *treeview;
 
@@ -984,14 +984,15 @@ accounts_dialog_update_settings (EmpathyAccountsDialog *dialog,
 
       /* No account and no profile, warn the user */
       gtk_widget_hide (priv->vbox_details);
-      gtk_widget_show (priv->frame_no_protocol);
       gtk_widget_set_sensitive (priv->button_add, FALSE);
+
+      gtk_notebook_set_current_page (GTK_NOTEBOOK (priv->notebook_account),
+          NOTEBOOK_PAGE_NO_PROTOCOL);
       return;
     }
 
   /* We have an account selected, destroy old settings and create a new
    * one for the account selected */
-  gtk_widget_hide (priv->frame_no_protocol);
   gtk_widget_show (priv->vbox_details);
 
   if (priv->dialog_content)
@@ -2210,7 +2211,6 @@ accounts_dialog_build_ui (EmpathyAccountsDialog *dialog)
   gui = empathy_builder_get_file (filename,
       "accounts_dialog_hbox", &top_hbox,
       "vbox_details", &priv->vbox_details,
-      "frame_no_protocol", &priv->frame_no_protocol,
       "alignment_settings", &priv->alignment_settings,
       "alignment_infobar", &priv->alignment_infobar,
       "treeview", &priv->treeview,
@@ -2223,8 +2223,6 @@ accounts_dialog_build_ui (EmpathyAccountsDialog *dialog)
       "add_remove_toolbar", &toolbar,
       NULL);
   g_free (filename);
-
-  gtk_widget_set_no_show_all (priv->frame_no_protocol, TRUE);
 
   empathy_builder_connect (gui, dialog,
       "button_add", "clicked", accounts_dialog_button_add_clicked_cb,
