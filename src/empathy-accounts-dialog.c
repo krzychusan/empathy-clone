@@ -2007,15 +2007,23 @@ accounts_dialog_account_enabled_cb (TpAccountManager *manager,
   enable_or_disable_account (dialog, account, TRUE);
 }
 
-static void
-accounts_dialog_button_import_clicked_cb (GtkWidget *button,
-    EmpathyAccountsDialog *dialog)
+static GtkWidget *
+display_import_dialog (EmpathyAccountsDialog *dialog)
 {
   GtkWidget *import_dialog;
 
   import_dialog = empathy_import_dialog_new (GTK_WINDOW (dialog),
       FALSE);
   gtk_widget_show (import_dialog);
+
+  return import_dialog;
+}
+
+static void
+accounts_dialog_button_import_clicked_cb (GtkWidget *button,
+    EmpathyAccountsDialog *dialog)
+{
+  display_import_dialog (dialog);
 }
 
 static void
