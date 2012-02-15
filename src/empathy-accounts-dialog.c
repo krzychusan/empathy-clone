@@ -53,6 +53,7 @@
 #include <libempathy-gtk/empathy-images.h>
 #include <libempathy-gtk/empathy-new-account-dialog.h>
 
+#include "empathy-accounts-common.h"
 #include "empathy-accounts-dialog.h"
 #include "empathy-import-dialog.h"
 #include "empathy-import-utils.h"
@@ -2053,6 +2054,20 @@ accounts_dialog_set_selected_account (EmpathyAccountsDialog *dialog,
 }
 
 static void
+maybe_show_import_dialog (EmpathyAccountsDialog *self)
+{
+  EmpathyAccountsDialogPriv *priv = GET_PRIV (self);
+
+  if (empathy_accounts_has_non_salut_accounts (priv->account_manager))
+    return;
+
+  if (!empathy_import_accounts_to_import ())
+    return;
+
+  display_import_dialog (self);
+}
+
+static void
 finished_loading (EmpathyAccountsDialog *self)
 {
   EmpathyAccountsDialogPriv *priv = GET_PRIV (self);
@@ -2073,6 +2088,8 @@ finished_loading (EmpathyAccountsDialog *self)
   gtk_spinner_stop (GTK_SPINNER (priv->spinner));
   gtk_notebook_set_current_page (GTK_NOTEBOOK (priv->notebook_account),
       NOTEBOOK_PAGE_ACCOUNT);
+
+  maybe_show_import_dialog (self);
 }
 
 static void
