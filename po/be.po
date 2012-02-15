@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: empathy.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-11 22:02+0300\n"
-"PO-Revision-Date: 2012-02-11 22:02+0300\n"
+"POT-Creation-Date: 2012-02-15 21:52+0300\n"
+"PO-Revision-Date: 2012-02-15 21:51+0300\n"
 "Last-Translator: Kasia Bondarava <kasia.bondarava@gmail.com>\n"
 "Language-Team: Belarusian <be-i18n-gnome@googlegroups.com>\n"
 "Language: be\n"
@@ -352,39 +352,52 @@ msgstr ""
 "Ці трэба ўключыць прылады распрацоўшчыка WebKit (напрыклад, Web Inspector)."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:73
+msgid "Inform other users when you are typing to them"
+msgstr ""
+"Паведамляць іншым карыстальнікам аб тым, што вы пішаце для іх паведамленне"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:74
+msgid ""
+"Whether to send the 'composing' or 'paused' chat states. Does not currently "
+"affect the 'gone' state."
+msgstr ""
+"Ці трэба пасылаць апавяшчэнні аб стане чату тыпу \"пішу\" ці \"перастаў "
+"пісаць\". Пакуль што не ўплывае на стан адсутнасці."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:75
 msgid "Use theme for chat rooms"
 msgstr "Ужываць матыў для пакояў чату"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:74
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:76
 msgid "Whether to use the theme for chat rooms."
 msgstr "Ці трэба ўжываць гэты матыў для пакояў чату."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:75
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:77
 msgid "Spell checking languages"
 msgstr "Мовы для праверкі арфаграфіі"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:76
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:78
 msgid ""
 "Comma-separated list of spell checker languages to use (e.g. \"en, fr, nl\")."
 msgstr ""
 "Спіс моў для праверкі арфаграфіі, падзеленых коскамі (напрыклад, \"en, be, ru"
 "\")."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:77
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:79
 msgid "Enable spell checker"
 msgstr "Правяраць арфаграфію"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:78
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:80
 msgid ""
 "Whether to check words typed against the languages you want to check with."
 msgstr ""
 "Ці трэба правяраць арфаграфію напісаных слоў па спісе магчымых моў тэксту."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:79
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:81
 msgid "Nick completed character"
 msgstr "Знак пасля дапоўненай мянушкі"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:80
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:82
 msgid ""
 "Character to add after nickname when using nick completion (tab) in group "
 "chat."
@@ -392,56 +405,56 @@ msgstr ""
 "Знак, які трэба ўстаўляць пасля мянушкі пры яе дапаўненні клавішай Тab у "
 "групавым чаце."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:81
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:83
 msgid "Empathy should use the avatar of the contact as the chat window icon"
 msgstr "Empathy мусіць выкарыстоўваць аватару кантакта як значок для акна чату"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:82
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:84
 msgid ""
 "Whether Empathy should use the avatar of the contact as the chat window icon."
 msgstr "Ці мусіць Empathy выкарыстоўваць аватару кантакта як значок акна чату."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:83
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:85
 msgid "Last account selected in Join Room dialog"
 msgstr "Апошні конт, выбраны ў дыялогу ўваходу ў пакой"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:84
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:86
 msgid "D-Bus object path of the last account selected to join a room."
 msgstr ""
 "Сцежка аб'екта D-Bus, звязанага з апошнім контам, абраным для ўваходу ў "
 "пакой."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:85
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:87
 msgid "Camera device"
 msgstr "Прыстасаванне відэакамеры"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:86
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:88
 msgid "Default camera device to use in video calls, e.g. /dev/video0."
 msgstr ""
 "Прадвызначанае прыстасаванне відэакамеры для відэаразмоў, напрыклад \"/dev/"
 "video0\"."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:87
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:89
 msgid "Camera position"
 msgstr "Размяшчэнне відэакамеры"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:88
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:90
 msgid "Position the camera preview should be during a call."
 msgstr "Размяшчэнне карцінкі з відэакамеры падчас званка."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:89
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:91
 msgid "Echo cancellation support"
 msgstr "Падтрымка фільтрацыі рэха"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:90
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:92
 msgid "Whether to enable Pulseaudio's echo cancellation filter."
 msgstr "Ці трэба ўключыць фільтрацыю рэха Pulseaudio."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:91
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:93
 msgid "Show hint about closing the main window"
 msgstr "Паказваць падказку пры закрыцці галоўнага акна"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:92
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:94
 msgid ""
 "Whether to show the message dialog about closing the main window with the "
 "'x' button in the title bar."
@@ -449,46 +462,46 @@ msgstr ""
 "Ці трэба паказваць дыялогавае акенца пры закрыцці галоўнага акна з дапамогай "
 "кнопкі \"x\" у загалоўнай стужцы."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:93
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:95
 msgid "Empathy can publish the user's location"
 msgstr "Empathy можа публікаваць месцазнаходжанне карыстальніка"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:94
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:96
 msgid "Whether Empathy can publish the user's location to their contacts."
 msgstr ""
 "Ці можа Empathy паведамляць аб месцазнаходжанні карыстальніка яго кантактам."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:95
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:97
 msgid "Empathy can use the network to guess the location"
 msgstr "Empathy можа выкарыстоўваць сетку для вызначэння месцазнаходжання"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:96
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:98
 msgid "Whether Empathy can use the network to guess the location."
 msgstr "Ці можа Empathy выкарыстоўваць сетку для вызначэння месцазнаходжання."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:97
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:99
 msgid "Empathy can use the cellular network to guess the location"
 msgstr ""
 "Empathy можа выкарыстоўваць сотавую сетку для вызначэння месцазнаходжання"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:98
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:100
 msgid "Whether Empathy can use the cellular network to guess the location."
 msgstr ""
 "Ці можа Empathy выкарыстоўваць сотавую сетку для вызначэння месцазнаходжання."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:99
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:101
 msgid "Empathy can use the GPS to guess the location"
 msgstr "Empathy можа выкарыстоўваць GPS для вызначэння месцазнаходжання"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:100
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:102
 msgid "Whether Empathy can use the GPS to guess the location."
 msgstr "Ці можа Empathy выкарыстоўваць GPS для вызначэння месцазнаходжання."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:101
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:103
 msgid "Empathy should reduce the location's accuracy"
 msgstr "Empathy мусіць пагаршаць дакладнасць месцазнаходжання"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:102
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:104
 msgid ""
 "Whether Empathy should reduce the location's accuracy for privacy reasons."
 msgstr ""
@@ -497,7 +510,7 @@ msgstr ""
 
 #. Tweak the dialog
 #: ../data/empathy-accounts.desktop.in.in.h:1
-#: ../src/empathy-accounts-dialog.c:2327
+#: ../src/empathy-accounts-dialog.c:2330
 msgid "Messaging and VoIP Accounts"
 msgstr "Конты камунікатара і VoIP"
 
@@ -1326,40 +1339,40 @@ msgstr "Гэты пратакол не падтрымлівае экстранн
 msgid "You don't have enough credit in order to place this call"
 msgstr "Вам не стае грошай, каб перанакіраваць гэты званок"
 
-#: ../libempathy-gtk/empathy-chat.c:714
+#: ../libempathy-gtk/empathy-chat.c:728
 msgid "Failed to open private chat"
 msgstr "Не ўдалося распачаць прыватны чат"
 
-#: ../libempathy-gtk/empathy-chat.c:772
+#: ../libempathy-gtk/empathy-chat.c:786
 msgid "Topic not supported on this conversation"
 msgstr "Гэтая размова не падтрымлівае тэмы"
 
-#: ../libempathy-gtk/empathy-chat.c:778
+#: ../libempathy-gtk/empathy-chat.c:792
 msgid "You are not allowed to change the topic"
 msgstr "Вы не маеце дазволу на змяненне тэмы размовы"
 
-#: ../libempathy-gtk/empathy-chat.c:977
+#: ../libempathy-gtk/empathy-chat.c:991
 #, c-format
 msgid "“%s” is not a valid contact ID"
 msgstr "\"%s\" не з'яўляецца прыдатным ідэнтыфікатарам кантакта"
 
-#: ../libempathy-gtk/empathy-chat.c:1072
+#: ../libempathy-gtk/empathy-chat.c:1086
 msgid "/clear: clear all messages from the current conversation"
 msgstr "/clear: ачысціць усе паведамленні ў адкрытым акне размовы"
 
-#: ../libempathy-gtk/empathy-chat.c:1075
+#: ../libempathy-gtk/empathy-chat.c:1089
 msgid "/topic <topic>: set the topic of the current conversation"
 msgstr "/topic <тэма>: прызначыць тэму для актыўнай размовы"
 
-#: ../libempathy-gtk/empathy-chat.c:1078
+#: ../libempathy-gtk/empathy-chat.c:1092
 msgid "/join <chat room ID>: join a new chat room"
 msgstr "/join <ідэнтыфікатар пакоя>: далучыцца да групавога чату ў пакоі"
 
-#: ../libempathy-gtk/empathy-chat.c:1081
+#: ../libempathy-gtk/empathy-chat.c:1095
 msgid "/j <chat room ID>: join a new chat room"
 msgstr "/j <ідэнтыфікатар пакоя>: далучыцца да групавога чату ў пакоі"
 
-#: ../libempathy-gtk/empathy-chat.c:1085
+#: ../libempathy-gtk/empathy-chat.c:1099
 msgid ""
 "/part [<chat room ID>] [<reason>]: leave the chat room, by default the "
 "current one"
@@ -1367,24 +1380,24 @@ msgstr ""
 "/part [<ідэнтыфікатар пакоя>] [<прычына>]: пакінуць групавы чат, звычайна "
 "актыўны"
 
-#: ../libempathy-gtk/empathy-chat.c:1089
+#: ../libempathy-gtk/empathy-chat.c:1103
 msgid "/query <contact ID> [<message>]: open a private chat"
 msgstr "/query <кантакт> [<паведамленне>]: распачаць прыватны чат"
 
-#: ../libempathy-gtk/empathy-chat.c:1092
+#: ../libempathy-gtk/empathy-chat.c:1106
 msgid "/msg <contact ID> <message>: open a private chat"
 msgstr "/msg <кантакт> <паведамленне>: распачаць прыватны чат"
 
-#: ../libempathy-gtk/empathy-chat.c:1095
+#: ../libempathy-gtk/empathy-chat.c:1109
 msgid "/nick <nickname>: change your nickname on the current server"
 msgstr "/nick <мянушка>: змяніць сваю мянушку на актыўным серверы"
 
-#: ../libempathy-gtk/empathy-chat.c:1098
+#: ../libempathy-gtk/empathy-chat.c:1112
 msgid "/me <message>: send an ACTION message to the current conversation"
 msgstr ""
 "/me <паведамленне>: паслаць ACTION-паведамленне ў адкрытае акно размовы"
 
-#: ../libempathy-gtk/empathy-chat.c:1101
+#: ../libempathy-gtk/empathy-chat.c:1115
 msgid ""
 "/say <message>: send <message> to the current conversation. This is used to "
 "send a message starting with a '/'. For example: \"/say /join is used to "
@@ -1395,11 +1408,11 @@ msgstr ""
 "\". Напрыклад: \"/say /join выкарыстоўваецца для далучэння да новага "
 "групавога чату ў пакоі\""
 
-#: ../libempathy-gtk/empathy-chat.c:1106
+#: ../libempathy-gtk/empathy-chat.c:1120
 msgid "/whois <contact ID>: display information about a contact"
 msgstr "/whois <кантакт>: паказаць інфармацыю аб кантакце"
 
-#: ../libempathy-gtk/empathy-chat.c:1109
+#: ../libempathy-gtk/empathy-chat.c:1123
 msgid ""
 "/help [<command>]: show all supported commands. If <command> is defined, "
 "show its usage."
@@ -1407,128 +1420,128 @@ msgstr ""
 "/help [<загад>]: паказаць усе вядомыя загады. Калі пададзены <загад>, "
 "паказаць правілы яго выкарыстання."
 
-#: ../libempathy-gtk/empathy-chat.c:1128
+#: ../libempathy-gtk/empathy-chat.c:1142
 #, c-format
 msgid "Usage: %s"
 msgstr "Правілы карыстання: %s"
 
-#: ../libempathy-gtk/empathy-chat.c:1173
+#: ../libempathy-gtk/empathy-chat.c:1187
 msgid "Unknown command"
 msgstr "Невядомы загад"
 
-#: ../libempathy-gtk/empathy-chat.c:1299
+#: ../libempathy-gtk/empathy-chat.c:1313
 msgid "Unknown command; see /help for the available commands"
 msgstr ""
 "Невядомы загад. Каб паглядзець спіс усіх вядомых загадаў, выканайце /help"
 
-#: ../libempathy-gtk/empathy-chat.c:1550
+#: ../libempathy-gtk/empathy-chat.c:1564
 msgid "insufficient balance to send message"
 msgstr "не стае грошай для пасылкі паведамлення"
 
-#: ../libempathy-gtk/empathy-chat.c:1554 ../libempathy-gtk/empathy-chat.c:1568
-#: ../libempathy-gtk/empathy-chat.c:1631
+#: ../libempathy-gtk/empathy-chat.c:1568 ../libempathy-gtk/empathy-chat.c:1582
+#: ../libempathy-gtk/empathy-chat.c:1645
 #, c-format
 msgid "Error sending message '%s': %s"
 msgstr "Памылка пасылкі паведамлення \"%s\": %s"
 
-#: ../libempathy-gtk/empathy-chat.c:1556 ../libempathy-gtk/empathy-chat.c:1573
-#: ../libempathy-gtk/empathy-chat.c:1635
+#: ../libempathy-gtk/empathy-chat.c:1570 ../libempathy-gtk/empathy-chat.c:1587
+#: ../libempathy-gtk/empathy-chat.c:1649
 #, c-format
 msgid "Error sending message: %s"
 msgstr "Памылка пасылкі паведамлення: %s"
 
 #. translators: error used when user doesn't have enough credit on his
 #. * account to send the message.
-#: ../libempathy-gtk/empathy-chat.c:1562
+#: ../libempathy-gtk/empathy-chat.c:1576
 #, c-format
 msgid "insufficient balance to send message. <a href='%s'>Top up</a>."
 msgstr ""
 "не стае грошай для пасылкі паведамлення. <a href='%s'>Папоўніце рахунак</a>."
 
-#: ../libempathy-gtk/empathy-chat.c:1602
+#: ../libempathy-gtk/empathy-chat.c:1616
 msgid "not capable"
 msgstr "не падтрымліваецца"
 
-#: ../libempathy-gtk/empathy-chat.c:1609
+#: ../libempathy-gtk/empathy-chat.c:1623
 msgid "offline"
 msgstr "па-за сеткай"
 
-#: ../libempathy-gtk/empathy-chat.c:1612
+#: ../libempathy-gtk/empathy-chat.c:1626
 msgid "invalid contact"
 msgstr "хібны кантакт"
 
-#: ../libempathy-gtk/empathy-chat.c:1615
+#: ../libempathy-gtk/empathy-chat.c:1629
 msgid "permission denied"
 msgstr "адмоўлена ў дазволе"
 
-#: ../libempathy-gtk/empathy-chat.c:1618
+#: ../libempathy-gtk/empathy-chat.c:1632
 msgid "too long message"
 msgstr "надта доўгае паведамленне"
 
-#: ../libempathy-gtk/empathy-chat.c:1621
+#: ../libempathy-gtk/empathy-chat.c:1635
 msgid "not implemented"
 msgstr "не рэалізавана"
 
-#: ../libempathy-gtk/empathy-chat.c:1625
+#: ../libempathy-gtk/empathy-chat.c:1639
 msgid "unknown"
 msgstr "невядома"
 
-#: ../libempathy-gtk/empathy-chat.c:1692 ../src/empathy-chat-window.c:916
+#: ../libempathy-gtk/empathy-chat.c:1706 ../src/empathy-chat-window.c:916
 msgid "Topic:"
 msgstr "Тэма:"
 
-#: ../libempathy-gtk/empathy-chat.c:1707
+#: ../libempathy-gtk/empathy-chat.c:1721
 #, c-format
 msgid "Topic set to: %s"
 msgstr "Тэма вызначана як: %s"
 
-#: ../libempathy-gtk/empathy-chat.c:1709
+#: ../libempathy-gtk/empathy-chat.c:1723
 #, c-format
 msgid "Topic set by %s to: %s"
 msgstr "Тэма вызначана кантактам %s як: %s"
 
 #. No need to display this 'event' is no topic can be defined anyway
-#: ../libempathy-gtk/empathy-chat.c:1714
+#: ../libempathy-gtk/empathy-chat.c:1728
 msgid "No topic defined"
 msgstr "Тэма не вызначана"
 
-#: ../libempathy-gtk/empathy-chat.c:2230
+#: ../libempathy-gtk/empathy-chat.c:2244
 msgid "(No Suggestions)"
 msgstr "(няма прапаноў)"
 
 #. translators: %s is the selected word
-#: ../libempathy-gtk/empathy-chat.c:2298
+#: ../libempathy-gtk/empathy-chat.c:2312
 #, c-format
 msgid "Add '%s' to Dictionary"
 msgstr "Дадаць \"%s\" у слоўнік"
 
 #. translators: first %s is the selected word,
 #. * second %s is the language name of the target dictionary
-#: ../libempathy-gtk/empathy-chat.c:2335
+#: ../libempathy-gtk/empathy-chat.c:2349
 #, c-format
 msgid "Add '%s' to %s Dictionary"
 msgstr "Дадаць \"%s\" у слоўнік (%s)"
 
-#: ../libempathy-gtk/empathy-chat.c:2405
+#: ../libempathy-gtk/empathy-chat.c:2419
 msgid "Insert Smiley"
 msgstr "Уставіць смайлік"
 
 #. send button
-#: ../libempathy-gtk/empathy-chat.c:2423
+#: ../libempathy-gtk/empathy-chat.c:2437
 #: ../libempathy-gtk/empathy-ui-utils.c:1867
 msgid "_Send"
 msgstr "_Паслаць"
 
 #. Spelling suggestions
-#: ../libempathy-gtk/empathy-chat.c:2480
+#: ../libempathy-gtk/empathy-chat.c:2494
 msgid "_Spelling Suggestions"
 msgstr "Прапанаваныя _варыянты выпраўлення"
 
-#: ../libempathy-gtk/empathy-chat.c:2569
+#: ../libempathy-gtk/empathy-chat.c:2583
 msgid "Failed to retrieve recent logs"
 msgstr "Не ўдалося атрымаць свежыя журналы"
 
-#: ../libempathy-gtk/empathy-chat.c:2708
+#: ../libempathy-gtk/empathy-chat.c:2722
 #, c-format
 msgid "%s has disconnected"
 msgstr "Удзельнік %s цяпер па-за сеткай"
@@ -1536,12 +1549,12 @@ msgstr "Удзельнік %s цяпер па-за сеткай"
 #. translators: reverse the order of these arguments
 #. * if the kicked should come before the kicker in your locale.
 #.
-#: ../libempathy-gtk/empathy-chat.c:2715
+#: ../libempathy-gtk/empathy-chat.c:2729
 #, c-format
 msgid "%1$s was kicked by %2$s"
 msgstr "Удзельнік %2$s выпхнуў удзельніка %1$s"
 
-#: ../libempathy-gtk/empathy-chat.c:2718
+#: ../libempathy-gtk/empathy-chat.c:2732
 #, c-format
 msgid "%s was kicked"
 msgstr "Удзельніка %s выпхнулі з пакоя"
@@ -1549,17 +1562,17 @@ msgstr "Удзельніка %s выпхнулі з пакоя"
 #. translators: reverse the order of these arguments
 #. * if the banned should come before the banner in your locale.
 #.
-#: ../libempathy-gtk/empathy-chat.c:2726
+#: ../libempathy-gtk/empathy-chat.c:2740
 #, c-format
 msgid "%1$s was banned by %2$s"
 msgstr "Удзельнік %2$s забаніў удзельніка %1$s"
 
-#: ../libempathy-gtk/empathy-chat.c:2729
+#: ../libempathy-gtk/empathy-chat.c:2743
 #, c-format
 msgid "%s was banned"
 msgstr "Удзельніка %s забанілі"
 
-#: ../libempathy-gtk/empathy-chat.c:2733
+#: ../libempathy-gtk/empathy-chat.c:2747
 #, c-format
 msgid "%s has left the room"
 msgstr "Удзельнік %s пакінуў пакой"
@@ -1569,17 +1582,17 @@ msgstr "Удзельнік %s пакінуў пакой"
 #. * given by the user living the room. If this poses a problem,
 #. * please let us know. :-)
 #.
-#: ../libempathy-gtk/empathy-chat.c:2742
+#: ../libempathy-gtk/empathy-chat.c:2756
 #, c-format
 msgid " (%s)"
 msgstr " (%s)"
 
-#: ../libempathy-gtk/empathy-chat.c:2767
+#: ../libempathy-gtk/empathy-chat.c:2781
 #, c-format
 msgid "%s has joined the room"
 msgstr "Удзельнік %s увайшоў у пакой"
 
-#: ../libempathy-gtk/empathy-chat.c:2792
+#: ../libempathy-gtk/empathy-chat.c:2806
 #, c-format
 msgid "%s is now known as %s"
 msgstr "Удзельнік %s цяпер называецца %s"
@@ -1587,7 +1600,7 @@ msgstr "Удзельнік %s цяпер называецца %s"
 #. We don't know if the incoming call has been accepted or not, so we
 #. * assume it hasn't and if it has, we'll set the proper status when
 #. * we get the new handler.
-#: ../libempathy-gtk/empathy-chat.c:2979
+#: ../libempathy-gtk/empathy-chat.c:2993
 #: ../src/empathy-streamed-media-window.c:1889
 #: ../src/empathy-event-manager.c:1280 ../src/empathy-call-window.c:1545
 #: ../src/empathy-call-window.c:1595 ../src/empathy-call-window.c:2638
@@ -1595,47 +1608,47 @@ msgid "Disconnected"
 msgstr "Адлучаны"
 
 #. Add message
-#: ../libempathy-gtk/empathy-chat.c:3643
+#: ../libempathy-gtk/empathy-chat.c:3657
 msgid "Would you like to store this password?"
 msgstr "Ці вы хочаце захаваць гэты пароль?"
 
-#: ../libempathy-gtk/empathy-chat.c:3649
+#: ../libempathy-gtk/empathy-chat.c:3663
 msgid "Remember"
 msgstr "Запомніць"
 
-#: ../libempathy-gtk/empathy-chat.c:3659
+#: ../libempathy-gtk/empathy-chat.c:3673
 msgid "Not now"
 msgstr "Не зараз"
 
-#: ../libempathy-gtk/empathy-chat.c:3703
+#: ../libempathy-gtk/empathy-chat.c:3717
 #: ../libempathy-gtk/empathy-bad-password-dialog.c:142
 msgid "Retry"
 msgstr "Паўтарыць"
 
-#: ../libempathy-gtk/empathy-chat.c:3707
+#: ../libempathy-gtk/empathy-chat.c:3721
 msgid "Wrong password; please try again:"
 msgstr "Хібны пароль. Паўтарыце спробу:"
 
 #. Add message
-#: ../libempathy-gtk/empathy-chat.c:3837
+#: ../libempathy-gtk/empathy-chat.c:3851
 msgid "This room is protected by a password:"
 msgstr "Гэты пакой абаронены паролем:"
 
-#: ../libempathy-gtk/empathy-chat.c:3864
+#: ../libempathy-gtk/empathy-chat.c:3878
 msgid "Join"
 msgstr "Далучыцца"
 
-#: ../libempathy-gtk/empathy-chat.c:4056 ../src/empathy-event-manager.c:1301
+#: ../libempathy-gtk/empathy-chat.c:4070 ../src/empathy-event-manager.c:1301
 msgid "Connected"
 msgstr "Злучаны"
 
-#: ../libempathy-gtk/empathy-chat.c:4111
+#: ../libempathy-gtk/empathy-chat.c:4125
 msgid "Conversation"
 msgstr "Размова"
 
 #. Translators: this string is a something like
 #. * "Escher Cat (SMS)"
-#: ../libempathy-gtk/empathy-chat.c:4116
+#: ../libempathy-gtk/empathy-chat.c:4130
 #, c-format
 msgid "%s (SMS)"
 msgstr "%s (SMS)"
@@ -2061,7 +2074,7 @@ msgid "Select"
 msgstr "Выбар"
 
 #: ../libempathy-gtk/empathy-groups-widget.c:407
-#: ../src/empathy-roster-window.c:1951
+#: ../src/empathy-roster-window.c:1970
 msgid "Group"
 msgstr "Група"
 
@@ -2715,8 +2728,8 @@ msgid "Certificate hostname: %s"
 msgstr "Назва камп'ютара з сертыфіката: %s"
 
 #: ../libempathy-gtk/empathy-tls-dialog.c:281
-msgid "Continue"
-msgstr "Працягнуць"
+msgid "C_ontinue"
+msgstr "_Працягнуць"
 
 #: ../libempathy-gtk/empathy-tls-dialog.c:287
 msgid "Untrusted connection"
@@ -3179,60 +3192,60 @@ msgstr "Ваш конт %s мае незахаваныя змены."
 msgid "Your new account has not been saved yet."
 msgstr "Ваш новы конт яшчэ не захаваны."
 
-#: ../src/empathy-accounts-dialog.c:344
+#: ../src/empathy-accounts-dialog.c:347
 #: ../src/empathy-streamed-media-window.c:757
 #: ../src/empathy-call-window.c:1332
 msgid "Connecting…"
 msgstr "Злучэнне..."
 
-#: ../src/empathy-accounts-dialog.c:385
+#: ../src/empathy-accounts-dialog.c:388
 #, c-format
 msgid "Offline — %s"
 msgstr "Па-за сеткай - %s"
 
-#: ../src/empathy-accounts-dialog.c:397
+#: ../src/empathy-accounts-dialog.c:400
 #, c-format
 msgid "Disconnected — %s"
 msgstr "Адлучаны - %s"
 
-#: ../src/empathy-accounts-dialog.c:408
+#: ../src/empathy-accounts-dialog.c:411
 msgid "Offline — No Network Connection"
 msgstr "Па-за сеткай - Няма сеткавага злучэння"
 
-#: ../src/empathy-accounts-dialog.c:415
+#: ../src/empathy-accounts-dialog.c:418
 msgid "Unknown Status"
 msgstr "Невядомы стан"
 
-#: ../src/empathy-accounts-dialog.c:427
+#: ../src/empathy-accounts-dialog.c:430
 msgid "Offline — Account Disabled"
 msgstr "Па-за сеткай - Конт выключаны"
 
-#: ../src/empathy-accounts-dialog.c:530
+#: ../src/empathy-accounts-dialog.c:533
 msgid "Edit Connection Parameters"
 msgstr "Змяненне параметраў злучэння"
 
-#: ../src/empathy-accounts-dialog.c:693
+#: ../src/empathy-accounts-dialog.c:696
 msgid "Failed to retrieve your personal information from the server."
 msgstr "Не ўдалося атрымаць асабістыя звесткі з сервера."
 
-#: ../src/empathy-accounts-dialog.c:699
+#: ../src/empathy-accounts-dialog.c:702
 msgid "Go online to edit your personal information."
 msgstr "Злучыцеся з сеткай, каб змагчы рэдагаваць асабістыя звесткі."
 
-#: ../src/empathy-accounts-dialog.c:784
+#: ../src/empathy-accounts-dialog.c:787
 msgid "_Edit Connection Parameters..."
 msgstr "_Змяніць параметры злучэння..."
 
-#: ../src/empathy-accounts-dialog.c:1289
+#: ../src/empathy-accounts-dialog.c:1292
 #, c-format
 msgid "Do you want to remove %s from your computer?"
 msgstr "Ці вы сапраўды хочаце выдаліць %s са свайго камп'ютара?"
 
-#: ../src/empathy-accounts-dialog.c:1293
+#: ../src/empathy-accounts-dialog.c:1296
 msgid "This will not remove your account on the server."
 msgstr "Гэтае дзеянне не выдаліць ваш конт на серверы."
 
-#: ../src/empathy-accounts-dialog.c:1529
+#: ../src/empathy-accounts-dialog.c:1532
 msgid ""
 "You are about to select another account, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -3241,15 +3254,15 @@ msgstr ""
 "вашых змен. Ці вы сапраўды хочаце працягнуць працэдуру?"
 
 #. Menu items: to enabled/disable the account
-#: ../src/empathy-accounts-dialog.c:1705
+#: ../src/empathy-accounts-dialog.c:1708
 msgid "_Enable"
 msgstr "_Уключыць"
 
-#: ../src/empathy-accounts-dialog.c:1706
+#: ../src/empathy-accounts-dialog.c:1709
 msgid "_Disable"
 msgstr "_Выключыць"
 
-#: ../src/empathy-accounts-dialog.c:2176
+#: ../src/empathy-accounts-dialog.c:2179
 msgid ""
 "You are about to close the window, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -3866,7 +3879,7 @@ msgstr "Вас запрасілі ў %s"
 msgid "Incoming file transfer from %s"
 msgstr "Уваходны файл ад %s"
 
-#: ../src/empathy-event-manager.c:1147 ../src/empathy-roster-window.c:372
+#: ../src/empathy-event-manager.c:1147 ../src/empathy-roster-window.c:374
 msgid "Password required"
 msgstr "Патрэбны пароль"
 
@@ -4021,76 +4034,76 @@ msgstr "Пратакол"
 msgid "Source"
 msgstr "Крыніца"
 
-#: ../src/empathy-roster-window.c:389
+#: ../src/empathy-roster-window.c:391
 msgid "Provide Password"
 msgstr "Падаць пароль"
 
-#: ../src/empathy-roster-window.c:395
+#: ../src/empathy-roster-window.c:397
 msgid "Disconnect"
 msgstr "Адлучыцца"
 
-#: ../src/empathy-roster-window.c:644
+#: ../src/empathy-roster-window.c:657
 msgid "You need to setup an account to see contacts here."
 msgstr "Каб убачыць кантакты, трэба настроіць конт."
 
-#: ../src/empathy-roster-window.c:660
+#: ../src/empathy-roster-window.c:673
 msgid "No match found"
 msgstr "Адпаведнікаў не знойдзена"
 
-#: ../src/empathy-roster-window.c:765
+#: ../src/empathy-roster-window.c:783
 #, c-format
 msgid "Sorry, %s accounts can’t be used until your %s software is updated."
 msgstr ""
 "На жаль, пакуль вы не абновіце апраграмаванне %2$s, немагчыма будзе "
 "карыстацца контамі %1$s."
 
-#: ../src/empathy-roster-window.c:831
+#: ../src/empathy-roster-window.c:849
 msgid "Update software..."
 msgstr "Абнавіць апраграмаванне..."
 
-#: ../src/empathy-roster-window.c:837 ../src/empathy-roster-window.c:954
+#: ../src/empathy-roster-window.c:855 ../src/empathy-roster-window.c:972
 msgid "Close"
 msgstr "Закрыць"
 
-#: ../src/empathy-roster-window.c:942
+#: ../src/empathy-roster-window.c:960
 msgid "Reconnect"
 msgstr "Перазлучыцца"
 
-#: ../src/empathy-roster-window.c:948
+#: ../src/empathy-roster-window.c:966
 msgid "Edit Account"
 msgstr "Змяніць настройкі конта"
 
 #. Translators: this string will be something like:
 #. * Top up My Account ($1.23)..."
-#: ../src/empathy-roster-window.c:1092
+#: ../src/empathy-roster-window.c:1110
 #, c-format
 msgid "Top up %s (%s)..."
 msgstr "Папоўніць %s (%s)..."
 
-#: ../src/empathy-roster-window.c:1138
+#: ../src/empathy-roster-window.c:1156
 msgid "Top up account credit"
 msgstr "Папоўніць грашовы баланс конта"
 
 #. top up button
-#: ../src/empathy-roster-window.c:1210
+#: ../src/empathy-roster-window.c:1228
 msgid "Top Up..."
 msgstr "Папоўніць..."
 
-#: ../src/empathy-roster-window.c:1933
+#: ../src/empathy-roster-window.c:1952
 msgid "Contact"
 msgstr "Кантакт"
 
-#: ../src/empathy-roster-window.c:2131
+#: ../src/empathy-roster-window.c:2150
 msgid "You need to enable one of your accounts to see contacts here."
 msgstr "Каб убачыць кантакты, трэба ўключыць які-небудзь конт."
 
 #. translators: argument is an account name
-#: ../src/empathy-roster-window.c:2139
+#: ../src/empathy-roster-window.c:2158
 #, c-format
 msgid "You need to enable %s to see contacts here."
 msgstr "Каб убачыць кантакты, трэба ўключыць %s."
 
-#: ../src/empathy-roster-window.c:2419
+#: ../src/empathy-roster-window.c:2460
 msgid "Contact List"
 msgstr "Спіс кантактаў"
 
@@ -4679,7 +4692,7 @@ msgstr "- Адладчык Empathy"
 msgid "Empathy Debugger"
 msgstr "Адладчык Empathy"
 
-#: ../src/empathy-chat.c:107
+#: ../src/empathy-chat.c:109
 msgid "- Empathy Chat Client"
 msgstr "- Кліент чату Empathy"
 
