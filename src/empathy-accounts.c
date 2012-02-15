@@ -43,7 +43,6 @@
 #include "empathy-accounts.h"
 #include "empathy-accounts-common.h"
 #include "empathy-accounts-dialog.h"
-#include "empathy-account-assistant.h"
 #include "empathy-auto-salut-account-helper.h"
 
 #define DEBUG_FLAG EMPATHY_DEBUG_ACCOUNT
