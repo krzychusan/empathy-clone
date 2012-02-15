@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: empathy trunk\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=empathy&keywords=I18N+L10N&component=General\n"
-"POT-Creation-Date: 2011-12-22 11:35+0000\n"
-"PO-Revision-Date: 2012-01-07 20:04+0300\n"
+"POT-Creation-Date: 2012-02-13 13:31+0000\n"
+"PO-Revision-Date: 2012-02-16 01:20+0300\n"
 "Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,430 +25,453 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 
 #: ../data/empathy.desktop.in.in.h:1
-msgid "Chat on Google Talk, Facebook, MSN and many other chat services"
-msgstr "Общайтесь в Google Talk, Facebook, MSN и во многих других службах"
-
-#: ../data/empathy.desktop.in.in.h:2
 msgid "Empathy"
 msgstr "Empathy"
+
+#: ../data/empathy.desktop.in.in.h:2
+msgid "IM Client"
+msgstr "Клиент обмена мгновенными сообщениями"
 
 #: ../data/empathy.desktop.in.in.h:3
 msgid "Empathy Internet Messaging"
 msgstr "Программа обмена сообщениями Empathy"
 
 #: ../data/empathy.desktop.in.in.h:4
-msgid "IM Client"
-msgstr "Клиент обмена мгновенными сообщениями"
+msgid "Chat on Google Talk, Facebook, MSN and many other chat services"
+msgstr "Общайтесь в Google Talk, Facebook, MSN и во многих других службах"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:1
-msgid "Always open a separate chat window for new chats."
-msgstr "Всегда открывать новую беседу в новом окне."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:2
-msgid "Camera device"
-msgstr "Камера"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:3
-msgid "Camera position"
-msgstr "Положение камеры"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:4
-msgid "Character to add after nickname when using nick completion (tab) in group chat."
-msgstr "Символ для добавления после псевдонима, если в беседе используется автодополнение псевдонимов по клавише Tab."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:5
-msgid "Chat window theme"
-msgstr "Тема окна беседы"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:6
-msgid "Chat window theme variant"
-msgstr "Вариант тема для окна беседы"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:7
-msgid "Comma-separated list of spell checker languages to use (e.g. \"en, fr, nl\")."
-msgstr "Список языков, используемых при проверке орфографии, разделённых запятыми (например «en, fr, ru»)."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:8
-msgid "Compact contact list"
-msgstr "Компактный список собеседников"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:9
 msgid "Connection managers should be used"
 msgstr "Используемые диспетчеры соединений"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:10
-msgid "Contact list sort criterion"
-msgstr "Критерий упорядочивания списка собеседников"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:11
-msgid "D-Bus object path of the last account selected to join a room."
-msgstr "Путь к объекту D-Bus последней учётной записи, выбранной для присоединения к комнате."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:12
-msgid "Default camera device to use in video calls, e.g. /dev/video0."
-msgstr "Камера, используемая по умолчанию для видеовызовов, напр. /dev/video0."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:13
-msgid "Default directory to select an avatar image from"
-msgstr "Каталог, используемый для выбора изображений аватаров"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:14
-msgid "Disable popup notifications when away"
-msgstr "Выключить всплывающие уведомления в состоянии «отсутствует»"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:15
-msgid "Disable sounds when away"
-msgstr "Выключить звуки в состоянии «отсутствует»"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:16
-msgid "Display incoming events in the status area"
-msgstr "Показывать наступающие события в области состояния"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:17
-msgid "Display incoming events in the status area. If false, present them to the user immediately."
-msgstr "Показывать наступающие события в области состояния. Если ключ не установлен, показывать их непосредственно пользователю."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:18
-msgid "Echo cancellation support"
-msgstr "Поддержка подавления эха"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:19
-msgid "Empathy can publish the user's location"
-msgstr "Empathy может публиковать местоположение пользователя"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:20
-msgid "Empathy can use the GPS to guess the location"
-msgstr "Empathy может использовать GPS для определения местоположения"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:21
-msgid "Empathy can use the cellular network to guess the location"
-msgstr "Empathy может использовать сотовую сеть для определения местоположения"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:22
-msgid "Empathy can use the network to guess the location"
-msgstr "Empathy может использовать сеть для определения местоположения"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:23
-msgid "Empathy default download folder"
-msgstr "Папка Empathy для загрузки файлов"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:24
-msgid "Empathy should auto-away when idle"
-msgstr "Устанавливать статус «отсутствует» при бездействии"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:25
-msgid "Empathy should auto-connect on startup"
-msgstr "Присоединяться при запуске"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:26
-msgid "Empathy should reduce the location's accuracy"
-msgstr "Empathy должен снижать точность местоположения"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:27
-msgid "Empathy should use the avatar of the contact as the chat window icon"
-msgstr "Empathy должен использовать аватар контакта как значок окна с беседой"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:28
-msgid "Enable WebKit Developer Tools"
-msgstr "Включить инструменты разработчика WebKit"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:29
-msgid "Enable popup notifications for new messages"
-msgstr "Включить всплывающие уведомления о новых сообщениях"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:30
-msgid "Enable spell checker"
-msgstr "Включить проверку орфографии"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:31
-msgid "Hide main window"
-msgstr "Скрывать главное окно"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:32
-msgid "Hide the main window."
-msgstr "Скрывать главное окно."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:33
-msgid "Last account selected in Join Room dialog"
-msgstr "Последняя учётная запись, выбранная в диалоге присоединения к комнате."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:34
-msgid "Nick completed character"
-msgstr "Символ автодополнения псевдонима"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:35
-msgid "Open new chats in separate windows"
-msgstr "Открывать новые беседы в новом окне"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:36
-msgid "Path of the Adium theme to use"
-msgstr "Путь к используемой теме Adium"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:37
-msgid "Path of the Adium theme to use if the theme used for chat is Adium."
-msgstr "Путь к используемой теме Adium, если тема, используемая для беседы — Adium."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:38
-msgid "Play a sound for incoming messages"
-msgstr "Воспроизводить ли звук при получении сообщения"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:39
-msgid "Play a sound for new conversations"
-msgstr "Воспроизводить ли звук при начале беседы"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:40
-msgid "Play a sound for outgoing messages"
-msgstr "Воспроизводить ли звук при отправке сообщения"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:41
-msgid "Play a sound when a contact logs in"
-msgstr "Воспроизводить ли звук при входе контакта в сеть"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:42
-msgid "Play a sound when a contact logs out"
-msgstr "Воспроизводить ли звук при выходе контакта из сети"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:43
-msgid "Play a sound when we log in"
-msgstr "Воспроизводить звук при входе в сеть"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:44
-msgid "Play a sound when we log out"
-msgstr "Воспроизводить звук при выходе из сети"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:45
-msgid "Pop up notifications if the chat isn't focused"
-msgstr "Показывать всплывающие уведомления, если беседа находится не в фокусе"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:46
-msgid "Pop up notifications when a contact logs in"
-msgstr "Показывать всплывающие уведомления, когда появляется собеседник"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:47
-msgid "Pop up notifications when a contact logs out"
-msgstr "Показывать всплывающие уведомления, когда собеседник уходит"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:48
-msgid "Position the camera preview should be during a call."
-msgstr "Предварительный просмотр положения камеры должен выполняться в течение вызова."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:49
-msgid "Show Balance in contact list"
-msgstr "Показывать баланс в списке собеседников"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:50
-msgid "Show avatars"
-msgstr "Показывать аватары"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:51
-msgid "Show contact list in rooms"
-msgstr "Показывать список собеседников в комнатах"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:52
-msgid "Show hint about closing the main window"
-msgstr "Показывать подсказку о закрытии главного окна"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:53
-msgid "Show offline contacts"
-msgstr "Показывать отсутствующих собеседников"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:54
-msgid "Show protocols"
-msgstr "Показывать протоколы"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:55
-msgid "Spell checking languages"
-msgstr "Языки для проверки орфографии"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:56
-msgid "The default folder to save file transfers in."
-msgstr "Каталог по умолчанию для сохранения присланных файлов."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:57
-msgid "The last directory that an avatar image was chosen from."
-msgstr "Последний каталог, из которого выбирались изображения аватаров."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:58
-msgid "The position for the chat window side pane"
-msgstr "Положение боковой панели окна беседы"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:59
-msgid "The stored position (in pixels) of the chat window side pane."
-msgstr "Положение боковой панели окна беседы (в пикселах)."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:60
-msgid "The theme that is used to display the conversation in chat windows."
-msgstr "Эта тема используется для отображения диалога в окне беседы."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:61
-msgid "The theme variant that is used to display the conversation in chat windows."
-msgstr "Вариант темы, используемый для отображения бесед."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:62
-msgid "Use graphical smileys"
-msgstr "Использовать графические улыбки"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:63
-msgid "Use notification sounds"
-msgstr "Использовать звуки"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:64
-msgid "Use theme for chat rooms"
-msgstr "Использовать тему для бесед"
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:65
-msgid "Whether Empathy can publish the user's location to their contacts."
-msgstr "Может ли Empathy публиковать местоположение пользователя для его собеседников."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:66
-msgid "Whether Empathy can use the GPS to guess the location."
-msgstr "Может ли Empathy использовать GPS для определения местоположения."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:67
-msgid "Whether Empathy can use the cellular network to guess the location."
-msgstr "Может ли Empathy использовать сотовую сеть для определения местоположения."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:68
-msgid "Whether Empathy can use the network to guess the location."
-msgstr "Может ли Empathy использовать сеть для определения местоположения."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:69
-msgid "Whether Empathy should automatically log into your accounts on startup."
-msgstr "Должен ли Empathy автоматически входить в ваши учётные записи при запуске."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:70
-msgid "Whether Empathy should go into away mode automatically if the user is idle."
-msgstr "Должен ли Empathy автоматически устанавливать статус «отсутствует» при бездействии пользователя."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:71
-msgid "Whether Empathy should reduce the location's accuracy for privacy reasons."
-msgstr "Должен ли Empathy уменьшать точность определения местоположения по причинам приватности."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:72
-msgid "Whether Empathy should use the avatar of the contact as the chat window icon."
-msgstr "Использовать ли аватар собеседника в качестве значка окна беседы."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:73
-msgid "Whether WebKit developer tools, such as the Web Inspector, should be enabled."
-msgstr "Должны ли быть включены инструменты разработчика WebKit, например Web Inspector."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:74
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:2
 msgid "Whether connectivity managers should be used to automatically disconnect/reconnect."
 msgstr "Использовать ли менеджеры связности для автоматического отключения или переподключения."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:75
-msgid "Whether to check words typed against the languages you want to check with."
-msgstr "Проверять ли введённые слова из списка языков для проверки орфографии."
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:3
+msgid "Empathy should auto-connect on startup"
+msgstr "Присоединяться при запуске"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:76
-msgid "Whether to convert smileys into graphical images in conversations."
-msgstr "Преобразовывать ли текстовые улыбки (смайлы) в беседах в графические изображения."
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:4
+msgid "Whether Empathy should automatically log into your accounts on startup."
+msgstr "Должен ли Empathy автоматически входить в ваши учётные записи при запуске."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:77
-msgid "Whether to enable Pulseaudio's echo cancellation filter."
-msgstr "Включить ли фильтр подавления эха Pulseaudio."
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:5
+msgid "Empathy should auto-away when idle"
+msgstr "Устанавливать статус «отсутствует» при бездействии"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:78
-msgid "Whether to play a sound to notify of contacts logging into the network."
-msgstr "Воспроизводить ли звук для уведомления о входе собеседников в сеть."
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:6
+msgid "Whether Empathy should go into away mode automatically if the user is idle."
+msgstr "Должен ли Empathy автоматически устанавливать статус «отсутствует» при бездействии пользователя."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:79
-msgid "Whether to play a sound to notify of contacts logging out of the network."
-msgstr "Воспроизводить ли звук для уведомления о выходе собеседников из сети."
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:7
+msgid "Empathy default download folder"
+msgstr "Папка Empathy для загрузки файлов"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:80
-msgid "Whether to play a sound to notify of events."
-msgstr "Воспроизводить ли звук для уведомления о событиях."
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:8
+msgid "The default folder to save file transfers in."
+msgstr "Каталог по умолчанию для сохранения присланных файлов."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:81
-msgid "Whether to play a sound to notify of incoming messages."
-msgstr "Воспроизводить ли звук для уведомления о входящих сообщениях."
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:9
+msgid "Show offline contacts"
+msgstr "Показывать отсутствующих собеседников"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:82
-msgid "Whether to play a sound to notify of new conversations."
-msgstr "Воспроизводить ли звук для уведомления о начале новой беседы."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:83
-msgid "Whether to play a sound to notify of outgoing messages."
-msgstr "Воспроизводить ли звук для уведомления об исходящих сообщениях."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:84
-msgid "Whether to play a sound when logging into a network."
-msgstr "Воспроизводить ли звук при входе в сеть."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:85
-msgid "Whether to play a sound when logging out of a network."
-msgstr "Воспроизводить ли звук при выходе из сети."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:86
-msgid "Whether to play sound notifications when away or busy."
-msgstr "Воспроизводить ли звуковые уведомления в состояниях «отсутствует» или «не беспокоить»."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:87
-msgid "Whether to show a popup notification when a contact goes offline."
-msgstr "Показывать ли всплывающее уведомление, когда собеседник выходит из сети."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:88
-msgid "Whether to show a popup notification when a contact goes online."
-msgstr "Показывать ли всплывающее уведомление, когда собеседник выходит в сеть."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:89
-msgid "Whether to show a popup notification when receiving a new message even if the chat is already opened, but not focused."
-msgstr "Показывать ли всплывающее уведомление о получении нового сообщения, когда беседа уже ведётся, но не находится в фокусе."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:90
-msgid "Whether to show a popup notification when receiving a new message."
-msgstr "Показывать ли всплывающее уведомление при получении нового сообщения."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:91
-msgid "Whether to show account balances in the contact list."
-msgstr "Показывать ли балансы учётных записей в списке собеседников."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:92
-msgid "Whether to show avatars for contacts in the contact list and chat windows."
-msgstr "Показывать ли аватары собеседников в списке собеседников и окнах беседы."
-
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:93
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:10
 msgid "Whether to show contacts that are offline in the contact list."
 msgstr "Показывать ли собеседников не в сети."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:94
-msgid "Whether to show popup notifications when away or busy."
-msgstr "Показывать ли всплывающие уведомления в состояниях «отсутствует» или «не беспокоить»."
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:11
+msgid "Show avatars"
+msgstr "Показывать аватары"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:95
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:12
+msgid "Whether to show avatars for contacts in the contact list and chat windows."
+msgstr "Показывать ли аватары собеседников в списке собеседников и окнах беседы."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:13
+msgid "Show protocols"
+msgstr "Показывать протоколы"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:14
 msgid "Whether to show protocols for contacts in the contact list."
 msgstr "Показывать ли протоколы для собеседников в списке собеседников."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:96
-msgid "Whether to show the contact list in chat rooms."
-msgstr "Показывать ли список собеседников в комнатах."
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:15
+msgid "Show Balance in contact list"
+msgstr "Показывать баланс в списке собеседников"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:97
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:16
+msgid "Whether to show account balances in the contact list."
+msgstr "Показывать ли балансы учётных записей в списке собеседников."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:17
+msgid "Compact contact list"
+msgstr "Компактный список собеседников"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:18
 msgid "Whether to show the contact list in compact mode."
 msgstr "Показывать ли компактный список собеседников."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:98
-msgid "Whether to show the message dialog about closing the main window with the 'x' button in the title bar."
-msgstr "Показывать ли диалоговое окно при закрытии главного окна с помощью кнопки «x» в строке заголовка."
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:19
+msgid "Hide main window"
+msgstr "Скрывать главное окно"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:99
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:20
+msgid "Hide the main window."
+msgstr "Скрывать главное окно."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:21
+msgid "Default directory to select an avatar image from"
+msgstr "Каталог, используемый для выбора изображений аватаров"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:22
+msgid "The last directory that an avatar image was chosen from."
+msgstr "Последний каталог, из которого выбирались изображения аватаров."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:23
+msgid "Open new chats in separate windows"
+msgstr "Открывать новые беседы в новом окне"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:24
+msgid "Always open a separate chat window for new chats."
+msgstr "Всегда открывать новую беседу в новом окне."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:25
+msgid "Display incoming events in the status area"
+msgstr "Показывать наступающие события в области состояния"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:26
+msgid "Display incoming events in the status area. If false, present them to the user immediately."
+msgstr "Показывать наступающие события в области состояния. Если ключ не установлен, показывать их непосредственно пользователю."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:27
+msgid "The position for the chat window side pane"
+msgstr "Положение боковой панели окна беседы"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:28
+msgid "The stored position (in pixels) of the chat window side pane."
+msgstr "Положение боковой панели окна беседы (в пикселах)."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:29
+#| msgid "Show contact list in rooms"
+msgid "Show contact groups"
+msgstr "Показывать группы"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:30
+#| msgid "Whether to show account balances in the contact list."
+msgid "Whether to show groups in the contact list."
+msgstr "Показывать ли группы в списке собеседников."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:31
+msgid "Contact list sort criterion"
+msgstr "Критерий упорядочивания списка собеседников"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:32
+#, fuzzy
+#| msgid ""
+#| "Which criterion to use when sorting the contact list. Default is to sort "
+#| "by the contact's name with the value \"name\". A value of \"state\" will "
+#| "sort the contact list by state."
+msgid "Which criterion to use when sorting the contact list. Default is to sort by the contact's state with the value \"state\". A value of \"name\" will sort the contact list by name."
+msgstr "Критерий упорядочивания списка собеседников. По умолчанию упорядочивается по имени собеседника — «name». При значении «state» список будет упорядочен по статусу."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:33
+msgid "Use notification sounds"
+msgstr "Использовать звуки"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:34
+msgid "Whether to play a sound to notify of events."
+msgstr "Воспроизводить ли звук для уведомления о событиях."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:35
+msgid "Disable sounds when away"
+msgstr "Выключить звуки в состоянии «отсутствует»"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:36
+msgid "Whether to play sound notifications when away or busy."
+msgstr "Воспроизводить ли звуковые уведомления в состояниях «отсутствует» или «не беспокоить»."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:37
+msgid "Play a sound for incoming messages"
+msgstr "Воспроизводить ли звук при получении сообщения"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:38
+msgid "Whether to play a sound to notify of incoming messages."
+msgstr "Воспроизводить ли звук для уведомления о входящих сообщениях."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:39
+msgid "Play a sound for outgoing messages"
+msgstr "Воспроизводить ли звук при отправке сообщения"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:40
+msgid "Whether to play a sound to notify of outgoing messages."
+msgstr "Воспроизводить ли звук для уведомления об исходящих сообщениях."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:41
+msgid "Play a sound for new conversations"
+msgstr "Воспроизводить ли звук при начале беседы"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:42
+msgid "Whether to play a sound to notify of new conversations."
+msgstr "Воспроизводить ли звук для уведомления о начале новой беседы."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:43
+msgid "Play a sound when a contact logs in"
+msgstr "Воспроизводить ли звук при входе контакта в сеть"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:44
+msgid "Whether to play a sound to notify of contacts logging into the network."
+msgstr "Воспроизводить ли звук для уведомления о входе собеседников в сеть."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:45
+msgid "Play a sound when a contact logs out"
+msgstr "Воспроизводить ли звук при выходе контакта из сети"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:46
+msgid "Whether to play a sound to notify of contacts logging out of the network."
+msgstr "Воспроизводить ли звук для уведомления о выходе собеседников из сети."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:47
+msgid "Play a sound when we log in"
+msgstr "Воспроизводить звук при входе в сеть"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:48
+msgid "Whether to play a sound when logging into a network."
+msgstr "Воспроизводить ли звук при входе в сеть."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:49
+msgid "Play a sound when we log out"
+msgstr "Воспроизводить звук при выходе из сети"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:50
+msgid "Whether to play a sound when logging out of a network."
+msgstr "Воспроизводить ли звук при выходе из сети."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:51
+msgid "Enable popup notifications for new messages"
+msgstr "Включить всплывающие уведомления о новых сообщениях"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:52
+msgid "Whether to show a popup notification when receiving a new message."
+msgstr "Показывать ли всплывающее уведомление при получении нового сообщения."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:53
+msgid "Disable popup notifications when away"
+msgstr "Выключить всплывающие уведомления в состоянии «отсутствует»"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:54
+msgid "Whether to show popup notifications when away or busy."
+msgstr "Показывать ли всплывающие уведомления в состояниях «отсутствует» или «не беспокоить»."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:55
+msgid "Pop up notifications if the chat isn't focused"
+msgstr "Показывать всплывающие уведомления, если беседа находится не в фокусе"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:56
+msgid "Whether to show a popup notification when receiving a new message even if the chat is already opened, but not focused."
+msgstr "Показывать ли всплывающее уведомление о получении нового сообщения, когда беседа уже ведётся, но не находится в фокусе."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:57
+msgid "Pop up notifications when a contact logs in"
+msgstr "Показывать всплывающие уведомления, когда появляется собеседник"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:58
+msgid "Whether to show a popup notification when a contact goes online."
+msgstr "Показывать ли всплывающее уведомление, когда собеседник выходит в сеть."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:59
+msgid "Pop up notifications when a contact logs out"
+msgstr "Показывать всплывающие уведомления, когда собеседник уходит"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:60
+msgid "Whether to show a popup notification when a contact goes offline."
+msgstr "Показывать ли всплывающее уведомление, когда собеседник выходит из сети."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:61
+msgid "Use graphical smileys"
+msgstr "Использовать графические улыбки"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:62
+msgid "Whether to convert smileys into graphical images in conversations."
+msgstr "Преобразовывать ли текстовые улыбки (смайлы) в беседах в графические изображения."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:63
+msgid "Show contact list in rooms"
+msgstr "Показывать список собеседников в комнатах"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:64
+msgid "Whether to show the contact list in chat rooms."
+msgstr "Показывать ли список собеседников в комнатах."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:65
+msgid "Chat window theme"
+msgstr "Тема окна беседы"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:66
+msgid "The theme that is used to display the conversation in chat windows."
+msgstr "Эта тема используется для отображения диалога в окне беседы."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:67
+msgid "Chat window theme variant"
+msgstr "Вариант тема для окна беседы"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:68
+msgid "The theme variant that is used to display the conversation in chat windows."
+msgstr "Вариант темы, используемый для отображения бесед."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:69
+msgid "Path of the Adium theme to use"
+msgstr "Путь к используемой теме Adium"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:70
+msgid "Path of the Adium theme to use if the theme used for chat is Adium."
+msgstr "Путь к используемой теме Adium, если тема, используемая для беседы — Adium."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:71
+msgid "Enable WebKit Developer Tools"
+msgstr "Включить инструменты разработчика WebKit"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:72
+msgid "Whether WebKit developer tools, such as the Web Inspector, should be enabled."
+msgstr "Должны ли быть включены инструменты разработчика WebKit, например Web Inspector."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:73
+msgid "Inform other users when you are typing to them"
+msgstr "Уведомлять пользователей о наборе сообщений"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:74
+msgid "Whether to send the 'composing' or 'paused' chat states. Does not currently affect the 'gone' state."
+msgstr ""
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:75
+msgid "Use theme for chat rooms"
+msgstr "Использовать тему для бесед"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:76
 msgid "Whether to use the theme for chat rooms."
 msgstr "Использовать ли темы для комнат."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:100
-msgid "Which criterion to use when sorting the contact list. Default is to sort by the contact's name with the value \"name\". A value of \"state\" will sort the contact list by state."
-msgstr "Критерий упорядочивания списка собеседников. По умолчанию упорядочивается по имени собеседника — «name». При значении «state» список будет упорядочен по статусу."
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:77
+msgid "Spell checking languages"
+msgstr "Языки для проверки орфографии"
 
-#: ../data/empathy-accounts.desktop.in.in.h:1
-msgid "Manage Messaging and VoIP accounts"
-msgstr "Управление учётными записями для обмена сообщениями и VoIP"
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:78
+msgid "Comma-separated list of spell checker languages to use (e.g. \"en, fr, nl\")."
+msgstr "Список языков, используемых при проверке орфографии, разделённых запятыми (например «en, fr, ru»)."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:79
+msgid "Enable spell checker"
+msgstr "Включить проверку орфографии"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:80
+msgid "Whether to check words typed against the languages you want to check with."
+msgstr "Проверять ли введённые слова из списка языков для проверки орфографии."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:81
+msgid "Nick completed character"
+msgstr "Символ автодополнения псевдонима"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:82
+msgid "Character to add after nickname when using nick completion (tab) in group chat."
+msgstr "Символ для добавления после псевдонима, если в беседе используется автодополнение псевдонимов по клавише Tab."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:83
+msgid "Empathy should use the avatar of the contact as the chat window icon"
+msgstr "Empathy должен использовать аватар контакта как значок окна с беседой"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:84
+msgid "Whether Empathy should use the avatar of the contact as the chat window icon."
+msgstr "Использовать ли аватар собеседника в качестве значка окна беседы."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:85
+msgid "Last account selected in Join Room dialog"
+msgstr "Последняя учётная запись, выбранная в диалоге присоединения к комнате."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:86
+msgid "D-Bus object path of the last account selected to join a room."
+msgstr "Путь к объекту D-Bus последней учётной записи, выбранной для присоединения к комнате."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:87
+msgid "Camera device"
+msgstr "Камера"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:88
+msgid "Default camera device to use in video calls, e.g. /dev/video0."
+msgstr "Камера, используемая по умолчанию для видеовызовов, напр. /dev/video0."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:89
+msgid "Camera position"
+msgstr "Положение камеры"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:90
+msgid "Position the camera preview should be during a call."
+msgstr "Предварительный просмотр положения камеры должен выполняться в течение вызова."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:91
+msgid "Echo cancellation support"
+msgstr "Поддержка подавления эха"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:92
+msgid "Whether to enable Pulseaudio's echo cancellation filter."
+msgstr "Включить ли фильтр подавления эха Pulseaudio."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:93
+msgid "Show hint about closing the main window"
+msgstr "Показывать подсказку о закрытии главного окна"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:94
+msgid "Whether to show the message dialog about closing the main window with the 'x' button in the title bar."
+msgstr "Показывать ли диалоговое окно при закрытии главного окна с помощью кнопки «x» в строке заголовка."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:95
+msgid "Empathy can publish the user's location"
+msgstr "Empathy может публиковать местоположение пользователя"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:96
+msgid "Whether Empathy can publish the user's location to their contacts."
+msgstr "Может ли Empathy публиковать местоположение пользователя для его собеседников."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:97
+msgid "Empathy can use the network to guess the location"
+msgstr "Empathy может использовать сеть для определения местоположения"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:98
+msgid "Whether Empathy can use the network to guess the location."
+msgstr "Может ли Empathy использовать сеть для определения местоположения."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:99
+msgid "Empathy can use the cellular network to guess the location"
+msgstr "Empathy может использовать сотовую сеть для определения местоположения"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:100
+msgid "Whether Empathy can use the cellular network to guess the location."
+msgstr "Может ли Empathy использовать сотовую сеть для определения местоположения."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:101
+msgid "Empathy can use the GPS to guess the location"
+msgstr "Empathy может использовать GPS для определения местоположения"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:102
+msgid "Whether Empathy can use the GPS to guess the location."
+msgstr "Может ли Empathy использовать GPS для определения местоположения."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:103
+msgid "Empathy should reduce the location's accuracy"
+msgstr "Empathy должен снижать точность местоположения"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:104
+msgid "Whether Empathy should reduce the location's accuracy for privacy reasons."
+msgstr "Должен ли Empathy уменьшать точность определения местоположения по причинам приватности."
 
 #. Tweak the dialog
-#: ../data/empathy-accounts.desktop.in.in.h:2
-#: ../src/empathy-accounts-dialog.c:2406
+#: ../data/empathy-accounts.desktop.in.in.h:1
+#: ../src/empathy-accounts-dialog.c:2327
 msgid "Messaging and VoIP Accounts"
 msgstr "Учётные записи обмена сообщениями и VoIP"
+
+#: ../data/empathy-accounts.desktop.in.in.h:2
+msgid "Manage Messaging and VoIP accounts"
+msgstr "Управление учётными записями для обмена сообщениями и VoIP"
 
 #: ../libempathy/empathy-ft-handler.c:736
 msgid "No reason was specified"
@@ -475,7 +498,7 @@ msgid "The other participant is unable to transfer the file"
 msgstr "Собеседник не может передавать файлы"
 
 #: ../libempathy/empathy-ft-handler.c:754
-#: ../libempathy/empathy-utils.c:311
+#: ../libempathy/empathy-utils.c:313
 msgid "Unknown reason"
 msgstr "Неизвестная причина"
 
@@ -512,170 +535,176 @@ msgstr "Разговор с %s"
 msgid "Call from %s"
 msgstr "Вызов от %s"
 
-#: ../libempathy/empathy-utils.c:231
+#: ../libempathy/empathy-utils.c:233
 msgid "Available"
 msgstr "В сети"
 
-#: ../libempathy/empathy-utils.c:233
+#: ../libempathy/empathy-utils.c:235
 msgid "Busy"
 msgstr "Не беспокоить"
 
-#: ../libempathy/empathy-utils.c:236
+#: ../libempathy/empathy-utils.c:238
 msgid "Away"
 msgstr "Отсутствует"
 
-#: ../libempathy/empathy-utils.c:238
+#: ../libempathy/empathy-utils.c:240
 msgid "Invisible"
 msgstr "Невидимость"
 
-#: ../libempathy/empathy-utils.c:240
+#: ../libempathy/empathy-utils.c:242
 msgid "Offline"
 msgstr "Не в сети"
 
 #. translators: presence type is unknown
-#: ../libempathy/empathy-utils.c:243
+#: ../libempathy/empathy-utils.c:245
 msgctxt "presence"
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: ../libempathy/empathy-utils.c:283
+#: ../libempathy/empathy-utils.c:285
 msgid "No reason specified"
 msgstr "Причина не указана"
 
-#: ../libempathy/empathy-utils.c:285
-#: ../libempathy/empathy-utils.c:341
+#: ../libempathy/empathy-utils.c:287
+#: ../libempathy/empathy-utils.c:343
 msgid "Status is set to offline"
 msgstr "Установлен статус «не в сети»"
 
-#: ../libempathy/empathy-utils.c:287
-#: ../libempathy/empathy-utils.c:321
+#: ../libempathy/empathy-utils.c:289
+#: ../libempathy/empathy-utils.c:323
 #: ../libempathy-gtk/empathy-call-utils.c:49
 #: ../libempathy-gtk/empathy-new-message-dialog.c:81
 msgid "Network error"
 msgstr "Ошибка сети"
 
-#: ../libempathy/empathy-utils.c:289
-#: ../libempathy/empathy-utils.c:323
+#: ../libempathy/empathy-utils.c:291
+#: ../libempathy/empathy-utils.c:325
 msgid "Authentication failed"
 msgstr "Аутентификация не удалась"
 
-#: ../libempathy/empathy-utils.c:291
-#: ../libempathy/empathy-utils.c:325
+#: ../libempathy/empathy-utils.c:293
+#: ../libempathy/empathy-utils.c:327
 msgid "Encryption error"
 msgstr "Ошибка шифрования"
 
-#: ../libempathy/empathy-utils.c:293
+#: ../libempathy/empathy-utils.c:295
 msgid "Name in use"
 msgstr "Имя уже занято"
 
-#: ../libempathy/empathy-utils.c:295
-#: ../libempathy/empathy-utils.c:327
+#: ../libempathy/empathy-utils.c:297
+#: ../libempathy/empathy-utils.c:329
 msgid "Certificate not provided"
 msgstr "Сертификат недоступен"
 
-#: ../libempathy/empathy-utils.c:297
-#: ../libempathy/empathy-utils.c:329
+#: ../libempathy/empathy-utils.c:299
+#: ../libempathy/empathy-utils.c:331
 msgid "Certificate untrusted"
 msgstr "Сертификат не является доверенным"
 
-#: ../libempathy/empathy-utils.c:299
-#: ../libempathy/empathy-utils.c:331
+#: ../libempathy/empathy-utils.c:301
+#: ../libempathy/empathy-utils.c:333
 msgid "Certificate expired"
 msgstr "Сертификат устарел"
 
-#: ../libempathy/empathy-utils.c:301
-#: ../libempathy/empathy-utils.c:333
+#: ../libempathy/empathy-utils.c:303
+#: ../libempathy/empathy-utils.c:335
 msgid "Certificate not activated"
 msgstr "Сертификат не активирован"
 
-#: ../libempathy/empathy-utils.c:303
-#: ../libempathy/empathy-utils.c:335
+#: ../libempathy/empathy-utils.c:305
+#: ../libempathy/empathy-utils.c:337
 msgid "Certificate hostname mismatch"
 msgstr "Имена узлов сертификатов не совпадают"
 
-#: ../libempathy/empathy-utils.c:305
-#: ../libempathy/empathy-utils.c:337
+#: ../libempathy/empathy-utils.c:307
+#: ../libempathy/empathy-utils.c:339
 msgid "Certificate fingerprint mismatch"
 msgstr "Отпечатки сертификатов не совпадают"
 
-#: ../libempathy/empathy-utils.c:307
-#: ../libempathy/empathy-utils.c:339
+#: ../libempathy/empathy-utils.c:309
+#: ../libempathy/empathy-utils.c:341
 msgid "Certificate self-signed"
 msgstr "Сертификат подписан самостоятельно"
 
-#: ../libempathy/empathy-utils.c:309
+#: ../libempathy/empathy-utils.c:311
 msgid "Certificate error"
 msgstr "Ошибка сертификата"
 
-#: ../libempathy/empathy-utils.c:343
+#: ../libempathy/empathy-utils.c:345
 msgid "Encryption is not available"
 msgstr "Шифрование недоступно"
 
-#: ../libempathy/empathy-utils.c:345
+#: ../libempathy/empathy-utils.c:347
 msgid "Certificate is invalid"
 msgstr "Неверный сертификат"
 
-#: ../libempathy/empathy-utils.c:347
+#: ../libempathy/empathy-utils.c:349
 msgid "Connection has been refused"
 msgstr "Запрос на подключение отклонён"
 
-#: ../libempathy/empathy-utils.c:349
+#: ../libempathy/empathy-utils.c:351
 msgid "Connection can't be established"
 msgstr "Не удалось установить соединение"
 
-#: ../libempathy/empathy-utils.c:351
+#: ../libempathy/empathy-utils.c:353
 msgid "Connection has been lost"
 msgstr "Соединение разорвано"
 
-#: ../libempathy/empathy-utils.c:353
-msgid "This resource is already connected to the server"
-msgstr "Этот ресурс уже подключён к серверу"
-
 #: ../libempathy/empathy-utils.c:355
+#| msgid "This resource is already connected to the server"
+msgid "This account is already connected to the server"
+msgstr "Эта учётная запись уже подключена к серверу"
+
+#: ../libempathy/empathy-utils.c:357
 msgid "Connection has been replaced by a new connection using the same resource"
 msgstr "Подключение было замещено новым подключение с этим же ресурсом"
 
-#: ../libempathy/empathy-utils.c:358
+#: ../libempathy/empathy-utils.c:360
 msgid "The account already exists on the server"
 msgstr "Учётная запись уже существует на сервере"
 
-#: ../libempathy/empathy-utils.c:360
+#: ../libempathy/empathy-utils.c:362
 msgid "Server is currently too busy to handle the connection"
 msgstr "В настоящий момент сервер слишком загружен, чтобы обработать подключение."
 
-#: ../libempathy/empathy-utils.c:362
+#: ../libempathy/empathy-utils.c:364
 msgid "Certificate has been revoked"
 msgstr "Сертификат аннулирован"
 
-#: ../libempathy/empathy-utils.c:364
+#: ../libempathy/empathy-utils.c:366
 msgid "Certificate uses an insecure cipher algorithm or is cryptographically weak"
 msgstr "Сертификат использует небезопасный алгоритм шифра или криптографически слаб"
 
-#: ../libempathy/empathy-utils.c:367
+#: ../libempathy/empathy-utils.c:369
 msgid "The length of the server certificate, or the depth of the server certificate chain, exceed the limits imposed by the cryptography library"
 msgstr "Длина сертификата сервера или глубина цепочки сертификатов сервера превышает предел, установленный криптографической библиотекой"
 
-#: ../libempathy/empathy-utils.c:371
+#: ../libempathy/empathy-utils.c:373
 msgid "Your software is too old"
 msgstr "Слишком старая версия приложения"
 
-#: ../libempathy/empathy-utils.c:530
+#: ../libempathy/empathy-utils.c:375
+#| msgid "Interval (seconds)"
+msgid "Internal error"
+msgstr "Внутренняя ошибка"
+
+#: ../libempathy/empathy-utils.c:534
 msgid "People Nearby"
 msgstr "Люди поблизости"
 
-#: ../libempathy/empathy-utils.c:535
+#: ../libempathy/empathy-utils.c:539
 msgid "Yahoo! Japan"
 msgstr "Yahoo! Япония"
 
-#: ../libempathy/empathy-utils.c:564
+#: ../libempathy/empathy-utils.c:568
 msgid "Google Talk"
 msgstr "Google Talk"
 
-#: ../libempathy/empathy-utils.c:565
+#: ../libempathy/empathy-utils.c:569
 msgid "Facebook Chat"
 msgstr "Беседа Facebook"
 
-#: ../libempathy/empathy-time.c:88
+#: ../libempathy/empathy-time.c:90
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
@@ -683,7 +712,7 @@ msgstr[0] "%d секунду назад"
 msgstr[1] "%d секунды назад"
 msgstr[2] "%d секунд назад"
 
-#: ../libempathy/empathy-time.c:93
+#: ../libempathy/empathy-time.c:96
 #, c-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
@@ -691,7 +720,7 @@ msgstr[0] "%d минуту назад"
 msgstr[1] "%d минуты назад"
 msgstr[2] "%d минут назад"
 
-#: ../libempathy/empathy-time.c:98
+#: ../libempathy/empathy-time.c:102
 #, c-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
@@ -699,7 +728,7 @@ msgstr[0] "%d час назад"
 msgstr[1] "%d часа назад"
 msgstr[2] "%d часов назад"
 
-#: ../libempathy/empathy-time.c:103
+#: ../libempathy/empathy-time.c:108
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -707,7 +736,7 @@ msgstr[0] "%d день назад"
 msgstr[1] "%d дня назад"
 msgstr[2] "%d дней назад"
 
-#: ../libempathy/empathy-time.c:108
+#: ../libempathy/empathy-time.c:114
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -715,7 +744,7 @@ msgstr[0] "%d неделю назад"
 msgstr[1] "%d недели назад"
 msgstr[2] "%d недель назад"
 
-#: ../libempathy/empathy-time.c:113
+#: ../libempathy/empathy-time.c:120
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -723,11 +752,11 @@ msgstr[0] "%d месяц назад"
 msgstr[1] "%d месяца назад"
 msgstr[2] "%d месяцев назад"
 
-#: ../libempathy/empathy-time.c:136
+#: ../libempathy/empathy-time.c:142
 msgid "in the future"
 msgstr "в будущем"
 
-#: ../libempathy-gtk/empathy-account-chooser.c:688
+#: ../libempathy-gtk/empathy-account-chooser.c:692
 msgid "All accounts"
 msgstr "Все учётные записи"
 
@@ -750,30 +779,30 @@ msgstr "Сервер"
 msgid "Port"
 msgstr "Порт"
 
-#: ../libempathy-gtk/empathy-account-widget.c:763
-#: ../libempathy-gtk/empathy-account-widget.c:815
+#: ../libempathy-gtk/empathy-account-widget.c:765
+#: ../libempathy-gtk/empathy-account-widget.c:817
 #, c-format
 msgid "%s:"
 msgstr "%s:"
 
-#: ../libempathy-gtk/empathy-account-widget.c:1396
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:11
+#: ../libempathy-gtk/empathy-account-widget.c:1398
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:10
 msgid "Username:"
 msgstr "Имя пользователя:"
 
-#: ../libempathy-gtk/empathy-account-widget.c:1708
+#: ../libempathy-gtk/empathy-account-widget.c:1710
 msgid "A_pply"
 msgstr "П_рименить"
 
-#: ../libempathy-gtk/empathy-account-widget.c:1737
+#: ../libempathy-gtk/empathy-account-widget.c:1739
 msgid "L_og in"
 msgstr "_Войти"
 
-#: ../libempathy-gtk/empathy-account-widget.c:1810
+#: ../libempathy-gtk/empathy-account-widget.c:1812
 msgid "This account already exists on the server"
 msgstr "Эта учётная запись уже существует на сервере"
 
-#: ../libempathy-gtk/empathy-account-widget.c:1814
+#: ../libempathy-gtk/empathy-account-widget.c:1816
 msgid "Create a new account on the server"
 msgstr "Создать новую учётную запись на сервере"
 
@@ -782,137 +811,137 @@ msgstr "Создать новую учётную запись на сервер�
 #. * like: "MyUserName on freenode".
 #. * You should reverse the order of these arguments if the
 #. * server should come before the login id in your locale.
-#: ../libempathy-gtk/empathy-account-widget.c:2239
+#: ../libempathy-gtk/empathy-account-widget.c:2241
 #, c-format
 msgid "%1$s on %2$s"
 msgstr "%1$s на %2$s"
 
 #. To translators: The parameter is the protocol name. The resulting
 #. * string will be something like: "Jabber Account"
-#: ../libempathy-gtk/empathy-account-widget.c:2265
+#: ../libempathy-gtk/empathy-account-widget.c:2267
 #, c-format
 msgid "%s Account"
 msgstr "Учётная запись %s"
 
-#: ../libempathy-gtk/empathy-account-widget.c:2269
+#: ../libempathy-gtk/empathy-account-widget.c:2271
 msgid "New account"
 msgstr "Новая учётная запись"
 
 #: ../libempathy-gtk/empathy-account-widget-aim.ui.h:1
-msgid "<b>Example:</b> MyScreenName"
-msgstr "<b>Пример:</b> MyScreenName"
-
-#: ../libempathy-gtk/empathy-account-widget-aim.ui.h:2
-#: ../libempathy-gtk/empathy-account-widget-generic.ui.h:1
-#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:2
-#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:2
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:1
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:3
-#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:2
-#: ../libempathy-gtk/empathy-account-widget-local-xmpp.ui.h:1
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:2
-#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:2
-msgid "Advanced"
-msgstr "Дополнительно"
-
-#: ../libempathy-gtk/empathy-account-widget-aim.ui.h:3
-#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:4
-#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:5
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:8
-#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:4
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:13
-#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:5
+#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:1
+#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:1
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:14
+#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:1
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:1
+#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:1
 msgid "Pass_word:"
 msgstr "_Пароль:"
 
-#: ../libempathy-gtk/empathy-account-widget-aim.ui.h:4
-#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:5
-#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:6
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:10
-#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:5
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:16
-msgid "Remember Password"
-msgstr "Запомнить пароль"
+#: ../libempathy-gtk/empathy-account-widget-aim.ui.h:2
+msgid "Screen _Name:"
+msgstr "_Имя:"
+
+#: ../libempathy-gtk/empathy-account-widget-aim.ui.h:3
+msgid "<b>Example:</b> MyScreenName"
+msgstr "<b>Пример:</b> MyScreenName"
 
 #. remember password ticky box
-#: ../libempathy-gtk/empathy-account-widget-aim.ui.h:5
-#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:6
-#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:7
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:11
-#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:6
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:17
-#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:6
+#: ../libempathy-gtk/empathy-account-widget-aim.ui.h:4
+#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:4
+#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:4
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:12
+#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:4
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:4
+#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:4
 #: ../libempathy-gtk/empathy-base-password-dialog.c:261
 msgid "Remember password"
 msgstr "Запомнить пароль"
 
+#: ../libempathy-gtk/empathy-account-widget-aim.ui.h:5
+#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:5
+#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:6
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:20
+#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:5
+#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:8
+msgid "_Port:"
+msgstr "П_орт:"
+
 #: ../libempathy-gtk/empathy-account-widget-aim.ui.h:6
-msgid "Screen _Name:"
-msgstr "_Имя:"
+#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:6
+#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:7
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:21
+#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:6
+#: ../src/empathy-new-chatroom-dialog.ui.h:6
+msgid "_Server:"
+msgstr "_Сервер:"
 
 #: ../libempathy-gtk/empathy-account-widget-aim.ui.h:7
-msgid "What is your AIM password?"
-msgstr "Какой у вас пароль AIM?"
+#: ../libempathy-gtk/empathy-account-widget-generic.ui.h:1
+#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:7
+#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:8
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:11
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:23
+#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:7
+#: ../libempathy-gtk/empathy-account-widget-local-xmpp.ui.h:7
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:21
+#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:9
+msgid "Advanced"
+msgstr "Дополнительно"
 
 #: ../libempathy-gtk/empathy-account-widget-aim.ui.h:8
 msgid "What is your AIM screen name?"
 msgstr "Какое у вас имя пользователя AIM?"
 
 #: ../libempathy-gtk/empathy-account-widget-aim.ui.h:9
-#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:9
-#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:10
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:26
-#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:9
-#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:10
-msgid "_Port:"
-msgstr "П_орт:"
+msgid "What is your AIM password?"
+msgstr "Какой у вас пароль AIM?"
 
 #: ../libempathy-gtk/empathy-account-widget-aim.ui.h:10
 #: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:10
 #: ../libempathy-gtk/empathy-account-widget-icq.ui.h:11
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:27
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:7
 #: ../libempathy-gtk/empathy-account-widget-msn.ui.h:10
-#: ../src/empathy-new-chatroom-dialog.ui.h:9
-msgid "_Server:"
-msgstr "_Сервер:"
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:24
+msgid "Remember Password"
+msgstr "Запомнить пароль"
 
-#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:1
-#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:1
-msgid "<b>Example:</b> username"
-msgstr "<b>Пример:</b> имя_пользователя"
-
-#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:3
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:6
-#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:3
+#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:2
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:13
+#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:2
 msgid "Login I_D:"
 msgstr "_Идентификатор:"
 
-#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:7
+#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:3
+#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:3
+msgid "<b>Example:</b> username"
+msgstr "<b>Пример:</b> имя_пользователя"
+
+#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:8
 msgid "What is your GroupWise User ID?"
 msgstr "Какой у вас ID пользователя GroupWise?"
 
-#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:8
+#: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:9
 msgid "What is your GroupWise password?"
 msgstr "Какой у вас пароль GroupWise?"
 
-#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:1
-msgid "<b>Example:</b> 123456789"
-msgstr "<b>Пример:</b> 123456789"
-
-#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:3
-#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:3
-msgid "Ch_aracter set:"
-msgstr "_Кодировка:"
-
-#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:4
+#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:2
 msgid "ICQ _UIN:"
 msgstr "ICQ _UIN:"
 
-#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:8
+#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:3
+msgid "<b>Example:</b> 123456789"
+msgstr "<b>Пример:</b> 123456789"
+
+#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:5
+#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:7
+msgid "Ch_aracter set:"
+msgstr "_Кодировка:"
+
+#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:9
 msgid "What is your ICQ UIN?"
 msgstr "Какой у вас ICQ UIN?"
 
-#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:9
+#: ../libempathy-gtk/empathy-account-widget-icq.ui.h:10
 msgid "What is your ICQ password?"
 msgstr "Какой у вас пароль ICQ?"
 
@@ -949,21 +978,25 @@ msgstr "Options"
 msgid "None"
 msgstr "Отсутствует"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:2
-msgid "Character set:"
-msgstr "Кодировка:"
-
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:3
-msgid "Most IRC servers don't need a password, so if you're not sure, don't enter a password."
-msgstr "Большинство серверов IRC не требует пароля, если вы не уверены, то не вводите пароль."
-
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:4
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:1
 msgid "Network"
 msgstr "Сеть"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:5
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:2
 msgid "Network:"
 msgstr "Сеть:"
+
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:3
+msgid "Character set:"
+msgstr "Кодировка:"
+
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:4
+msgid "Servers"
+msgstr "Серверы"
+
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:5
+msgid "Most IRC servers don't need a password, so if you're not sure, don't enter a password."
+msgstr "Большинство серверов IRC не требует пароля, если вы не уверены, то не вводите пароль."
 
 #: ../libempathy-gtk/empathy-account-widget-irc.ui.h:6
 msgid "Nickname:"
@@ -981,48 +1014,20 @@ msgstr "Сообщение при выходе:"
 msgid "Real name:"
 msgstr "Настоящее имя:"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:10
-msgid "Servers"
-msgstr "Серверы"
-
 #: ../libempathy-gtk/empathy-account-widget-irc.ui.h:12
-msgid "What is your IRC nickname?"
-msgstr "Какой у вас псевдоним в IRC?"
-
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:13
 msgid "Which IRC network?"
 msgstr "Какая сеть IRC?"
 
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:13
+msgid "What is your IRC nickname?"
+msgstr "Какой у вас псевдоним в IRC?"
+
 #: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:1
-msgid "<b>Example:</b> user@gmail.com"
-msgstr "<b>Пример:</b> пользователь@gmail.com"
-
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:2
-msgid "<b>Example:</b> user@jabber.org"
-msgstr "<b>Пример:</b> пользователь@jabber.org"
-
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:4
-msgid "Encr_yption required (TLS/SSL)"
-msgstr "Требуется шифров_ание (TLS/SSL)"
-
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:5
-msgid "I_gnore SSL certificate errors"
-msgstr "_Игнорировать ошибки сертификатов SSL"
-
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:7
-msgid "Override server settings"
-msgstr "Замещать настройки сервера"
-
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:9
-msgid "Priori_ty:"
-msgstr "При_оритет:"
-
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:12
-msgid "Reso_urce:"
-msgstr "Ре_сурс:"
+msgid "What is your Facebook username?"
+msgstr "Какое у вас имя пользователя Facebook?"
 
 #. This string is not wrapped in the dialog so you may have to add some '\n' to make it look nice.
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:14
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:3
 msgid ""
 "This is your username, not your normal Facebook login.\n"
 "If you are facebook.com/<b>badger</b>, enter <b>badger</b>.\n"
@@ -1032,64 +1037,92 @@ msgstr ""
 "Если ваш адрес facebook.com/<b>badger</b>, введите <b>badger</b>.\n"
 "Используйте <a href=\"http://www.facebook.com/username/\">эту страницу</a> для выбора имени пользователя Facebook, если у вас его ещё нет."
 
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:17
-msgid "Use old SS_L"
-msgstr "Использовать старое _шифрование (SSL)"
-
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:18
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:6
 msgid "What is your Facebook password?"
 msgstr "Какой у вас пароль Facebook?"
 
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:19
-msgid "What is your Facebook username?"
-msgstr "Какое у вас имя пользователя Facebook?"
-
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:20
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:8
 msgid "What is your Google ID?"
 msgstr "Какой у вас Google ID?"
 
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:21
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:9
+msgid "<b>Example:</b> user@gmail.com"
+msgstr "<b>Пример:</b> пользователь@gmail.com"
+
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:10
 msgid "What is your Google password?"
 msgstr "Какой у вас пароль Google?"
 
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:11
+msgid "<b>Example:</b> user@jabber.org"
+msgstr "<b>Пример:</b> пользователь@jabber.org"
+
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:15
+msgid "I_gnore SSL certificate errors"
+msgstr "_Игнорировать ошибки сертификатов SSL"
+
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:16
+msgid "Priori_ty:"
+msgstr "При_оритет:"
+
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:17
+msgid "Reso_urce:"
+msgstr "Ре_сурс:"
+
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:18
+msgid "Encr_yption required (TLS/SSL)"
+msgstr "Требуется шифров_ание (TLS/SSL)"
+
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:19
+msgid "Use old SS_L"
+msgstr "Использовать старое _шифрование (SSL)"
+
 #: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:22
+msgid "Override server settings"
+msgstr "Замещать настройки сервера"
+
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:24
 msgid "What is your Jabber ID?"
 msgstr "Какой у вас Jabber ID?"
 
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:23
-msgid "What is your Jabber password?"
-msgstr "Какой у вас пароль Jabber?"
-
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:24
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:25
 msgid "What is your desired Jabber ID?"
 msgstr "Какой Jabber ID вы хотите?"
 
-#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:25
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:26
+msgid "What is your Jabber password?"
+msgstr "Какой у вас пароль Jabber?"
+
+#: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:27
 msgid "What is your desired Jabber password?"
 msgstr "Какой пароль Jabber вы хотите?"
 
-#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:1
+#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:3
 msgid "<b>Example:</b> user@hotmail.com"
 msgstr "<b>Пример:</b> user@hotmail.com"
 
-#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:7
+#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:8
 msgid "What is your Windows Live ID?"
 msgstr "Какой у вас Windows Live ID?"
 
-#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:8
+#: ../libempathy-gtk/empathy-account-widget-msn.ui.h:9
 msgid "What is your Windows Live password?"
 msgstr "Какой у вас пароль Windows Live?"
 
-#: ../libempathy-gtk/empathy-account-widget-local-xmpp.ui.h:2
-msgid "E-_mail address:"
-msgstr "А_дрес эл. почты:"
-
-#: ../libempathy-gtk/empathy-account-widget-local-xmpp.ui.h:3
+#: ../libempathy-gtk/empathy-account-widget-local-xmpp.ui.h:1
 msgid "Nic_kname:"
 msgstr "_Псевдоним:"
 
-#: ../libempathy-gtk/empathy-account-widget-local-xmpp.ui.h:4
+#: ../libempathy-gtk/empathy-account-widget-local-xmpp.ui.h:2
+msgid "_Last Name:"
+msgstr "_Фамилия:"
+
+#: ../libempathy-gtk/empathy-account-widget-local-xmpp.ui.h:3
 msgid "_First Name:"
+msgstr "_Имя:"
+
+#: ../libempathy-gtk/empathy-account-widget-local-xmpp.ui.h:4
+msgid "_Published Name:"
 msgstr "_Имя:"
 
 #: ../libempathy-gtk/empathy-account-widget-local-xmpp.ui.h:5
@@ -1097,113 +1130,109 @@ msgid "_Jabber ID:"
 msgstr "_Jabber ID:"
 
 #: ../libempathy-gtk/empathy-account-widget-local-xmpp.ui.h:6
-msgid "_Last Name:"
-msgstr "_Фамилия:"
+msgid "E-_mail address:"
+msgstr "А_дрес эл. почты:"
 
-#: ../libempathy-gtk/empathy-account-widget-local-xmpp.ui.h:7
-msgid "_Published Name:"
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:2
+msgid "_Username:"
 msgstr "_Имя:"
 
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:1
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:3
 msgid "<b>Example:</b> user@my.sip.server"
 msgstr "<b>Пример:</b> user@my.sip.server"
 
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:3
-msgid "Authentication username:"
-msgstr "Имя пользователя для аутентификации:"
-
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:4
-msgid "Discover Binding"
-msgstr "Обнаруживать соединения"
-
 #: ../libempathy-gtk/empathy-account-widget-sip.ui.h:5
-msgid "Discover the STUN server automatically"
-msgstr "Автоматический поиск сервера STUN"
+msgid "Use this account to call _landlines and mobile phones"
+msgstr "Использовать эту учётную запись для звонков на _обычные и мобильные телефоны"
 
 #: ../libempathy-gtk/empathy-account-widget-sip.ui.h:6
-msgid "Ignore TLS Errors"
-msgstr "Игнорировать ошибки TLS"
-
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:7
-msgid "Interval (seconds)"
-msgstr "Интервал (в секундах)"
-
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:8
-msgid "Keep-Alive Options"
-msgstr "Параметры Keep-Alive"
-
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:9
-msgid "Loose Routing"
-msgstr "Свободная маршрутизация"
-
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:10
-msgid "Mechanism:"
-msgstr "Механизм:"
-
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:11
-msgid "Miscellaneous Options"
-msgstr "Различные параметры"
-
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:12
 msgid "NAT Traversal Options"
 msgstr "Параметры NAT Traversal"
 
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:14
-msgid "Port:"
-msgstr "Порт:"
-
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:15
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:7
 msgid "Proxy Options"
 msgstr "Параметры прокси"
 
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:18
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:8
+msgid "Miscellaneous Options"
+msgstr "Различные параметры"
+
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:9
 msgid "STUN Server:"
 msgstr "Сервер STUN:"
 
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:19
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:10
+msgid "Discover the STUN server automatically"
+msgstr "Автоматический поиск сервера STUN"
+
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:11
+msgid "Discover Binding"
+msgstr "Обнаруживать соединения"
+
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:12
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:114
 msgid "Server:"
 msgstr "Сервер:"
 
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:20
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:13
+msgid "Keep-Alive Options"
+msgstr "Параметры Keep-Alive"
+
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:14
+msgid "Mechanism:"
+msgstr "Механизм:"
+
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:15
+msgid "Interval (seconds)"
+msgstr "Интервал (в секундах)"
+
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:16
+msgid "Authentication username:"
+msgstr "Имя пользователя для аутентификации:"
+
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:17
 msgid "Transport:"
 msgstr "Транспорт:"
 
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:21
-msgid "Use this account to call _landlines and mobile phones"
-msgstr "Использовать эту учётную запись для звонков на _обычные и мобильные телефоны"
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:18
+msgid "Loose Routing"
+msgstr "Свободная маршрутизация"
+
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:19
+msgid "Ignore TLS Errors"
+msgstr "Игнорировать ошибки TLS"
+
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:20
+msgid "Port:"
+msgstr "Порт:"
 
 #: ../libempathy-gtk/empathy-account-widget-sip.ui.h:22
-msgid "What is your SIP account password?"
-msgstr "Какой у вас пароль учётной записи SIP?"
-
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:23
 msgid "What is your SIP login ID?"
 msgstr "Какой у вас ID входа для SIP?"
 
-#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:24
-msgid "_Username:"
-msgstr "_Имя:"
+#: ../libempathy-gtk/empathy-account-widget-sip.ui.h:23
+msgid "What is your SIP account password?"
+msgstr "Какой у вас пароль учётной записи SIP?"
 
-#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:4
-msgid "I_gnore conference and chat room invitations"
-msgstr "_Игнорировать приглашения к беседам и конференциям"
-
-#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:7
-msgid "What is your Yahoo! ID?"
-msgstr "Какой у вас  Yahoo! ID?"
-
-#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:8
-msgid "What is your Yahoo! password?"
-msgstr "Какой у вас пароль Yahoo! ?"
-
-#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:9
+#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:2
 msgid "Yahoo! I_D:"
 msgstr "Yahoo! I_D:"
 
-#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:11
+#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:5
+msgid "I_gnore conference and chat room invitations"
+msgstr "_Игнорировать приглашения к беседам и конференциям"
+
+#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:6
 msgid "_Room List locale:"
 msgstr "_Локаль списка бесед:"
+
+#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:10
+msgid "What is your Yahoo! ID?"
+msgstr "Какой у вас  Yahoo! ID?"
+
+#: ../libempathy-gtk/empathy-account-widget-yahoo.ui.h:11
+msgid "What is your Yahoo! password?"
+msgstr "Какой у вас пароль Yahoo! ?"
 
 #: ../libempathy-gtk/empathy-avatar-chooser.c:471
 #: ../libempathy-gtk/empathy-avatar-chooser.c:556
@@ -1267,188 +1296,195 @@ msgstr "Срочные телефонные звонки не поддержив
 msgid "You don't have enough credit in order to place this call"
 msgstr "Недостаточно средств, чтобы сделать этот звонок"
 
-#: ../libempathy-gtk/empathy-chat.c:705
+#: ../libempathy-gtk/empathy-chat.c:728
 msgid "Failed to open private chat"
 msgstr "Не удалось открыть личную беседу"
 
-#: ../libempathy-gtk/empathy-chat.c:763
+#: ../libempathy-gtk/empathy-chat.c:786
 msgid "Topic not supported on this conversation"
 msgstr "В этой беседе темы не поддерживаются"
 
-#: ../libempathy-gtk/empathy-chat.c:769
+#: ../libempathy-gtk/empathy-chat.c:792
 msgid "You are not allowed to change the topic"
 msgstr "Вы не можете менять тему"
 
-#: ../libempathy-gtk/empathy-chat.c:970
+#: ../libempathy-gtk/empathy-chat.c:991
 #, c-format
 msgid "“%s” is not a valid contact ID"
 msgstr "«%s» не является допустимым идентификатором контакта"
 
-#: ../libempathy-gtk/empathy-chat.c:1065
+#: ../libempathy-gtk/empathy-chat.c:1086
 msgid "/clear: clear all messages from the current conversation"
 msgstr "/clear: очистить все сообщения в текущей беседе"
 
-#: ../libempathy-gtk/empathy-chat.c:1068
+#: ../libempathy-gtk/empathy-chat.c:1089
 msgid "/topic <topic>: set the topic of the current conversation"
 msgstr "/topic <тема>: установить тему текущей беседы"
 
-#: ../libempathy-gtk/empathy-chat.c:1071
+#: ../libempathy-gtk/empathy-chat.c:1092
 msgid "/join <chat room ID>: join a new chat room"
 msgstr "/join <ID комнаты>: войти в новую комнату"
 
-#: ../libempathy-gtk/empathy-chat.c:1074
+#: ../libempathy-gtk/empathy-chat.c:1095
 msgid "/j <chat room ID>: join a new chat room"
 msgstr "/j <ID комнаты>: войти в новую комнату"
 
-#: ../libempathy-gtk/empathy-chat.c:1078
+#: ../libempathy-gtk/empathy-chat.c:1099
 msgid "/part [<chat room ID>] [<reason>]: leave the chat room, by default the current one"
 msgstr "/part [<ID комнаты>] [<причина>]: покинуть комнату, по умолчанию — текущую"
 
-#: ../libempathy-gtk/empathy-chat.c:1082
+#: ../libempathy-gtk/empathy-chat.c:1103
 msgid "/query <contact ID> [<message>]: open a private chat"
 msgstr "/query <ID контакта> [<сообщение>]: открыть личную беседу"
 
-#: ../libempathy-gtk/empathy-chat.c:1085
+#: ../libempathy-gtk/empathy-chat.c:1106
 msgid "/msg <contact ID> <message>: open a private chat"
 msgstr "/msg <ID контакта> <сообщение>: открыть личную беседу"
 
-#: ../libempathy-gtk/empathy-chat.c:1088
+#: ../libempathy-gtk/empathy-chat.c:1109
 msgid "/nick <nickname>: change your nickname on the current server"
 msgstr "/nick <псевдоним>: изменить псевдоним на текущем сервере"
 
-#: ../libempathy-gtk/empathy-chat.c:1091
+#: ../libempathy-gtk/empathy-chat.c:1112
 msgid "/me <message>: send an ACTION message to the current conversation"
 msgstr "/me <сообщение>: отправить сообщение о ДЕЙСТВИИ"
 
-#: ../libempathy-gtk/empathy-chat.c:1094
+#: ../libempathy-gtk/empathy-chat.c:1115
 msgid "/say <message>: send <message> to the current conversation. This is used to send a message starting with a '/'. For example: \"/say /join is used to join a new chat room\""
 msgstr "/say <сообщение>: отправить <сообщение> в текущей беседе. Используется для отправки сообщения, начинающегося с «/». Например: «/say /join используется для входа в новую комнату»"
 
-#: ../libempathy-gtk/empathy-chat.c:1099
+#: ../libempathy-gtk/empathy-chat.c:1120
 msgid "/whois <contact ID>: display information about a contact"
 msgstr "/whois <ID контакта>: показать информацию о контакте"
 
-#: ../libempathy-gtk/empathy-chat.c:1102
+#: ../libempathy-gtk/empathy-chat.c:1123
 msgid "/help [<command>]: show all supported commands. If <command> is defined, show its usage."
 msgstr "/help [<команда>]: показать все поддерживаемые команды. Если <команда> определена, показать её использование."
 
-#: ../libempathy-gtk/empathy-chat.c:1121
+#: ../libempathy-gtk/empathy-chat.c:1142
 #, c-format
 msgid "Usage: %s"
 msgstr "Использование: %s"
 
-#: ../libempathy-gtk/empathy-chat.c:1166
+#: ../libempathy-gtk/empathy-chat.c:1187
 msgid "Unknown command"
 msgstr "Неизвестная команда"
 
-#: ../libempathy-gtk/empathy-chat.c:1292
+#: ../libempathy-gtk/empathy-chat.c:1313
 msgid "Unknown command; see /help for the available commands"
 msgstr "Неизвестная команда; для всех доступных команд см. /help"
 
-#: ../libempathy-gtk/empathy-chat.c:1456
+#: ../libempathy-gtk/empathy-chat.c:1564
 msgid "insufficient balance to send message"
 msgstr "недостаточно средств для отправки сообщения"
 
-#: ../libempathy-gtk/empathy-chat.c:1460
-#: ../libempathy-gtk/empathy-chat.c:1474
-#: ../libempathy-gtk/empathy-chat.c:1537
+#: ../libempathy-gtk/empathy-chat.c:1568
+#: ../libempathy-gtk/empathy-chat.c:1582
+#: ../libempathy-gtk/empathy-chat.c:1645
 #, c-format
 msgid "Error sending message '%s': %s"
 msgstr "Ошибка при отправке сообщения «%s»: %s"
 
-#: ../libempathy-gtk/empathy-chat.c:1462
-#: ../libempathy-gtk/empathy-chat.c:1479
-#: ../libempathy-gtk/empathy-chat.c:1541
+#: ../libempathy-gtk/empathy-chat.c:1570
+#: ../libempathy-gtk/empathy-chat.c:1587
+#: ../libempathy-gtk/empathy-chat.c:1649
 #, c-format
 msgid "Error sending message: %s"
 msgstr "Ошибка при отправке сообщения: %s"
 
 #. translators: error used when user doesn't have enough credit on his
 #. * account to send the message.
-#: ../libempathy-gtk/empathy-chat.c:1468
+#: ../libempathy-gtk/empathy-chat.c:1576
 #, c-format
 msgid "insufficient balance to send message. <a href='%s'>Top up</a>."
 msgstr "недостаточно средств для отправки сообщения. <a href='%s'>Пополнить</a>."
 
-#: ../libempathy-gtk/empathy-chat.c:1508
+#: ../libempathy-gtk/empathy-chat.c:1616
 msgid "not capable"
 msgstr "не поддерживается"
 
-#: ../libempathy-gtk/empathy-chat.c:1515
+#: ../libempathy-gtk/empathy-chat.c:1623
 msgid "offline"
 msgstr "не в сети"
 
-#: ../libempathy-gtk/empathy-chat.c:1518
+#: ../libempathy-gtk/empathy-chat.c:1626
 msgid "invalid contact"
 msgstr "неверный собеседник"
 
-#: ../libempathy-gtk/empathy-chat.c:1521
+#: ../libempathy-gtk/empathy-chat.c:1629
 msgid "permission denied"
 msgstr "отказано"
 
-#: ../libempathy-gtk/empathy-chat.c:1524
+#: ../libempathy-gtk/empathy-chat.c:1632
 msgid "too long message"
 msgstr "слишком длинное сообщение"
 
-#: ../libempathy-gtk/empathy-chat.c:1527
+#: ../libempathy-gtk/empathy-chat.c:1635
 msgid "not implemented"
 msgstr "эта возможность не санкционирована"
 
-#: ../libempathy-gtk/empathy-chat.c:1531
+#: ../libempathy-gtk/empathy-chat.c:1639
 msgid "unknown"
 msgstr "неизвестно"
 
-#: ../libempathy-gtk/empathy-chat.c:1598
-#: ../src/empathy-chat-window.c:761
+#: ../libempathy-gtk/empathy-chat.c:1706
+#: ../src/empathy-chat-window.c:916
 msgid "Topic:"
 msgstr "Тема:"
 
-#: ../libempathy-gtk/empathy-chat.c:1610
+#: ../libempathy-gtk/empathy-chat.c:1721
 #, c-format
 msgid "Topic set to: %s"
 msgstr "Тема: %s"
 
-#: ../libempathy-gtk/empathy-chat.c:1612
+#: ../libempathy-gtk/empathy-chat.c:1723
+#, c-format
+#| msgid "Topic set to: %s"
+msgid "Topic set by %s to: %s"
+msgstr "Пользователь %s установил тему: %s"
+
+#. No need to display this 'event' is no topic can be defined anyway
+#: ../libempathy-gtk/empathy-chat.c:1728
 msgid "No topic defined"
 msgstr "Тема не установлена"
 
-#: ../libempathy-gtk/empathy-chat.c:2125
+#: ../libempathy-gtk/empathy-chat.c:2244
 msgid "(No Suggestions)"
 msgstr "(Нет предположений)"
 
 #. translators: %s is the selected word
-#: ../libempathy-gtk/empathy-chat.c:2193
+#: ../libempathy-gtk/empathy-chat.c:2312
 #, c-format
 msgid "Add '%s' to Dictionary"
 msgstr "Добавить «%s» в словарь"
 
 #. translators: first %s is the selected word,
 #. * second %s is the language name of the target dictionary
-#: ../libempathy-gtk/empathy-chat.c:2230
+#: ../libempathy-gtk/empathy-chat.c:2349
 #, c-format
 msgid "Add '%s' to %s Dictionary"
 msgstr "Добавить «%s» в словарь «%s»"
 
-#: ../libempathy-gtk/empathy-chat.c:2300
+#: ../libempathy-gtk/empathy-chat.c:2419
 msgid "Insert Smiley"
 msgstr "Вставить улыбку"
 
 #. send button
-#: ../libempathy-gtk/empathy-chat.c:2318
-#: ../libempathy-gtk/empathy-ui-utils.c:1868
+#: ../libempathy-gtk/empathy-chat.c:2437
+#: ../libempathy-gtk/empathy-ui-utils.c:1867
 msgid "_Send"
 msgstr "От_править"
 
 #. Spelling suggestions
-#: ../libempathy-gtk/empathy-chat.c:2375
+#: ../libempathy-gtk/empathy-chat.c:2494
 msgid "_Spelling Suggestions"
 msgstr "_Варианты правописания"
 
-#: ../libempathy-gtk/empathy-chat.c:2464
+#: ../libempathy-gtk/empathy-chat.c:2583
 msgid "Failed to retrieve recent logs"
 msgstr "Не удалось получить последние журналы"
 
-#: ../libempathy-gtk/empathy-chat.c:2601
+#: ../libempathy-gtk/empathy-chat.c:2722
 #, c-format
 msgid "%s has disconnected"
 msgstr "%s отключился"
@@ -1456,12 +1492,12 @@ msgstr "%s отключился"
 #. translators: reverse the order of these arguments
 #. * if the kicked should come before the kicker in your locale.
 #.
-#: ../libempathy-gtk/empathy-chat.c:2608
+#: ../libempathy-gtk/empathy-chat.c:2729
 #, c-format
 msgid "%1$s was kicked by %2$s"
 msgstr "%2$s выгнал %1$s"
 
-#: ../libempathy-gtk/empathy-chat.c:2611
+#: ../libempathy-gtk/empathy-chat.c:2732
 #, c-format
 msgid "%s was kicked"
 msgstr "%s выгнали"
@@ -1469,17 +1505,17 @@ msgstr "%s выгнали"
 #. translators: reverse the order of these arguments
 #. * if the banned should come before the banner in your locale.
 #.
-#: ../libempathy-gtk/empathy-chat.c:2619
+#: ../libempathy-gtk/empathy-chat.c:2740
 #, c-format
 msgid "%1$s was banned by %2$s"
 msgstr "%2$s забанил %1$s"
 
-#: ../libempathy-gtk/empathy-chat.c:2622
+#: ../libempathy-gtk/empathy-chat.c:2743
 #, c-format
 msgid "%s was banned"
 msgstr "%s забанили"
 
-#: ../libempathy-gtk/empathy-chat.c:2626
+#: ../libempathy-gtk/empathy-chat.c:2747
 #, c-format
 msgid "%s has left the room"
 msgstr "%s покинул беседу"
@@ -1489,17 +1525,17 @@ msgstr "%s покинул беседу"
 #. * given by the user living the room. If this poses a problem,
 #. * please let us know. :-)
 #.
-#: ../libempathy-gtk/empathy-chat.c:2635
+#: ../libempathy-gtk/empathy-chat.c:2756
 #, c-format
 msgid " (%s)"
 msgstr " (%s)"
 
-#: ../libempathy-gtk/empathy-chat.c:2660
+#: ../libempathy-gtk/empathy-chat.c:2781
 #, c-format
 msgid "%s has joined the room"
 msgstr "%s присоединился к беседе"
 
-#: ../libempathy-gtk/empathy-chat.c:2685
+#: ../libempathy-gtk/empathy-chat.c:2806
 #, c-format
 msgid "%s is now known as %s"
 msgstr "%s теперь известен как %s"
@@ -1507,58 +1543,58 @@ msgstr "%s теперь известен как %s"
 #. We don't know if the incoming call has been accepted or not, so we
 #. * assume it hasn't and if it has, we'll set the proper status when
 #. * we get the new handler.
-#: ../libempathy-gtk/empathy-chat.c:2846
+#: ../libempathy-gtk/empathy-chat.c:2993
 #: ../src/empathy-streamed-media-window.c:1889
 #: ../src/empathy-event-manager.c:1280
-#: ../src/empathy-call-window.c:1538
-#: ../src/empathy-call-window.c:1588
-#: ../src/empathy-call-window.c:2631
+#: ../src/empathy-call-window.c:1545
+#: ../src/empathy-call-window.c:1595
+#: ../src/empathy-call-window.c:2638
 msgid "Disconnected"
 msgstr "Отсоединён"
 
 #. Add message
-#: ../libempathy-gtk/empathy-chat.c:3492
+#: ../libempathy-gtk/empathy-chat.c:3657
 msgid "Would you like to store this password?"
 msgstr "Хотите запомнить этот пароль?"
 
-#: ../libempathy-gtk/empathy-chat.c:3498
+#: ../libempathy-gtk/empathy-chat.c:3663
 msgid "Remember"
 msgstr "Запомнить"
 
-#: ../libempathy-gtk/empathy-chat.c:3508
+#: ../libempathy-gtk/empathy-chat.c:3673
 msgid "Not now"
 msgstr "Не сейчас"
 
-#: ../libempathy-gtk/empathy-chat.c:3552
+#: ../libempathy-gtk/empathy-chat.c:3717
 #: ../libempathy-gtk/empathy-bad-password-dialog.c:142
 msgid "Retry"
 msgstr "Повторить"
 
-#: ../libempathy-gtk/empathy-chat.c:3556
+#: ../libempathy-gtk/empathy-chat.c:3721
 msgid "Wrong password; please try again:"
 msgstr "Неправильный пароль. Попробуйте снова:"
 
 #. Add message
-#: ../libempathy-gtk/empathy-chat.c:3686
+#: ../libempathy-gtk/empathy-chat.c:3851
 msgid "This room is protected by a password:"
 msgstr "Эта комната защищена паролем:"
 
-#: ../libempathy-gtk/empathy-chat.c:3713
+#: ../libempathy-gtk/empathy-chat.c:3878
 msgid "Join"
 msgstr "Войти"
 
-#: ../libempathy-gtk/empathy-chat.c:3901
+#: ../libempathy-gtk/empathy-chat.c:4070
 #: ../src/empathy-event-manager.c:1301
 msgid "Connected"
 msgstr "Соединён"
 
-#: ../libempathy-gtk/empathy-chat.c:3956
+#: ../libempathy-gtk/empathy-chat.c:4125
 msgid "Conversation"
 msgstr "Беседа"
 
 #. Translators: this string is a something like
 #. * "Escher Cat (SMS)"
-#: ../libempathy-gtk/empathy-chat.c:3961
+#: ../libempathy-gtk/empathy-chat.c:4130
 #, c-format
 msgid "%s (SMS)"
 msgstr "%s (SMS)"
@@ -1590,10 +1626,10 @@ msgstr "Изменить заблокированных собеседников
 #. Account and Identifier
 #: ../libempathy-gtk/empathy-contact-blocking-dialog.ui.h:1
 #: ../libempathy-gtk/empathy-contact-search-dialog.c:506
-#: ../libempathy-gtk/empathy-contact-widget.ui.h:2
-#: ../libempathy-gtk/empathy-individual-widget.c:1475
-#: ../src/empathy-chatrooms-window.ui.h:1
-#: ../src/empathy-new-chatroom-dialog.ui.h:1
+#: ../libempathy-gtk/empathy-contact-widget.ui.h:1
+#: ../libempathy-gtk/empathy-individual-widget.c:1474
+#: ../src/empathy-chatrooms-window.ui.h:2
+#: ../src/empathy-new-chatroom-dialog.ui.h:7
 msgid "Account:"
 msgstr "Учётная запись:"
 
@@ -1603,7 +1639,7 @@ msgstr "Заблокированные собеседники"
 
 #: ../libempathy-gtk/empathy-contact-blocking-dialog.ui.h:3
 #: ../libempathy-gtk/empathy-status-preset-dialog.ui.h:1
-#: ../src/empathy-accounts-dialog.ui.h:5
+#: ../src/empathy-accounts-dialog.ui.h:2
 #: ../src/empathy-chatrooms-window.ui.h:3
 msgid "Remove"
 msgstr "Удалить"
@@ -1626,33 +1662,29 @@ msgstr "_Открыть ссылку"
 msgid "%A %B %d %Y"
 msgstr "%A %d %B %Y"
 
-#: ../libempathy-gtk/empathy-contact-dialogs.c:278
-msgid "Personal Information"
-msgstr "Личная информация"
-
-#: ../libempathy-gtk/empathy-contact-dialogs.c:379
+#: ../libempathy-gtk/empathy-contact-dialogs.c:326
 #: ../libempathy-gtk/empathy-individual-dialogs.c:118
 msgid "New Contact"
 msgstr "Новый собеседник"
 
-#: ../libempathy-gtk/empathy-contact-dialogs.c:448
+#: ../libempathy-gtk/empathy-contact-dialogs.c:395
 #: ../libempathy-gtk/empathy-individual-dialogs.c:197
 #, c-format
 msgid "Block %s?"
 msgstr "Заблокировать %s?"
 
-#: ../libempathy-gtk/empathy-contact-dialogs.c:453
+#: ../libempathy-gtk/empathy-contact-dialogs.c:400
 #: ../libempathy-gtk/empathy-individual-dialogs.c:252
 #, c-format
 msgid "Are you sure you want to block '%s' from contacting you again?"
 msgstr "Уверены, что хотите заблокировать «%s»?"
 
-#: ../libempathy-gtk/empathy-contact-dialogs.c:458
+#: ../libempathy-gtk/empathy-contact-dialogs.c:405
 #: ../libempathy-gtk/empathy-individual-dialogs.c:274
 msgid "_Block"
 msgstr "_Заблокировать"
 
-#: ../libempathy-gtk/empathy-contact-dialogs.c:476
+#: ../libempathy-gtk/empathy-contact-dialogs.c:423
 #: ../libempathy-gtk/empathy-individual-dialogs.c:283
 msgid "_Report this contact as abusive"
 msgid_plural "_Report these contacts as abusive"
@@ -1661,16 +1693,16 @@ msgstr[1] "_Пожаловаться на этих собеседников"
 msgstr[2] "_Пожаловаться на этих собеседников"
 
 #: ../libempathy-gtk/empathy-contact-dialogs.ui.h:1
-msgid "Decide _Later"
-msgstr "Решить _позже"
-
-#: ../libempathy-gtk/empathy-contact-dialogs.ui.h:2
 msgid "Subscription Request"
 msgstr "Запрос на подписку"
 
-#: ../libempathy-gtk/empathy-contact-dialogs.ui.h:3
+#: ../libempathy-gtk/empathy-contact-dialogs.ui.h:2
 msgid "_Block User"
 msgstr "_Заблокировать пользователя"
+
+#: ../libempathy-gtk/empathy-contact-dialogs.ui.h:3
+msgid "Decide _Later"
+msgstr "Решить _позже"
 
 #. Title
 #: ../libempathy-gtk/empathy-contact-search-dialog.c:499
@@ -1826,7 +1858,7 @@ msgstr "Высота:"
 #: ../libempathy-gtk/empathy-contact-widget.c:863
 #: ../libempathy-gtk/empathy-individual-widget.c:593
 #: ../libempathy-gtk/empathy-individual-widget.c:608
-#: ../src/empathy-preferences.ui.h:15
+#: ../src/empathy-preferences.ui.h:35
 msgid "Location"
 msgstr "Местоположение"
 
@@ -1843,14 +1875,25 @@ msgid "%B %e, %Y at %R UTC"
 msgstr "%e %b %Y в %R UTC"
 
 #: ../libempathy-gtk/empathy-contact-widget.c:999
-#: ../libempathy-gtk/empathy-individual-widget.c:901
+#: ../libempathy-gtk/empathy-individual-widget.c:900
 msgid "Save Avatar"
 msgstr "Сохранить аватар"
 
 #: ../libempathy-gtk/empathy-contact-widget.c:1055
-#: ../libempathy-gtk/empathy-individual-widget.c:959
+#: ../libempathy-gtk/empathy-individual-widget.c:958
 msgid "Unable to save avatar"
 msgstr "Неудалось сохранить аватар"
+
+#: ../libempathy-gtk/empathy-contact-widget.c:1446
+#| msgid "Technical Details"
+msgid "Personal Details"
+msgstr "Информация о пользователе"
+
+#: ../libempathy-gtk/empathy-contact-widget.c:1449
+#: ../libempathy-gtk/empathy-contact-widget.ui.h:6
+#: ../libempathy-gtk/empathy-individual-widget.ui.h:3
+msgid "Contact Details"
+msgstr "Информация о собеседнике"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:104
 msgid "Full name"
@@ -1917,68 +1960,63 @@ msgstr "почтовый"
 msgid "parcel"
 msgstr "посылка"
 
-#: ../libempathy-gtk/empathy-contact-widget.ui.h:1
-msgid "<b>Location</b> at (date)\t"
-msgstr "<b>Местоположение</b> от (дата)\t"
-
-#. Alias
-#: ../libempathy-gtk/empathy-contact-widget.ui.h:3
-#: ../libempathy-gtk/empathy-individual-widget.c:1294
-msgid "Alias:"
-msgstr "Псевдоним:"
-
-#: ../libempathy-gtk/empathy-contact-widget.ui.h:4
-msgid "Client Information"
-msgstr "Информация о клиенте"
-
-#: ../libempathy-gtk/empathy-contact-widget.ui.h:5
-msgid "Client:"
-msgstr "Программа-клиент:"
-
-#: ../libempathy-gtk/empathy-contact-widget.ui.h:6
-#: ../libempathy-gtk/empathy-individual-widget.ui.h:2
-msgid "Contact Details"
-msgstr "Информация о собеседнике"
-
 #. Identifier to connect to Instant Messaging network
 #. Translators: Identifier to connect to Instant Messaging network
-#: ../libempathy-gtk/empathy-contact-widget.ui.h:8
-#: ../libempathy-gtk/empathy-individual-widget.c:1503
+#: ../libempathy-gtk/empathy-contact-widget.ui.h:3
+#: ../libempathy-gtk/empathy-individual-widget.c:1502
 msgid "Identifier:"
 msgstr "Идентификатор:"
 
-#: ../libempathy-gtk/empathy-contact-widget.ui.h:9
-#: ../libempathy-gtk/empathy-individual-widget.ui.h:3
+#. Alias
+#: ../libempathy-gtk/empathy-contact-widget.ui.h:4
+#: ../libempathy-gtk/empathy-individual-widget.c:1293
+msgid "Alias:"
+msgstr "Псевдоним:"
+
+#: ../libempathy-gtk/empathy-contact-widget.ui.h:5
+msgid "<b>Location</b> at (date)\t"
+msgstr "<b>Местоположение</b> от (дата)\t"
+
+#: ../libempathy-gtk/empathy-contact-widget.ui.h:7
+#: ../libempathy-gtk/empathy-individual-widget.ui.h:4
 msgid "Information requested…"
 msgstr "Информация запрошена..."
 
-#: ../libempathy-gtk/empathy-contact-widget.ui.h:10
+#: ../libempathy-gtk/empathy-contact-widget.ui.h:8
+msgid "Client Information"
+msgstr "Информация о клиенте"
+
+#: ../libempathy-gtk/empathy-contact-widget.ui.h:9
 msgid "OS:"
 msgstr "Операционная система:"
 
-#: ../libempathy-gtk/empathy-contact-widget.ui.h:11
+#: ../libempathy-gtk/empathy-contact-widget.ui.h:10
 msgid "Version:"
 msgstr "Версия:"
 
-#: ../libempathy-gtk/empathy-groups-widget.c:333
+#: ../libempathy-gtk/empathy-contact-widget.ui.h:11
+msgid "Client:"
+msgstr "Программа-клиент:"
+
+#: ../libempathy-gtk/empathy-groups-widget.c:331
 msgid "Groups"
 msgstr "Группы"
 
-#: ../libempathy-gtk/empathy-groups-widget.c:345
+#: ../libempathy-gtk/empathy-groups-widget.c:343
 msgid "Select the groups you want this contact to appear in.  Note that you can select more than one group or no groups."
 msgstr "Выберите группы, в которых должен появиться собеседник. Можно выбрать больше одной группы или не выбирать вообще."
 
-#: ../libempathy-gtk/empathy-groups-widget.c:364
+#: ../libempathy-gtk/empathy-groups-widget.c:362
 msgid "_Add Group"
 msgstr "_Добавить группу"
 
-#: ../libempathy-gtk/empathy-groups-widget.c:399
+#: ../libempathy-gtk/empathy-groups-widget.c:397
 msgctxt "verb in a column header displaying group names"
 msgid "Select"
 msgstr "Выбрать"
 
-#: ../libempathy-gtk/empathy-groups-widget.c:409
-#: ../src/empathy-main-window.c:1949
+#: ../libempathy-gtk/empathy-groups-widget.c:407
+#: ../src/empathy-roster-window.c:1951
 msgid "Group"
 msgstr "Группа"
 
@@ -2000,165 +2038,150 @@ msgstr[2] "Следующих собеседников нельзя заблок
 msgid "Edit Contact Information"
 msgstr "Редактировать информацию о собеседнике"
 
-#. Translators: the heading at the top of the Information dialogue
-#: ../libempathy-gtk/empathy-individual-information-dialog.c:288
-msgid "Linked Contacts"
-msgstr "Объединённые контакты"
-
-#: ../libempathy-gtk/empathy-individual-linker.c:372
-msgid "Select contacts to link"
-msgstr "Выбрать контакты для связи"
-
-#: ../libempathy-gtk/empathy-individual-linker.c:447
-msgid "New contact preview"
-msgstr "Предпросмотр нового собеседника"
-
-#: ../libempathy-gtk/empathy-individual-linker.c:491
-msgid "Contacts selected in the list on the left will be linked together."
-msgstr "Контакты, выбранные в списке слева, будут объединены."
-
 #. Translators: this is used in the context menu for a contact. The first
 #. * parameter is a contact ID (e.g. foo@jabber.org) and the second is one
 #. * of the user's account IDs (e.g. me@hotmail.com).
-#: ../libempathy-gtk/empathy-individual-menu.c:181
+#: ../libempathy-gtk/empathy-individual-menu.c:172
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:363
+#: ../libempathy-gtk/empathy-individual-menu.c:344
 msgid "Select account to use to place the call"
 msgstr "Выберите учётную запись для вызова"
 
 #. translators: Call is a noun. This string is used in the window
 #. * title
-#: ../libempathy-gtk/empathy-individual-menu.c:367
-#: ../libempathy-gtk/empathy-log-window.ui.h:2
+#: ../libempathy-gtk/empathy-individual-menu.c:348
+#: ../libempathy-gtk/empathy-log-window.ui.h:6
 #: ../src/empathy-streamed-media-window.c:1288
-#: ../src/empathy-call-window.ui.h:2
+#: ../src/empathy-call-window.ui.h:18
 msgid "Call"
 msgstr "Вызов"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:432
+#: ../libempathy-gtk/empathy-individual-menu.c:413
 msgid "Mobile"
 msgstr "Мобильный"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:434
+#: ../libempathy-gtk/empathy-individual-menu.c:415
 msgid "Work"
 msgstr "Рабочий"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:436
+#: ../libempathy-gtk/empathy-individual-menu.c:417
 msgid "HOME"
 msgstr "ДОМАШНИЙ"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:677
+#: ../libempathy-gtk/empathy-individual-menu.c:658
 msgid "_Block Contact"
 msgstr "_Заблокировать собеседника"
 
 #. add chat button
-#: ../libempathy-gtk/empathy-individual-menu.c:1055
+#: ../libempathy-gtk/empathy-individual-menu.c:1017
 #: ../libempathy-gtk/empathy-new-message-dialog.c:319
-#: ../src/empathy-main-window-menubar.ui.h:16
+#: ../src/empathy-roster-window-menubar.ui.h:1
 msgid "_Chat"
 msgstr "_Разговор"
 
 #. add SMS button
-#: ../libempathy-gtk/empathy-individual-menu.c:1090
+#: ../libempathy-gtk/empathy-individual-menu.c:1052
 #: ../libempathy-gtk/empathy-new-message-dialog.c:313
 msgid "_SMS"
 msgstr "_SMS:"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1123
+#: ../libempathy-gtk/empathy-individual-menu.c:1085
 msgctxt "menu item"
 msgid "_Audio Call"
 msgstr "_Аудиовызов"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1156
+#: ../libempathy-gtk/empathy-individual-menu.c:1118
 msgctxt "menu item"
 msgid "_Video Call"
 msgstr "_Видеовызов"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1197
-#: ../src/empathy-main-window-menubar.ui.h:27
+#: ../libempathy-gtk/empathy-individual-menu.c:1159
+#: ../src/empathy-roster-window-menubar.ui.h:4
 msgid "_Previous Conversations"
 msgstr "Предыдущие _беседы"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1226
+#: ../libempathy-gtk/empathy-individual-menu.c:1188
 msgid "Send File"
 msgstr "Отправить файл"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1256
+#: ../libempathy-gtk/empathy-individual-menu.c:1218
 msgid "Share My Desktop"
 msgstr "Предоставить доступ к моему рабочему столу"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1282
-#: ../libempathy-gtk/empathy-individual-widget.c:1358
+#: ../libempathy-gtk/empathy-individual-menu.c:1244
+#: ../libempathy-gtk/empathy-individual-widget.c:1357
 msgid "Favorite"
 msgstr "Избранный"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1310
+#: ../libempathy-gtk/empathy-individual-menu.c:1263
+#| msgid "telepathy-salut not installed"
+msgid "gnome-contacts not installed"
+msgstr "gnome-contacts не установлен"
+
+#: ../libempathy-gtk/empathy-individual-menu.c:1266
+msgid "Please install gnome-contacts to access contacts details."
+msgstr "Чтобы получить доступ к сведениям о пользователях, установите gnome-contacts"
+
+#: ../libempathy-gtk/empathy-individual-menu.c:1380
 msgid "Infor_mation"
 msgstr "Информ_ация"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1359
+#: ../libempathy-gtk/empathy-individual-menu.c:1429
 msgctxt "Edit individual (contextual menu)"
 msgid "_Edit"
 msgstr "_Правка"
 
-#. Translators: this is a verb meaning "to connect two contacts together
-#. * to form a meta-contact".
-#: ../libempathy-gtk/empathy-individual-menu.c:1385
-msgctxt "Link individual (contextual menu)"
-msgid "_Link Contacts…"
-msgstr "_Объединить контакты…"
-
-#: ../libempathy-gtk/empathy-individual-menu.c:1501
-#: ../src/empathy-chat-window.c:1011
+#: ../libempathy-gtk/empathy-individual-menu.c:1546
+#: ../src/empathy-chat-window.c:1175
 msgid "Inviting you to this room"
 msgstr "Приглашение в комнату"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1547
+#: ../libempathy-gtk/empathy-individual-menu.c:1592
 msgid "_Invite to Chat Room"
 msgstr "_Пригласить в комнату"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1743
-#: ../src/empathy-main-window-menubar.ui.h:14
+#: ../libempathy-gtk/empathy-individual-menu.c:1788
+#: ../src/empathy-roster-window-menubar.ui.h:5
 msgid "_Add Contact…"
 msgstr "_Добавить собеседника…"
 
-#: ../libempathy-gtk/empathy-individual-view.c:2355
+#: ../libempathy-gtk/empathy-individual-view.c:2306
 msgid "Delete and _Block"
 msgstr "Удалить и _заблокировать"
 
-#: ../libempathy-gtk/empathy-individual-view.c:2390
+#: ../libempathy-gtk/empathy-individual-view.c:2341
 #, c-format
 msgid "Do you really want to remove the group '%s'?"
 msgstr "Вы хотите удалить группу «%s»?"
 
-#: ../libempathy-gtk/empathy-individual-view.c:2393
+#: ../libempathy-gtk/empathy-individual-view.c:2344
 msgid "Removing group"
 msgstr "Удаление группы"
 
 #. Remove
-#: ../libempathy-gtk/empathy-individual-view.c:2448
-#: ../libempathy-gtk/empathy-individual-view.c:2665
+#: ../libempathy-gtk/empathy-individual-view.c:2399
+#: ../libempathy-gtk/empathy-individual-view.c:2603
 msgid "_Remove"
 msgstr "_Удалить"
 
-#: ../libempathy-gtk/empathy-individual-view.c:2525
+#: ../libempathy-gtk/empathy-individual-view.c:2476
 #, c-format
 msgid "Do you really want to remove the contact '%s'?"
 msgstr "Действительно хотите удалить собеседника «%s»?"
 
-#: ../libempathy-gtk/empathy-individual-view.c:2534
+#: ../libempathy-gtk/empathy-individual-view.c:2485
 #, c-format
 msgid "Do you really want to remove the linked contact '%s'? Note that this will remove all the contacts which make up this linked contact."
 msgstr "Действительно удалить связанный контакт «%s»? Это приведёт к удалению всех контактов, которые являются частью этого связанного контакта."
 
-#: ../libempathy-gtk/empathy-individual-view.c:2546
+#: ../libempathy-gtk/empathy-individual-view.c:2497
 msgid "Removing contact"
 msgstr "Удаление собеседника"
 
-#: ../libempathy-gtk/empathy-individual-widget.c:1642
+#: ../libempathy-gtk/empathy-individual-widget.c:1641
 #, c-format
 msgid "Linked contact containing %u contact"
 msgid_plural "Linked contacts containing %u contacts"
@@ -2170,23 +2193,23 @@ msgstr[2] "Связанные контакты, содержащие %u конт
 msgid "<b>Location</b> at (date)"
 msgstr "<b>Местоположение</b> от (дата)"
 
-#: ../libempathy-gtk/empathy-individual-widget.ui.h:4
+#: ../libempathy-gtk/empathy-individual-widget.ui.h:2
 msgid "Online from a phone or mobile device"
 msgstr "В сети с помощью телефона или мобильного устройства"
 
-#: ../libempathy-gtk/empathy-irc-network-chooser-dialog.c:332
+#: ../libempathy-gtk/empathy-irc-network-chooser-dialog.c:335
 msgid "New Network"
 msgstr "Новая сеть"
 
-#: ../libempathy-gtk/empathy-irc-network-chooser-dialog.c:527
+#: ../libempathy-gtk/empathy-irc-network-chooser-dialog.c:530
 msgid "Choose an IRC network"
 msgstr "Выберите сеть IRC"
 
-#: ../libempathy-gtk/empathy-irc-network-chooser-dialog.c:584
+#: ../libempathy-gtk/empathy-irc-network-chooser-dialog.c:587
 msgid "Reset _Networks List"
 msgstr "_Сбросить список сетей"
 
-#: ../libempathy-gtk/empathy-irc-network-chooser-dialog.c:588
+#: ../libempathy-gtk/empathy-irc-network-chooser-dialog.c:591
 msgctxt "verb displayed on a button to select an IRC network"
 msgid "Select"
 msgstr "Выбрать"
@@ -2198,44 +2221,6 @@ msgstr "новый сервер"
 #: ../libempathy-gtk/empathy-irc-network-dialog.c:535
 msgid "SSL"
 msgstr "Шифрование SSL"
-
-#. Translators: this is the title of the linking dialogue (reached by
-#. * right-clicking on a contact and selecting "Link…"). "Link" in this title
-#. * is a verb.
-#: ../libempathy-gtk/empathy-linking-dialog.c:115
-msgid "Link Contacts"
-msgstr "Связь с собеседниками"
-
-#: ../libempathy-gtk/empathy-linking-dialog.c:120
-msgctxt "Unlink individual (button)"
-msgid "_Unlink…"
-msgstr "_Разъединить…"
-
-#: ../libempathy-gtk/empathy-linking-dialog.c:121
-msgid "Completely split the displayed linked contacts into the separate contacts."
-msgstr "Полностью разъединить связанные контакты на отдельные контакты."
-
-#. Add button
-#. Translators: this is an action button in the linking dialogue. "Link" is
-#. * used here as a verb meaning "to connect two contacts to form a
-#. * meta-contact".
-#: ../libempathy-gtk/empathy-linking-dialog.c:136
-msgid "_Link"
-msgstr "_Связь"
-
-#: ../libempathy-gtk/empathy-linking-dialog.c:183
-#, c-format
-msgid "Unlink linked contacts '%s'?"
-msgstr "Разъединить контакты «%s»?"
-
-#: ../libempathy-gtk/empathy-linking-dialog.c:186
-msgid "Are you sure you want to unlink these linked contacts? This will completely split the linked contacts into separate contacts."
-msgstr "Действительно разъединить эти связанные контакты? Это полностью разделит связанные контакты на отдельные контакты."
-
-#: ../libempathy-gtk/empathy-linking-dialog.c:190
-msgctxt "Unlink individual (button)"
-msgid "_Unlink"
-msgstr "_Разъединить"
 
 #: ../libempathy-gtk/empathy-log-window.c:622
 msgid "History"
@@ -2339,7 +2324,7 @@ msgid "Text chats"
 msgstr "Текстовые чаты"
 
 #: ../libempathy-gtk/empathy-log-window.c:3044
-#: ../src/empathy-preferences.ui.h:4
+#: ../src/empathy-preferences.ui.h:25
 msgid "Calls"
 msgstr "Вызовы"
 
@@ -2372,42 +2357,42 @@ msgid "Delete from:"
 msgstr "Удалить из:"
 
 #: ../libempathy-gtk/empathy-log-window.ui.h:1
-msgid "<span size=\"x-large\">Loading...</span>"
-msgstr "<span size=\"x-large\">Загрузка…</span>"
-
-#: ../libempathy-gtk/empathy-log-window.ui.h:3
-#: ../src/empathy-chat-window.ui.h:3
-msgid "Chat"
-msgstr "Разговор"
-
-#: ../libempathy-gtk/empathy-log-window.ui.h:4
-msgid "Delete All History..."
-msgstr "Удалить всю историю…"
-
-#: ../libempathy-gtk/empathy-log-window.ui.h:5
-msgid "Profile"
-msgstr "Профиль"
-
-#: ../libempathy-gtk/empathy-log-window.ui.h:6
-#: ../src/empathy-call-window.ui.h:22
-#: ../src/empathy-streamed-media-window.ui.h:20
-msgid "Video"
-msgstr "Видео"
-
-#: ../libempathy-gtk/empathy-log-window.ui.h:7
-#: ../src/empathy-call-window.ui.h:28
-#: ../src/empathy-chat-window.ui.h:12
-#: ../src/empathy-main-window-menubar.ui.h:20
-msgid "_Edit"
-msgstr "_Правка"
-
-#: ../libempathy-gtk/empathy-log-window.ui.h:8
 msgid "_File"
 msgstr "_Файл"
 
-#: ../libempathy-gtk/empathy-log-window.ui.h:9
+#: ../libempathy-gtk/empathy-log-window.ui.h:2
+#: ../src/empathy-call-window.ui.h:2
+#: ../src/empathy-chat-window.ui.h:9
+#: ../src/empathy-roster-window-menubar.ui.h:12
+msgid "_Edit"
+msgstr "_Правка"
+
+#: ../libempathy-gtk/empathy-log-window.ui.h:3
+msgid "Delete All History..."
+msgstr "Удалить всю историю…"
+
+#: ../libempathy-gtk/empathy-log-window.ui.h:4
+msgid "Profile"
+msgstr "Профиль"
+
+#: ../libempathy-gtk/empathy-log-window.ui.h:5
+#: ../src/empathy-chat-window.ui.h:19
+msgid "Chat"
+msgstr "Разговор"
+
+#: ../libempathy-gtk/empathy-log-window.ui.h:7
+#: ../src/empathy-call-window.ui.h:26
+#: ../src/empathy-streamed-media-window.ui.h:19
+msgid "Video"
+msgstr "Видео"
+
+#: ../libempathy-gtk/empathy-log-window.ui.h:8
 msgid "page 2"
 msgstr "страница 2"
+
+#: ../libempathy-gtk/empathy-log-window.ui.h:9
+msgid "<span size=\"x-large\">Loading...</span>"
+msgstr "<span size=\"x-large\">Загрузка…</span>"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:83
 msgid "The contact is offline"
@@ -2540,20 +2525,20 @@ msgid "Find:"
 msgstr "Найти:"
 
 #: ../libempathy-gtk/empathy-search-bar.ui.h:2
-msgid "Mat_ch case"
-msgstr "У_читывать регистр"
+msgid "_Previous"
+msgstr "_Назад"
 
 #: ../libempathy-gtk/empathy-search-bar.ui.h:3
-msgid "Phrase not found"
-msgstr "Фраза не найдена"
-
-#: ../libempathy-gtk/empathy-search-bar.ui.h:4
 msgid "_Next"
 msgstr "_Далее"
 
+#: ../libempathy-gtk/empathy-search-bar.ui.h:4
+msgid "Mat_ch case"
+msgstr "У_читывать регистр"
+
 #: ../libempathy-gtk/empathy-search-bar.ui.h:5
-msgid "_Previous"
-msgstr "_Назад"
+msgid "Phrase not found"
+msgstr "Фраза не найдена"
 
 #: ../libempathy-gtk/empathy-sound-manager.c:51
 msgid "Received an instant message"
@@ -2599,12 +2584,12 @@ msgstr "Вызов завершён"
 msgid "Edit Custom Messages"
 msgstr "Изменить настраиваемые сообщения"
 
-#: ../libempathy-gtk/empathy-theme-adium.c:1047
+#: ../libempathy-gtk/empathy-theme-adium.c:1051
 #, c-format
 msgid "Message edited at %s"
 msgstr "Сообщение изменено %s "
 
-#: ../libempathy-gtk/empathy-theme-adium.c:1752
+#: ../libempathy-gtk/empathy-theme-adium.c:1757
 msgid "Normal"
 msgstr "Обычная"
 
@@ -2679,39 +2664,44 @@ msgid "Certificate hostname: %s"
 msgstr "Имя узла сертификата: %s"
 
 #: ../libempathy-gtk/empathy-tls-dialog.c:281
-msgid "Continue"
-msgstr "Продолжить"
+#| msgid "Continue"
+msgid "C_ontinue"
+msgstr "_Продолжить"
 
 #: ../libempathy-gtk/empathy-tls-dialog.c:287
+msgid "Untrusted connection"
+msgstr "Недоверенное соединение"
+
+#: ../libempathy-gtk/empathy-tls-dialog.c:288
 msgid "This connection is untrusted. Would you like to continue anyway?"
 msgstr "Данное соединение не является доверенным. Всё равно продолжить?"
 
-#: ../libempathy-gtk/empathy-tls-dialog.c:297
+#: ../libempathy-gtk/empathy-tls-dialog.c:298
 msgid "Remember this choice for future connections"
 msgstr "Запомнить выбор для последующих соединений"
 
-#: ../libempathy-gtk/empathy-tls-dialog.c:303
+#: ../libempathy-gtk/empathy-tls-dialog.c:304
 msgid "Certificate Details"
 msgstr "Подробности о сертификате"
 
-#: ../libempathy-gtk/empathy-ui-utils.c:1742
+#: ../libempathy-gtk/empathy-ui-utils.c:1741
 msgid "Unable to open URI"
 msgstr "Невозможно открыть URL"
 
-#: ../libempathy-gtk/empathy-ui-utils.c:1860
+#: ../libempathy-gtk/empathy-ui-utils.c:1859
 msgid "Select a file"
 msgstr "Выберите файл"
 
-#: ../libempathy-gtk/empathy-ui-utils.c:1935
+#: ../libempathy-gtk/empathy-ui-utils.c:1934
 msgid "Insufficient free space to save file"
 msgstr "Недостаточно свободного места для сохранения файла"
 
-#: ../libempathy-gtk/empathy-ui-utils.c:1943
+#: ../libempathy-gtk/empathy-ui-utils.c:1942
 #, c-format
 msgid "%s of free space are required to save this file, but only %s is available. Please choose another location."
 msgstr "Для сохранения этого файла требуется %s свободного места, но доступно только %s. Выберите другое местоположение."
 
-#: ../libempathy-gtk/empathy-ui-utils.c:1987
+#: ../libempathy-gtk/empathy-ui-utils.c:1986
 #, c-format
 msgid "Incoming file from %s"
 msgstr "Входящий файл от %s"
@@ -2968,7 +2958,7 @@ msgid "You can either go back and try to enter your accounts' details again or q
 msgstr "Вы можете вернуться назад и попытаться ввести информацию об учётной записи ещё раз, или закрыть этот мастер и добавить учётные записи позже из меню «Правка»."
 
 #: ../src/empathy-account-assistant.c:220
-#: ../src/empathy-account-assistant.c:1274
+#: ../src/empathy-account-assistant.c:1276
 msgid "An error occurred"
 msgstr "Произошла ошибка"
 
@@ -3026,8 +3016,8 @@ msgid "Select the accounts you want to import:"
 msgstr "Выберите учётные записи для импортирования:"
 
 #: ../src/empathy-account-assistant.c:816
-#: ../src/empathy-new-chatroom-dialog.c:625
-#: ../src/empathy-new-chatroom-dialog.c:626
+#: ../src/empathy-new-chatroom-dialog.c:639
+#: ../src/empathy-new-chatroom-dialog.c:640
 msgid "Yes"
 msgstr "Да"
 
@@ -3040,7 +3030,7 @@ msgid "Empathy can automatically discover and chat with the people connected on 
 msgstr "Empathy может автоматически найти людей, подключённых к той же сети, что и вы. Если вы хотите использовать эту возможность, отметьте, что информация, представленная ниже является корректной. Вы можете изменить эту информацию позже или отключить эту возможность, используя диалоговое окно «Учётные записи»."
 
 #: ../src/empathy-account-assistant.c:1094
-#: ../src/empathy-account-assistant.c:1150
+#: ../src/empathy-account-assistant.c:1152
 msgid "Edit->Accounts"
 msgstr "Правка->Учётные записи"
 
@@ -3048,27 +3038,27 @@ msgstr "Правка->Учётные записи"
 msgid "I do _not want to enable this feature for now"
 msgstr "_Я не хочу сейчас включать эту возможность"
 
-#: ../src/empathy-account-assistant.c:1146
+#: ../src/empathy-account-assistant.c:1148
 msgid "You won't be able to chat with people connected to your local network, as telepathy-salut is not installed. If you want to enable this feature, please install the telepathy-salut package and create a People Nearby account from the Accounts dialog"
 msgstr "Вы не можете общаться с людьми, подключёнными к вашей локальной сети, т. к. telepathy-salut не установлен. Если вы хотите включить эту возможность, установите пакет telepathy-salut и создайте учётную запись «Люди поблизости» в диалоговом окне «Учётные записи»"
 
-#: ../src/empathy-account-assistant.c:1152
+#: ../src/empathy-account-assistant.c:1154
 msgid "telepathy-salut not installed"
 msgstr "telepathy-salut не установлен"
 
-#: ../src/empathy-account-assistant.c:1198
+#: ../src/empathy-account-assistant.c:1200
 msgid "Messaging and VoIP Accounts Assistant"
 msgstr "Мастер учётных записей обмена сообщениями и VoIP"
 
-#: ../src/empathy-account-assistant.c:1232
+#: ../src/empathy-account-assistant.c:1234
 msgid "Welcome to Empathy"
 msgstr "Добро пожаловать в Empathy"
 
-#: ../src/empathy-account-assistant.c:1241
+#: ../src/empathy-account-assistant.c:1243
 msgid "Import your existing accounts"
 msgstr "Импортировать существующие учётные записи"
 
-#: ../src/empathy-account-assistant.c:1259
+#: ../src/empathy-account-assistant.c:1261
 msgid "Please enter personal details"
 msgstr "Введите персональную информацию"
 
@@ -3085,61 +3075,60 @@ msgstr "В учётной записи %s имеются несохранённ�
 msgid "Your new account has not been saved yet."
 msgstr "Ваша новая учётная запись ещё не была сохранена."
 
-#: ../src/empathy-accounts-dialog.c:352
+#: ../src/empathy-accounts-dialog.c:344
 #: ../src/empathy-streamed-media-window.c:757
-#: ../src/empathy-call-window.c:1325
+#: ../src/empathy-call-window.c:1332
 msgid "Connecting…"
 msgstr "Соединение…"
 
-#: ../src/empathy-accounts-dialog.c:393
+#: ../src/empathy-accounts-dialog.c:385
 #, c-format
 msgid "Offline — %s"
 msgstr "Не в сети — %s"
 
-#: ../src/empathy-accounts-dialog.c:405
+#: ../src/empathy-accounts-dialog.c:397
 #, c-format
 msgid "Disconnected — %s"
 msgstr "Отсоединён — %s"
 
-#: ../src/empathy-accounts-dialog.c:416
+#: ../src/empathy-accounts-dialog.c:408
 msgid "Offline — No Network Connection"
 msgstr "Не в сети — подключение к сети отсутствует"
 
-#: ../src/empathy-accounts-dialog.c:423
+#: ../src/empathy-accounts-dialog.c:415
 msgid "Unknown Status"
 msgstr "Неизвестный статус"
 
-#: ../src/empathy-accounts-dialog.c:435
+#: ../src/empathy-accounts-dialog.c:427
 msgid "Offline — Account Disabled"
 msgstr "Не в сети — учётная запись отключена"
 
-#: ../src/empathy-accounts-dialog.c:538
-#| msgid "Connection has been refused"
+#: ../src/empathy-accounts-dialog.c:530
 msgid "Edit Connection Parameters"
 msgstr "Изменить параметры соединения"
 
-#: ../src/empathy-accounts-dialog.c:701
+#: ../src/empathy-accounts-dialog.c:693
 msgid "Failed to retrieve your personal information from the server."
 msgstr "Сбой при получении персональных данных с сервера."
 
-#: ../src/empathy-accounts-dialog.c:707
+#: ../src/empathy-accounts-dialog.c:699
 msgid "Go online to edit your personal information."
 msgstr "Выйти в онлайн, чтобы изменить персональные данные"
 
-#: ../src/empathy-accounts-dialog.c:792
+#: ../src/empathy-accounts-dialog.c:784
 msgid "_Edit Connection Parameters..."
 msgstr "_Изменить параметры соединения…"
 
-#: ../src/empathy-accounts-dialog.c:1293
+#: ../src/empathy-accounts-dialog.c:1289
 #, c-format
 msgid "Do you want to remove %s from your computer?"
 msgstr "Хотите удалить %s со своего компьютера?"
 
-#: ../src/empathy-accounts-dialog.c:1297
+#: ../src/empathy-accounts-dialog.c:1293
 msgid "This will not remove your account on the server."
 msgstr "Это не приведёт к удалению вашей учётной записи с сервера."
 
-#: ../src/empathy-accounts-dialog.c:1533
+#: ../src/empathy-accounts-dialog.c:1529
 msgid ""
 "You are about to select another account, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -3148,15 +3137,15 @@ msgstr ""
 "к отмене сделанных изменений. Хотите продолжить?"
 
 #. Menu items: to enabled/disable the account
-#: ../src/empathy-accounts-dialog.c:1744
+#: ../src/empathy-accounts-dialog.c:1705
 msgid "_Enable"
 msgstr "_Включить"
 
-#: ../src/empathy-accounts-dialog.c:1745
+#: ../src/empathy-accounts-dialog.c:1706
 msgid "_Disable"
 msgstr "_Отключить"
 
-#: ../src/empathy-accounts-dialog.c:2255
+#: ../src/empathy-accounts-dialog.c:2176
 msgid ""
 "You are about to close the window, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -3168,25 +3157,25 @@ msgstr ""
 msgid "Add…"
 msgstr "Добавить…"
 
-#: ../src/empathy-accounts-dialog.ui.h:2
-msgid "Loading account information"
-msgstr "Загрузка информации об учётной записи"
-
 #: ../src/empathy-accounts-dialog.ui.h:3
-msgid "No protocol installed"
-msgstr "Нет установленных протоколов"
+msgid "_Import…"
+msgstr "_Импорт..."
 
 #: ../src/empathy-accounts-dialog.ui.h:4
 msgid "Protocol:"
 msgstr "Протокол:"
 
-#: ../src/empathy-accounts-dialog.ui.h:6
+#: ../src/empathy-accounts-dialog.ui.h:5
 msgid "To add a new account, you first have to install a backend for each protocol you want to use."
 msgstr "Чтобы добавить новую учётную запись установите поддержку каждого необходимого протокола."
 
+#: ../src/empathy-accounts-dialog.ui.h:6
+msgid "No protocol installed"
+msgstr "Нет установленных протоколов"
+
 #: ../src/empathy-accounts-dialog.ui.h:7
-msgid "_Import…"
-msgstr "_Импорт..."
+msgid "Loading account information"
+msgstr "Загрузка информации об учётной записи"
 
 #: ../src/empathy-auth-client.c:286
 msgid " - Empathy authentication client"
@@ -3201,12 +3190,12 @@ msgid "People nearby"
 msgstr "Люди поблизости"
 
 #: ../src/empathy-av.c:118
-#: ../src/empathy-call.c:193
+#: ../src/empathy-call.c:203
 msgid "- Empathy Audio/Video Client"
 msgstr " — клиент Empathy для аудио и видео"
 
 #: ../src/empathy-av.c:134
-#: ../src/empathy-call.c:218
+#: ../src/empathy-call.c:228
 msgid "Empathy Audio/Video Client"
 msgstr "Клиент Empathy для аудио и видео"
 
@@ -3249,33 +3238,33 @@ msgstr "Подробности"
 #. translators: Call is a noun and %s is the contact name. This string
 #. * is used in the window title
 #: ../src/empathy-streamed-media-window.c:1209
-#: ../src/empathy-call-window.c:1927
+#: ../src/empathy-call-window.c:1934
 #, c-format
 msgid "Call with %s"
 msgstr "Разговор с %s"
 
 #: ../src/empathy-streamed-media-window.c:1442
-#: ../src/empathy-call-window.c:2171
+#: ../src/empathy-call-window.c:2178
 msgid "The IP address as seen by the machine"
 msgstr "IP-адрес, определённый хостом"
 
 #: ../src/empathy-streamed-media-window.c:1444
-#: ../src/empathy-call-window.c:2173
+#: ../src/empathy-call-window.c:2180
 msgid "The IP address as seen by a server on the Internet"
 msgstr "IP-адрес, определённый сервером в Интернете"
 
 #: ../src/empathy-streamed-media-window.c:1446
-#: ../src/empathy-call-window.c:2175
+#: ../src/empathy-call-window.c:2182
 msgid "The IP address of the peer as seen by the other side"
 msgstr "IP-адрес точки, определённый с другой стороны"
 
 #: ../src/empathy-streamed-media-window.c:1448
-#: ../src/empathy-call-window.c:2177
+#: ../src/empathy-call-window.c:2184
 msgid "The IP address of a relay server"
 msgstr "IP-адрес ретранслирующего сервера"
 
 #: ../src/empathy-streamed-media-window.c:1450
-#: ../src/empathy-call-window.c:2179
+#: ../src/empathy-call-window.c:2186
 msgid "The IP address of the multicast group"
 msgstr "Широковещательный IP-адрес группы"
 
@@ -3294,210 +3283,247 @@ msgid "Connected — %d:%02dm"
 msgstr "Соединён — %d:%02dm"
 
 #: ../src/empathy-streamed-media-window.c:2200
-#: ../src/empathy-call-window.c:3033
+#: ../src/empathy-call-window.c:3040
 msgid "Technical Details"
 msgstr "Информация о собеседнике"
 
 #: ../src/empathy-streamed-media-window.c:2238
-#: ../src/empathy-call-window.c:3072
+#: ../src/empathy-call-window.c:3079
 #, c-format
 msgid "%s's software does not understand any of the audio formats supported by your computer"
 msgstr "Программное обеспечение %s не понимает аудиоформаты, поддерживаемые вашим компьютером"
 
 #: ../src/empathy-streamed-media-window.c:2243
-#: ../src/empathy-call-window.c:3077
+#: ../src/empathy-call-window.c:3084
 #, c-format
 msgid "%s's software does not understand any of the video formats supported by your computer"
 msgstr "Программное обеспечение %s не понимает видеоформаты, поддерживаемые вашим компьютером"
 
 #: ../src/empathy-streamed-media-window.c:2249
-#: ../src/empathy-call-window.c:3083
+#: ../src/empathy-call-window.c:3090
 #, c-format
 msgid "Can't establish a connection to %s. One of you might be on a network that does not allow direct connections."
 msgstr "Не удалось установить соединение с %s. Один из вас может находиться в сети, которая не поддерживает прямые подключения."
 
 #: ../src/empathy-streamed-media-window.c:2255
-#: ../src/empathy-call-window.c:3089
+#: ../src/empathy-call-window.c:3096
 msgid "There was a failure on the network"
 msgstr "Сбой сети"
 
 #: ../src/empathy-streamed-media-window.c:2259
-#: ../src/empathy-call-window.c:3093
+#: ../src/empathy-call-window.c:3100
 msgid "The audio formats necessary for this call are not installed on your computer"
 msgstr "Аудиоформаты, необходимые для этого вызова, не установлены на вашем компьютере"
 
 #: ../src/empathy-streamed-media-window.c:2262
-#: ../src/empathy-call-window.c:3096
+#: ../src/empathy-call-window.c:3103
 msgid "The video formats necessary for this call are not installed on your computer"
 msgstr "Видеоформаты, необходимые для этого вызова, не установлены на вашем компьютере"
 
 #: ../src/empathy-streamed-media-window.c:2272
-#: ../src/empathy-call-window.c:3108
+#: ../src/empathy-call-window.c:3115
 #, c-format
 msgid "Something unexpected happened in a Telepathy component. Please <a href=\"%s\">report this bug</a> and attach logs gathered from the 'Debug' window in the Help menu."
 msgstr "Что-то неожиданное случилось с компонентом Telepathy. <a href=\"%s\">Сообщите об этой ошибке</a> и прикрепите журналы, собранные из окна отладки в меню «Справка»."
 
 #: ../src/empathy-streamed-media-window.c:2280
-#: ../src/empathy-call-window.c:3117
+#: ../src/empathy-call-window.c:3124
 msgid "There was a failure in the call engine"
 msgstr "Сбой в движке вызова"
 
 #: ../src/empathy-streamed-media-window.c:2283
-#: ../src/empathy-call-window.c:3120
+#: ../src/empathy-call-window.c:3127
 msgid "The end of the stream was reached"
 msgstr "Достигнут конец потока"
 
 #: ../src/empathy-streamed-media-window.c:2323
-#: ../src/empathy-call-window.c:3160
+#: ../src/empathy-call-window.c:3167
 msgid "Can't establish audio stream"
 msgstr "Не удалось установить аудиопоток"
 
 #: ../src/empathy-streamed-media-window.c:2333
-#: ../src/empathy-call-window.c:3170
+#: ../src/empathy-call-window.c:3177
 msgid "Can't establish video stream"
 msgstr "Не удалось установить видеопоток"
 
 #: ../src/empathy-call-window.ui.h:1
-#: ../src/empathy-preferences.ui.h:2
 #: ../src/empathy-streamed-media-window.ui.h:1
-msgid "Audio"
-msgstr "Аудио"
+msgid "_Call"
+msgstr "_Вызов"
 
 #: ../src/empathy-call-window.ui.h:3
-#: ../src/empathy-streamed-media-window.ui.h:5
-msgid "Decoding Codec:"
-msgstr "Декодер:"
+msgid "_Microphone"
+msgstr "_Микрофон"
 
 #: ../src/empathy-call-window.ui.h:4
-msgid "Disable camera"
-msgstr "Отключить камеру"
+msgid "_Camera"
+msgstr "_Камера"
 
 #: ../src/empathy-call-window.ui.h:5
-msgid "Display the dialpad"
-msgstr "Показывать панель набора"
+msgid "_Settings"
+msgstr "_Параметры"
 
 #: ../src/empathy-call-window.ui.h:6
-#: ../src/empathy-streamed-media-window.ui.h:9
-msgid "Encoding Codec:"
-msgstr "Кодер:"
+#: ../src/empathy-roster-window-menubar.ui.h:17
+#: ../src/empathy-streamed-media-window.ui.h:8
+msgid "_View"
+msgstr "_Вид"
 
 #: ../src/empathy-call-window.ui.h:7
-#: ../src/empathy-streamed-media-window.ui.h:10
-msgid "Hang up"
-msgstr "Сбросить"
+#: ../src/empathy-chat-window.ui.h:17
+#: ../src/empathy-roster-window-menubar.ui.h:27
+msgid "_Help"
+msgstr "_Справка"
 
 #: ../src/empathy-call-window.ui.h:8
-#: ../src/empathy-streamed-media-window.ui.h:11
-msgid "Hang up current call"
-msgstr "Завершить текущий вызов"
+#: ../src/empathy-chat-window.ui.h:18
+#: ../src/empathy-roster-window-menubar.ui.h:28
+msgid "_Contents"
+msgstr "_Содержание"
 
 #: ../src/empathy-call-window.ui.h:9
-#: ../src/empathy-streamed-media-window.ui.h:12
-msgid "Local Candidate:"
-msgstr "Локальный кандидат:"
+#: ../src/empathy-roster-window-menubar.ui.h:29
+msgid "_Debug"
+msgstr "О_тладка"
 
 #: ../src/empathy-call-window.ui.h:10
-msgid "Maximise me"
-msgstr "Максимальный размер"
+msgid "Swap camera"
+msgstr "Сменить камеру"
 
 #: ../src/empathy-call-window.ui.h:11
 msgid "Minimise me"
 msgstr "Минимальный размер"
 
 #: ../src/empathy-call-window.ui.h:12
-#: ../src/empathy-streamed-media-window.ui.h:15
-msgid "Remote Candidate:"
-msgstr "Удалённый кандидат:"
+msgid "Maximise me"
+msgstr "Максимальный размер"
 
 #: ../src/empathy-call-window.ui.h:13
-#: ../src/empathy-streamed-media-window.ui.h:16
-msgid "Send Audio"
-msgstr "Передавать звук"
+msgid "Disable camera"
+msgstr "Отключить камеру"
 
 #: ../src/empathy-call-window.ui.h:14
-msgid "Send Video"
-msgstr "Передавать видео"
+#: ../src/empathy-streamed-media-window.ui.h:2
+msgid "Hang up"
+msgstr "Сбросить"
 
 #: ../src/empathy-call-window.ui.h:15
-msgid "Show dialpad"
-msgstr "Показывать панель набора"
+#: ../src/empathy-streamed-media-window.ui.h:9
+msgid "Hang up current call"
+msgstr "Завершить текущий вызов"
 
 #: ../src/empathy-call-window.ui.h:16
-msgid "Start a video call"
-msgstr "Начать видеовызов"
-
-#: ../src/empathy-call-window.ui.h:17
-msgid "Start an audio call"
-msgstr "Начать аудиовызов"
-
-#: ../src/empathy-call-window.ui.h:18
-msgid "Swap camera"
-msgstr "Сменить камеру"
-
-#: ../src/empathy-call-window.ui.h:19
-#: ../src/empathy-streamed-media-window.ui.h:17
-msgid "Toggle audio transmission"
-msgstr "Включить или выключить передачу звука"
-
-#: ../src/empathy-call-window.ui.h:20
-msgid "Toggle video transmission"
-msgstr "Включить или выключить передачу видео"
-
-#: ../src/empathy-call-window.ui.h:21
-#: ../src/empathy-streamed-media-window.ui.h:18
-#: ../src/empathy-call-window.c:2580
-#: ../src/empathy-call-window.c:2581
-#: ../src/empathy-call-window.c:2582
-#: ../src/empathy-call-window.c:2583
-msgid "Unknown"
-msgstr "Неизвестно"
-
-#: ../src/empathy-call-window.ui.h:23
 msgid "Video call"
 msgstr "Видеовызов"
 
+#: ../src/empathy-call-window.ui.h:17
+msgid "Start a video call"
+msgstr "Начать видеовызов"
+
+#: ../src/empathy-call-window.ui.h:19
+msgid "Start an audio call"
+msgstr "Начать аудиовызов"
+
+#: ../src/empathy-call-window.ui.h:20
+msgid "Show dialpad"
+msgstr "Показывать панель набора"
+
+#: ../src/empathy-call-window.ui.h:21
+msgid "Display the dialpad"
+msgstr "Показывать панель набора"
+
+#: ../src/empathy-call-window.ui.h:22
+msgid "Send Video"
+msgstr "Передавать видео"
+
+#: ../src/empathy-call-window.ui.h:23
+msgid "Toggle video transmission"
+msgstr "Включить или выключить передачу видео"
+
 #: ../src/empathy-call-window.ui.h:24
-#: ../src/empathy-streamed-media-window.ui.h:24
-msgid "_Call"
-msgstr "_Вызов"
+#: ../src/empathy-streamed-media-window.ui.h:11
+msgid "Send Audio"
+msgstr "Передавать звук"
 
 #: ../src/empathy-call-window.ui.h:25
-msgid "_Camera"
-msgstr "_Камера"
-
-#: ../src/empathy-call-window.ui.h:26
-#: ../src/empathy-chat-window.ui.h:9
-#: ../src/empathy-main-window-menubar.ui.h:18
-msgid "_Contents"
-msgstr "_Содержание"
+#: ../src/empathy-streamed-media-window.ui.h:12
+msgid "Toggle audio transmission"
+msgstr "Включить или выключить передачу звука"
 
 #: ../src/empathy-call-window.ui.h:27
-#: ../src/empathy-main-window-menubar.ui.h:19
-msgid "_Debug"
-msgstr "О_тладка"
+#: ../src/empathy-streamed-media-window.ui.h:20
+msgid "Encoding Codec:"
+msgstr "Кодер:"
+
+#: ../src/empathy-call-window.ui.h:28
+#: ../src/empathy-streamed-media-window.ui.h:21
+#: ../src/empathy-call-window.c:2587
+#: ../src/empathy-call-window.c:2588
+#: ../src/empathy-call-window.c:2589
+#: ../src/empathy-call-window.c:2590
+msgid "Unknown"
+msgstr "Неизвестно"
 
 #: ../src/empathy-call-window.ui.h:29
-#: ../src/empathy-chat-window.ui.h:14
-#: ../src/empathy-main-window-menubar.ui.h:22
-msgid "_Help"
-msgstr "_Справка"
+#: ../src/empathy-streamed-media-window.ui.h:22
+msgid "Decoding Codec:"
+msgstr "Декодер:"
 
 #: ../src/empathy-call-window.ui.h:30
-msgid "_Microphone"
-msgstr "_Микрофон"
+#: ../src/empathy-streamed-media-window.ui.h:23
+msgid "Remote Candidate:"
+msgstr "Удалённый кандидат:"
 
 #: ../src/empathy-call-window.ui.h:31
-msgid "_Settings"
-msgstr "_Параметры"
+#: ../src/empathy-streamed-media-window.ui.h:24
+msgid "Local Candidate:"
+msgstr "Локальный кандидат:"
 
 #: ../src/empathy-call-window.ui.h:32
-#: ../src/empathy-main-window-menubar.ui.h:30
+#: ../src/empathy-preferences.ui.h:24
 #: ../src/empathy-streamed-media-window.ui.h:25
-msgid "_View"
-msgstr "_Вид"
+msgid "Audio"
+msgstr "Аудио"
 
-#: ../src/empathy-chat-window.c:481
-#: ../src/empathy-chat-window.c:501
+#: ../src/empathy-chat-window.c:285
+#| msgid "Hide the main window."
+msgid "Close this window?"
+msgstr "Закрыть это окно?"
+
+#: ../src/empathy-chat-window.c:290
+#, c-format
+msgid "Closing this window will leave %s. You will not receive any further messages until you rejoin it."
+msgstr "Если вы закроете окно, то выйдете из комнаты %s. Вы не будете получать сообщения, пока не войдёте в комнату. "
+
+#: ../src/empathy-chat-window.c:301
+#, c-format
+msgid "Closing this window will leave a chat room. You will not receive any further messages until you rejoin it."
+msgid_plural "Closing this window will leave %u chat rooms. You will not receive any further messages until you rejoin them."
+msgstr[0] "Если вы закроете окно, то выйдете из %u комнаты. Вы не будете получать сообщения, пока не войдёте в комнату. "
+msgstr[1] "Если вы закроете окно, то выйдете из %u комнат. Вы не будете получать сообщения, пока не войдёте в комнаты."
+msgstr[2] "Если вы закроете окно, то выйдете из %u комнат. Вы не будете получать сообщения, пока не войдёте в комнаты."
+
+#: ../src/empathy-chat-window.c:310
+#, c-format
+#| msgid "Level "
+msgid "Leave %s?"
+msgstr "Уйти из %s?"
+
+#: ../src/empathy-chat-window.c:311
+msgid "You will not receive any further messages from this chat room until you rejoin it."
+msgstr "Вы не будете получать сообщения из этой комнаты, пока повторно не войдёте в комнату."
+
+#: ../src/empathy-chat-window.c:330
+msgid "Close window"
+msgstr "Закрыть окно"
+
+#: ../src/empathy-chat-window.c:330
+#| msgid "Level "
+msgid "Leave room"
+msgstr "Уйти из комнаты"
+
+#: ../src/empathy-chat-window.c:636
+#: ../src/empathy-chat-window.c:656
 #, c-format
 msgid "%s (%d unread)"
 msgid_plural "%s (%d unread)"
@@ -3505,7 +3531,7 @@ msgstr[0] "%s (%d непрочитанное)"
 msgstr[1] "%s (%d непрочитанных)"
 msgstr[2] "%s (%d непрочитанных)"
 
-#: ../src/empathy-chat-window.c:493
+#: ../src/empathy-chat-window.c:648
 #, c-format
 msgid "%s (and %u other)"
 msgid_plural "%s (and %u others)"
@@ -3513,7 +3539,7 @@ msgstr[0] "%s (и %u другой)"
 msgstr[1] "%s (и %u других)"
 msgstr[2] "%s (и %u других)"
 
-#: ../src/empathy-chat-window.c:509
+#: ../src/empathy-chat-window.c:664
 #, c-format
 msgid "%s (%d unread from others)"
 msgid_plural "%s (%d unread from others)"
@@ -3521,7 +3547,7 @@ msgstr[0] "%s (%d непрочитанное от других)"
 msgstr[1] "%s (%d непрочитанных от других)"
 msgstr[2] "%s (%d непрочитанных от других)"
 
-#: ../src/empathy-chat-window.c:518
+#: ../src/empathy-chat-window.c:673
 #, c-format
 msgid "%s (%d unread from all)"
 msgid_plural "%s (%d unread from all)"
@@ -3529,11 +3555,11 @@ msgstr[0] "%s (%d непрочитанное ото всех)"
 msgstr[1] "%s (%d непрочитанных ото всех)"
 msgstr[2] "%s (%d непрочитанных ото всех)"
 
-#: ../src/empathy-chat-window.c:733
+#: ../src/empathy-chat-window.c:888
 msgid "SMS:"
 msgstr "SMS:"
 
-#: ../src/empathy-chat-window.c:743
+#: ../src/empathy-chat-window.c:898
 #, c-format
 msgid "Sending %d message"
 msgid_plural "Sending %d messages"
@@ -3541,70 +3567,70 @@ msgstr[0] "Отправка %d сообщения"
 msgstr[1] "Отправка %d сообщений"
 msgstr[2] "Отправка %d сообщений"
 
-#: ../src/empathy-chat-window.c:765
+#: ../src/empathy-chat-window.c:920
 msgid "Typing a message."
 msgstr "Набирает сообщение."
 
 #: ../src/empathy-chat-window.ui.h:1
-msgid "C_lear"
-msgstr "О_чистить"
-
-#: ../src/empathy-chat-window.ui.h:2
-msgid "C_ontact"
-msgstr "Со_беседник"
-
-#: ../src/empathy-chat-window.ui.h:4
-msgid "Insert _Smiley"
-msgstr "Вставить _улыбку"
-
-#: ../src/empathy-chat-window.ui.h:5
-msgid "Invite _Participant…"
-msgstr "Пригласить _участника…"
-
-#: ../src/empathy-chat-window.ui.h:6
-msgid "Move Tab _Left"
-msgstr "Передвинуть вкладку в_лево"
-
-#: ../src/empathy-chat-window.ui.h:7
-msgid "Move Tab _Right"
-msgstr "Передвинуть вкладку в_право"
-
-#: ../src/empathy-chat-window.ui.h:8
-msgid "Notify for All Messages"
-msgstr "Уведомлять обо всех сообщениях"
-
-#: ../src/empathy-chat-window.ui.h:10
 msgid "_Conversation"
 msgstr "_Беседа"
 
-#: ../src/empathy-chat-window.ui.h:11
-msgid "_Detach Tab"
-msgstr "_Отсоединить вкладку"
+#: ../src/empathy-chat-window.ui.h:2
+msgid "C_lear"
+msgstr "О_чистить"
 
-#: ../src/empathy-chat-window.ui.h:13
+#: ../src/empathy-chat-window.ui.h:3
+msgid "Insert _Smiley"
+msgstr "Вставить _улыбку"
+
+#: ../src/empathy-chat-window.ui.h:4
 msgid "_Favorite Chat Room"
 msgstr "_Избранная комната"
 
-#: ../src/empathy-chat-window.ui.h:15
-msgid "_Next Tab"
-msgstr "На след_ующую вкладку"
+#: ../src/empathy-chat-window.ui.h:5
+msgid "Notify for All Messages"
+msgstr "Уведомлять обо всех сообщениях"
 
-#: ../src/empathy-chat-window.ui.h:16
-msgid "_Previous Tab"
-msgstr "На пред_ыдущую вкладку"
-
-#: ../src/empathy-chat-window.ui.h:17
-#: ../src/empathy-status-icon.ui.h:5
+#: ../src/empathy-chat-window.ui.h:6
+#: ../src/empathy-status-icon.ui.h:1
 msgid "_Show Contact List"
 msgstr "_Показывать список собеседников"
 
-#: ../src/empathy-chat-window.ui.h:18
+#: ../src/empathy-chat-window.ui.h:7
+msgid "Invite _Participant…"
+msgstr "Пригласить _участника…"
+
+#: ../src/empathy-chat-window.ui.h:8
+msgid "C_ontact"
+msgstr "Со_беседник"
+
+#: ../src/empathy-chat-window.ui.h:10
 msgid "_Tabs"
 msgstr "В_кладки"
 
-#: ../src/empathy-chat-window.ui.h:19
+#: ../src/empathy-chat-window.ui.h:11
+msgid "_Previous Tab"
+msgstr "На пред_ыдущую вкладку"
+
+#: ../src/empathy-chat-window.ui.h:12
+msgid "_Next Tab"
+msgstr "На след_ующую вкладку"
+
+#: ../src/empathy-chat-window.ui.h:13
 msgid "_Undo Close Tab"
 msgstr "_Восстановить закрытую вкладку"
+
+#: ../src/empathy-chat-window.ui.h:14
+msgid "Move Tab _Left"
+msgstr "Передвинуть вкладку в_лево"
+
+#: ../src/empathy-chat-window.ui.h:15
+msgid "Move Tab _Right"
+msgstr "Передвинуть вкладку в_право"
+
+#: ../src/empathy-chat-window.ui.h:16
+msgid "_Detach Tab"
+msgstr "_Отсоединить вкладку"
 
 #: ../src/empathy-chatrooms-window.c:251
 msgid "Name"
@@ -3618,7 +3644,7 @@ msgstr "Комната"
 msgid "Auto-Connect"
 msgstr "Автоматическое соединение"
 
-#: ../src/empathy-chatrooms-window.ui.h:2
+#: ../src/empathy-chatrooms-window.ui.h:1
 msgid "Manage Favorite Rooms"
 msgstr "Управление избранными комнатами"
 
@@ -3627,7 +3653,7 @@ msgid "Incoming video call"
 msgstr "Входящий видеовызов"
 
 #: ../src/empathy-event-manager.c:523
-#: ../src/empathy-call-window.c:1555
+#: ../src/empathy-call-window.c:1562
 msgid "Incoming call"
 msgstr "Входящий вызов"
 
@@ -3644,7 +3670,7 @@ msgstr "%s вызывает вас. Хотите ответить?"
 #: ../src/empathy-event-manager.c:531
 #: ../src/empathy-event-manager.c:732
 #: ../src/empathy-event-manager.c:765
-#: ../src/empathy-call-window.c:1561
+#: ../src/empathy-call-window.c:1568
 #, c-format
 msgid "Incoming call from %s"
 msgstr "Входящий вызов от %s"
@@ -3664,7 +3690,7 @@ msgstr "Ответить с _видео"
 
 #: ../src/empathy-event-manager.c:732
 #: ../src/empathy-event-manager.c:765
-#: ../src/empathy-call-window.c:1561
+#: ../src/empathy-call-window.c:1568
 #, c-format
 msgid "Incoming video call from %s"
 msgstr "Входящий видеовызов от %s"
@@ -3688,7 +3714,7 @@ msgid "_Decline"
 msgstr "_Отклонить"
 
 #: ../src/empathy-event-manager.c:860
-#: ../src/empathy-new-chatroom-dialog.ui.h:7
+#: ../src/empathy-new-chatroom-dialog.ui.h:2
 msgid "_Join"
 msgstr "_Войти"
 
@@ -3708,7 +3734,7 @@ msgid "Incoming file transfer from %s"
 msgstr "Входящий файл от %s"
 
 #: ../src/empathy-event-manager.c:1147
-#: ../src/empathy-main-window.c:375
+#: ../src/empathy-roster-window.c:372
 msgid "Password required"
 msgstr "Требуется пароль"
 
@@ -3861,153 +3887,168 @@ msgstr "Протокол"
 msgid "Source"
 msgstr "Источник"
 
-#: ../src/empathy-main-window.c:392
+#: ../src/empathy-roster-window.c:389
 msgid "Provide Password"
 msgstr "Указать пароль"
 
-#: ../src/empathy-main-window.c:398
+#: ../src/empathy-roster-window.c:395
 msgid "Disconnect"
 msgstr "Разъединить"
 
-#: ../src/empathy-main-window.c:635
+#: ../src/empathy-roster-window.c:644
+msgid "You need to setup an account to see contacts here."
+msgstr "Чтобы увидеть собеседников, необходимо настроить учётную запись."
+
+#: ../src/empathy-roster-window.c:660
 msgid "No match found"
 msgstr "Нет совпадений"
 
-#: ../src/empathy-main-window.c:743
+#: ../src/empathy-roster-window.c:765
 #, c-format
 msgid "Sorry, %s accounts can’t be used until your %s software is updated."
 msgstr "Учётные записи %s нельзя использовать до тех пор, пока не будет обновлено приложение %s."
 
-#: ../src/empathy-main-window.c:811
+#: ../src/empathy-roster-window.c:831
 msgid "Update software..."
 msgstr "Обновить приложение…"
 
-#: ../src/empathy-main-window.c:817
-#: ../src/empathy-main-window.c:938
+#: ../src/empathy-roster-window.c:837
+#: ../src/empathy-roster-window.c:954
 msgid "Close"
 msgstr "Закрыть"
 
-#: ../src/empathy-main-window.c:926
+#: ../src/empathy-roster-window.c:942
 msgid "Reconnect"
 msgstr "Переподключиться"
 
-#: ../src/empathy-main-window.c:932
+#: ../src/empathy-roster-window.c:948
 msgid "Edit Account"
 msgstr "Правка учётной записи"
 
 #. Translators: this string will be something like:
-#. *   Top up My Account ($1.23)..."
-#: ../src/empathy-main-window.c:1071
+#. * Top up My Account ($1.23)..."
+#: ../src/empathy-roster-window.c:1092
 #, c-format
 msgid "Top up %s (%s)..."
 msgstr "Пополнить %s (%s)…"
 
-#: ../src/empathy-main-window.c:1118
+#: ../src/empathy-roster-window.c:1138
 msgid "Top up account credit"
 msgstr "Пополнить кредит счёта"
 
 #. top up button
-#: ../src/empathy-main-window.c:1189
+#: ../src/empathy-roster-window.c:1210
 msgid "Top Up..."
 msgstr "Пополнить…"
 
-#: ../src/empathy-main-window.c:1931
+#: ../src/empathy-roster-window.c:1933
 msgid "Contact"
 msgstr "Собеседник"
 
-#: ../src/empathy-main-window.c:2306
+#: ../src/empathy-roster-window.c:2131
+msgid "You need to enable one of your accounts to see contacts here."
+msgstr "Чтобы увидеть собеседников, необходимо включить одну из ваших учётных записей."
+
+#. translators: argument is an account name
+#: ../src/empathy-roster-window.c:2139
+#, c-format
+msgid "You need to enable %s to see contacts here."
+msgstr "Чтобы увидеть собеседников, необходимо включить учётную запись %s."
+
+#: ../src/empathy-roster-window.c:2419
 msgid "Contact List"
 msgstr "Список собеседников"
 
-#: ../src/empathy-main-window-menubar.ui.h:1
-msgid "Contacts on a _Map"
-msgstr "Собеседники на _карте"
+#: ../src/empathy-roster-window.ui.h:1
+#| msgid "_Accounts"
+msgid "Account settings"
+msgstr "Настроить учётную запись"
 
-#: ../src/empathy-main-window-menubar.ui.h:2
-msgid "Credit Balance"
-msgstr "Остаток кредита"
-
-#: ../src/empathy-main-window-menubar.ui.h:3
-msgid "Find in Contact _List"
-msgstr "Найти в списке _собеседников"
-
-#: ../src/empathy-main-window-menubar.ui.h:4
-msgid "Join _Favorites"
-msgstr "П_одключить избранные"
-
-#: ../src/empathy-main-window-menubar.ui.h:5
-msgid "Manage Favorites"
-msgstr "Настроить избранные"
-
-#: ../src/empathy-main-window-menubar.ui.h:6
-msgid "N_ormal Size"
-msgstr "Обычный _размер"
-
-#: ../src/empathy-main-window-menubar.ui.h:7
-#: ../src/empathy-status-icon.ui.h:1
-msgid "New _Call…"
-msgstr "Новый _вызов…"
-
-#: ../src/empathy-main-window-menubar.ui.h:8
-msgid "Normal Size With _Avatars"
-msgstr "Обычный размер с _аватарами"
-
-#: ../src/empathy-main-window-menubar.ui.h:9
-msgid "P_references"
-msgstr "_Параметры"
-
-#: ../src/empathy-main-window-menubar.ui.h:10
-msgid "Show P_rotocols"
-msgstr "Показывать п_ротоколы"
-
-#: ../src/empathy-main-window-menubar.ui.h:11
-msgid "Sort by _Name"
-msgstr "Упорядочить по _имени"
-
-#: ../src/empathy-main-window-menubar.ui.h:12
-msgid "Sort by _Status"
-msgstr "Упорядочить по с_татусу"
-
-#: ../src/empathy-main-window-menubar.ui.h:13
-msgid "_Accounts"
-msgstr "_Учётные записи"
-
-#: ../src/empathy-main-window-menubar.ui.h:15
-msgid "_Blocked Contacts"
-msgstr "_Заблокированные собеседники"
-
-#: ../src/empathy-main-window-menubar.ui.h:17
-msgid "_Compact Size"
-msgstr "_Компактный размер"
-
-#: ../src/empathy-main-window-menubar.ui.h:21
-msgid "_File Transfers"
-msgstr "Передачи _файлов"
-
-#: ../src/empathy-main-window-menubar.ui.h:23
-msgid "_Join…"
-msgstr "_Войти…"
-
-#: ../src/empathy-main-window-menubar.ui.h:24
-#: ../src/empathy-status-icon.ui.h:3
+#: ../src/empathy-roster-window-menubar.ui.h:2
+#: ../src/empathy-status-icon.ui.h:2
 msgid "_New Conversation…"
 msgstr "Новая _беседа…"
 
-#: ../src/empathy-main-window-menubar.ui.h:25
+#: ../src/empathy-roster-window-menubar.ui.h:3
+#: ../src/empathy-status-icon.ui.h:3
+msgid "New _Call…"
+msgstr "Новый _вызов…"
+
+#: ../src/empathy-roster-window-menubar.ui.h:6
+msgid "_Search for Contacts…"
+msgstr "_Поиск собеседников…"
+
+#: ../src/empathy-roster-window-menubar.ui.h:7
+msgid "_File Transfers"
+msgstr "Передачи _файлов"
+
+#: ../src/empathy-roster-window-menubar.ui.h:8
 msgid "_Offline Contacts"
 msgstr "Собеседники _не в сети"
 
-#: ../src/empathy-main-window-menubar.ui.h:26
-msgid "_Personal Information"
-msgstr "_Личная информация"
+#: ../src/empathy-roster-window-menubar.ui.h:9
+msgid "Show P_rotocols"
+msgstr "Показывать п_ротоколы"
 
-#: ../src/empathy-main-window-menubar.ui.h:28
+#: ../src/empathy-roster-window-menubar.ui.h:10
+msgid "Credit Balance"
+msgstr "Остаток кредита"
+
+#: ../src/empathy-roster-window-menubar.ui.h:11
+msgid "Contacts on a _Map"
+msgstr "Собеседники на _карте"
+
+#: ../src/empathy-roster-window-menubar.ui.h:13
+msgid "_Accounts"
+msgstr "_Учётные записи"
+
+#: ../src/empathy-roster-window-menubar.ui.h:14
+msgid "_Blocked Contacts"
+msgstr "_Заблокированные собеседники"
+
+#: ../src/empathy-roster-window-menubar.ui.h:15
+msgid "P_references"
+msgstr "_Параметры"
+
+#: ../src/empathy-roster-window-menubar.ui.h:16
+msgid "Find in Contact _List"
+msgstr "Найти в списке _собеседников"
+
+#: ../src/empathy-roster-window-menubar.ui.h:18
+msgid "Sort by _Name"
+msgstr "Упорядочить по _имени"
+
+#: ../src/empathy-roster-window-menubar.ui.h:19
+msgid "Sort by _Status"
+msgstr "Упорядочить по с_татусу"
+
+#: ../src/empathy-roster-window-menubar.ui.h:20
+msgid "Normal Size With _Avatars"
+msgstr "Обычный размер с _аватарами"
+
+#: ../src/empathy-roster-window-menubar.ui.h:21
+msgid "N_ormal Size"
+msgstr "Обычный _размер"
+
+#: ../src/empathy-roster-window-menubar.ui.h:22
+msgid "_Compact Size"
+msgstr "_Компактный размер"
+
+#: ../src/empathy-roster-window-menubar.ui.h:23
 msgid "_Room"
 msgstr "_Комната"
 
-#: ../src/empathy-main-window-menubar.ui.h:29
-msgid "_Search for Contacts…"
-msgstr "_Поиск собеседников…"
+#: ../src/empathy-roster-window-menubar.ui.h:24
+msgid "_Join…"
+msgstr "_Войти…"
+
+#: ../src/empathy-roster-window-menubar.ui.h:25
+msgid "Join _Favorites"
+msgstr "П_одключить избранные"
+
+#: ../src/empathy-roster-window-menubar.ui.h:26
+msgid "Manage Favorites"
+msgstr "Настроить избранные"
 
 #: ../src/empathy-new-chatroom-dialog.c:369
 msgid "Chat Room"
@@ -4019,7 +4060,7 @@ msgstr "Участники"
 
 #. Translators: Room/Join's roomlist tooltip. Parameters are a channel name,
 #. yes/no, yes/no and a number.
-#: ../src/empathy-new-chatroom-dialog.c:623
+#: ../src/empathy-new-chatroom-dialog.c:637
 #, c-format
 msgid ""
 "%s\n"
@@ -4032,42 +4073,42 @@ msgstr ""
 "Требуется пароль: %s\n"
 "Участники: %s"
 
-#: ../src/empathy-new-chatroom-dialog.c:625
-#: ../src/empathy-new-chatroom-dialog.c:626
+#: ../src/empathy-new-chatroom-dialog.c:639
+#: ../src/empathy-new-chatroom-dialog.c:640
 msgid "No"
 msgstr "Нет"
 
-#: ../src/empathy-new-chatroom-dialog.c:654
+#: ../src/empathy-new-chatroom-dialog.c:668
 msgid "Could not start room listing"
 msgstr "Не удалось начать формирование списка комнат"
 
-#: ../src/empathy-new-chatroom-dialog.c:664
+#: ../src/empathy-new-chatroom-dialog.c:678
 msgid "Could not stop room listing"
 msgstr "Не удалось остановить формирование списка комнат"
 
-#: ../src/empathy-new-chatroom-dialog.ui.h:2
-msgid "Couldn't load room list"
-msgstr "Не удалось загрузить список комнат"
+#: ../src/empathy-new-chatroom-dialog.ui.h:1
+msgid "Join Room"
+msgstr "Войти в комнату"
 
 #: ../src/empathy-new-chatroom-dialog.ui.h:3
 msgid "Enter the room name to join here or click on one or more rooms in the list."
 msgstr "Введите имя беседы, к которой хотите присоединиться, или выберите одну (или более) в списке."
 
 #: ../src/empathy-new-chatroom-dialog.ui.h:4
+msgid "_Room:"
+msgstr "_Комната:"
+
+#: ../src/empathy-new-chatroom-dialog.ui.h:5
 msgid "Enter the server which hosts the room, or leave it empty if the room is on the current account's server"
 msgstr "Введите сервер беседы, или оставьте пустым, если беседа находится на сервере текущей учётной записи"
 
-#: ../src/empathy-new-chatroom-dialog.ui.h:5
-msgid "Join Room"
-msgstr "Войти в комнату"
+#: ../src/empathy-new-chatroom-dialog.ui.h:8
+msgid "Couldn't load room list"
+msgstr "Не удалось загрузить список комнат"
 
-#: ../src/empathy-new-chatroom-dialog.ui.h:6
+#: ../src/empathy-new-chatroom-dialog.ui.h:9
 msgid "Room List"
 msgstr "Список комнат"
-
-#: ../src/empathy-new-chatroom-dialog.ui.h:8
-msgid "_Room:"
-msgstr "_Комната:"
 
 #: ../src/empathy-preferences.c:166
 msgid "Message received"
@@ -4082,7 +4123,8 @@ msgid "New conversation"
 msgstr "Новая беседа"
 
 #: ../src/empathy-preferences.c:169
-msgid "Contact goes online"
+#| msgid "Contact goes online"
+msgid "Contact comes online"
 msgstr "Собеседник вошёл в сеть"
 
 #: ../src/empathy-preferences.c:170
@@ -4102,245 +4144,253 @@ msgid "Language"
 msgstr "Язык"
 
 #. translators: Contact name for the chat theme preview
-#: ../src/empathy-preferences.c:725
+#: ../src/empathy-preferences.c:726
 msgid "Juliet"
 msgstr "Джульета"
 
 #. translators: Contact name for the chat theme preview
-#: ../src/empathy-preferences.c:732
+#: ../src/empathy-preferences.c:733
 msgid "Romeo"
 msgstr "Ромео"
 
 #. translators: Quote from Romeo & Julier, for chat theme preview
-#: ../src/empathy-preferences.c:738
+#: ../src/empathy-preferences.c:739
 msgid "O Romeo, Romeo, wherefore art thou Romeo?"
 msgstr "Ромео, о зачем же ты Ромео!"
 
 #. translators: Quote from Romeo & Julier, for chat theme preview
-#: ../src/empathy-preferences.c:741
+#: ../src/empathy-preferences.c:743
 msgid "Deny thy father and refuse thy name;"
 msgstr "Покинь отца и отрекись навеки"
 
 #. translators: Quote from Romeo & Julier, for chat theme preview
-#: ../src/empathy-preferences.c:744
+#: ../src/empathy-preferences.c:746
 msgid "Or if thou wilt not, be but sworn my love"
 msgstr "От имени родного, а не хочешь —"
 
 #. translators: Quote from Romeo & Julier, for chat theme preview
-#: ../src/empathy-preferences.c:747
+#: ../src/empathy-preferences.c:749
 msgid "And I'll no longer be a Capulet."
 msgstr "Так поклянись, что любишь ты меня, —"
 
 #. translators: Quote from Romeo & Julier, for chat theme preview
-#: ../src/empathy-preferences.c:750
+#: ../src/empathy-preferences.c:752
 msgid "Shall I hear more, or shall I speak at this?"
 msgstr "И больше я не буду Капулетти."
 
 #. translators: Quote from Romeo & Julier, for chat theme preview
-#: ../src/empathy-preferences.c:753
+#: ../src/empathy-preferences.c:755
 msgid "Juliet has disconnected"
 msgstr "Джульета отключилась"
 
-#: ../src/empathy-preferences.c:1157
+#: ../src/empathy-preferences.c:1159
 msgid "Preferences"
 msgstr "Параметры"
 
 #: ../src/empathy-preferences.ui.h:1
-msgid "Appearance"
-msgstr "Внешний вид"
-
-#: ../src/empathy-preferences.ui.h:3
-msgid "Behavior"
-msgstr "Поведение"
-
-#: ../src/empathy-preferences.ui.h:5
-msgid "Chat Th_eme:"
-msgstr "_Тема оформления беседы:"
-
-#: ../src/empathy-preferences.ui.h:6
-msgid "Disable notifications when _away or busy"
-msgstr "В_ыключить уведомления в состоянии «отсутствует» или «не беспокоить»"
-
-#: ../src/empathy-preferences.ui.h:7
-msgid "Disable sounds when _away or busy"
-msgstr "В_ыключить звуки в состоянии «отсутствует» или «не беспокоить»"
-
-#: ../src/empathy-preferences.ui.h:8
-msgid "Display incoming events in the notification area"
-msgstr "Показывать приближающиеся события в области уведомлений"
-
-#: ../src/empathy-preferences.ui.h:9
-msgid "Echo cancellation helps to make your voice sound clearer to the other person, but may cause problems on some computers. If you or the other person hear strange noises or glitches during calls, try turning echo cancellation off and restarting the call."
-msgstr "Подавление эха позволяет сделать передачу вашего голоса чище, но это может вызывать проблемы на некоторых компьютерах. Если вы или ваш собеседник слышите странные шумы или сбои во время разговора, попробуйте выключить подавление эха и повторить вызов собеседника."
-
-#: ../src/empathy-preferences.ui.h:10
-msgid "Enable notifications when a contact comes online"
-msgstr "Включить уведомления, когда собеседник появляется в сети"
-
-#: ../src/empathy-preferences.ui.h:11
-msgid "Enable notifications when a contact goes offline"
-msgstr "Включить уведомления, когда собеседник выходит из сети"
-
-#: ../src/empathy-preferences.ui.h:12
-msgid "Enable notifications when the _chat is not focused"
-msgstr "Включить уведомления, когда _беседа не в фокусе"
-
-#: ../src/empathy-preferences.ui.h:13
-msgid "Enable spell checking for languages:"
-msgstr "Включить проверку орфографии для языков:"
-
-#: ../src/empathy-preferences.ui.h:14
-msgid "General"
-msgstr "Общие"
-
-#: ../src/empathy-preferences.ui.h:16
-msgid "Location sources:"
-msgstr "Источники местоположений:"
-
-#: ../src/empathy-preferences.ui.h:17
-msgid "Log conversations"
-msgstr "Вести журнал бесед"
-
-#: ../src/empathy-preferences.ui.h:18
-msgid "Notifications"
-msgstr "Уведомления"
-
-#: ../src/empathy-preferences.ui.h:19
-msgid "Play sound for events"
-msgstr "Воспроизводить звук для событий"
-
-#: ../src/empathy-preferences.ui.h:20
-msgid "Privacy"
-msgstr "Приватность"
-
-#: ../src/empathy-preferences.ui.h:21
-msgid "Reduced location accuracy means that nothing more precise than your city, state and country will be published.  GPS coordinates will be accurate to 1 decimal place."
-msgstr "Примерное определение местоположения означает, что публикуется только ваш город, регион и страна. Координаты GPS будут отображаться с точностью до 1 знака после запятой."
-
-#: ../src/empathy-preferences.ui.h:22
 msgid "Show _smileys as images"
 msgstr "Показывать _графические улыбки"
 
-#: ../src/empathy-preferences.ui.h:23
+#: ../src/empathy-preferences.ui.h:2
 msgid "Show contact _list in rooms"
 msgstr "Показывать _список собеседников в комнатах"
 
-#: ../src/empathy-preferences.ui.h:24
-msgid "Sounds"
-msgstr "Звуки"
+#: ../src/empathy-preferences.ui.h:3
+msgid "Appearance"
+msgstr "Внешний вид"
 
-#: ../src/empathy-preferences.ui.h:25
-msgid "Spell Checking"
-msgstr "Проверка орфографии"
+#: ../src/empathy-preferences.ui.h:4
+msgid "Start chats in:"
+msgstr ""
 
-#: ../src/empathy-preferences.ui.h:26
-msgid "The list of languages reflects only the languages for which you have a dictionary installed."
-msgstr "В этом списке показаны только те языки, для которых установлены словари."
+#: ../src/empathy-preferences.ui.h:5
+msgid "new ta_bs"
+msgstr ""
 
-#: ../src/empathy-preferences.ui.h:27
-msgid "Themes"
-msgstr "Темы"
+#: ../src/empathy-preferences.ui.h:6
+msgid "new _windows"
+msgstr ""
 
-#: ../src/empathy-preferences.ui.h:28
-msgid "Use _echo cancellation to improve call quality"
-msgstr "Использовать подавление _эха для улучшения качества связи"
+#: ../src/empathy-preferences.ui.h:7
+msgid "Display incoming events in the notification area"
+msgstr "Показывать приближающиеся события в области уведомлений"
 
-#: ../src/empathy-preferences.ui.h:29
-msgid "Variant:"
-msgstr "Вариант:"
-
-#: ../src/empathy-preferences.ui.h:30
+#: ../src/empathy-preferences.ui.h:8
 msgid "_Automatically connect on startup"
 msgstr "_Автоматически соединяться при запуске"
 
-#: ../src/empathy-preferences.ui.h:31
-msgid "_Cellphone"
-msgstr "С_отовая сеть"
+#: ../src/empathy-preferences.ui.h:9
+msgid "Log conversations"
+msgstr "Вести журнал бесед"
 
-#: ../src/empathy-preferences.ui.h:32
+#: ../src/empathy-preferences.ui.h:10
+msgid "Behavior"
+msgstr "Поведение"
+
+#: ../src/empathy-preferences.ui.h:11
+msgid "General"
+msgstr "Общие"
+
+#: ../src/empathy-preferences.ui.h:12
 msgid "_Enable bubble notifications"
 msgstr "Включить _всплывающие уведомления"
 
-#: ../src/empathy-preferences.ui.h:33
+#: ../src/empathy-preferences.ui.h:13
+msgid "Disable notifications when _away or busy"
+msgstr "В_ыключить уведомления в состоянии «отсутствует» или «не беспокоить»"
+
+#: ../src/empathy-preferences.ui.h:14
+msgid "Enable notifications when the _chat is not focused"
+msgstr "Включить уведомления, когда _беседа не в фокусе"
+
+#: ../src/empathy-preferences.ui.h:15
+msgid "Enable notifications when a contact comes online"
+msgstr "Включить уведомления, когда собеседник появляется в сети"
+
+#: ../src/empathy-preferences.ui.h:16
+msgid "Enable notifications when a contact goes offline"
+msgstr "Включить уведомления, когда собеседник выходит из сети"
+
+#: ../src/empathy-preferences.ui.h:17
+msgid "Notifications"
+msgstr "Уведомления"
+
+#: ../src/empathy-preferences.ui.h:18
 msgid "_Enable sound notifications"
 msgstr "_Включить звуковые уведомления"
 
-#: ../src/empathy-preferences.ui.h:34
-msgid "_GPS"
-msgstr "_GPS"
+#: ../src/empathy-preferences.ui.h:19
+msgid "Disable sounds when _away or busy"
+msgstr "В_ыключить звуки в состоянии «отсутствует» или «не беспокоить»"
 
-#: ../src/empathy-preferences.ui.h:35
-msgid "_Network (IP, Wi-Fi)"
-msgstr "С_еть (IP, Wi-Fi)"
+#: ../src/empathy-preferences.ui.h:20
+msgid "Play sound for events"
+msgstr "Воспроизводить звук для событий"
 
-#: ../src/empathy-preferences.ui.h:36
-msgid "_Open new chats in separate windows"
-msgstr "_Открывать новые беседы в отдельном окне"
+#: ../src/empathy-preferences.ui.h:21
+msgid "Sounds"
+msgstr "Звуки"
 
-#: ../src/empathy-preferences.ui.h:37
+#: ../src/empathy-preferences.ui.h:22
+msgid "Use _echo cancellation to improve call quality"
+msgstr "Использовать подавление _эха для улучшения качества связи"
+
+#: ../src/empathy-preferences.ui.h:23
+msgid "Echo cancellation helps to make your voice sound clearer to the other person, but may cause problems on some computers. If you or the other person hear strange noises or glitches during calls, try turning echo cancellation off and restarting the call."
+msgstr "Подавление эха позволяет сделать передачу вашего голоса чище, но это может вызывать проблемы на некоторых компьютерах. Если вы или ваш собеседник слышите странные шумы или сбои во время разговора, попробуйте выключить подавление эха и повторить вызов собеседника."
+
+#: ../src/empathy-preferences.ui.h:26
 msgid "_Publish location to my contacts"
 msgstr "Пу_бликовать местоположение для собеседников"
 
+#: ../src/empathy-preferences.ui.h:27
+msgid "Reduced location accuracy means that nothing more precise than your city, state and country will be published.  GPS coordinates will be accurate to 1 decimal place."
+msgstr "Примерное определение местоположения означает, что публикуется только ваш город, регион и страна. Координаты GPS будут отображаться с точностью до 1 знака после запятой."
+
 #. To translators: The longitude and latitude are rounded to closest 0,1 degrees, so for example 146,2345° is rounded to round(146,2345*10)/10 = 146,2 degrees.
-#: ../src/empathy-preferences.ui.h:39
+#: ../src/empathy-preferences.ui.h:29
 msgid "_Reduce location accuracy"
 msgstr "_Снижать точность определения местоположения"
 
-#: ../src/empathy-status-icon.ui.h:2
+#: ../src/empathy-preferences.ui.h:30
+msgid "Privacy"
+msgstr "Приватность"
+
+#: ../src/empathy-preferences.ui.h:31
+msgid "_GPS"
+msgstr "_GPS"
+
+#: ../src/empathy-preferences.ui.h:32
+msgid "_Cellphone"
+msgstr "С_отовая сеть"
+
+#: ../src/empathy-preferences.ui.h:33
+msgid "_Network (IP, Wi-Fi)"
+msgstr "С_еть (IP, Wi-Fi)"
+
+#: ../src/empathy-preferences.ui.h:34
+msgid "Location sources:"
+msgstr "Источники местоположений:"
+
+#: ../src/empathy-preferences.ui.h:36
+msgid "The list of languages reflects only the languages for which you have a dictionary installed."
+msgstr "В этом списке показаны только те языки, для которых установлены словари."
+
+#: ../src/empathy-preferences.ui.h:37
+msgid "Enable spell checking for languages:"
+msgstr "Включить проверку орфографии для языков:"
+
+#: ../src/empathy-preferences.ui.h:38
+msgid "Spell Checking"
+msgstr "Проверка орфографии"
+
+#: ../src/empathy-preferences.ui.h:39
+msgid "Chat Th_eme:"
+msgstr "_Тема оформления беседы:"
+
+#: ../src/empathy-preferences.ui.h:40
+msgid "Variant:"
+msgstr "Вариант:"
+
+#: ../src/empathy-preferences.ui.h:41
+msgid "Themes"
+msgstr "Темы"
+
+#: ../src/empathy-status-icon.ui.h:4
 msgid "Status"
 msgstr "Состояние"
 
-#: ../src/empathy-status-icon.ui.h:4
+#: ../src/empathy-status-icon.ui.h:5
 msgid "_Quit"
 msgstr "В_ыход"
 
-#: ../src/empathy-streamed-media-window.ui.h:2
-msgid "Call the contact again"
-msgstr "Перезвонить собеседнику"
-
 #: ../src/empathy-streamed-media-window.ui.h:3
-msgid "Camera Off"
-msgstr "Камера выключена"
-
-#: ../src/empathy-streamed-media-window.ui.h:4
-msgid "Camera On"
-msgstr "Камера включена"
-
-#: ../src/empathy-streamed-media-window.ui.h:6
-msgid "Disable camera and stop sending video"
-msgstr "Выключить камеру и остановить отправку видео"
-
-#: ../src/empathy-streamed-media-window.ui.h:7
-msgid "Enable camera and send video"
-msgstr "Включить камеру и отправить видео"
-
-#: ../src/empathy-streamed-media-window.ui.h:8
-msgid "Enable camera but don't send video"
-msgstr "Включить камеру, но не отправлять видео"
-
-#: ../src/empathy-streamed-media-window.ui.h:13
-msgid "Preview"
-msgstr "Предварительный просмотр"
-
-#: ../src/empathy-streamed-media-window.ui.h:14
 msgid "Redial"
 msgstr "Перезвонить"
 
-#: ../src/empathy-streamed-media-window.ui.h:19
+#: ../src/empathy-streamed-media-window.ui.h:4
 msgid "V_ideo"
 msgstr "В_идео"
 
-#: ../src/empathy-streamed-media-window.ui.h:21
+#: ../src/empathy-streamed-media-window.ui.h:5
 msgid "Video Off"
 msgstr "Видео выключено"
 
-#: ../src/empathy-streamed-media-window.ui.h:22
+#: ../src/empathy-streamed-media-window.ui.h:6
+msgid "Video Preview"
+msgstr "Предварительный просмотр видео"
+
+#: ../src/empathy-streamed-media-window.ui.h:7
 msgid "Video On"
 msgstr "Видео включено"
 
-#: ../src/empathy-streamed-media-window.ui.h:23
-msgid "Video Preview"
-msgstr "Предварительный просмотр видео"
+#: ../src/empathy-streamed-media-window.ui.h:10
+msgid "Call the contact again"
+msgstr "Перезвонить собеседнику"
+
+#: ../src/empathy-streamed-media-window.ui.h:13
+msgid "Camera Off"
+msgstr "Камера выключена"
+
+#: ../src/empathy-streamed-media-window.ui.h:14
+msgid "Disable camera and stop sending video"
+msgstr "Выключить камеру и остановить отправку видео"
+
+#: ../src/empathy-streamed-media-window.ui.h:15
+msgid "Preview"
+msgstr "Предварительный просмотр"
+
+#: ../src/empathy-streamed-media-window.ui.h:16
+msgid "Enable camera but don't send video"
+msgstr "Включить камеру, но не отправлять видео"
+
+#: ../src/empathy-streamed-media-window.ui.h:17
+msgid "Camera On"
+msgstr "Камера включена"
+
+#: ../src/empathy-streamed-media-window.ui.h:18
+msgid "Enable camera and send video"
+msgstr "Включить камеру и отправить видео"
 
 #: ../src/empathy-map-view.c:471
 msgid "Contact Map View"
@@ -4469,13 +4519,13 @@ msgid "Respond"
 msgstr "Ответить"
 
 #: ../src/empathy-notifications-approver.c:204
-#: ../src/empathy-call-window.c:1565
+#: ../src/empathy-call-window.c:1572
 msgid "Reject"
 msgstr "Отказать"
 
 #: ../src/empathy-notifications-approver.c:209
 #: ../src/empathy-notifications-approver.c:214
-#: ../src/empathy-call-window.c:1566
+#: ../src/empathy-call-window.c:1573
 msgid "Answer"
 msgstr "Ответить"
 
@@ -4507,39 +4557,39 @@ msgstr "Собеседник %s попытался до вас дозвонит�
 
 #. Translators: this is an "Info" label. It should be as short
 #. * as possible.
-#: ../src/empathy-call-window.c:1172
-#: ../src/empathy-call-window.c:1195
+#: ../src/empathy-call-window.c:1179
+#: ../src/empathy-call-window.c:1202
 msgid "i"
 msgstr "Инфо"
 
-#: ../src/empathy-call-window.c:2929
+#: ../src/empathy-call-window.c:2936
 msgid "On hold"
 msgstr "Удержание"
 
-#: ../src/empathy-call-window.c:2932
+#: ../src/empathy-call-window.c:2939
 msgid "Mute"
 msgstr "Приглушить"
 
-#: ../src/empathy-call-window.c:2934
+#: ../src/empathy-call-window.c:2941
 msgid "Duration"
 msgstr "Длительность"
 
 #. Translators: 'status - minutes:seconds' the caller has been connected
-#: ../src/empathy-call-window.c:2937
+#: ../src/empathy-call-window.c:2944
 #, c-format
 msgid "%s — %d:%02dm"
 msgstr "%s — %d:%02dm"
 
-#: ../src/empathy-call-window.c:3207
+#: ../src/empathy-call-window.c:3214
 #, c-format
 msgid "Your current balance is %s."
 msgstr "Текущий баланс: %s."
 
-#: ../src/empathy-call-window.c:3211
+#: ../src/empathy-call-window.c:3218
 msgid "Sorry, you don’t have enough credit for that call."
 msgstr "Недостаточно средств для совершения звонка."
 
-#: ../src/empathy-call-window.c:3213
+#: ../src/empathy-call-window.c:3220
 msgid "Top Up"
 msgstr "Пополнить"
 
@@ -4548,9 +4598,61 @@ msgid "_Match case"
 msgstr "_Учитывать регистр"
 
 #: ../libempathy-gtk/empathy-new-account-dialog.c:166
-#| msgid "New account"
 msgid "Adding new account"
 msgstr "Добавление учётной записи"
+
+#~ msgid "Personal Information"
+#~ msgstr "Личная информация"
+
+#~ msgid "Linked Contacts"
+#~ msgstr "Объединённые контакты"
+
+#~ msgid "Select contacts to link"
+#~ msgstr "Выбрать контакты для связи"
+
+#~ msgid "New contact preview"
+#~ msgstr "Предпросмотр нового собеседника"
+
+#~ msgid "Contacts selected in the list on the left will be linked together."
+#~ msgstr "Контакты, выбранные в списке слева, будут объединены."
+#~ msgctxt "Link individual (contextual menu)"
+
+#~ msgid "_Link Contacts…"
+#~ msgstr "_Объединить контакты…"
+
+#~ msgid "Link Contacts"
+#~ msgstr "Связь с собеседниками"
+#~ msgctxt "Unlink individual (button)"
+
+#~ msgid "_Unlink…"
+#~ msgstr "_Разъединить…"
+
+#~ msgid ""
+#~ "Completely split the displayed linked contacts into the separate contacts."
+#~ msgstr "Полностью разъединить связанные контакты на отдельные контакты."
+
+#~ msgid "_Link"
+#~ msgstr "_Связь"
+
+#~ msgid "Unlink linked contacts '%s'?"
+#~ msgstr "Разъединить контакты «%s»?"
+
+#~ msgid ""
+#~ "Are you sure you want to unlink these linked contacts? This will "
+#~ "completely split the linked contacts into separate contacts."
+#~ msgstr ""
+#~ "Действительно разъединить эти связанные контакты? Это полностью разделит "
+#~ "связанные контакты на отдельные контакты."
+#~ msgctxt "Unlink individual (button)"
+
+#~ msgid "_Unlink"
+#~ msgstr "_Разъединить"
+
+#~ msgid "_Personal Information"
+#~ msgstr "_Личная информация"
+
+#~ msgid "_Open new chats in separate windows"
+#~ msgstr "_Открывать новые беседы в отдельном окне"
 
 #~ msgid "My Web Accounts"
 #~ msgstr "Мои сетевые учётные записи"
