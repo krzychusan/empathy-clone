@@ -25,6 +25,8 @@
 #ifndef __EMPATHY_IMPORT_DIALOG_H__
 #define __EMPATHY_IMPORT_DIALOG_H__
 
+#include <libempathy/empathy-connection-managers.h>
+
 G_BEGIN_DECLS
 
 #define EMPATHY_TYPE_IMPORT_DIALOG empathy_import_dialog_get_type()
@@ -56,7 +58,8 @@ typedef struct {
 GType empathy_import_dialog_get_type (void);
 
 GtkWidget* empathy_import_dialog_new (GtkWindow *parent_window,
-    gboolean show_warning);
+    gboolean show_warning,
+    EmpathyConnectionManagers *cms);
 
 G_END_DECLS
 

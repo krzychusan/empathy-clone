@@ -55,7 +55,8 @@ enum
 };
 
 enum {
-  PROP_APPLICATION_ID = 1
+  PROP_APPLICATION_ID = 1,
+  PROP_CMS
 };
 
 typedef struct {
@@ -359,20 +360,6 @@ import_widget_set_up_account_list (EmpathyImportWidget *self)
 }
 
 static void
-import_widget_cms_prepare_cb (GObject *source,
-    GAsyncResult *result,
-    gpointer user_data)
-{
-  EmpathyImportWidget *self = user_data;
-
-  if (!empathy_connection_managers_prepare_finish (
-        EMPATHY_CONNECTION_MANAGERS (source), result, NULL))
-    return;
-
-  import_widget_set_up_account_list (self);
-}
-
-static void
 import_widget_destroy_cb (GtkWidget *w,
     EmpathyImportWidget *self)
 {
@@ -392,6 +379,9 @@ do_get_property (GObject *object,
     case PROP_APPLICATION_ID:
       g_value_set_int (value, priv->app_id);
       break;
+    case PROP_CMS:
+      g_value_set_object (value, priv->cms);
+      break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
     }
@@ -409,6 +399,9 @@ do_set_property (GObject *object,
     {
     case PROP_APPLICATION_ID:
       priv->app_id = g_value_get_int (value);
+      break;
+    case PROP_CMS:
+      priv->cms = g_value_dup_object (value);
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -468,8 +461,7 @@ do_constructed (GObject *obj)
   g_signal_connect (priv->vbox, "destroy",
       G_CALLBACK (import_widget_destroy_cb), self);
 
-  empathy_connection_managers_prepare_async (priv->cms,
-      import_widget_cms_prepare_cb, self);
+  import_widget_set_up_account_list (self);
 }
 
 static void
@@ -490,6 +482,12 @@ empathy_import_widget_class_init (EmpathyImportWidgetClass *klass)
       G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS | G_PARAM_CONSTRUCT_ONLY);
   g_object_class_install_property (oclass, PROP_APPLICATION_ID, param_spec);
 
+  param_spec = g_param_spec_object ("cms",
+      "EmpathyConnectionManagers", "EmpathyConnectionManager",
+      EMPATHY_TYPE_CONNECTION_MANAGERS,
+      G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS | G_PARAM_CONSTRUCT_ONLY);
+  g_object_class_install_property (oclass, PROP_CMS, param_spec);
+
   g_type_class_add_private (klass, sizeof (EmpathyImportWidgetPriv));
 }
 
@@ -501,14 +499,18 @@ empathy_import_widget_init (EmpathyImportWidget *self)
         EmpathyImportWidgetPriv);
 
   self->priv = priv;
-
-  priv->cms = empathy_connection_managers_dup_singleton ();
 }
 
 EmpathyImportWidget *
-empathy_import_widget_new (EmpathyImportApplication id)
+empathy_import_widget_new (EmpathyImportApplication id,
+    EmpathyConnectionManagers *cms)
 {
-  return g_object_new (EMPATHY_TYPE_IMPORT_WIDGET, "application-id", id, NULL);
+  g_return_val_if_fail (EMPATHY_IS_CONNECTION_MANAGERS (cms), NULL);
+
+  return g_object_new (EMPATHY_TYPE_IMPORT_WIDGET,
+      "application-id", id,
+      "cms", cms,
+      NULL);
 }
 
 GtkWidget *

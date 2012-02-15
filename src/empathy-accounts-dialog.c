@@ -2010,10 +2010,11 @@ accounts_dialog_account_enabled_cb (TpAccountManager *manager,
 static GtkWidget *
 display_import_dialog (EmpathyAccountsDialog *dialog)
 {
+  EmpathyAccountsDialogPriv *priv = GET_PRIV (dialog);
   GtkWidget *import_dialog;
 
   import_dialog = empathy_import_dialog_new (GTK_WINDOW (dialog),
-      FALSE);
+      FALSE, priv->cms);
   gtk_widget_show (import_dialog);
 
   return import_dialog;

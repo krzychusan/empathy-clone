@@ -27,6 +27,8 @@
 
 #include <glib-object.h>
 
+#include <libempathy/empathy-connection-managers.h>
+
 #include "empathy-import-utils.h"
 
 G_BEGIN_DECLS
@@ -59,7 +61,8 @@ typedef struct {
 
 GType empathy_import_widget_get_type (void);
 
-EmpathyImportWidget* empathy_import_widget_new (EmpathyImportApplication id);
+EmpathyImportWidget* empathy_import_widget_new (EmpathyImportApplication id,
+    EmpathyConnectionManagers *cms);
 
 GtkWidget * empathy_import_widget_get_widget (EmpathyImportWidget *self);
 

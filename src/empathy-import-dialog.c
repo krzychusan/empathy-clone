@@ -39,7 +39,8 @@
 
 enum {
   PROP_PARENT = 1,
-  PROP_SHOW_WARNING
+  PROP_SHOW_WARNING,
+  PROP_CMS,
 };
 
 typedef struct {
@@ -48,6 +49,7 @@ typedef struct {
   EmpathyImportWidget *iw;
 
   gboolean show_warning;
+  EmpathyConnectionManagers *cms;
 } EmpathyImportDialogPriv;
 
 G_DEFINE_TYPE (EmpathyImportDialog, empathy_import_dialog, GTK_TYPE_DIALOG)
@@ -62,7 +64,7 @@ import_dialog_add_import_widget (EmpathyImportDialog *self)
 
   area = gtk_dialog_get_content_area (GTK_DIALOG (self));
 
-  iw = empathy_import_widget_new (EMPATHY_IMPORT_APPLICATION_ALL);
+  iw = empathy_import_widget_new (EMPATHY_IMPORT_APPLICATION_ALL, priv->cms);
   widget = empathy_import_widget_get_widget (iw);
   gtk_box_pack_start (GTK_BOX (area), widget, FALSE, FALSE, 0);
   gtk_widget_show (widget);
@@ -134,6 +136,9 @@ do_get_property (GObject *object,
     case PROP_SHOW_WARNING:
       g_value_set_boolean (value, priv->show_warning);
       break;
+    case PROP_CMS:
+      g_value_set_object (value, priv->cms);
+      break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
     }
@@ -154,6 +159,9 @@ do_set_property (GObject *object,
       break;
     case PROP_SHOW_WARNING:
       priv->show_warning = g_value_get_boolean (value);
+      break;
+    case PROP_CMS:
+      priv->cms = g_value_dup_object (value);
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -199,6 +207,15 @@ empathy_import_dialog_init (EmpathyImportDialog *self)
   gtk_window_set_title (GTK_WINDOW (self), _("Import Accounts"));
   gtk_window_set_modal (GTK_WINDOW (self), TRUE);
 }
+static void
+do_dispose (GObject *obj)
+{
+  EmpathyImportDialogPriv *priv = GET_PRIV (obj);
+
+  g_clear_object (&priv->cms);
+
+  G_OBJECT_CLASS (empathy_import_dialog_parent_class)->dispose (obj);
+}
 
 static void
 empathy_import_dialog_class_init (EmpathyImportDialogClass *klass)
@@ -210,6 +227,7 @@ empathy_import_dialog_class_init (EmpathyImportDialogClass *klass)
   oclass->constructed = do_constructed;
   oclass->get_property = do_get_property;
   oclass->set_property = do_set_property;
+  oclass->dispose = do_dispose;
 
   gtkclass->response = impl_signal_response;
 
@@ -226,13 +244,25 @@ empathy_import_dialog_class_init (EmpathyImportDialogClass *klass)
       G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS | G_PARAM_CONSTRUCT_ONLY);
   g_object_class_install_property (oclass, PROP_SHOW_WARNING, param_spec);
 
+  param_spec = g_param_spec_object ("cms",
+      "EmpathyConnectionManagers", "EmpathyConnectionManager",
+      EMPATHY_TYPE_CONNECTION_MANAGERS,
+      G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS | G_PARAM_CONSTRUCT_ONLY);
+  g_object_class_install_property (oclass, PROP_CMS, param_spec);
+
   g_type_class_add_private (klass, sizeof (EmpathyImportDialogPriv));
 }
 
 GtkWidget *
 empathy_import_dialog_new (GtkWindow *parent,
-    gboolean warning)
+    gboolean warning,
+    EmpathyConnectionManagers *cms)
 {
-  return g_object_new (EMPATHY_TYPE_IMPORT_DIALOG, "parent-window",
-      parent, "show-warning", warning, NULL);
+  g_return_val_if_fail (EMPATHY_IS_CONNECTION_MANAGERS (cms), NULL);
+
+  return g_object_new (EMPATHY_TYPE_IMPORT_DIALOG,
+      "parent-window", parent,
+      "show-warning", warning,
+      "cms", cms,
+      NULL);
 }

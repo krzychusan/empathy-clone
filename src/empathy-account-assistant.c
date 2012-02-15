@@ -737,7 +737,8 @@ account_assistant_build_import_page (EmpathyAccountAssistant *self)
   gtk_widget_show (w);
 
   /* NOTE: this is hardcoded as we support pidgin only */
-  iw = empathy_import_widget_new (EMPATHY_IMPORT_APPLICATION_PIDGIN);
+  iw = empathy_import_widget_new (EMPATHY_IMPORT_APPLICATION_PIDGIN,
+      priv->connection_mgrs);
   import = empathy_import_widget_get_widget (iw);
   gtk_container_add (GTK_CONTAINER (w), import);
   gtk_widget_show (import);
