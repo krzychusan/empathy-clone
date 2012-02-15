@@ -1857,6 +1857,7 @@ accounts_dialog_add_account (EmpathyAccountsDialog *dialog,
   const gchar        *name;
   EmpathyAccountsDialogPriv *priv = GET_PRIV (dialog);
   gboolean selected = FALSE;
+  GtkTreeSelection *selection;
 
   model = gtk_tree_view_get_model (GTK_TREE_VIEW (priv->treeview));
   status = tp_account_get_connection_status (account, NULL);
@@ -1864,15 +1865,18 @@ accounts_dialog_add_account (EmpathyAccountsDialog *dialog,
 
   settings = empathy_account_settings_new_for_account (account);
 
+  selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (priv->treeview));
+
   if (!accounts_dialog_get_account_iter (dialog, account, &iter))
     {
+      /* Select the account if it's the first added */
+      if (gtk_tree_selection_count_selected_rows (selection) == 0)
+        selected = TRUE;
+
       gtk_list_store_append (GTK_LIST_STORE (model), &iter);
     }
   else
     {
-      GtkTreeSelection *selection;
-
-      selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (priv->treeview));
       selected = gtk_tree_selection_iter_is_selected (selection, &iter);
     }
 
