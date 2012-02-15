@@ -112,31 +112,6 @@
             <property name="visible">True</property>
             <property name="spacing">18</property>
             <child>
-              <object class="GtkHBox" id="hbox_protocol">
-                <property name="visible">True</property>
-                <property name="spacing">6</property>
-                <child>
-                  <object class="GtkLabel" id="label_protocol">
-                    <property name="visible">True</property>
-                    <property name="label" translatable="yes">Protocol:</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
               <object class="GtkVBox" id="vbox_details">
                 <property name="visible">True</property>
                 <property name="spacing">18</property>

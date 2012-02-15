@@ -99,8 +99,6 @@ typedef struct {
   GtkWidget *button_remove;
   GtkWidget *button_import;
 
-  GtkWidget *hbox_protocol;
-
   GtkWidget *image_type;
   GtkWidget *label_name;
   GtkWidget *label_type;
@@ -995,7 +993,6 @@ accounts_dialog_update_settings (EmpathyAccountsDialog *dialog,
    * one for the account selected */
   gtk_widget_hide (priv->frame_no_protocol);
   gtk_widget_show (priv->vbox_details);
-  gtk_widget_hide (priv->hbox_protocol);
 
   if (priv->dialog_content)
     {
@@ -2220,7 +2217,6 @@ accounts_dialog_build_ui (EmpathyAccountsDialog *dialog)
       "button_add", &priv->button_add,
       "button_remove", &priv->button_remove,
       "button_import", &priv->button_import,
-      "hbox_protocol", &priv->hbox_protocol,
       "notebook_account", &priv->notebook_account,
       "alignment_loading", &alig,
       "accounts_sw", &sw,
