@@ -983,15 +983,6 @@ accounts_dialog_update_settings (EmpathyAccountsDialog *dialog,
 
           return;
         }
-      if (empathy_connection_managers_get_cms_num (priv->cms) > 0)
-        {
-          /* We have no account configured but we have some
-           * profiles installed. The user obviously wants to add
-           * an account. Click on the Add button for him. */
-          accounts_dialog_button_add_clicked_cb (priv->button_add,
-              dialog);
-          return;
-        }
 
       /* No account and no profile, warn the user */
       gtk_widget_hide (priv->vbox_details);
