@@ -2,8 +2,8 @@
 # Please keep this file sorted alphabetically.
 
 data/empathy.desktop.in.in
-data/org.gnome.Empathy.gschema.xml.in
 data/empathy-accounts.desktop.in.in
+data/org.gnome.Empathy.gschema.xml.in
 
 libempathy/empathy-ft-handler.c
 libempathy/empathy-message.c
@@ -74,11 +74,9 @@ nautilus-sendto-plugin/empathy-nautilus-sendto.c
 
 src/empathy.c
 src/empathy-about-dialog.c
-src/empathy-account-assistant.c
 src/empathy-accounts-dialog.c
 [type: gettext/glade]src/empathy-accounts-dialog.ui
 src/empathy-auth-client.c
-src/empathy-auto-salut-account-helper.c
 src/empathy-av.c
 src/empathy-streamed-media-window.c
 [type: gettext/glade]src/empathy-call-window.ui
