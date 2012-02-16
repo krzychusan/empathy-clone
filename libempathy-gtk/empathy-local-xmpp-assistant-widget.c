@@ -146,17 +146,11 @@ empathy_local_xmpp_assistant_widget_constructed (GObject *object)
 
   gtk_container_set_border_width (GTK_CONTAINER (self), 12);
 
-  w = gtk_label_new (NULL);
-  markup = g_strdup_printf ("%s (<span style=\"italic\">%s</span>).",
+  w = gtk_label_new (
       _("Empathy can automatically discover and chat with the people "
         "connected on the same network as you. "
         "If you want to use this feature, please check that the "
-        "details below are correct. "
-        "You can easily change these details later or disable this feature "
-        "by using the 'Accounts' dialog"),
-      _("Edit->Accounts"));
-  gtk_label_set_markup (GTK_LABEL (w), markup);
-  g_free (markup);
+        "details below are correct."));
   gtk_misc_set_alignment (GTK_MISC (w), 0, 0.5);
   gtk_label_set_line_wrap (GTK_LABEL (w), TRUE);
   gtk_grid_attach (GTK_GRID (self), w, 0, 0, 1, 1);
@@ -182,6 +176,19 @@ empathy_local_xmpp_assistant_widget_constructed (GObject *object)
 
   gtk_grid_attach (GTK_GRID (self), account_widget, 0, 1, 2, 1);
   gtk_widget_show (account_widget);
+
+  w = gtk_label_new (NULL);
+  markup = g_strdup_printf (
+      "<span size=\"small\">%s</span>",
+      _("You can change these details later or disable this feature "
+        "by choosing <span style=\"italic\">Edit → Accounts</span> "
+        "in the Contact List."));
+  gtk_label_set_markup (GTK_LABEL (w), markup);
+  g_free (markup);
+  gtk_misc_set_alignment (GTK_MISC (w), 0, 0.5);
+  gtk_label_set_line_wrap (GTK_LABEL (w), TRUE);
+  gtk_grid_attach (GTK_GRID (self), w, 0, 2, 2, 1);
+  gtk_widget_show (w);
 }
 
 static void
