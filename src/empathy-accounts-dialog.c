@@ -2080,7 +2080,7 @@ maybe_show_salut_dialog (EmpathyAccountsDialog *self)
 
   gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
 
-  gtk_dialog_add_button (GTK_DIALOG (dialog), _("_Ignore"),
+  gtk_dialog_add_button (GTK_DIALOG (dialog), _("_Skip"),
       GTK_RESPONSE_NO);
 
   button = gtk_dialog_add_button (GTK_DIALOG (dialog),
