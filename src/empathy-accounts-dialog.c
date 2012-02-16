@@ -51,6 +51,7 @@
 #include <libempathy-gtk/empathy-cell-renderer-activatable.h>
 #include <libempathy-gtk/empathy-contact-widget.h>
 #include <libempathy-gtk/empathy-images.h>
+#include <libempathy-gtk/empathy-local-xmpp-assistant-widget.h>
 #include <libempathy-gtk/empathy-new-account-dialog.h>
 
 #include "empathy-accounts-common.h"
@@ -2054,17 +2055,82 @@ accounts_dialog_set_selected_account (EmpathyAccountsDialog *dialog,
 }
 
 static void
+salut_valid_cb (GtkWidget *widget,
+    gboolean valid,
+    GtkWidget *button)
+{
+  gtk_widget_set_sensitive (button, valid);
+}
+
+static void
+maybe_show_salut_dialog (EmpathyAccountsDialog *self)
+{
+  EmpathyAccountsDialogPriv *priv = GET_PRIV (self);
+  GtkWidget *dialog, *widget, *content, *button;
+  gint response;
+
+  if (!empathy_local_xmpp_assistant_widget_should_create_account (
+        priv->account_manager))
+    return;
+
+  widget = empathy_local_xmpp_assistant_widget_new ();
+  gtk_widget_show (widget);
+
+  dialog = gtk_dialog_new ();
+
+  gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
+
+  gtk_dialog_add_button (GTK_DIALOG (dialog), _("_Ignore"),
+      GTK_RESPONSE_NO);
+
+  button = gtk_dialog_add_button (GTK_DIALOG (dialog),
+      _("_Connect"), GTK_RESPONSE_YES);
+  gtk_widget_set_sensitive (button, FALSE);
+
+  g_signal_connect (widget, "valid", G_CALLBACK (salut_valid_cb),
+      button);
+
+  content = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
+  gtk_box_pack_start (GTK_BOX (content), widget, TRUE, TRUE, 0);
+
+  response = gtk_dialog_run (GTK_DIALOG (dialog));
+
+  if (response == GTK_RESPONSE_YES)
+    {
+      empathy_local_xmpp_assistant_widget_create_account (
+          EMPATHY_LOCAL_XMPP_ASSISTANT_WIDGET (widget));
+    }
+
+  gtk_widget_destroy (dialog);
+}
+
+static void
+import_dialog_response_cb (GtkDialog *dialog,
+    gint response_id,
+    EmpathyAccountsDialog *self)
+{
+  maybe_show_salut_dialog (self);
+}
+
+static void
 maybe_show_import_dialog (EmpathyAccountsDialog *self)
 {
   EmpathyAccountsDialogPriv *priv = GET_PRIV (self);
+  GtkWidget *dialog;
 
   if (empathy_accounts_has_non_salut_accounts (priv->account_manager))
     return;
 
   if (!empathy_import_accounts_to_import ())
-    return;
+    {
+      maybe_show_salut_dialog (self);
+      return;
+    }
 
-  display_import_dialog (self);
+  dialog = display_import_dialog (self);
+
+  tp_g_signal_connect_object (dialog, "response",
+      G_CALLBACK (import_dialog_response_cb), self, 0);
 }
 
 static void
