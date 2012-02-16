@@ -39,13 +39,13 @@ typedef struct _EmpathyLocalXmppAssistantWidgetClass EmpathyLocalXmppAssistantWi
 typedef struct _EmpathyLocalXmppAssistantWidgetPrivate EmpathyLocalXmppAssistantWidgetPrivate;
 
 struct _EmpathyLocalXmppAssistantWidget {
-  GtkBox parent;
+  GtkGrid parent;
 
   EmpathyLocalXmppAssistantWidgetPrivate *priv;
 };
 
 struct _EmpathyLocalXmppAssistantWidgetClass {
-  GtkBoxClass parent_class;
+  GtkGridClass parent_class;
 };
 
 GType empathy_local_xmpp_assistant_widget_get_type (void) G_GNUC_CONST;

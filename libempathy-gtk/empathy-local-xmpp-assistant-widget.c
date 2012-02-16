@@ -36,7 +36,7 @@
 #include <libempathy/empathy-debug.h>
 
 G_DEFINE_TYPE (EmpathyLocalXmppAssistantWidget,
-    empathy_local_xmpp_assistant_widget, GTK_TYPE_BOX)
+    empathy_local_xmpp_assistant_widget, GTK_TYPE_GRID)
 
 enum {
   SIG_VALID = 1,
@@ -135,7 +135,7 @@ empathy_local_xmpp_assistant_widget_constructed (GObject *object)
 {
   EmpathyLocalXmppAssistantWidget *self = (EmpathyLocalXmppAssistantWidget *)
     object;
-  GtkWidget *hbox, *w;
+  GtkWidget *w;
   GdkPixbuf *pix;
   GtkWidget *account_widget;
   EmpathyAccountWidget *widget_object;
@@ -145,10 +145,6 @@ empathy_local_xmpp_assistant_widget_constructed (GObject *object)
     constructed (object);
 
   gtk_container_set_border_width (GTK_CONTAINER (self), 12);
-
-  hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
-  gtk_box_pack_start (GTK_BOX (self), hbox, TRUE, TRUE, 0);
-  gtk_widget_show (hbox);
 
   w = gtk_label_new (NULL);
   markup = g_strdup_printf ("%s (<span style=\"italic\">%s</span>).",
@@ -163,12 +159,12 @@ empathy_local_xmpp_assistant_widget_constructed (GObject *object)
   g_free (markup);
   gtk_misc_set_alignment (GTK_MISC (w), 0, 0.5);
   gtk_label_set_line_wrap (GTK_LABEL (w), TRUE);
-  gtk_box_pack_start (GTK_BOX (hbox), w, FALSE, FALSE, 0);
+  gtk_grid_attach (GTK_GRID (self), w, 0, 0, 1, 1);
   gtk_widget_show (w);
 
   pix = empathy_pixbuf_from_icon_name_sized ("im-local-xmpp", 80);
   w = gtk_image_new_from_pixbuf (pix);
-  gtk_box_pack_start (GTK_BOX (hbox), w, FALSE, FALSE, 6);
+  gtk_grid_attach (GTK_GRID (self), w, 1, 0, 1, 1);
   gtk_widget_show (w);
 
   g_object_unref (pix);
@@ -184,8 +180,7 @@ empathy_local_xmpp_assistant_widget_constructed (GObject *object)
   g_signal_connect (widget_object, "handle-apply",
       G_CALLBACK (handle_apply_cb), self);
 
-  gtk_box_pack_start (GTK_BOX (self), account_widget,
-      FALSE, FALSE, 0);
+  gtk_grid_attach (GTK_GRID (self), account_widget, 0, 1, 2, 1);
   gtk_widget_show (account_widget);
 }
 
@@ -225,7 +220,7 @@ GtkWidget *
 empathy_local_xmpp_assistant_widget_new ()
 {
   return g_object_new (EMPATHY_TYPE_LOCAL_XMPP_ASSISTANT_WIDGET,
-      "orientation", GTK_ORIENTATION_VERTICAL,
+      "row-spacing", 6,
       NULL);
 }
 
