@@ -15,6 +15,7 @@ AM_CPPFLAGS =                                           \
 	$(GEOCODE_CFLAGS)				\
 	$(MEEGO_CFLAGS)					\
 	$(CHEESE_CFLAGS)				\
+	$(EDS_CFLAGS)					\
 	$(WARN_CFLAGS)					\
 	$(DISABLE_DEPRECATED)
 
@@ -64,6 +65,7 @@ libempathy_gtk_handwritten_source =            	\
 	empathy-irc-network-chooser.c \
 	empathy-irc-network-chooser-dialog.c \
 	empathy-irc-network-dialog.c		\
+	empathy-local-xmpp-assistant-widget.c \
 	empathy-log-window.c			\
 	empathy-new-account-dialog.c		\
 	empathy-new-message-dialog.c		\
@@ -129,6 +131,7 @@ libempathy_gtk_headers =			\
 	empathy-irc-network-chooser.h \
 	empathy-irc-network-chooser-dialog.h \
 	empathy-irc-network-dialog.h		\
+	empathy-local-xmpp-assistant-widget.h \
 	empathy-log-window.h			\
 	empathy-new-account-dialog.h		\
 	empathy-new-message-dialog.h		\
@@ -177,6 +180,7 @@ libempathy_gtk_la_LIBADD =			\
 	$(GCR_LIBS)				\
 	$(MEEGO_LIBS)				\
 	$(CHEESE_LIBS)				\
+	$(EDS_LIBS)					\
 	$(top_builddir)/libempathy/libempathy.la
 
 check_c_sources = \

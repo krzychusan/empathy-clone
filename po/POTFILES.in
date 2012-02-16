@@ -118,3 +118,4 @@ src/empathy-call-window.c
 src/empathy-call.c
 libempathy-gtk/empathy-search-bar.c
 libempathy-gtk/empathy-new-account-dialog.c
+libempathy-gtk/empathy-local-xmpp-assistant-widget.c
