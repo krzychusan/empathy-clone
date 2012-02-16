@@ -28,7 +28,6 @@ gboolean empathy_accounts_has_accounts (TpAccountManager *manager);
 
 void empathy_accounts_show_accounts_ui (TpAccountManager *manager,
     TpAccount *account,
-    gboolean assistant,
     GApplication *app);
 
 #endif /* __EMPATHY_ACCOUNTS_COMMON_H__ */
