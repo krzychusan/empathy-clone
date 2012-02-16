@@ -161,8 +161,8 @@ struct _EmpathyChatPriv {
 	 * !empathy_chat_is_room (). */
 	GRegex            *highlight_regex;
 
-	/* TRUE if empathy_chat_is_room() and there are unread highlighted messages.
-	 * Cleared by empathy_chat_messages_read(). */
+	/* TRUE if empathy_chat_is_room () and there are unread highlighted messages.
+	 * Cleared by empathy_chat_messages_read (). */
 	gboolean           highlighted;
 };
 
