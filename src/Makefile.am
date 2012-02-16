@@ -32,9 +32,7 @@ noinst_LTLIBRARIES = libempathy-accounts-common.la
 
 libempathy_accounts_common_la_SOURCES =					\
 	empathy-accounts-common.c empathy-accounts-common.h		\
-	empathy-account-assistant.c empathy-account-assistant.h		\
 	empathy-accounts-dialog.c empathy-accounts-dialog.h		\
-	empathy-auto-salut-account-helper.c empathy-auto-salut-account-helper.h \
 	empathy-import-dialog.c empathy-import-dialog.h			\
 	empathy-import-pidgin.c empathy-import-pidgin.h			\
 	empathy-import-widget.c empathy-import-widget.h			\
