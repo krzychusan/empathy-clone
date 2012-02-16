@@ -227,7 +227,7 @@ GtkWidget *
 empathy_local_xmpp_assistant_widget_new ()
 {
   return g_object_new (EMPATHY_TYPE_LOCAL_XMPP_ASSISTANT_WIDGET,
-      "row-spacing", 6,
+      "row-spacing", 12,
       NULL);
 }
 
