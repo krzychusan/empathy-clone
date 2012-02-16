@@ -217,7 +217,7 @@
                 <child type="label">
                   <object class="GtkLabel" id="label_no_protocol">
                     <property name="visible">True</property>
-                    <property name="label" translatable="yes">No protocol installed</property>
+                    <property name="label" translatable="yes">No protocol backends installed</property>
                     <attributes>
                       <attribute name="weight" value="bold"/>
                     </attributes>
