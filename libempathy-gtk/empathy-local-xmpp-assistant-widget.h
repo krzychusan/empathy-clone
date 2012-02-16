@@ -23,6 +23,8 @@
 
 #include <gtk/gtk.h>
 
+#include <telepathy-glib/telepathy-glib.h>
+
 G_BEGIN_DECLS
 
 #define EMPATHY_TYPE_LOCAL_XMPP_ASSISTANT_WIDGET (empathy_local_xmpp_assistant_widget_get_type ())
@@ -52,6 +54,9 @@ GtkWidget * empathy_local_xmpp_assistant_widget_new (void);
 
 void empathy_local_xmpp_assistant_widget_create_account (
     EmpathyLocalXmppAssistantWidget *self);
+
+gboolean empathy_local_xmpp_assistant_widget_should_create_account (
+    TpAccountManager *manager);
 
 G_END_DECLS
 

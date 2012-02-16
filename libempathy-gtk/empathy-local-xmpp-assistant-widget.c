@@ -280,3 +280,28 @@ empathy_local_xmpp_assistant_widget_create_account (
   empathy_account_settings_apply_async (self->priv->settings,
       apply_account_cb, NULL);
 }
+
+gboolean
+empathy_local_xmpp_assistant_widget_should_create_account (
+    TpAccountManager *manager)
+{
+  gboolean salut_created = FALSE;
+  GList *accounts, *l;
+
+  accounts = tp_account_manager_get_valid_accounts (manager);
+
+  for (l = accounts; l != NULL;  l = g_list_next (l))
+    {
+      TpAccount *account = TP_ACCOUNT (l->data);
+
+      if (!tp_strdiff (tp_account_get_protocol (account), "local-xmpp"))
+        {
+          salut_created = TRUE;
+          break;
+        }
+    }
+
+  g_list_free (accounts);
+
+  return !salut_created;
+}

@@ -35,6 +35,7 @@
 
 #include <libempathy-gtk/empathy-account-widget.h>
 #include <libempathy-gtk/empathy-protocol-chooser.h>
+#include <libempathy-gtk/empathy-local-xmpp-assistant-widget.h>
 #include <libempathy-gtk/empathy-ui-utils.h>
 
 #define DEBUG_FLAG EMPATHY_DEBUG_ACCOUNT
@@ -1174,7 +1175,7 @@ account_mgr_prepare_cb (GObject *source_object,
       return;
     }
 
-  if (!should_create_salut_account (manager))
+  if (!empathy_local_xmpp_assistant_widget_should_create_account (manager))
     {
       DEBUG ("No need to create a Salut account");
       priv->display_salut_page = FALSE;

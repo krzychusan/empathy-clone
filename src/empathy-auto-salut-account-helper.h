@@ -29,8 +29,6 @@
 #include <libempathy/empathy-connection-managers.h>
 #include <libempathy/empathy-account-settings.h>
 
-gboolean should_create_salut_account (TpAccountManager *manager);
-
 EmpathyAccountSettings * create_salut_account_settings (void);
 
 #endif

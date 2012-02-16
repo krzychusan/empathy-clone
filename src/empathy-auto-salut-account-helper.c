@@ -38,32 +38,6 @@
 
 #include "empathy-auto-salut-account-helper.h"
 
-/* Salut account creation. The TpAccountManager first argument
- * must already be prepared when calling this function. */
-gboolean
-should_create_salut_account (TpAccountManager *manager)
-{
-  gboolean salut_created = FALSE;
-  GList *accounts, *l;
-
-  accounts = tp_account_manager_get_valid_accounts (manager);
-
-  for (l = accounts; l != NULL;  l = g_list_next (l))
-    {
-      TpAccount *account = TP_ACCOUNT (l->data);
-
-      if (!tp_strdiff (tp_account_get_protocol (account), "local-xmpp"))
-        {
-          salut_created = TRUE;
-          break;
-        }
-    }
-
-  g_list_free (accounts);
-
-  return !salut_created;
-}
-
 EmpathyAccountSettings *
 create_salut_account_settings (void)
 {
