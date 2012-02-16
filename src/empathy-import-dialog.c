@@ -71,8 +71,10 @@ import_dialog_add_import_widget (EmpathyImportDialog *self)
 
   priv->iw = iw;
 
-  gtk_dialog_add_buttons (GTK_DIALOG (self), GTK_STOCK_CANCEL,
-      GTK_RESPONSE_CANCEL, GTK_STOCK_OK, GTK_RESPONSE_OK, NULL);
+  gtk_dialog_add_buttons (GTK_DIALOG (self),
+      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+      _("_Import"), GTK_RESPONSE_OK,
+      NULL);
 }
 
 static void
