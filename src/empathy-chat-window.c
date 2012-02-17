@@ -47,6 +47,7 @@
 #include <libempathy/empathy-tp-contact-factory.h>
 #include <libempathy/empathy-contact-list.h>
 #include <libempathy/empathy-request-util.h>
+#include <libempathy/empathy-individual-manager.h>
 
 #include <libempathy-gtk/empathy-images.h>
 #include <libempathy-gtk/empathy-contact-dialogs.h>
@@ -129,12 +130,14 @@ static const guint tab_accel_keys[] = {
 
 typedef enum {
 	DND_DRAG_TYPE_CONTACT_ID,
+	DND_DRAG_TYPE_INDIVIDUAL_ID,
 	DND_DRAG_TYPE_URI_LIST,
 	DND_DRAG_TYPE_TAB
 } DndDragType;
 
 static const GtkTargetEntry drag_types_dest[] = {
 	{ "text/contact-id", 0, DND_DRAG_TYPE_CONTACT_ID },
+	{ "text/x-individual-id", 0, DND_DRAG_TYPE_INDIVIDUAL_ID },
 	{ "GTK_NOTEBOOK_TAB", GTK_TARGET_SAME_APP, DND_DRAG_TYPE_TAB },
 	{ "text/uri-list", 0, DND_DRAG_TYPE_URI_LIST },
 	{ "text/path-list", 0, DND_DRAG_TYPE_URI_LIST },
@@ -142,6 +145,7 @@ static const GtkTargetEntry drag_types_dest[] = {
 
 static const GtkTargetEntry drag_types_dest_contact[] = {
 	{ "text/contact-id", 0, DND_DRAG_TYPE_CONTACT_ID },
+	{ "text/x-individual-id", 0, DND_DRAG_TYPE_INDIVIDUAL_ID },
 };
 
 static const GtkTargetEntry drag_types_dest_file[] = {
@@ -1981,6 +1985,70 @@ chat_window_drag_motion (GtkWidget        *widget,
 }
 
 static void
+drag_data_received_individual_id (EmpathyChatWindow *self,
+				  GtkWidget *widget,
+				  GdkDragContext *context,
+				  int x,
+				  int y,
+				  GtkSelectionData *selection,
+				  guint info,
+				  guint time_)
+{
+	const gchar *id;
+	EmpathyIndividualManager *manager;
+	FolksIndividual *individual;
+	EmpathyChatWindowPriv *priv = GET_PRIV (self);
+	EmpathyTpChat *chat;
+	TpContact *tp_contact;
+	TpConnection *conn;
+	EmpathyContact *contact;
+
+	id = (const gchar *) gtk_selection_data_get_data (selection);
+
+	DEBUG ("DND invididual %s", id);
+
+	if (priv->current_chat == NULL)
+		goto out;
+
+	chat = empathy_chat_get_tp_chat (priv->current_chat);
+	if (chat == NULL)
+		goto out;
+
+	if (!empathy_tp_chat_can_add_contact (chat)) {
+		DEBUG ("Can't invite contact to %s",
+				tp_proxy_get_object_path (chat));
+		goto out;
+	}
+
+	manager = empathy_individual_manager_dup_singleton ();
+
+	individual = empathy_individual_manager_lookup_member (manager, id);
+	if (individual == NULL) {
+		DEBUG ("Failed to find individual %s", id);
+		goto out;
+	}
+
+	conn = tp_channel_borrow_connection ((TpChannel *) chat);
+	tp_contact = empathy_get_tp_contact_for_individual (individual, conn);
+	if (tp_contact == NULL) {
+		DEBUG ("Can't find a TpContact on connection %s for %s",
+				tp_proxy_get_object_path (conn), id);
+		goto out;
+	}
+
+	DEBUG ("Inviting %s to join %s", tp_contact_get_identifier (tp_contact),
+			tp_channel_get_identifier ((TpChannel *) chat));
+
+	contact = empathy_contact_dup_from_tp_contact (tp_contact);
+	empathy_contact_list_add (EMPATHY_CONTACT_LIST (chat), contact, NULL);
+	g_object_unref (contact);
+
+out:
+	gtk_drag_finish (context, TRUE, FALSE, time_);
+	tp_clear_object (&manager);
+}
+
+static void
 chat_window_drag_data_received (GtkWidget        *widget,
 				GdkDragContext   *context,
 				int               x,
@@ -2059,6 +2127,10 @@ chat_window_drag_data_received (GtkWidget        *widget,
 		 * anyway with add_chat () and remove_chat ().
 		 */
 		gtk_drag_finish (context, TRUE, FALSE, time_);
+	}
+	else if (info == DND_DRAG_TYPE_INDIVIDUAL_ID) {
+		drag_data_received_individual_id (window, widget, context, x, y,
+				selection, info, time_);
 	}
 	else if (info == DND_DRAG_TYPE_URI_LIST) {
 		EmpathyChatWindowPriv *priv;
