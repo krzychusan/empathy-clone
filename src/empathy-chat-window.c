@@ -920,6 +920,19 @@ chat_window_update_chat_tab_full (EmpathyChat *chat,
 		append_markup_printf (tooltip, "\n%s", _("Typing a message."));
 	}
 
+	if (remote_contact != NULL) {
+		const gchar * const *types;
+
+		types = empathy_contact_get_client_types (remote_contact);
+		if (types != NULL && !tp_strdiff (types[0], "phone")) {
+			/* I'm on a phone ! */
+			gchar *tmp = name;
+
+			name = g_strdup_printf ("☎ %s", name);
+			g_free (tmp);
+		}
+	}
+
 	markup = g_string_free (tooltip, FALSE);
 	widget = g_object_get_data (G_OBJECT (chat), "chat-window-tab-tooltip-widget");
 	gtk_widget_set_tooltip_markup (widget, markup);
