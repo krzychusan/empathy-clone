@@ -73,7 +73,7 @@
             </child>
             <child>
               <object class="GtkButton" id="button20">
-                <property name="label">gtk-no</property>
+                <property name="label">_Reject</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
@@ -88,7 +88,7 @@
             </child>
             <child>
               <object class="GtkButton" id="button21">
-                <property name="label">gtk-yes</property>
+                <property name="label">_Accept</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
