@@ -69,6 +69,9 @@ enum
   COL_NAME = 0,
   COL_UNIQUE_NAME,
   COL_GONE,
+  COL_ACTIVE_BUFFER,
+  COL_PAUSE_BUFFER,
+  COL_PROXY,
   NUM_COLS
 };
 
@@ -91,11 +94,7 @@ typedef struct
   GtkToolItem *level_label;
   GtkWidget *level_filter;
 
-  /* Cache */
-  GHashTable *cache;
-
   /* TreeView */
-  GtkListStore *store;
   GtkTreeModel *store_filter;
   GtkWidget *view;
   GtkWidget *scrolled_win;
@@ -104,10 +103,7 @@ typedef struct
 
   /* Connection */
   TpDBusDaemon *dbus;
-  TpProxy *proxy;
-  TpProxySignalConnection *new_debug_message_signal;
   TpProxySignalConnection *name_owner_changed_signal;
-  gulong invalid_signal_id;
 
   /* Whether NewDebugMessage will be fired */
   gboolean paused;
@@ -115,12 +111,17 @@ typedef struct
   /* Service (CM, Client) chooser store */
   GtkListStore *service_store;
 
+  /* Counters on services detected and added */
+  guint services_detected;
+  guint name_owner_cb_count;
+
   /* Debug to show upon creation */
   gchar *select_name;
 
   /* Misc. */
   gboolean dispose_run;
   TpAccountManager *am;
+  GtkListStore *all_active_buffer;
 } EmpathyDebugWindowPriv;
 
 static const gchar *
@@ -152,48 +153,6 @@ log_level_to_string (guint level)
     }
 }
 
-typedef struct
-{
-  gdouble timestamp;
-  gchar *domain;
-  guint level;
-  gchar *message;
-} DebugMessage;
-
-static DebugMessage *
-debug_message_new (gdouble timestamp,
-    const gchar *domain,
-    guint level,
-    const gchar *message)
-{
-  DebugMessage *retval = g_slice_new0 (DebugMessage);
-
-  retval->timestamp = timestamp;
-  retval->domain = g_strdup (domain);
-  retval->level = level;
-  retval->message = g_strdup (message);
-
-  return retval;
-}
-
-static void
-debug_message_free (DebugMessage *dm)
-{
-  g_free (dm->domain);
-  g_free (dm->message);
-
-  g_slice_free (DebugMessage, dm);
-}
-
-static void
-debug_message_list_free (gpointer data)
-{
-  GList *list = data;
-
-  g_list_foreach (list, (GFunc) debug_message_free, NULL);
-  g_list_free (list);
-}
-
 static gchar *
 get_active_service_name (EmpathyDebugWindow *self)
 {
@@ -210,30 +169,66 @@ get_active_service_name (EmpathyDebugWindow *self)
   return name;
 }
 
-static void
-debug_window_cache_new_message (EmpathyDebugWindow *debug_window,
-    gdouble timestamp,
-    const gchar *domain,
-    guint level,
-    const gchar *message)
+static gboolean
+copy_buffered_messages (GtkTreeModel *buffer,
+    GtkTreePath *path,
+    GtkTreeIter *iter,
+    gpointer data)
 {
-  EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
-  GList *messages;
-  DebugMessage *dm;
-  char *name;
+  GtkListStore *active_buffer = data;
+  GtkTreeIter active_buffer_iter;
+  gdouble timestamp;
+  gchar *domain, *category, *message, *level_string;
+  guint level;
 
-  name = get_active_service_name (debug_window);
-  messages = g_hash_table_lookup (priv->cache, name);
+  gtk_tree_model_get (buffer, iter,
+      COL_DEBUG_TIMESTAMP, &timestamp,
+      COL_DEBUG_DOMAIN, &domain,
+      COL_DEBUG_CATEGORY, &category,
+      COL_DEBUG_LEVEL_STRING, &level_string,
+      COL_DEBUG_MESSAGE, &message,
+      COL_DEBUG_LEVEL_VALUE, &level,
+      -1);
+  gtk_list_store_insert_with_values (active_buffer, &active_buffer_iter, -1,
+      COL_DEBUG_TIMESTAMP, timestamp,
+      COL_DEBUG_DOMAIN, domain,
+      COL_DEBUG_CATEGORY, category,
+      COL_DEBUG_LEVEL_STRING, level_string,
+      COL_DEBUG_MESSAGE, message,
+      COL_DEBUG_LEVEL_VALUE, level,
+      -1);
 
-  dm = debug_message_new (timestamp, domain, level, message);
-  messages = g_list_append (messages, dm);
+  g_free (domain);
+  g_free (category);
+  g_free (level_string);
+  g_free (message);
 
-  g_hash_table_insert (priv->cache, name, messages);
+  return FALSE;
+}
+
+static void
+insert_values_in_buffer (GtkListStore *store,
+        gdouble timestamp,
+        const gchar *domain,
+        const gchar *category,
+        guint level,
+        const gchar *string)
+{
+  GtkTreeIter iter;
+
+  gtk_list_store_insert_with_values (store, &iter, -1,
+      COL_DEBUG_TIMESTAMP, timestamp,
+      COL_DEBUG_DOMAIN, domain,
+      COL_DEBUG_CATEGORY, category,
+      COL_DEBUG_LEVEL_STRING, log_level_to_string (level),
+      COL_DEBUG_MESSAGE, string,
+      COL_DEBUG_LEVEL_VALUE, level,
+      -1); 
 }
 
 static void
 debug_window_add_message (EmpathyDebugWindow *debug_window,
-    gboolean should_cache,
+    TpProxy *proxy,
     gdouble timestamp,
     const gchar *domain_category,
     guint level,
@@ -241,12 +236,8 @@ debug_window_add_message (EmpathyDebugWindow *debug_window,
 {
   EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
   gchar *domain, *category;
-  GtkTreeIter iter;
   gchar *string;
-
-  if (should_cache)
-    debug_window_cache_new_message (debug_window, timestamp, domain_category,
-        level, message);
+  GtkListStore *active_buffer, *pause_buffer;
 
   if (g_strrstr (domain_category, "/"))
     {
@@ -266,16 +257,26 @@ debug_window_add_message (EmpathyDebugWindow *debug_window,
   else
     string = g_strdup (message);
 
+  pause_buffer = g_object_get_data (G_OBJECT (proxy), "pause-buffer");
+  active_buffer = g_object_get_data (G_OBJECT (proxy), "active-buffer");
 
-  gtk_list_store_append (priv->store, &iter);
-  gtk_list_store_set (priv->store, &iter,
-      COL_DEBUG_TIMESTAMP, timestamp,
-      COL_DEBUG_DOMAIN, domain,
-      COL_DEBUG_CATEGORY, category,
-      COL_DEBUG_LEVEL_STRING, log_level_to_string (level),
-      COL_DEBUG_MESSAGE, string,
-      COL_DEBUG_LEVEL_VALUE, level,
-      -1);
+  if (priv->paused)
+    {
+      insert_values_in_buffer (pause_buffer, timestamp,
+          domain, category, level,
+          string);
+    }
+  else
+    {
+      /* Append 'this' message to this service's and All's active-buffers */
+      insert_values_in_buffer (active_buffer, timestamp,
+          domain, category, level,
+          string);
+
+      insert_values_in_buffer (priv->all_active_buffer, timestamp,
+          domain, category, level,
+          string);
+    }
 
   g_free (string);
   g_free (domain);
@@ -293,20 +294,21 @@ debug_window_new_debug_message_cb (TpProxy *proxy,
 {
   EmpathyDebugWindow *debug_window = (EmpathyDebugWindow *) user_data;
 
-  debug_window_add_message (debug_window, TRUE, timestamp, domain, level,
+  debug_window_add_message (debug_window, proxy, timestamp, domain, level,
       message);
 }
 
 static void
-debug_window_set_enabled (EmpathyDebugWindow *debug_window,
+debug_window_set_enabled (TpProxy *proxy,
     gboolean enabled)
 {
-  EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
   GValue *val;
+
+  g_return_if_fail (proxy != NULL);
 
   val = tp_g_value_slice_new_boolean (enabled);
 
-  tp_cli_dbus_properties_call_set (priv->proxy, -1, TP_IFACE_DEBUG,
+  tp_cli_dbus_properties_call_set (proxy, -1, TP_IFACE_DEBUG,
       "Enabled", val, NULL, NULL, NULL, NULL);
 
   tp_g_value_slice_free (val);
@@ -344,6 +346,74 @@ debug_window_set_toolbar_sensitivity (EmpathyDebugWindow *debug_window,
     }
 }
 
+static gboolean
+debug_window_get_iter_for_active_buffer (GtkListStore *active_buffer,
+    GtkTreeIter *iter,
+    EmpathyDebugWindow *debug_window)
+{
+  EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
+  gboolean valid_iter;
+  GtkTreeModel *model = GTK_TREE_MODEL (priv->service_store);
+
+  gtk_tree_model_get_iter_first (model, iter);
+  for (valid_iter = gtk_tree_model_iter_next (model, iter);
+       valid_iter;
+       valid_iter = gtk_tree_model_iter_next (model, iter))
+    {
+      GtkListStore *stored_active_buffer;
+
+      gtk_tree_model_get (model, iter,
+          COL_ACTIVE_BUFFER, &stored_active_buffer,
+          -1);
+      if (active_buffer == stored_active_buffer)
+        {
+          g_object_unref (stored_active_buffer);
+          return valid_iter;
+        }
+      g_object_unref (stored_active_buffer);
+    }
+
+  return valid_iter;
+}
+
+static void refresh_all_buffer (EmpathyDebugWindow *debug_window);
+
+static void
+proxy_invalidated_cb (TpProxy *proxy,
+    guint domain,
+    gint code,
+    gchar *msg,
+    gpointer user_data)
+{
+  EmpathyDebugWindow *self = (EmpathyDebugWindow *) user_data;
+  EmpathyDebugWindowPriv *priv = GET_PRIV (self);
+  GtkTreeModel *service_store = GTK_TREE_MODEL (priv->service_store);
+  TpProxy *stored_proxy;
+  GtkTreeIter iter;
+  gboolean valid_iter;
+
+  /* Proxy has been invalidated so we find and set it to NULL
+   * in service store */
+  gtk_tree_model_get_iter_first (service_store, &iter);
+  for (valid_iter = gtk_tree_model_iter_next (service_store, &iter);
+       valid_iter;
+       valid_iter = gtk_tree_model_iter_next (service_store, &iter))
+    {
+      gtk_tree_model_get (service_store, &iter,
+          COL_PROXY, &stored_proxy,
+          -1);
+
+      if (proxy == stored_proxy)
+        gtk_list_store_set (priv->service_store, &iter,
+            COL_PROXY, NULL,
+            -1);
+    }
+
+  /* Also, we refresh "All" selection's active buffer since it should not
+   * show messages obtained from the proxy getting destroyed above */
+  refresh_all_buffer (self);
+}
+
 static void
 debug_window_get_messages_cb (TpProxy *proxy,
     const GPtrArray *messages,
@@ -353,87 +423,301 @@ debug_window_get_messages_cb (TpProxy *proxy,
 {
   EmpathyDebugWindow *debug_window = (EmpathyDebugWindow *) user_data;
   EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
-  gchar *name;
-  GList *old_messages;
+  gchar *active_service_name;
   guint i;
+  GtkListStore *active_buffer;
+  gboolean valid_iter;
+  GtkTreeIter iter;
+  gchar *proxy_service_name;
 
+  active_buffer = g_object_get_data (G_OBJECT (proxy), "active-buffer");
+  valid_iter = debug_window_get_iter_for_active_buffer (active_buffer, &iter,
+      debug_window);
+  gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store), &iter,
+      COL_NAME, &proxy_service_name,
+      -1);
+
+  active_service_name = get_active_service_name (debug_window);
   if (error != NULL)
     {
       DEBUG ("GetMessages failed: %s", error->message);
-      debug_window_set_toolbar_sensitivity (debug_window, FALSE);
+
+      /* We want to set the window sensitivity to false only when proxy for the
+       * selected service is unable to fetch debug messages */
+      if (!tp_strdiff (active_service_name, proxy_service_name))
+        debug_window_set_toolbar_sensitivity (debug_window, FALSE);
+
+      /* We created the proxy for GetMessages call. Now destroy it. */
+      tp_clear_object (&proxy);
       return;
     }
 
+  DEBUG ("Retrieved debug messages for %s", active_service_name);
+  g_free (active_service_name);
   debug_window_set_toolbar_sensitivity (debug_window, TRUE);
 
-  name = get_active_service_name (debug_window);
-  old_messages = g_hash_table_lookup (priv->cache, name);
-
-  /* we call get_messages either when a new CM is added or
-   * when a CM that we've already seen re-appears; in both cases
-   * we don't need our old cache anymore.
-   */
-  if (old_messages != NULL)
-    {
-      g_hash_table_remove (priv->cache, name);
-      debug_message_list_free (old_messages);
-    }
 
   for (i = 0; i < messages->len; i++)
     {
       GValueArray *values = g_ptr_array_index (messages, i);
 
-      debug_window_add_message (debug_window, TRUE,
+      debug_window_add_message (debug_window, proxy,
           g_value_get_double (g_value_array_get_nth (values, 0)),
           g_value_get_string (g_value_array_get_nth (values, 1)),
           g_value_get_uint (g_value_array_get_nth (values, 2)),
           g_value_get_string (g_value_array_get_nth (values, 3)));
     }
 
-  /* Connect to NewDebugMessage */
-  priv->new_debug_message_signal = emp_cli_debug_connect_to_new_debug_message (
+  /* Now we save this precious proxy in the service_store along its service */
+  if (valid_iter)
+    {
+      DEBUG ("Proxy for service: %s was successful in fetching debug"
+          " messages. Saving it.", proxy_service_name);
+
+      gtk_list_store_set (priv->service_store, &iter,
+          COL_PROXY, proxy,
+          -1);
+    }
+
+  g_free (proxy_service_name);
+
+  /* Connect to "invalidated" signal */
+  g_signal_connect (proxy, "invalidated",
+      G_CALLBACK (proxy_invalidated_cb), debug_window);
+
+ /* Connect to NewDebugMessage */
+  emp_cli_debug_connect_to_new_debug_message (
       proxy, debug_window_new_debug_message_cb, debug_window,
       NULL, NULL, NULL);
 
-  /* Set Enabled as appropriate */
-  debug_window_set_enabled (debug_window, !priv->paused);
+  /* Now that active-buffer is up to date, we can see which messages are
+   * to be visible */
+  gtk_tree_model_filter_refilter (GTK_TREE_MODEL_FILTER (priv->store_filter));
+
+  /* Set the proxy to signal for new debug messages */
+  debug_window_set_enabled (proxy, TRUE);
 }
 
 static void
-debug_window_add_log_messages_from_cache (EmpathyDebugWindow *debug_window,
-    const gchar *name)
+create_proxy_to_get_messages (EmpathyDebugWindow *debug_window,
+    GtkTreeIter *iter,
+    TpDBusDaemon *dbus)
 {
-  GList *messages, *l;
-  DebugMessage *dm;
   EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
+  gchar *bus_name, *name = NULL;
+  TpProxy *new_proxy, *stored_proxy = NULL;
+  GtkTreeModel *pause_buffer, *active_buffer;
+  gboolean gone;
 
-  DEBUG ("Adding logs from cache for CM %s", name);
+  gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store), iter,
+      COL_NAME, &name,
+      COL_GONE, &gone,
+      COL_ACTIVE_BUFFER, &active_buffer,
+      COL_PAUSE_BUFFER, &pause_buffer,
+      COL_PROXY, &stored_proxy,
+      -1);
 
-  messages = g_hash_table_lookup (priv->cache, name);
-
-  if (messages == NULL)
-    return;
-
-  for (l = messages; l != NULL; l = l->next)
+  /* If the stored_proxy is not NULL then messages have been obtained and
+   * new-debug-message-signal has been set on it. Also, the proxy is valid.
+   * If the service is gone, we still display the messages-cached till now. */
+  if (gone ||
+      (!gone && stored_proxy != NULL))
     {
-      dm = l->data;
-
-      debug_window_add_message (debug_window, FALSE, dm->timestamp,
-          dm->domain, dm->level, dm->message);
+      /* Nothing needs to be done. The associated active-buffer has already
+       * been set as view's model */
+      goto finally;
     }
+
+  DEBUG ("Preparing proxy to obtain messages for service %s", name);
+
+  gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store), iter,
+      COL_UNIQUE_NAME, &bus_name, -1);
+  new_proxy = g_object_new (TP_TYPE_PROXY,
+      "bus-name", bus_name,
+      "dbus-daemon", dbus,
+      "object-path", DEBUG_OBJECT_PATH,
+      NULL);
+  g_free (bus_name);
+
+  g_object_set_data (G_OBJECT (new_proxy), "active-buffer", active_buffer);
+  g_object_set_data (G_OBJECT (new_proxy), "pause-buffer", pause_buffer);
+
+  /* Now we call GetMessages with fresh proxy.
+   * The old proxy is NULL due to one of the following -
+   * * Wasn't saved as last GetMessages call failed
+   * * The service has newly arrived and no proxy has been prepared yet for it
+   * * A service with the same name has reappeared but the owner maybe new */
+  tp_proxy_add_interface_by_id (new_proxy, emp_iface_quark_debug ());
+
+  emp_cli_debug_call_get_messages (new_proxy, -1,
+      debug_window_get_messages_cb, debug_window, NULL, NULL);
+
+finally:
+  g_free (name);
+  tp_clear_object (&stored_proxy);
+  g_object_unref (active_buffer);
+  g_object_unref (pause_buffer);
+}
+
+static GtkListStore*
+new_list_store_for_service (void)
+{
+  return gtk_list_store_new (NUM_DEBUG_COLS,
+             G_TYPE_DOUBLE, /* COL_DEBUG_TIMESTAMP */
+             G_TYPE_STRING, /* COL_DEBUG_DOMAIN */
+             G_TYPE_STRING, /* COL_DEBUG_CATEGORY */
+             G_TYPE_STRING, /* COL_DEBUG_LEVEL_STRING */
+             G_TYPE_STRING, /* COL_DEBUG_MESSAGE */
+             G_TYPE_UINT);  /* COL_DEBUG_LEVEL_VALUE */
+}
+
+static gboolean
+debug_window_visible_func (GtkTreeModel *model,
+    GtkTreeIter *iter,
+    gpointer user_data)
+{
+  EmpathyDebugWindow *debug_window = (EmpathyDebugWindow *) user_data;
+  EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
+  guint filter_value, level;
+  GtkTreeModel *filter_model;
+  GtkTreeIter filter_iter;
+
+  filter_model = gtk_combo_box_get_model (GTK_COMBO_BOX (priv->level_filter));
+  gtk_combo_box_get_active_iter (GTK_COMBO_BOX (priv->level_filter),
+      &filter_iter);
+
+  gtk_tree_model_get (model, iter, COL_DEBUG_LEVEL_VALUE, &level, -1);
+  gtk_tree_model_get (filter_model, &filter_iter,
+      COL_LEVEL_VALUE, &filter_value, -1);
+
+  if (level <= filter_value)
+    return TRUE;
+
+  return FALSE;
+}
+
+static gboolean
+tree_view_search_equal_func_cb (GtkTreeModel *model,
+    gint column,
+    const gchar *key,
+
+    GtkTreeIter *iter,
+    gpointer search_data)
+{
+  gchar *str;
+  gint key_len;
+  gint len;
+  gint i;
+  gboolean ret = TRUE; /* The return value is counter-intuitive */
+
+  gtk_tree_model_get (model, iter, column, &str, -1);
+
+  key_len = strlen (key);
+  len = strlen (str) - key_len;
+
+  for (i = 0; i <= len; ++i)
+    {
+      if (!g_ascii_strncasecmp (key, str + i, key_len))
+        {
+          ret = FALSE;
+          break;
+        }
+    }
+
+  g_free (str);
+  return ret;
 }
 
 static void
-proxy_invalidated_cb (TpProxy *proxy,
-    guint domain,
-    gint code,
-    gchar *msg,
-    EmpathyDebugWindowPriv *self)
+update_store_filter (EmpathyDebugWindow *debug_window,
+    GtkListStore *active_buffer)
 {
-  EmpathyDebugWindowPriv *priv = GET_PRIV (self);
+  EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
+  debug_window_set_toolbar_sensitivity (debug_window, FALSE);
 
-  /* Proxy has been invalidated so we can't disconnect the signal any more */
-  priv->new_debug_message_signal = NULL;
+  tp_clear_object (&priv->store_filter);
+  priv->store_filter = gtk_tree_model_filter_new (
+      GTK_TREE_MODEL (active_buffer), NULL);
+
+  gtk_tree_model_filter_set_visible_func (
+      GTK_TREE_MODEL_FILTER (priv->store_filter),
+      debug_window_visible_func, debug_window, NULL);
+  gtk_tree_view_set_model (GTK_TREE_VIEW (priv->view),
+      priv->store_filter);
+
+  /* Since view's model has changed, reset the search column and
+   * search_equal_func */
+  gtk_tree_view_set_search_column (GTK_TREE_VIEW (priv->view),
+      COL_DEBUG_MESSAGE);
+  gtk_tree_view_set_search_equal_func (GTK_TREE_VIEW (priv->view),
+      tree_view_search_equal_func_cb, NULL, NULL);
+
+  debug_window_set_toolbar_sensitivity (debug_window, TRUE);
+}
+
+static void
+refresh_all_buffer (EmpathyDebugWindow *debug_window)
+{
+  EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
+  gboolean valid_iter;
+  GtkTreeIter iter;
+  GtkTreeModel *service_store = GTK_TREE_MODEL (priv->service_store);
+
+  /* Clear All's active-buffer */
+  gtk_list_store_clear (priv->all_active_buffer);
+
+  /* Skipping the first service store iter which is reserved for "All" */
+  gtk_tree_model_get_iter_first (service_store, &iter);
+  for (valid_iter = gtk_tree_model_iter_next (service_store, &iter);
+       valid_iter;
+       valid_iter = gtk_tree_model_iter_next (service_store, &iter))
+    {
+      TpProxy *proxy = NULL;
+      GtkListStore *service_active_buffer;
+      gboolean gone;
+
+      gtk_tree_model_get (service_store, &iter,
+          COL_GONE, &gone,
+          COL_PROXY, &proxy,
+          COL_ACTIVE_BUFFER, &service_active_buffer,
+          -1);
+
+      if (gone)
+        {
+          gtk_tree_model_foreach (GTK_TREE_MODEL (service_active_buffer),
+              copy_buffered_messages, priv->all_active_buffer);
+        }
+      else
+        {
+          if (proxy != NULL)
+            {
+              if (service_active_buffer == NULL)
+                break;
+
+              /* Copy the debug messages to all_active_buffer */
+              gtk_tree_model_foreach (GTK_TREE_MODEL (service_active_buffer),
+                  copy_buffered_messages, priv->all_active_buffer);
+            }
+          else
+            {
+              GError *error = NULL;
+              TpDBusDaemon *dbus = tp_dbus_daemon_dup (&error);
+
+              if (error != NULL)
+                {
+                  DEBUG ("Failed at duping the dbus daemon: %s", error->message);
+                  g_error_free (error);
+                }
+
+              create_proxy_to_get_messages (debug_window, &iter, dbus);
+
+              g_object_unref (dbus);
+            }
+        }
+
+      g_object_unref (service_active_buffer);
+      tp_clear_object (&proxy);
+    }
 }
 
 static void
@@ -443,8 +727,8 @@ debug_window_service_chooser_changed_cb (GtkComboBox *chooser,
   EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
   TpDBusDaemon *dbus;
   GError *error = NULL;
-  gchar *bus_name, *name = NULL;
-  TpProxy *proxy;
+  GtkListStore *stored_active_buffer = NULL;
+  gchar *name = NULL;
   GtkTreeIter iter;
   gboolean gone;
 
@@ -459,19 +743,29 @@ debug_window_service_chooser_changed_cb (GtkComboBox *chooser,
       return;
     }
 
-  gtk_list_store_clear (priv->store);
+  debug_window_set_toolbar_sensitivity (debug_window, TRUE);
 
   gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store), &iter,
-      COL_NAME, &name, COL_GONE, &gone, -1);
+      COL_NAME, &name,
+      COL_GONE, &gone,
+      COL_ACTIVE_BUFFER, &stored_active_buffer,
+      -1);
 
-  if (gone)
+  DEBUG ("Service chosen: %s", name);
+
+  if (tp_strdiff (name, "All") && stored_active_buffer == NULL)
     {
-      debug_window_add_log_messages_from_cache (debug_window, name);
-      g_free (name);
-      return;
+      DEBUG ("No list store assigned to service %s", name);
+      goto finally;
     }
 
-  g_free (name);
+  if (!tp_strdiff (name, "All"))
+    {
+      update_store_filter (debug_window, priv->all_active_buffer);
+      goto finally;
+    }
+
+  update_store_filter (debug_window, stored_active_buffer);
 
   dbus = tp_dbus_daemon_dup (&error);
 
@@ -480,43 +774,13 @@ debug_window_service_chooser_changed_cb (GtkComboBox *chooser,
       DEBUG ("Failed at duping the dbus daemon: %s", error->message);
     }
 
-  gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store), &iter,
-      COL_UNIQUE_NAME, &bus_name, -1);
-  proxy = g_object_new (TP_TYPE_PROXY,
-      "bus-name", bus_name,
-      "dbus-daemon", dbus,
-      "object-path", DEBUG_OBJECT_PATH,
-      NULL);
-  g_free (bus_name);
-
-  /* Disable debug signalling */
-  if (priv->proxy != NULL)
-    debug_window_set_enabled (debug_window, FALSE);
-
-  /* Disconnect from previous NewDebugMessage signal */
-  if (priv->new_debug_message_signal != NULL)
-    {
-      tp_proxy_signal_connection_disconnect (priv->new_debug_message_signal);
-      priv->new_debug_message_signal = NULL;
-    }
-
-  if (priv->proxy != NULL)
-    {
-      g_signal_handler_disconnect (priv->proxy, priv->invalid_signal_id);
-      g_object_unref (priv->proxy);
-    }
-
-  priv->proxy = proxy;
-
-  tp_proxy_add_interface_by_id (priv->proxy, emp_iface_quark_debug ());
-
-  emp_cli_debug_call_get_messages (priv->proxy, -1,
-      debug_window_get_messages_cb, debug_window, NULL, NULL);
-
-  priv->invalid_signal_id = g_signal_connect (proxy, "invalidated",
-      G_CALLBACK (proxy_invalidated_cb), debug_window);
+  create_proxy_to_get_messages (debug_window, &iter, dbus);
 
   g_object_unref (dbus);
+
+finally:
+  g_free (name);
+  tp_clear_object (&stored_active_buffer);
 }
 
 typedef struct
@@ -673,6 +937,9 @@ debug_window_get_name_owner_cb (TpDBusDaemon *proxy,
   FillServiceChooserData *data = (FillServiceChooserData *) user_data;
   EmpathyDebugWindow *self = EMPATHY_DEBUG_WINDOW (data->debug_window);
   EmpathyDebugWindowPriv *priv = GET_PRIV (data->debug_window);
+  GtkTreeIter iter;
+
+  priv->name_owner_cb_count++;
 
   if (error != NULL)
     {
@@ -682,8 +949,8 @@ debug_window_get_name_owner_cb (TpDBusDaemon *proxy,
 
   if (!debug_window_service_is_in_model (data->debug_window, out, NULL, FALSE))
     {
-      GtkTreeIter iter;
       char *name;
+      GtkListStore *active_buffer, *pause_buffer;
 
       DEBUG ("Adding %s to list: %s at unique name: %s",
           data->type == SERVICE_TYPE_CM? "CM": "Client",
@@ -694,11 +961,20 @@ debug_window_get_name_owner_cb (TpDBusDaemon *proxy,
       else
         name = g_strdup (data->name);
 
-      gtk_list_store_append (priv->service_store, &iter);
-      gtk_list_store_set (priv->service_store, &iter,
+      active_buffer = new_list_store_for_service ();
+      pause_buffer = new_list_store_for_service ();
+
+      gtk_list_store_insert_with_values (priv->service_store, &iter, -1,
           COL_NAME, name,
           COL_UNIQUE_NAME, out,
+          COL_GONE, FALSE,
+          COL_ACTIVE_BUFFER, active_buffer,
+          COL_PAUSE_BUFFER, pause_buffer,
+          COL_PROXY, NULL,
           -1);
+
+      g_object_unref (active_buffer);
+      g_object_unref (pause_buffer);
 
       if (priv->select_name != NULL &&
           !tp_strdiff (name, priv->select_name))
@@ -709,6 +985,22 @@ debug_window_get_name_owner_cb (TpDBusDaemon *proxy,
 
       g_free (name);
     }
+
+    if (priv->services_detected == priv->name_owner_cb_count)
+      {
+        /* Time to add "All" selection to service_store */
+        gtk_list_store_insert_with_values (priv->service_store, &iter, 0,
+            COL_NAME, "All",
+            COL_ACTIVE_BUFFER, NULL,
+            -1);
+
+        priv->all_active_buffer = new_list_store_for_service ();
+
+        /* Populate active buffers for all services */
+        refresh_all_buffer (self);
+
+        gtk_combo_box_set_active (GTK_COMBO_BOX (priv->chooser), 0);
+      }
 
 OUT:
   fill_service_chooser_data_free (data);
@@ -724,6 +1016,7 @@ debug_window_list_connection_names_cb (const gchar * const *names,
     GObject *weak_object)
 {
   EmpathyDebugWindow *debug_window = (EmpathyDebugWindow *) user_data;
+  EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
   guint i;
   TpDBusDaemon *dbus;
   GError *error2 = NULL;
@@ -751,6 +1044,8 @@ debug_window_list_connection_names_cb (const gchar * const *names,
       tp_cli_dbus_daemon_call_get_name_owner (dbus, -1,
           names[i], debug_window_get_name_owner_cb,
           data, NULL, NULL);
+
+      priv->services_detected ++;
     }
 
   g_object_unref (dbus);
@@ -786,6 +1081,7 @@ debug_window_name_owner_changed_cb (TpDBusDaemon *proxy,
 
   if (EMP_STR_EMPTY (arg1) && !EMP_STR_EMPTY (arg2))
     {
+      GtkTreeIter *found_at_iter = NULL;
       gchar *display_name;
 
       if (type == SERVICE_TYPE_CM)
@@ -794,40 +1090,71 @@ debug_window_name_owner_changed_cb (TpDBusDaemon *proxy,
         display_name = g_strdup (name);
 
       /* A service joined */
-      if (!g_hash_table_lookup (priv->cache, name))
+      if (!debug_window_service_is_in_model (user_data, display_name,
+           &found_at_iter, TRUE))
         {
           GtkTreeIter iter;
+          GtkListStore *active_buffer, *pause_buffer;
 
           DEBUG ("Adding new service '%s' at %s.", name, arg2);
 
-          gtk_list_store_append (priv->service_store, &iter);
-          gtk_list_store_set (priv->service_store, &iter,
+          active_buffer = new_list_store_for_service ();
+          pause_buffer = new_list_store_for_service ();
+
+          gtk_list_store_insert_with_values (priv->service_store, &iter, -1,
               COL_NAME, display_name,
               COL_UNIQUE_NAME, arg2,
+              COL_GONE, FALSE,
+              COL_ACTIVE_BUFFER, active_buffer,
+              COL_PAUSE_BUFFER, pause_buffer,
+              COL_PROXY, NULL,
               -1);
+
+          g_object_unref (active_buffer);
+          g_object_unref (pause_buffer);
         }
       else
         {
-          /* a service with the same name is already in the hash table,
-           * update it and set it as re-enabled in the model.
+          /* a service with the same name is already in the service_store,
+           * update it and set it as re-enabled.
            */
-          GtkTreeIter *iter = NULL;
+          GtkListStore *active_buffer, *pause_buffer;
+          TpProxy *stored_proxy;
 
-          if (debug_window_service_is_in_model (user_data, name, &iter, TRUE))
-            {
-              DEBUG ("Refreshing CM '%s' at '%s'.", name, arg2);
+          DEBUG ("Refreshing CM '%s' at '%s'.", name, arg2);
 
-              gtk_list_store_set (priv->service_store, iter,
-                  COL_NAME, display_name,
-                  COL_UNIQUE_NAME, arg2,
-                  COL_GONE, FALSE,
-                  -1);
-              gtk_tree_iter_free (iter);
+          active_buffer= new_list_store_for_service ();
+          pause_buffer = new_list_store_for_service ();
 
-              debug_window_service_chooser_changed_cb
-                (GTK_COMBO_BOX (priv->chooser), user_data);
-            }
+          gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store),
+              found_at_iter, COL_PROXY, &stored_proxy, -1);
+
+          tp_clear_object (&stored_proxy);
+
+          gtk_list_store_set (priv->service_store, found_at_iter,
+              COL_NAME, display_name,
+              COL_UNIQUE_NAME, arg2,
+              COL_GONE, FALSE,
+              COL_ACTIVE_BUFFER, active_buffer,
+              COL_PAUSE_BUFFER, pause_buffer,
+              COL_PROXY, NULL,
+              -1);
+
+          g_object_unref (active_buffer);
+          g_object_unref (pause_buffer);
+
+          gtk_tree_iter_free (found_at_iter);
+
+          debug_window_service_chooser_changed_cb
+            (GTK_COMBO_BOX (priv->chooser), user_data);
         }
+
+      /* If a new service arrives when "All" is selected, the view will
+       * not show its messages which we do not want. So we refresh All's
+       * active buffer.
+       * Similarly for when a service with an already seen service name
+       * appears. */
+      refresh_all_buffer (self);
 
       g_free (display_name);
     }
@@ -845,6 +1172,9 @@ debug_window_name_owner_changed_cb (TpDBusDaemon *proxy,
               iter, COL_GONE, TRUE, -1);
           gtk_tree_iter_free (iter);
         }
+
+      /* Refresh all's active buffer */
+      refresh_all_buffer (self);
     }
 }
 
@@ -862,6 +1192,8 @@ add_client (EmpathyDebugWindow *self,
 
   tp_cli_dbus_daemon_call_get_name_owner (priv->dbus, -1,
       name, debug_window_get_name_owner_cb, data, NULL, NULL);
+
+  priv->services_detected ++;
 }
 
 static void
@@ -895,6 +1227,7 @@ debug_window_fill_service_chooser (EmpathyDebugWindow *debug_window)
   EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
   GError *error = NULL;
   GtkTreeIter iter;
+  GtkListStore *active_buffer, *pause_buffer;
 
   priv->dbus = tp_dbus_daemon_dup (&error);
 
@@ -905,18 +1238,28 @@ debug_window_fill_service_chooser (EmpathyDebugWindow *debug_window)
       return;
     }
 
+  /* Keep a count of the services detected and added */
+  priv->services_detected = 0;
+  priv->name_owner_cb_count = 0;
+
   /* Add CMs to list */
   tp_list_connection_names (priv->dbus, debug_window_list_connection_names_cb,
       debug_window, NULL, NULL);
 
   /* add Mission Control */
-  gtk_list_store_append (priv->service_store, &iter);
-  gtk_list_store_set (priv->service_store, &iter,
+  active_buffer= new_list_store_for_service ();
+  pause_buffer = new_list_store_for_service ();
+
+  gtk_list_store_insert_with_values (priv->service_store, &iter, -1,
       COL_NAME, "mission-control",
       COL_UNIQUE_NAME, "org.freedesktop.Telepathy.MissionControl5",
+      COL_GONE, FALSE,
+      COL_ACTIVE_BUFFER, active_buffer,
+      COL_PAUSE_BUFFER, pause_buffer,
+      COL_PROXY, NULL,
       -1);
-
-  gtk_combo_box_set_active (GTK_COMBO_BOX (priv->chooser), 0);
+  g_object_unref (active_buffer);
+  g_object_unref (pause_buffer);
 
   /* add clients */
   tp_dbus_daemon_list_names (priv->dbus, 2000,
@@ -932,35 +1275,41 @@ debug_window_pause_toggled_cb (GtkToggleToolButton *pause_,
     EmpathyDebugWindow *debug_window)
 {
   EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
+  GtkTreeIter iter;
+  gboolean valid_iter;
+  GtkTreeModel *model = GTK_TREE_MODEL (priv->service_store);
 
   priv->paused = gtk_toggle_tool_button_get_active (pause_);
 
-  debug_window_set_enabled (debug_window, !priv->paused);
-}
+  if (!priv->paused)
+    {
+      /* Pause has been released - flush all pause buffers */
+      GtkTreeModel *service_store = GTK_TREE_MODEL (priv->service_store);
 
-static gboolean
-debug_window_visible_func (GtkTreeModel *model,
-    GtkTreeIter *iter,
-    gpointer user_data)
-{
-  EmpathyDebugWindow *debug_window = (EmpathyDebugWindow *) user_data;
-  EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
-  guint filter_value, level;
-  GtkTreeModel *filter_model;
-  GtkTreeIter filter_iter;
+      /* Skipping the first iter which is reserved for "All" */
+      gtk_tree_model_get_iter_first (model, &iter);
+      for (valid_iter = gtk_tree_model_iter_next (model, &iter);
+           valid_iter;
+           valid_iter = gtk_tree_model_iter_next (model, &iter))
+        {
+          GtkListStore *pause_buffer, *active_buffer;
 
-  filter_model = gtk_combo_box_get_model (GTK_COMBO_BOX (priv->level_filter));
-  gtk_combo_box_get_active_iter (GTK_COMBO_BOX (priv->level_filter),
-      &filter_iter);
+          gtk_tree_model_get (service_store, &iter,
+              COL_PAUSE_BUFFER, &pause_buffer,
+              COL_ACTIVE_BUFFER, &active_buffer,
+              -1);
 
-  gtk_tree_model_get (model, iter, COL_DEBUG_LEVEL_VALUE, &level, -1);
-  gtk_tree_model_get (filter_model, &filter_iter,
-      COL_LEVEL_VALUE, &filter_value, -1);
+          gtk_tree_model_foreach (GTK_TREE_MODEL (pause_buffer),
+              copy_buffered_messages, active_buffer);
+          gtk_tree_model_foreach (GTK_TREE_MODEL (pause_buffer),
+              copy_buffered_messages, priv->all_active_buffer);
 
-  if (level <= filter_value)
-    return TRUE;
+          gtk_list_store_clear (pause_buffer);
 
-  return FALSE;
+          g_object_unref (active_buffer);
+          g_object_unref (pause_buffer);
+        }
+    }
 }
 
 static void
@@ -978,8 +1327,16 @@ debug_window_clear_clicked_cb (GtkToolButton *clear_button,
     EmpathyDebugWindow *debug_window)
 {
   EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
+  GtkTreeIter iter;
+  GtkListStore *active_buffer;
 
-  gtk_list_store_clear (priv->store);
+  gtk_combo_box_get_active_iter (GTK_COMBO_BOX (priv->chooser), &iter);
+  gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store), &iter,
+      COL_ACTIVE_BUFFER, &active_buffer, -1);
+
+  gtk_list_store_clear (active_buffer);
+
+  g_object_unref (active_buffer);
 }
 
 static void
@@ -1347,37 +1704,6 @@ debug_window_key_press_event_cb (GtkWidget *widget,
   return FALSE;
 }
 
-static gboolean
-tree_view_search_equal_func_cb (GtkTreeModel *model,
-    gint column,
-    const gchar *key,
-    GtkTreeIter *iter,
-    gpointer search_data)
-{
-  gchar *str;
-  gint key_len;
-  gint len;
-  gint i;
-  gboolean ret = TRUE; /* The return value is counter-intuitive */
-
-  gtk_tree_model_get (model, iter, column, &str, -1);
-
-  key_len = strlen (key);
-  len = strlen (str) - key_len;
-
-  for (i = 0; i <= len; ++i)
-    {
-      if (!g_ascii_strncasecmp (key, str + i, key_len))
-        {
-          ret = FALSE;
-          break;
-        }
-    }
-
-  g_free (str);
-  return ret;
-}
-
 static void
 empathy_debug_window_select_name (EmpathyDebugWindow *self,
     const gchar *name)
@@ -1456,8 +1782,13 @@ am_prepared_cb (GObject *am,
 
   /* CM */
   priv->chooser = gtk_combo_box_text_new ();
-  priv->service_store = gtk_list_store_new (NUM_COLS, G_TYPE_STRING,
-      G_TYPE_STRING, G_TYPE_BOOLEAN);
+  priv->service_store = gtk_list_store_new (NUM_COLS,
+      G_TYPE_STRING,  /* COL_NAME */
+      G_TYPE_STRING,  /* COL_UNIQUE_NAME */
+      G_TYPE_BOOLEAN, /* COL_GONE */
+      G_TYPE_OBJECT,  /* COL_ACTIVE_BUFFER */
+      G_TYPE_OBJECT,  /* COL_PAUSE_BUFFER */
+      TP_TYPE_PROXY); /* COL_PROXY */
   gtk_combo_box_set_model (GTK_COMBO_BOX (priv->chooser),
       GTK_TREE_MODEL (priv->service_store));
   gtk_widget_show (priv->chooser);
@@ -1544,38 +1875,32 @@ am_prepared_cb (GObject *am,
   gtk_combo_box_set_model (GTK_COMBO_BOX (priv->level_filter),
       GTK_TREE_MODEL (level_store));
 
-  gtk_list_store_append (level_store, &iter);
-  gtk_list_store_set (level_store, &iter,
+  gtk_list_store_insert_with_values (level_store, &iter, -1,
       COL_LEVEL_NAME, _("Debug"),
       COL_LEVEL_VALUE, TP_DEBUG_LEVEL_DEBUG,
       -1);
 
-  gtk_list_store_append (level_store, &iter);
-  gtk_list_store_set (level_store, &iter,
+  gtk_list_store_insert_with_values (level_store, &iter, -1,
       COL_LEVEL_NAME, _("Info"),
       COL_LEVEL_VALUE, TP_DEBUG_LEVEL_INFO,
       -1);
 
-  gtk_list_store_append (level_store, &iter);
-  gtk_list_store_set (level_store, &iter,
+  gtk_list_store_insert_with_values (level_store, &iter, -1,
       COL_LEVEL_NAME, _("Message"),
       COL_LEVEL_VALUE, TP_DEBUG_LEVEL_MESSAGE,
       -1);
 
-  gtk_list_store_append (level_store, &iter);
-  gtk_list_store_set (level_store, &iter,
+  gtk_list_store_insert_with_values (level_store, &iter, -1,
       COL_LEVEL_NAME, _("Warning"),
       COL_LEVEL_VALUE, TP_DEBUG_LEVEL_WARNING,
       -1);
 
-  gtk_list_store_append (level_store, &iter);
-  gtk_list_store_set (level_store, &iter,
+  gtk_list_store_insert_with_values (level_store, &iter, -1,
       COL_LEVEL_NAME, _("Critical"),
       COL_LEVEL_VALUE, TP_DEBUG_LEVEL_CRITICAL,
       -1);
 
-  gtk_list_store_append (level_store, &iter);
-  gtk_list_store_set (level_store, &iter,
+  gtk_list_store_insert_with_values (level_store, &iter, -1,
       COL_LEVEL_NAME, _("Error"),
       COL_LEVEL_VALUE, TP_DEBUG_LEVEL_ERROR,
       -1);
@@ -1609,23 +1934,9 @@ am_prepared_cb (GObject *am,
   gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (priv->view),
       -1, _("Message"), renderer, "text", COL_DEBUG_MESSAGE, NULL);
 
-  priv->store = gtk_list_store_new (NUM_DEBUG_COLS, G_TYPE_DOUBLE,
-      G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,
-      G_TYPE_UINT);
-
-  priv->store_filter = gtk_tree_model_filter_new (
-      GTK_TREE_MODEL (priv->store), NULL);
-
-  gtk_tree_model_filter_set_visible_func (
-      GTK_TREE_MODEL_FILTER (priv->store_filter),
-      debug_window_visible_func, object, NULL);
+  priv->store_filter = NULL;
 
   gtk_tree_view_set_model (GTK_TREE_VIEW (priv->view), priv->store_filter);
-
-  gtk_tree_view_set_search_column (GTK_TREE_VIEW (priv->view),
-      COL_DEBUG_MESSAGE);
-  gtk_tree_view_set_search_equal_func (GTK_TREE_VIEW (priv->view),
-      tree_view_search_equal_func_cb, NULL, NULL);
 
   /* Scrolled window */
   priv->scrolled_win = g_object_ref (gtk_scrolled_window_new (NULL, NULL));
@@ -1646,6 +1957,8 @@ am_prepared_cb (GObject *am,
       TRUE, TRUE, 0);
 
   priv->view_visible = FALSE;
+
+  priv->all_active_buffer = NULL;
 
   debug_window_set_toolbar_sensitivity (EMPATHY_DEBUG_WINDOW (object), FALSE);
   debug_window_fill_service_chooser (EMPATHY_DEBUG_WINDOW (object));
@@ -1671,8 +1984,6 @@ empathy_debug_window_init (EmpathyDebugWindow *empathy_debug_window)
   empathy_debug_window->priv = priv;
 
   priv->dispose_run = FALSE;
-  priv->cache = g_hash_table_new_full (g_str_hash, g_str_equal,
-      g_free, NULL);
 }
 
 static void
@@ -1707,21 +2018,8 @@ static void
 debug_window_finalize (GObject *object)
 {
   EmpathyDebugWindowPriv *priv = GET_PRIV (object);
-  GHashTableIter iter;
-  char *key;
-  GList *values;
 
   g_free (priv->select_name);
-
-  g_hash_table_iter_init (&iter, priv->cache);
-
-  while (g_hash_table_iter_next (&iter, (gpointer *) &key,
-          (gpointer *) &values))
-    {
-      debug_message_list_free (values);
-    }
-
-  g_hash_table_unref (priv->cache);
 
   (G_OBJECT_CLASS (empathy_debug_window_parent_class)->finalize) (object);
 }
@@ -1737,21 +2035,8 @@ debug_window_dispose (GObject *object)
 
   priv->dispose_run = TRUE;
 
-  if (priv->store != NULL)
-    g_object_unref (priv->store);
-
   if (priv->name_owner_changed_signal != NULL)
     tp_proxy_signal_connection_disconnect (priv->name_owner_changed_signal);
-
-  if (priv->new_debug_message_signal != NULL)
-    tp_proxy_signal_connection_disconnect (priv->new_debug_message_signal);
-
-  if (priv->proxy != NULL)
-    {
-      debug_window_set_enabled (EMPATHY_DEBUG_WINDOW (object), FALSE);
-      g_signal_handler_disconnect (priv->proxy, priv->invalid_signal_id);
-      g_object_unref (priv->proxy);
-    }
 
   if (priv->service_store != NULL)
     g_object_unref (priv->service_store);
@@ -1764,6 +2049,8 @@ debug_window_dispose (GObject *object)
       g_object_unref (priv->am);
       priv->am = NULL;
     }
+
+  tp_clear_object (&priv->all_active_buffer);
 
   (G_OBJECT_CLASS (empathy_debug_window_parent_class)->dispose) (object);
 }
