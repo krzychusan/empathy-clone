@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: empathy.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=empathy&keywords=I18N+L10N&component=General\n"
-"POT-Creation-Date: 2012-02-16 13:13+0000\n"
-"PO-Revision-Date: 2012-02-16 17:23+0100\n"
+"POT-Creation-Date: 2012-02-16 20:30+0000\n"
+"PO-Revision-Date: 2012-02-17 10:29+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,6 +34,16 @@ msgstr "Mensajería instantánea Empathy"
 #: ../data/empathy.desktop.in.in.h:4
 msgid "Chat on Google Talk, Facebook, MSN and many other chat services"
 msgstr "Chatee en Google Talk, Facebook, MSN y muchos otros servicios de chat"
+
+#. Tweak the dialog
+#: ../data/empathy-accounts.desktop.in.in.h:1
+#: ../src/empathy-accounts-dialog.c:2411
+msgid "Messaging and VoIP Accounts"
+msgstr "Cuentas de mensajería y Voz IP"
+
+#: ../data/empathy-accounts.desktop.in.in.h:2
+msgid "Manage Messaging and VoIP accounts"
+msgstr "Gestionar las cuentas de mensajería y Voz IP"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:1
 msgid "Connection managers should be used"
@@ -543,16 +553,6 @@ msgid ""
 msgstr ""
 "Indica si Empathy debería reducir la precisión de la ubicación por motivos "
 "de privacidad."
-
-#. Tweak the dialog
-#: ../data/empathy-accounts.desktop.in.in.h:1
-#: ../src/empathy-accounts-dialog.c:2328
-msgid "Messaging and VoIP Accounts"
-msgstr "Cuentas de mensajería y Voz IP"
-
-#: ../data/empathy-accounts.desktop.in.in.h:2
-msgid "Manage Messaging and VoIP accounts"
-msgstr "Gestionar las cuentas de mensajería y Voz IP"
 
 #: ../libempathy/empathy-ft-handler.c:736
 msgid "No reason was specified"
@@ -3049,232 +3049,73 @@ msgstr ""
 "Jorge González <jorgegonz@svn.gnome.org>, 2007-2010\n"
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2010"
 
-#: ../src/empathy-account-assistant.c:167
-msgid "There was an error while importing the accounts."
-msgstr "Hubo un error al importar las cuentas."
-
-#: ../src/empathy-account-assistant.c:170
-msgid "There was an error while parsing the account details."
-msgstr "Hubo un error al analizar los detalles de la cuenta."
-
-#: ../src/empathy-account-assistant.c:173
-msgid "There was an error while creating the account."
-msgstr "Hubo un error al crear la cuenta."
-
-#: ../src/empathy-account-assistant.c:175
-msgid "There was an error."
-msgstr "Hubo un error."
-
-#: ../src/empathy-account-assistant.c:179
-#, c-format
-msgid "The error message was: %s"
-msgstr "El mensaje de error fue: %s"
-
-#: ../src/empathy-account-assistant.c:183
-msgid ""
-"You can either go back and try to enter your accounts' details again or quit "
-"this assistant and add accounts later from the Edit menu."
-msgstr ""
-"Puede volver atrás e intentar introducir los detalles de su cuenta de nuevo "
-"o salir de este asistente y añadir cuentas posteriormente desde el menú "
-"Editar."
-
-#: ../src/empathy-account-assistant.c:220
-#: ../src/empathy-account-assistant.c:1277
-msgid "An error occurred"
-msgstr "Ocurrió un error"
-
-#: ../src/empathy-account-assistant.c:469
-#: ../libempathy-gtk/empathy-new-account-dialog.c:144
-msgid "What kind of chat account do you have?"
-msgstr "¿Qué tipo de cuenta tiene?"
-
-#: ../src/empathy-account-assistant.c:475
-msgid "Do you have any other chat accounts you want to set up?"
-msgstr "¿Tiene otras cuentas de chat que quiera configurar?"
-
-#: ../src/empathy-account-assistant.c:481
-msgid "Enter your account details"
-msgstr "Introducir los detalles de su cuenta"
-
-#: ../src/empathy-account-assistant.c:486
-msgid "What kind of chat account do you want to create?"
-msgstr "¿Qué tipo de cuenta quiere crear?"
-
-#: ../src/empathy-account-assistant.c:492
-msgid "Do you want to create other chat accounts?"
-msgstr "¿Quiere crear otras cuentas de chat?"
-
-#: ../src/empathy-account-assistant.c:499
-msgid "Enter the details for the new account"
-msgstr "Introducir los detalles para la cuenta nueva"
-
-#: ../src/empathy-account-assistant.c:614
-msgid ""
-"With Empathy you can chat with people online nearby and with friends and "
-"colleagues who use Google Talk, AIM, Windows Live and many other chat "
-"programs. With a microphone or a webcam you can also have audio or video "
-"calls."
-msgstr ""
-"Con Empathy puede charlar con gente cerca y con amigos y colegas que usen "
-"Google Talk, AIM, Windows Live y muchos otros programas de chat. Con un "
-"micrófono o una cámara web puede hacer incluso llamadas de voz o vídeo."
-
-#: ../src/empathy-account-assistant.c:631
-msgid "Do you have an account you've been using with another chat program?"
-msgstr "¿Tiene una cuenta que haya estado usando con otro programa de chat?"
-
-#: ../src/empathy-account-assistant.c:655
-msgid "Yes, import my account details from "
-msgstr "Sí, importar los detalles de mi cuenta desde "
-
-#: ../src/empathy-account-assistant.c:676
-msgid "Yes, I'll enter my account details now"
-msgstr "Sí, introduciré ahora los detalles de mi cuenta"
-
-#: ../src/empathy-account-assistant.c:698
-msgid "No, I want a new account"
-msgstr "No, quiero crear una cuenta nueva"
-
-#: ../src/empathy-account-assistant.c:708
-msgid "No, I just want to see people online nearby for now"
-msgstr "No, por ahora sólo quiero ver la gente conectada cerca"
-
-#: ../src/empathy-account-assistant.c:729
-msgid "Select the accounts you want to import:"
-msgstr "Seleccione las cuentas que quiere importar:"
-
-#: ../src/empathy-account-assistant.c:817
-#: ../src/empathy-new-chatroom-dialog.c:639
-#: ../src/empathy-new-chatroom-dialog.c:640
-msgid "Yes"
-msgstr "Sí"
-
-#: ../src/empathy-account-assistant.c:824
-msgid "No, that's all for now"
-msgstr "No, eso es todo por ahora"
-
-#: ../src/empathy-account-assistant.c:1089
-msgid ""
-"Empathy can automatically discover and chat with the people connected on the "
-"same network as you. If you want to use this feature, please check that the "
-"details below are correct. You can easily change these details later or "
-"disable this feature by using the 'Accounts' dialog"
-msgstr ""
-"Empathy puede descubrir automáticamente las personas conectadas en su misma "
-"red para poder chatear con ellas. Si quiere usar esta característica "
-"compruebe que los detalles de abajo son correctos. Puede cambiar fácilmente "
-"estos detalles posteriormente o desactivar esta característica usando el "
-"diálogo «Cuentas»."
-
-#: ../src/empathy-account-assistant.c:1095
-#: ../src/empathy-account-assistant.c:1153
-msgid "Edit->Accounts"
-msgstr "Editar->Cuentas"
-
-#: ../src/empathy-account-assistant.c:1111
-msgid "I do _not want to enable this feature for now"
-msgstr "_No quiero activar esta característica por ahora"
-
-#: ../src/empathy-account-assistant.c:1149
-msgid ""
-"You won't be able to chat with people connected to your local network, as "
-"telepathy-salut is not installed. If you want to enable this feature, please "
-"install the telepathy-salut package and create a People Nearby account from "
-"the Accounts dialog"
-msgstr ""
-"No podrá chatear con las personas conectadas en su red local, ya que "
-"telepathy-salut no está instalado. Si quiere activar esta característica "
-"instale el paquete telepathy-salut y cree una cuenta de Gente cerca desde el "
-"diálogo Cuentas."
-
-#: ../src/empathy-account-assistant.c:1155
-msgid "telepathy-salut not installed"
-msgstr "telepathy-salut no está instalado"
-
-#: ../src/empathy-account-assistant.c:1201
-msgid "Messaging and VoIP Accounts Assistant"
-msgstr "Asistente de cuentas de mensajería y Voz IP"
-
-#: ../src/empathy-account-assistant.c:1235
-msgid "Welcome to Empathy"
-msgstr "Bienvenido a Empathy"
-
-#: ../src/empathy-account-assistant.c:1244
-msgid "Import your existing accounts"
-msgstr "Importar sus cuentas existentes"
-
-#: ../src/empathy-account-assistant.c:1262
-msgid "Please enter personal details"
-msgstr "Introduzca los detalles personales"
-
 #. The primary text of the dialog shown to the user when he is about to lose
 #. * unsaved changes
-#: ../src/empathy-accounts-dialog.c:69
+#: ../src/empathy-accounts-dialog.c:71
 #, c-format
 msgid "There are unsaved modifications to your %s account."
 msgstr "Existen modificaciones sin guardar en su cuenta %s."
 
 #. The primary text of the dialog shown to the user when he is about to lose
 #. * an unsaved new account
-#: ../src/empathy-accounts-dialog.c:73
+#: ../src/empathy-accounts-dialog.c:75
 msgid "Your new account has not been saved yet."
 msgstr "Aún no se ha guardado su cuenta nueva."
 
-#: ../src/empathy-accounts-dialog.c:345
+#: ../src/empathy-accounts-dialog.c:347
 #: ../src/empathy-streamed-media-window.c:757
 #: ../src/empathy-call-window.c:1332
 msgid "Connecting…"
 msgstr "Conectando…"
 
-#: ../src/empathy-accounts-dialog.c:386
+#: ../src/empathy-accounts-dialog.c:388
 #, c-format
 msgid "Offline — %s"
 msgstr "Desconectado: %s"
 
-#: ../src/empathy-accounts-dialog.c:398
+#: ../src/empathy-accounts-dialog.c:400
 #, c-format
 msgid "Disconnected — %s"
 msgstr "Desconectado: %s"
 
-#: ../src/empathy-accounts-dialog.c:409
+#: ../src/empathy-accounts-dialog.c:411
 msgid "Offline — No Network Connection"
 msgstr "Desconectado: sin conexión de red"
 
-#: ../src/empathy-accounts-dialog.c:416
+#: ../src/empathy-accounts-dialog.c:418
 msgid "Unknown Status"
 msgstr "Estado desconocido"
 
-#: ../src/empathy-accounts-dialog.c:428
+#: ../src/empathy-accounts-dialog.c:430
 msgid "Offline — Account Disabled"
 msgstr "Desconectado: cuenta desactivada"
 
-#: ../src/empathy-accounts-dialog.c:531
+#: ../src/empathy-accounts-dialog.c:533
 msgid "Edit Connection Parameters"
 msgstr "Editar los parámetros de la conexión"
 
-#: ../src/empathy-accounts-dialog.c:694
+#: ../src/empathy-accounts-dialog.c:696
 msgid "Failed to retrieve your personal information from the server."
 msgstr "Falló al recuperar su información personal del servidor."
 
-#: ../src/empathy-accounts-dialog.c:700
+#: ../src/empathy-accounts-dialog.c:702
 msgid "Go online to edit your personal information."
 msgstr "Conéctese para editar su información personal."
 
-#: ../src/empathy-accounts-dialog.c:785
+#: ../src/empathy-accounts-dialog.c:787
 msgid "_Edit Connection Parameters..."
 msgstr "_Editar los parámetros de la conexión…"
 
-#: ../src/empathy-accounts-dialog.c:1281
+#: ../src/empathy-accounts-dialog.c:1283
 #, c-format
 msgid "Do you want to remove %s from your computer?"
 msgstr "¿Quiere quitar %s de su equipo?"
 
-#: ../src/empathy-accounts-dialog.c:1285
+#: ../src/empathy-accounts-dialog.c:1287
 msgid "This will not remove your account on the server."
 msgstr "Esto no quitará su cuenta del servidor."
 
-#: ../src/empathy-accounts-dialog.c:1521
+#: ../src/empathy-accounts-dialog.c:1523
 msgid ""
 "You are about to select another account, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -3283,15 +3124,24 @@ msgstr ""
 "¿Seguro que quiere continuar?"
 
 #. Menu items: to enabled/disable the account
-#: ../src/empathy-accounts-dialog.c:1697
+#: ../src/empathy-accounts-dialog.c:1699
 msgid "_Enable"
 msgstr "_Activar"
 
-#: ../src/empathy-accounts-dialog.c:1698
+#: ../src/empathy-accounts-dialog.c:1700
 msgid "_Disable"
 msgstr "_Desactivar"
 
-#: ../src/empathy-accounts-dialog.c:2181
+#: ../src/empathy-accounts-dialog.c:2083
+msgid "_Skip"
+msgstr "_Omitir"
+
+#: ../src/empathy-accounts-dialog.c:2087
+#| msgid "Connected"
+msgid "_Connect"
+msgstr "_Conectar"
+
+#: ../src/empathy-accounts-dialog.c:2264
 msgid ""
 "You are about to close the window, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -3320,7 +3170,6 @@ msgstr ""
 "protocolo que quiera usar."
 
 #: ../src/empathy-accounts-dialog.ui.h:6
-#| msgid "No protocol installed"
 msgid "No protocol backends installed"
 msgstr "No hay «backends» de protocolos instalados"
 
@@ -3331,10 +3180,6 @@ msgstr ": Cliente de autenticación de Empathy"
 #: ../src/empathy-auth-client.c:302
 msgid "Empathy authentication client"
 msgstr "Cliente de autenticación de Empathy"
-
-#: ../src/empathy-auto-salut-account-helper.c:83
-msgid "People nearby"
-msgstr "Gente cerca"
 
 #: ../src/empathy-av.c:118 ../src/empathy-call.c:203
 msgid "- Empathy Audio/Video Client"
@@ -4027,7 +3872,6 @@ msgstr ""
 "lista"
 
 #: ../src/empathy-import-dialog.c:76
-#| msgid "Import"
 msgid "_Import"
 msgstr "_Importar"
 
@@ -4241,6 +4085,11 @@ msgstr ""
 "Se necesita invitación: %s\n"
 "Se necesita contraseña: %s\n"
 "Miembros: %s"
+
+#: ../src/empathy-new-chatroom-dialog.c:639
+#: ../src/empathy-new-chatroom-dialog.c:640
+msgid "Yes"
+msgstr "Sí"
 
 #: ../src/empathy-new-chatroom-dialog.c:639
 #: ../src/empathy-new-chatroom-dialog.c:640
@@ -4666,35 +4515,31 @@ msgstr "Elegir un contacto para invitar a la conversación:"
 msgid "Invite"
 msgstr "Invitar"
 
-#: ../src/empathy-accounts.c:182
+#: ../src/empathy-accounts.c:180
 msgid "Don't display any dialogs; do any work (eg, importing) and exit"
 msgstr ""
 "No mostrar ningún diálogo; realizar cualquier trabajo (ej. importar) y salir"
 
-#: ../src/empathy-accounts.c:186
+#: ../src/empathy-accounts.c:184
 msgid ""
 "Don't display any dialogs unless there are only \"People Nearby\" accounts"
 msgstr ""
 "No mostrar ningún diálogo a no ser que sólo existan cuentas «Gente cerca»"
 
-#: ../src/empathy-accounts.c:190
+#: ../src/empathy-accounts.c:188
 msgid "Initially select given account (eg, gabble/jabber/foo_40example_2eorg0)"
 msgstr ""
 "Cuenta proporcionada inicialmente seleccionada (ej. gabble/jabber/ejemplo)"
 
-#: ../src/empathy-accounts.c:192
+#: ../src/empathy-accounts.c:190
 msgid "<account-id>"
 msgstr "<id-de-cuenta>"
 
 #: ../src/empathy-accounts.c:195
-msgid "Show account assistant"
-msgstr "Mostrar el asistente de cuentas"
-
-#: ../src/empathy-accounts.c:201
 msgid "- Empathy Accounts"
 msgstr ": Cuentas en Empathy"
 
-#: ../src/empathy-accounts.c:237
+#: ../src/empathy-accounts.c:231
 msgid "Empathy Accounts"
 msgstr "Cuentas en Empathy"
 
@@ -4796,9 +4641,148 @@ msgstr "Recargar"
 msgid "_Match case"
 msgstr "_Coincidir con capitalización"
 
+#: ../libempathy-gtk/empathy-new-account-dialog.c:144
+msgid "What kind of chat account do you have?"
+msgstr "¿Qué tipo de cuenta tiene?"
+
 #: ../libempathy-gtk/empathy-new-account-dialog.c:166
 msgid "Adding new account"
 msgstr "Añadiendo cuenta nueva"
+
+#: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:77
+msgid "People nearby"
+msgstr "Gente cerca"
+
+#: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:150
+#| msgid ""
+#| "Empathy can automatically discover and chat with the people connected on "
+#| "the same network as you. If you want to use this feature, please check "
+#| "that the details below are correct. You can easily change these details "
+#| "later or disable this feature by using the 'Accounts' dialog"
+msgid ""
+"Empathy can automatically discover and chat with the people connected on the "
+"same network as you. If you want to use this feature, please check that the "
+"details below are correct."
+msgstr ""
+"Empathy puede descubrir automáticamente las personas conectadas en su misma "
+"red para poder chatear con ellas. Si quiere usar esta característica "
+"compruebe que los detalles de abajo son correctos."
+
+#: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:183
+msgid ""
+"You can change these details later or disable this feature by choosing <span "
+"style=\"italic\">Edit → Accounts</span> in the Contact List."
+msgstr ""
+" Puede cambiar fácilmente estos detalles posteriormente o desactivar esta "
+"característica eligiendo <span style=\"italic\">Editar → Cuentas</span> en "
+"la lista de contactos."
+
+#~ msgid "There was an error while importing the accounts."
+#~ msgstr "Hubo un error al importar las cuentas."
+
+#~ msgid "There was an error while parsing the account details."
+#~ msgstr "Hubo un error al analizar los detalles de la cuenta."
+
+#~ msgid "There was an error while creating the account."
+#~ msgstr "Hubo un error al crear la cuenta."
+
+#~ msgid "There was an error."
+#~ msgstr "Hubo un error."
+
+#~ msgid "The error message was: %s"
+#~ msgstr "El mensaje de error fue: %s"
+
+#~ msgid ""
+#~ "You can either go back and try to enter your accounts' details again or "
+#~ "quit this assistant and add accounts later from the Edit menu."
+#~ msgstr ""
+#~ "Puede volver atrás e intentar introducir los detalles de su cuenta de "
+#~ "nuevo o salir de este asistente y añadir cuentas posteriormente desde el "
+#~ "menú Editar."
+
+#~ msgid "An error occurred"
+#~ msgstr "Ocurrió un error"
+
+#~ msgid "Do you have any other chat accounts you want to set up?"
+#~ msgstr "¿Tiene otras cuentas de chat que quiera configurar?"
+
+#~ msgid "Enter your account details"
+#~ msgstr "Introducir los detalles de su cuenta"
+
+#~ msgid "What kind of chat account do you want to create?"
+#~ msgstr "¿Qué tipo de cuenta quiere crear?"
+
+#~ msgid "Do you want to create other chat accounts?"
+#~ msgstr "¿Quiere crear otras cuentas de chat?"
+
+#~ msgid "Enter the details for the new account"
+#~ msgstr "Introducir los detalles para la cuenta nueva"
+
+#~ msgid ""
+#~ "With Empathy you can chat with people online nearby and with friends and "
+#~ "colleagues who use Google Talk, AIM, Windows Live and many other chat "
+#~ "programs. With a microphone or a webcam you can also have audio or video "
+#~ "calls."
+#~ msgstr ""
+#~ "Con Empathy puede charlar con gente cerca y con amigos y colegas que usen "
+#~ "Google Talk, AIM, Windows Live y muchos otros programas de chat. Con un "
+#~ "micrófono o una cámara web puede hacer incluso llamadas de voz o vídeo."
+
+#~ msgid "Do you have an account you've been using with another chat program?"
+#~ msgstr "¿Tiene una cuenta que haya estado usando con otro programa de chat?"
+
+#~ msgid "Yes, import my account details from "
+#~ msgstr "Sí, importar los detalles de mi cuenta desde "
+
+#~ msgid "Yes, I'll enter my account details now"
+#~ msgstr "Sí, introduciré ahora los detalles de mi cuenta"
+
+#~ msgid "No, I want a new account"
+#~ msgstr "No, quiero crear una cuenta nueva"
+
+#~ msgid "No, I just want to see people online nearby for now"
+#~ msgstr "No, por ahora sólo quiero ver la gente conectada cerca"
+
+#~ msgid "Select the accounts you want to import:"
+#~ msgstr "Seleccione las cuentas que quiere importar:"
+
+#~ msgid "No, that's all for now"
+#~ msgstr "No, eso es todo por ahora"
+
+#~ msgid "Edit->Accounts"
+#~ msgstr "Editar->Cuentas"
+
+#~ msgid "I do _not want to enable this feature for now"
+#~ msgstr "_No quiero activar esta característica por ahora"
+
+#~ msgid ""
+#~ "You won't be able to chat with people connected to your local network, as "
+#~ "telepathy-salut is not installed. If you want to enable this feature, "
+#~ "please install the telepathy-salut package and create a People Nearby "
+#~ "account from the Accounts dialog"
+#~ msgstr ""
+#~ "No podrá chatear con las personas conectadas en su red local, ya que "
+#~ "telepathy-salut no está instalado. Si quiere activar esta característica "
+#~ "instale el paquete telepathy-salut y cree una cuenta de Gente cerca desde "
+#~ "el diálogo Cuentas."
+
+#~ msgid "telepathy-salut not installed"
+#~ msgstr "telepathy-salut no está instalado"
+
+#~ msgid "Messaging and VoIP Accounts Assistant"
+#~ msgstr "Asistente de cuentas de mensajería y Voz IP"
+
+#~ msgid "Welcome to Empathy"
+#~ msgstr "Bienvenido a Empathy"
+
+#~ msgid "Import your existing accounts"
+#~ msgstr "Importar sus cuentas existentes"
+
+#~ msgid "Please enter personal details"
+#~ msgstr "Introduzca los detalles personales"
+
+#~ msgid "Show account assistant"
+#~ msgstr "Mostrar el asistente de cuentas"
 
 #~ msgid "Protocol:"
 #~ msgstr "Protocolo:"
