@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: empathy\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=empath"
 "y&keywords=I18N+L10N&component=General\n"
-"POT-Creation-Date: 2012-02-13 13:31+0000\n"
-"PO-Revision-Date: 2012-02-14 10:31+0200\n"
+"POT-Creation-Date: 2012-02-16 20:30+0000\n"
+"PO-Revision-Date: 2012-02-19 13:49+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -46,6 +46,16 @@ msgid "Chat on Google Talk, Facebook, MSN and many other chat services"
 msgstr ""
 "Ћаскајте на Гугл разговору, Фејсбуку, МСН-у и на многим другим сервисима за "
 "ћаскање"
+
+#. Tweak the dialog
+#: ../data/empathy-accounts.desktop.in.in.h:1
+#: ../src/empathy-accounts-dialog.c:2411
+msgid "Messaging and VoIP Accounts"
+msgstr "Налози за дописивање и VoIP"
+
+#: ../data/empathy-accounts.desktop.in.in.h:2
+msgid "Manage Messaging and VoIP accounts"
+msgstr "Управљајте налозима за дописивање и ВоИП"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:1
 msgid "Connection managers should be used"
@@ -517,16 +527,6 @@ msgid ""
 msgstr ""
 "Да ли Писмоноша да умањи прецизност локације због повећане приватности."
 
-#. Tweak the dialog
-#: ../data/empathy-accounts.desktop.in.in.h:1
-#: ../src/empathy-accounts-dialog.c:2327
-msgid "Messaging and VoIP Accounts"
-msgstr "Налози за дописивање и VoIP"
-
-#: ../data/empathy-accounts.desktop.in.in.h:2
-msgid "Manage Messaging and VoIP accounts"
-msgstr "Управљајте налозима за дописивање и ВоИП"
-
 #: ../libempathy/empathy-ft-handler.c:736
 msgid "No reason was specified"
 msgstr "Није наведен разлог"
@@ -813,7 +813,7 @@ msgid "All accounts"
 msgstr "Сви налози"
 
 #: ../libempathy-gtk/empathy-account-widget.c:682
-#: ../src/empathy-import-widget.c:335
+#: ../src/empathy-import-widget.c:336
 msgid "Account"
 msgstr "Налог"
 
@@ -2085,7 +2085,7 @@ msgid "Select"
 msgstr "Изабери"
 
 #: ../libempathy-gtk/empathy-groups-widget.c:407
-#: ../src/empathy-roster-window.c:1951
+#: ../src/empathy-roster-window.c:1970
 msgid "Group"
 msgstr "Група"
 
@@ -2743,7 +2743,6 @@ msgid "Certificate hostname: %s"
 msgstr "Име домаћина сертификата: %s"
 
 #: ../libempathy-gtk/empathy-tls-dialog.c:281
-#| msgid "Continue"
 msgid "C_ontinue"
 msgstr "_Настави"
 
@@ -3045,231 +3044,73 @@ msgstr ""
 "\n"
 "Превод.орг — превод на српски језик."
 
-#: ../src/empathy-account-assistant.c:167
-msgid "There was an error while importing the accounts."
-msgstr "Грешка при увожењу налога."
-
-#: ../src/empathy-account-assistant.c:170
-msgid "There was an error while parsing the account details."
-msgstr "Грешка при обради детаља налога."
-
-#: ../src/empathy-account-assistant.c:173
-msgid "There was an error while creating the account."
-msgstr "Грешка при прављењу налога."
-
-#: ../src/empathy-account-assistant.c:175
-msgid "There was an error."
-msgstr "Догодила се грешка."
-
-#: ../src/empathy-account-assistant.c:179
-#, c-format
-msgid "The error message was: %s"
-msgstr "Исписана порука грешке: %s"
-
-#: ../src/empathy-account-assistant.c:183
-msgid ""
-"You can either go back and try to enter your accounts' details again or quit "
-"this assistant and add accounts later from the Edit menu."
-msgstr ""
-"Можете се или вратити и пробати да поново унесете детаље налога или да "
-"затворите помоћника и додате налоге касније из менија „Измени“."
-
-#: ../src/empathy-account-assistant.c:220
-#: ../src/empathy-account-assistant.c:1276
-msgid "An error occurred"
-msgstr "Дошло је до грешке"
-
-#: ../src/empathy-account-assistant.c:469
-#: ../libempathy-gtk/empathy-new-account-dialog.c:144
-msgid "What kind of chat account do you have?"
-msgstr "Који тип налога за ћаскање имате?"
-
-#: ../src/empathy-account-assistant.c:475
-msgid "Do you have any other chat accounts you want to set up?"
-msgstr "Да ли имате још неки налог за ћаскање који желите да подесите?"
-
-#: ../src/empathy-account-assistant.c:481
-msgid "Enter your account details"
-msgstr "Унесите детаље налога"
-
-#: ../src/empathy-account-assistant.c:486
-msgid "What kind of chat account do you want to create?"
-msgstr "Који тип налога за ћаскање желите да направите?"
-
-#: ../src/empathy-account-assistant.c:492
-msgid "Do you want to create other chat accounts?"
-msgstr "Да ли желите да направите још налога за ћаскање?"
-
-#: ../src/empathy-account-assistant.c:499
-msgid "Enter the details for the new account"
-msgstr "Унесите детаље новог налога"
-
-#: ../src/empathy-account-assistant.c:614
-msgid ""
-"With Empathy you can chat with people online nearby and with friends and "
-"colleagues who use Google Talk, AIM, Windows Live and many other chat "
-"programs. With a microphone or a webcam you can also have audio or video "
-"calls."
-msgstr ""
-"Са Интернет Писмоношом можете ћаскати и са људима у близини и са пријатељима "
-"и колегама који користе Гугл разговор, АИМ, Виндоуз уживо и многе друге "
-"програме за ћаскање. Са микрофоном и камером такође можете да обављате и "
-"аудио и видео позиве."
-
-#: ../src/empathy-account-assistant.c:631
-msgid "Do you have an account you've been using with another chat program?"
-msgstr ""
-"Да ли имате налог који сте користили са неким другим програмом за ћаскање?"
-
-#: ../src/empathy-account-assistant.c:655
-msgid "Yes, import my account details from "
-msgstr "Да, увези детаље мог налога из "
-
-#: ../src/empathy-account-assistant.c:676
-msgid "Yes, I'll enter my account details now"
-msgstr "Да, ја ћу сам унети детаље налога"
-
-#: ../src/empathy-account-assistant.c:698
-msgid "No, I want a new account"
-msgstr "Не, желим нови налог"
-
-#: ../src/empathy-account-assistant.c:708
-msgid "No, I just want to see people online nearby for now"
-msgstr "Не, за сада само желим да видим људе у близини"
-
-#: ../src/empathy-account-assistant.c:729
-msgid "Select the accounts you want to import:"
-msgstr "Изаберите налоге које желите да увезете:"
-
-#: ../src/empathy-account-assistant.c:816
-#: ../src/empathy-new-chatroom-dialog.c:639
-#: ../src/empathy-new-chatroom-dialog.c:640
-msgid "Yes"
-msgstr "Да"
-
-#: ../src/empathy-account-assistant.c:823
-msgid "No, that's all for now"
-msgstr "Не, то је све за сада"
-
-#: ../src/empathy-account-assistant.c:1088
-msgid ""
-"Empathy can automatically discover and chat with the people connected on the "
-"same network as you. If you want to use this feature, please check that the "
-"details below are correct. You can easily change these details later or "
-"disable this feature by using the 'Accounts' dialog"
-msgstr ""
-"Писмоноша може аутоматски да открије и ћаска са људима који су повезани на "
-"исту мрежу као и ви. Ако желите да користите ову могућност, проверите да ли "
-"су детаљи испод тачни. Лако их можете изменити касније или искључити ову "
-"могућност из прозорчета „Налози“."
-
-#: ../src/empathy-account-assistant.c:1094
-#: ../src/empathy-account-assistant.c:1152
-msgid "Edit->Accounts"
-msgstr "Измени->Налози"
-
-#: ../src/empathy-account-assistant.c:1110
-msgid "I do _not want to enable this feature for now"
-msgstr "За сада _не желим да користим ову могућност"
-
-#: ../src/empathy-account-assistant.c:1148
-msgid ""
-"You won't be able to chat with people connected to your local network, as "
-"telepathy-salut is not installed. If you want to enable this feature, please "
-"install the telepathy-salut package and create a People Nearby account from "
-"the Accounts dialog"
-msgstr ""
-"Не могу да ћаскам са људима повезаним на вашу локалну мрежу јер telepathy-"
-"salut није инсталиран. Ако желите да омогућите ово, инсталирајте пакет "
-"telepathy-salut и направите налог „Људи у околини“ из прозорчета „Налози“."
-
-#: ../src/empathy-account-assistant.c:1154
-msgid "telepathy-salut not installed"
-msgstr "telepathy-salut није инсталиран"
-
-#: ../src/empathy-account-assistant.c:1200
-msgid "Messaging and VoIP Accounts Assistant"
-msgstr "Асистент налога за брзе поруке и ВоИП"
-
-#: ../src/empathy-account-assistant.c:1234
-msgid "Welcome to Empathy"
-msgstr "Добродошли у Интернет Писмоношу"
-
-#: ../src/empathy-account-assistant.c:1243
-msgid "Import your existing accounts"
-msgstr "Увезите ваше постојеће налоге"
-
-#: ../src/empathy-account-assistant.c:1261
-msgid "Please enter personal details"
-msgstr "Унесите личне податке"
-
 #. The primary text of the dialog shown to the user when he is about to lose
 #. * unsaved changes
-#: ../src/empathy-accounts-dialog.c:69
+#: ../src/empathy-accounts-dialog.c:71
 #, c-format
 msgid "There are unsaved modifications to your %s account."
 msgstr "Постоје несачуване измене на вашем налогу %s."
 
 #. The primary text of the dialog shown to the user when he is about to lose
 #. * an unsaved new account
-#: ../src/empathy-accounts-dialog.c:73
+#: ../src/empathy-accounts-dialog.c:75
 msgid "Your new account has not been saved yet."
 msgstr "Ваш нови налог још није сачуван."
 
-#: ../src/empathy-accounts-dialog.c:344
+#: ../src/empathy-accounts-dialog.c:347
 #: ../src/empathy-streamed-media-window.c:757
 #: ../src/empathy-call-window.c:1332
 msgid "Connecting…"
 msgstr "Повезујем се…"
 
-#: ../src/empathy-accounts-dialog.c:385
+#: ../src/empathy-accounts-dialog.c:388
 #, c-format
 msgid "Offline — %s"
 msgstr "Неповезан — %s"
 
-#: ../src/empathy-accounts-dialog.c:397
+#: ../src/empathy-accounts-dialog.c:400
 #, c-format
 msgid "Disconnected — %s"
 msgstr "Веза је прекинута — %s"
 
-#: ../src/empathy-accounts-dialog.c:408
+#: ../src/empathy-accounts-dialog.c:411
 msgid "Offline — No Network Connection"
 msgstr "Неповезан — Нема мрежне конекције"
 
-#: ../src/empathy-accounts-dialog.c:415
+#: ../src/empathy-accounts-dialog.c:418
 msgid "Unknown Status"
 msgstr "Непознато стање"
 
-#: ../src/empathy-accounts-dialog.c:427
+#: ../src/empathy-accounts-dialog.c:430
 msgid "Offline — Account Disabled"
 msgstr "Неповезан — Налог је онемогућен"
 
-#: ../src/empathy-accounts-dialog.c:530
+#: ../src/empathy-accounts-dialog.c:533
 msgid "Edit Connection Parameters"
 msgstr "Уредите параметре повезивања"
 
-#: ../src/empathy-accounts-dialog.c:693
+#: ../src/empathy-accounts-dialog.c:696
 msgid "Failed to retrieve your personal information from the server."
 msgstr "Нисам успео да довучем ваше личне податке са сервера."
 
-#: ../src/empathy-accounts-dialog.c:699
+#: ../src/empathy-accounts-dialog.c:702
 msgid "Go online to edit your personal information."
 msgstr "Успоставите везу да уредите ваше личне податке."
 
-#: ../src/empathy-accounts-dialog.c:784
+#: ../src/empathy-accounts-dialog.c:787
 msgid "_Edit Connection Parameters..."
 msgstr "_Уреди параметре повезивања..."
 
-#: ../src/empathy-accounts-dialog.c:1289
+#: ../src/empathy-accounts-dialog.c:1283
 #, c-format
 msgid "Do you want to remove %s from your computer?"
 msgstr "Да ли сте сигурни да желите да уклоните „%s“ са вашег рачунара?"
 
-#: ../src/empathy-accounts-dialog.c:1293
+#: ../src/empathy-accounts-dialog.c:1287
 msgid "This will not remove your account on the server."
 msgstr "Ово неће уклонити ваш налог на серверу."
 
-#: ../src/empathy-accounts-dialog.c:1529
+#: ../src/empathy-accounts-dialog.c:1523
 msgid ""
 "You are about to select another account, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -3278,15 +3119,24 @@ msgstr ""
 "Да ли сигурно желите да наставите?"
 
 #. Menu items: to enabled/disable the account
-#: ../src/empathy-accounts-dialog.c:1705
+#: ../src/empathy-accounts-dialog.c:1699
 msgid "_Enable"
 msgstr "_Омогући"
 
-#: ../src/empathy-accounts-dialog.c:1706
+#: ../src/empathy-accounts-dialog.c:1700
 msgid "_Disable"
 msgstr "О_немогући"
 
-#: ../src/empathy-accounts-dialog.c:2176
+#: ../src/empathy-accounts-dialog.c:2083
+msgid "_Skip"
+msgstr "_Прескочи"
+
+#: ../src/empathy-accounts-dialog.c:2087
+#| msgid "Connected"
+msgid "_Connect"
+msgstr "_Повежи се"
+
+#: ../src/empathy-accounts-dialog.c:2264
 msgid ""
 "You are about to close the window, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -3303,8 +3153,8 @@ msgid "_Import…"
 msgstr "_Увези…"
 
 #: ../src/empathy-accounts-dialog.ui.h:4
-msgid "Protocol:"
-msgstr "Протокол:"
+msgid "Loading account information"
+msgstr "Учитавам податке о налогу"
 
 #: ../src/empathy-accounts-dialog.ui.h:5
 msgid ""
@@ -3315,12 +3165,9 @@ msgstr ""
 "које желите да користите."
 
 #: ../src/empathy-accounts-dialog.ui.h:6
-msgid "No protocol installed"
-msgstr "Ниједан протокол није инсталиран"
-
-#: ../src/empathy-accounts-dialog.ui.h:7
-msgid "Loading account information"
-msgstr "Учитавам податке о налогу"
+#| msgid "No protocol installed"
+msgid "No protocol backends installed"
+msgstr "Нису инсталирани позадинци протокола"
 
 #: ../src/empathy-auth-client.c:286
 msgid " - Empathy authentication client"
@@ -3329,10 +3176,6 @@ msgstr " — Интернет писмоноша клијент пријаве"
 #: ../src/empathy-auth-client.c:302
 msgid "Empathy authentication client"
 msgstr "Интернет писмоноша клијент пријаве"
-
-#: ../src/empathy-auto-salut-account-helper.c:83
-msgid "People nearby"
-msgstr "Људи у околини"
 
 #: ../src/empathy-av.c:118 ../src/empathy-call.c:203
 msgid "- Empathy Audio/Video Client"
@@ -3905,7 +3748,7 @@ msgstr "Позвани сте да се придружите у %s"
 msgid "Incoming file transfer from %s"
 msgstr "Долазни пренос датотеке од %s"
 
-#: ../src/empathy-event-manager.c:1147 ../src/empathy-roster-window.c:372
+#: ../src/empathy-event-manager.c:1147 ../src/empathy-roster-window.c:374
 msgid "Password required"
 msgstr "Захтевана је лозинка"
 
@@ -4034,7 +3877,12 @@ msgstr "Преноси датотека"
 msgid "Remove completed, canceled and failed file transfers from the list"
 msgstr "Уклони завршене, отказане и неуспешне преносе датотека са списка"
 
-#: ../src/empathy-import-dialog.c:84
+#: ../src/empathy-import-dialog.c:76
+#| msgid "Import"
+msgid "_Import"
+msgstr "_Увези"
+
+#: ../src/empathy-import-dialog.c:88
 msgid ""
 "No accounts to import could be found. Empathy currently only supports "
 "importing accounts from Pidgin."
@@ -4042,94 +3890,94 @@ msgstr ""
 "Нисам пронашао ниједан налог за увоз. Интернет писмоноша тренутно подржава "
 "само увожење налога из Пиџина."
 
-#: ../src/empathy-import-dialog.c:199
+#: ../src/empathy-import-dialog.c:209
 msgid "Import Accounts"
 msgstr "Увезите налоге"
 
 #. Translators: this is the header of a treeview column
-#: ../src/empathy-import-widget.c:315
+#: ../src/empathy-import-widget.c:316
 msgid "Import"
 msgstr "Увези"
 
-#: ../src/empathy-import-widget.c:324
+#: ../src/empathy-import-widget.c:325
 msgid "Protocol"
 msgstr "Протокол"
 
-#: ../src/empathy-import-widget.c:348
+#: ../src/empathy-import-widget.c:349
 msgid "Source"
 msgstr "Извор"
 
-#: ../src/empathy-roster-window.c:389
+#: ../src/empathy-roster-window.c:391
 msgid "Provide Password"
 msgstr "Унесите лозинку"
 
-#: ../src/empathy-roster-window.c:395
+#: ../src/empathy-roster-window.c:397
 msgid "Disconnect"
 msgstr "Веза је прекинута"
 
-#: ../src/empathy-roster-window.c:644
+#: ../src/empathy-roster-window.c:657
 msgid "You need to setup an account to see contacts here."
 msgstr "Морате да подесите налог да бисте овде видели контакте."
 
-#: ../src/empathy-roster-window.c:660
+#: ../src/empathy-roster-window.c:673
 msgid "No match found"
 msgstr "Нема поклапања"
 
-#: ../src/empathy-roster-window.c:765
+#: ../src/empathy-roster-window.c:783
 #, c-format
 msgid "Sorry, %s accounts can’t be used until your %s software is updated."
 msgstr ""
 "Извините, %s налози не могу бити коришћени све док не ажурирате ваш %s "
 "софтвер."
 
-#: ../src/empathy-roster-window.c:831
+#: ../src/empathy-roster-window.c:849
 msgid "Update software..."
 msgstr "Ажурирај софтвер..."
 
-#: ../src/empathy-roster-window.c:837 ../src/empathy-roster-window.c:954
+#: ../src/empathy-roster-window.c:855 ../src/empathy-roster-window.c:972
 msgid "Close"
 msgstr "Затвори"
 
-#: ../src/empathy-roster-window.c:942
+#: ../src/empathy-roster-window.c:960
 msgid "Reconnect"
 msgstr "Поново се повежи"
 
-#: ../src/empathy-roster-window.c:948
+#: ../src/empathy-roster-window.c:966
 msgid "Edit Account"
 msgstr "Измени налог"
 
 #. Translators: this string will be something like:
 #. * Top up My Account ($1.23)..."
-#: ../src/empathy-roster-window.c:1092
+#: ../src/empathy-roster-window.c:1110
 #, c-format
 msgid "Top up %s (%s)..."
 msgstr "Допуни %s (%s)..."
 
-#: ../src/empathy-roster-window.c:1138
+#: ../src/empathy-roster-window.c:1156
 msgid "Top up account credit"
 msgstr "Допуните кредит налога"
 
 #. top up button
-#: ../src/empathy-roster-window.c:1210
+#: ../src/empathy-roster-window.c:1228
 msgid "Top Up..."
 msgstr "Допуни..."
 
-#: ../src/empathy-roster-window.c:1933
+#: ../src/empathy-roster-window.c:1952
 msgid "Contact"
 msgstr "Пријатељ"
 
-#: ../src/empathy-roster-window.c:2131
+#: ../src/empathy-roster-window.c:2150
 msgid "You need to enable one of your accounts to see contacts here."
 msgstr ""
 "Морате да укључите један од ваших налога да бисте овде видели контакте."
 
 #. translators: argument is an account name
-#: ../src/empathy-roster-window.c:2139
+#: ../src/empathy-roster-window.c:2158
 #, c-format
 msgid "You need to enable %s to see contacts here."
 msgstr "Морате да укључите %s да бисте овде видели контакте."
 
-#: ../src/empathy-roster-window.c:2419
+#: ../src/empathy-roster-window.c:2460
 msgid "Contact List"
 msgstr "Списак пријатеља"
 
@@ -4245,6 +4093,11 @@ msgstr ""
 "Потребна позивница: %s\n"
 "Потребна лозинка: %s\n"
 "Чланови: %s"
+
+#: ../src/empathy-new-chatroom-dialog.c:639
+#: ../src/empathy-new-chatroom-dialog.c:640
+msgid "Yes"
+msgstr "Да"
 
 #: ../src/empathy-new-chatroom-dialog.c:639
 #: ../src/empathy-new-chatroom-dialog.c:640
@@ -4667,35 +4520,31 @@ msgstr "Изаберите пријатеља за позивање у овај 
 msgid "Invite"
 msgstr "Позови"
 
-#: ../src/empathy-accounts.c:183
+#: ../src/empathy-accounts.c:180
 msgid "Don't display any dialogs; do any work (eg, importing) and exit"
 msgstr ""
 "Не приказуј ниједно прозорче; уради посао који имаш (нпр. увожење) и изађи"
 
-#: ../src/empathy-accounts.c:187
+#: ../src/empathy-accounts.c:184
 msgid ""
 "Don't display any dialogs unless there are only \"People Nearby\" accounts"
 msgstr ""
 "Не приказуј ниједно прозорче осим ако не постоје само налози „Људи у близини“"
 
-#: ../src/empathy-accounts.c:191
+#: ../src/empathy-accounts.c:188
 msgid "Initially select given account (eg, gabble/jabber/foo_40example_2eorg0)"
 msgstr ""
 "Почетно изабирање датог налога (нпр. gabble/jabber/foo_40example_2eorg0)"
 
-#: ../src/empathy-accounts.c:193
+#: ../src/empathy-accounts.c:190
 msgid "<account-id>"
 msgstr "<идентификација налога>"
 
-#: ../src/empathy-accounts.c:196
-msgid "Show account assistant"
-msgstr "Приказује помоћника налога"
-
-#: ../src/empathy-accounts.c:202
+#: ../src/empathy-accounts.c:195
 msgid "- Empathy Accounts"
 msgstr "— Налози Писмоноше"
 
-#: ../src/empathy-accounts.c:238
+#: ../src/empathy-accounts.c:231
 msgid "Empathy Accounts"
 msgstr "Налози Писмоноше"
 
@@ -4711,7 +4560,7 @@ msgstr "— Отклањање грешака Писмоноше"
 msgid "Empathy Debugger"
 msgstr "Отклањање грешака Писмоноше"
 
-#: ../src/empathy-chat.c:107
+#: ../src/empathy-chat.c:109
 msgid "- Empathy Chat Client"
 msgstr "— Писмоноша програм за ћаскање"
 
@@ -4797,9 +4646,151 @@ msgstr "Допуни"
 msgid "_Match case"
 msgstr "_Упореди величину слова"
 
+#: ../libempathy-gtk/empathy-new-account-dialog.c:144
+msgid "What kind of chat account do you have?"
+msgstr "Који тип налога за ћаскање имате?"
+
 #: ../libempathy-gtk/empathy-new-account-dialog.c:166
 msgid "Adding new account"
 msgstr "Додајем нови налог"
+
+#: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:77
+msgid "People nearby"
+msgstr "Људи у околини"
+
+#: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:150
+#| msgid ""
+#| "Empathy can automatically discover and chat with the people connected on "
+#| "the same network as you. If you want to use this feature, please check "
+#| "that the details below are correct. You can easily change these details "
+#| "later or disable this feature by using the 'Accounts' dialog"
+msgid ""
+"Empathy can automatically discover and chat with the people connected on the "
+"same network as you. If you want to use this feature, please check that the "
+"details below are correct."
+msgstr ""
+"Писмоноша може аутоматски да открије и ћаска са људима који су повезани на "
+"исту мрежу као и ви. Ако желите да користите ову могућност, проверите да ли "
+"су детаљи испод тачни."
+
+#: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:183
+msgid ""
+"You can change these details later or disable this feature by choosing <span "
+"style=\"italic\">Edit → Accounts</span> in the Contact List."
+msgstr ""
+"Можете касније да измените те детаље или да искључите ову могућност тако што "
+"ћете изабрати <span style=\"italic\">Уреди → Налози</span> са списка "
+"контаката."
+
+#~ msgid "There was an error while importing the accounts."
+#~ msgstr "Грешка при увожењу налога."
+
+#~ msgid "There was an error while parsing the account details."
+#~ msgstr "Грешка при обради детаља налога."
+
+#~ msgid "There was an error while creating the account."
+#~ msgstr "Грешка при прављењу налога."
+
+#~ msgid "There was an error."
+#~ msgstr "Догодила се грешка."
+
+#~ msgid "The error message was: %s"
+#~ msgstr "Исписана порука грешке: %s"
+
+#~ msgid ""
+#~ "You can either go back and try to enter your accounts' details again or "
+#~ "quit this assistant and add accounts later from the Edit menu."
+#~ msgstr ""
+#~ "Можете се или вратити и пробати да поново унесете детаље налога или да "
+#~ "затворите помоћника и додате налоге касније из менија „Измени“."
+
+#~ msgid "An error occurred"
+#~ msgstr "Дошло је до грешке"
+
+#~ msgid "Do you have any other chat accounts you want to set up?"
+#~ msgstr "Да ли имате још неки налог за ћаскање који желите да подесите?"
+
+#~ msgid "Enter your account details"
+#~ msgstr "Унесите детаље налога"
+
+#~ msgid "What kind of chat account do you want to create?"
+#~ msgstr "Који тип налога за ћаскање желите да направите?"
+
+#~ msgid "Do you want to create other chat accounts?"
+#~ msgstr "Да ли желите да направите још налога за ћаскање?"
+
+#~ msgid "Enter the details for the new account"
+#~ msgstr "Унесите детаље новог налога"
+
+#~ msgid ""
+#~ "With Empathy you can chat with people online nearby and with friends and "
+#~ "colleagues who use Google Talk, AIM, Windows Live and many other chat "
+#~ "programs. With a microphone or a webcam you can also have audio or video "
+#~ "calls."
+#~ msgstr ""
+#~ "Са Интернет Писмоношом можете ћаскати и са људима у близини и са "
+#~ "пријатељима и колегама који користе Гугл разговор, АИМ, Виндоуз уживо и "
+#~ "многе друге програме за ћаскање. Са микрофоном и камером такође можете да "
+#~ "обављате и аудио и видео позиве."
+
+#~ msgid "Do you have an account you've been using with another chat program?"
+#~ msgstr ""
+#~ "Да ли имате налог који сте користили са неким другим програмом за ћаскање?"
+
+#~ msgid "Yes, import my account details from "
+#~ msgstr "Да, увези детаље мог налога из "
+
+#~ msgid "Yes, I'll enter my account details now"
+#~ msgstr "Да, ја ћу сам унети детаље налога"
+
+#~ msgid "No, I want a new account"
+#~ msgstr "Не, желим нови налог"
+
+#~ msgid "No, I just want to see people online nearby for now"
+#~ msgstr "Не, за сада само желим да видим људе у близини"
+
+#~ msgid "Select the accounts you want to import:"
+#~ msgstr "Изаберите налоге које желите да увезете:"
+
+#~ msgid "No, that's all for now"
+#~ msgstr "Не, то је све за сада"
+
+#~ msgid "Edit->Accounts"
+#~ msgstr "Измени->Налози"
+
+#~ msgid "I do _not want to enable this feature for now"
+#~ msgstr "За сада _не желим да користим ову могућност"
+
+#~ msgid ""
+#~ "You won't be able to chat with people connected to your local network, as "
+#~ "telepathy-salut is not installed. If you want to enable this feature, "
+#~ "please install the telepathy-salut package and create a People Nearby "
+#~ "account from the Accounts dialog"
+#~ msgstr ""
+#~ "Не могу да ћаскам са људима повезаним на вашу локалну мрежу јер telepathy-"
+#~ "salut није инсталиран. Ако желите да омогућите ово, инсталирајте пакет "
+#~ "telepathy-salut и направите налог „Људи у околини“ из прозорчета „Налози“."
+
+#~ msgid "telepathy-salut not installed"
+#~ msgstr "telepathy-salut није инсталиран"
+
+#~ msgid "Messaging and VoIP Accounts Assistant"
+#~ msgstr "Асистент налога за брзе поруке и ВоИП"
+
+#~ msgid "Welcome to Empathy"
+#~ msgstr "Добродошли у Интернет Писмоношу"
+
+#~ msgid "Import your existing accounts"
+#~ msgstr "Увезите ваше постојеће налоге"
+
+#~ msgid "Please enter personal details"
+#~ msgstr "Унесите личне податке"
+
+#~ msgid "Protocol:"
+#~ msgstr "Протокол:"
+
+#~ msgid "Show account assistant"
+#~ msgstr "Приказује помоћника налога"
 
 #~ msgid "Call volume"
 #~ msgstr "Јачина звука позива"
