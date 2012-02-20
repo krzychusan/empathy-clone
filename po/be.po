@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: empathy.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-15 21:52+0300\n"
-"PO-Revision-Date: 2012-02-15 21:51+0300\n"
+"POT-Creation-Date: 2012-02-20 17:08+0300\n"
+"PO-Revision-Date: 2012-02-20 17:08+0300\n"
 "Last-Translator: Kasia Bondarava <kasia.bondarava@gmail.com>\n"
 "Language-Team: Belarusian <be-i18n-gnome@googlegroups.com>\n"
 "Language: be\n"
@@ -32,6 +32,16 @@ msgstr "Інтэрнэт-камунікатар Empathy"
 #: ../data/empathy.desktop.in.in.h:4
 msgid "Chat on Google Talk, Facebook, MSN and many other chat services"
 msgstr "Чат у Google Talk, Facebook, MSN ды інш."
+
+#. Tweak the dialog
+#: ../data/empathy-accounts.desktop.in.in.h:1
+#: ../src/empathy-accounts-dialog.c:2411
+msgid "Messaging and VoIP Accounts"
+msgstr "Конты камунікатара і VoIP"
+
+#: ../data/empathy-accounts.desktop.in.in.h:2
+msgid "Manage Messaging and VoIP accounts"
+msgstr "Кіраванне контамі камунікатара і VoIP"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:1
 msgid "Connection managers should be used"
@@ -508,16 +518,6 @@ msgstr ""
 "Ці мусіць Empathy пагаршаць дакладнасць месцазнаходжання карыстальніка дзеля "
 "абароны яго права на прыватнасць."
 
-#. Tweak the dialog
-#: ../data/empathy-accounts.desktop.in.in.h:1
-#: ../src/empathy-accounts-dialog.c:2330
-msgid "Messaging and VoIP Accounts"
-msgstr "Конты камунікатара і VoIP"
-
-#: ../data/empathy-accounts.desktop.in.in.h:2
-msgid "Manage Messaging and VoIP accounts"
-msgstr "Кіраванне контамі камунікатара і VoIP"
-
 #: ../libempathy/empathy-ft-handler.c:736
 msgid "No reason was specified"
 msgstr "Прычына не азначана"
@@ -797,7 +797,7 @@ msgid "All accounts"
 msgstr "Усе конты"
 
 #: ../libempathy-gtk/empathy-account-widget.c:682
-#: ../src/empathy-import-widget.c:335
+#: ../src/empathy-import-widget.c:336
 msgid "Account"
 msgstr "Конт"
 
@@ -1486,7 +1486,7 @@ msgstr "не рэалізавана"
 msgid "unknown"
 msgstr "невядома"
 
-#: ../libempathy-gtk/empathy-chat.c:1706 ../src/empathy-chat-window.c:916
+#: ../libempathy-gtk/empathy-chat.c:1706 ../src/empathy-chat-window.c:920
 msgid "Topic:"
 msgstr "Тэма:"
 
@@ -2193,7 +2193,7 @@ msgid "_Edit"
 msgstr "_Рэдагаваць"
 
 #: ../libempathy-gtk/empathy-individual-menu.c:1546
-#: ../src/empathy-chat-window.c:1175
+#: ../src/empathy-chat-window.c:1192
 msgid "Inviting you to this room"
 msgstr "Запрашаю вас у гэты пакой"
 
@@ -3019,176 +3019,16 @@ msgstr ""
 "insomnia <defragbrain@gmail.com>\n"
 "Ihar Hrachyshka <ihar.hrachyshka@gmail.com>"
 
-#: ../src/empathy-account-assistant.c:167
-msgid "There was an error while importing the accounts."
-msgstr "Падчас імпартавання контаў узнікла памылка."
-
-#: ../src/empathy-account-assistant.c:170
-msgid "There was an error while parsing the account details."
-msgstr "Падчас разбору падрабязнасцяў аб конце ўзнікла памылка."
-
-#: ../src/empathy-account-assistant.c:173
-msgid "There was an error while creating the account."
-msgstr "Падчас стварэння конта ўзнікла памылка."
-
-#: ../src/empathy-account-assistant.c:175
-msgid "There was an error."
-msgstr "Узнікла памылка."
-
-#: ../src/empathy-account-assistant.c:179
-#, c-format
-msgid "The error message was: %s"
-msgstr "Апісанне памылкі: %s"
-
-#: ../src/empathy-account-assistant.c:183
-msgid ""
-"You can either go back and try to enter your accounts' details again or quit "
-"this assistant and add accounts later from the Edit menu."
-msgstr ""
-"Вы можаце альбо вярнуцца назад і паўтарыць увод падрабязнасцяў аб вашых "
-"контах, альбо закрыць гэтага памочніка і дадаць конты пазней з дапамогай "
-"меню Праўка."
-
-#: ../src/empathy-account-assistant.c:220
-#: ../src/empathy-account-assistant.c:1276
-msgid "An error occurred"
-msgstr "Узнікла памылка"
-
-#: ../src/empathy-account-assistant.c:469
-#: ../libempathy-gtk/empathy-new-account-dialog.c:144
-msgid "What kind of chat account do you have?"
-msgstr "Тып вашага конта для чату"
-
-#: ../src/empathy-account-assistant.c:475
-msgid "Do you have any other chat accounts you want to set up?"
-msgstr "Ці вы маеце іншыя конты для чату, якія б вы таксама хацелі настроіць?"
-
-#: ../src/empathy-account-assistant.c:481
-msgid "Enter your account details"
-msgstr "Падайце падрабязныя звесткі аб вашым конце"
-
-#: ../src/empathy-account-assistant.c:486
-msgid "What kind of chat account do you want to create?"
-msgstr "Тып новага конта для чату"
-
-#: ../src/empathy-account-assistant.c:492
-msgid "Do you want to create other chat accounts?"
-msgstr "Ці трэба стварыць іншыя конты для чату?"
-
-#: ../src/empathy-account-assistant.c:499
-msgid "Enter the details for the new account"
-msgstr "Падайце падрабязныя звесткі аб новым конце"
-
-#: ../src/empathy-account-assistant.c:614
-msgid ""
-"With Empathy you can chat with people online nearby and with friends and "
-"colleagues who use Google Talk, AIM, Windows Live and many other chat "
-"programs. With a microphone or a webcam you can also have audio or video "
-"calls."
-msgstr ""
-"З дапамогай Empathy вы можаце гутарыць з іншымі людзьмі паблізу, а таксама з "
-"сябрамі і калегамі, якія карыстаюцца Google Talk, AIM, Windows Live і іншымі "
-"праграмамі для чату. Калі вы маеце мікрафон ці сеціўную відэакамеру, таксама "
-"можна рабіць аўдыя- і відэазванкі."
-
-#: ../src/empathy-account-assistant.c:631
-msgid "Do you have an account you've been using with another chat program?"
-msgstr "Ці вы маеце конт, якім ужо карысталіся ў іншай праграме для чату?"
-
-#: ../src/empathy-account-assistant.c:655
-msgid "Yes, import my account details from "
-msgstr "Так, трэба імпартаваць настройкі конта з "
-
-#: ../src/empathy-account-assistant.c:676
-msgid "Yes, I'll enter my account details now"
-msgstr "Так, я падам настройкі конта"
-
-#: ../src/empathy-account-assistant.c:698
-msgid "No, I want a new account"
-msgstr "Не, мне патрэбны новы конт"
-
-#: ../src/empathy-account-assistant.c:708
-msgid "No, I just want to see people online nearby for now"
-msgstr "Не, пакуль што я толькі хачу ўбачыць людзей паблізу мяне"
-
-#: ../src/empathy-account-assistant.c:729
-msgid "Select the accounts you want to import:"
-msgstr "Вызначыце конты для імпартавання:"
-
-#: ../src/empathy-account-assistant.c:816
-#: ../src/empathy-new-chatroom-dialog.c:639
-#: ../src/empathy-new-chatroom-dialog.c:640
-msgid "Yes"
-msgstr "Так"
-
-#: ../src/empathy-account-assistant.c:823
-msgid "No, that's all for now"
-msgstr "Не, пакуль што ўсё"
-
-#: ../src/empathy-account-assistant.c:1088
-msgid ""
-"Empathy can automatically discover and chat with the people connected on the "
-"same network as you. If you want to use this feature, please check that the "
-"details below are correct. You can easily change these details later or "
-"disable this feature by using the 'Accounts' dialog"
-msgstr ""
-"Empathy умее аўтаматычна вышукваць і арганізоўваць чат з людзьмі, якія "
-"карыстаюцца вашай сеткай. Калі вы хочаце выкарыстаць гэту магчымасць, "
-"праверце правільнасць настроек, змешчаных ніжэй. Пазней можна будзе змяніць "
-"гэтыя настройкі або наогул выключыць гэту функцыю ў дыялогавым акенцы \"Конты"
-"\"."
-
-#: ../src/empathy-account-assistant.c:1094
-#: ../src/empathy-account-assistant.c:1152
-msgid "Edit->Accounts"
-msgstr "Праўка->Конты"
-
-#: ../src/empathy-account-assistant.c:1110
-msgid "I do _not want to enable this feature for now"
-msgstr "Пакуль не _трэба ўключаць гэту функцыю"
-
-#: ../src/empathy-account-assistant.c:1148
-msgid ""
-"You won't be able to chat with people connected to your local network, as "
-"telepathy-salut is not installed. If you want to enable this feature, please "
-"install the telepathy-salut package and create a People Nearby account from "
-"the Accounts dialog"
-msgstr ""
-"Вы не зможаце браць удзел у чатах з людзьмі, якія карыстаюцца вашай сеткай, "
-"бо telepathy-salut не ўсталяваны. Калі вы хочаце ўключыць гэту функцыю, "
-"усталюйце пакунак \"telepathy-salut\" і стварыце конт \"Людзі паблізу\" у "
-"акенцы \"Конты\"."
-
-#: ../src/empathy-account-assistant.c:1154
-msgid "telepathy-salut not installed"
-msgstr "telepathy-salut не ўсталяваны"
-
-#: ../src/empathy-account-assistant.c:1200
-msgid "Messaging and VoIP Accounts Assistant"
-msgstr "Памочнік настройкі контаў для чату і VoIP"
-
-#: ../src/empathy-account-assistant.c:1234
-msgid "Welcome to Empathy"
-msgstr "Вітаем у Empathy"
-
-#: ../src/empathy-account-assistant.c:1243
-msgid "Import your existing accounts"
-msgstr "Імпартаванне наяўных контаў"
-
-#: ../src/empathy-account-assistant.c:1261
-msgid "Please enter personal details"
-msgstr "Запоўніце анкету з асабістымі звесткамі"
-
 #. The primary text of the dialog shown to the user when he is about to lose
 #. * unsaved changes
-#: ../src/empathy-accounts-dialog.c:69
+#: ../src/empathy-accounts-dialog.c:71
 #, c-format
 msgid "There are unsaved modifications to your %s account."
 msgstr "Ваш конт %s мае незахаваныя змены."
 
 #. The primary text of the dialog shown to the user when he is about to lose
 #. * an unsaved new account
-#: ../src/empathy-accounts-dialog.c:73
+#: ../src/empathy-accounts-dialog.c:75
 msgid "Your new account has not been saved yet."
 msgstr "Ваш новы конт яшчэ не захаваны."
 
@@ -3236,16 +3076,16 @@ msgstr "Злучыцеся з сеткай, каб змагчы рэдагава
 msgid "_Edit Connection Parameters..."
 msgstr "_Змяніць параметры злучэння..."
 
-#: ../src/empathy-accounts-dialog.c:1292
+#: ../src/empathy-accounts-dialog.c:1283
 #, c-format
 msgid "Do you want to remove %s from your computer?"
 msgstr "Ці вы сапраўды хочаце выдаліць %s са свайго камп'ютара?"
 
-#: ../src/empathy-accounts-dialog.c:1296
+#: ../src/empathy-accounts-dialog.c:1287
 msgid "This will not remove your account on the server."
 msgstr "Гэтае дзеянне не выдаліць ваш конт на серверы."
 
-#: ../src/empathy-accounts-dialog.c:1532
+#: ../src/empathy-accounts-dialog.c:1523
 msgid ""
 "You are about to select another account, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -3254,15 +3094,23 @@ msgstr ""
 "вашых змен. Ці вы сапраўды хочаце працягнуць працэдуру?"
 
 #. Menu items: to enabled/disable the account
-#: ../src/empathy-accounts-dialog.c:1708
+#: ../src/empathy-accounts-dialog.c:1699
 msgid "_Enable"
 msgstr "_Уключыць"
 
-#: ../src/empathy-accounts-dialog.c:1709
+#: ../src/empathy-accounts-dialog.c:1700
 msgid "_Disable"
 msgstr "_Выключыць"
 
-#: ../src/empathy-accounts-dialog.c:2179
+#: ../src/empathy-accounts-dialog.c:2083
+msgid "_Skip"
+msgstr "_Прапусціць"
+
+#: ../src/empathy-accounts-dialog.c:2087
+msgid "_Connect"
+msgstr "_Злучыць"
+
+#: ../src/empathy-accounts-dialog.c:2264
 msgid ""
 "You are about to close the window, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -3279,8 +3127,8 @@ msgid "_Import…"
 msgstr "І_мпартаваць..."
 
 #: ../src/empathy-accounts-dialog.ui.h:4
-msgid "Protocol:"
-msgstr "Пратакол:"
+msgid "Loading account information"
+msgstr "Загрузка звестак аб конце"
 
 #: ../src/empathy-accounts-dialog.ui.h:5
 msgid ""
@@ -3291,12 +3139,8 @@ msgstr ""
 "пратакола."
 
 #: ../src/empathy-accounts-dialog.ui.h:6
-msgid "No protocol installed"
+msgid "No protocol backends installed"
 msgstr "Модулі для працы з пратаколамі не ўсталяваныя"
-
-#: ../src/empathy-accounts-dialog.ui.h:7
-msgid "Loading account information"
-msgstr "Загрузка звестак аб конце"
 
 #: ../src/empathy-auth-client.c:286
 msgid " - Empathy authentication client"
@@ -3305,10 +3149,6 @@ msgstr "- ідэнтыфікацыйны кліент Empathy"
 #: ../src/empathy-auth-client.c:302
 msgid "Empathy authentication client"
 msgstr "Ідэнтыфікацыйны кліент Empathy"
-
-#: ../src/empathy-auto-salut-account-helper.c:83
-msgid "People nearby"
-msgstr "Людзі паблізу"
 
 #: ../src/empathy-av.c:118 ../src/empathy-call.c:203
 msgid "- Empathy Audio/Video Client"
@@ -3623,11 +3463,11 @@ msgstr "Мясцовы кандыдат:"
 msgid "Audio"
 msgstr "Аўдыя"
 
-#: ../src/empathy-chat-window.c:285
+#: ../src/empathy-chat-window.c:289
 msgid "Close this window?"
 msgstr "Закрыць гэта акно?"
 
-#: ../src/empathy-chat-window.c:290
+#: ../src/empathy-chat-window.c:294
 #, c-format
 msgid ""
 "Closing this window will leave %s. You will not receive any further messages "
@@ -3636,7 +3476,7 @@ msgstr ""
 "Закрыўшы гэта акно, вы выйдзеце з %s. Вы больш не будзеце атрымліваць новых "
 "паведамленняў да паўторнага ўваходу."
 
-#: ../src/empathy-chat-window.c:301
+#: ../src/empathy-chat-window.c:305
 #, c-format
 msgid ""
 "Closing this window will leave a chat room. You will not receive any further "
@@ -3654,12 +3494,12 @@ msgstr[2] ""
 "Закрыўшы гэта акно, вы выйдзеце з %u пакояў. Вы больш не будзеце атрымліваць "
 "новых паведамленняў да паўторнага ўваходу."
 
-#: ../src/empathy-chat-window.c:310
+#: ../src/empathy-chat-window.c:314
 #, c-format
 msgid "Leave %s?"
 msgstr "Выйсці з %s?"
 
-#: ../src/empathy-chat-window.c:311
+#: ../src/empathy-chat-window.c:315
 msgid ""
 "You will not receive any further messages from this chat room until you "
 "rejoin it."
@@ -3667,15 +3507,15 @@ msgstr ""
 "Вы больш не будзеце атрымліваць новых паведамленняў з гэтага пакоя да "
 "паўторнага ўваходу."
 
-#: ../src/empathy-chat-window.c:330
+#: ../src/empathy-chat-window.c:334
 msgid "Close window"
 msgstr "Закрыць акно"
 
-#: ../src/empathy-chat-window.c:330
+#: ../src/empathy-chat-window.c:334
 msgid "Leave room"
 msgstr "Выйсці з пакоя"
 
-#: ../src/empathy-chat-window.c:636 ../src/empathy-chat-window.c:656
+#: ../src/empathy-chat-window.c:640 ../src/empathy-chat-window.c:660
 #, c-format
 msgid "%s (%d unread)"
 msgid_plural "%s (%d unread)"
@@ -3683,7 +3523,7 @@ msgstr[0] "%s (%d непрачытана)"
 msgstr[1] "%s (%d непрачытана)"
 msgstr[2] "%s (%d непрачытана)"
 
-#: ../src/empathy-chat-window.c:648
+#: ../src/empathy-chat-window.c:652
 #, c-format
 msgid "%s (and %u other)"
 msgid_plural "%s (and %u others)"
@@ -3691,7 +3531,7 @@ msgstr[0] "%s (і яшчэ %u размова)"
 msgstr[1] "%s (і яшчэ %u размовы)"
 msgstr[2] "%s (і яшчэ %u размоў)"
 
-#: ../src/empathy-chat-window.c:664
+#: ../src/empathy-chat-window.c:668
 #, c-format
 msgid "%s (%d unread from others)"
 msgid_plural "%s (%d unread from others)"
@@ -3699,7 +3539,7 @@ msgstr[0] "%s (%d непрачытанае паведамленне ад інш�
 msgstr[1] "%s (%d непрачытаныя паведамленні ад іншых)"
 msgstr[2] "%s (%d непрачытаных паведамленняў ад іншых)"
 
-#: ../src/empathy-chat-window.c:673
+#: ../src/empathy-chat-window.c:677
 #, c-format
 msgid "%s (%d unread from all)"
 msgid_plural "%s (%d unread from all)"
@@ -3707,11 +3547,11 @@ msgstr[0] "%s (%d непрачытанае паведамленне ад усі�
 msgstr[1] "%s (%d непрачытаныя паведамленні ад усіх)"
 msgstr[2] "%s (%d непрачытаных паведамленняў ад усіх)"
 
-#: ../src/empathy-chat-window.c:888
+#: ../src/empathy-chat-window.c:892
 msgid "SMS:"
 msgstr "SMS:"
 
-#: ../src/empathy-chat-window.c:898
+#: ../src/empathy-chat-window.c:902
 #, c-format
 msgid "Sending %d message"
 msgid_plural "Sending %d messages"
@@ -3719,7 +3559,7 @@ msgstr[0] "Пасылка %d паведамлення"
 msgstr[1] "Пасылка %d паведамленняў"
 msgstr[2] "Пасылка %d паведамленняў"
 
-#: ../src/empathy-chat-window.c:920
+#: ../src/empathy-chat-window.c:924
 msgid "Typing a message."
 msgstr "Піша паведамленне."
 
@@ -4009,7 +3849,11 @@ msgid "Remove completed, canceled and failed file transfers from the list"
 msgstr ""
 "Вычысціць закончаныя, скасаваныя і няўдалыя перадачы файлаў з гэтага спіса"
 
-#: ../src/empathy-import-dialog.c:84
+#: ../src/empathy-import-dialog.c:76
+msgid "_Import"
+msgstr "І_мпартаваць"
+
+#: ../src/empathy-import-dialog.c:88
 msgid ""
 "No accounts to import could be found. Empathy currently only supports "
 "importing accounts from Pidgin."
@@ -4017,20 +3861,20 @@ msgstr ""
 "Не ўдалося адшукаць конты для імпартавання. Empathy пакуль падтрымлівае "
 "імпартаванне толькі для праграмы Pidgin."
 
-#: ../src/empathy-import-dialog.c:199
+#: ../src/empathy-import-dialog.c:209
 msgid "Import Accounts"
 msgstr "Імпартаванне контаў"
 
 #. Translators: this is the header of a treeview column
-#: ../src/empathy-import-widget.c:315
+#: ../src/empathy-import-widget.c:316
 msgid "Import"
 msgstr "Імпартаванне"
 
-#: ../src/empathy-import-widget.c:324
+#: ../src/empathy-import-widget.c:325
 msgid "Protocol"
 msgstr "Пратакол"
 
-#: ../src/empathy-import-widget.c:348
+#: ../src/empathy-import-widget.c:349
 msgid "Source"
 msgstr "Крыніца"
 
@@ -4219,6 +4063,11 @@ msgstr ""
 "Патрабуецца запрашэнне: %s\n"
 "Патрабуецца пароль: %s\n"
 "Удзельнікі: %s"
+
+#: ../src/empathy-new-chatroom-dialog.c:639
+#: ../src/empathy-new-chatroom-dialog.c:640
+msgid "Yes"
+msgstr "Так"
 
 #: ../src/empathy-new-chatroom-dialog.c:639
 #: ../src/empathy-new-chatroom-dialog.c:640
@@ -4569,63 +4418,63 @@ msgstr "Уключыць відэакамеру і пачаць перадачу
 msgid "Contact Map View"
 msgstr "Прагляд карты кантактаў"
 
-#: ../src/empathy-debug-window.c:1228
+#: ../src/empathy-debug-window.c:1585
 msgid "Save"
 msgstr "Захаваць"
 
-#: ../src/empathy-debug-window.c:1435
+#: ../src/empathy-debug-window.c:1761
 msgid "Debug Window"
 msgstr "Акно адладкі"
 
-#: ../src/empathy-debug-window.c:1517
+#: ../src/empathy-debug-window.c:1848
 msgid "Pause"
 msgstr "Прыпыніць"
 
-#: ../src/empathy-debug-window.c:1529
+#: ../src/empathy-debug-window.c:1860
 msgid "Level "
 msgstr "Узровень "
 
-#: ../src/empathy-debug-window.c:1549
+#: ../src/empathy-debug-window.c:1879
 msgid "Debug"
 msgstr "Адладка"
 
-#: ../src/empathy-debug-window.c:1555
+#: ../src/empathy-debug-window.c:1884
 msgid "Info"
 msgstr "Інфармацыя"
 
-#: ../src/empathy-debug-window.c:1561 ../src/empathy-debug-window.c:1610
+#: ../src/empathy-debug-window.c:1889 ../src/empathy-debug-window.c:1935
 msgid "Message"
 msgstr "Паведамленне"
 
-#: ../src/empathy-debug-window.c:1567
+#: ../src/empathy-debug-window.c:1894
 msgid "Warning"
 msgstr "Папярэджанне"
 
-#: ../src/empathy-debug-window.c:1573
+#: ../src/empathy-debug-window.c:1899
 msgid "Critical"
 msgstr "Крытычная памылка"
 
-#: ../src/empathy-debug-window.c:1579
+#: ../src/empathy-debug-window.c:1904
 msgid "Error"
 msgstr "Памылка"
 
-#: ../src/empathy-debug-window.c:1598
+#: ../src/empathy-debug-window.c:1923
 msgid "Time"
 msgstr "Час"
 
-#: ../src/empathy-debug-window.c:1601
+#: ../src/empathy-debug-window.c:1926
 msgid "Domain"
 msgstr "Дамен"
 
-#: ../src/empathy-debug-window.c:1603
+#: ../src/empathy-debug-window.c:1928
 msgid "Category"
 msgstr "Катэгорыя"
 
-#: ../src/empathy-debug-window.c:1605
+#: ../src/empathy-debug-window.c:1930
 msgid "Level"
 msgstr "Узровень"
 
-#: ../src/empathy-debug-window.c:1642
+#: ../src/empathy-debug-window.c:1953
 msgid ""
 "The selected connection manager does not support the remote debugging "
 "extension."
@@ -4645,38 +4494,34 @@ msgstr "Выберыце кантакт, каб запрасіць яго да �
 msgid "Invite"
 msgstr "Запрасіць"
 
-#: ../src/empathy-accounts.c:183
+#: ../src/empathy-accounts.c:180
 msgid "Don't display any dialogs; do any work (eg, importing) and exit"
 msgstr ""
 "Не паказваць дыялогавых акенцаў; выканаць працу (напрыклад, імпартаванне) і "
 "выйсці"
 
-#: ../src/empathy-accounts.c:187
+#: ../src/empathy-accounts.c:184
 msgid ""
 "Don't display any dialogs unless there are only \"People Nearby\" accounts"
 msgstr ""
 "Не паказваць дыялогавых акенцаў, калі толькі не існуе іншых контаў акрамя "
 "\"Людзей паблізу\""
 
-#: ../src/empathy-accounts.c:191
+#: ../src/empathy-accounts.c:188
 msgid "Initially select given account (eg, gabble/jabber/foo_40example_2eorg0)"
 msgstr ""
 "Спачатку вылучыць азначаны конт (напрыклад, \"gabble/jabber/"
 "foo_40example_2eorg0\")"
 
-#: ../src/empathy-accounts.c:193
+#: ../src/empathy-accounts.c:190
 msgid "<account-id>"
 msgstr "<ідэнтыфікатар-конта>"
 
-#: ../src/empathy-accounts.c:196
-msgid "Show account assistant"
-msgstr "Паказаць памочніка контаў"
-
-#: ../src/empathy-accounts.c:202
+#: ../src/empathy-accounts.c:195
 msgid "- Empathy Accounts"
 msgstr "- Конты Empathy"
 
-#: ../src/empathy-accounts.c:238
+#: ../src/empathy-accounts.c:231
 msgid "Empathy Accounts"
 msgstr "Конты Empathy"
 
@@ -4779,6 +4624,33 @@ msgstr "Папоўніць"
 msgid "_Match case"
 msgstr "_Улічваць рэгістр літар"
 
+#: ../libempathy-gtk/empathy-new-account-dialog.c:144
+msgid "What kind of chat account do you have?"
+msgstr "Тып вашага конта для чату"
+
 #: ../libempathy-gtk/empathy-new-account-dialog.c:166
 msgid "Adding new account"
 msgstr "Стварэнне новага конта"
+
+#: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:77
+msgid "People nearby"
+msgstr "Людзі паблізу"
+
+#: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:150
+msgid ""
+"Empathy can automatically discover and chat with the people connected on the "
+"same network as you. If you want to use this feature, please check that the "
+"details below are correct."
+msgstr ""
+"Empathy умее аўтаматычна вышукваць і арганізоўваць чат з людзьмі, якія "
+"карыстаюцца вашай сеткай. Калі вы хочаце выкарыстаць гэту магчымасць, "
+"праверце правільнасць настроек, пададзеных ніжэй."
+
+#: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:183
+msgid ""
+"You can change these details later or disable this feature by choosing <span "
+"style=\"italic\">Edit → Accounts</span> in the Contact List."
+msgstr ""
+"Пазней можна будзе змяніць гэтыя настройкі або наогул выключыць гэту "
+"функцыю, выбраўшы <span style=\"italic\">Праўка → Конты</span> ў спісе "
+"кантактаў."
