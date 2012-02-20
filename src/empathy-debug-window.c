@@ -1720,7 +1720,8 @@ debug_window_send_to_pastebin (EmpathyDebugWindow *debug_window,
   /* Constructing a valid URL for http post. See http://pastebin.com/api#2 */
 
   /* The api_dev_key is the author's developer key to access the Pastebin API
-   * See http://pastebin.com/api#1 */
+   * This developer key is published here with the autorization of pastebin;
+   * see PASTEBIN-API-KEY.txt */
   api_dev_key = soup_uri_encode ("f6ccfabfdcd4b77b825ee38a30d11d52", NULL);
   api_paste_code = soup_uri_encode (debug_data, NULL);
   api_paste_name = soup_uri_encode ("Empathy debug data", NULL);
