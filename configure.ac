@@ -44,6 +44,7 @@ GCR_REQUIRED=2.91.4
 LIBCANBERRA_GTK_REQUIRED=0.25
 LIBNOTIFY_REQUIRED=0.7.0
 TELEPATHY_FARSIGHT_REQUIRED=0.0.18
+TELEPATHY_FARSTREAM_REQUIRED=0.2.1
 TELEPATHY_GLIB_REQUIRED=0.17.5
 TELEPATHY_LOGGER=0.2.10
 WEBKIT_REQUIRED=1.3.13
@@ -217,7 +218,7 @@ if test "x$enable_call" != "xno" ; then
    PKG_CHECK_MODULES(EMPATHY_CALL,
    [
       farstream-0.1
-      telepathy-farstream >= 0.2.0
+      telepathy-farstream >= $TELEPATHY_FARSTREAM_REQUIRED
       clutter-1.0 >= $CLUTTER_REQUIRED
       clutter-gtk-1.0
       clutter-gst-1.0
