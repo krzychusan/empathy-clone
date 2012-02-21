@@ -1995,7 +1995,7 @@ drag_data_received_individual_id (EmpathyChatWindow *self,
 				  guint time_)
 {
 	const gchar *id;
-	EmpathyIndividualManager *manager;
+	EmpathyIndividualManager *manager = NULL;
 	FolksIndividual *individual;
 	EmpathyChatWindowPriv *priv = GET_PRIV (self);
 	EmpathyTpChat *chat;
