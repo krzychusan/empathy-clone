@@ -21,10 +21,13 @@
 
 #include "config.h"
 
+#include <string.h>
+
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 #include <gdk/gdkkeysyms.h>
+#include <libsoup/soup.h>
 
 #define DEBUG_FLAG EMPATHY_DEBUG_OTHER
 #include <libempathy/empathy-debug.h>
@@ -88,6 +91,7 @@ typedef struct
   /* Toolbar items */
   GtkWidget *chooser;
   GtkToolItem *save_button;
+  GtkToolItem *send_to_pastebin;
   GtkToolItem *copy_button;
   GtkToolItem *clear_button;
   GtkToolItem *pause_button;
@@ -223,7 +227,7 @@ insert_values_in_buffer (GtkListStore *store,
       COL_DEBUG_LEVEL_STRING, log_level_to_string (level),
       COL_DEBUG_MESSAGE, string,
       COL_DEBUG_LEVEL_VALUE, level,
-      -1); 
+      -1);
 }
 
 static void
@@ -322,6 +326,7 @@ debug_window_set_toolbar_sensitivity (EmpathyDebugWindow *debug_window,
   GtkWidget *vbox = gtk_bin_get_child (GTK_BIN (debug_window));
 
   gtk_widget_set_sensitive (GTK_WIDGET (priv->save_button), sensitive);
+  gtk_widget_set_sensitive (GTK_WIDGET (priv->send_to_pastebin), sensitive);
   gtk_widget_set_sensitive (GTK_WIDGET (priv->copy_button), sensitive);
   gtk_widget_set_sensitive (GTK_WIDGET (priv->clear_button), sensitive);
   gtk_widget_set_sensitive (GTK_WIDGET (priv->pause_button), sensitive);
@@ -600,7 +605,6 @@ static gboolean
 tree_view_search_equal_func_cb (GtkTreeModel *model,
     gint column,
     const gchar *key,
-
     GtkTreeIter *iter,
     gpointer search_data)
 {
@@ -1482,12 +1486,10 @@ debug_window_store_filter_foreach (GtkTreeModel *model,
     GtkTreeIter *iter,
     gpointer user_data)
 {
-  GFileOutputStream *output_stream = (GFileOutputStream *) user_data;
+  gchar **debug_data = (gchar **)user_data;
   gchar *domain, *category, *message, *level_str, *level_upper;
   gdouble timestamp;
-  gchar *line, *time_str;
-  GError *error = NULL;
-  gboolean out = FALSE;
+  gchar *line, *time_str, *tmp;
 
   gtk_tree_model_get (model, iter,
       COL_DEBUG_TIMESTAMP, &timestamp,
@@ -1507,15 +1509,14 @@ debug_window_store_filter_foreach (GtkTreeModel *model,
 
   g_free (time_str);
 
-  g_output_stream_write (G_OUTPUT_STREAM (output_stream), line,
-      strlen (line), NULL, &error);
+  /* Compact all message lines in the out parameter debug_data */
+  if (!tp_str_empty (*debug_data))
+    tmp = g_strconcat (*debug_data, line, NULL);
+  else
+    tmp = g_strdup (line);
 
-  if (error != NULL)
-    {
-      DEBUG ("Failed to write to file: %s", error->message);
-      g_error_free (error);
-      out = TRUE;
-    }
+  g_free (*debug_data);
+  *debug_data = tmp;
 
   g_free (line);
   g_free (level_upper);
@@ -1524,7 +1525,7 @@ debug_window_store_filter_foreach (GtkTreeModel *model,
   g_free (category);
   g_free (message);
 
-  return out;
+  return FALSE;
 }
 
 static void
@@ -1535,8 +1536,10 @@ debug_window_save_file_chooser_response_cb (GtkDialog *dialog,
   EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
   gchar *filename = NULL;
   GFile *gfile = NULL;
+  gchar *debug_data = NULL;
   GFileOutputStream *output_stream = NULL;
-  GError *error = NULL;
+  GError *file_open_error = NULL;
+  GError *file_write_error = NULL;
 
   if (response_id != GTK_RESPONSE_ACCEPT)
     goto OUT;
@@ -1547,17 +1550,27 @@ debug_window_save_file_chooser_response_cb (GtkDialog *dialog,
 
   gfile = g_file_new_for_path (filename);
   output_stream = g_file_replace (gfile, NULL, FALSE,
-      G_FILE_CREATE_NONE, NULL, &error);
+      G_FILE_CREATE_NONE, NULL, &file_open_error);
 
-  if (error != NULL)
+  if (file_open_error != NULL)
     {
-      DEBUG ("Failed to open file for writing: %s", error->message);
-      g_error_free (error);
+      DEBUG ("Failed to open file for writing: %s", file_open_error->message);
+      g_error_free (file_open_error);
       goto OUT;
     }
 
   gtk_tree_model_foreach (priv->store_filter,
-      debug_window_store_filter_foreach, output_stream);
+      debug_window_store_filter_foreach, &debug_data);
+
+  g_output_stream_write (G_OUTPUT_STREAM (output_stream), debug_data,
+      strlen (debug_data), NULL, &file_write_error);
+  g_free (debug_data);
+
+  if (file_write_error != NULL)
+    {
+      DEBUG ("Failed to write to file: %s", file_write_error->message);
+      g_error_free (file_write_error);
+    }
 
 OUT:
   if (gfile != NULL)
@@ -1617,6 +1630,135 @@ debug_window_save_clicked_cb (GtkToolButton *tool_button,
       debug_window);
 
   gtk_widget_show (file_chooser);
+}
+
+static void
+debug_window_pastebin_response_dialog_closed_cb (GtkDialog *dialog,
+    gint response_id,
+    SoupBuffer *buffer)
+{
+  soup_buffer_free (buffer);
+
+  gtk_widget_destroy (GTK_WIDGET (dialog));
+}
+
+static void
+debug_window_pastebin_callback (SoupSession *session,
+    SoupMessage *msg,
+    gpointer debug_window)
+{
+  GtkWidget *dialog;
+  SoupBuffer *buffer;
+
+  buffer = soup_message_body_flatten (msg->response_body);
+  if (g_str_has_prefix (buffer->data, "http://pastebin.com/"))
+    {
+      dialog = gtk_message_dialog_new (GTK_WINDOW (debug_window),
+          GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_INFO, GTK_BUTTONS_CLOSE,
+          _("Pastebin link"));
+
+      gtk_message_dialog_format_secondary_markup (GTK_MESSAGE_DIALOG (dialog),
+          "<a href=\"%s\">%s</a>", buffer->data, buffer->data);
+    }
+  else
+    {
+      dialog = gtk_message_dialog_new (GTK_WINDOW (debug_window),
+          GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_INFO, GTK_BUTTONS_CLOSE,
+          _("Pastebin response"));
+
+      if (!tp_str_empty (buffer->data))
+        gtk_message_dialog_format_secondary_markup (GTK_MESSAGE_DIALOG (dialog),
+            _("%s"), buffer->data);
+      else
+        gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
+            _("Data too large for a single paste. Please save logs to file."));
+    }
+
+  g_object_unref (session);
+
+  gtk_window_set_transient_for (GTK_WINDOW (dialog), debug_window);
+
+  gtk_widget_show_all (GTK_WIDGET (dialog));
+
+  g_signal_connect_after (dialog, "response", G_CALLBACK (
+      debug_window_pastebin_response_dialog_closed_cb), buffer);
+}
+
+static void
+debug_window_message_dialog (EmpathyDebugWindow *debug_window,
+    const gchar *primary_text,
+    const gchar *secondary_text)
+{
+  GtkWidget *dialog;
+
+  dialog = gtk_message_dialog_new (GTK_WINDOW (debug_window),
+      GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_INFO, GTK_BUTTONS_OK,
+      "%s", _(primary_text));
+  gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
+      "%s", _(secondary_text));
+  gtk_window_set_transient_for (GTK_WINDOW (dialog),
+      GTK_WINDOW (debug_window));
+
+  gtk_dialog_run (GTK_DIALOG (dialog));
+  gtk_widget_destroy (dialog);
+}
+
+static void
+debug_window_send_to_pastebin (EmpathyDebugWindow *debug_window,
+    gchar *debug_data)
+{
+  SoupSession *session;
+  SoupMessage *msg;
+  gchar       *api_dev_key, *api_paste_code, *api_paste_name, *formdata;
+
+  if (tp_str_empty (debug_data))
+    {
+      debug_window_message_dialog (debug_window, "Error", "No data to send");
+      return;
+    }
+
+  /* Constructing a valid URL for http post. See http://pastebin.com/api#2 */
+
+  /* The api_dev_key is the author's developer key to access the Pastebin API
+   * This developer key is published here with the autorization of pastebin;
+   * see PASTEBIN-API-KEY.txt */
+  api_dev_key = soup_uri_encode ("f6ccfabfdcd4b77b825ee38a30d11d52", NULL);
+  api_paste_code = soup_uri_encode (debug_data, NULL);
+  api_paste_name = soup_uri_encode ("Empathy debug data", NULL);
+  formdata = g_strdup_printf ("api_dev_key=%s&api_paste_code=%s"
+      "&api_paste_name=%s&api_paste_format=text&api_option=paste",
+      api_dev_key, api_paste_code, api_paste_name);
+
+  session = soup_session_async_new ();
+
+  msg = soup_message_new ("POST", "http://pastebin.com/api/api_post.php");
+  soup_message_set_request (msg,
+      "application/x-www-form-urlencoded;charset=UTF-8", SOUP_MEMORY_COPY,
+      formdata, strlen (formdata));
+
+  g_free (api_dev_key);
+  g_free (api_paste_code);
+  g_free (api_paste_name);
+  g_free (formdata);
+
+  soup_session_queue_message (session, msg, debug_window_pastebin_callback,
+      debug_window);
+}
+
+static void
+debug_window_send_to_pastebin_cb (GtkToolButton *tool_button,
+    EmpathyDebugWindow *debug_window)
+{
+  EmpathyDebugWindowPriv *priv = GET_PRIV (debug_window);
+  gchar *debug_data = NULL;
+
+  DEBUG ("Preparing debug data for sending to pastebin.");
+
+  gtk_tree_model_foreach (priv->store_filter,
+      debug_window_store_filter_foreach, &debug_data);
+
+  debug_window_send_to_pastebin (debug_window, debug_data);
+  g_free (debug_data);
 }
 
 static gboolean
@@ -1812,6 +1954,16 @@ am_prepared_cb (GObject *am,
   gtk_widget_show (GTK_WIDGET (priv->save_button));
   gtk_tool_item_set_is_important (GTK_TOOL_ITEM (priv->save_button), TRUE);
   gtk_toolbar_insert (GTK_TOOLBAR (toolbar), priv->save_button, -1);
+
+  /* Send to pastebin */
+  priv->send_to_pastebin = gtk_tool_button_new_from_stock (GTK_STOCK_PASTE);
+  gtk_tool_button_set_label (GTK_TOOL_BUTTON (priv->send_to_pastebin),
+      _("Send to pastebin"));
+  g_signal_connect (priv->send_to_pastebin, "clicked",
+      G_CALLBACK (debug_window_send_to_pastebin_cb), object);
+  gtk_widget_show (GTK_WIDGET (priv->send_to_pastebin));
+  gtk_tool_item_set_is_important (GTK_TOOL_ITEM (priv->send_to_pastebin), TRUE);
+  gtk_toolbar_insert (GTK_TOOLBAR (toolbar), priv->send_to_pastebin, -1);
 
   /* Copy */
   priv->copy_button = gtk_tool_button_new_from_stock (GTK_STOCK_COPY);

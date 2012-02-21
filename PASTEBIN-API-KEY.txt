@@ -1,0 +1,110 @@
+MIME-Version: 1.0
+Received: by 10.231.11.1 with HTTP; Tue, 11 Oct 2011 22:59:10 -0700 (PDT)
+In-Reply-To:
+<CADttZZpfye8-Pi9=UDK3OUq8NmsagYV5AF_oewVNEUMRp7joFg@mail.gmail.com>
+References: <CADttZZoDLnv+aoZBPLcHT43-yKCH8LB+3objC-ST1qRp3P3Lnw@mail.gmail.com>
+    <CACuygeBuekJwr3t+7GxLA8Ft+A-Q6QmZUhe_2VU2LozSYduYxQ@mail.gmail.com>
+    <CADttZZqadJP3441etHxd2JFmNCqqHxDhg-uiCqqV=Qs3hUCynA@mail.gmail.com>
+    <CADttZZrWAw7hjQb1+qN+4z42d10FEWwOvLG-P_s85Htf_fwbEg@mail.gmail.com>
+    <CACuygeCOpAmYBogzay2VOb7SGnEhLsKfeaU-07QXQG=mj-ZRfg@mail.gmail.com>
+    <CADttZZrmrz5Dr7d9THQsSPJtWvy_P_-vkAx=UDcUEo_c+RE2nQ@mail.gmail.com>
+    <CADttZZqGfRUjcr8Cppz5oWniXwmreomd3wshCBzwx1E32A=Kdw@mail.gmail.com>
+    <CACuygeDDcW1NZYGCzTuxAUrJ92BgEnG+0ewME-yhR03Pwvd02A@mail.gmail.com>
+    <CADttZZpfye8-Pi9=UDK3OUq8NmsagYV5AF_oewVNEUMRp7joFg@mail.gmail.com>
+Date: Wed, 12 Oct 2011 11:29:10 +0530
+Delivered-To: chandniverma2112@gmail.com
+Message-ID: <CADttZZrP+XkPtNgAzxM56WkQAT72hjcQD0Z1UcFj8=q86Cpxeg@mail.gmail.com>
+Subject: Re: API issues
+From: Chandni Verma <chandniverma2112@gmail.com>
+To: Pastebin Support <admin@pastebin.com>
+Content-Type: multipart/alternative; boundary=001636ef068e08c10c04af13b9e5
+
+--001636ef068e08c10c04af13b9e5
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi Admin,
+
+One thing which I want to ask you since it it not answered anywhere on the
+pastebin.com website is that who is allowed to use the API developer key in
+their codes. Are there any licences to keep in mind?
+It's crucial to the open source project I have used the pastebin API for.
+
+Can we publish a member's (my) key in the open source code?
+
+Regards,
+Chandni
+
+_______
+
+Delivered-To: chandniverma2112@gmail.com
+Received: by 10.231.11.1 with SMTP id r1cs44531ibr;
+        Wed, 12 Oct 2011 02:27:32 -0700 (PDT)
+Return-Path: <godius@gmail.com>
+Received-SPF: pass (google.com: domain of godius@gmail.com designates
+10.182.187.100 as permitted sender) client-ip=10.182.187.100;
+Authentication-Results: mr.google.com; spf=pass (google.com: domain of
+godius@gmail.com designates 10.182.187.100 as permitted sender)
+smtp.mail=godius@gmail.com; dkim=pass header.i=godius@gmail.com
+Received: from mr.google.com ([10.182.187.100])
+        by 10.182.187.100 with SMTP id fr4mr13834663obc.79.1318411651457
+(num_hops = 1);
+        Wed, 12 Oct 2011 02:27:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=mime-version:sender:in-reply-to:references:date
+         :x-google-sender-auth:message-id:subject:from:to:content-type;
+        bh=pv3X2ILKj91U9H2lw/fwrkHPzZRFCaB8pPO2Y6pBzSA=;
+        b=T2XQR8CcrP3jF/9wJPYJxBQPToZp2ckFMelfmdRFd7akc6f8iEQRXUjEsYXvRPbuzS
+         6TWaTHiT0QLBZaqh1D6AifP2E4m84H+h8LwEkYXXAN4dJyTIbAM8rQ5KfbTiaoKzuv48
+         7dS26KA2YOB1bWTlhEm0zW4bdPCGSBxsCW67Y=
+MIME-Version: 1.0
+Received: by 10.182.187.100 with SMTP id fr4mr13834663obc.79.1318411651452;
+ Wed, 12 Oct 2011 02:27:31 -0700 (PDT)
+Sender: godius@gmail.com
+Received: by 10.182.118.36 with HTTP; Wed, 12 Oct 2011 02:27:31 -0700 (PDT)
+In-Reply-To:
+<CADttZZrP+XkPtNgAzxM56WkQAT72hjcQD0Z1UcFj8=q86Cpxeg@mail.gmail.com>
+References: <CADttZZoDLnv+aoZBPLcHT43-yKCH8LB+3objC-ST1qRp3P3Lnw@mail.gmail.com>
+    <CACuygeBuekJwr3t+7GxLA8Ft+A-Q6QmZUhe_2VU2LozSYduYxQ@mail.gmail.com>
+    <CADttZZqadJP3441etHxd2JFmNCqqHxDhg-uiCqqV=Qs3hUCynA@mail.gmail.com>
+    <CADttZZrWAw7hjQb1+qN+4z42d10FEWwOvLG-P_s85Htf_fwbEg@mail.gmail.com>
+    <CACuygeCOpAmYBogzay2VOb7SGnEhLsKfeaU-07QXQG=mj-ZRfg@mail.gmail.com>
+    <CADttZZrmrz5Dr7d9THQsSPJtWvy_P_-vkAx=UDcUEo_c+RE2nQ@mail.gmail.com>
+    <CADttZZqGfRUjcr8Cppz5oWniXwmreomd3wshCBzwx1E32A=Kdw@mail.gmail.com>
+    <CACuygeDDcW1NZYGCzTuxAUrJ92BgEnG+0ewME-yhR03Pwvd02A@mail.gmail.com>
+    <CADttZZpfye8-Pi9=UDK3OUq8NmsagYV5AF_oewVNEUMRp7joFg@mail.gmail.com>
+    <CADttZZrP+XkPtNgAzxM56WkQAT72hjcQD0Z1UcFj8=q86Cpxeg@mail.gmail.com>
+Date: Wed, 12 Oct 2011 11:27:31 +0200
+X-Google-Sender-Auth: cXD_1Zj39UiHBWVSdEJRk04LVC8
+Message-ID: <CACuygeDAqGCP+=KsV+ZyxNuLoy9L0CTQ63NpRhrig-9bzeFp6A@mail.gmail.com>
+Subject: Re: API issues
+From: Pastebin Support <admin@pastebin.com>
+To: Chandni Verma <chandniverma2112@gmail.com>
+Content-Type: multipart/alternative; boundary=14dae9398ea5270f6904af16a25e
+
+--14dae9398ea5270f6904af16a25e
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hello,
+
+Yes you can use your api developer key in the open for your project.
+Regards,
+
+Pastebin
+
+
+On Wed, Oct 12, 2011 at 7:59 AM, Chandni Verma
+<chandniverma2112@gmail.com>wrote:
+
+> Hi Admin,
+>
+> One thing which I want to ask you since it it not answered anywhere on the
+> pastebin.com website is that who is allowed to use the API developer key
+> in their codes. Are there any licences to keep in mind?
+> It's crucial to the open source project I have used the pastebin API for.
+>
+> Can we publish a member's (my) key in the open source code?
+>
+> Regards,
+> Chandni
+>
