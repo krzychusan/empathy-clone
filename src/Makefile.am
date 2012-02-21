@@ -1,7 +1,6 @@
 include $(top_srcdir)/tools/flymake.mk
 
 CPPFLAGS_COMMON =					\
-	$(YELL_CFLAGS)					\
 	$(EMPATHY_CFLAGS)				\
 	$(EDS_CFLAGS)					\
 	$(ERROR_CFLAGS)					\
@@ -24,7 +23,6 @@ LDADD =								\
 	$(top_builddir)/extensions/libemp-extensions.la		\
 	$(GCR_LIBS) 						\
 	$(EMPATHY_LIBS)						\
-	$(YELL_LIBS)						\
 	$(LIBCHAMPLAIN_LIBS)					\
 	$(NULL)
 

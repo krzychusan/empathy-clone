@@ -36,8 +36,6 @@
 
 #include <telepathy-glib/debug-sender.h>
 
-#include <telepathy-yell/telepathy-yell.h>
-
 #include <libempathy/empathy-client-factory.h>
 
 #include <libempathy-gtk/empathy-ui-utils.h>
@@ -91,7 +89,7 @@ find_window_for_handle (gpointer key,
 static gboolean
 incoming_call_cb (EmpathyCallFactory *factory,
     guint handle,
-    TpyCallChannel *channel,
+    TpCallChannel *channel,
     TpChannelDispatchOperation *dispatch_operation,
     TpAddDispatchOperationContext *context,
     gpointer user_data)
@@ -218,8 +216,6 @@ main (int argc,
   }
 
   g_option_context_free (optcontext);
-
-  tpy_cli_init ();
 
   gtk_clutter_init (&argc, &argv);
   clutter_gst_init (&argc, &argv);

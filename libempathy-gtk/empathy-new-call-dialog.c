@@ -28,8 +28,6 @@
 
 #include <telepathy-glib/interfaces.h>
 
-#include <telepathy-yell/telepathy-yell.h>
-
 #include <libempathy/empathy-tp-contact-factory.h>
 #include <libempathy/empathy-camera-monitor.h>
 #include <libempathy/empathy-utils.h>

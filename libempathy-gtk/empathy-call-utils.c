@@ -27,8 +27,6 @@
 
 #include <telepathy-glib/telepathy-glib.h>
 
-#include <telepathy-yell/telepathy-yell.h>
-
 #include "empathy-call-utils.h"
 
 #include <libempathy/empathy-gsettings.h>
@@ -85,14 +83,14 @@ empathy_call_create_call_request (const gchar *contact,
 {
   return tp_asv_new (
     TP_PROP_CHANNEL_CHANNEL_TYPE, G_TYPE_STRING,
-      TPY_IFACE_CHANNEL_TYPE_CALL,
+      TP_IFACE_CHANNEL_TYPE_CALL,
     TP_PROP_CHANNEL_TARGET_HANDLE_TYPE, G_TYPE_UINT,
       TP_HANDLE_TYPE_CONTACT,
     TP_PROP_CHANNEL_TARGET_ID, G_TYPE_STRING,
       contact,
-    TPY_PROP_CHANNEL_TYPE_CALL_INITIAL_AUDIO, G_TYPE_BOOLEAN,
+    TP_PROP_CHANNEL_TYPE_CALL_INITIAL_AUDIO, G_TYPE_BOOLEAN,
       initial_audio,
-    TPY_PROP_CHANNEL_TYPE_CALL_INITIAL_VIDEO, G_TYPE_BOOLEAN,
+    TP_PROP_CHANNEL_TYPE_CALL_INITIAL_VIDEO, G_TYPE_BOOLEAN,
       initial_video,
     NULL);
 }
@@ -282,4 +280,85 @@ empathy_call_set_stream_properties (GstElement *element,
   gst_structure_free (props);
 
   g_object_unref (gsettings_call);
+}
+
+/* Copied from telepathy-yell call-channel.c */
+void
+empathy_call_channel_send_video (TpCallChannel *self,
+    gboolean send)
+{
+  GPtrArray *contents;
+  gboolean found = FALSE;
+  guint i;
+
+  g_return_if_fail (TP_IS_CALL_CHANNEL (self));
+
+  /* Loop over all the contents, if some of them a video set all their
+   * streams to sending, otherwise request a video channel in case we want to
+   * sent */
+  contents = tp_call_channel_get_contents (self);
+  for (i = 0 ; i < contents->len ; i++)
+    {
+      TpCallContent *content = g_ptr_array_index (contents, i);
+
+      if (tp_call_content_get_media_type (content) ==
+              TP_MEDIA_STREAM_TYPE_VIDEO)
+        {
+          GPtrArray *streams;
+          guint j;
+
+          found = TRUE;
+          streams = tp_call_content_get_streams (content);
+          for (j = 0; j < streams->len; j++)
+            {
+              TpCallStream *stream = g_ptr_array_index (streams, j);
+
+              tp_call_stream_set_sending_async (stream, send, NULL, NULL);
+            }
+        }
+    }
+
+  if (send && !found)
+    {
+      tp_call_channel_add_content_async (self, "video",
+          TP_MEDIA_STREAM_TYPE_VIDEO, NULL, NULL);
+    }
+}
+
+/* Copied from telepathy-yell call-channel.c */
+TpSendingState
+empathy_call_channel_get_video_state (TpCallChannel *self)
+{
+  TpSendingState result = TP_SENDING_STATE_NONE;
+  GPtrArray *contents;
+  guint i;
+
+  g_return_val_if_fail (TP_IS_CALL_CHANNEL (self), TP_SENDING_STATE_NONE);
+
+  contents = tp_call_channel_get_contents (self);
+  for (i = 0 ; i < contents->len ; i++)
+    {
+      TpCallContent *content = g_ptr_array_index (contents, i);
+
+      if (tp_call_content_get_media_type (content) ==
+              TP_MEDIA_STREAM_TYPE_VIDEO)
+        {
+          GPtrArray *streams;
+          guint j;
+
+          streams = tp_call_content_get_streams (content);
+          for (j = 0; j < streams->len; j++)
+            {
+              TpCallStream *stream = g_ptr_array_index (streams, j);
+              TpSendingState state;
+
+              state = tp_call_stream_get_local_sending_state (stream);
+              if (state != TP_SENDING_STATE_PENDING_STOP_SENDING &&
+                  state > result)
+                result = state;
+            }
+        }
+    }
+
+  return result;
 }

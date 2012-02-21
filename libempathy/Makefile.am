@@ -10,7 +10,6 @@ AM_CPPFLAGS =                                           \
 	-DG_LOG_DOMAIN=\"empathy\"			\
 	-DGCR_API_SUBJECT_TO_CHANGE			\
 	$(EMPATHY_CFLAGS)				\
-	$(YELL_CFLAGS)					\
 	$(GEOCLUE_CFLAGS)				\
 	$(GEOCODE_CFLAGS)				\
 	$(NETWORK_MANAGER_CFLAGS)			\
@@ -149,7 +148,6 @@ nodist_libempathy_la_SOURCES =\
 
 libempathy_la_LIBADD =		\
 	$(top_builddir)/extensions/libemp-extensions.la \
-	$(top_builddir)/telepathy-yell/telepathy-yell/libtelepathy-yell.la \
 	$(GCR_LIBS) \
 	$(EMPATHY_LIBS) \
 	$(GEOCLUE_LIBS) \

@@ -26,8 +26,6 @@
 #include <telepathy-glib/util.h>
 #include <telepathy-glib/interfaces.h>
 
-#include <telepathy-yell/telepathy-yell.h>
-
 #include <telepathy-farstream/telepathy-farstream.h>
 
 #include <libempathy/empathy-utils.h>
@@ -63,7 +61,6 @@ enum {
   PROP_CALL_CHANNEL = 1,
   PROP_GST_BUS,
   PROP_CONTACT,
-  PROP_MEMBERS,
   PROP_INITIAL_AUDIO,
   PROP_INITIAL_VIDEO,
   PROP_SEND_AUDIO_CODEC,
@@ -79,11 +76,9 @@ enum {
 /* private structure */
 
 struct _EmpathyCallHandlerPriv {
-  TpyCallChannel *call;
+  TpCallChannel *call;
 
   EmpathyContact *contact;
-  /* GArray of TpContacts */
-  GArray *members;
   TfChannel *tfchannel;
   gboolean initial_audio;
   gboolean initial_video;
@@ -96,6 +91,7 @@ struct _EmpathyCallHandlerPriv {
   FsCandidate *video_remote_candidate;
   FsCandidate *audio_local_candidate;
   FsCandidate *video_local_candidate;
+  gboolean accept_when_initialised;
 };
 
 #define GET_PRIV(obj) EMPATHY_GET_PRIV (obj, EmpathyCallHandler)
@@ -108,8 +104,6 @@ empathy_call_handler_dispose (GObject *object)
   tp_clear_object (&priv->tfchannel);
   tp_clear_object (&priv->call);
   tp_clear_object (&priv->contact);
-
-  tp_clear_pointer (&priv->members, g_array_unref);
 
   G_OBJECT_CLASS (empathy_call_handler_parent_class)->dispose (object);
 }
@@ -141,36 +135,22 @@ empathy_call_handler_init (EmpathyCallHandler *obj)
 }
 
 static void
-on_get_contacts_cb (TpConnection *connection,
-    guint n_contacts,
-    EmpathyContact * const * contacts,
-    guint n_failed,
-    const TpHandle *failed,
-    const GError *error,
-    gpointer user_data,
-    GObject *weak_object)
+on_call_accepted_cb (GObject *source_object,
+    GAsyncResult *res,
+    gpointer user_data)
 {
-  EmpathyCallHandler *self = EMPATHY_CALL_HANDLER (weak_object);
-  EmpathyCallHandlerPriv *priv = GET_PRIV (self);
-  guint i;
+  TpCallChannel *call = TP_CALL_CHANNEL (source_object);
+  GError *error = NULL;
 
-  if (n_failed > 0)
-    g_warning ("Failed to get %d EmpathyContacts: %s",
-        n_failed, error->message);
-
-  priv->members = g_array_sized_new (FALSE, TRUE,
-      sizeof (EmpathyContact *), n_contacts);
-
-  for (i = 0; i < n_contacts; i++)
-    g_object_ref (contacts[i]);
-
-  g_array_append_vals (priv->members, contacts, n_contacts);
-
-  g_object_notify (G_OBJECT (self), "members");
+  if (!tp_call_channel_accept_finish (call, res, &error))
+    {
+      g_warning ("could not accept Call: %s", error->message);
+      g_error_free (error);
+    }
 }
 
 static void
-on_call_invalidated_cb (TpyCallChannel *call,
+on_call_invalidated_cb (TpCallChannel *call,
     guint domain,
     gint code,
     gchar *message,
@@ -182,88 +162,40 @@ on_call_invalidated_cb (TpyCallChannel *call,
     {
       /* Invalidated unexpectedly? Fake call ending */
       g_signal_emit (self, signals[STATE_CHANGED], 0,
-          TPY_CALL_STATE_ENDED, NULL);
+          TP_CALL_STATE_ENDED, NULL);
+      priv->accept_when_initialised = FALSE;
       tp_clear_object (&priv->call);
       tp_clear_object (&priv->tfchannel);
     }
 }
 
 static void
-on_call_state_changed_cb (TpyCallChannel *call,
-  TpyCallState state,
-  TpyCallFlags flags,
-  const GValueArray *call_state_reason,
-  GHashTable *call_state_details,
+on_call_state_changed_cb (TpCallChannel *call,
+  TpCallState state,
+  TpCallFlags flags,
+  TpCallStateReason *reason,
+  GHashTable *details,
   EmpathyCallHandler *handler)
 {
   EmpathyCallHandlerPriv *priv = handler->priv;
-  gchar *dbus_reason;
-  guint actor, reason;
 
-  tp_value_array_unpack ((GValueArray *) call_state_reason, 3,
-      &actor, &reason, &dbus_reason);
+  g_signal_emit (handler, signals[STATE_CHANGED], 0, state,
+      reason->dbus_reason);
 
-  g_signal_emit (handler, signals[STATE_CHANGED], 0, state, dbus_reason);
+  if (state == TP_CALL_STATE_INITIALISED &&
+      priv->accept_when_initialised)
+    {
+      tp_call_channel_accept_async (priv->call, on_call_accepted_cb, NULL);
+      priv->accept_when_initialised = FALSE;
+    }
 
-  if (state == TPY_CALL_STATE_ENDED)
+  if (state == TP_CALL_STATE_ENDED)
     {
       tp_channel_close_async (TP_CHANNEL (call), NULL, NULL);
-
+      priv->accept_when_initialised = FALSE;
       tp_clear_object (&priv->call);
       tp_clear_object (&priv->tfchannel);
     }
-}
-
-static void
-on_members_changed_cb (TpyCallChannel *call,
-    GHashTable *members,
-    EmpathyCallHandler *self)
-{
-  EmpathyCallHandlerPriv *priv = GET_PRIV (self);
-  GHashTableIter iter;
-  gpointer key, value;
-  TpHandle *handles;
-  guint n_handles;
-  guint i = 0;
-
-  if (members == NULL)
-    return;
-
-  n_handles = g_hash_table_size (members);
-  if (n_handles == 0)
-    return;
-
-  handles = g_new0 (TpHandle, n_handles);
-
-  g_hash_table_iter_init (&iter, members);
-  while (g_hash_table_iter_next (&iter, &key, &value))
-    handles[i++] = GPOINTER_TO_UINT (key);
-
-  empathy_tp_contact_factory_get_from_handles (
-      tp_channel_borrow_connection (TP_CHANNEL (priv->call)),
-      n_handles, handles,
-      on_get_contacts_cb,
-      NULL, NULL, G_OBJECT (self));
-
-  g_free (handles);
-}
-
-static void
-empathy_call_handler_constructed (GObject *object)
-{
-  EmpathyCallHandler *self = EMPATHY_CALL_HANDLER (object);
-  EmpathyCallHandlerPriv *priv = GET_PRIV (self);
-//  GHashTable *members;
-
-  g_signal_connect (priv->call, "members-changed",
-      G_CALLBACK (on_members_changed_cb), object);
-
-/* FIXME
-  g_object_get (priv->call, "members", &members, NULL);
-
-  if (members)
-    on_members_changed_cb (priv->call, members, self);
-*/
 }
 
 static void
@@ -276,9 +208,6 @@ empathy_call_handler_set_property (GObject *object,
     {
       case PROP_CONTACT:
         priv->contact = g_value_dup_object (value);
-        break;
-      case PROP_MEMBERS:
-        priv->members = g_value_get_boxed (value);
         break;
       case PROP_CALL_CHANNEL:
         g_return_if_fail (priv->call == NULL);
@@ -311,9 +240,6 @@ empathy_call_handler_get_property (GObject *object,
     {
       case PROP_CONTACT:
         g_value_set_object (value, priv->contact);
-        break;
-      case PROP_MEMBERS:
-        g_value_set_boxed (value, priv->members);
         break;
       case PROP_CALL_CHANNEL:
         g_value_set_object (value, priv->call);
@@ -362,7 +288,6 @@ empathy_call_handler_class_init (EmpathyCallHandlerClass *klass)
 
   g_type_class_add_private (klass, sizeof (EmpathyCallHandlerPriv));
 
-  object_class->constructed = empathy_call_handler_constructed;
   object_class->set_property = empathy_call_handler_set_property;
   object_class->get_property = empathy_call_handler_get_property;
   object_class->dispose = empathy_call_handler_dispose;
@@ -374,15 +299,9 @@ empathy_call_handler_class_init (EmpathyCallHandlerClass *klass)
     G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
   g_object_class_install_property (object_class, PROP_CONTACT, param_spec);
 
-  param_spec = g_param_spec_boxed ("members",
-    "call members", "The call participants",
-    G_TYPE_ARRAY,
-    G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
-  g_object_class_install_property (object_class, PROP_MEMBERS, param_spec);
-
   param_spec = g_param_spec_object ("call-channel",
     "call channel", "The call channel",
-    TPY_TYPE_CALL_CHANNEL,
+    TP_TYPE_CALL_CHANNEL,
     G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
   g_object_class_install_property (object_class, PROP_CALL_CHANNEL, param_spec);
 
@@ -529,12 +448,12 @@ empathy_call_handler_class_init (EmpathyCallHandlerClass *klass)
 }
 
 EmpathyCallHandler *
-empathy_call_handler_new_for_channel (TpyCallChannel *call,
+empathy_call_handler_new_for_channel (TpCallChannel *call,
   EmpathyContact *contact)
 {
   return EMPATHY_CALL_HANDLER (g_object_new (EMPATHY_TYPE_CALL_HANDLER,
     "call-channel", call,
-    "initial-video", tpy_call_channel_has_initial_video (call),
+    "initial-video", tp_call_channel_has_initial_video (call, NULL),
     "target-contact", contact,
     NULL));
 }
@@ -748,8 +667,7 @@ src_pad_added_error_idle (gpointer data)
 {
   TfContent *content = data;
 
-  tf_content_error (content, 0 /* FIXME */,
-      "Could not link sink", NULL);
+  tf_content_error_literal (content, "Could not link sink");
   g_object_unref (content);
 
   return FALSE;
@@ -822,8 +740,7 @@ on_tf_channel_content_added_cb (TfChannel *tfchannel,
     content, &retval);
 
  if (!retval)
-      tf_content_error (content, 0 /* FIXME */,
-          "Could not link source", NULL);
+      tf_content_error_literal (content, "Could not link source");
 
  /* Get sending codec */
  g_object_get (content, "fs-session", &session, NULL);
@@ -891,8 +808,7 @@ on_tf_channel_content_removed_cb (TfChannel *tfchannel,
     {
       g_warning ("Could not remove content!");
 
-      tf_content_error (content, 0 /* FIXME */,
-          "Could not link source", NULL);
+      tf_content_error_literal (content, "Could not link source");
     }
 }
 
@@ -945,21 +861,6 @@ empathy_call_handler_start_tpfs (EmpathyCallHandler *self)
 }
 
 static void
-on_call_accepted_cb (GObject *source_object,
-    GAsyncResult *res,
-    gpointer user_data)
-{
-  TpyCallChannel *call = TPY_CALL_CHANNEL (source_object);
-  GError *error = NULL;
-
-  if (!tpy_call_channel_accept_finish (call, res, &error))
-    {
-      g_warning ("could not accept Call: %s", error->message);
-      g_error_free (error);
-    }
-}
-
-static void
 empathy_call_handler_request_cb (GObject *source,
     GAsyncResult *result,
     gpointer user_data)
@@ -979,13 +880,13 @@ empathy_call_handler_request_cb (GObject *source,
       return;
     }
 
-  if (!TPY_IS_CALL_CHANNEL (channel))
+  if (!TP_IS_CALL_CHANNEL (channel))
     {
       DEBUG ("The channel is not a Call channel!");
       return;
     }
 
-  priv->call = TPY_CALL_CHANNEL (channel);
+  priv->call = TP_CALL_CHANNEL (channel);
   tp_g_signal_connect_object (priv->call, "state-changed",
     G_CALLBACK (on_call_state_changed_cb), self, 0);
   tp_g_signal_connect_object (priv->call, "invalidated",
@@ -994,7 +895,7 @@ empathy_call_handler_request_cb (GObject *source,
   g_object_notify (G_OBJECT (self), "call-channel");
 
   empathy_call_handler_start_tpfs (self);
-  tpy_call_channel_accept_async (priv->call, on_call_accepted_cb, NULL);
+  tp_call_channel_accept_async (priv->call, on_call_accepted_cb, NULL);
 }
 
 void
@@ -1009,11 +910,28 @@ empathy_call_handler_start_call (EmpathyCallHandler *handler,
   if (priv->call != NULL)
     {
       empathy_call_handler_start_tpfs (handler);
-      tpy_call_channel_accept_async (priv->call, on_call_accepted_cb, NULL);
+
+      if (tp_channel_get_requested (TP_CHANNEL (priv->call)))
+        {
+          /* accept outgoing channels immediately */
+          tp_call_channel_accept_async (priv->call,
+              on_call_accepted_cb, NULL);
+        }
+      else
+        {
+          /* accepting incoming channels when they are INITIALISED */
+          if (tp_call_channel_get_state (priv->call, NULL, NULL, NULL) ==
+              TP_CALL_STATE_INITIALISED)
+            tp_call_channel_accept_async (priv->call,
+                on_call_accepted_cb, NULL);
+          else
+            priv->accept_when_initialised = TRUE;
+        }
+
       return;
     }
 
-  /* No TpyCallChannel (we are redialing). Request a new call channel */
+  /* No TpCallChannel (we are redialing). Request a new call channel */
   g_assert (priv->contact != NULL);
 
   account = empathy_contact_get_account (priv->contact);
@@ -1043,13 +961,9 @@ empathy_call_handler_stop_call (EmpathyCallHandler *handler)
 
   if (priv->call != NULL)
     {
-      tpy_call_channel_hangup_async (priv->call,
-          TPY_CALL_STATE_CHANGE_REASON_USER_REQUESTED,
+      tp_call_channel_hangup_async (priv->call,
+          TP_CALL_STATE_CHANGE_REASON_USER_REQUESTED,
           "", "", NULL, NULL);
-      tp_channel_close_async (TP_CHANNEL (priv->call),
-        NULL, NULL);
-      tp_clear_object (&priv->call);
-      tp_clear_object (&priv->tfchannel);
     }
 }
 

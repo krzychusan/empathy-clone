@@ -43,6 +43,11 @@ GHashTable * empathy_call_create_streamed_media_request (const gchar *contact,
 void empathy_call_set_stream_properties (GstElement *element,
     gboolean echo_cancellation);
 
+TpSendingState empathy_call_channel_get_video_state (TpCallChannel *self);
+void empathy_call_channel_send_video (TpCallChannel *self,
+    gboolean send);
+
+
 G_END_DECLS
 
 #endif /*  __EMPATHY_CALL_UTILS_H__ */

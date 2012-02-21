@@ -25,11 +25,10 @@
 #include <libnotify/notify.h>
 #include <telepathy-glib/telepathy-glib.h>
 
-#include <telepathy-yell/telepathy-yell.h>
-
 #include <libempathy/empathy-tp-streamed-media.h>
 
 #include <libempathy-gtk/empathy-notify-manager.h>
+#include <libempathy-gtk/empathy-call-utils.h>
 
 #include "empathy-event-manager.h"
 
@@ -127,8 +126,8 @@ notification_approve_no_video_cb (NotifyNotification *notification,
 {
   if (self->priv->event)
     {
-      tpy_call_channel_send_video (
-          TPY_CALL_CHANNEL (self->priv->event->handler_instance),
+      empathy_call_channel_send_video (
+          TP_CALL_CHANNEL (self->priv->event->handler_instance),
           FALSE);
       empathy_event_approve (self->priv->event);
     }
@@ -197,8 +196,8 @@ add_notification_actions (EmpathyNotificationsApprover *self,
         video = empathy_tp_streamed_media_has_initial_video (
             EMPATHY_TP_STREAMED_MEDIA (self->priv->event->handler_instance));
       else
-        video = tpy_call_channel_has_initial_video (
-            TPY_CALL_CHANNEL (self->priv->event->handler_instance));
+        video = tp_call_channel_has_initial_video (
+            TP_CALL_CHANNEL (self->priv->event->handler_instance), NULL);
 
       notify_notification_add_action (notification,
         "reject", _("Reject"), (NotifyActionCallback) notification_decline_cb,

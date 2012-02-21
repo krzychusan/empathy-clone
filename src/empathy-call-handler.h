@@ -26,7 +26,7 @@
 #include <gst/gst.h>
 #include <gst/farsight/fs-conference-iface.h>
 
-#include <telepathy-yell/telepathy-yell.h>
+#include <telepathy-glib/telepathy-glib.h>
 
 #include <libempathy/empathy-contact.h>
 
@@ -68,7 +68,7 @@ EmpathyCallHandler * empathy_call_handler_new_for_contact (
   EmpathyContact *contact);
 
 EmpathyCallHandler * empathy_call_handler_new_for_channel (
-  TpyCallChannel *call,
+  TpCallChannel *call,
   EmpathyContact *contact);
 
 void empathy_call_handler_start_call (EmpathyCallHandler *handler,
