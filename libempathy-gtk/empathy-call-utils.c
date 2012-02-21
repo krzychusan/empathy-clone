@@ -321,7 +321,8 @@ empathy_call_channel_send_video (TpCallChannel *self,
   if (send && !found)
     {
       tp_call_channel_add_content_async (self, "video",
-          TP_MEDIA_STREAM_TYPE_VIDEO, NULL, NULL);
+          TP_MEDIA_STREAM_TYPE_VIDEO, TP_MEDIA_STREAM_DIRECTION_BIDIRECTIONAL,
+          NULL, NULL);
     }
 }
 
