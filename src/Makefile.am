@@ -153,7 +153,13 @@ empathy_LDADD =								\
 
 check_c_sources = \
     $(empathy_handwritten_source) \
-    $(empathy_logs_SOURCES)
+    $(empathy_logs_SOURCES) \
+    $(libempathy_accounts_common_la_SOURCES) \
+    $(empathy_accounts_SOURCES) \
+    $(empathy_debugger_SOURCES) \
+    $(empathy_auth_client_SOURCES) \
+    $(empathy_chat_SOURCES) \
+    $(empathy_call_SOURCES)
 
 include $(top_srcdir)/tools/check-coding-style.mk
 check-local: check-coding-style
