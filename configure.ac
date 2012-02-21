@@ -198,12 +198,6 @@ PKG_CHECK_MODULES(EMPATHY,
    libsoup-2.4
 ])
 
-PKG_CHECK_MODULES(EMPATHY_AV,
-[
-   farsight2-0.10
-   telepathy-farsight >= $TELEPATHY_FARSIGHT_REQUIRED
-])
-
 PKG_CHECK_MODULES(EMPATHY_CALL,
 [
    farstream-0.1
