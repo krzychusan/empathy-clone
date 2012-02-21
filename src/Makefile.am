@@ -109,8 +109,6 @@ empathy_chat_SOURCES =						\
 	gedit-close-button.c gedit-close-button.h \
 	$(NULL)
 
-if HAVE_CALL
-
 libexec_PROGRAMS += empathy-call
 
 empathy_call_SOURCES = \
@@ -152,8 +150,6 @@ empathy_call_SOURCES = \
 
 empathy_call_CFLAGS = $(EMPATHY_CALL_CFLAGS)
 empathy_call_LDFLAGS = $(EMPATHY_CALL_LIBS)
-
-endif
 
 empathy_handwritten_source = \
 	empathy-about-dialog.c empathy-about-dialog.h			\

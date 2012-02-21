@@ -204,40 +204,17 @@ PKG_CHECK_MODULES(EMPATHY_AV,
    telepathy-farsight >= $TELEPATHY_FARSIGHT_REQUIRED
 ])
 
+PKG_CHECK_MODULES(EMPATHY_CALL,
+[
+   farstream-0.1
+   telepathy-farstream >= $TELEPATHY_FARSTREAM_REQUIRED
+   clutter-1.0 >= $CLUTTER_REQUIRED
+   clutter-gtk-1.0
+   clutter-gst-1.0
+])
+
 AC_DEFINE(EMPATHY_GOA_PROVIDER, "org.gnome.OnlineAccounts",
    [Name of provider for accounts imported from GOA])
-
-# -----------------------------------------------------------
-# Call interface
-# -----------------------------------------------------------
-AC_ARG_ENABLE(call,
-            AS_HELP_STRING([--enable-call=@<:@no/yes/auto@:>@],
-            [build with Call interface support]),,
-            [enable_call=auto])
-if test "x$enable_call" != "xno" ; then
-   PKG_CHECK_MODULES(EMPATHY_CALL,
-   [
-      farstream-0.1
-      telepathy-farstream >= $TELEPATHY_FARSTREAM_REQUIRED
-      clutter-1.0 >= $CLUTTER_REQUIRED
-      clutter-gtk-1.0
-      clutter-gst-1.0
-   ], have_call="yes", have_call="no" )
-
-   if test "x$have_call" = "xyes"; then
-      AC_DEFINE(HAVE_CALL, 1, [Define if you have Call channel support])
-   fi
-else
-  have_call=no
-fi
-
-if test "x$enable_call" = "xyes" -a "x$have_call" != "xyes"; then
-   AC_MSG_ERROR([Could not find Call handler dependencies:
-
-$EMPATHY_CALL_PKG_ERRORS])
-fi
-AM_CONDITIONAL(HAVE_CALL, test "x$have_call" = "xyes")
-
 
 # -----------------------------------------------------------
 # Call support in tp-logger
@@ -697,6 +674,5 @@ Configure summary:
 	Nautilus-sendto plugin......:  ${have_nst}
 	GOA MC plugin...............:  ${have_goa}
 	Salut E-D-S support.........:  ${with_eds}
-	Exp. Call channel handler...:  ${have_call}
 	Exp. Call log support.......:  ${have_call_logs}
 "
