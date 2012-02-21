@@ -1,3 +1,92 @@
+NEW in 3.3.90 (21/02/2012)
+=============
+
+The "125 files changed, 33088 insertions(+), 43358 deletions(-)" release.
+
+This is the first beta release in the 3.4 cycle and it's massive!
+
+Our new call UI has finally landed. It uses Clutter and Farstream and so
+introduces a bunch of new dependencies. You'll need the soon-to-be-released
+telepathy-gabble 0.15.4 to use it. SIP is not yet usable with this new UI,
+a future release of telepathy-rakia should fix that soon. Regressions have
+to be expected so please make sure to include Empathy.Call logs when reporting
+bugs.
+
+This release also stops using telepathy-butterfly and now relies on
+telepathy-haze to connect to MSN. Accounts should be automatically migrated
+with the next telepathy-mission-control release (5.11.0) (if telepathy-haze is
+installed). We recommend that distributions install it by default if they were
+previously installing telepathy-butterfly.
+
+Empathy now relies on gnome-contacts to display contacts' details and link
+contacts together. If gnome-contacts is not installed, Empathy will suggest
+to install it using PackageKit. Distributions should consider adding a
+dependency on gnome-contacts.
+
+The accounts assistant has been removed and its features integrated into
+the accounts dialog.
+
+The debug window gained the ability to display the logs from all the
+components together and to upload them easily to pastebin.
+
+Dependencies:
+ • clutter ≥ 1.7.14
+ • clutter-gst
+ • clutter-gtk
+ • farstream
+ • telepathy-farstream ≥ 0.2.1
+ • telepathy-glib ≥ 0.17.5
+ • farsight2 and telepathy-farsight are no longer needed
+
+Bugs fixed:
+ - Fixed #629902, New call UI (Nick Richards, Emilio Pozuelo Monfort & friends)
+ - Fixed #659683, Make empathy-call the default and remove empathy-av (Guillaume Desmottes)
+ - Fixed #652669, refactor account creation (Guillaume Desmottes)
+ - Fixed #592994, Debug: Store messages for each component in a separate GtkListStore and have them copied(and later updated with each new message) in a separate store for a new "All"(selected by default) selection. (Chandni Verma)
+ - Fixed #627658, Function Hide Group (Guillaume Desmottes)
+ - Fixed #632739, Unclear string for translation (Guillaume Desmottes)
+ - Fixed #646654, Empathy subscription request dialog box should be more helpful (Brian Curtis)
+ - Fixed #655101, dnd from contact list to a chat should invite the contact to the chat (Guillaume Desmottes)
+ - Fixed #656097, Empathy should show an informative text inside the contact list when no contacts are online (Guillaume Desmottes)
+ - Fixed #658724, "Send to pastebin" button for debug window (Chandni Verma)
+ - Fixed #663627, Having a long status message makes infobar in accounts dialog uglier (Guillaume Desmottes)
+ - Fixed #663829, Butterfly -> Haze migration (Guillaume Desmottes)
+ - Fixed #664045, Tab tooltips do not show (client type-triggered) phone symbols (Guillaume Desmottes)
+ - Fixed #668985, [PATCH] Toggle telling others you are typing to them (Patrick F. Allen)
+ - Fixed #669482, Rely on gnome-contacts to link contacts (Guillaume Desmottes)
+ - Fixed #669559, Rely on gnome-contacts for the information dialog (Guillaume Desmottes)
+ - Fixed #669578, Be able to install gnome-contacts using PackageKit (Guillaume Desmottes)
+ - Fixed #669655, "Contact Details" title in accounts dialog (Guillaume Desmottes)
+ - Fixed #669676, Opening gnome-contacts from Chat dialog doesn't work for metacontacts (Guillaume Desmottes)
+ - Fixed #669695, ContactInfo: always escape IRC channel names in markup (Will Thompson)
+ - Fixed #669712, Should not allow the user to set a negative priority on XMPP (Guillaume Desmottes)
+ - Fixed #669823, Don't unhighlight chat tabs when more messages are received (Will Thompson)
+ - Fixed #670201, import dialog improvements (Guillaume Desmottes)
+ - Fixed #670203, empathy-accounts improvements (Guillaume Desmottes)
+
+Translations:
+ - Updated ar Translation (Anas Afif Emad)
+ - Updated be Translation (Ihar Hrachyshka)
+ - Updated bg Translation (Alexander Shopov)
+ - Updated da Translation (Kenneth Nielsen)
+ - Updated en_CA Translation (Tiffany Antopolski)
+ - Updated es Translation (Daniel Mustieles)
+ - Updated et Translation (Mattias Põldaru)
+ - Updated gl Translation (Fran Diéguez)
+ - Updated he Translation (Yaron Shahrabani)
+ - Updated ja Translation (Mako N)
+ - Updated nb Translation (Kjartan Maraas)
+ - Updated ru Translation (Yuri Myasoedov)
+ - Updated sr@latin Translation (Мирослав Николић)
+ - Updated sr Translation (Мирослав Николић)
+ - Updated sv Translation (Daniel Nylander)
+ - Updated zh_CN Translation (Wylmer Wang)
+
+Documentation translations:
+ - Updated de Documentation translation (Christian Kirbach, Mario Blättermann)
+ - Updated es Documentation translation (Daniel Mustieles)
+ - Updated fr Documentation translation (Bruno Brouard)
+
 NEW in 3.3.5 (06/02/2012)
 ============
 Bugs fixed:
