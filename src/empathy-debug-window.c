@@ -564,7 +564,7 @@ finally:
   g_object_unref (pause_buffer);
 }
 
-static GtkListStore*
+static GtkListStore *
 new_list_store_for_service (void)
 {
   return gtk_list_store_new (NUM_DEBUG_COLS,
@@ -1614,7 +1614,7 @@ debug_window_save_clicked_cb (GtkToolButton *tool_button,
   tm_s = localtime (&t);
   if (tm_s != NULL)
     {
-      if (strftime(time_str, sizeof (time_str), "%d-%m-%y_%H-%M-%S", tm_s))
+      if (strftime (time_str, sizeof (time_str), "%d-%m-%y_%H-%M-%S", tm_s))
         tmp = g_strdup_printf ("%s-%s.log", name, time_str);
     }
 
