@@ -413,8 +413,8 @@ if test "x$enable_map" != "xno"; then
    PKG_CHECK_MODULES(LIBCHAMPLAIN,
     [
        clutter-gtk-1.0
-       champlain-gtk-0.12
-       champlain-0.12 >= $CHAMPLAIN_REQUIRED
+       champlain-gtk-0.14
+       champlain-0.14 >= $CHAMPLAIN_REQUIRED
     ], have_libchamplain="yes", have_libchamplain="no")
 
    if test "x$have_libchamplain" = "xyes"; then
