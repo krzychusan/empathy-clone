@@ -217,7 +217,6 @@ main (int argc,
 
   g_option_context_free (optcontext);
 
-  gtk_clutter_init (&argc, &argv);
   clutter_gst_init (&argc, &argv);
 
   empathy_gtk_init ();
