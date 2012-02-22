@@ -848,7 +848,8 @@ main (int argc, char *argv[])
   g_type_init ();
 
 #ifdef HAVE_LIBCHAMPLAIN
-  gtk_clutter_init (&argc, &argv);
+  g_return_val_if_fail (gtk_clutter_init (&argc, &argv) ==
+      CLUTTER_INIT_SUCCESS, 1);
 #endif
 
   g_type_init ();
