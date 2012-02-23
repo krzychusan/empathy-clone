@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: empathy\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=empath"
 "y&keywords=I18N+L10N&component=General\n"
-"POT-Creation-Date: 2012-02-16 20:30+0000\n"
-"PO-Revision-Date: 2012-02-19 13:49+0200\n"
+"POT-Creation-Date: 2012-02-21 15:03+0000\n"
+"PO-Revision-Date: 2012-02-23 21:51+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -49,7 +49,7 @@ msgstr ""
 
 #. Tweak the dialog
 #: ../data/empathy-accounts.desktop.in.in.h:1
-#: ../src/empathy-accounts-dialog.c:2411
+#: ../src/empathy-accounts-dialog.c:2450
 msgid "Messaging and VoIP Accounts"
 msgstr "Налози за дописивање и VoIP"
 
@@ -571,7 +571,7 @@ msgstr "Изабрана датотека није обична датотека
 msgid "The selected file is empty"
 msgstr "Изабрана датотека је празна"
 
-#: ../libempathy/empathy-message.c:415 ../src/empathy-call-observer.c:131
+#: ../libempathy/empathy-message.c:415 ../src/empathy-call-observer.c:129
 #, c-format
 msgid "Missed call from %s"
 msgstr "Пропуштен позив од %s"
@@ -622,7 +622,7 @@ msgid "Status is set to offline"
 msgstr "Стање је постављено на „неповезан“"
 
 #: ../libempathy/empathy-utils.c:289 ../libempathy/empathy-utils.c:323
-#: ../libempathy-gtk/empathy-call-utils.c:49
+#: ../libempathy-gtk/empathy-call-utils.c:47
 #: ../libempathy-gtk/empathy-new-message-dialog.c:81
 msgid "Network error"
 msgstr "Грешка у мрежи"
@@ -1329,28 +1329,28 @@ msgstr "Све датотеке"
 msgid "Click to enlarge"
 msgstr "Кликните да увећате"
 
-#: ../libempathy-gtk/empathy-call-utils.c:44
-#: ../libempathy-gtk/empathy-call-utils.c:62
+#: ../libempathy-gtk/empathy-call-utils.c:42
+#: ../libempathy-gtk/empathy-call-utils.c:60
 msgid "There was an error starting the call"
 msgstr "Дошло је до грешке приликом позивања"
 
-#: ../libempathy-gtk/empathy-call-utils.c:51
+#: ../libempathy-gtk/empathy-call-utils.c:49
 msgid "The specified contact doesn't support calls"
 msgstr "Наведени контакт не подржава позиве"
 
-#: ../libempathy-gtk/empathy-call-utils.c:53
+#: ../libempathy-gtk/empathy-call-utils.c:51
 msgid "The specified contact is offline"
 msgstr "Наведени контакт није на вези"
 
-#: ../libempathy-gtk/empathy-call-utils.c:55
+#: ../libempathy-gtk/empathy-call-utils.c:53
 msgid "The specified contact is not valid"
 msgstr "Наведени контакт није исправан"
 
-#: ../libempathy-gtk/empathy-call-utils.c:57
+#: ../libempathy-gtk/empathy-call-utils.c:55
 msgid "Emergency calls are not supported on this protocol"
 msgstr "Овај протокол не подржава хитне позиве"
 
-#: ../libempathy-gtk/empathy-call-utils.c:59
+#: ../libempathy-gtk/empathy-call-utils.c:57
 msgid "You don't have enough credit in order to place this call"
 msgstr "Немате довољно кредита да бисте могли да обавите овај позив"
 
@@ -1496,7 +1496,7 @@ msgstr "није подржано"
 msgid "unknown"
 msgstr "непознато"
 
-#: ../libempathy-gtk/empathy-chat.c:1706 ../src/empathy-chat-window.c:916
+#: ../libempathy-gtk/empathy-chat.c:1706 ../src/empathy-chat-window.c:920
 msgid "Topic:"
 msgstr "Тема:"
 
@@ -1610,10 +1610,9 @@ msgstr "%s је сада познат као %s"
 #. We don't know if the incoming call has been accepted or not, so we
 #. * assume it hasn't and if it has, we'll set the proper status when
 #. * we get the new handler.
-#: ../libempathy-gtk/empathy-chat.c:2993
-#: ../src/empathy-streamed-media-window.c:1889
-#: ../src/empathy-event-manager.c:1280 ../src/empathy-call-window.c:1545
-#: ../src/empathy-call-window.c:1595 ../src/empathy-call-window.c:2638
+#: ../libempathy-gtk/empathy-chat.c:2993 ../src/empathy-event-manager.c:1197
+#: ../src/empathy-call-window.c:1502 ../src/empathy-call-window.c:1552
+#: ../src/empathy-call-window.c:2588
 msgid "Disconnected"
 msgstr "Веза је прекинута"
 
@@ -1648,7 +1647,7 @@ msgstr "Ова соба је заштићена лозинком:"
 msgid "Join"
 msgstr "Прикључи се"
 
-#: ../libempathy-gtk/empathy-chat.c:4070 ../src/empathy-event-manager.c:1301
+#: ../libempathy-gtk/empathy-chat.c:4070 ../src/empathy-event-manager.c:1218
 msgid "Connected"
 msgstr "Повезан"
 
@@ -2121,11 +2120,8 @@ msgstr "%s (%s)"
 msgid "Select account to use to place the call"
 msgstr "Изаберите налог који ће бити коришћен за позив"
 
-#. translators: Call is a noun. This string is used in the window
-#. * title
 #: ../libempathy-gtk/empathy-individual-menu.c:348
 #: ../libempathy-gtk/empathy-log-window.ui.h:6
-#: ../src/empathy-streamed-media-window.c:1288
 #: ../src/empathy-call-window.ui.h:18
 msgid "Call"
 msgstr "Позив"
@@ -2205,7 +2201,7 @@ msgid "_Edit"
 msgstr "_Уреди"
 
 #: ../libempathy-gtk/empathy-individual-menu.c:1546
-#: ../src/empathy-chat-window.c:1175
+#: ../src/empathy-chat-window.c:1192
 msgid "Inviting you to this room"
 msgstr "Позивам вас у ову собу"
 
@@ -2297,48 +2293,48 @@ msgstr "нови сервер"
 msgid "SSL"
 msgstr "ССЛ"
 
-#: ../libempathy-gtk/empathy-log-window.c:622
+#: ../libempathy-gtk/empathy-log-window.c:620
 msgid "History"
 msgstr "Историјат"
 
-#: ../libempathy-gtk/empathy-log-window.c:677
+#: ../libempathy-gtk/empathy-log-window.c:675
 msgid "Show"
 msgstr "Прикажи"
 
-#: ../libempathy-gtk/empathy-log-window.c:699
+#: ../libempathy-gtk/empathy-log-window.c:697
 msgid "Search"
 msgstr "Потражи"
 
-#: ../libempathy-gtk/empathy-log-window.c:1150
+#: ../libempathy-gtk/empathy-log-window.c:1148
 #, c-format
 msgid "Chat in %s"
 msgstr "Ћаскање у %s"
 
-#: ../libempathy-gtk/empathy-log-window.c:1152
+#: ../libempathy-gtk/empathy-log-window.c:1150
 #, c-format
 msgid "Chat with %s"
 msgstr "Ћаскање са %s"
 
-#: ../libempathy-gtk/empathy-log-window.c:1202
-#: ../libempathy-gtk/empathy-log-window.c:1349
+#: ../libempathy-gtk/empathy-log-window.c:1200
+#: ../libempathy-gtk/empathy-log-window.c:1347
 msgctxt "A date with the time"
 msgid "%A, %e %B %Y %X"
 msgstr "%A, %e %B %Y %X"
 
 #. Translators: this is an emote: '* Danielle waves'
-#: ../libempathy-gtk/empathy-log-window.c:1291
+#: ../libempathy-gtk/empathy-log-window.c:1289
 #, c-format
 msgid "<i>* %s %s</i>"
 msgstr "<i>* %s %s</i>"
 
 #. Translators: this is a message: 'Danielle: hello'
 #. * The string in bold is the sender's name
-#: ../libempathy-gtk/empathy-log-window.c:1297
+#: ../libempathy-gtk/empathy-log-window.c:1295
 #, c-format
 msgid "<b>%s:</b> %s"
 msgstr "<b>%s:</b> %s"
 
-#: ../libempathy-gtk/empathy-log-window.c:1373
+#: ../libempathy-gtk/empathy-log-window.c:1371
 #, c-format
 msgid "%s second"
 msgid_plural "%s seconds"
@@ -2347,7 +2343,7 @@ msgstr[1] "%s секунде"
 msgstr[2] "%s секунди"
 msgstr[3] "једне секунде"
 
-#: ../libempathy-gtk/empathy-log-window.c:1380
+#: ../libempathy-gtk/empathy-log-window.c:1378
 #, c-format
 msgid "%s minute"
 msgid_plural "%s minutes"
@@ -2356,81 +2352,81 @@ msgstr[1] "%s минута"
 msgstr[2] "%s минута"
 msgstr[3] "једног минута"
 
-#: ../libempathy-gtk/empathy-log-window.c:1388
+#: ../libempathy-gtk/empathy-log-window.c:1386
 #, c-format
 msgid "Call took %s, ended at %s"
 msgstr "Позив је започет %s, а завршен је %s"
 
-#: ../libempathy-gtk/empathy-log-window.c:1722
+#: ../libempathy-gtk/empathy-log-window.c:1720
 msgid "Today"
 msgstr "Данас"
 
-#: ../libempathy-gtk/empathy-log-window.c:1726
+#: ../libempathy-gtk/empathy-log-window.c:1724
 msgid "Yesterday"
 msgstr "Јуче"
 
 #. Translators: A date such as '23 May 2010' (strftime format)
-#: ../libempathy-gtk/empathy-log-window.c:1741
+#: ../libempathy-gtk/empathy-log-window.c:1739
 msgid "%e %B %Y"
 msgstr "%e. %B %Y."
 
-#: ../libempathy-gtk/empathy-log-window.c:1829
-#: ../libempathy-gtk/empathy-log-window.c:3489
+#: ../libempathy-gtk/empathy-log-window.c:1827
+#: ../libempathy-gtk/empathy-log-window.c:3487
 msgid "Anytime"
 msgstr "Било кад"
 
-#: ../libempathy-gtk/empathy-log-window.c:1918
-#: ../libempathy-gtk/empathy-log-window.c:2402
+#: ../libempathy-gtk/empathy-log-window.c:1916
+#: ../libempathy-gtk/empathy-log-window.c:2400
 msgid "Anyone"
 msgstr "Било ко"
 
-#: ../libempathy-gtk/empathy-log-window.c:2715
+#: ../libempathy-gtk/empathy-log-window.c:2713
 msgid "Who"
 msgstr "Ко"
 
-#: ../libempathy-gtk/empathy-log-window.c:2924
+#: ../libempathy-gtk/empathy-log-window.c:2922
 msgid "When"
 msgstr "Када"
 
-#: ../libempathy-gtk/empathy-log-window.c:3040
+#: ../libempathy-gtk/empathy-log-window.c:3038
 msgid "Anything"
 msgstr "Било шта"
 
-#: ../libempathy-gtk/empathy-log-window.c:3042
+#: ../libempathy-gtk/empathy-log-window.c:3040
 msgid "Text chats"
 msgstr "Писана ћаскања"
 
-#: ../libempathy-gtk/empathy-log-window.c:3044
+#: ../libempathy-gtk/empathy-log-window.c:3042
 #: ../src/empathy-preferences.ui.h:25
 msgid "Calls"
 msgstr "Позиви"
 
-#: ../libempathy-gtk/empathy-log-window.c:3049
+#: ../libempathy-gtk/empathy-log-window.c:3047
 msgid "Incoming calls"
 msgstr "Долазни позиви"
 
-#: ../libempathy-gtk/empathy-log-window.c:3050
+#: ../libempathy-gtk/empathy-log-window.c:3048
 msgid "Outgoing calls"
 msgstr "Одлазећи позиви"
 
-#: ../libempathy-gtk/empathy-log-window.c:3051
+#: ../libempathy-gtk/empathy-log-window.c:3049
 msgid "Missed calls"
 msgstr "Пропуштени позиви"
 
-#: ../libempathy-gtk/empathy-log-window.c:3073
+#: ../libempathy-gtk/empathy-log-window.c:3071
 msgid "What"
 msgstr "Шта"
 
-#: ../libempathy-gtk/empathy-log-window.c:3782
+#: ../libempathy-gtk/empathy-log-window.c:3780
 msgid "Are you sure you want to delete all logs of previous conversations?"
 msgstr ""
 "Да ли сте сигурни да желите да обришете све дневнике претходних разговора?"
 
-#: ../libempathy-gtk/empathy-log-window.c:3786
+#: ../libempathy-gtk/empathy-log-window.c:3784
 msgid "Clear All"
 msgstr "Очисти све"
 
-#: ../libempathy-gtk/empathy-log-window.c:3793
+#: ../libempathy-gtk/empathy-log-window.c:3791
 msgid "Delete from:"
 msgstr "Обриши од:"
 
@@ -2459,7 +2455,6 @@ msgstr "Ћаскање"
 
 #: ../libempathy-gtk/empathy-log-window.ui.h:7
 #: ../src/empathy-call-window.ui.h:26
-#: ../src/empathy-streamed-media-window.ui.h:19
 msgid "Video"
 msgstr "Видео"
 
@@ -2516,7 +2511,7 @@ msgid "There was an error starting the conversation"
 msgstr "Дошло је до грешке приликом започињања разговора"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:290
-#: ../libempathy-gtk/empathy-new-call-dialog.c:202
+#: ../libempathy-gtk/empathy-new-call-dialog.c:200
 msgid "Enter a contact identifier or phone number:"
 msgstr "Унесите одредник контакта или телефонски број:"
 
@@ -2526,17 +2521,17 @@ msgid "New Conversation"
 msgstr "Нови разговор"
 
 #. add video button
-#: ../libempathy-gtk/empathy-new-call-dialog.c:225
+#: ../libempathy-gtk/empathy-new-call-dialog.c:223
 msgid "_Video Call"
 msgstr "_Видео позив"
 
 #. add audio button
-#: ../libempathy-gtk/empathy-new-call-dialog.c:235
+#: ../libempathy-gtk/empathy-new-call-dialog.c:233
 msgid "_Audio Call"
 msgstr "_Аудио позив"
 
 #. Tweak the dialog
-#: ../libempathy-gtk/empathy-new-call-dialog.c:245
+#: ../libempathy-gtk/empathy-new-call-dialog.c:243
 msgid "New Call"
 msgstr "Нови позив"
 
@@ -2592,7 +2587,7 @@ msgstr "Произвољне поруке…"
 #. To translator: %s is the name of the protocol, such as "Google Talk" or
 #. * "Yahoo!"
 #.
-#: ../libempathy-gtk/empathy-protocol-chooser.c:584
+#: ../libempathy-gtk/empathy-protocol-chooser.c:588
 #, c-format
 msgid "New %s account"
 msgstr "Нови %s налог"
@@ -2963,24 +2958,24 @@ msgstr "Нема порука о грешкама"
 msgid "Instant Message (Empathy)"
 msgstr "Брза порука (Писмоноша)"
 
-#: ../src/empathy.c:437
+#: ../src/empathy.c:435
 msgid "Don't connect on startup"
 msgstr "Не повезуј се по покретању"
 
-#: ../src/empathy.c:441
+#: ../src/empathy.c:439
 msgid "Don't display the contact list or any other dialogs on startup"
 msgstr ""
 "Не приказуј списак пријатеља нити било које друго прозорче по покретању"
 
-#: ../src/empathy.c:456
+#: ../src/empathy.c:454
 msgid "- Empathy IM Client"
 msgstr "— Интернет писмоноша за брзе поруке"
 
-#: ../src/empathy.c:643
+#: ../src/empathy.c:641
 msgid "Error contacting the Account Manager"
 msgstr "Грешка при комуникацији са Управником налога"
 
-#: ../src/empathy.c:645
+#: ../src/empathy.c:643
 #, c-format
 msgid ""
 "There was an error while trying to connect to the Telepathy Account Manager. "
@@ -3046,71 +3041,79 @@ msgstr ""
 
 #. The primary text of the dialog shown to the user when he is about to lose
 #. * unsaved changes
-#: ../src/empathy-accounts-dialog.c:71
+#: ../src/empathy-accounts-dialog.c:72
 #, c-format
 msgid "There are unsaved modifications to your %s account."
 msgstr "Постоје несачуване измене на вашем налогу %s."
 
 #. The primary text of the dialog shown to the user when he is about to lose
 #. * an unsaved new account
-#: ../src/empathy-accounts-dialog.c:75
+#: ../src/empathy-accounts-dialog.c:76
 msgid "Your new account has not been saved yet."
 msgstr "Ваш нови налог још није сачуван."
 
-#: ../src/empathy-accounts-dialog.c:347
-#: ../src/empathy-streamed-media-window.c:757
-#: ../src/empathy-call-window.c:1332
+#: ../src/empathy-accounts-dialog.c:370 ../src/empathy-call-window.c:1289
 msgid "Connecting…"
 msgstr "Повезујем се…"
 
-#: ../src/empathy-accounts-dialog.c:388
+#: ../src/empathy-accounts-dialog.c:411
 #, c-format
 msgid "Offline — %s"
 msgstr "Неповезан — %s"
 
-#: ../src/empathy-accounts-dialog.c:400
+#: ../src/empathy-accounts-dialog.c:423
 #, c-format
 msgid "Disconnected — %s"
 msgstr "Веза је прекинута — %s"
 
-#: ../src/empathy-accounts-dialog.c:411
+#: ../src/empathy-accounts-dialog.c:434
 msgid "Offline — No Network Connection"
 msgstr "Неповезан — Нема мрежне конекције"
 
-#: ../src/empathy-accounts-dialog.c:418
+#: ../src/empathy-accounts-dialog.c:441
 msgid "Unknown Status"
 msgstr "Непознато стање"
 
-#: ../src/empathy-accounts-dialog.c:430
+#: ../src/empathy-accounts-dialog.c:458
+msgid ""
+"This account has been disabled because it relies on an old, unsupported "
+"backend. Please install telepathy-haze and restart your session to migrate "
+"the account."
+msgstr ""
+"Овај налог је искључен зато што се заснива на старом, неподржаном позадинцу. "
+"Инсталирајте „telepathy-haze“ и поново покрените вашу сесију да преместите "
+"налог."
+
+#: ../src/empathy-accounts-dialog.c:468
 msgid "Offline — Account Disabled"
 msgstr "Неповезан — Налог је онемогућен"
 
-#: ../src/empathy-accounts-dialog.c:533
+#: ../src/empathy-accounts-dialog.c:572
 msgid "Edit Connection Parameters"
 msgstr "Уредите параметре повезивања"
 
-#: ../src/empathy-accounts-dialog.c:696
+#: ../src/empathy-accounts-dialog.c:735
 msgid "Failed to retrieve your personal information from the server."
 msgstr "Нисам успео да довучем ваше личне податке са сервера."
 
-#: ../src/empathy-accounts-dialog.c:702
+#: ../src/empathy-accounts-dialog.c:741
 msgid "Go online to edit your personal information."
 msgstr "Успоставите везу да уредите ваше личне податке."
 
-#: ../src/empathy-accounts-dialog.c:787
+#: ../src/empathy-accounts-dialog.c:826
 msgid "_Edit Connection Parameters..."
 msgstr "_Уреди параметре повезивања..."
 
-#: ../src/empathy-accounts-dialog.c:1283
+#: ../src/empathy-accounts-dialog.c:1322
 #, c-format
 msgid "Do you want to remove %s from your computer?"
 msgstr "Да ли сте сигурни да желите да уклоните „%s“ са вашег рачунара?"
 
-#: ../src/empathy-accounts-dialog.c:1287
+#: ../src/empathy-accounts-dialog.c:1326
 msgid "This will not remove your account on the server."
 msgstr "Ово неће уклонити ваш налог на серверу."
 
-#: ../src/empathy-accounts-dialog.c:1523
+#: ../src/empathy-accounts-dialog.c:1562
 msgid ""
 "You are about to select another account, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -3119,24 +3122,23 @@ msgstr ""
 "Да ли сигурно желите да наставите?"
 
 #. Menu items: to enabled/disable the account
-#: ../src/empathy-accounts-dialog.c:1699
+#: ../src/empathy-accounts-dialog.c:1738
 msgid "_Enable"
 msgstr "_Омогући"
 
-#: ../src/empathy-accounts-dialog.c:1700
+#: ../src/empathy-accounts-dialog.c:1739
 msgid "_Disable"
 msgstr "О_немогући"
 
-#: ../src/empathy-accounts-dialog.c:2083
+#: ../src/empathy-accounts-dialog.c:2122
 msgid "_Skip"
 msgstr "_Прескочи"
 
-#: ../src/empathy-accounts-dialog.c:2087
-#| msgid "Connected"
+#: ../src/empathy-accounts-dialog.c:2126
 msgid "_Connect"
 msgstr "_Повежи се"
 
-#: ../src/empathy-accounts-dialog.c:2264
+#: ../src/empathy-accounts-dialog.c:2303
 msgid ""
 "You are about to close the window, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -3165,7 +3167,6 @@ msgstr ""
 "које желите да користите."
 
 #: ../src/empathy-accounts-dialog.ui.h:6
-#| msgid "No protocol installed"
 msgid "No protocol backends installed"
 msgstr "Нису инсталирани позадинци протокола"
 
@@ -3177,181 +3178,7 @@ msgstr " — Интернет писмоноша клијент пријаве"
 msgid "Empathy authentication client"
 msgstr "Интернет писмоноша клијент пријаве"
 
-#: ../src/empathy-av.c:118 ../src/empathy-call.c:203
-msgid "- Empathy Audio/Video Client"
-msgstr "— Интернет писмоноша Аудио/Видео клијент"
-
-#: ../src/empathy-av.c:134 ../src/empathy-call.c:228
-msgid "Empathy Audio/Video Client"
-msgstr "Интернет писмоноша Аудио/Видео клијент"
-
-#: ../src/empathy-streamed-media-window.c:433
-msgid "Contrast"
-msgstr "Контраст"
-
-#: ../src/empathy-streamed-media-window.c:436
-msgid "Brightness"
-msgstr "Осветљеност"
-
-#: ../src/empathy-streamed-media-window.c:439
-msgid "Gamma"
-msgstr "Гама"
-
-#: ../src/empathy-streamed-media-window.c:545
-msgid "Volume"
-msgstr "Јачина звука"
-
-#: ../src/empathy-streamed-media-window.c:1097
-msgid "_Sidebar"
-msgstr "_Бочна површ"
-
-#: ../src/empathy-streamed-media-window.c:1117
-msgid "Audio input"
-msgstr "Звучни улаз"
-
-#: ../src/empathy-streamed-media-window.c:1121
-msgid "Video input"
-msgstr "Видео улаз"
-
-#: ../src/empathy-streamed-media-window.c:1129
-msgid "Dialpad"
-msgstr "Бројчаник"
-
-#: ../src/empathy-streamed-media-window.c:1140
-msgid "Details"
-msgstr "Детаљи"
-
-#. translators: Call is a noun and %s is the contact name. This string
-#. * is used in the window title
-#: ../src/empathy-streamed-media-window.c:1209
-#: ../src/empathy-call-window.c:1934
-#, c-format
-msgid "Call with %s"
-msgstr "Позив са корисником %s"
-
-#: ../src/empathy-streamed-media-window.c:1442
-#: ../src/empathy-call-window.c:2178
-msgid "The IP address as seen by the machine"
-msgstr "ИП адреса како је види овај рачунар"
-
-#: ../src/empathy-streamed-media-window.c:1444
-#: ../src/empathy-call-window.c:2180
-msgid "The IP address as seen by a server on the Internet"
-msgstr "ИП адреса како је види сервер на интернету"
-
-#: ../src/empathy-streamed-media-window.c:1446
-#: ../src/empathy-call-window.c:2182
-msgid "The IP address of the peer as seen by the other side"
-msgstr "ИП адреса вршњака како је види друга страна"
-
-#: ../src/empathy-streamed-media-window.c:1448
-#: ../src/empathy-call-window.c:2184
-msgid "The IP address of a relay server"
-msgstr "ИП адреса релејног сервера"
-
-#: ../src/empathy-streamed-media-window.c:1450
-#: ../src/empathy-call-window.c:2186
-msgid "The IP address of the multicast group"
-msgstr "ИП адреса групе за вишеструко емитовање"
-
-#: ../src/empathy-streamed-media-window.c:1838
-#: ../src/empathy-streamed-media-window.c:1841
-#: ../src/empathy-streamed-media-window.c:1844
-#: ../src/empathy-streamed-media-window.c:1847
-msgctxt "codec"
-msgid "Unknown"
-msgstr "Непознато"
-
-#. Translators: number of minutes:seconds the caller has been connected
-#: ../src/empathy-streamed-media-window.c:2139
-#, c-format
-msgid "Connected — %d:%02dm"
-msgstr "Повезан — %d:%02dм"
-
-#: ../src/empathy-streamed-media-window.c:2200
-#: ../src/empathy-call-window.c:3040
-msgid "Technical Details"
-msgstr "Технички детаљи"
-
-#: ../src/empathy-streamed-media-window.c:2238
-#: ../src/empathy-call-window.c:3079
-#, c-format
-msgid ""
-"%s's software does not understand any of the audio formats supported by your "
-"computer"
-msgstr "Програм %s не разуме ниједан звучни формат који подржава ваш рачунар"
-
-#: ../src/empathy-streamed-media-window.c:2243
-#: ../src/empathy-call-window.c:3084
-#, c-format
-msgid ""
-"%s's software does not understand any of the video formats supported by your "
-"computer"
-msgstr "Програм %s не разуме ниједан видео формат који подржава ваш рачунар"
-
-#: ../src/empathy-streamed-media-window.c:2249
-#: ../src/empathy-call-window.c:3090
-#, c-format
-msgid ""
-"Can't establish a connection to %s. One of you might be on a network that "
-"does not allow direct connections."
-msgstr ""
-"Не могу да успоставим везу са %s. Можда је неко од вас двоје на мрежи која "
-"не дозвољава директне везе."
-
-#: ../src/empathy-streamed-media-window.c:2255
-#: ../src/empathy-call-window.c:3096
-msgid "There was a failure on the network"
-msgstr "Дошло је до грешке у мрежи"
-
-#: ../src/empathy-streamed-media-window.c:2259
-#: ../src/empathy-call-window.c:3100
-msgid ""
-"The audio formats necessary for this call are not installed on your computer"
-msgstr ""
-"Звучни формати потребни за овај позив нису инсталирани на вашем рачунару"
-
-#: ../src/empathy-streamed-media-window.c:2262
-#: ../src/empathy-call-window.c:3103
-msgid ""
-"The video formats necessary for this call are not installed on your computer"
-msgstr ""
-"Видео формати потребни за овај позив нису инсталирани на вашем рачунару"
-
-#: ../src/empathy-streamed-media-window.c:2272
-#: ../src/empathy-call-window.c:3115
-#, c-format
-msgid ""
-"Something unexpected happened in a Telepathy component. Please <a href=\"%s"
-"\">report this bug</a> and attach logs gathered from the 'Debug' window in "
-"the Help menu."
-msgstr ""
-"Нешто неочекивано се десило у компоненти Телепатије. Пријавите <a href=\"%s"
-"\">ову грешку</a> и прикачите дневнике покупљене из прозора „Отклањање "
-"грешака“ у менију „Помоћ“."
-
-#: ../src/empathy-streamed-media-window.c:2280
-#: ../src/empathy-call-window.c:3124
-msgid "There was a failure in the call engine"
-msgstr "Дошло је до грешке у мотору за позиве"
-
-#: ../src/empathy-streamed-media-window.c:2283
-#: ../src/empathy-call-window.c:3127
-msgid "The end of the stream was reached"
-msgstr "Достигнут је крај тока"
-
-#: ../src/empathy-streamed-media-window.c:2323
-#: ../src/empathy-call-window.c:3167
-msgid "Can't establish audio stream"
-msgstr "Не могу да успоставим звучни ток"
-
-#: ../src/empathy-streamed-media-window.c:2333
-#: ../src/empathy-call-window.c:3177
-msgid "Can't establish video stream"
-msgstr "Не могу да успоставим видео ток"
-
 #: ../src/empathy-call-window.ui.h:1
-#: ../src/empathy-streamed-media-window.ui.h:1
 msgid "_Call"
 msgstr "_Позови"
 
@@ -3369,7 +3196,6 @@ msgstr "По_дешавања"
 
 #: ../src/empathy-call-window.ui.h:6
 #: ../src/empathy-roster-window-menubar.ui.h:17
-#: ../src/empathy-streamed-media-window.ui.h:8
 msgid "_View"
 msgstr "Пре_глед"
 
@@ -3405,12 +3231,10 @@ msgid "Disable camera"
 msgstr "Искључите камерицу"
 
 #: ../src/empathy-call-window.ui.h:14
-#: ../src/empathy-streamed-media-window.ui.h:2
 msgid "Hang up"
 msgstr "Прекини"
 
 #: ../src/empathy-call-window.ui.h:15
-#: ../src/empathy-streamed-media-window.ui.h:9
 msgid "Hang up current call"
 msgstr "Прекините тренутни позив"
 
@@ -3443,52 +3267,44 @@ msgid "Toggle video transmission"
 msgstr "Укључи/искључи пренос видеа"
 
 #: ../src/empathy-call-window.ui.h:24
-#: ../src/empathy-streamed-media-window.ui.h:11
 msgid "Send Audio"
 msgstr "Пошаљи звук"
 
 #: ../src/empathy-call-window.ui.h:25
-#: ../src/empathy-streamed-media-window.ui.h:12
 msgid "Toggle audio transmission"
 msgstr "Укључи/искључи пренос звука"
 
 #: ../src/empathy-call-window.ui.h:27
-#: ../src/empathy-streamed-media-window.ui.h:20
 msgid "Encoding Codec:"
 msgstr "Кодек за кодирање:"
 
-#: ../src/empathy-call-window.ui.h:28
-#: ../src/empathy-streamed-media-window.ui.h:21
-#: ../src/empathy-call-window.c:2587 ../src/empathy-call-window.c:2588
-#: ../src/empathy-call-window.c:2589 ../src/empathy-call-window.c:2590
+#: ../src/empathy-call-window.ui.h:28 ../src/empathy-call-window.c:2540
+#: ../src/empathy-call-window.c:2541 ../src/empathy-call-window.c:2542
+#: ../src/empathy-call-window.c:2543
 msgid "Unknown"
 msgstr "Непознато"
 
 #: ../src/empathy-call-window.ui.h:29
-#: ../src/empathy-streamed-media-window.ui.h:22
 msgid "Decoding Codec:"
 msgstr "Кодек за декодирање:"
 
 #: ../src/empathy-call-window.ui.h:30
-#: ../src/empathy-streamed-media-window.ui.h:23
 msgid "Remote Candidate:"
 msgstr "Удаљени кандидат:"
 
 #: ../src/empathy-call-window.ui.h:31
-#: ../src/empathy-streamed-media-window.ui.h:24
 msgid "Local Candidate:"
 msgstr "Локални кандидат:"
 
 #: ../src/empathy-call-window.ui.h:32 ../src/empathy-preferences.ui.h:24
-#: ../src/empathy-streamed-media-window.ui.h:25
 msgid "Audio"
 msgstr "Аудио"
 
-#: ../src/empathy-chat-window.c:285
+#: ../src/empathy-chat-window.c:289
 msgid "Close this window?"
 msgstr "Да затворим овај прозор?"
 
-#: ../src/empathy-chat-window.c:290
+#: ../src/empathy-chat-window.c:294
 #, c-format
 msgid ""
 "Closing this window will leave %s. You will not receive any further messages "
@@ -3497,7 +3313,7 @@ msgstr ""
 "Затварањем овог прозора биће напуштено %s. Нећете примати никакве будуће "
 "поруке све док се поново не придружите."
 
-#: ../src/empathy-chat-window.c:301
+#: ../src/empathy-chat-window.c:305
 #, c-format
 msgid ""
 "Closing this window will leave a chat room. You will not receive any further "
@@ -3518,12 +3334,12 @@ msgstr[3] ""
 "Затварањем овог прозора биће напуштена једна соба за ћаскање. Нећете примати "
 "никакве будуће поруке све док се поново не придружите."
 
-#: ../src/empathy-chat-window.c:310
+#: ../src/empathy-chat-window.c:314
 #, c-format
 msgid "Leave %s?"
 msgstr "Да напустим %s?"
 
-#: ../src/empathy-chat-window.c:311
+#: ../src/empathy-chat-window.c:315
 msgid ""
 "You will not receive any further messages from this chat room until you "
 "rejoin it."
@@ -3531,15 +3347,15 @@ msgstr ""
 "Нећете примати никакве будуће поруке из ове собе за ћаскање све док јој се "
 "поново не придружите."
 
-#: ../src/empathy-chat-window.c:330
+#: ../src/empathy-chat-window.c:334
 msgid "Close window"
 msgstr "Затвори прозор"
 
-#: ../src/empathy-chat-window.c:330
+#: ../src/empathy-chat-window.c:334
 msgid "Leave room"
 msgstr "Напусти собу"
 
-#: ../src/empathy-chat-window.c:636 ../src/empathy-chat-window.c:656
+#: ../src/empathy-chat-window.c:640 ../src/empathy-chat-window.c:660
 #, c-format
 msgid "%s (%d unread)"
 msgid_plural "%s (%d unread)"
@@ -3548,7 +3364,7 @@ msgstr[1] "%s (%d непрочитане)"
 msgstr[2] "%s (%d непрочитаних)"
 msgstr[3] "%s (једна непрочитана)"
 
-#: ../src/empathy-chat-window.c:648
+#: ../src/empathy-chat-window.c:652
 #, c-format
 msgid "%s (and %u other)"
 msgid_plural "%s (and %u others)"
@@ -3557,7 +3373,7 @@ msgstr[1] "%s (и %u друге)"
 msgstr[2] "%s (и %u других)"
 msgstr[3] "%s (и једна друга)"
 
-#: ../src/empathy-chat-window.c:664
+#: ../src/empathy-chat-window.c:668
 #, c-format
 msgid "%s (%d unread from others)"
 msgid_plural "%s (%d unread from others)"
@@ -3566,7 +3382,7 @@ msgstr[1] "%s (%d непрочитане од осталих)"
 msgstr[2] "%s (%d непрочитаних од осталих)"
 msgstr[3] "%s (једна непрочитана од осталих)"
 
-#: ../src/empathy-chat-window.c:673
+#: ../src/empathy-chat-window.c:677
 #, c-format
 msgid "%s (%d unread from all)"
 msgid_plural "%s (%d unread from all)"
@@ -3575,11 +3391,11 @@ msgstr[1] "%s (%d непрочитане од свих)"
 msgstr[2] "%s (%d непрочитаних од свих)"
 msgstr[3] "%s (једна непрочитана од свих)"
 
-#: ../src/empathy-chat-window.c:888
+#: ../src/empathy-chat-window.c:892
 msgid "SMS:"
 msgstr "СМС:"
 
-#: ../src/empathy-chat-window.c:898
+#: ../src/empathy-chat-window.c:902
 #, c-format
 msgid "Sending %d message"
 msgid_plural "Sending %d messages"
@@ -3588,7 +3404,7 @@ msgstr[1] "Шаљем %d поруке."
 msgstr[2] "Шаљем %d порука."
 msgstr[3] "Шаљем једну поруку"
 
-#: ../src/empathy-chat-window.c:920
+#: ../src/empathy-chat-window.c:924
 msgid "Typing a message."
 msgstr "Пише поруку."
 
@@ -3668,96 +3484,95 @@ msgstr "Аутоматско повезивање"
 msgid "Manage Favorite Rooms"
 msgstr "Уреди омиљене собе"
 
-#: ../src/empathy-event-manager.c:523
+#: ../src/empathy-event-manager.c:511
 msgid "Incoming video call"
 msgstr "Долазни видео позив"
 
-#: ../src/empathy-event-manager.c:523 ../src/empathy-call-window.c:1562
+#: ../src/empathy-event-manager.c:511 ../src/empathy-call-window.c:1519
 msgid "Incoming call"
 msgstr "Долазни позив"
 
-#: ../src/empathy-event-manager.c:527
+#: ../src/empathy-event-manager.c:515
 #, c-format
 msgid "%s is video calling you. Do you want to answer?"
 msgstr "%s вас зове видео позивом. Желите ли да се јавите?"
 
-#: ../src/empathy-event-manager.c:528
+#: ../src/empathy-event-manager.c:516
 #, c-format
 msgid "%s is calling you. Do you want to answer?"
 msgstr "%s вас зове. Желите ли да се јавите?"
 
-#: ../src/empathy-event-manager.c:531 ../src/empathy-event-manager.c:732
-#: ../src/empathy-event-manager.c:765 ../src/empathy-call-window.c:1568
+#: ../src/empathy-event-manager.c:519 ../src/empathy-event-manager.c:720
+#: ../src/empathy-call-window.c:1525
 #, c-format
 msgid "Incoming call from %s"
 msgstr "Долазни позив од %s"
 
-#: ../src/empathy-event-manager.c:556
+#: ../src/empathy-event-manager.c:544
 msgid "_Reject"
 msgstr "_Одбаци"
 
-#: ../src/empathy-event-manager.c:564 ../src/empathy-event-manager.c:572
+#: ../src/empathy-event-manager.c:552 ../src/empathy-event-manager.c:560
 msgid "_Answer"
 msgstr "_Јави се"
 
-#: ../src/empathy-event-manager.c:572
+#: ../src/empathy-event-manager.c:560
 msgid "_Answer with video"
 msgstr "Одговори са _видеом"
 
-#: ../src/empathy-event-manager.c:732 ../src/empathy-event-manager.c:765
-#: ../src/empathy-call-window.c:1568
+#: ../src/empathy-event-manager.c:720 ../src/empathy-call-window.c:1525
 #, c-format
 msgid "Incoming video call from %s"
 msgstr "Долазни видео позив од %s"
 
-#: ../src/empathy-event-manager.c:838
+#: ../src/empathy-event-manager.c:778
 msgid "Room invitation"
 msgstr "Позивнице за собу"
 
-#: ../src/empathy-event-manager.c:840
+#: ../src/empathy-event-manager.c:780
 #, c-format
 msgid "Invitation to join %s"
 msgstr "Позивница да се придружите у %s"
 
-#: ../src/empathy-event-manager.c:847
+#: ../src/empathy-event-manager.c:787
 #, c-format
 msgid "%s is inviting you to join %s"
 msgstr "%s вас позива да се придружите %s"
 
-#: ../src/empathy-event-manager.c:855
+#: ../src/empathy-event-manager.c:795
 msgid "_Decline"
 msgstr "_Одбиј"
 
-#: ../src/empathy-event-manager.c:860
+#: ../src/empathy-event-manager.c:800
 #: ../src/empathy-new-chatroom-dialog.ui.h:2
 msgid "_Join"
 msgstr "_Прикључи се"
 
-#: ../src/empathy-event-manager.c:887
+#: ../src/empathy-event-manager.c:827
 #, c-format
 msgid "%s invited you to join %s"
 msgstr "%s вас позива да се придружите %s"
 
-#: ../src/empathy-event-manager.c:893
+#: ../src/empathy-event-manager.c:833
 #, c-format
 msgid "You have been invited to join %s"
 msgstr "Позвани сте да се придружите у %s"
 
-#: ../src/empathy-event-manager.c:944
+#: ../src/empathy-event-manager.c:884
 #, c-format
 msgid "Incoming file transfer from %s"
 msgstr "Долазни пренос датотеке од %s"
 
-#: ../src/empathy-event-manager.c:1147 ../src/empathy-roster-window.c:374
+#: ../src/empathy-event-manager.c:1064 ../src/empathy-roster-window.c:374
 msgid "Password required"
 msgstr "Захтевана је лозинка"
 
-#: ../src/empathy-event-manager.c:1217
+#: ../src/empathy-event-manager.c:1134
 #, c-format
 msgid "%s would like permission to see when you are online"
 msgstr "%s тражи одобрење да види када сте на вези"
 
-#: ../src/empathy-event-manager.c:1223
+#: ../src/empathy-event-manager.c:1140
 #, c-format
 msgid ""
 "\n"
@@ -3878,7 +3693,6 @@ msgid "Remove completed, canceled and failed file transfers from the list"
 msgstr "Уклони завршене, отказане и неуспешне преносе датотека са списка"
 
 #: ../src/empathy-import-dialog.c:76
-#| msgid "Import"
 msgid "_Import"
 msgstr "_Увези"
 
@@ -4392,115 +4206,89 @@ msgstr "Стање"
 msgid "_Quit"
 msgstr "_Изађи"
 
-#: ../src/empathy-streamed-media-window.ui.h:3
-msgid "Redial"
-msgstr "Поново зови"
-
-#: ../src/empathy-streamed-media-window.ui.h:4
-msgid "V_ideo"
-msgstr "В_идео"
-
-#: ../src/empathy-streamed-media-window.ui.h:5
-msgid "Video Off"
-msgstr "Искљ. видео"
-
-#: ../src/empathy-streamed-media-window.ui.h:6
-msgid "Video Preview"
-msgstr "Преглед видеа"
-
-#: ../src/empathy-streamed-media-window.ui.h:7
-msgid "Video On"
-msgstr "Укљ. видео"
-
-#: ../src/empathy-streamed-media-window.ui.h:10
-msgid "Call the contact again"
-msgstr "Позови пријатеља поново"
-
-#: ../src/empathy-streamed-media-window.ui.h:13
-msgid "Camera Off"
-msgstr "Искљ. камеру"
-
-#: ../src/empathy-streamed-media-window.ui.h:14
-msgid "Disable camera and stop sending video"
-msgstr "Онемогући камеру и престани да шаљеш видео"
-
-#: ../src/empathy-streamed-media-window.ui.h:15
-msgid "Preview"
-msgstr "Преглед"
-
-#: ../src/empathy-streamed-media-window.ui.h:16
-msgid "Enable camera but don't send video"
-msgstr "Омогући камеру, али не шаљи видео"
-
-#: ../src/empathy-streamed-media-window.ui.h:17
-msgid "Camera On"
-msgstr "Укљ. камеру"
-
-#: ../src/empathy-streamed-media-window.ui.h:18
-msgid "Enable camera and send video"
-msgstr "Омогући камеру и шаљи видео"
-
 #: ../src/empathy-map-view.c:471
 msgid "Contact Map View"
 msgstr "Мапа пријатеља"
 
-#: ../src/empathy-debug-window.c:1228
+#: ../src/empathy-debug-window.c:1598
 msgid "Save"
 msgstr "Сачувај"
 
-#: ../src/empathy-debug-window.c:1435
+#: ../src/empathy-debug-window.c:1658
+msgid "Pastebin link"
+msgstr "Веза канте одлагања"
+
+#: ../src/empathy-debug-window.c:1667
+msgid "Pastebin response"
+msgstr "Одговор канте одлагања"
+
+#: ../src/empathy-debug-window.c:1671
+#, c-format
+#| msgid "%s:"
+msgid "%s"
+msgstr "%s"
+
+#: ../src/empathy-debug-window.c:1674
+msgid "Data too large for a single paste. Please save logs to file."
+msgstr "Подаци су превелики за једно одлагање. Сачувајте записнике у датотеку."
+
+#: ../src/empathy-debug-window.c:1903
 msgid "Debug Window"
 msgstr "Прозор за отклањање грешака"
 
-#: ../src/empathy-debug-window.c:1517
+#: ../src/empathy-debug-window.c:1961
+msgid "Send to pastebin"
+msgstr "Пошаљи у канту одлагања"
+
+#: ../src/empathy-debug-window.c:2000
 msgid "Pause"
 msgstr "Пауза"
 
-#: ../src/empathy-debug-window.c:1529
+#: ../src/empathy-debug-window.c:2012
 msgid "Level "
-msgstr "Ниво: "
+msgstr "Ниво "
 
-#: ../src/empathy-debug-window.c:1549
+#: ../src/empathy-debug-window.c:2031
 msgid "Debug"
 msgstr "Отклањање грешака"
 
-#: ../src/empathy-debug-window.c:1555
+#: ../src/empathy-debug-window.c:2036
 msgid "Info"
 msgstr "Информације"
 
-#: ../src/empathy-debug-window.c:1561 ../src/empathy-debug-window.c:1610
+#: ../src/empathy-debug-window.c:2041 ../src/empathy-debug-window.c:2087
 msgid "Message"
 msgstr "Порука"
 
-#: ../src/empathy-debug-window.c:1567
+#: ../src/empathy-debug-window.c:2046
 msgid "Warning"
 msgstr "Упозорење"
 
-#: ../src/empathy-debug-window.c:1573
+#: ../src/empathy-debug-window.c:2051
 msgid "Critical"
 msgstr "Критичан"
 
-#: ../src/empathy-debug-window.c:1579
+#: ../src/empathy-debug-window.c:2056
 msgid "Error"
 msgstr "Грешка"
 
-#: ../src/empathy-debug-window.c:1598
+#: ../src/empathy-debug-window.c:2075
 msgid "Time"
 msgstr "Време"
 
-#: ../src/empathy-debug-window.c:1601
+#: ../src/empathy-debug-window.c:2078
 msgid "Domain"
 msgstr "Домен"
 
-#: ../src/empathy-debug-window.c:1603
+#: ../src/empathy-debug-window.c:2080
 msgid "Category"
 msgstr "Категорија"
 
-#: ../src/empathy-debug-window.c:1605
+#: ../src/empathy-debug-window.c:2082
 msgid "Level"
 msgstr "Ниво"
 
-#: ../src/empathy-debug-window.c:1642
+#: ../src/empathy-debug-window.c:2105
 msgid ""
 "The selected connection manager does not support the remote debugging "
 "extension."
@@ -4564,83 +4352,188 @@ msgstr "Отклањање грешака Писмоноше"
 msgid "- Empathy Chat Client"
 msgstr "— Писмоноша програм за ћаскање"
 
-#: ../src/empathy-notifications-approver.c:190
+#: ../src/empathy-notifications-approver.c:187
 msgid "Respond"
 msgstr "Одговори"
 
-#: ../src/empathy-notifications-approver.c:204
-#: ../src/empathy-call-window.c:1572
+#: ../src/empathy-notifications-approver.c:196
+#: ../src/empathy-call-window.c:1529
 msgid "Reject"
 msgstr "Одбаци"
 
-#: ../src/empathy-notifications-approver.c:209
-#: ../src/empathy-notifications-approver.c:214
-#: ../src/empathy-call-window.c:1573
+#: ../src/empathy-notifications-approver.c:201
+#: ../src/empathy-notifications-approver.c:206
+#: ../src/empathy-call-window.c:1530
 msgid "Answer"
 msgstr "Јави се"
 
-#: ../src/empathy-notifications-approver.c:214
+#: ../src/empathy-notifications-approver.c:206
 msgid "Answer with video"
 msgstr "Одговори са видеом"
 
-#: ../src/empathy-notifications-approver.c:222
-#: ../src/empathy-notifications-approver.c:232
+#: ../src/empathy-notifications-approver.c:214
+#: ../src/empathy-notifications-approver.c:224
 msgid "Decline"
 msgstr "Одбиј"
 
-#: ../src/empathy-notifications-approver.c:226
-#: ../src/empathy-notifications-approver.c:237
+#: ../src/empathy-notifications-approver.c:218
+#: ../src/empathy-notifications-approver.c:229
 msgid "Accept"
 msgstr "Прихвати"
 
 #. translators: the 'Provide' button is displayed in a notification
 #. * bubble when Empathy is asking for an account password; clicking on it
 #. * brings the password popup.
-#: ../src/empathy-notifications-approver.c:247
+#: ../src/empathy-notifications-approver.c:239
 msgid "Provide"
 msgstr "Обезбеди"
 
-#: ../src/empathy-call-observer.c:134
+#: ../src/empathy-call-observer.c:132
 #, c-format
 msgid "%s just tried to call you, but you were in another call."
 msgstr "%s је покушао да вас зове, али сте ви били на другој вези."
 
 #. Translators: this is an "Info" label. It should be as short
 #. * as possible.
-#: ../src/empathy-call-window.c:1179 ../src/empathy-call-window.c:1202
+#: ../src/empathy-call-window.c:1136 ../src/empathy-call-window.c:1159
 msgid "i"
 msgstr "и"
 
-#: ../src/empathy-call-window.c:2936
+#. translators: Call is a noun and %s is the contact name. This string
+#. * is used in the window title
+#: ../src/empathy-call-window.c:1889
+#, c-format
+msgid "Call with %s"
+msgstr "Позив са корисником %s"
+
+#: ../src/empathy-call-window.c:2133
+msgid "The IP address as seen by the machine"
+msgstr "ИП адреса како је види овај рачунар"
+
+#: ../src/empathy-call-window.c:2135
+msgid "The IP address as seen by a server on the Internet"
+msgstr "ИП адреса како је види сервер на интернету"
+
+#: ../src/empathy-call-window.c:2137
+msgid "The IP address of the peer as seen by the other side"
+msgstr "ИП адреса вршњака како је види друга страна"
+
+#: ../src/empathy-call-window.c:2139
+msgid "The IP address of a relay server"
+msgstr "ИП адреса релејног сервера"
+
+#: ../src/empathy-call-window.c:2141
+msgid "The IP address of the multicast group"
+msgstr "ИП адреса групе за вишеструко емитовање"
+
+#: ../src/empathy-call-window.c:2886
 msgid "On hold"
 msgstr "На чекању"
 
-#: ../src/empathy-call-window.c:2939
+#: ../src/empathy-call-window.c:2889
 msgid "Mute"
 msgstr "Утишај"
 
-#: ../src/empathy-call-window.c:2941
+#: ../src/empathy-call-window.c:2891
 msgid "Duration"
 msgstr "Трајање"
 
 #. Translators: 'status - minutes:seconds' the caller has been connected
-#: ../src/empathy-call-window.c:2944
+#: ../src/empathy-call-window.c:2894
 #, c-format
 msgid "%s — %d:%02dm"
 msgstr "%s — %d:%02dm"
 
-#: ../src/empathy-call-window.c:3214
+#: ../src/empathy-call-window.c:2990
+msgid "Technical Details"
+msgstr "Технички детаљи"
+
+#: ../src/empathy-call-window.c:3029
+#, c-format
+msgid ""
+"%s's software does not understand any of the audio formats supported by your "
+"computer"
+msgstr "Програм %s не разуме ниједан звучни формат који подржава ваш рачунар"
+
+#: ../src/empathy-call-window.c:3034
+#, c-format
+msgid ""
+"%s's software does not understand any of the video formats supported by your "
+"computer"
+msgstr "Програм %s не разуме ниједан видео формат који подржава ваш рачунар"
+
+#: ../src/empathy-call-window.c:3040
+#, c-format
+msgid ""
+"Can't establish a connection to %s. One of you might be on a network that "
+"does not allow direct connections."
+msgstr ""
+"Не могу да успоставим везу са %s. Можда је неко од вас двоје на мрежи која "
+"не дозвољава директне везе."
+
+#: ../src/empathy-call-window.c:3046
+msgid "There was a failure on the network"
+msgstr "Дошло је до грешке у мрежи"
+
+#: ../src/empathy-call-window.c:3050
+msgid ""
+"The audio formats necessary for this call are not installed on your computer"
+msgstr ""
+"Звучни формати потребни за овај позив нису инсталирани на вашем рачунару"
+
+#: ../src/empathy-call-window.c:3053
+msgid ""
+"The video formats necessary for this call are not installed on your computer"
+msgstr ""
+"Видео формати потребни за овај позив нису инсталирани на вашем рачунару"
+
+#: ../src/empathy-call-window.c:3065
+#, c-format
+msgid ""
+"Something unexpected happened in a Telepathy component. Please <a href=\"%s"
+"\">report this bug</a> and attach logs gathered from the 'Debug' window in "
+"the Help menu."
+msgstr ""
+"Нешто неочекивано се десило у компоненти Телепатије. Пријавите <a href=\"%s"
+"\">ову грешку</a> и прикачите дневнике покупљене из прозора „Отклањање "
+"грешака“ у менију „Помоћ“."
+
+#: ../src/empathy-call-window.c:3074
+msgid "There was a failure in the call engine"
+msgstr "Дошло је до грешке у мотору за позиве"
+
+#: ../src/empathy-call-window.c:3077
+msgid "The end of the stream was reached"
+msgstr "Достигнут је крај тока"
+
+#: ../src/empathy-call-window.c:3117
+msgid "Can't establish audio stream"
+msgstr "Не могу да успоставим звучни ток"
+
+#: ../src/empathy-call-window.c:3127
+msgid "Can't establish video stream"
+msgstr "Не могу да успоставим видео ток"
+
+#: ../src/empathy-call-window.c:3164
 #, c-format
 msgid "Your current balance is %s."
 msgstr "Ваше тренутно стање је %s."
 
-#: ../src/empathy-call-window.c:3218
+#: ../src/empathy-call-window.c:3168
 msgid "Sorry, you don’t have enough credit for that call."
 msgstr "Извините, али немате довољно кредита за овај позив."
 
-#: ../src/empathy-call-window.c:3220
+#: ../src/empathy-call-window.c:3170
 msgid "Top Up"
 msgstr "Допуни"
+
+#: ../src/empathy-call.c:201
+msgid "- Empathy Audio/Video Client"
+msgstr "— Интернет писмоноша Аудио/Видео клијент"
+
+#: ../src/empathy-call.c:224
+msgid "Empathy Audio/Video Client"
+msgstr "Интернет писмоноша Аудио/Видео клијент"
 
 #: ../libempathy-gtk/empathy-search-bar.c:243
 msgid "_Match case"
@@ -4659,11 +4552,6 @@ msgid "People nearby"
 msgstr "Људи у околини"
 
 #: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:150
-#| msgid ""
-#| "Empathy can automatically discover and chat with the people connected on "
-#| "the same network as you. If you want to use this feature, please check "
-#| "that the details below are correct. You can easily change these details "
-#| "later or disable this feature by using the 'Accounts' dialog"
 msgid ""
 "Empathy can automatically discover and chat with the people connected on the "
 "same network as you. If you want to use this feature, please check that the "
@@ -4681,6 +4569,76 @@ msgstr ""
 "Можете касније да измените те детаље или да искључите ову могућност тако што "
 "ћете изабрати <span style=\"italic\">Уреди → Налози</span> са списка "
 "контаката."
+
+#~ msgid "Contrast"
+#~ msgstr "Контраст"
+
+#~ msgid "Brightness"
+#~ msgstr "Осветљеност"
+
+#~ msgid "Gamma"
+#~ msgstr "Гама"
+
+#~ msgid "Volume"
+#~ msgstr "Јачина звука"
+
+#~ msgid "_Sidebar"
+#~ msgstr "_Бочна површ"
+
+#~ msgid "Audio input"
+#~ msgstr "Звучни улаз"
+
+#~ msgid "Video input"
+#~ msgstr "Видео улаз"
+
+#~ msgid "Dialpad"
+#~ msgstr "Бројчаник"
+
+#~ msgid "Details"
+#~ msgstr "Детаљи"
+
+#~ msgctxt "codec"
+#~ msgid "Unknown"
+#~ msgstr "Непознато"
+
+#~ msgid "Connected — %d:%02dm"
+#~ msgstr "Повезан — %d:%02dм"
+
+#~ msgid "Redial"
+#~ msgstr "Поново зови"
+
+#~ msgid "V_ideo"
+#~ msgstr "В_идео"
+
+#~ msgid "Video Off"
+#~ msgstr "Искљ. видео"
+
+#~ msgid "Video Preview"
+#~ msgstr "Преглед видеа"
+
+#~ msgid "Video On"
+#~ msgstr "Укљ. видео"
+
+#~ msgid "Call the contact again"
+#~ msgstr "Позови пријатеља поново"
+
+#~ msgid "Camera Off"
+#~ msgstr "Искљ. камеру"
+
+#~ msgid "Disable camera and stop sending video"
+#~ msgstr "Онемогући камеру и престани да шаљеш видео"
+
+#~ msgid "Preview"
+#~ msgstr "Преглед"
+
+#~ msgid "Enable camera but don't send video"
+#~ msgstr "Омогући камеру, али не шаљи видео"
+
+#~ msgid "Camera On"
+#~ msgstr "Укљ. камеру"
+
+#~ msgid "Enable camera and send video"
+#~ msgstr "Омогући камеру и шаљи видео"
 
 #~ msgid "There was an error while importing the accounts."
 #~ msgstr "Грешка при увожењу налога."
