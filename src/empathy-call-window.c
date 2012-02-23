@@ -2219,8 +2219,9 @@ empathy_call_window_constructed (GObject *object)
   priv->outgoing = (state == TP_CALL_STATE_PENDING_INITIATOR);
   tp_clear_object (&call);
 
-  g_object_get (priv->handler, "target-contact", &priv->contact, NULL);
+  priv->contact = empathy_call_handler_get_contact (priv->handler);
   g_assert (priv->contact != NULL);
+  g_object_ref (priv->contact);
 
   if (!empathy_contact_can_voip_video (priv->contact))
     {
