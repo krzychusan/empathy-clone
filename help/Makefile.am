@@ -1,3 +1,4 @@
+@YELP_HELP_RULES@
 
 HELP_ID = empathy
 HELP_MEDIA = \
