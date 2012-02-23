@@ -1051,3 +1051,9 @@ empathy_call_handler_get_video_local_candidate (
 
   return priv->video_local_candidate;
 }
+
+EmpathyContact *
+empathy_call_handler_get_contact (EmpathyCallHandler *self)
+{
+  return self->priv->contact;
+}

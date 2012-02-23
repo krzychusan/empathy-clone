@@ -104,6 +104,8 @@ FsCandidate * empathy_call_handler_get_video_remote_candidate (
 FsCandidate * empathy_call_handler_get_video_local_candidate (
     EmpathyCallHandler *self);
 
+EmpathyContact * empathy_call_handler_get_contact (EmpathyCallHandler *self);
+
 G_END_DECLS
 
 #endif /* #ifndef __EMPATHY_CALL_HANDLER_H__*/
