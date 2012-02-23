@@ -2370,10 +2370,7 @@ empathy_call_window_dispose (GObject *object)
     g_source_remove (priv->timer_id);
   priv->timer_id = 0;
 
-  if (priv->contact != NULL)
-    {
-      priv->contact = NULL;
-    }
+  tp_clear_object (&priv->contact);
 
   G_OBJECT_CLASS (empathy_call_window_parent_class)->dispose (object);
 }
