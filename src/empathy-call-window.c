@@ -2364,6 +2364,7 @@ empathy_call_window_dispose (GObject *object)
   tp_clear_object (&priv->sound_mgr);
   tp_clear_object (&priv->mic_menu);
   tp_clear_object (&priv->camera_menu);
+  tp_clear_object (&priv->transitions);
 
   g_list_free_full (priv->notifiers, g_object_unref);
 
