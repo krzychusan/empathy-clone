@@ -38,8 +38,8 @@
 #include <telepathy-farstream/telepathy-farstream.h>
 #include <telepathy-glib/util.h>
 
-#include <gst/farsight/fs-element-added-notifier.h>
-#include <gst/farsight/fs-utils.h>
+#include <farstream/fs-element-added-notifier.h>
+#include <farstream/fs-utils.h>
 
 #include <libempathy/empathy-camera-monitor.h>
 #include <libempathy/empathy-gsettings.h>

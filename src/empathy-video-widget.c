@@ -25,7 +25,7 @@
 
 #include <gdk/gdkx.h>
 #include <gst/interfaces/xoverlay.h>
-#include <gst/farsight/fs-element-added-notifier.h>
+#include <farstream/fs-element-added-notifier.h>
 
 #include "empathy-video-widget.h"
 
