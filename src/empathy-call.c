@@ -119,7 +119,7 @@ new_call_handler_cb (EmpathyCallFactory *factory,
 
   DEBUG ("Show the call window");
 
-  g_object_get (handler, "target-contact", &contact, NULL);
+  contact = empathy_call_handler_get_contact (handler);
 
   window = g_hash_table_lookup (call_windows, contact);
 
