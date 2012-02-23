@@ -2372,8 +2372,6 @@ empathy_call_window_dispose (GObject *object)
 
   if (priv->contact != NULL)
     {
-      g_signal_handlers_disconnect_by_func (priv->contact,
-          contact_name_changed_cb, self);
       priv->contact = NULL;
     }
 
