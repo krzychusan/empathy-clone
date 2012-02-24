@@ -301,7 +301,7 @@ empathy_audio_sink_request_new_pad (GstElement *element,
   EmpathyGstAudioSink *self = EMPATHY_GST_AUDIO_SINK (element);
   GstElement *bin, *resample, *audioconvert0, *audioconvert1;
   GstPad *pad = NULL;
-  GstPad *subpad, *filterpad;
+  GstPad *subpad = NULL, *filterpad;
 
   bin = gst_bin_new (NULL);
 
@@ -355,6 +355,8 @@ empathy_audio_sink_request_new_pad (GstElement *element,
     goto error;
 
   subpad = gst_ghost_pad_new ("sink", filterpad);
+  gst_object_unref (filterpad);
+
   if (!gst_element_add_pad (GST_ELEMENT (bin), subpad))
     goto error;
 
@@ -362,6 +364,7 @@ empathy_audio_sink_request_new_pad (GstElement *element,
 
   pad = gst_ghost_pad_new (name, subpad);
   g_assert (pad != NULL);
+  gst_object_unref (subpad);
 
   if (!gst_element_sync_state_with_parent (bin))
     goto error;
@@ -379,6 +382,8 @@ error:
     {
       gst_object_unref (pad);
     }
+
+  tp_clear_pointer (&subpad, gst_object_unref);
 
   gst_object_unref (bin);
   g_warning ("Failed to create output subpipeline");
