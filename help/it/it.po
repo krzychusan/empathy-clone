@@ -3022,7 +3022,7 @@ msgstr ""
 "Dalla finestra <gui>Elenco contatti</gui>, fare clic sull'icona <media type="
 "\"image\" mime=\"image/png\" src=\"figures/camera-web.png\">della chiamata "
 "video</media> a fianco del nome del contatto da chiamare e scegliere <gui "
-"style=\"menuitem>Chiamata video</gui>."
+"style=\"menuitem\">Chiamata video</gui>."
 
 #: C/audio-call.page:55(p)
 #| msgid ""
