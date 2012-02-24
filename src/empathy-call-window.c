@@ -3473,9 +3473,11 @@ empathy_call_window_content_added_cb (EmpathyCallHandler *handler,
         if (GST_PAD_LINK_FAILED (gst_pad_link (pad, sink)))
           {
             gst_bin_remove (GST_BIN (priv->pipeline), priv->audio_input);
+            gst_object_unref (pad);
             g_warning ("Could not link audio source to farsight");
             break;
           }
+        gst_object_unref (pad);
 
         if (gst_element_set_state (priv->audio_input, GST_STATE_PLAYING) == GST_STATE_CHANGE_FAILURE)
           {
