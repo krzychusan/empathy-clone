@@ -1,3 +1,24 @@
+NEW in 3.3.90.1 (24/02/2012)
+===============
+
+A small release fixing the installation of the user documentation and a
+build problem.
+We also fixed a bunch of memory leaks in the new call window.
+
+Bugs fixed:
+ - Fixed #670638, 3.3.90 still includes farsight headers (Gert Kulyk)
+
+Translations:
+ - Updated bg Translation (Alexander Shopov)
+ - Updated es Translation (Daniel Mustieles)
+ - Updated gl Translation (Fran Diéguez)
+ - Updated pa Translation (A S Alam)
+ - Updated sr@latin Translation (Мирослав Николић)
+ - Updated sr Translation (Мирослав Николић)
+
+Documentation translations:
+ - Updated it Documentation translation (Guillaume Desmottes)
+
 NEW in 3.3.90 (21/02/2012)
 =============
 
