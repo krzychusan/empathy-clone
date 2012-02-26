@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: empathy.master.ta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-23 14:26+0530\n"
+"POT-Creation-Date: 2012-02-25 21:11+0530\n"
 "PO-Revision-Date: 2012-02-25 11:35+0530\n"
 "Last-Translator: Dr.T.Vasudevan <agnihot3@gmail.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -20,8 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.1\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\\n"
-"\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\\n\n"
 "\n"
 "\n"
 "\n"
@@ -81,7 +80,8 @@ msgid "Chat window theme variant"
 msgstr "அரட்டை சாளர மாற்று கருத்து"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:7
-msgid "Comma-separated list of spell checker languages to use (e.g. \"en, fr, nl\")."
+msgid ""
+"Comma-separated list of spell checker languages to use (e.g. \"en, fr, nl\")."
 msgstr ""
 "சொல் திருத்தி மொழிகளை பயன்படுத்த காற் புள்ளியால் பிரித்த பட்டியல் (எ-டு.  \"en, fr, nl "
 "\")"
@@ -168,7 +168,8 @@ msgstr "துவங்கும் போது எம்பதி இடதத
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:27
 msgid "Empathy should use the avatar of the contact as the chat window icon"
-msgstr "துவங்கும் போது எம்பதி அரட்டை சாரளத்தில்  சின்னமாக தொடர்பின் அவதாரத்தை காட்ட  வேண்டும்."
+msgstr ""
+"துவங்கும் போது எம்பதி அரட்டை சாரளத்தில்  சின்னமாக தொடர்பின் அவதாரத்தை காட்ட  வேண்டும்."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:28
 msgid "Enable WebKit Developer Tools"
@@ -311,7 +312,8 @@ msgid "The theme that is used to display the conversation in chat windows."
 msgstr "அரட்டை சாளரங்களில் உரையாடல்களை காட்ட பயன்படும் கருத்து"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:63
-msgid "The theme variant that is used to display the conversation in chat windows."
+msgid ""
+"The theme variant that is used to display the conversation in chat windows."
 msgstr "அரட்டை சாளரங்களில் உரையாடல்களை காட்ட பயன்படும் மாற்று கருத்து"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:64
@@ -347,22 +349,26 @@ msgid "Whether Empathy should automatically log into your accounts on startup."
 msgstr "எம்பதி துவங்கும்போது கணக்குகளில் தானியங்கியாக உள்நுழைய வேண்டுமா இல்லையா."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:72
-msgid "Whether Empathy should go into away mode automatically if the user is idle."
+msgid ""
+"Whether Empathy should go into away mode automatically if the user is idle."
 msgstr ""
 "பயனர் சும்மா  இருக்கும்போது  தானியங்கியாக எம்பதி வெளியே பாங்கிற்கு செல்ல  வேண்டுமா "
 "இல்லையா."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:73
-msgid "Whether Empathy should reduce the location's accuracy for privacy reasons."
+msgid ""
+"Whether Empathy should reduce the location's accuracy for privacy reasons."
 msgstr ""
 "அந்தரங்கத்தை காப்பாற்ற துவங்கும் போது எம்பதி இடத்தின் குறிப்பை குறைக்க வேண்டுமா இல்லையா"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:74
-msgid "Whether Empathy should use the avatar of the contact as the chat window icon."
+msgid ""
+"Whether Empathy should use the avatar of the contact as the chat window icon."
 msgstr "எம்பதி தொடர்பின் அவதாரத்தை அரட்டை அறை சின்னமாக பயன்படுத்த வேண்டுமா இல்லையா."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:75
-msgid "Whether WebKit developer tools, such as the Web Inspector, should be enabled."
+msgid ""
+"Whether WebKit developer tools, such as the Web Inspector, should be enabled."
 msgstr "வெப் ஆய்வாளர் போன்ற வெப்கிட் உருவாக்குவோர் கருவிகளை செயல்படுத்த வேண்டுமா?"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:76
@@ -372,7 +378,8 @@ msgid ""
 msgstr "இணைப்பு மேலாளர்கள் தானியங்கியாக இணைக்க/ மீண்டும் இணைக்க பயன்படுத்த வேண்டுமா இல்லையா"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:77
-msgid "Whether to check words typed against the languages you want to check with."
+msgid ""
+"Whether to check words typed against the languages you want to check with."
 msgstr "நீங்கள் விரும்பிய மொழிகளில் உள்ளிட்ட சொற்களை சோதிக்க வேண்டுமா இல்லையா?"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:78
@@ -388,7 +395,8 @@ msgid "Whether to play a sound to notify of contacts logging into the network."
 msgstr "வலைப்பின்னலில் தொடர்புகள் உள்நுழையும் போது ஒலியை எழுப்ப வேண்டுமா இல்லையா?"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:81
-msgid "Whether to play a sound to notify of contacts logging out of the network."
+msgid ""
+"Whether to play a sound to notify of contacts logging out of the network."
 msgstr "வலைப்பின்னலில் தொடர்புகள் வெளிச்செல்லும் போது ஒலியை எழுப்ப வேண்டுமா இல்லையா?"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:82
@@ -424,8 +432,8 @@ msgid ""
 "Whether to send the 'composing' or 'paused' chat states. Does not currently "
 "affect the 'gone' state."
 msgstr ""
-"'உருவாக்கம் ' அல்லது 'இடைநிறுத்தம்' அரட்டை நிலைகளை அனுப்பவா. இது நடப்பு 'போயாயிற்று' நிலையை "
-"பாதிக்காது."
+"'உருவாக்கம் ' அல்லது 'இடைநிறுத்தம்' அரட்டை நிலைகளை அனுப்பவா. இது நடப்பு 'போயாயிற்று' "
+"நிலையை பாதிக்காது."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:90
 msgid "Whether to show a popup notification when a contact goes offline."
@@ -452,7 +460,8 @@ msgid "Whether to show account balances in the contact list."
 msgstr " தொடர்பு பட்டியலில் கணக்கு மீதியை  காட்ட வேண்டுமா இல்லையா?"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:95
-msgid "Whether to show avatars for contacts in the contact list and chat windows."
+msgid ""
+"Whether to show avatars for contacts in the contact list and chat windows."
 msgstr "அரட்டை பட்டியலிலும் தொடர்பு பட்டியலிலும் அவதாரங்களை காட்ட வேண்டுமா இல்லையா?"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:96
@@ -670,7 +679,8 @@ msgid "This account is already connected to the server"
 msgstr "இந்த கணக்கு ஏற்கனவே சேவையகத்துக்கு இணைக்கப்பட்டது"
 
 #: ../libempathy/empathy-utils.c:357
-msgid "Connection has been replaced by a new connection using the same resource"
+msgid ""
+"Connection has been replaced by a new connection using the same resource"
 msgstr "இணைப்பு அதே முலத்துடன் புதிய இணைப்பால் மாற்றப்பட்டது."
 
 #: ../libempathy/empathy-utils.c:360
@@ -686,7 +696,8 @@ msgid "Certificate has been revoked"
 msgstr "சான்றிதழ் ரத்து செய்யப்பட்டது"
 
 #: ../libempathy/empathy-utils.c:366
-msgid "Certificate uses an insecure cipher algorithm or is cryptographically weak"
+msgid ""
+"Certificate uses an insecure cipher algorithm or is cryptographically weak"
 msgstr ""
 "சான்றிதழ் பாதுகாப்பில்லாத சைபர் அல்கோரிதத்தை பயன்படுத்துகிறது. இது மறையாக்கத்தில் "
 "பலகீனமானது."
@@ -1573,7 +1584,7 @@ msgstr "%s இப்போது %s ஆனார்"
 #. * we get the new handler.
 #: ../libempathy-gtk/empathy-chat.c:2993 ../src/empathy-event-manager.c:1197
 #: ../src/empathy-call-window.c:1502 ../src/empathy-call-window.c:1552
-#: ../src/empathy-call-window.c:2588
+#: ../src/empathy-call-window.c:2585
 msgid "Disconnected"
 msgstr "துண்டிக்கபட்டது"
 
@@ -2658,7 +2669,8 @@ msgid "The certificate is self-signed."
 msgstr "சான்றிதழ் தானே கையெழுத்திட்டது"
 
 #: ../libempathy-gtk/empathy-tls-dialog.c:177
-msgid "The certificate has been revoked by the issuing Certification Authority."
+msgid ""
+"The certificate has been revoked by the issuing Certification Authority."
 msgstr "இந்த சான்றிதழ் வழங்கும் அதிகாரிகளால் ரத்து செய்யப்பட்டது"
 
 #: ../libempathy-gtk/empathy-tls-dialog.c:181
@@ -3184,9 +3196,9 @@ msgstr "ஒலி அனுப்புதலை நிலை மாற்று
 msgid "Toggle video transmission"
 msgstr "விடியோ அனுப்புதலை நிலை மாற்று"
 
-#: ../src/empathy-call-window.ui.h:21 ../src/empathy-call-window.c:2540
-#: ../src/empathy-call-window.c:2541 ../src/empathy-call-window.c:2542
-#: ../src/empathy-call-window.c:2543
+#: ../src/empathy-call-window.ui.h:21 ../src/empathy-call-window.c:2537
+#: ../src/empathy-call-window.c:2538 ../src/empathy-call-window.c:2539
+#: ../src/empathy-call-window.c:2540
 msgid "Unknown"
 msgstr "தெரியாத"
 
@@ -3252,11 +3264,11 @@ msgid_plural ""
 "Closing this window will leave %u chat rooms. You will not receive any "
 "further messages until you rejoin them."
 msgstr[0] ""
-"இந்த சாளரத்தை மூடினால் ஒரு அரட்டை அறையை விட்டு வெளியேறுவீர்கள்.  நீங்கள் மறு நுழைவு செய்யும் "
-"வரை அங்கிருந்து எந்த செய்தியும் இனி வராது."
+"இந்த சாளரத்தை மூடினால் ஒரு அரட்டை அறையை விட்டு வெளியேறுவீர்கள்.  நீங்கள் மறு நுழைவு "
+"செய்யும் வரை அங்கிருந்து எந்த செய்தியும் இனி வராது."
 msgstr[1] ""
-"இந்த சாளரத்தை மூடினால் %u அரட்டை அறைகளை விட்டு வெளியேறுவீர்கள்.  நீங்கள் மறு நுழைவு செய்யும் "
-"வரை அங்கிருந்து எந்த செய்தியும் இனி வராது."
+"இந்த சாளரத்தை மூடினால் %u அரட்டை அறைகளை விட்டு வெளியேறுவீர்கள்.  நீங்கள் மறு நுழைவு "
+"செய்யும் வரை அங்கிருந்து எந்த செய்தியும் இனி வராது."
 
 #: ../src/empathy-chat-window.c:314
 #, c-format
@@ -3843,7 +3855,8 @@ msgid "Couldn't load room list"
 msgstr "அறை பட்டியலை ஏற்ற முடியவில்லை"
 
 #: ../src/empathy-new-chatroom-dialog.ui.h:3
-msgid "Enter the room name to join here or click on one or more rooms in the list."
+msgid ""
+"Enter the room name to join here or click on one or more rooms in the list."
 msgstr ""
 "சேருவதற்கான அறை பெயரை இங்கு உள்ளிடுக. அல்லது பட்டியலில் உள்ள ஒன்றோ மேற்பட்ட பெயர்களையோ "
 "சொடுக்குக."
@@ -4224,14 +4237,16 @@ msgstr ""
 "வெளியேறுக"
 
 #: ../src/empathy-accounts.c:184
-msgid "Don't display any dialogs unless there are only \"People Nearby\" accounts"
+msgid ""
+"Don't display any dialogs unless there are only \"People Nearby\" accounts"
 msgstr ""
 "அருகில் உள்ள நபர்கள் கணக்குகள்  இருப்பு அல்லாது வேறு எந்த  உரையாடலையும்  காட்ட  "
 "வேண்டாம்,  "
 
 #: ../src/empathy-accounts.c:188
 msgid "Initially select given account (eg, gabble/jabber/foo_40example_2eorg0)"
-msgstr "கொடுத்த கணக்கை முதலில் தேர்வு செய்யவும் (eg, gabble/jabber/foo_40example_2eorg0)"
+msgstr ""
+"கொடுத்த கணக்கை முதலில் தேர்வு செய்யவும் (eg, gabble/jabber/foo_40example_2eorg0)"
 
 #: ../src/empathy-accounts.c:190
 msgid "<account-id>"
@@ -4335,29 +4350,29 @@ msgstr "மேலனுப்பு சேவையகத்தின் ஐப�
 msgid "The IP address of the multicast group"
 msgstr "பல்வெளியீட்டு குழுவின் ஐபி முகவரி"
 
-#: ../src/empathy-call-window.c:2886
+#: ../src/empathy-call-window.c:2883
 msgid "On hold"
 msgstr "தற்காலிக நிறுத்தம்"
 
-#: ../src/empathy-call-window.c:2889
+#: ../src/empathy-call-window.c:2886
 msgid "Mute"
 msgstr "ஒலி நிறுத்தம்"
 
-#: ../src/empathy-call-window.c:2891
+#: ../src/empathy-call-window.c:2888
 msgid "Duration"
 msgstr "கால அளவு"
 
 #. Translators: 'status - minutes:seconds' the caller has been connected
-#: ../src/empathy-call-window.c:2894
+#: ../src/empathy-call-window.c:2891
 #, c-format
 msgid "%s — %d:%02dm"
 msgstr "%s — %d:%02dm"
 
-#: ../src/empathy-call-window.c:2990
+#: ../src/empathy-call-window.c:2987
 msgid "Technical Details"
 msgstr "தொடர்பு விவரங்கள்"
 
-#: ../src/empathy-call-window.c:3029
+#: ../src/empathy-call-window.c:3026
 #, c-format
 msgid ""
 "%s's software does not understand any of the audio formats supported by your "
@@ -4366,7 +4381,7 @@ msgstr ""
 "%s' இன் மென்பொருள் உங்கள் கணினியில் ஆதரவு உள்ள எந்த ஒலி இசை ஒழுங்குகளையும் புரிந்து "
 "கொள்ளவில்லை"
 
-#: ../src/empathy-call-window.c:3034
+#: ../src/empathy-call-window.c:3031
 #, c-format
 msgid ""
 "%s's software does not understand any of the video formats supported by your "
@@ -4375,7 +4390,7 @@ msgstr ""
 "%s' இன் மென்பொருள் உங்கள் கணினியில் ஆதரவு உள்ள எந்த விடியோ ஒழுங்குகளையும் புரிந்து "
 "கொள்ளவில்லை"
 
-#: ../src/empathy-call-window.c:3040
+#: ../src/empathy-call-window.c:3037
 #, c-format
 msgid ""
 "Can't establish a connection to %s. One of you might be on a network that "
@@ -4384,19 +4399,21 @@ msgstr ""
 " %s' க்கு ஈனைக்க முடியவில்லை. உங்களில் ஒருவர் நேரடி இணைப்பை அனுமதிக்காத வலைப்பின்னலில் "
 "இருக்கலாம்."
 
-#: ../src/empathy-call-window.c:3046
+#: ../src/empathy-call-window.c:3043
 msgid "There was a failure on the network"
 msgstr "வலைப்பின்னலில் ஒரு தோல்வி"
 
-#: ../src/empathy-call-window.c:3050
-msgid "The audio formats necessary for this call are not installed on your computer"
+#: ../src/empathy-call-window.c:3047
+msgid ""
+"The audio formats necessary for this call are not installed on your computer"
 msgstr "இந்த அழைப்புக்கு தேவையான ஒலி ஒழுங்குக்கு ஆதரவு உங்கள் கணினியில் இல்லை."
 
-#: ../src/empathy-call-window.c:3053
-msgid "The video formats necessary for this call are not installed on your computer"
+#: ../src/empathy-call-window.c:3050
+msgid ""
+"The video formats necessary for this call are not installed on your computer"
 msgstr "இந்த அழைப்புக்கு தேவையான விடியோ ஒழுங்குக்கு ஆதரவு உங்கள் கணினியில் இல்லை."
 
-#: ../src/empathy-call-window.c:3065
+#: ../src/empathy-call-window.c:3062
 #, c-format
 msgid ""
 "Something unexpected happened in a Telepathy component. Please <a href=\"%s"
@@ -4407,32 +4424,32 @@ msgstr ""
 "this bug</a> மேலும் உதவி பட்டியலில் உள்ள 'Debug' சாளரத்தில் காணும் பதிவேட்டு "
 "உள்ளடக்கத்தை இணைக்கவும்.."
 
-#: ../src/empathy-call-window.c:3074
+#: ../src/empathy-call-window.c:3071
 msgid "There was a failure in the call engine"
 msgstr "அழைப்பு பொறியில் ஒரு தோல்வி"
 
-#: ../src/empathy-call-window.c:3077
+#: ../src/empathy-call-window.c:3074
 msgid "The end of the stream was reached"
 msgstr "ஓடையின் இறுதி எட்டப்பட்டது"
 
-#: ../src/empathy-call-window.c:3117
+#: ../src/empathy-call-window.c:3114
 msgid "Can't establish audio stream"
 msgstr "ஒலி ஓடையை நிறுவ முடியவில்லை"
 
-#: ../src/empathy-call-window.c:3127
+#: ../src/empathy-call-window.c:3124
 msgid "Can't establish video stream"
 msgstr "விடியோ ஓடையை நிறுவ முடியவில்லை"
 
-#: ../src/empathy-call-window.c:3164
+#: ../src/empathy-call-window.c:3161
 #, c-format
 msgid "Your current balance is %s."
 msgstr "உங்களை நடப்பு வைப்புத்தொகை %s."
 
-#: ../src/empathy-call-window.c:3168
+#: ../src/empathy-call-window.c:3165
 msgid "Sorry, you don’t have enough credit for that call."
 msgstr "மன்னிக்கவும், உங்கள் கணக்கில் அந்த அழைப்புக்கு போதிய பணமில்லை"
 
-#: ../src/empathy-call-window.c:3170
+#: ../src/empathy-call-window.c:3167
 msgid "Top Up"
 msgstr "கட்டணம் செலுத்து"
 
@@ -4474,8 +4491,8 @@ msgid ""
 "You can change these details later or disable this feature by choosing <span "
 "style=\"italic\">Edit → Accounts</span> in the Contact List."
 msgstr ""
-"தொடர்பு பட்டியலில் <span style=\"italic\">Edit → Accounts</span> ஐ தேர்ந்தெடுத்து நீங்கள் "
-"இந்த விவரங்களை மாற்றலாம் அல்லது இந்த அம்சத்தை செயல் நீக்கலாம்."
+"தொடர்பு பட்டியலில் <span style=\"italic\">Edit → Accounts</span> ஐ தேர்ந்தெடுத்து "
+"நீங்கள் இந்த விவரங்களை மாற்றலாம் அல்லது இந்த அம்சத்தை செயல் நீக்கலாம்."
 
 #~ msgid "Call volume"
 #~ msgstr "அழைப்பு ஒலி அளவு"
