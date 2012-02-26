@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: empathy trunk\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=empathy&keywords=I18N+L10N&component=General\n"
-"POT-Creation-Date: 2012-02-21 15:03+0000\n"
-"PO-Revision-Date: 2012-02-26 13:05+0300\n"
+"POT-Creation-Date: 2012-02-26 09:07+0000\n"
+"PO-Revision-Date: 2012-02-26 13:12+0300\n"
 "Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -175,10 +175,6 @@ msgid "Contact list sort criterion"
 msgstr "Критерий упорядочивания списка собеседников"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:32
-#| msgid ""
-#| "Which criterion to use when sorting the contact list. Default is to sort "
-#| "by the contact's name with the value \"name\". A value of \"state\" will "
-#| "sort the contact list by state."
 msgid "Which criterion to use when sorting the contact list. Default is to sort by the contact's state with the value \"state\". A value of \"name\" will sort the contact list by name."
 msgstr "Критерий упорядочивания списка собеседников. По умолчанию упорядочивается по статусу («state»); «name» — упорядочивать по имени собеседника."
 
@@ -348,7 +344,7 @@ msgstr "Уведомлять пользователей о наборе сооб
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:74
 msgid "Whether to send the 'composing' or 'paused' chat states. Does not currently affect the 'gone' state."
-msgstr ""
+msgstr "Посылать ли уведомления о наборе сообщений. Не используется при статусе «Отошёл»."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:75
 msgid "Use theme for chat rooms"
@@ -1541,7 +1537,7 @@ msgstr "%s теперь известен как %s"
 #: ../src/empathy-event-manager.c:1197
 #: ../src/empathy-call-window.c:1502
 #: ../src/empathy-call-window.c:1552
-#: ../src/empathy-call-window.c:2588
+#: ../src/empathy-call-window.c:2585
 msgid "Disconnected"
 msgstr "Отсоединён"
 
@@ -2956,7 +2952,7 @@ msgstr "Неизвестный статус"
 
 #: ../src/empathy-accounts-dialog.c:458
 msgid "This account has been disabled because it relies on an old, unsupported backend. Please install telepathy-haze and restart your session to migrate the account."
-msgstr ""
+msgstr "Эта учётная запись отключена, т. к. она использует неподдерживаемый драйвер. Установите  telepathy-haze и перезапустите сеанс, чтобы перенести учётную запись."
 
 #: ../src/empathy-accounts-dialog.c:468
 msgid "Offline — Account Disabled"
@@ -3006,10 +3002,9 @@ msgstr "_Отключить"
 
 #: ../src/empathy-accounts-dialog.c:2122
 msgid "_Skip"
-msgstr ""
+msgstr "_Пропустить"
 
 #: ../src/empathy-accounts-dialog.c:2126
-#| msgid "Connected"
 msgid "_Connect"
 msgstr "_Подключиться"
 
@@ -3038,7 +3033,6 @@ msgid "To add a new account, you first have to install a backend for each protoc
 msgstr "Чтобы добавить новую учётную запись установите поддержку каждого необходимого протокола."
 
 #: ../src/empathy-accounts-dialog.ui.h:6
-#| msgid "No protocol installed"
 msgid "No protocol backends installed"
 msgstr "Нет установленных драйверов протоколов"
 
@@ -3153,10 +3147,10 @@ msgid "Encoding Codec:"
 msgstr "Кодер:"
 
 #: ../src/empathy-call-window.ui.h:28
+#: ../src/empathy-call-window.c:2537
+#: ../src/empathy-call-window.c:2538
+#: ../src/empathy-call-window.c:2539
 #: ../src/empathy-call-window.c:2540
-#: ../src/empathy-call-window.c:2541
-#: ../src/empathy-call-window.c:2542
-#: ../src/empathy-call-window.c:2543
 msgid "Unknown"
 msgstr "Неизвестно"
 
@@ -3554,7 +3548,6 @@ msgid "Remove completed, canceled and failed file transfers from the list"
 msgstr "Удалить из списка завершённые, отменённые или прерванные передачи файлов"
 
 #: ../src/empathy-import-dialog.c:76
-#| msgid "Import"
 msgid "_Import"
 msgstr "_Импортировать"
 
@@ -4057,7 +4050,6 @@ msgstr "Ответ pastebin"
 
 #: ../src/empathy-debug-window.c:1671
 #, c-format
-#| msgid "%s:"
 msgid "%s"
 msgstr "%s"
 
@@ -4254,86 +4246,86 @@ msgstr "IP-адрес ретранслирующего сервера"
 msgid "The IP address of the multicast group"
 msgstr "Широковещательный IP-адрес группы"
 
-#: ../src/empathy-call-window.c:2886
+#: ../src/empathy-call-window.c:2883
 msgid "On hold"
 msgstr "Удержание"
 
-#: ../src/empathy-call-window.c:2889
+#: ../src/empathy-call-window.c:2886
 msgid "Mute"
 msgstr "Приглушить"
 
-#: ../src/empathy-call-window.c:2891
+#: ../src/empathy-call-window.c:2888
 msgid "Duration"
 msgstr "Длительность"
 
 #. Translators: 'status - minutes:seconds' the caller has been connected
-#: ../src/empathy-call-window.c:2894
+#: ../src/empathy-call-window.c:2891
 #, c-format
 msgid "%s — %d:%02dm"
 msgstr "%s — %d:%02dm"
 
-#: ../src/empathy-call-window.c:2990
+#: ../src/empathy-call-window.c:2987
 msgid "Technical Details"
 msgstr "Информация о собеседнике"
 
-#: ../src/empathy-call-window.c:3029
+#: ../src/empathy-call-window.c:3026
 #, c-format
 msgid "%s's software does not understand any of the audio formats supported by your computer"
 msgstr "Программное обеспечение %s не понимает аудиоформаты, поддерживаемые вашим компьютером"
 
-#: ../src/empathy-call-window.c:3034
+#: ../src/empathy-call-window.c:3031
 #, c-format
 msgid "%s's software does not understand any of the video formats supported by your computer"
 msgstr "Программное обеспечение %s не понимает видеоформаты, поддерживаемые вашим компьютером"
 
-#: ../src/empathy-call-window.c:3040
+#: ../src/empathy-call-window.c:3037
 #, c-format
 msgid "Can't establish a connection to %s. One of you might be on a network that does not allow direct connections."
 msgstr "Не удалось установить соединение с %s. Один из вас может находиться в сети, которая не поддерживает прямые подключения."
 
-#: ../src/empathy-call-window.c:3046
+#: ../src/empathy-call-window.c:3043
 msgid "There was a failure on the network"
 msgstr "Сбой сети"
 
-#: ../src/empathy-call-window.c:3050
+#: ../src/empathy-call-window.c:3047
 msgid "The audio formats necessary for this call are not installed on your computer"
 msgstr "Аудиоформаты, необходимые для этого вызова, не установлены на вашем компьютере"
 
-#: ../src/empathy-call-window.c:3053
+#: ../src/empathy-call-window.c:3050
 msgid "The video formats necessary for this call are not installed on your computer"
 msgstr "Видеоформаты, необходимые для этого вызова, не установлены на вашем компьютере"
 
-#: ../src/empathy-call-window.c:3065
+#: ../src/empathy-call-window.c:3062
 #, c-format
 msgid "Something unexpected happened in a Telepathy component. Please <a href=\"%s\">report this bug</a> and attach logs gathered from the 'Debug' window in the Help menu."
 msgstr "Что-то неожиданное случилось с компонентом Telepathy. <a href=\"%s\">Сообщите об этой ошибке</a> и прикрепите журналы, собранные из окна отладки в меню «Справка»."
 
-#: ../src/empathy-call-window.c:3074
+#: ../src/empathy-call-window.c:3071
 msgid "There was a failure in the call engine"
 msgstr "Сбой в движке вызова"
 
-#: ../src/empathy-call-window.c:3077
+#: ../src/empathy-call-window.c:3074
 msgid "The end of the stream was reached"
 msgstr "Достигнут конец потока"
 
-#: ../src/empathy-call-window.c:3117
+#: ../src/empathy-call-window.c:3114
 msgid "Can't establish audio stream"
 msgstr "Не удалось установить аудиопоток"
 
-#: ../src/empathy-call-window.c:3127
+#: ../src/empathy-call-window.c:3124
 msgid "Can't establish video stream"
 msgstr "Не удалось установить видеопоток"
 
-#: ../src/empathy-call-window.c:3164
+#: ../src/empathy-call-window.c:3161
 #, c-format
 msgid "Your current balance is %s."
 msgstr "Текущий баланс: %s."
 
-#: ../src/empathy-call-window.c:3168
+#: ../src/empathy-call-window.c:3165
 msgid "Sorry, you don’t have enough credit for that call."
 msgstr "Недостаточно средств для совершения звонка."
 
-#: ../src/empathy-call-window.c:3170
+#: ../src/empathy-call-window.c:3167
 msgid "Top Up"
 msgstr "Пополнить"
 
@@ -4341,7 +4333,7 @@ msgstr "Пополнить"
 msgid "- Empathy Audio/Video Client"
 msgstr " — клиент Empathy для аудио и видео"
 
-#: ../src/empathy-call.c:224
+#: ../src/empathy-call.c:223
 msgid "Empathy Audio/Video Client"
 msgstr "Клиент Empathy для аудио и видео"
 
@@ -4362,11 +4354,6 @@ msgid "People nearby"
 msgstr "Люди поблизости"
 
 #: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:150
-#| msgid ""
-#| "Empathy can automatically discover and chat with the people connected on "
-#| "the same network as you. If you want to use this feature, please check "
-#| "that the details below are correct. You can easily change these details "
-#| "later or disable this feature by using the 'Accounts' dialog"
 msgid "Empathy can automatically discover and chat with the people connected on the same network as you. If you want to use this feature, please check that the details below are correct."
 msgstr "Empathy может автоматически найти людей, подключённых к той же сети, что и вы. Если вы хотите использовать эту возможность, отметьте, что информация, представленная ниже является корректной."
 
