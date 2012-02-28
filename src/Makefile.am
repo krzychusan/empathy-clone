@@ -52,7 +52,7 @@ bin_PROGRAMS =			\
 
 libexec_PROGRAMS = \
 	empathy-auth-client \
-	empathy-av \
+	empathy-call \
 	empathy-chat
 
 empathy_accounts_SOURCES =						\
@@ -69,6 +69,7 @@ empathy_debugger_SOURCES =						\
 	empathy-debugger.c		 				\
 	$(NULL)
 
+if HAVE_EMPATHY_AV
 empathy_av_SOURCES = \
 	empathy-av.c \
 	empathy-audio-sink.c \
@@ -96,6 +97,10 @@ empathy_av_SOURCES = \
 empathy_av_CFLAGS = $(EMPATHY_AV_CFLAGS)
 empathy_av_LDFLAGS = $(EMPATHY_AV_LIBS) $(LIBM)
 
+libexec_PROGRAMS += empathy-av
+
+endif
+
 empathy_auth_client_SOURCES =						\
 	empathy-auth-client.c \
 	$(NULL)
@@ -108,8 +113,6 @@ empathy_chat_SOURCES =						\
 	empathy-chat.c \
 	gedit-close-button.c gedit-close-button.h \
 	$(NULL)
-
-libexec_PROGRAMS += empathy-call
 
 empathy_call_SOURCES = \
        empathy-call.c \

@@ -539,7 +539,7 @@ empathy_streamed_media_handler_bus_message (EmpathyStreamedMediaHandler *handler
     return;
 
   if (s != NULL &&
-      gst_structure_has_name (s, "farsight-send-codec-changed"))
+      gst_structure_has_name (s, "farstream-send-codec-changed"))
     {
       const GValue *val;
       FsCodec *codec;
@@ -554,7 +554,7 @@ empathy_streamed_media_handler_bus_message (EmpathyStreamedMediaHandler *handler
       update_sending_codec (handler, codec, session);
     }
   else if (s != NULL &&
-      gst_structure_has_name (s, "farsight-recv-codecs-changed"))
+      gst_structure_has_name (s, "farstream-recv-codecs-changed"))
     {
       const GValue *val;
       GList *codecs;
@@ -569,7 +569,7 @@ empathy_streamed_media_handler_bus_message (EmpathyStreamedMediaHandler *handler
       update_receiving_codec (handler, codecs, stream);
     }
   else if (s != NULL &&
-      gst_structure_has_name (s, "farsight-new-active-candidate-pair"))
+      gst_structure_has_name (s, "farstream-new-active-candidate-pair"))
     {
       const GValue *val;
       FsCandidate *remote_candidate, *local_candidate;

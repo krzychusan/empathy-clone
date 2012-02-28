@@ -24,7 +24,7 @@
 #include <glib-object.h>
 
 #include <gst/gst.h>
-#include <gst/farsight/fs-conference-iface.h>
+#include <farstream/fs-conference.h>
 
 #include <libempathy/empathy-tp-streamed-media.h>
 #include <libempathy/empathy-contact.h>

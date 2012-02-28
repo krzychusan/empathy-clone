@@ -22,10 +22,14 @@ convert_DATA = \
 servicefiledir = $(datadir)/dbus-1/services
 servicefile_in_files = \
 	org.freedesktop.Telepathy.Client.Empathy.Chat.service.in \
-	org.freedesktop.Telepathy.Client.Empathy.AudioVideo.service.in \
 	org.freedesktop.Telepathy.Client.Empathy.Auth.service.in \
 	org.freedesktop.Telepathy.Client.Empathy.Call.service.in \
 	org.freedesktop.Telepathy.Client.Empathy.FileTransfer.service.in
+
+if HAVE_EMPATHY_AV
+servicefile_in_files += \
+	org.freedesktop.Telepathy.Client.Empathy.AudioVideo.service.in
+endif
 
 servicefile_DATA = $(servicefile_in_files:.service.in=.service)
 
@@ -47,10 +51,14 @@ org.freedesktop.Telepathy.Client.Empathy.FileTransfer.service: org.freedesktop.T
 clientfiledir = $(datarootdir)/telepathy/clients
 clientfile_DATA = \
 	Empathy.Chat.client \
-	Empathy.AudioVideo.client \
 	Empathy.Auth.client \
 	Empathy.Call.client \
 	Empathy.FileTransfer.client
+
+if HAVE_EMPATHY_AV
+clientfile_DATA += \
+	Empathy.AudioVideo.client
+endif
 
 htmldir = $(datadir)/empathy
 html_DATA = \

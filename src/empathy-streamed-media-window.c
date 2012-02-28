@@ -31,11 +31,11 @@
 #include <glib/gi18n.h>
 
 #include <telepathy-glib/util.h>
-#include <telepathy-farsight/channel.h>
-#include <telepathy-glib/util.h>
 
-#include <gst/farsight/fs-element-added-notifier.h>
-#include <gst/farsight/fs-utils.h>
+#include <telepathy-farsight/stream.h>
+
+#include <farstream/fs-element-added-notifier.h>
+#include <farstream/fs-utils.h>
 
 #include <libempathy/empathy-tp-contact-factory.h>
 #include <libempathy/empathy-utils.h>
