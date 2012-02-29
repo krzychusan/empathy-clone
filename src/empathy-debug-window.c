@@ -1334,6 +1334,15 @@ debug_window_clear_clicked_cb (GtkToolButton *clear_button,
   GtkTreeIter iter;
   GtkListStore *active_buffer;
 
+  /* "All" is the first choice in the service chooser and it's buffer is
+   * not saved in the service-store but is accessed using a private
+   * reference */
+  if (gtk_combo_box_get_active (GTK_COMBO_BOX (priv->chooser)) == 0)
+    {
+      gtk_list_store_clear (priv->all_active_buffer);
+      return;
+    }
+
   gtk_combo_box_get_active_iter (GTK_COMBO_BOX (priv->chooser), &iter);
   gtk_tree_model_get (GTK_TREE_MODEL (priv->service_store), &iter,
       COL_ACTIVE_BUFFER, &active_buffer, -1);
