@@ -699,9 +699,12 @@ empathy_streamed_media_handler_start_tpfs (GAsyncInitable *initable,
 {
   EmpathyStreamedMediaHandlerPriv *priv = GET_PRIV (self);
   GError *error = NULL;
+  GPtrArray *conferences;
 
   if (g_async_initable_init_finish (initable, res, &error))
     {
+      priv->tfchannel = TF_CHANNEL (initable);
+
       /* Set up the telepathy farsight channel */
       g_signal_connect (priv->tfchannel, "fs-conference-added",
           G_CALLBACK (empathy_streamed_media_handler_tf_channel_conference_added_cb), self);
@@ -712,6 +715,15 @@ empathy_streamed_media_handler_start_tpfs (GAsyncInitable *initable,
           self);
       g_signal_connect (priv->tfchannel, "closed",
           G_CALLBACK (empathy_streamed_media_handler_tf_channel_closed_cb), self);
+
+      g_object_get (priv->tfchannel, "fs-conferences", &conferences, NULL);
+      if (conferences)
+        {
+          if (conferences->len > 0)
+            empathy_streamed_media_handler_tf_channel_conference_added_cb (
+                priv->tfchannel, g_ptr_array_index (conferences, 0), self);
+          g_ptr_array_unref (conferences);
+        }
 
 
       /* FIXME: In which condition do we call this ? */
