@@ -43,7 +43,6 @@ KEYRING_REQUIRED=2.26.0
 GCR_REQUIRED=2.91.4
 LIBCANBERRA_GTK_REQUIRED=0.25
 LIBNOTIFY_REQUIRED=0.7.0
-TELEPATHY_FARSIGHT_REQUIRED=0.0.18
 TELEPATHY_FARSTREAM_REQUIRED=0.2.1
 TELEPATHY_GLIB_REQUIRED=0.17.5
 TELEPATHY_LOGGER=0.2.10
@@ -221,7 +220,7 @@ if test "x$enable_empathy_av" != "xno" ; then
    PKG_CHECK_MODULES(EMPATHY_AV,
    [
       farstream-0.1
-      telepathy-farsight >= $TELEPATHY_FARSIGHT_REQUIRED
+      telepathy-farstream >= $TELEPATHY_FARSTREAM_REQUIRED
    ])
    AC_DEFINE(HAVE_EMPATHY_AV, 1, [Define if you have StreamedMedia channel support])
    have_empathy_av=yes

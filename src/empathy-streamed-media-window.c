@@ -32,7 +32,7 @@
 
 #include <telepathy-glib/util.h>
 
-#include <telepathy-farsight/stream.h>
+#include <telepathy-farstream/telepathy-farstream.h>
 
 #include <farstream/fs-element-added-notifier.h>
 #include <farstream/fs-utils.h>
@@ -1759,16 +1759,13 @@ empathy_streamed_media_window_conference_added_cb (EmpathyStreamedMediaHandler *
 }
 
 static gboolean
-empathy_streamed_media_window_request_resource_cb (EmpathyStreamedMediaHandler *handler,
-  FsMediaType type, FsStreamDirection direction, gpointer user_data)
+empathy_streamed_media_window_start_receiving_cb (EmpathyStreamedMediaHandler *handler,
+  FsMediaType type,gpointer user_data)
 {
   EmpathyStreamedMediaWindow *self = EMPATHY_STREAMED_MEDIA_WINDOW (user_data);
   EmpathyStreamedMediaWindowPriv *priv = GET_PRIV (self);
 
   if (type != FS_MEDIA_TYPE_VIDEO)
-    return TRUE;
-
-  if (direction == FS_DIRECTION_RECV)
     return TRUE;
 
   /* video and direction is send */
@@ -1952,13 +1949,13 @@ empathy_streamed_media_window_channel_closed_cb (EmpathyStreamedMediaHandler *ha
 
 static void
 empathy_streamed_media_window_channel_stream_closed_cb (EmpathyStreamedMediaHandler *handler,
-    TfStream *stream, gpointer user_data)
+    TfContent *content, gpointer user_data)
 {
   EmpathyStreamedMediaWindow *self = EMPATHY_STREAMED_MEDIA_WINDOW (user_data);
   EmpathyStreamedMediaWindowPriv *priv = GET_PRIV (self);
   guint media_type;
 
-  g_object_get (stream, "media-type", &media_type, NULL);
+  g_object_get (content, "media-type", &media_type, NULL);
 
   /*
    * This assumes that there is only one video stream per channel...
@@ -2719,8 +2716,8 @@ empathy_streamed_media_window_realized_cb (GtkWidget *widget, EmpathyStreamedMed
 
   g_signal_connect (priv->handler, "conference-added",
     G_CALLBACK (empathy_streamed_media_window_conference_added_cb), window);
-  g_signal_connect (priv->handler, "request-resource",
-    G_CALLBACK (empathy_streamed_media_window_request_resource_cb), window);
+  g_signal_connect (priv->handler, "start-receiving",
+    G_CALLBACK (empathy_streamed_media_window_start_receiving_cb), window);
   g_signal_connect (priv->handler, "closed",
     G_CALLBACK (empathy_streamed_media_window_channel_closed_cb), window);
   g_signal_connect (priv->handler, "src-pad-added",

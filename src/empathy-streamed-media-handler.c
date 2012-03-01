@@ -26,8 +26,7 @@
 #include <telepathy-glib/util.h>
 #include <telepathy-glib/interfaces.h>
 
-#include <telepathy-farsight/channel.h>
-#include <telepathy-farsight/stream.h>
+#include <telepathy-farstream/telepathy-farstream.h>
 
 #include <libempathy/empathy-utils.h>
 
@@ -45,7 +44,7 @@ enum {
   CONFERENCE_ADDED,
   SRC_PAD_ADDED,
   SINK_PAD_ADDED,
-  REQUEST_RESOURCE,
+  START_RECEIVING,
   CLOSED,
   STREAM_CLOSED,
   CANDIDATES_CHANGED,
@@ -359,8 +358,8 @@ empathy_streamed_media_handler_class_init (EmpathyStreamedMediaHandlerClass *kla
       G_TYPE_BOOLEAN,
       2, GST_TYPE_PAD, G_TYPE_UINT);
 
-  signals[REQUEST_RESOURCE] =
-    g_signal_new ("request-resource", G_TYPE_FROM_CLASS (klass),
+  signals[START_RECEIVING] =
+    g_signal_new ("start-receiving", G_TYPE_FROM_CLASS (klass),
       G_SIGNAL_RUN_LAST, 0,
       g_signal_accumulator_true_handled, NULL,
       g_cclosure_marshal_generic,
@@ -377,7 +376,7 @@ empathy_streamed_media_handler_class_init (EmpathyStreamedMediaHandlerClass *kla
     g_signal_new ("stream-closed", G_TYPE_FROM_CLASS (klass),
       G_SIGNAL_RUN_LAST, 0, NULL, NULL,
       g_cclosure_marshal_generic,
-      G_TYPE_NONE, 1, TF_TYPE_STREAM);
+      G_TYPE_NONE, 1, TF_TYPE_CONTENT);
 
   signals[CANDIDATES_CHANGED] =
     g_signal_new ("candidates-changed", G_TYPE_FROM_CLASS (klass),
@@ -591,8 +590,8 @@ empathy_streamed_media_handler_bus_message (EmpathyStreamedMediaHandler *handler
 }
 
 static void
-empathy_streamed_media_handler_tf_channel_session_created_cb (TfChannel *tfchannel,
-  FsConference *conference, FsParticipant *participant,
+empathy_streamed_media_handler_tf_channel_conference_added_cb (TfChannel *tfchannel,
+  FsConference *conference,
   EmpathyStreamedMediaHandler *self)
 {
   g_signal_emit (G_OBJECT (self), signals[CONFERENCE_ADDED], 0,
@@ -602,101 +601,87 @@ empathy_streamed_media_handler_tf_channel_session_created_cb (TfChannel *tfchann
 static gboolean
 src_pad_added_error_idle (gpointer data)
 {
-  TfStream *stream = data;
+  TfContent *content = data;
 
-  tf_stream_error (stream, TP_MEDIA_STREAM_ERROR_MEDIA_ERROR,
-      "Could not link sink");
-  g_object_unref (stream);
+  tf_content_error_literal (content, "Could not link sink");
+  g_object_unref (content);
 
   return FALSE;
 }
 
 static void
-empathy_streamed_media_handler_tf_stream_src_pad_added_cb (TfStream *stream,
+empathy_streamed_media_handler_tf_content_src_pad_added_cb (TfContent *content,
   GstPad *pad, FsCodec *codec, EmpathyStreamedMediaHandler  *handler)
 {
   guint media_type;
   gboolean retval;
 
-  g_object_get (stream, "media-type", &media_type, NULL);
+  g_object_get (content, "media-type", &media_type, NULL);
 
   g_signal_emit (G_OBJECT (handler), signals[SRC_PAD_ADDED], 0,
       pad, media_type, &retval);
 
   if (!retval)
-    g_idle_add (src_pad_added_error_idle, g_object_ref (stream));
+    g_idle_add (src_pad_added_error_idle, g_object_ref (content));
 }
 
 
 static gboolean
-empathy_streamed_media_handler_tf_stream_request_resource_cb (TfStream *stream,
-  guint direction, EmpathyTpStreamedMedia *call)
+empathy_streamed_media_handler_tf_content_start_receiving_cb (TfContent *content,
+    guint *handles, guint handle_count, EmpathyTpStreamedMedia *call)
 {
-  gboolean ret;
+  gboolean ret = FALSE;
   guint media_type;
 
-  g_object_get (G_OBJECT (stream), "media-type", &media_type, NULL);
+  g_object_get (G_OBJECT (content), "media-type", &media_type, NULL);
 
   g_signal_emit (G_OBJECT (call),
-    signals[REQUEST_RESOURCE], 0, media_type, direction, &ret);
+    signals[START_RECEIVING], 0, media_type, &ret);
 
   return ret;
 }
 
 static void
-empathy_streamed_media_handler_tf_stream_closed_cb (TfStream *stream,
-  EmpathyStreamedMediaHandler *handler)
+empathy_streamed_media_handler_tf_content_removed_cb (TfChannel *channel,
+    TfContent *content, EmpathyStreamedMediaHandler *handler)
 {
-  g_signal_emit (handler, signals[STREAM_CLOSED], 0, stream);
+  g_signal_emit (handler, signals[STREAM_CLOSED], 0, content);
 }
 
 static void
-empathy_streamed_media_handler_tf_channel_stream_created_cb (TfChannel *tfchannel,
-  TfStream *stream, EmpathyStreamedMediaHandler *handler)
+empathy_streamed_media_handler_tf_channel_content_added_cb (TfChannel *tfchannel,
+  TfContent *content, EmpathyStreamedMediaHandler *handler)
 {
   guint media_type;
   GstPad *spad;
   gboolean retval;
-  FsStream *fs_stream;
-  GList *codecs;
   FsSession *session;
   FsCodec *codec;
 
-  g_signal_connect (stream, "src-pad-added",
-      G_CALLBACK (empathy_streamed_media_handler_tf_stream_src_pad_added_cb), handler);
-  g_signal_connect (stream, "request-resource",
-      G_CALLBACK (empathy_streamed_media_handler_tf_stream_request_resource_cb),
-        handler);
-  g_signal_connect (stream, "closed",
-      G_CALLBACK (empathy_streamed_media_handler_tf_stream_closed_cb), handler);
+  g_signal_connect (content, "src-pad-added",
+      G_CALLBACK (empathy_streamed_media_handler_tf_content_src_pad_added_cb), handler);
 
-  g_object_get (stream, "media-type", &media_type,
+  g_signal_connect (content, "start-receiving",
+      G_CALLBACK (empathy_streamed_media_handler_tf_content_start_receiving_cb),
+        handler);
+
+  g_object_get (content, "media-type", &media_type,
     "sink-pad", &spad, NULL);
 
   g_signal_emit (G_OBJECT (handler), signals[SINK_PAD_ADDED], 0,
       spad, media_type, &retval);
 
  if (!retval)
-      tf_stream_error (stream, TP_MEDIA_STREAM_ERROR_MEDIA_ERROR,
-          "Could not link source");
+   tf_content_error_literal (content, "Could not link source");
 
  /* Get sending codec */
- g_object_get (stream, "farsight-session", &session, NULL);
+ g_object_get (content, "fs-session", &session, NULL);
  g_object_get (session, "current-send-codec", &codec, NULL);
 
  update_sending_codec (handler, codec, session);
 
  tp_clear_object (&session);
  tp_clear_object (&codec);
-
- /* Get receiving codec */
- g_object_get (stream, "farsight-stream", &fs_stream, NULL);
- g_object_get (fs_stream, "current-recv-codecs", &codecs, NULL);
-
- update_receiving_codec (handler, codecs, fs_stream);
-
- fs_codec_list_destroy (codecs);
- tp_clear_object (&fs_stream);
 
  gst_object_unref (spad);
 }
@@ -709,26 +694,35 @@ empathy_streamed_media_handler_tf_channel_closed_cb (TfChannel *tfchannel,
 }
 
 static void
-empathy_streamed_media_handler_start_tpfs (EmpathyStreamedMediaHandler *self)
+empathy_streamed_media_handler_start_tpfs (GAsyncInitable *initable,
+    GAsyncResult *res, EmpathyStreamedMediaHandler *self)
 {
   EmpathyStreamedMediaHandlerPriv *priv = GET_PRIV (self);
-  TpChannel *channel;
+  GError *error = NULL;
 
-  g_object_get (priv->call, "channel", &channel, NULL);
+  if (g_async_initable_init_finish (initable, res, &error))
+    {
+      /* Set up the telepathy farsight channel */
+      g_signal_connect (priv->tfchannel, "fs-conference-added",
+          G_CALLBACK (empathy_streamed_media_handler_tf_channel_conference_added_cb), self);
+      g_signal_connect (priv->tfchannel, "content-added",
+          G_CALLBACK (empathy_streamed_media_handler_tf_channel_content_added_cb), self);
+      g_signal_connect (priv->tfchannel, "content-removed",
+          G_CALLBACK (empathy_streamed_media_handler_tf_content_removed_cb),
+          self);
+      g_signal_connect (priv->tfchannel, "closed",
+          G_CALLBACK (empathy_streamed_media_handler_tf_channel_closed_cb), self);
 
-  g_assert (channel != NULL);
 
-  priv->tfchannel = tf_channel_new (channel);
-
-  /* Set up the telepathy farsight channel */
-  g_signal_connect (priv->tfchannel, "session-created",
-      G_CALLBACK (empathy_streamed_media_handler_tf_channel_session_created_cb), self);
-  g_signal_connect (priv->tfchannel, "stream-created",
-      G_CALLBACK (empathy_streamed_media_handler_tf_channel_stream_created_cb), self);
-  g_signal_connect (priv->tfchannel, "closed",
-      G_CALLBACK (empathy_streamed_media_handler_tf_channel_closed_cb), self);
-
-  g_object_unref (channel);
+      /* FIXME: In which condition do we call this ? */
+      empathy_tp_streamed_media_accept_incoming_call (priv->call);
+    }
+  else
+    {
+      g_warning ("Error creating tf channel");
+      g_clear_error (&error);
+    }
+  g_object_unref (self);
 }
 
 static void
@@ -758,7 +752,10 @@ empathy_streamed_media_handler_request_cb (GObject *source,
 
   g_object_notify (G_OBJECT (self), "tp-call");
 
-  empathy_streamed_media_handler_start_tpfs (self);
+
+  tf_channel_new_async (channel,
+      (GAsyncReadyCallback) empathy_streamed_media_handler_start_tpfs,
+      g_object_ref (self));
 
   g_object_unref (channel);
 }
@@ -774,8 +771,14 @@ empathy_streamed_media_handler_start_call (EmpathyStreamedMediaHandler *handler,
 
   if (priv->call != NULL)
     {
-      empathy_streamed_media_handler_start_tpfs (handler);
-      empathy_tp_streamed_media_accept_incoming_call (priv->call);
+      TpChannel *channel;
+
+      g_object_get (priv->call, "channel", &channel, NULL);
+
+      tf_channel_new_async (channel,
+          (GAsyncReadyCallback)  empathy_streamed_media_handler_start_tpfs,
+          g_object_ref (handler));
+      g_object_unref (channel);
       return;
     }
 
