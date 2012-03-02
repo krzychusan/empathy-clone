@@ -1,3 +1,35 @@
+NEW in 3.3.90.2 (02/03/2012)
+===============
+
+This release optionally brings back empathy-av, the old call UI which has been
+removed in 3.3.90. You'll have to pass --enable-empathy-av to configure in
+order to build it. empathy-av is now using telepathy-farstream instead of
+telepathy-farsight and so shares the same dependencies as empathy-call.
+This is really legacy code, we are not going to continue
+maintaining it so most distributions shouldn't enable it and just use
+empathy-call.
+
+Dependencies:
+ • yelp-tools
+ • yelp-xsl
+
+Bugs fixed:
+ - Fixed #656676, Use new documentation infrastructure (Javier Jardón)
+ - Fixed #671061, Debug: Clear doesn't work for the All option (Chandni Verma)
+
+Translations:
+ - Updated ar Translation (Ibrahim Saed)
+ - Updated be Translation (Ihar Hrachyshka)
+ - Updated et Translation (Mattias Põldaru)
+ - Updated pt_BR Translation (Jonh Wendell)
+ - Updated ru Translation (Yuri Myasoedov)
+ - Updated sl Translation (Matej Urbančič)
+ - Updated ta Translation (Dr.T.Vasudevan)
+ - Updated ug Translation (Gheyret Kenji)
+
+Documentation translations:
+ - Updated gl Documentation translation (Fran Diéguez)
+
 NEW in 3.3.90.1 (24/02/2012)
 ===============
 
