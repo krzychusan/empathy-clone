@@ -34,3 +34,4 @@ sv/*.page
 sv/*.xml
 zh_CN/*.page
 zh_CN/*.xml
+*/*.stamp
