@@ -729,8 +729,6 @@ empathy_streamed_media_handler_start_tpfs (GAsyncInitable *initable,
           g_ptr_array_unref (conferences);
         }
 
-
-      /* FIXME: In which condition do we call this ? */
       empathy_tp_streamed_media_accept_incoming_call (priv->call);
     }
   else
