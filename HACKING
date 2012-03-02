@@ -1,2 +1,24 @@
+Empathy is split in different processes:
+- src/empathy: contact list, considered as the main UI
+- src/empathy-chat: chat UI
+- src/empathy-call: call UI
+- src/empathy-accounts: UI to configure IM accounts
+- src/empathy-debugger: debug tool
+
+Each process can be run directly from source without having to be installed to
+its prefix. You just have to define the environment variable EMPATHY_SRCDIR
+to the path of your empathy source dir. For example:
+  export EMPATHY_SRCDIR=/home/cassidy/gnome/empathy
+
+The chat and call UI are automatically started by telepathy-mission-control
+when receiving or requesting a chat/call. In order to use your custom version
+you have to kill any existing instance of empathy-{chat,call} and then start
+it with EMPATHY_PERSIST=1 to prevent it from auto exiting if there is no
+channel to handle. For example:
+  EMPATHY_PERSIST=1 ./src/empathy-chat
+
+Debugging can be turned on using EMPATHY_DEBUG=all and logged to a file
+with EMPATHY_LOGFILE=/tmp/empathy.log
+
 See http://live.gnome.org/Empathy/ about coding style conventions.
 See also http://live.gnome.org/Empathy/Git to read about our git workflow.
