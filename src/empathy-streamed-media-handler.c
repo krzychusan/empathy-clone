@@ -611,7 +611,11 @@ src_pad_added_error_idle (gpointer data)
 
 static void
 empathy_streamed_media_handler_tf_content_src_pad_added_cb (TfContent *content,
-  GstPad *pad, FsCodec *codec, EmpathyStreamedMediaHandler  *handler)
+  guint handle,
+  FsStream *stream,
+  GstPad *pad,
+  FsCodec *codec,
+  EmpathyStreamedMediaHandler  *handler)
 {
   guint media_type;
   gboolean retval;
