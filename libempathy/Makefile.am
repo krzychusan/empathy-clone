@@ -63,6 +63,7 @@ libempathy_headers =				\
 	empathy-tp-contact-factory.h		\
 	empathy-tp-contact-list.h		\
 	empathy-tp-roomlist.h			\
+	empathy-tp-streamed-media.h		\
 	empathy-types.h				\
 	empathy-utils.h
 
@@ -103,6 +104,7 @@ libempathy_handwritten_source =				\
 	empathy-tp-contact-factory.c			\
 	empathy-tp-contact-list.c			\
 	empathy-tp-roomlist.c				\
+	empathy-tp-streamed-media.c			\
 	empathy-utils.c
 
 # these are sources that depend on GOA

@@ -95,18 +95,70 @@ empathy_call_create_call_request (const gchar *contact,
     NULL);
 }
 
+GHashTable *
+empathy_call_create_streamed_media_request (const gchar *contact,
+    gboolean initial_audio,
+    gboolean initial_video)
+{
+  return tp_asv_new (
+    TP_PROP_CHANNEL_CHANNEL_TYPE, G_TYPE_STRING,
+      TP_IFACE_CHANNEL_TYPE_STREAMED_MEDIA,
+    TP_PROP_CHANNEL_TARGET_HANDLE_TYPE, G_TYPE_UINT,
+      TP_HANDLE_TYPE_CONTACT,
+    TP_PROP_CHANNEL_TARGET_ID, G_TYPE_STRING,
+      contact,
+    TP_PROP_CHANNEL_TYPE_STREAMED_MEDIA_INITIAL_AUDIO, G_TYPE_BOOLEAN,
+      initial_audio,
+    TP_PROP_CHANNEL_TYPE_STREAMED_MEDIA_INITIAL_VIDEO, G_TYPE_BOOLEAN,
+      initial_video,
+    NULL);
+}
+
 static void
-create_call_channel_cb (GObject *source,
+create_streamed_media_channel_cb (GObject *source,
     GAsyncResult *result,
     gpointer user_data)
 {
   GError *error = NULL;
 
+  if (!tp_account_channel_request_create_channel_finish (
+           TP_ACCOUNT_CHANNEL_REQUEST (source),
+           result,
+           &error))
+    {
+      DEBUG ("Failed to create StreamedMedia channel: %s", error->message);
+      show_call_error (error);
+      g_error_free (error);
+    }
+}
+
+static void
+create_call_channel_cb (GObject *source,
+    GAsyncResult *result,
+    gpointer user_data)
+{
+  TpAccountChannelRequest *streamed_media_req = user_data;
+  GError *error = NULL;
+
   if (tp_account_channel_request_create_channel_finish (
       TP_ACCOUNT_CHANNEL_REQUEST (source), result, &error))
-    return;
+    {
+      g_clear_object (&streamed_media_req);
+      return;
+    }
 
   DEBUG ("Failed to create Call channel: %s", error->message);
+
+  if (streamed_media_req != NULL)
+    {
+      DEBUG ("Let's try with an StreamedMedia channel");
+      g_error_free (error);
+      tp_account_channel_request_create_channel_async (streamed_media_req,
+          EMPATHY_AV_BUS_NAME, NULL,
+          create_streamed_media_channel_cb,
+          NULL);
+      return;
+    }
 
   show_call_error (error);
 }
@@ -120,7 +172,10 @@ call_new_with_streams (const gchar *contact,
     gint64 timestamp)
 {
   GHashTable *call_request;
-  TpAccountChannelRequest *call_req;
+  TpAccountChannelRequest *call_req, *streamed_media_req = NULL;
+#ifdef HAVE_EMPATHY_AV
+  GHashTable *streamed_media_request;
+#endif
 
   /* Call */
   call_request = empathy_call_create_call_request (contact,
@@ -131,8 +186,20 @@ call_new_with_streams (const gchar *contact,
 
   g_hash_table_unref (call_request);
 
+#ifdef HAVE_EMPATHY_AV
+  /* StreamedMedia */
+  streamed_media_request = empathy_call_create_streamed_media_request (
+      contact, initial_audio, initial_video);
+
+  streamed_media_req = tp_account_channel_request_new (account,
+      streamed_media_request,
+      timestamp);
+
+  g_hash_table_unref (streamed_media_request);
+#endif
+
   tp_account_channel_request_create_channel_async (call_req,
-      EMPATHY_CALL_BUS_NAME, NULL, create_call_channel_cb, NULL);
+      EMPATHY_CALL_BUS_NAME, NULL, create_call_channel_cb, streamed_media_req);
 
   g_object_unref (call_req);
 }

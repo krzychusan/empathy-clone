@@ -25,6 +25,8 @@
 #include <libnotify/notify.h>
 #include <telepathy-glib/telepathy-glib.h>
 
+#include <libempathy/empathy-tp-streamed-media.h>
+
 #include <libempathy-gtk/empathy-notify-manager.h>
 #include <libempathy-gtk/empathy-call-utils.h>
 
@@ -188,7 +190,12 @@ add_notification_actions (EmpathyNotificationsApprover *self,
           self, NULL);
       break;
 
+    case EMPATHY_EVENT_TYPE_VOIP:
     case EMPATHY_EVENT_TYPE_CALL:
+      if (self->priv->event->type == EMPATHY_EVENT_TYPE_VOIP)
+        video = empathy_tp_streamed_media_has_initial_video (
+            EMPATHY_TP_STREAMED_MEDIA (self->priv->event->handler_instance));
+      else
         video = tp_call_channel_has_initial_video (
             TP_CALL_CHANNEL (self->priv->event->handler_instance), NULL);
 
@@ -253,6 +260,7 @@ notification_is_urgent (EmpathyNotificationsApprover *self,
    * interact ASAP */
   switch (self->priv->event->type) {
     case EMPATHY_EVENT_TYPE_CHAT:
+    case EMPATHY_EVENT_TYPE_VOIP:
     case EMPATHY_EVENT_TYPE_CALL:
     case EMPATHY_EVENT_TYPE_TRANSFER:
     case EMPATHY_EVENT_TYPE_INVITATION:
@@ -280,6 +288,7 @@ get_category_for_event_type (EmpathyEventType type)
       return "presence.online";
     case EMPATHY_EVENT_TYPE_PRESENCE_OFFLINE:
       return "presence.offline";
+    case EMPATHY_EVENT_TYPE_VOIP:
     case EMPATHY_EVENT_TYPE_CALL:
       return "x-empathy.call.incoming";
     case EMPATHY_EVENT_TYPE_TRANSFER:

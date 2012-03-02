@@ -43,7 +43,6 @@ KEYRING_REQUIRED=2.26.0
 GCR_REQUIRED=2.91.4
 LIBCANBERRA_GTK_REQUIRED=0.25
 LIBNOTIFY_REQUIRED=0.7.0
-TELEPATHY_FARSIGHT_REQUIRED=0.0.18
 TELEPATHY_FARSTREAM_REQUIRED=0.2.1
 TELEPATHY_GLIB_REQUIRED=0.17.5
 TELEPATHY_LOGGER=0.2.10
@@ -209,6 +208,24 @@ PKG_CHECK_MODULES(EMPATHY_CALL,
 
 AC_DEFINE(EMPATHY_GOA_PROVIDER, "org.gnome.OnlineAccounts",
    [Name of provider for accounts imported from GOA])
+
+# -----------------------------------------------------------
+# Build empathy-av?
+# -----------------------------------------------------------
+AC_ARG_ENABLE(empathy-av,
+            AS_HELP_STRING([--enable-empathy-av=@<:@no/yes@:>@],
+            [build empathy-av (legacy call UI)]),,
+            [enable_empathy_av=no])
+if test "x$enable_empathy_av" != "xno" ; then
+   PKG_CHECK_MODULES(EMPATHY_AV,
+   [
+      farstream-0.1
+      telepathy-farstream >= $TELEPATHY_FARSTREAM_REQUIRED
+   ])
+   AC_DEFINE(HAVE_EMPATHY_AV, 1, [Define if you have StreamedMedia channel support])
+   have_empathy_av=yes
+fi
+AM_CONDITIONAL(HAVE_EMPATHY_AV, test "x$have_empathy_av" = "xyes")
 
 # -----------------------------------------------------------
 # Call support in tp-logger
@@ -669,4 +686,5 @@ Configure summary:
 	GOA MC plugin...............:  ${have_goa}
 	Salut E-D-S support.........:  ${with_eds}
 	Exp. Call log support.......:  ${have_call_logs}
+	empathy-av (legacy).........:  ${enable_empathy_av}
 "
