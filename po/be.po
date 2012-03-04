@@ -5,17 +5,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: empathy.master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-26 12:55+0300\n"
-"PO-Revision-Date: 2012-02-26 12:55+0300\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=empathy&keywords=I18N+L10N&component=General\n"
+"POT-Creation-Date: 2012-03-02 10:35+0000\n"
+"PO-Revision-Date: 2012-03-04 10:59+0300\n"
 "Last-Translator: Kasia Bondarava <kasia.bondarava@gmail.com>\n"
 "Language-Team: Belarusian <be-i18n-gnome@googlegroups.com>\n"
-"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: be\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../data/empathy.desktop.in.in.h:1
 msgid "Empathy"
@@ -1600,9 +1601,10 @@ msgstr "Удзельнік %s цяпер называецца %s"
 #. We don't know if the incoming call has been accepted or not, so we
 #. * assume it hasn't and if it has, we'll set the proper status when
 #. * we get the new handler.
-#: ../libempathy-gtk/empathy-chat.c:2993 ../src/empathy-event-manager.c:1197
-#: ../src/empathy-call-window.c:1502 ../src/empathy-call-window.c:1552
-#: ../src/empathy-call-window.c:2585
+#: ../libempathy-gtk/empathy-chat.c:2993
+#: ../src/empathy-streamed-media-window.c:1886
+#: ../src/empathy-event-manager.c:1279 ../src/empathy-call-window.c:1502
+#: ../src/empathy-call-window.c:1552 ../src/empathy-call-window.c:2585
 msgid "Disconnected"
 msgstr "Адлучаны"
 
@@ -1637,7 +1639,7 @@ msgstr "Гэты пакой абаронены паролем:"
 msgid "Join"
 msgstr "Далучыцца"
 
-#: ../libempathy-gtk/empathy-chat.c:4070 ../src/empathy-event-manager.c:1218
+#: ../libempathy-gtk/empathy-chat.c:4070 ../src/empathy-event-manager.c:1300
 msgid "Connected"
 msgstr "Злучаны"
 
@@ -2107,8 +2109,11 @@ msgstr "%s (%s)"
 msgid "Select account to use to place the call"
 msgstr "Выберыце конт для перанакіравання званка"
 
+#. translators: Call is a noun. This string is used in the window
+#. * title
 #: ../libempathy-gtk/empathy-individual-menu.c:348
 #: ../libempathy-gtk/empathy-log-window.ui.h:6
+#: ../src/empathy-streamed-media-window.c:1288
 #: ../src/empathy-call-window.ui.h:18
 msgid "Call"
 msgstr "Званок"
@@ -2439,6 +2444,7 @@ msgstr "Чат"
 
 #: ../libempathy-gtk/empathy-log-window.ui.h:7
 #: ../src/empathy-call-window.ui.h:26
+#: ../src/empathy-streamed-media-window.ui.h:19
 msgid "Video"
 msgstr "Відэа"
 
@@ -3027,7 +3033,9 @@ msgstr "Ваш конт %s мае незахаваныя змены."
 msgid "Your new account has not been saved yet."
 msgstr "Ваш новы конт яшчэ не захаваны."
 
-#: ../src/empathy-accounts-dialog.c:370 ../src/empathy-call-window.c:1289
+#: ../src/empathy-accounts-dialog.c:370
+#: ../src/empathy-streamed-media-window.c:757
+#: ../src/empathy-call-window.c:1289
 msgid "Connecting…"
 msgstr "Злучэнне..."
 
@@ -3153,7 +3161,187 @@ msgstr "- ідэнтыфікацыйны кліент Empathy"
 msgid "Empathy authentication client"
 msgstr "Ідэнтыфікацыйны кліент Empathy"
 
+#: ../src/empathy-av.c:118 ../src/empathy-call.c:201
+msgid "- Empathy Audio/Video Client"
+msgstr "- Аўдыя- і відэакліент Empathy"
+
+#: ../src/empathy-av.c:134 ../src/empathy-call.c:223
+msgid "Empathy Audio/Video Client"
+msgstr "Аўдыя- і відэакліент Empathy"
+
+#: ../src/empathy-streamed-media-window.c:433
+msgid "Contrast"
+msgstr "Кантраснасць"
+
+#: ../src/empathy-streamed-media-window.c:436
+msgid "Brightness"
+msgstr "Яркасць"
+
+#: ../src/empathy-streamed-media-window.c:439
+msgid "Gamma"
+msgstr "Гама"
+
+#: ../src/empathy-streamed-media-window.c:545
+msgid "Volume"
+msgstr "Гучнасць"
+
+#: ../src/empathy-streamed-media-window.c:1097
+msgid "_Sidebar"
+msgstr "_Бакавая паліца"
+
+#: ../src/empathy-streamed-media-window.c:1117
+msgid "Audio input"
+msgstr "Аўдыяўвод"
+
+#: ../src/empathy-streamed-media-window.c:1121
+msgid "Video input"
+msgstr "Відэаўвод"
+
+#: ../src/empathy-streamed-media-window.c:1129
+msgid "Dialpad"
+msgstr "Панэль набору"
+
+#: ../src/empathy-streamed-media-window.c:1140
+msgid "Details"
+msgstr "Падрабязнасці"
+
+#. translators: Call is a noun and %s is the contact name. This string
+#. * is used in the window title
+#: ../src/empathy-streamed-media-window.c:1209
+#: ../src/empathy-call-window.c:1889
+#, c-format
+msgid "Call with %s"
+msgstr "Званок: %s"
+
+#: ../src/empathy-streamed-media-window.c:1442
+#: ../src/empathy-call-window.c:2133
+msgid "The IP address as seen by the machine"
+msgstr "IP-адрас, які бачыць машына"
+
+#: ../src/empathy-streamed-media-window.c:1444
+#: ../src/empathy-call-window.c:2135
+msgid "The IP address as seen by a server on the Internet"
+msgstr "IP-адрас, які бачыць сервер у інтэрнэце"
+
+#: ../src/empathy-streamed-media-window.c:1446
+#: ../src/empathy-call-window.c:2137
+msgid "The IP address of the peer as seen by the other side"
+msgstr "IP-адрас суразмоўцы, бачны з іншага боку злучэння"
+
+#: ../src/empathy-streamed-media-window.c:1448
+#: ../src/empathy-call-window.c:2139
+msgid "The IP address of a relay server"
+msgstr "IP-адрас рэтранслятарнага сервера"
+
+#: ../src/empathy-streamed-media-window.c:1450
+#: ../src/empathy-call-window.c:2141
+msgid "The IP address of the multicast group"
+msgstr "IP-адрас мультыкаст-групы"
+
+#: ../src/empathy-streamed-media-window.c:1835
+#: ../src/empathy-streamed-media-window.c:1838
+#: ../src/empathy-streamed-media-window.c:1841
+#: ../src/empathy-streamed-media-window.c:1844
+msgctxt "codec"
+msgid "Unknown"
+msgstr "Невядомы"
+
+#. Translators: number of minutes:seconds the caller has been connected
+#: ../src/empathy-streamed-media-window.c:2136
+#, c-format
+msgid "Connected — %d:%02dm"
+msgstr "Злучэнне: %d:%02d хв"
+
+#: ../src/empathy-streamed-media-window.c:2197
+#: ../src/empathy-call-window.c:2987
+msgid "Technical Details"
+msgstr "Тэхнічныя падрабязнасці"
+
+#: ../src/empathy-streamed-media-window.c:2235
+#: ../src/empathy-call-window.c:3026
+#, c-format
+msgid ""
+"%s's software does not understand any of the audio formats supported by your "
+"computer"
+msgstr ""
+"Апраграмаванне, якім карыстаецца %s, не разумее ні аднаго з аўдыяфарматаў, "
+"якія падтрымлівае ваш камп'ютар"
+
+#: ../src/empathy-streamed-media-window.c:2240
+#: ../src/empathy-call-window.c:3031
+#, c-format
+msgid ""
+"%s's software does not understand any of the video formats supported by your "
+"computer"
+msgstr ""
+"Апраграмаванне, якім карыстаецца %s, не разумее ні аднаго з відэафарматаў, "
+"якія падтрымлівае ваш камп'ютар"
+
+#: ../src/empathy-streamed-media-window.c:2246
+#: ../src/empathy-call-window.c:3037
+#, c-format
+msgid ""
+"Can't establish a connection to %s. One of you might be on a network that "
+"does not allow direct connections."
+msgstr ""
+"Не ўдалося ўсталяваць злучэнне з %s. Відаць, хтосьці з вас далучаны да "
+"сеткі, якая не дазваляе непасрэднае злучэнне."
+
+#: ../src/empathy-streamed-media-window.c:2252
+#: ../src/empathy-call-window.c:3043
+msgid "There was a failure on the network"
+msgstr "У сетцы ўзнікла памылка"
+
+#: ../src/empathy-streamed-media-window.c:2256
+#: ../src/empathy-call-window.c:3047
+msgid ""
+"The audio formats necessary for this call are not installed on your computer"
+msgstr ""
+"Апраграмаванне для аўдыяфарматаў, патрэбных для абслугоўвання гэтага званка, "
+"не ўсталявана на гэтым камп'ютары"
+
+#: ../src/empathy-streamed-media-window.c:2259
+#: ../src/empathy-call-window.c:3050
+msgid ""
+"The video formats necessary for this call are not installed on your computer"
+msgstr ""
+"Апраграмаванне для відэафарматаў, патрэбных для абслугоўвання гэтага званка, "
+"не ўсталявана на гэтым камп'ютары"
+
+#: ../src/empathy-streamed-media-window.c:2269
+#: ../src/empathy-call-window.c:3062
+#, c-format
+msgid ""
+"Something unexpected happened in a Telepathy component. Please <a href=\"%s"
+"\">report this bug</a> and attach logs gathered from the 'Debug' window in "
+"the Help menu."
+msgstr ""
+"У кампаненце Telepathy здарылася штосьці нечаканае. Калі ласка, <a href=\"%s"
+"\">паведаміце аб гэтай хібе ў праграме</a> і прычапіце журнальны вывад з "
+"акенца \"Адладка\" ў меню \"Дапамога\"."
+
+#: ../src/empathy-streamed-media-window.c:2277
+#: ../src/empathy-call-window.c:3071
+msgid "There was a failure in the call engine"
+msgstr "У рухавіку званкоў узнікла памылка"
+
+#: ../src/empathy-streamed-media-window.c:2280
+#: ../src/empathy-call-window.c:3074
+msgid "The end of the stream was reached"
+msgstr "Дасягнуты канец струменя"
+
+#: ../src/empathy-streamed-media-window.c:2320
+#: ../src/empathy-call-window.c:3114
+msgid "Can't establish audio stream"
+msgstr "Не ўдалося распачаць аўдыяструменяванне"
+
+#: ../src/empathy-streamed-media-window.c:2330
+#: ../src/empathy-call-window.c:3124
+msgid "Can't establish video stream"
+msgstr "Не ўдалося распачаць відэаструменяванне"
+
 #: ../src/empathy-call-window.ui.h:1
+#: ../src/empathy-streamed-media-window.ui.h:1
 msgid "_Call"
 msgstr "_Званок"
 
@@ -3171,6 +3359,7 @@ msgstr "_Настройкі"
 
 #: ../src/empathy-call-window.ui.h:6
 #: ../src/empathy-roster-window-menubar.ui.h:17
+#: ../src/empathy-streamed-media-window.ui.h:8
 msgid "_View"
 msgstr "_Від"
 
@@ -3206,10 +3395,12 @@ msgid "Disable camera"
 msgstr "Выключыць відэакамеру"
 
 #: ../src/empathy-call-window.ui.h:14
+#: ../src/empathy-streamed-media-window.ui.h:2
 msgid "Hang up"
 msgstr "Павесіць трубку"
 
 #: ../src/empathy-call-window.ui.h:15
+#: ../src/empathy-streamed-media-window.ui.h:9
 msgid "Hang up current call"
 msgstr "Закончыць гэту размову"
 
@@ -3242,36 +3433,44 @@ msgid "Toggle video transmission"
 msgstr "Пераключыць перадачу відэасігналу"
 
 #: ../src/empathy-call-window.ui.h:24
+#: ../src/empathy-streamed-media-window.ui.h:11
 msgid "Send Audio"
 msgstr "Пасылаць аўдыясігнал"
 
 #: ../src/empathy-call-window.ui.h:25
+#: ../src/empathy-streamed-media-window.ui.h:12
 msgid "Toggle audio transmission"
 msgstr "Пераключыць перадачу аўдыясігналу"
 
 #: ../src/empathy-call-window.ui.h:27
+#: ../src/empathy-streamed-media-window.ui.h:20
 msgid "Encoding Codec:"
 msgstr "Кадавальны кодэк:"
 
-#: ../src/empathy-call-window.ui.h:28 ../src/empathy-call-window.c:2537
-#: ../src/empathy-call-window.c:2538 ../src/empathy-call-window.c:2539
-#: ../src/empathy-call-window.c:2540
+#: ../src/empathy-call-window.ui.h:28
+#: ../src/empathy-streamed-media-window.ui.h:21
+#: ../src/empathy-call-window.c:2537 ../src/empathy-call-window.c:2538
+#: ../src/empathy-call-window.c:2539 ../src/empathy-call-window.c:2540
 msgid "Unknown"
 msgstr "Невядома"
 
 #: ../src/empathy-call-window.ui.h:29
+#: ../src/empathy-streamed-media-window.ui.h:22
 msgid "Decoding Codec:"
 msgstr "Дэкадавальны кодэк:"
 
 #: ../src/empathy-call-window.ui.h:30
+#: ../src/empathy-streamed-media-window.ui.h:23
 msgid "Remote Candidate:"
 msgstr "Аддалены кандыдат:"
 
 #: ../src/empathy-call-window.ui.h:31
+#: ../src/empathy-streamed-media-window.ui.h:24
 msgid "Local Candidate:"
 msgstr "Мясцовы кандыдат:"
 
 #: ../src/empathy-call-window.ui.h:32 ../src/empathy-preferences.ui.h:24
+#: ../src/empathy-streamed-media-window.ui.h:25
 msgid "Audio"
 msgstr "Аўдыя"
 
@@ -3451,95 +3650,96 @@ msgstr "Аўтаматычнае злучэнне"
 msgid "Manage Favorite Rooms"
 msgstr "Кіраванне спісам упадабаных пакояў для групавога чату"
 
-#: ../src/empathy-event-manager.c:511
+#: ../src/empathy-event-manager.c:522
 msgid "Incoming video call"
 msgstr "Уваходны відэазванок"
 
-#: ../src/empathy-event-manager.c:511 ../src/empathy-call-window.c:1519
+#: ../src/empathy-event-manager.c:522 ../src/empathy-call-window.c:1519
 msgid "Incoming call"
 msgstr "Уваходны званок"
 
-#: ../src/empathy-event-manager.c:515
+#: ../src/empathy-event-manager.c:526
 #, c-format
 msgid "%s is video calling you. Do you want to answer?"
 msgstr "%s просіць відэаразмовы. Адкажаце?"
 
-#: ../src/empathy-event-manager.c:516
+#: ../src/empathy-event-manager.c:527
 #, c-format
 msgid "%s is calling you. Do you want to answer?"
 msgstr "%s·просіць размовы. Адкажаце?"
 
-#: ../src/empathy-event-manager.c:519 ../src/empathy-event-manager.c:720
-#: ../src/empathy-call-window.c:1525
+#: ../src/empathy-event-manager.c:530 ../src/empathy-event-manager.c:731
+#: ../src/empathy-event-manager.c:764 ../src/empathy-call-window.c:1525
 #, c-format
 msgid "Incoming call from %s"
 msgstr "Уваходны званок ад %s"
 
-#: ../src/empathy-event-manager.c:544
+#: ../src/empathy-event-manager.c:555
 msgid "_Reject"
 msgstr "_Скінуць"
 
-#: ../src/empathy-event-manager.c:552 ../src/empathy-event-manager.c:560
+#: ../src/empathy-event-manager.c:563 ../src/empathy-event-manager.c:571
 msgid "_Answer"
 msgstr "_Адказаць"
 
-#: ../src/empathy-event-manager.c:560
+#: ../src/empathy-event-manager.c:571
 msgid "_Answer with video"
 msgstr "_Адказаць з відэа"
 
-#: ../src/empathy-event-manager.c:720 ../src/empathy-call-window.c:1525
+#: ../src/empathy-event-manager.c:731 ../src/empathy-event-manager.c:764
+#: ../src/empathy-call-window.c:1525
 #, c-format
 msgid "Incoming video call from %s"
 msgstr "Уваходны відэазванок ад %s"
 
-#: ../src/empathy-event-manager.c:778
+#: ../src/empathy-event-manager.c:837
 msgid "Room invitation"
 msgstr "Запрашэнне ў пакой для групавога чату"
 
-#: ../src/empathy-event-manager.c:780
+#: ../src/empathy-event-manager.c:839
 #, c-format
 msgid "Invitation to join %s"
 msgstr "Запрашэнне ў %s"
 
-#: ../src/empathy-event-manager.c:787
+#: ../src/empathy-event-manager.c:846
 #, c-format
 msgid "%s is inviting you to join %s"
 msgstr "Удзельнік %s запрашае вас далучыцца да %s"
 
-#: ../src/empathy-event-manager.c:795
+#: ../src/empathy-event-manager.c:854
 msgid "_Decline"
 msgstr "_Адмовіцца"
 
-#: ../src/empathy-event-manager.c:800
+#: ../src/empathy-event-manager.c:859
 #: ../src/empathy-new-chatroom-dialog.ui.h:2
 msgid "_Join"
 msgstr "_Прыняць запрашэнне"
 
-#: ../src/empathy-event-manager.c:827
+#: ../src/empathy-event-manager.c:886
 #, c-format
 msgid "%s invited you to join %s"
 msgstr "Удзельнік %s запрасіў вас у %s"
 
-#: ../src/empathy-event-manager.c:833
+#: ../src/empathy-event-manager.c:892
 #, c-format
 msgid "You have been invited to join %s"
 msgstr "Вас запрасілі ў %s"
 
-#: ../src/empathy-event-manager.c:884
+#: ../src/empathy-event-manager.c:943
 #, c-format
 msgid "Incoming file transfer from %s"
 msgstr "Уваходны файл ад %s"
 
-#: ../src/empathy-event-manager.c:1064 ../src/empathy-roster-window.c:374
+#: ../src/empathy-event-manager.c:1146 ../src/empathy-roster-window.c:374
 msgid "Password required"
 msgstr "Патрэбны пароль"
 
-#: ../src/empathy-event-manager.c:1134
+#: ../src/empathy-event-manager.c:1216
 #, c-format
 msgid "%s would like permission to see when you are online"
 msgstr "%s просіць дазволу на прагляд вашага сеткавага стану"
 
-#: ../src/empathy-event-manager.c:1140
+#: ../src/empathy-event-manager.c:1222
 #, c-format
 msgid ""
 "\n"
@@ -4177,89 +4377,137 @@ msgstr "Стан"
 msgid "_Quit"
 msgstr "_Выйсці"
 
+#: ../src/empathy-streamed-media-window.ui.h:3
+msgid "Redial"
+msgstr "Перазваніць"
+
+#: ../src/empathy-streamed-media-window.ui.h:4
+msgid "V_ideo"
+msgstr "_Відэа"
+
+#: ../src/empathy-streamed-media-window.ui.h:5
+msgid "Video Off"
+msgstr "Выключыць відэа"
+
+#: ../src/empathy-streamed-media-window.ui.h:6
+msgid "Video Preview"
+msgstr "Папярэдні агляд відэа"
+
+#: ../src/empathy-streamed-media-window.ui.h:7
+msgid "Video On"
+msgstr "Уключыць відэа"
+
+#: ../src/empathy-streamed-media-window.ui.h:10
+msgid "Call the contact again"
+msgstr "Яшчэ раз пазваніць кантакту"
+
+#: ../src/empathy-streamed-media-window.ui.h:13
+msgid "Camera Off"
+msgstr "Выключыць камеру"
+
+#: ../src/empathy-streamed-media-window.ui.h:14
+msgid "Disable camera and stop sending video"
+msgstr "Выключыць камеру і перастаць пасылаць відэасігнал"
+
+#: ../src/empathy-streamed-media-window.ui.h:15
+msgid "Preview"
+msgstr "Папярэдні агляд"
+
+#: ../src/empathy-streamed-media-window.ui.h:16
+msgid "Enable camera but don't send video"
+msgstr "Уключыць камеру, але не пасылаць відэасігнал"
+
+#: ../src/empathy-streamed-media-window.ui.h:17
+msgid "Camera On"
+msgstr "Уключыць камеру"
+
+#: ../src/empathy-streamed-media-window.ui.h:18
+msgid "Enable camera and send video"
+msgstr "Уключыць камеру і пасылаць відэасігнал"
+
 #: ../src/empathy-map-view.c:471
 msgid "Contact Map View"
 msgstr "Прагляд карты кантактаў"
 
-#: ../src/empathy-debug-window.c:1598
+#: ../src/empathy-debug-window.c:1607
 msgid "Save"
 msgstr "Захаваць"
 
-#: ../src/empathy-debug-window.c:1658
+#: ../src/empathy-debug-window.c:1667
 msgid "Pastebin link"
 msgstr "Спасылка pastebin"
 
-#: ../src/empathy-debug-window.c:1667
+#: ../src/empathy-debug-window.c:1676
 msgid "Pastebin response"
 msgstr "Адказ pastebin"
 
-#: ../src/empathy-debug-window.c:1671
+#: ../src/empathy-debug-window.c:1680
 #, c-format
 msgid "%s"
 msgstr "%s"
 
-#: ../src/empathy-debug-window.c:1674
+#: ../src/empathy-debug-window.c:1683
 msgid "Data too large for a single paste. Please save logs to file."
 msgstr ""
 "Надта шмат даных для адной устаўкі. Замест гэтага захавайце журнал у файл."
 
-#: ../src/empathy-debug-window.c:1903
+#: ../src/empathy-debug-window.c:1912
 msgid "Debug Window"
 msgstr "Акно адладкі"
 
-#: ../src/empathy-debug-window.c:1961
+#: ../src/empathy-debug-window.c:1970
 msgid "Send to pastebin"
 msgstr "Паслаць як pastebin"
 
-#: ../src/empathy-debug-window.c:2000
+#: ../src/empathy-debug-window.c:2009
 msgid "Pause"
 msgstr "Прыпыніць"
 
-#: ../src/empathy-debug-window.c:2012
+#: ../src/empathy-debug-window.c:2021
 msgid "Level "
 msgstr "Узровень "
 
-#: ../src/empathy-debug-window.c:2031
+#: ../src/empathy-debug-window.c:2040
 msgid "Debug"
 msgstr "Адладка"
 
-#: ../src/empathy-debug-window.c:2036
+#: ../src/empathy-debug-window.c:2045
 msgid "Info"
 msgstr "Інфармацыя"
 
-#: ../src/empathy-debug-window.c:2041 ../src/empathy-debug-window.c:2087
+#: ../src/empathy-debug-window.c:2050 ../src/empathy-debug-window.c:2096
 msgid "Message"
 msgstr "Паведамленне"
 
-#: ../src/empathy-debug-window.c:2046
+#: ../src/empathy-debug-window.c:2055
 msgid "Warning"
 msgstr "Папярэджанне"
 
-#: ../src/empathy-debug-window.c:2051
+#: ../src/empathy-debug-window.c:2060
 msgid "Critical"
 msgstr "Крытычная памылка"
 
-#: ../src/empathy-debug-window.c:2056
+#: ../src/empathy-debug-window.c:2065
 msgid "Error"
 msgstr "Памылка"
 
-#: ../src/empathy-debug-window.c:2075
+#: ../src/empathy-debug-window.c:2084
 msgid "Time"
 msgstr "Час"
 
-#: ../src/empathy-debug-window.c:2078
+#: ../src/empathy-debug-window.c:2087
 msgid "Domain"
 msgstr "Дамен"
 
-#: ../src/empathy-debug-window.c:2080
+#: ../src/empathy-debug-window.c:2089
 msgid "Category"
 msgstr "Катэгорыя"
 
-#: ../src/empathy-debug-window.c:2082
+#: ../src/empathy-debug-window.c:2091
 msgid "Level"
 msgstr "Узровень"
 
-#: ../src/empathy-debug-window.c:2105
+#: ../src/empathy-debug-window.c:2114
 msgid ""
 "The selected connection manager does not support the remote debugging "
 "extension."
@@ -4326,39 +4574,39 @@ msgstr "Адладчык Empathy"
 msgid "- Empathy Chat Client"
 msgstr "- Кліент чату Empathy"
 
-#: ../src/empathy-notifications-approver.c:187
+#: ../src/empathy-notifications-approver.c:189
 msgid "Respond"
 msgstr "Адказаць"
 
-#: ../src/empathy-notifications-approver.c:196
+#: ../src/empathy-notifications-approver.c:203
 #: ../src/empathy-call-window.c:1529
 msgid "Reject"
 msgstr "Скінуць"
 
-#: ../src/empathy-notifications-approver.c:201
-#: ../src/empathy-notifications-approver.c:206
+#: ../src/empathy-notifications-approver.c:208
+#: ../src/empathy-notifications-approver.c:213
 #: ../src/empathy-call-window.c:1530
 msgid "Answer"
 msgstr "Адказаць"
 
-#: ../src/empathy-notifications-approver.c:206
+#: ../src/empathy-notifications-approver.c:213
 msgid "Answer with video"
 msgstr "Адказаць з відэа"
 
-#: ../src/empathy-notifications-approver.c:214
-#: ../src/empathy-notifications-approver.c:224
+#: ../src/empathy-notifications-approver.c:221
+#: ../src/empathy-notifications-approver.c:231
 msgid "Decline"
 msgstr "Адмовіцца"
 
-#: ../src/empathy-notifications-approver.c:218
-#: ../src/empathy-notifications-approver.c:229
+#: ../src/empathy-notifications-approver.c:225
+#: ../src/empathy-notifications-approver.c:236
 msgid "Accept"
 msgstr "Прыняць"
 
 #. translators: the 'Provide' button is displayed in a notification
 #. * bubble when Empathy is asking for an account password; clicking on it
 #. * brings the password popup.
-#: ../src/empathy-notifications-approver.c:239
+#: ../src/empathy-notifications-approver.c:246
 msgid "Provide"
 msgstr "Падаць пароль"
 
@@ -4373,33 +4621,6 @@ msgstr ""
 #: ../src/empathy-call-window.c:1136 ../src/empathy-call-window.c:1159
 msgid "i"
 msgstr "і"
-
-#. translators: Call is a noun and %s is the contact name. This string
-#. * is used in the window title
-#: ../src/empathy-call-window.c:1889
-#, c-format
-msgid "Call with %s"
-msgstr "Званок: %s"
-
-#: ../src/empathy-call-window.c:2133
-msgid "The IP address as seen by the machine"
-msgstr "IP-адрас, які бачыць машына"
-
-#: ../src/empathy-call-window.c:2135
-msgid "The IP address as seen by a server on the Internet"
-msgstr "IP-адрас, які бачыць сервер у інтэрнэце"
-
-#: ../src/empathy-call-window.c:2137
-msgid "The IP address of the peer as seen by the other side"
-msgstr "IP-адрас суразмоўцы, бачны з іншага боку злучэння"
-
-#: ../src/empathy-call-window.c:2139
-msgid "The IP address of a relay server"
-msgstr "IP-адрас рэтранслятарнага сервера"
-
-#: ../src/empathy-call-window.c:2141
-msgid "The IP address of the multicast group"
-msgstr "IP-адрас мультыкаст-групы"
 
 #: ../src/empathy-call-window.c:2883
 msgid "On hold"
@@ -4419,82 +4640,6 @@ msgstr "Працягласць"
 msgid "%s — %d:%02dm"
 msgstr "%s — %d:%02d хв"
 
-#: ../src/empathy-call-window.c:2987
-msgid "Technical Details"
-msgstr "Тэхнічныя падрабязнасці"
-
-#: ../src/empathy-call-window.c:3026
-#, c-format
-msgid ""
-"%s's software does not understand any of the audio formats supported by your "
-"computer"
-msgstr ""
-"Апраграмаванне, якім карыстаецца %s, не разумее ні аднаго з аўдыяфарматаў, "
-"якія падтрымлівае ваш камп'ютар"
-
-#: ../src/empathy-call-window.c:3031
-#, c-format
-msgid ""
-"%s's software does not understand any of the video formats supported by your "
-"computer"
-msgstr ""
-"Апраграмаванне, якім карыстаецца %s, не разумее ні аднаго з відэафарматаў, "
-"якія падтрымлівае ваш камп'ютар"
-
-#: ../src/empathy-call-window.c:3037
-#, c-format
-msgid ""
-"Can't establish a connection to %s. One of you might be on a network that "
-"does not allow direct connections."
-msgstr ""
-"Не ўдалося ўсталяваць злучэнне з %s. Відаць, хтосьці з вас далучаны да "
-"сеткі, якая не дазваляе непасрэднае злучэнне."
-
-#: ../src/empathy-call-window.c:3043
-msgid "There was a failure on the network"
-msgstr "У сетцы ўзнікла памылка"
-
-#: ../src/empathy-call-window.c:3047
-msgid ""
-"The audio formats necessary for this call are not installed on your computer"
-msgstr ""
-"Апраграмаванне для аўдыяфарматаў, патрэбных для абслугоўвання гэтага званка, "
-"не ўсталявана на гэтым камп'ютары"
-
-#: ../src/empathy-call-window.c:3050
-msgid ""
-"The video formats necessary for this call are not installed on your computer"
-msgstr ""
-"Апраграмаванне для відэафарматаў, патрэбных для абслугоўвання гэтага званка, "
-"не ўсталявана на гэтым камп'ютары"
-
-#: ../src/empathy-call-window.c:3062
-#, c-format
-msgid ""
-"Something unexpected happened in a Telepathy component. Please <a href=\"%s"
-"\">report this bug</a> and attach logs gathered from the 'Debug' window in "
-"the Help menu."
-msgstr ""
-"У кампаненце Telepathy здарылася штосьці нечаканае. Калі ласка, <a href=\"%s"
-"\">паведаміце аб гэтай хібе ў праграме</a> і прычапіце журнальны вывад з "
-"акенца \"Адладка\" ў меню \"Дапамога\"."
-
-#: ../src/empathy-call-window.c:3071
-msgid "There was a failure in the call engine"
-msgstr "У рухавіку званкоў узнікла памылка"
-
-#: ../src/empathy-call-window.c:3074
-msgid "The end of the stream was reached"
-msgstr "Дасягнуты канец струменя"
-
-#: ../src/empathy-call-window.c:3114
-msgid "Can't establish audio stream"
-msgstr "Не ўдалося распачаць аўдыяструменяванне"
-
-#: ../src/empathy-call-window.c:3124
-msgid "Can't establish video stream"
-msgstr "Не ўдалося распачаць відэаструменяванне"
-
 #: ../src/empathy-call-window.c:3161
 #, c-format
 msgid "Your current balance is %s."
@@ -4507,14 +4652,6 @@ msgstr "Вам не стае грошай, каб выканаць гэты зв
 #: ../src/empathy-call-window.c:3167
 msgid "Top Up"
 msgstr "Папоўніць"
-
-#: ../src/empathy-call.c:201
-msgid "- Empathy Audio/Video Client"
-msgstr "- Аўдыя- і відэакліент Empathy"
-
-#: ../src/empathy-call.c:223
-msgid "Empathy Audio/Video Client"
-msgstr "Аўдыя- і відэакліент Empathy"
 
 #: ../libempathy-gtk/empathy-search-bar.c:243
 msgid "_Match case"
