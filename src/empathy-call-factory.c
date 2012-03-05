@@ -103,6 +103,8 @@ empathy_call_factory_init (EmpathyCallFactory *obj)
         NULL));
 
   tp_base_client_add_handler_capabilities_varargs (client,
+      "org.freedesktop.Telepathy.Channel.Type.Call1/audio",
+      "org.freedesktop.Telepathy.Channel.Type.Call1/video",
       "org.freedesktop.Telepathy.Channel.Type.Call1/ice-udp",
       "org.freedesktop.Telepathy.Channel.Type.Call1/gtalk-p2p",
       "org.freedesktop.Telepathy.Channel.Type.Call1/video/h264",
