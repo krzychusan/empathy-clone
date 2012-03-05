@@ -15,6 +15,13 @@ gsettings_SCHEMAS = $(gsettings_files:.xml.in=.xml)
 @INTLTOOL_XML_NOMERGE_RULE@
 @GSETTINGS_RULES@
 
+# We need to compile schemas at make time
+# to run from source tree
+gschemas.compiled: $(gsettings_SCHEMAS:.xml=.valid)
+	$(AM_V_GEN) $(GLIB_COMPILE_SCHEMAS) --targetdir=. .
+
+all-local: gschemas.compiled
+
 convertdir = $(datarootdir)/GConf/gsettings
 convert_DATA = \
 	empathy.convert
@@ -82,4 +89,5 @@ DISTCLEANFILES = 		\
 	$(schemas_DATA)		\
 	$(servicefile_DATA)	\
 	$(gsettings_SCHEMAS)	\
+	gschemas.compiled	\
 	$(NULL)

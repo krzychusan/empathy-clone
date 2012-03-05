@@ -1,0 +1,9 @@
+#!/bin/sh
+abs_top_builddir="@abs_top_builddir@"
+export abs_top_builddir
+EMPATHY_SRCDIR=$abs_top_builddir
+export EMPATHY_SRCDIR
+GSETTINGS_SCHEMA_DIR="${EMPATHY_SRCDIR}/data/"
+export GSETTINGS_SCHEMA_DIR
+
+exec "$@"
