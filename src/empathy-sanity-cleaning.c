@@ -38,12 +38,74 @@
  * If the number stored in gsettings is lower than it, all the tasks will
  * be executed.
  */
-#define SANITY_CLEANING_NUMBER 0
+#define SANITY_CLEANING_NUMBER 1
+
+static void
+account_update_parameters_cb (GObject *source,
+    GAsyncResult *result,
+    gpointer user_data)
+{
+  GError *error = NULL;
+  TpAccount *account = TP_ACCOUNT (source);
+
+  if (!tp_account_update_parameters_finish (account, result, NULL, &error))
+    {
+      DEBUG ("Failed to update parameters of account '%s': %s",
+          tp_account_get_path_suffix (account), error->message);
+
+      g_error_free (error);
+      return;
+    }
+
+  tp_account_reconnect_async (account, NULL, NULL);
+}
+
+/* Make sure XMPP accounts don't have a negative priority (bgo #671452) */
+static void
+fix_xmpp_account_priority (TpAccountManager *am)
+{
+  GList *accounts, *l;
+
+  accounts = tp_account_manager_get_valid_accounts (am);
+  for (l = accounts; l != NULL; l = g_list_next (l))
+    {
+      TpAccount *account = l->data;
+      GHashTable *params;
+      gint priority;
+
+      if (tp_strdiff (tp_account_get_protocol (account), "jabber"))
+        continue;
+
+      params = (GHashTable *) tp_account_get_parameters (account);
+      if (params == NULL)
+        continue;
+
+      priority = tp_asv_get_int32 (params, "priority", NULL);
+      if (priority >= 0)
+        continue;
+
+      DEBUG ("Resetting XMPP priority of account '%s' to 0",
+          tp_account_get_path_suffix (account));
+
+      params = tp_asv_new (
+          "priority", G_TYPE_INT, 0,
+          NULL);
+
+      tp_account_update_parameters_async (account, params, NULL,
+          account_update_parameters_cb, NULL);
+
+      g_hash_table_unref (params);
+    }
+
+  g_list_free (accounts);
+}
 
 static void
 run_sanity_cleaning_tasks (TpAccountManager *am)
 {
   DEBUG ("Starting sanity cleaning tasks");
+
+  fix_xmpp_account_priority (am);
 }
 
 static void
