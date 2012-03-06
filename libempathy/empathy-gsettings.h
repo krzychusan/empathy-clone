@@ -30,6 +30,7 @@ G_BEGIN_DECLS
 #define EMPATHY_PREFS_AUTOCONNECT                  "autoconnect"
 #define EMPATHY_PREFS_AUTOAWAY                     "autoaway"
 #define EMPATHY_PREFS_FILE_TRANSFER_DEFAULT_FOLDER "file-transfer-default-folder"
+#define EMPATHY_PREFS_SANITY_CLEANING_NUMBER       "sanity-cleaning-number"
 
 #define EMPATHY_PREFS_NOTIFICATIONS_SCHEMA EMPATHY_PREFS_SCHEMA ".notifications"
 #define EMPATHY_PREFS_NOTIFICATIONS_ENABLED        "notifications-enabled"

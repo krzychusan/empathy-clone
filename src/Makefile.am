@@ -102,6 +102,7 @@ libexec_PROGRAMS += empathy-av
 endif
 
 empathy_auth_client_SOURCES =						\
+	empathy-sanity-cleaning.c empathy-sanity-cleaning.h \
 	empathy-auth-client.c \
 	$(NULL)
 

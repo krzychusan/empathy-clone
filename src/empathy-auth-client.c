@@ -41,6 +41,8 @@
 #include <libempathy-gtk/empathy-tls-dialog.h>
 #include <libempathy-gtk/empathy-ui-utils.h>
 
+#include "empathy-sanity-cleaning.h"
+
 #include <gnutls/gnutls.h>
 
 #include <extensions/extensions.h>
@@ -351,6 +353,7 @@ main (int argc,
     }
 
   start_timer ();
+  empathy_sanity_checking_run_if_needed ();
 
   gtk_main ();
 
