@@ -1,3 +1,20 @@
+NEW in 3.3.91 (06/03/2012)
+=============
+
+Bugs fixed:
+ - Fixed #661515, Wrong date is shown in chat window
+ - Fixed #671447, Make running empathy componenents without installing them simpler (Emanuele Aina)
+ - Fixed #671452, Avoid XMPP accounts to have a negative priority (Guillaume Desmottes)
+
+Translations:
+ - Updated be Translation (Ihar Hrachyshka)
+ - Updated et Translation (Mattias Põldaru)
+ - Updated eu Translation (Inaki Larranaga Murgoitio)
+ - Updated he Translation (Yaron Shahrabani)
+ - Updated zh_CN Translation (YunQiang Su)
+ - Updated zh_HK Translation (Cheng-Chia Tseng)
+ - Updated zh_TW Translation (Cheng-Chia Tseng)
+
 NEW in 3.3.90.2 (02/03/2012)
 ===============
 
