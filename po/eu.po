@@ -9,10 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-03 17:32+0100\n"
-"PO-Revision-Date: 2012-03-03 18:45+0100\n"
+"POT-Creation-Date: 2012-03-07 11:23+0100\n"
+"PO-Revision-Date: 2012-03-07 11:29+0100\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
-"Language-Team: American English <kde-i18n-doc@kde.org>\n"
+"Language-Team: American English <itzulpena@euskalgnu.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -203,186 +203,190 @@ msgid "Last account selected in Join Room dialog"
 msgstr "'Elkartu gelara' elkarrizketa-koadroan hautatutako azken kontua"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:35
+msgid "Magic number used to check if sanity cleaning tasks should be run"
+msgstr "Zenbaki magikoa garbiketako atazak exekutatu behar diren begiratzeko"
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:36
 msgid "Nick completed character"
 msgstr "Goitizena osatzeko karakterea"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:36
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:37
 msgid "Open new chats in separate windows"
 msgstr "Ireki berriketa berriak beste leihoetan"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:37
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:38
 msgid "Path of the Adium theme to use"
 msgstr "Bide-izena Adium gaia erabiltzeko"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:38
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:39
 msgid "Path of the Adium theme to use if the theme used for chat is Adium."
 msgstr ""
 "Bide-izena Adium gaia erabiltzeko (berriketan erabiliko den gaia Adium bada)."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:39
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:40
 msgid "Play a sound for incoming messages"
 msgstr "Jo soinua mezuak iristean"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:40
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:41
 msgid "Play a sound for new conversations"
 msgstr "Jo soinua solasaldi berrietan"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:41
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:42
 msgid "Play a sound for outgoing messages"
 msgstr "Jo soinua mezuak bidaltzean"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:42
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:43
 msgid "Play a sound when a contact logs in"
 msgstr "Jo soinua kontaktu batek saioa hastean"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:43
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:44
 msgid "Play a sound when a contact logs out"
 msgstr "Jo soinua kontaktu batek saioa amaitzean"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:44
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:45
 msgid "Play a sound when we log in"
 msgstr "Jo soinua zuk saioa hastean"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:45
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:46
 msgid "Play a sound when we log out"
 msgstr "Jo soinua zuk saioa amaitzean"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:46
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:47
 msgid "Pop up notifications if the chat isn't focused"
 msgstr "Jakinarazpen-leihoa berriketak ez badu fokua"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:47
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:48
 msgid "Pop up notifications when a contact logs in"
 msgstr "Jakinarazpen-leihoa kontaktu bat konektatzen denean"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:48
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:49
 msgid "Pop up notifications when a contact logs out"
 msgstr "Jakinarazpen-leihoa kontaktu bat deskonektatzen denean"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:49
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:50
 msgid "Position the camera preview should be during a call."
 msgstr "Kameraren aurrebista zein posiziotan egongo den deian zehar"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:50
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:51
 msgid "Show Balance in contact list"
 msgstr "Erakutsi balantzea kontaktuen zerrendan"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:51
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:52
 msgid "Show avatars"
 msgstr "Erakutsi avatar-ak"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:52
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:53
 msgid "Show contact groups"
 msgstr "Erakutsi kontaktuen taldeak"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:53
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:54
 msgid "Show contact list in rooms"
 msgstr "Erakutsi kontaktu-zerrenda geletan"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:54
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:55
 msgid "Show hint about closing the main window"
 msgstr "Erakutsi leiho nagusia nola ixten den buruzko argibidea"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:55
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:56
 msgid "Show offline contacts"
 msgstr "Erakutsi konektatu gabeko kontaktuak"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:56
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:57
 msgid "Show protocols"
 msgstr "Erakutsi protokoloak"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:57
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:58
 msgid "Spell checking languages"
 msgstr "Hizkuntzen zuzentzailea"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:58
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:59
 msgid "The default folder to save file transfers in."
 msgstr "Karpeta lehenetsia transferitutako fitxategiak gordetzeko."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:59
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:60
 msgid "The last directory that an avatar image was chosen from."
 msgstr "Azken direktorioa, Avatar baten irudia aukeratu dena."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:60
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:61
 msgid "The position for the chat window side pane"
 msgstr "Berriketako leihoaren alboko panelaren posizioa"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:61
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:62
 msgid "The stored position (in pixels) of the chat window side pane."
 msgstr "Berriketako leihoaren alboko panelaren gordetako posizioa (pixeletan)."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:62
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:63
 msgid "The theme that is used to display the conversation in chat windows."
 msgstr "Gaia solasaldian bistaratzeko (berriketako leihoan)."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:63
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:64
 msgid ""
 "The theme variant that is used to display the conversation in chat windows."
 msgstr "Gai aldakorra solasaldian bistaratzeko (berriketako leihoetan)."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:64
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:65
 msgid "Use graphical smileys"
 msgstr "Erabili aurpegierak"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:65
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:66
 msgid "Use notification sounds"
 msgstr "Erabili jakinarazpen-soinuak"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:66
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:67
 msgid "Use theme for chat rooms"
 msgstr "Erabili gaia berriketa-gelan"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:67
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:68
 msgid "Whether Empathy can publish the user's location to their contacts."
 msgstr ""
 "Empathy-k erabiltzailearen kokalekua bere kontaktuei erakutsiko dien edo ez."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:68
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:69
 msgid "Whether Empathy can use the GPS to guess the location."
 msgstr "Empathy-k kokalekua asmatzeko GPSa erabiliko duen edo ez."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:69
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:70
 msgid "Whether Empathy can use the cellular network to guess the location."
 msgstr "Empathy-k kokalekua asmatzeko mugikorren sarea erabiliko duen edo ez."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:70
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:71
 msgid "Whether Empathy can use the network to guess the location."
 msgstr "Empathy-k kokalekua asmatzeko sarea erabiliko duen edo ez."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:71
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:72
 msgid "Whether Empathy should automatically log into your accounts on startup."
 msgstr ""
 "Empathy abiatzean zure kontuetan saioa automatikoki hasi behar den ala ez."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:72
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:73
 msgid ""
 "Whether Empathy should go into away mode automatically if the user is idle."
 msgstr ""
 "Empathy-k 'kanpoan' moduan automatikoki jarriko den erabiltzailea inaktibo "
 "dagoenean."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:73
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:74
 msgid ""
 "Whether Empathy should reduce the location's accuracy for privacy reasons."
 msgstr ""
 "Arrazoi pribatuak direla eta Empathy-k kokalekuaren zehaztasuna gutxiagotuko "
 "duen edo ez."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:74
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:75
 msgid ""
 "Whether Empathy should use the avatar of the contact as the chat window icon."
 msgstr ""
 "Empathy-k berriketako leihoetan kontaktuen avatarrak ikono gisa erakutsi edo "
 "ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:75
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:76
 msgid ""
 "Whether WebKit developer tools, such as the Web Inspector, should be enabled."
 msgstr ""
 "Webkit garatzeko tresnak, 'Web Inspector' bezalakoak, gaitu behar diren edo "
 "ez."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:76
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:77
 msgid ""
 "Whether connectivity managers should be used to automatically disconnect/"
 "reconnect."
@@ -390,86 +394,86 @@ msgstr ""
 "Automatikoki deskonektatzeko/birkonektatzeko sare-kudeatzailea erabili behar "
 "den edo ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:77
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:78
 msgid ""
 "Whether to check words typed against the languages you want to check with."
 msgstr ""
 "Idatzitako hitzen zuzenketa ortografikoa landu edo ez (nahi dituzun "
 "hizkuntzetan)."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:78
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:79
 msgid "Whether to convert smileys into graphical images in conversations."
 msgstr ""
 "Solasaldietan aurpegierak irudi grafikoetara bihurtuko diren ala ez "
 "adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:79
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:80
 msgid "Whether to enable Pulseaudio's echo cancellation filter."
 msgstr ""
 "Pulseaudio-ren oihartzuna ezeztatzeko iragazkia gaitu edo ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:80
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:81
 msgid "Whether to play a sound to notify of contacts logging into the network."
 msgstr ""
 "Kontaktuen sareko saio-hasierak jakinarazteko soinua joko duen ala ez "
 "adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:81
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:82
 msgid ""
 "Whether to play a sound to notify of contacts logging out of the network."
 msgstr ""
 "Kontaktuen sareko saio-amaierak jakinarazteko soinua joko duen ala ez "
 "adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:82
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:83
 msgid "Whether to play a sound to notify of events."
 msgstr "Gertaerak jakinarazteko soinua joko duen ala ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:83
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:84
 msgid "Whether to play a sound to notify of incoming messages."
 msgstr "Sarrerako mezuak jakinarazteko soinua joko duen ala ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:84
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:85
 msgid "Whether to play a sound to notify of new conversations."
 msgstr "Solasaldi berriak jakinarazteko soinua joko duen ala ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:85
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:86
 msgid "Whether to play a sound to notify of outgoing messages."
 msgstr "Irteerako mezuak jakinarazteko soinua joko duen ala ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:86
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:87
 msgid "Whether to play a sound when logging into a network."
 msgstr "Sarean saioa hastean soinua joko duen ala ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:87
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:88
 msgid "Whether to play a sound when logging out of a network."
 msgstr "Sareko saioa amaitzean soinua joko duen ala ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:88
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:89
 msgid "Whether to play sound notifications when away or busy."
 msgstr "Kanpoan edo lanpetuta zaudenean soinua joko duen ala ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:89
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:90
 msgid ""
 "Whether to send the 'composing' or 'paused' chat states. Does not currently "
 "affect the 'gone' state."
 msgstr ""
-"berriketako 'konposatzen' edo 'pausatuta' egoerak bidaliko diren edo ez. "
-"Ez dio 'joanda' egoerari eragiten."
+"berriketako 'konposatzen' edo 'pausatuta' egoerak bidaliko diren edo ez. Ez "
+"dio 'joanda' egoerari eragiten."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:90
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:91
 msgid "Whether to show a popup notification when a contact goes offline."
 msgstr ""
 "Kontaktu bat lineaz kanpo jartzean (deskonektatzean) jakinarazpen-leihoa "
 "erakutsiko duen edo ez."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:91
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:92
 msgid "Whether to show a popup notification when a contact goes online."
 msgstr ""
 "Kontaktu bat linean jartzean (konektatzean) jakinarazpen-leihoa erakutsiko "
 "duen edo ez."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:92
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:93
 msgid ""
 "Whether to show a popup notification when receiving a new message even if "
 "the chat is already opened, but not focused."
@@ -478,55 +482,55 @@ msgstr ""
 "adierazten du (nahiz eta berriketa jadanik irekita, baina fokurik gabe, "
 "egon)."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:93
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:94
 msgid "Whether to show a popup notification when receiving a new message."
 msgstr ""
 "Mezu berri bat jasotzean jakinarazpen-leihoa erakutsiko den ala ez "
 "adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:94
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:95
 msgid "Whether to show account balances in the contact list."
 msgstr ""
 "Kontaktuen zerrendan kontuaren balantzea erakutsi edo ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:95
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:96
 msgid ""
 "Whether to show avatars for contacts in the contact list and chat windows."
 msgstr ""
 "Kontaktu-zerrendan eta berriketako leihoetan kontaktuen avatarrak erakutsi "
 "ala ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:96
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:97
 msgid "Whether to show contacts that are offline in the contact list."
 msgstr ""
 "Kontaktu-zerrendan deskonektatuak dauden kontaktuak erakutsiko dituen ala ez "
 "adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:97
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:98
 msgid "Whether to show groups in the contact list."
 msgstr "Taldeak kontaktuen zerrendan erakutsiko diren edo ez."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:98
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:99
 msgid "Whether to show popup notifications when away or busy."
 msgstr ""
 "Kanpoan edo lanpetuta zaudenean jakinarazpen-leihoa erakutsiko den ala ez "
 "adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:99
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:100
 msgid "Whether to show protocols for contacts in the contact list."
 msgstr ""
 "Kontaktu-zerrendan eta berriketako leihoetan kontaktuen protokoloak erakutsi "
 "edo ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:100
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:101
 msgid "Whether to show the contact list in chat rooms."
 msgstr "Kontaktu-zerrenda berriketa geletan erakutsi edo ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:101
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:102
 msgid "Whether to show the contact list in compact mode."
 msgstr "Kontaktu-zerrenda trinkotuta erakutsi edo ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:102
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:103
 msgid ""
 "Whether to show the message dialog about closing the main window with the "
 "'x' button in the title bar."
@@ -534,11 +538,11 @@ msgstr ""
 "Leiho nagusia titulu-barrako 'x' botoiarekin ixteari buruzko elkarrizketa-"
 "koadroa erakutsi ala ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:103
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:104
 msgid "Whether to use the theme for chat rooms."
 msgstr "Berriketa-geletan gaia erabili edo ez adierazten du."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:104
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:105
 msgid ""
 "Which criterion to use when sorting the contact list. Default is to sort by "
 "the contact's state with the value \"state\". A value of \"name\" will sort "
@@ -546,8 +550,16 @@ msgid ""
 msgstr ""
 "Zein irizpide erabiliko den kontaktu-zerrenda ordenatzean. Lehenetsia "
 "kontaktuen egoeren arabera ordenatzea da \"state\" (egoera) balioarekin. "
-"\"name"
-"\" (izena) balioak kontaktu-zerrenda izenaren arabera ordenatuko du."
+"\"name\" (izena) balioak kontaktu-zerrenda izenaren arabera ordenatuko du."
+
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:106
+msgid ""
+"empathy-sanity-cleaning.c uses this number to check if the cleaning tasks "
+"should be executed or not. Users should not change this key manually."
+msgstr ""
+"'empathy-sanity-cleaning.c'-k  zenbaki hau erabiltzen du "
+"garbiketako atazak exekutatu behar diren edo ez begiratzeko. "
+"Ez da komeni erabiltzaileek gako hau eskuz aldatzea."
 
 #: ../libempathy/empathy-ft-handler.c:736
 msgid "No reason was specified"
@@ -1481,8 +1493,8 @@ msgstr "Errorea mezua bidaltzean: %s"
 #, c-format
 msgid "insufficient balance to send message. <a href='%s'>Top up</a>."
 msgstr ""
-"ez dago nahikoa balantzerik mezua bidaltzeko. <a href='%s'>Berriro kargatu<"
-"/a>."
+"ez dago nahikoa balantzerik mezua bidaltzeko. <a href='%s'>Berriro kargatu</"
+"a>."
 
 #: ../libempathy-gtk/empathy-chat.c:1616
 msgid "not capable"
@@ -1627,7 +1639,7 @@ msgstr "%s orain honela ezagutzen da: %s"
 #. * assume it hasn't and if it has, we'll set the proper status when
 #. * we get the new handler.
 #: ../libempathy-gtk/empathy-chat.c:2993
-#: ../src/empathy-streamed-media-window.c:1886
+#: ../src/empathy-streamed-media-window.c:1888
 #: ../src/empathy-event-manager.c:1279 ../src/empathy-call-window.c:1502
 #: ../src/empathy-call-window.c:1552 ../src/empathy-call-window.c:2585
 msgid "Disconnected"
@@ -2136,7 +2148,7 @@ msgstr "Hautatu kontua deia egitean erabiltzeko"
 #. * title
 #: ../libempathy-gtk/empathy-individual-menu.c:348
 #: ../libempathy-gtk/empathy-log-window.ui.h:2
-#: ../src/empathy-streamed-media-window.c:1288
+#: ../src/empathy-streamed-media-window.c:1290
 #: ../src/empathy-call-window.ui.h:2
 msgid "Call"
 msgstr "Deitu"
@@ -3058,7 +3070,7 @@ msgid "Your new account has not been saved yet."
 msgstr "Zure kontu berria oraindik gorde gabe dago."
 
 #: ../src/empathy-accounts-dialog.c:370
-#: ../src/empathy-streamed-media-window.c:757
+#: ../src/empathy-streamed-media-window.c:759
 #: ../src/empathy-call-window.c:1289
 msgid "Connecting…"
 msgstr "Konektatzen..."
@@ -3177,11 +3189,11 @@ msgstr ""
 msgid "_Import…"
 msgstr "_Inportatu..."
 
-#: ../src/empathy-auth-client.c:286
+#: ../src/empathy-auth-client.c:288
 msgid " - Empathy authentication client"
 msgstr " - Empathy-ren autentifikazio-bezeroa"
 
-#: ../src/empathy-auth-client.c:302
+#: ../src/empathy-auth-client.c:304
 msgid "Empathy authentication client"
 msgstr "Empathy-ren autentifikazio-bezeroa"
 
@@ -3193,95 +3205,95 @@ msgstr " - Empathy-ren audio/bideo bezeroa"
 msgid "Empathy Audio/Video Client"
 msgstr "Empathy-ren audio/bideo bezeroa"
 
-#: ../src/empathy-streamed-media-window.c:433
+#: ../src/empathy-streamed-media-window.c:434
 msgid "Contrast"
 msgstr "Kontrastea"
 
-#: ../src/empathy-streamed-media-window.c:436
+#: ../src/empathy-streamed-media-window.c:437
 msgid "Brightness"
 msgstr "Distira"
 
-#: ../src/empathy-streamed-media-window.c:439
+#: ../src/empathy-streamed-media-window.c:440
 msgid "Gamma"
 msgstr "Gamma"
 
-#: ../src/empathy-streamed-media-window.c:545
+#: ../src/empathy-streamed-media-window.c:547
 msgid "Volume"
 msgstr "Bolumena"
 
-#: ../src/empathy-streamed-media-window.c:1097
+#: ../src/empathy-streamed-media-window.c:1099
 msgid "_Sidebar"
 msgstr "_Albo-barra"
 
-#: ../src/empathy-streamed-media-window.c:1117
+#: ../src/empathy-streamed-media-window.c:1119
 msgid "Audio input"
 msgstr "Audio-sarrera"
 
-#: ../src/empathy-streamed-media-window.c:1121
+#: ../src/empathy-streamed-media-window.c:1123
 msgid "Video input"
 msgstr "Bideo-sarrera"
 
-#: ../src/empathy-streamed-media-window.c:1129
+#: ../src/empathy-streamed-media-window.c:1131
 msgid "Dialpad"
 msgstr "Dei-teklatua"
 
-#: ../src/empathy-streamed-media-window.c:1140
+#: ../src/empathy-streamed-media-window.c:1142
 msgid "Details"
 msgstr "Xehetasunak"
 
 #. translators: Call is a noun and %s is the contact name. This string
 #. * is used in the window title
-#: ../src/empathy-streamed-media-window.c:1209
+#: ../src/empathy-streamed-media-window.c:1211
 #: ../src/empathy-call-window.c:1889
 #, c-format
 msgid "Call with %s"
 msgstr "Deitu honekin: %s"
 
-#: ../src/empathy-streamed-media-window.c:1442
+#: ../src/empathy-streamed-media-window.c:1444
 #: ../src/empathy-call-window.c:2133
 msgid "The IP address as seen by the machine"
 msgstr "Makinak IP helbidea ikusi du"
 
-#: ../src/empathy-streamed-media-window.c:1444
+#: ../src/empathy-streamed-media-window.c:1446
 #: ../src/empathy-call-window.c:2135
 msgid "The IP address as seen by a server on the Internet"
 msgstr "IP helbidea interneteko zerbitzari batek ikusi du"
 
-#: ../src/empathy-streamed-media-window.c:1446
+#: ../src/empathy-streamed-media-window.c:1448
 #: ../src/empathy-call-window.c:2137
 msgid "The IP address of the peer as seen by the other side"
 msgstr "Parekoaren IP helbidea bestaldean ikusi da"
 
-#: ../src/empathy-streamed-media-window.c:1448
+#: ../src/empathy-streamed-media-window.c:1450
 #: ../src/empathy-call-window.c:2139
 msgid "The IP address of a relay server"
 msgstr "Transmisioko ('relay') zerbitzariaren IP helbidea"
 
-#: ../src/empathy-streamed-media-window.c:1450
+#: ../src/empathy-streamed-media-window.c:1452
 #: ../src/empathy-call-window.c:2141
 msgid "The IP address of the multicast group"
 msgstr "Multidifusioko taldearen IP helbidea"
 
-#: ../src/empathy-streamed-media-window.c:1835
-#: ../src/empathy-streamed-media-window.c:1838
-#: ../src/empathy-streamed-media-window.c:1841
-#: ../src/empathy-streamed-media-window.c:1844
+#: ../src/empathy-streamed-media-window.c:1837
+#: ../src/empathy-streamed-media-window.c:1840
+#: ../src/empathy-streamed-media-window.c:1843
+#: ../src/empathy-streamed-media-window.c:1846
 msgctxt "codec"
 msgid "Unknown"
 msgstr "Ezezaguna"
 
 #. Translators: number of minutes:seconds the caller has been connected
-#: ../src/empathy-streamed-media-window.c:2136
+#: ../src/empathy-streamed-media-window.c:2138
 #, c-format
 msgid "Connected — %d:%02dm"
 msgstr "Konektatuta — %d:%02dm"
 
-#: ../src/empathy-streamed-media-window.c:2197
+#: ../src/empathy-streamed-media-window.c:2199
 #: ../src/empathy-call-window.c:2987
 msgid "Technical Details"
 msgstr "Xehetasun teknikoak"
 
-#: ../src/empathy-streamed-media-window.c:2235
+#: ../src/empathy-streamed-media-window.c:2237
 #: ../src/empathy-call-window.c:3026
 #, c-format
 msgid ""
@@ -3291,7 +3303,7 @@ msgstr ""
 "%s(r)en softwareak ez du ulertzen zure ordenagailuak onartzen dituen audio-"
 "formatuak"
 
-#: ../src/empathy-streamed-media-window.c:2240
+#: ../src/empathy-streamed-media-window.c:2242
 #: ../src/empathy-call-window.c:3031
 #, c-format
 msgid ""
@@ -3301,7 +3313,7 @@ msgstr ""
 "%s(r)en softwareak ez du ulertzen zure ordenagailuak onartzen dituen bideo-"
 "formatuak"
 
-#: ../src/empathy-streamed-media-window.c:2246
+#: ../src/empathy-streamed-media-window.c:2248
 #: ../src/empathy-call-window.c:3037
 #, c-format
 msgid ""
@@ -3311,12 +3323,12 @@ msgstr ""
 "Ezin da konexiorik ezarri %s(r)ekin. Zuetako bat zuzeneko konexioak "
 "baimentzen ez dituen sare batean dago."
 
-#: ../src/empathy-streamed-media-window.c:2252
+#: ../src/empathy-streamed-media-window.c:2254
 #: ../src/empathy-call-window.c:3043
 msgid "There was a failure on the network"
 msgstr "Hutsegite bat egon da sarean"
 
-#: ../src/empathy-streamed-media-window.c:2256
+#: ../src/empathy-streamed-media-window.c:2258
 #: ../src/empathy-call-window.c:3047
 msgid ""
 "The audio formats necessary for this call are not installed on your computer"
@@ -3324,7 +3336,7 @@ msgstr ""
 "Dei hau egiteko beharrezkoak diren audio-formatuak instalatu gabe daude "
 "ordenagailuan"
 
-#: ../src/empathy-streamed-media-window.c:2259
+#: ../src/empathy-streamed-media-window.c:2261
 #: ../src/empathy-call-window.c:3050
 msgid ""
 "The video formats necessary for this call are not installed on your computer"
@@ -3332,7 +3344,7 @@ msgstr ""
 "Dei hau egiteko beharrezkoak diren bideo-formatuak instalatu gabe daude "
 "ordenagailuan"
 
-#: ../src/empathy-streamed-media-window.c:2269
+#: ../src/empathy-streamed-media-window.c:2271
 #: ../src/empathy-call-window.c:3062
 #, c-format
 msgid ""
@@ -3344,22 +3356,22 @@ msgstr ""
 "genizuke <a href=\"%s\">akats honen berri emango bazenu</a> eta Laguntza "
 "menuko 'Araztu' leihotik eskuratutako erregistroak erantsiko bazenio."
 
-#: ../src/empathy-streamed-media-window.c:2277
+#: ../src/empathy-streamed-media-window.c:2279
 #: ../src/empathy-call-window.c:3071
 msgid "There was a failure in the call engine"
 msgstr "Hutsegite bat gertatu da deiaren motorrean"
 
-#: ../src/empathy-streamed-media-window.c:2280
+#: ../src/empathy-streamed-media-window.c:2282
 #: ../src/empathy-call-window.c:3074
 msgid "The end of the stream was reached"
 msgstr "Korrontearen amaierara iritsi da"
 
-#: ../src/empathy-streamed-media-window.c:2320
+#: ../src/empathy-streamed-media-window.c:2322
 #: ../src/empathy-call-window.c:3114
 msgid "Can't establish audio stream"
 msgstr "Ezin da audioaren korrontea ezarri"
 
-#: ../src/empathy-streamed-media-window.c:2330
+#: ../src/empathy-streamed-media-window.c:2332
 #: ../src/empathy-call-window.c:3124
 msgid "Can't establish video stream"
 msgstr "Ezin da bideoaren korrontea ezarri"
@@ -3508,8 +3520,8 @@ msgid ""
 "Closing this window will leave %s. You will not receive any further messages "
 "until you rejoin it."
 msgstr ""
-"Leiho hau ixtean %s utziko da. Ez duzu mezu gehiago jasoko berriro "
-"elkartu arte."
+"Leiho hau ixtean %s utziko da. Ez duzu mezu gehiago jasoko berriro elkartu "
+"arte."
 
 #: ../src/empathy-chat-window.c:305
 #, c-format
@@ -3521,12 +3533,10 @@ msgid_plural ""
 "further messages until you rejoin them."
 msgstr[0] ""
 "Leiho hau ixtean berriketa-gela utziko da. Ez duzu mezu gehiago jasoko "
-"berriro "
-"elkartu arte."
+"berriro elkartu arte."
 msgstr[1] ""
 "Leiho hau ixtean %u berriketa-gela utziko dira. Ez duzu mezu gehiago jasoko "
-"haietara "
-"berriro elkartu arte."
+"haietara berriro elkartu arte."
 
 #: ../src/empathy-chat-window.c:314
 #, c-format
@@ -4526,16 +4536,16 @@ msgid ""
 msgstr ""
 "Hautatutako konexio-kudeatzaileak ez du urruneko arazketa-hedapenik onartzen."
 
-#: ../src/empathy-invite-participant-dialog.c:200
-#: ../src/empathy-invite-participant-dialog.c:228
+#: ../src/empathy-invite-participant-dialog.c:202
+#: ../src/empathy-invite-participant-dialog.c:230
 msgid "Invite Participant"
 msgstr "Gonbidatu partaidea"
 
-#: ../src/empathy-invite-participant-dialog.c:201
+#: ../src/empathy-invite-participant-dialog.c:203
 msgid "Choose a contact to invite into the conversation:"
 msgstr "Aukeratu kontaktua solasaldira gonbidatzeko:"
 
-#: ../src/empathy-invite-participant-dialog.c:224
+#: ../src/empathy-invite-participant-dialog.c:226
 msgid "Invite"
 msgstr "Gonbidatu"
 
