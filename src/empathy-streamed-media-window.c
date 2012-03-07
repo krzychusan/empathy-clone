@@ -372,7 +372,8 @@ empathy_streamed_media_window_create_video_input_add_slider (EmpathyStreamedMedi
   gchar *label_text, GtkWidget *bin)
 {
    GtkWidget *vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 2);
-   GtkWidget *scale = gtk_vscale_new_with_range (0, 100, 10);
+   GtkWidget *scale = gtk_scale_new_with_range (GTK_ORIENTATION_VERTICAL, 0,
+       100, 10);
    GtkWidget *label = gtk_label_new (label_text);
 
    gtk_widget_set_sensitive (scale, FALSE);
@@ -540,7 +541,8 @@ empathy_streamed_media_window_create_audio_input (EmpathyStreamedMediaWindow *se
   vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 3);
   gtk_box_pack_start (GTK_BOX (hbox), vbox, FALSE, FALSE, 3);
 
-  priv->volume_scale = gtk_vscale_new_with_range (0, 150, 100);
+  priv->volume_scale = gtk_scale_new_with_range (GTK_ORIENTATION_VERTICAL, 0,
+      150, 100);
   gtk_range_set_inverted (GTK_RANGE (priv->volume_scale), TRUE);
   label = gtk_label_new (_("Volume"));
 
