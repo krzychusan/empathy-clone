@@ -9,6 +9,8 @@
  *    Danielle Madeley <danielle.madeley@collabora.co.uk>
  */
 
+#include "config.h"
+
 #include <glib/gi18n.h>
 #include <folks/folks-telepathy.h>
 

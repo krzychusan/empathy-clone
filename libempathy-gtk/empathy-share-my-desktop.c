@@ -18,6 +18,8 @@
  * Authors: Arnaud Maillet <arnaud.maillet@collabora.co.uk>
  */
 
+#include "config.h"
+
 #include <gtk/gtk.h>
 
 #include <dbus/dbus-glib.h>
