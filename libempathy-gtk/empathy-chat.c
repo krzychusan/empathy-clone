@@ -26,11 +26,12 @@
  */
 
 #include <config.h>
+/* for GCompletion */
+#define GLIB_DISABLE_DEPRECATION_WARNINGS 1
 
 #include <string.h>
 #include <stdlib.h>
 
-#undef G_DISABLE_DEPRECATED /* for GCompletion */
 #include <gdk/gdkkeysyms.h>
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>

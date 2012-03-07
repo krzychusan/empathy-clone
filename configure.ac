@@ -35,8 +35,11 @@ AC_COPYRIGHT([
 
 # Hardp deps
 FOLKS_REQUIRED=0.6.6
-GLIB_REQUIRED=2.30.0
 GNUTLS_REQUIRED=2.8.5
+
+GLIB_REQUIRED=2.30.0
+AC_DEFINE(GLIB_VERSION_MIN_REQUIRED, GLIB_VERSION_2_30, [Ignore post 2.30 deprecations])
+AC_DEFINE(GLIB_VERSION_MAX_REQUIRED, GLIB_VERSION_2_30, [Prevent post 2.30 APIs])
 
 GTK_REQUIRED=3.0.2
 AC_DEFINE(GDK_VERSION_MIN_REQUIRED, GDK_VERSION_3_0, [Ignore post 3.0 deprecations])
@@ -69,11 +72,6 @@ CHAMPLAIN_REQUIRED=0.12.1
 # FIXME: don't disable deprecated symbols until bgo #636654 has been fixed
 #ifelse(empathy_released, 1, [], [enable_maintainer_mode="yes"])
 #GNOME_MAINTAINER_MODE_DEFINES
-
-# Disable GLib deprecation warnings for now; we don't want to bump the GLib dep
-# and make things harder for contributiors without good reason. We'll re-enable
-# those warnings later during the cycle (bgo #662662)
-AC_DEFINE(GLIB_DISABLE_DEPRECATION_WARNINGS, 1, [Build with GLib deprecated])
 
 # FIXME: bgo #669673
 AC_DEFINE(CLUTTER_DISABLE_DEPRECATION_WARNINGS, 1, [Build with Clutter deprecated])
