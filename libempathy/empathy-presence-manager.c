@@ -18,9 +18,9 @@
  * Authors: Xavier Claessens <xclaesse@gmail.com>
  */
 
-#include "empathy-presence-manager.h"
+#include "config.h"
 
-#include <config.h>
+#include "empathy-presence-manager.h"
 
 #include <string.h>
 

@@ -21,6 +21,8 @@
 
 /* empathy-ft-handler.c */
 
+#include "config.h"
+
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <telepathy-glib/account-channel-request.h>
