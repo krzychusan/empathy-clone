@@ -876,7 +876,7 @@ empathy_call_window_highlight_preview_rectangle (EmpathyCallWindow *self,
   rectangle = empathy_call_window_get_preview_rectangle (self, pos);
 
   empathy_rounded_rectangle_set_border_width (
-      EMPATHY_ROUNDED_RECTANGLE (rectangle), 5);
+      EMPATHY_ROUNDED_RECTANGLE (rectangle), 3);
   empathy_rounded_rectangle_set_border_color (
       EMPATHY_ROUNDED_RECTANGLE (rectangle), CLUTTER_COLOR_Red);
 }

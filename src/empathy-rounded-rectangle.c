@@ -32,6 +32,7 @@ G_DEFINE_TYPE (EmpathyRoundedRectangle,
 
 struct _EmpathyRoundedRectanglePriv
 {
+  guint width, height;
   ClutterColor border_color;
   guint border_width;
 };
@@ -45,8 +46,8 @@ empathy_rounded_rectangle_paint (EmpathyRoundedRectangle *self)
 
 #define RADIUS (height / 8.)
 
-  clutter_cairo_texture_get_surface_size (CLUTTER_CAIRO_TEXTURE (self),
-      &width, &height);
+  width = self->priv->width;
+  height = self->priv->height;
 
   /* compute the composited opacity of the actor taking into
    * account the opacity of the color set by the user */
@@ -67,6 +68,9 @@ empathy_rounded_rectangle_paint (EmpathyRoundedRectangle *self)
   cairo_set_operator (cr, CAIRO_OPERATOR_CLEAR);
   cairo_paint (cr);
   cairo_set_operator (cr, CAIRO_OPERATOR_OVER);
+
+  /* make room for the portion of the border drawn on the outside */
+  cairo_translate (cr, self->priv->border_width/2.0, self->priv->border_width/2.0);
 
   cairo_new_sub_path (cr);
   cairo_arc (cr, width - RADIUS, RADIUS, RADIUS,
@@ -100,20 +104,29 @@ empathy_rounded_rectangle_class_init (EmpathyRoundedRectangleClass *klass)
   g_type_class_add_private (klass, sizeof (EmpathyRoundedRectanglePriv));
 }
 
+static void
+empathy_rounded_rectangle_update_surface_size (EmpathyRoundedRectangle *self)
+{
+  clutter_cairo_texture_set_surface_size (CLUTTER_CAIRO_TEXTURE (self),
+      self->priv->width + self->priv->border_width,
+      self->priv->height + self->priv->border_width);
+}
+
 ClutterActor *
 empathy_rounded_rectangle_new (guint width,
     guint height)
 {
-  ClutterActor *self;
+  EmpathyRoundedRectangle *self;
 
-  self = CLUTTER_ACTOR (g_object_new (EMPATHY_TYPE_ROUNDED_RECTANGLE, NULL));
+  self = EMPATHY_ROUNDED_RECTANGLE (g_object_new (EMPATHY_TYPE_ROUNDED_RECTANGLE, NULL));
 
-  clutter_cairo_texture_set_surface_size (CLUTTER_CAIRO_TEXTURE (self),
-      width, height);
+  self->priv->width = width;
+  self->priv->height = height;
 
-  empathy_rounded_rectangle_paint (EMPATHY_ROUNDED_RECTANGLE (self));
+  empathy_rounded_rectangle_update_surface_size (self);
+  empathy_rounded_rectangle_paint (self);
 
-  return self;
+  return CLUTTER_ACTOR (self);
 }
 
 void
@@ -122,6 +135,7 @@ empathy_rounded_rectangle_set_border_width (EmpathyRoundedRectangle *self,
 {
   self->priv->border_width = border_width;
 
+  empathy_rounded_rectangle_update_surface_size (self);
   empathy_rounded_rectangle_paint (self);
 }
 
