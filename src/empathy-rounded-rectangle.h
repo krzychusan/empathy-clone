@@ -59,8 +59,9 @@ GType empathy_rounded_rectangle_get_type (void);
   (G_TYPE_INSTANCE_GET_CLASS ((obj), EMPATHY_TYPE_ROUNDED_RECTANGLE, \
     EmpathyRoundedRectangleClass))
 
-ClutterActor *empathy_rounded_rectangle_new (guint width,
-    guint height);
+EmpathyRoundedRectangle *empathy_rounded_rectangle_new (guint width,
+    guint height,
+    guint round_factor);
 
 void
 empathy_rounded_rectangle_set_border_width (EmpathyRoundedRectangle *self,

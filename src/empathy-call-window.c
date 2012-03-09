@@ -79,7 +79,8 @@
 
 #define SELF_VIDEO_SECTION_WIDTH 120
 #define SELF_VIDEO_SECTION_HEIGHT 90
-#define SELF_VIDEO_SECTION_MARGIN 10
+#define SELF_VIDEO_SECTION_MARGIN 2
+#define SELF_VIDEO_SECTION_BORDER SELF_VIDEO_SECTION_MARGIN*2
 
 #define FLOATING_TOOLBAR_OPACITY 192
 #define FLOATING_TOOLBAR_WIDTH 280
@@ -99,6 +100,9 @@
 
 /* The time interval in milliseconds between 2 outgoing rings */
 #define MS_BETWEEN_RING 500
+
+/* The roundedness of preview box and placeholders */
+#define PREVIEW_ROUND_FACTOR 16
 
 G_DEFINE_TYPE(EmpathyCallWindow, empathy_call_window, GTK_TYPE_WINDOW)
 
@@ -630,7 +634,7 @@ empathy_call_window_create_preview_rectangle (EmpathyCallWindow *self,
     ClutterBinAlignment y)
 {
   ClutterLayoutManager *layout1, *layout2;
-  ClutterActor *rectangle;
+  EmpathyRoundedRectangle *rectangle;
   ClutterActor *box1, *box2;
 
   layout1 = clutter_bin_layout_new (CLUTTER_BIN_ALIGNMENT_CENTER,
@@ -641,8 +645,9 @@ empathy_call_window_create_preview_rectangle (EmpathyCallWindow *self,
   *box = box1;
 
   rectangle = empathy_rounded_rectangle_new (
-      SELF_VIDEO_SECTION_WIDTH + 5,
-      SELF_VIDEO_SECTION_HEIGHT + 5);
+      SELF_VIDEO_SECTION_WIDTH + 2 * SELF_VIDEO_SECTION_MARGIN,
+      SELF_VIDEO_SECTION_HEIGHT + 2 * SELF_VIDEO_SECTION_MARGIN,
+      PREVIEW_ROUND_FACTOR);
 
   clutter_actor_set_size (box1,
       SELF_VIDEO_SECTION_WIDTH + 2 * SELF_VIDEO_SECTION_MARGIN,
@@ -662,14 +667,14 @@ empathy_call_window_create_preview_rectangle (EmpathyCallWindow *self,
       SELF_VIDEO_SECTION_HEIGHT + 2 * SELF_VIDEO_SECTION_MARGIN);
 
   clutter_container_add_actor (CLUTTER_CONTAINER (box1), box2);
-  clutter_container_add_actor (CLUTTER_CONTAINER (box2), rectangle);
+  clutter_container_add_actor (CLUTTER_CONTAINER (box2), CLUTTER_ACTOR (rectangle));
 
   clutter_bin_layout_add (CLUTTER_BIN_LAYOUT (self->priv->video_layout),
       box1, x, y);
 
-  clutter_actor_hide (rectangle);
+  clutter_actor_hide (CLUTTER_ACTOR (rectangle));
 
-  return rectangle;
+  return CLUTTER_ACTOR (rectangle);
 }
 
 static void
@@ -788,7 +793,7 @@ empathy_call_window_get_preview_position (EmpathyCallWindow *self,
     }
   else if (box.width - SELF_VIDEO_SECTION_MARGIN >= event_x &&
       event_x >= (box.width - SELF_VIDEO_SECTION_MARGIN - (gint) SELF_VIDEO_SECTION_WIDTH) &&
-      box.height - SELF_VIDEO_SECTION_MARGIN - SELF_VIDEO_SECTION_MARGIN - FLOATING_TOOLBAR_HEIGHT - FLOATING_TOOLBAR_SPACING >= event_y &&
+      box.height - 2 * SELF_VIDEO_SECTION_MARGIN - FLOATING_TOOLBAR_HEIGHT - FLOATING_TOOLBAR_SPACING >= event_y &&
       event_y >= (box.height - SELF_VIDEO_SECTION_MARGIN - FLOATING_TOOLBAR_HEIGHT - FLOATING_TOOLBAR_SPACING - (gint) SELF_VIDEO_SECTION_HEIGHT))
     {
       pos = PREVIEW_POS_BOTTOM_RIGHT;
@@ -876,7 +881,7 @@ empathy_call_window_highlight_preview_rectangle (EmpathyCallWindow *self,
   rectangle = empathy_call_window_get_preview_rectangle (self, pos);
 
   empathy_rounded_rectangle_set_border_width (
-      EMPATHY_ROUNDED_RECTANGLE (rectangle), 3);
+      EMPATHY_ROUNDED_RECTANGLE (rectangle), 2 * SELF_VIDEO_SECTION_MARGIN);
   empathy_rounded_rectangle_set_border_color (
       EMPATHY_ROUNDED_RECTANGLE (rectangle), CLUTTER_COLOR_Red);
 }
@@ -1091,9 +1096,7 @@ create_video_preview (EmpathyCallWindow *self)
 
   /* Spinner for when changing the camera device */
   priv->preview_spinner_widget = gtk_spinner_new ();
-  priv->preview_spinner_actor = empathy_rounded_actor_new ();
-  empathy_rounded_actor_set_round_factor (
-      EMPATHY_ROUNDED_ACTOR (priv->preview_spinner_actor), 16);
+  priv->preview_spinner_actor = empathy_rounded_actor_new (PREVIEW_ROUND_FACTOR);
 
   g_object_set (priv->preview_spinner_widget, "expand", TRUE, NULL);
   gtk_widget_override_background_color (
@@ -1134,7 +1137,7 @@ create_video_preview (EmpathyCallWindow *self)
   /* Translators: this is an "Info" label. It should be as short
    * as possible. */
   button = gtk_button_new_with_label (_("i"));
-  priv->preview_shown_button = b = empathy_rounded_actor_new ();
+  priv->preview_shown_button = b = empathy_rounded_actor_new (2);
   gtk_container_add (
       GTK_CONTAINER (gtk_clutter_actor_get_widget (GTK_CLUTTER_ACTOR (b))),
       button);
@@ -1145,7 +1148,7 @@ create_video_preview (EmpathyCallWindow *self)
   box = clutter_box_new (layout_end);
   clutter_actor_set_size (box,
       SELF_VIDEO_SECTION_WIDTH,
-      SELF_VIDEO_SECTION_HEIGHT + SELF_VIDEO_SECTION_MARGIN);
+      SELF_VIDEO_SECTION_HEIGHT + 2 * SELF_VIDEO_SECTION_MARGIN);
 
   clutter_container_add_actor (CLUTTER_CONTAINER (box), b);
   clutter_container_add_actor (CLUTTER_CONTAINER (priv->video_preview), box);
@@ -1157,7 +1160,7 @@ create_video_preview (EmpathyCallWindow *self)
   /* Translators: this is an "Info" label. It should be as short
    * as possible. */
   button = gtk_button_new_with_label (_("i"));
-  b = empathy_rounded_actor_new ();
+  b = empathy_rounded_actor_new (2);
   gtk_container_add (
       GTK_CONTAINER (gtk_clutter_actor_get_widget (GTK_CLUTTER_ACTOR (b))),
       button);
@@ -1726,7 +1729,7 @@ empathy_call_window_init (EmpathyCallWindow *self)
   create_audio_input (self);
   create_video_input (self);
 
-  priv->floating_toolbar = empathy_rounded_actor_new ();
+  priv->floating_toolbar = empathy_rounded_actor_new (2);
 
   gtk_widget_reparent (priv->bottom_toolbar,
       gtk_clutter_actor_get_widget (GTK_CLUTTER_ACTOR (priv->floating_toolbar)));

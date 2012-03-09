@@ -35,6 +35,7 @@ struct _EmpathyRoundedRectanglePriv
   guint width, height;
   ClutterColor border_color;
   guint border_width;
+  guint round_factor;
 };
 
 static gboolean
@@ -43,12 +44,14 @@ draw_cb (ClutterCairoTexture *canvas,
 {
   EmpathyRoundedRectangle *self = EMPATHY_ROUNDED_RECTANGLE (canvas);
   guint width, height;
+  guint border_width;
   guint tmp_alpha;
-
-#define RADIUS (height / 8.)
+  gdouble radius;
 
   width = self->priv->width;
   height = self->priv->height;
+  radius = self->priv->height / self->priv->round_factor;
+  border_width = self->priv->border_width;
 
   /* compute the composited opacity of the actor taking into
    * account the opacity of the color set by the user */
@@ -62,29 +65,28 @@ draw_cb (ClutterCairoTexture *canvas,
       self->priv->border_color.blue,
       tmp_alpha);
 
-  cairo_set_line_width (cr, self->priv->border_width);
+  cairo_set_line_width (cr, border_width);
 
   cairo_set_operator (cr, CAIRO_OPERATOR_CLEAR);
   cairo_paint (cr);
   cairo_set_operator (cr, CAIRO_OPERATOR_OVER);
 
   /* make room for the portion of the border drawn on the outside */
-  cairo_translate (cr, self->priv->border_width/2.0, self->priv->border_width/2.0);
+  cairo_translate (cr, border_width/2.0, border_width/2.0);
 
   cairo_new_sub_path (cr);
-  cairo_arc (cr, width - RADIUS, RADIUS, RADIUS,
+  cairo_arc (cr, width - radius, radius, radius,
       -M_PI/2.0, 0);
-  cairo_arc (cr, width - RADIUS, height - RADIUS, RADIUS,
+  cairo_arc (cr, width - radius, height - radius, radius,
       0, M_PI/2.0);
-  cairo_arc (cr, RADIUS, height - RADIUS, RADIUS,
+  cairo_arc (cr, radius, height - radius, radius,
       M_PI/2.0, M_PI);
-  cairo_arc (cr, RADIUS, RADIUS, RADIUS,
+  cairo_arc (cr, radius, radius, radius,
       M_PI, -M_PI/2.0);
   cairo_close_path (cr);
 
   cairo_stroke (cr);
 
-#undef RADIUS
   return TRUE;
 }
 
@@ -95,6 +97,7 @@ empathy_rounded_rectangle_init (EmpathyRoundedRectangle *self)
       EMPATHY_TYPE_ROUNDED_RECTANGLE, EmpathyRoundedRectanglePriv);
 
   self->priv->border_width = 1;
+  self->priv->round_factor = 2;
 }
 
 static void
@@ -121,9 +124,10 @@ empathy_rounded_rectangle_update_surface_size (EmpathyRoundedRectangle *self)
       self->priv->height + self->priv->border_width);
 }
 
-ClutterActor *
+EmpathyRoundedRectangle *
 empathy_rounded_rectangle_new (guint width,
-    guint height)
+    guint height,
+    guint round_factor)
 {
   EmpathyRoundedRectangle *self;
 
@@ -131,13 +135,14 @@ empathy_rounded_rectangle_new (guint width,
 
   self->priv->width = width;
   self->priv->height = height;
+  self->priv->round_factor = round_factor;
 
   g_signal_connect (self, "draw", G_CALLBACK (draw_cb), NULL);
 
   empathy_rounded_rectangle_update_surface_size (self);
   clutter_cairo_texture_invalidate (CLUTTER_CAIRO_TEXTURE (self));
 
-  return CLUTTER_ACTOR (self);
+  return self;
 }
 
 void
