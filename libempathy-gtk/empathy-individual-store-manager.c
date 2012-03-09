@@ -76,15 +76,19 @@ individual_store_manager_members_changed_cb (EmpathyIndividualManager *manager,
 
   for (l = removed; l; l = l->next)
     {
-      DEBUG ("Individual %s %s",
-          folks_individual_get_id (l->data), "removed");
+      DEBUG ("Individual %s (%s) %s",
+          folks_individual_get_id (l->data),
+          folks_alias_details_get_alias (FOLKS_ALIAS_DETAILS (l->data)),
+          "removed");
 
       individual_store_remove_individual_and_disconnect (store, l->data);
     }
 
   for (l = added; l; l = l->next)
     {
-      DEBUG ("Individual %s %s", folks_individual_get_id (l->data), "added");
+      DEBUG ("Individual %s (%s) %s", folks_individual_get_id (l->data),
+          folks_alias_details_get_alias (FOLKS_ALIAS_DETAILS (l->data)),
+          "added");
 
       individual_store_add_individual_and_connect (store, l->data);
     }
@@ -99,8 +103,9 @@ individual_store_manager_groups_changed_cb (EmpathyIndividualManager *manager,
 {
   EmpathyIndividualStore *store = EMPATHY_INDIVIDUAL_STORE (self);
 
-  DEBUG ("Updating groups for individual %s",
-      folks_individual_get_id (individual));
+  DEBUG ("Updating groups for individual %s (%s)",
+      folks_individual_get_id (individual),
+      folks_alias_details_get_alias (FOLKS_ALIAS_DETAILS (individual)));
 
   /* We do this to make sure the groups are correct, if not, we
    * would have to check the groups already set up for each
@@ -163,8 +168,9 @@ individual_store_manager_member_renamed_cb (EmpathyIndividualManager *manager,
 {
   EmpathyIndividualStore *store = EMPATHY_INDIVIDUAL_STORE (self);
 
-  DEBUG ("Individual %s renamed to %s",
+  DEBUG ("Individual %s (%s) renamed to %s",
       folks_individual_get_id (old_individual),
+      folks_alias_details_get_alias (FOLKS_ALIAS_DETAILS (old_individual)),
       folks_individual_get_id (new_individual));
 
   /* remove old contact */
