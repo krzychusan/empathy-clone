@@ -1070,6 +1070,7 @@ create_video_preview (EmpathyCallWindow *self)
   GtkWidget *button;
   PreviewPosition pos;
   GdkRGBA transparent = { 0., 0., 0., 0. };
+  GtkWidget *bin;
 
   g_assert (priv->video_preview == NULL);
 
@@ -1137,18 +1138,17 @@ create_video_preview (EmpathyCallWindow *self)
   /* Translators: this is an "Info" label. It should be as short
    * as possible. */
   button = gtk_button_new_with_label (_("i"));
-  priv->preview_shown_button = b = empathy_rounded_actor_new (2);
-  gtk_container_add (
-      GTK_CONTAINER (gtk_clutter_actor_get_widget (GTK_CLUTTER_ACTOR (b))),
-      button);
+  priv->preview_shown_button = b = gtk_clutter_actor_new_with_contents (button);
   clutter_actor_set_size (b, 24, 24);
+  bin = gtk_clutter_actor_get_widget (GTK_CLUTTER_ACTOR (b));
+  gtk_widget_override_background_color (bin, GTK_STATE_FLAG_NORMAL, &transparent);
 
   layout_end = clutter_bin_layout_new (CLUTTER_BIN_ALIGNMENT_END,
       CLUTTER_BIN_ALIGNMENT_END);
   box = clutter_box_new (layout_end);
   clutter_actor_set_size (box,
-      SELF_VIDEO_SECTION_WIDTH,
-      SELF_VIDEO_SECTION_HEIGHT + 2 * SELF_VIDEO_SECTION_MARGIN);
+      SELF_VIDEO_SECTION_WIDTH - 4,
+      SELF_VIDEO_SECTION_HEIGHT - 2);
 
   clutter_container_add_actor (CLUTTER_CONTAINER (box), b);
   clutter_container_add_actor (CLUTTER_CONTAINER (priv->video_preview), box);
@@ -1160,12 +1160,9 @@ create_video_preview (EmpathyCallWindow *self)
   /* Translators: this is an "Info" label. It should be as short
    * as possible. */
   button = gtk_button_new_with_label (_("i"));
-  b = empathy_rounded_actor_new (2);
-  gtk_container_add (
-      GTK_CONTAINER (gtk_clutter_actor_get_widget (GTK_CLUTTER_ACTOR (b))),
-      button);
+  priv->preview_hidden_button = b = gtk_clutter_actor_new_with_contents (button);
   clutter_actor_set_size (b, 24, 24);
-  priv->preview_hidden_button = b;
+  gtk_widget_override_background_color (bin, GTK_STATE_FLAG_NORMAL, &transparent);
 
   clutter_bin_layout_add (CLUTTER_BIN_LAYOUT (priv->video_layout),
       priv->preview_hidden_button,
