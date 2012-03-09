@@ -779,9 +779,6 @@ individual_personas_changed_cb (FolksIndividual *individual,
 {
   GeeIterator *iter;
 
-  DEBUG ("Individual '%s' personas-changed.",
-      folks_individual_get_id (individual));
-
   iter = gee_iterable_iterator (GEE_ITERABLE (removed));
   /* FIXME: libfolks hasn't grown capabilities support yet, so we have to go
    * through the EmpathyContacts for them. */
