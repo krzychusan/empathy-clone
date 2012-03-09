@@ -1563,8 +1563,6 @@ individual_view_expand_idle_cb (EmpathyIndividualView *self)
 {
   EmpathyIndividualViewPriv *priv = GET_PRIV (self);
 
-  DEBUG ("individual_view_expand_idle_cb");
-
   g_signal_handlers_block_by_func (self,
     individual_view_row_expand_or_collapse_cb, GINT_TO_POINTER (TRUE));
   g_signal_handlers_block_by_func (self,

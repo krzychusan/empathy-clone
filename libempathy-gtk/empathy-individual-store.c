@@ -447,8 +447,6 @@ individual_store_contact_set_active (EmpathyIndividualStore *self,
           EMPATHY_INDIVIDUAL_STORE_COL_IS_ACTIVE, active,
           -1);
 
-      DEBUG ("Set item %s", active ? "active" : "inactive");
-
       if (set_changed)
         {
           path = gtk_tree_model_get_path (model, l->data);
@@ -486,10 +484,6 @@ individual_store_contact_active_new (EmpathyIndividualStore *self,
     gboolean remove_)
 {
   ShowActiveData *data;
-
-  DEBUG ("Individual'%s' now active, and %s be removed",
-      folks_alias_details_get_alias (FOLKS_ALIAS_DETAILS (individual)),
-      remove_ ? "WILL" : "WILL NOT");
 
   data = g_slice_new0 (ShowActiveData);
 
@@ -537,9 +531,6 @@ individual_store_contact_active_cb (ShowActiveData *data)
             FOLKS_ALIAS_DETAILS (data->individual)));
       empathy_individual_store_remove_individual (data->self, data->individual);
     }
-
-  DEBUG ("Individual'%s' no longer active",
-      folks_alias_details_get_alias (FOLKS_ALIAS_DETAILS (data->individual)));
 
   individual_store_contact_set_active (data->self,
       data->individual, FALSE, TRUE);
@@ -645,15 +636,10 @@ individual_store_contact_update (EmpathyIndividualStore *self,
       if (self->priv->show_active)
         {
           do_set_active = TRUE;
-
-          DEBUG ("Set active (individual added)");
         }
     }
   else
     {
-      DEBUG ("Individual'%s' in list:YES, should be:YES",
-          folks_alias_details_get_alias (FOLKS_ALIAS_DETAILS (individual)));
-
       /* Get online state before. */
       if (iters && g_list_length (iters) > 0)
         {
@@ -668,17 +654,12 @@ individual_store_contact_update (EmpathyIndividualStore *self,
             {
               do_set_active = TRUE;
               do_set_refresh = TRUE;
-
-              DEBUG ("Set active (individual updated %s)",
-                  was_online ? "online  -> offline" : "offline -> online");
             }
           else
             {
               /* Was TRUE for presence updates. */
               /* do_set_active = FALSE;  */
               do_set_refresh = TRUE;
-
-              DEBUG ("Set active (individual updated)");
             }
         }
 
@@ -767,9 +748,6 @@ individual_store_individual_updated_cb (FolksIndividual *individual,
     GParamSpec *param,
     EmpathyIndividualStore *self)
 {
-  DEBUG ("Individual'%s' updated, checking roster is in sync...",
-      folks_alias_details_get_alias (FOLKS_ALIAS_DETAILS (individual)));
-
   individual_store_contact_update (self, individual);
 }
 
@@ -779,9 +757,6 @@ individual_store_contact_updated_cb (EmpathyContact *contact,
     EmpathyIndividualStore *self)
 {
   FolksIndividual *individual;
-
-  DEBUG ("Contact '%s' updated, checking roster is in sync...",
-      empathy_contact_get_alias (contact));
 
   individual = g_object_get_data (G_OBJECT (contact), "individual");
   if (individual == NULL)
