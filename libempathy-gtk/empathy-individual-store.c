@@ -558,9 +558,15 @@ individual_avatar_pixbuf_received_cb (FolksIndividual *individual,
 
   if (error != NULL)
     {
-      DEBUG ("failed to retrieve pixbuf for individual %s: %s",
-          folks_alias_details_get_alias (FOLKS_ALIAS_DETAILS (individual)),
-          error->message);
+      /* No need to display an error if the individal just doesn't have an
+       * avatar */
+      if (!g_error_matches (error, G_IO_ERROR, G_IO_ERROR_NOT_FOUND))
+        {
+          DEBUG ("failed to retrieve pixbuf for individual %s: %s",
+              folks_alias_details_get_alias (FOLKS_ALIAS_DETAILS (individual)),
+              error->message);
+        }
+
       g_clear_error (&error);
     }
   else if (data->store != NULL)

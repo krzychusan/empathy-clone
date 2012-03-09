@@ -732,8 +732,8 @@ empathy_pixbuf_avatar_from_individual_scaled_async (
 	avatar_icon =
 		folks_avatar_details_get_avatar (FOLKS_AVATAR_DETAILS (individual));
 	if (avatar_icon == NULL) {
-		g_simple_async_result_set_error (result, TP_ERRORS,
-			TP_ERROR_INVALID_ARGUMENT, "no avatar found");
+		g_simple_async_result_set_error (result, G_IO_ERROR,
+			G_IO_ERROR_NOT_FOUND, "no avatar found");
 
 		g_simple_async_result_complete (result);
 		g_object_unref (result);
