@@ -1,0 +1,3358 @@
+# Latvian translation for empathy.
+# Copyright (C) 2012 empathy's COPYRIGHT HOLDER
+# This file is distributed under the same license as the empathy package.
+#
+# Viesturs Ružāns <viesty@exs.lv> 2011.
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: empathy master\n"
+"POT-Creation-Date: 2012-02-04 11:35+0000\n"
+"PO-Revision-Date: 2012-03-11 22:23+0200\n"
+"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
+"Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+"Language: lv\n"
+"X-Generator: Lokalize 1.2\n"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/video-call.page:39(None) C/audio-video.page:70(None)
+#: C/audio-call.page:36(None)
+msgid "@@image: 'figures/camera-web.png'; md5=8166b4372f25b78cbf5a64fe2eac2ce5"
+msgstr ""
+"@@image: 'figures/camera-web.png'; md5=8166b4372f25b78cbf5a64fe2eac2ce5"
+
+#: C/video-call.page:10(desc)
+msgid "Start a video conversation with one of your contacts."
+msgstr "Sākt video sarunu ar vienu no kontaktiem."
+
+#: C/video-call.page:22(name) C/status-icons.page:16(name)
+#: C/share-desktop.page:14(name) C/set-custom-status.page:19(name)
+#: C/send-file.page:21(name) C/salut-protocol.page:18(name)
+#: C/remove-account.page:19(name) C/prob-conn-neterror.page:19(name)
+#: C/prob-conn-name.page:18(name) C/prob-conn-auth.page:21(name)
+#: C/prob-conn-acctdisabled.page:19(name) C/prev-conv.page:17(name)
+#: C/link-contacts.page:15(name) C/irc-start-conversation.page:15(name)
+#: C/irc-send-file.page:16(name) C/irc-nick-password.page:18(name)
+#: C/irc-manage.page:19(name) C/irc-join-room.page:16(name)
+#: C/irc-join-pwd.page:17(name) C/irc-commands.page:10(name)
+#: C/introduction.page:13(name) C/index.page:19(name)
+#: C/import-account.page:23(name) C/hide-contacts.page:11(name)
+#: C/group-conversations.page:19(name) C/geolocation-what-is.page:18(name)
+#: C/geolocation-turn.page:18(name) C/geolocation-supported.page:16(name)
+#: C/geolocation-privacy.page:17(name) C/geolocation-not-showing.page:17(name)
+#: C/geolocation.page:17(name) C/favorite-rooms.page:14(name)
+#: C/disable-account.page:21(name) C/create-account.page:19(name)
+#: C/audio-video.page:17(name) C/audio-call.page:19(name)
+#: C/add-account.page:21(name)
+msgid "Milo Casagrande"
+msgstr "Milo Casagrande"
+
+#: C/video-call.page:23(email) C/status-icons.page:17(email)
+#: C/share-desktop.page:15(email) C/set-custom-status.page:20(email)
+#: C/send-file.page:22(email) C/salut-protocol.page:19(email)
+#: C/remove-account.page:20(email) C/prob-conn-neterror.page:20(email)
+#: C/prob-conn-name.page:19(email) C/prob-conn-auth.page:22(email)
+#: C/prob-conn-acctdisabled.page:20(email) C/prev-conv.page:18(email)
+#: C/link-contacts.page:16(email) C/irc-start-conversation.page:16(email)
+#: C/irc-send-file.page:17(email) C/irc-nick-password.page:19(email)
+#: C/irc-manage.page:20(email) C/irc-join-room.page:17(email)
+#: C/irc-join-pwd.page:18(email) C/irc-commands.page:11(email)
+#: C/introduction.page:14(email) C/index.page:20(email)
+#: C/import-account.page:24(email) C/hide-contacts.page:12(email)
+#: C/group-conversations.page:20(email) C/geolocation-what-is.page:19(email)
+#: C/geolocation-turn.page:19(email) C/geolocation-supported.page:17(email)
+#: C/geolocation-privacy.page:18(email)
+#: C/geolocation-not-showing.page:18(email) C/geolocation.page:18(email)
+#: C/favorite-rooms.page:15(email) C/disable-account.page:22(email)
+#: C/create-account.page:20(email) C/audio-video.page:18(email)
+#: C/audio-call.page:20(email) C/add-account.page:22(email)
+msgid "milo@ubuntu.com"
+msgstr "milo@ubuntu.com"
+
+#: C/video-call.page:26(p) C/status-icons.page:24(p)
+#: C/share-desktop.page:22(p) C/set-custom-status.page:23(p)
+#: C/send-message.page:21(p) C/send-file.page:25(p)
+#: C/salut-protocol.page:22(p) C/remove-account.page:23(p)
+#: C/prob-conn.page:18(p) C/prob-conn-neterror.page:23(p)
+#: C/prob-conn-name.page:22(p) C/prob-conn-auth.page:25(p)
+#: C/prob-conn-acctdisabled.page:23(p) C/prev-conv.page:25(p)
+#: C/link-contacts.page:19(p) C/irc-start-conversation.page:19(p)
+#: C/irc-send-file.page:20(p) C/irc-nick-password.page:22(p)
+#: C/irc-manage.page:23(p) C/irc-join-room.page:20(p)
+#: C/irc-join-pwd.page:21(p) C/irc-commands.page:14(p)
+#: C/introduction.page:17(p) C/index.page:23(p) C/import-account.page:31(p)
+#: C/hide-contacts.page:15(p) C/group-conversations.page:23(p)
+#: C/geolocation-what-is.page:22(p) C/geolocation-turn.page:22(p)
+#: C/geolocation-supported.page:20(p) C/geolocation-privacy.page:21(p)
+#: C/geolocation-not-showing.page:21(p) C/geolocation.page:21(p)
+#: C/favorite-rooms.page:18(p) C/disable-account.page:29(p)
+#: C/create-account.page:23(p) C/change-status.page:28(p)
+#: C/audio-video.page:21(p) C/audio-call.page:23(p) C/add-contact.page:22(p)
+#: C/add-account.page:29(p) C/accounts-window.page:22(p)
+#: C/account-jabber.page:18(p) C/account-irc.page:20(p)
+msgid "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons Share Alike 3.0 licence."
+
+#: C/video-call.page:29(title)
+msgid "Start a video conversation"
+msgstr "Sākt video sarunu"
+
+#: C/video-call.page:31(p)
+msgid ""
+"If you have a webcam, you can call your contacts and have a video "
+"conversation with them. This feature only works with certain types of "
+"accounts, and it requires the other person to have an application that "
+"supports video calls."
+msgstr ""
+"Ja tev ir tīmekļa kamera, tu vari sazvanīt savus kontaktus un veikt video "
+"sarunas ar tiem. Šī iespēja darbojas tikai ar noteikta veida kontiem un otram "
+"sarunas dalībniekam jābūt lietotnei, kas atbalsta video zvanus."
+
+#: C/video-call.page:38(p)
+msgid ""
+"From the <gui>Contact List</gui> window, click the <media type=\"image\" "
+"mime=\"image/png\" src=\"figures/camera-web.png\">video call</media> icon "
+"next to the name of the contact you wish to call and choose <gui style="
+"\"menuitem\">Video Call</gui>."
+msgstr ""
+"<gui>Kontaktu saraksta</gui> logā spied uz <media type=\"image\" "
+"mime=\"image/png\" src=\"figures/camera-web.png\">video zvans</media> ikonas "
+"pretī kontakta vārdam, kuram vēlies zvanīt un izvēlies <gui style="
+"\"menuitem\">Video zvans</gui>."
+
+#: C/video-call.page:44(p) C/audio-call.page:42(p)
+msgid ""
+"A new window will open. When the connection is established, you will see "
+"<gui>Connected</gui> at the bottom of the window, along with the total "
+"conversation time."
+msgstr ""
+"Atvērsies jauns logs. Kad savienojums būs nodrošināts, būs redzams uzraksts "
+"<gui>Savienots</gui>loga apakšā, kopā ar sarunas ilgumu."
+
+#: C/video-call.page:49(p) C/audio-call.page:48(p)
+msgid "To end the conversation, click on <gui style=\"button\">Hang up</gui>."
+msgstr ""
+"Lai sarunu beigtu, spied uz <gui style=\"button\">Nolikt klausuli</gui>."
+
+#: C/video-call.page:55(p)
+msgid ""
+"To turn a video conversation into an audio conversation, choose <guiseq><gui "
+"style=\"menu\">Video</gui><gui style=\"menuitem\">Video Off</gui></guiseq>."
+msgstr ""
+"Lai pārvērstu video zvanu par audio sarunu, izvēlies <guiseq><gui "
+"style=\"menu\">Video</gui><gui style=\"menuitem\">Izslēgt video</gui></guiseq>"
+"."
+
+#: C/video-call.page:61(title)
+msgid "Start a video conversation with a meta-contact"
+msgstr "Sākt video sarunu ar meta-kontaktu"
+
+#: C/video-call.page:64(p) C/send-message.page:53(p) C/audio-call.page:66(p)
+msgid ""
+"From the <gui>Contact List</gui> window, right-click on the meta-contact."
+msgstr ""
+"No <gui>Kontaktu saraksts</gui> loga, ar labo peles klikšķi spied uz "
+"meta-kontakta."
+
+#: C/video-call.page:69(p)
+msgid ""
+"Select the contact you want to have the conversation, and from the menu "
+"select <gui style=\"menuitem\">Video Call</gui>."
+msgstr ""
+"Izvēlies kontaktu, ar kuru vēlies sazināties un izvēlnē izvēlies <gui "
+"style=\"menuitem\">Video zvans</gui>."
+
+#: C/video-call.page:76(p) C/send-message.page:65(p) C/audio-call.page:78(p)
+msgid ""
+"To recognize if a contact is a <em>meta-contact</em>, move your mouse on a "
+"contact in the <gui>Contact List</gui> window, and stop over it for a "
+"second: a small pop-up message will appear showing the number of the "
+"contacts that form the meta-contact."
+msgstr ""
+"Lai atpazītu vai konkrēts kontakts ir meta-kontakts, tad <gui>Kontaktu "
+"saraksts</gui> logā pavirzi pelītes kursoru virs kontakta vārda un atstāj to "
+"tajā vietā uz pāris sekundēm, pēc šīm pāris sekundēm, neliela uzlecoša ziņa "
+"parādīsies un parādīs kontaktu skaitu, kurš veido meta-kontaktu."
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/status-icons.page:39(None)
+msgid "@@image: 'figures/available.png'; md5=2196b2f0ad4ce26fdb7b9d48e75d1947"
+msgstr "@@image: 'figures/available.png'; md5=2196b2f0ad4ce26fdb7b9d48e75d1947"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/status-icons.page:45(None)
+msgid "@@image: 'figures/busy.png'; md5=15eb2adff5faedf97b0cb9105d09410a"
+msgstr "@@image: 'figures/busy.png'; md5=15eb2adff5faedf97b0cb9105d09410a"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/status-icons.page:53(None)
+msgid "@@image: 'figures/away.png'; md5=9c504d6ffa0cf1a9cc8933d16e1bea33"
+msgstr "@@image: 'figures/away.png'; md5=9c504d6ffa0cf1a9cc8933d16e1bea33"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/status-icons.page:62(None) C/status-icons.page:69(None)
+msgid "@@image: 'figures/offline.png'; md5=c5b0c21181cbd6e13f8909243c0fa964"
+msgstr "@@image: 'figures/offline.png'; md5=c5b0c21181cbd6e13f8909243c0fa964"
+
+#: C/status-icons.page:7(desc)
+msgid "Understanding the various statuses and status icons."
+msgstr "Dažādo statusu un statusu ikonu izprašana."
+
+#: C/status-icons.page:20(name) C/salut-protocol.page:36(cite)
+#: C/prev-conv.page:21(name) C/import-account.page:27(name)
+#: C/disable-account.page:25(name) C/audio-video.page:109(cite)
+#: C/audio-video.page:117(cite) C/add-account.page:25(name)
+#: C/accounts-window.page:18(name) C/account-jabber.page:14(name)
+#: C/account-irc.page:16(name)
+msgid "Shaun McCance"
+msgstr "Shaun McCance"
+
+#: C/status-icons.page:21(email) C/prev-conv.page:22(email)
+#: C/import-account.page:28(email) C/disable-account.page:26(email)
+#: C/add-account.page:26(email) C/accounts-window.page:19(email)
+#: C/account-jabber.page:15(email) C/account-irc.page:17(email)
+msgid "shaunm@gnome.org"
+msgstr "shaunm@gnome.org"
+
+#: C/status-icons.page:35(title)
+msgid "Status Types and Icons"
+msgstr "Statusu tipi un ikonas"
+
+#: C/status-icons.page:39(media)
+msgid "Available icon"
+msgstr "'Pieejams' ikona"
+
+#: C/status-icons.page:40(gui)
+msgid "Available"
+msgstr "Pieejams"
+
+#: C/status-icons.page:41(p)
+msgid ""
+"Use the <em>Available</em> status when you are at your computer and able to "
+"chat with your contacts. You can set a custom message for this status."
+msgstr ""
+"Izmanto <em>Pieejams</em> statusu kad atrodies pie sava datora un esi "
+"spējīgs sazināties ar kontaktiem. Šim statusam var iestatīt paša izvēlētu "
+"ziņojumu."
+
+#: C/status-icons.page:45(media)
+msgid "Busy icon"
+msgstr "'Aizņemts' ikona"
+
+#: C/status-icons.page:46(gui)
+msgid "Busy"
+msgstr "Aizņemts"
+
+#: C/status-icons.page:47(p)
+msgid ""
+"Use the <em>Busy</em> status to let your contacts know that you don’t want "
+"to chat right now. They can still contact you, for instance if they have "
+"something urgent they need to discuss. By default, <app>Empathy</app> will "
+"not use notification bubbles and sounds when you are busy. You can set a "
+"custom message for this status."
+msgstr ""
+"Izmanto <em>Aizņemts</em> statusu, lai darītu saviem kontaktiem zināmu, ka "
+"nevēlies pašlaik sazināties. Viņi joprojām var ar tevi sazināties, piemēram, "
+"ja ir jāpasaka kas steidzams. Pēc noklusējuma, <app>Empathy</app> neizmantos "
+"paziņojumu burbuļus un skaņas, kad ir uzlikts šis statuss. Šim statusam "
+"vari iestatīt paša izvēlētu ziņojumu."
+
+#: C/status-icons.page:53(media)
+msgid "Away icon"
+msgstr "'Prom' ikona"
+
+#: C/status-icons.page:54(gui)
+msgid "Away"
+msgstr "Prom"
+
+#: C/status-icons.page:55(p)
+msgid ""
+"Use the <em>Away</em> status when you are going away from your computer. "
+"<app>Empathy</app> automatically sets your status to Away if you do not use "
+"your computer for a while, or if your screensaver is on. By default, "
+"<app>Empathy</app> will not use notification bubbles and sounds when you are "
+"away. You can set a custom message for this status."
+msgstr ""
+"Izmanto <em>Prom</em> statusu, kad dodies prom no datora. "
+"<app>Empathy</app> automātiski jums uzliks šo statusu, ja kādu "
+"laiku nebūsi izmantojis datoru, vai, ja ekrānsaudzētājs būs aktīvs. Pēc "
+"noklusējuma, <app>Empathy</app> neizmantos paziņojumu burbuļus un skaņas, "
+"kad ir uzlikts šis statuss. Šim statusam var uzstādīt paša izvēlētu ziņojumu."
+
+#: C/status-icons.page:62(media) C/status-icons.page:69(media)
+msgid "Offline icon"
+msgstr "'Nesaistē' ikona"
+
+#: C/status-icons.page:63(gui)
+msgid "Invisible"
+msgstr "Neredzams"
+
+#: C/status-icons.page:64(p)
+msgid ""
+"When you set your status to <em>Invisible</em>, you will appear as offline "
+"to your contacts. You will still be connected to your accounts, and you "
+"still see your contacts’ statuses and start conversations with them."
+msgstr ""
+"Kad statuss ir <em>Neredzams</em>, tavi kontakti redzēs, ka esi nesaistē."
+"Tajā pat laikā tu vēl joprojām būsi savienots ar visiem kontiem, un tu varēsi "
+"redzēt savu kontaktu statusus, kā arī ar viņiem sazināties."
+
+#: C/status-icons.page:70(gui)
+msgid "Offline"
+msgstr "Nesaistē"
+
+#: C/status-icons.page:71(p)
+msgid ""
+"Setting your status to <em>Offline</em> disconnects you from all of your "
+"accounts."
+msgstr ""
+"Savu konta statusu iestatīšana uz <em>Nesaistē</em>, atvieno tevi no visiem "
+"taviem kontiem."
+
+#: C/share-desktop.page:7(desc)
+msgid "Show your desktop to your contacts."
+msgstr "Parādi savu darbvirsmu saviem kontaktiem."
+
+#: C/share-desktop.page:18(name)
+msgid "Ekaterina Gerasimova"
+msgstr "Ekaterina Gerasimova"
+
+#: C/share-desktop.page:19(email)
+msgid "kittykat3756@gmail.com"
+msgstr "kittykat3756@gmail.com"
+
+#: C/share-desktop.page:33(title)
+msgid "Share your desktop"
+msgstr "Dalīties ar savu darbvirsmu"
+
+#: C/share-desktop.page:35(p)
+msgid ""
+"It is possible to share your desktop with some of your contacts. You can use "
+"this functionality to show your desktop to your contacts to, for example, "
+"ask for help or help your contacts resolve a problem."
+msgstr ""
+"Savu darbvirsmu var koplietot ar dažiem no saviem kontaktiem. Tu vari "
+"izmantot šo funkciju, lai parādītu savu darbvirsmu kontaktiem, piemēram, lai "
+"paprasītu palīdzību kādā problēmā."
+
+#: C/share-desktop.page:42(p)
+msgid ""
+"To be able to share your desktop, you need to have a VNC server, which has "
+"support for the feature, installed on your system. <app>Vino</app>, the "
+"GNOME VNC server, has the required support."
+msgstr ""
+"Lai varētu dalīties ar darbvirsmu, šajā sistēmā jābūt uzinstalētam VNC "
+"serverim, kurš atbalsta šo pakalpojumu. <app>Vino</app> — GNOME "
+"veidotajam VNC serverim — ir šādas atbalsts."
+
+#: C/share-desktop.page:51(p)
+msgid "From the <gui>Contact List</gui> window, do one of the following:"
+msgstr "<gui>Kontaktu saraksts</gui> logā veic vienu no sekojošajām darbībām:"
+
+#: C/share-desktop.page:56(p)
+msgid ""
+"Select the contact you want to share your desktop with and choose "
+"<guiseq><gui>Edit</gui><gui>Contact</gui><gui>Share My Desktop</gui></"
+"guiseq>."
+msgstr ""
+"Izvēlies kontaktu ar kuru vēlies dalīt savu darbvirsmu un izvēlies <guiseq><"
+"gui>Rediģēt</gui><gui>Kontakts</gui><gui>Dalīties ar darbvirsmu</gui></"
+"guiseq>."
+
+#: C/share-desktop.page:63(p)
+msgid ""
+"Right-click on the name of the contact you want to share your desktop with "
+"and select <gui>Share My Desktop</gui>."
+msgstr ""
+"Ar labo peles klikšķi nospied uz kontakta, ar kur vēlies dalīt darbvirsmu un "
+"izvēlies <gui>Dalīties ar darbvirsmu</gui>."
+
+#: C/share-desktop.page:71(p)
+msgid ""
+"An invitation to view your desktop will be sent to the contact you have "
+"selected. To view your desktop, they will need to accept it."
+msgstr ""
+"Ielūgums skatīties tavu darbvirsmu tiks nosūtīts izvēlētajam kontaktam. "
+"Lai varētu skatīties tavu darbvirsmu, kontaktam vajadzēs pieņemt "
+"ielūgumu."
+
+#: C/share-desktop.page:77(p)
+msgid ""
+"You can disconnect the contact from your computer using your desktop sharing "
+"application."
+msgstr ""
+"Tu vari atvienot kontaktu no savas darbvirsmas, izmantojot savu darbvirsmas "
+"koplietošanas lietotni."
+
+#: C/share-desktop.page:82(p)
+msgid ""
+"For more information about how to use the remote desktop sharing "
+"application, refer to its help."
+msgstr ""
+"Lai uzzinātu vairāk, kā izmantot darbvirsmas koplietošanas lietotnes, "
+"lasiet to dokumentāciju."
+
+#: C/share-desktop.page:90(p)
+msgid ""
+"When you share your desktop with someone else, it is possible to experience "
+"system performance slowdown and low Internet speed."
+msgstr ""
+"Daloties ar savu darbvirsmu, ir iespējama sistēmas palēnināšanās un zemāks "
+"interneta ātrums."
+
+#: C/share-desktop.page:96(p)
+msgid ""
+"Some of your contacts may not be able to use this feature. It is necessary "
+"for them to have version 2.28, or newer, of <app>Empathy</app> and a "
+"compatible remote desktop viewer application installed in their system."
+msgstr ""
+"Dažiem no taviem kontaktiem var nebūt iespējas izmantot šo pakalpojumu. "
+"Viņu <app>Empathy</app> versijai ir jābūt vismaz 2.28. un savietojama "
+"darbvirsmas koplietošanas/skatīšanas lietotne."
+
+#: C/set-custom-status.page:9(desc)
+msgid "Add, edit or delete personal messages for your status."
+msgstr "Pievieno, rediģē vai dzēs personīgās ziņas no sava statusa."
+
+#: C/set-custom-status.page:15(name)
+msgid "Jim Campbell"
+msgstr "Jim Campbell"
+
+#: C/set-custom-status.page:16(email)
+msgid "jwcampbell@gmail.com"
+msgstr "jwcampbell@gmail.com"
+
+#: C/set-custom-status.page:34(title)
+msgid "Set a custom message"
+msgstr "Iestatīt pielāgotu ziņojumu"
+
+#: C/set-custom-status.page:36(p)
+msgid ""
+"Sometimes you may want to set a custom message for your status, for example "
+"to let people know that you will be unavailable for a certain period of time."
+msgstr ""
+"Dažādos gadījumos varētu vēlēties iestatīt pielāgotu ziņojumu savam "
+"statusam, piemēram paust kontaktiem zināmu to, ka kādu laiku nebūsi "
+"pieejams."
+
+#: C/set-custom-status.page:40(p)
+msgid ""
+"It is possible to set a custom message based on the different statuses "
+"available."
+msgstr ""
+"Pielāgotu ziņojumu var iestatīt atkarībā no dažādajiem pieejamajiem "
+"statusiem."
+
+#: C/set-custom-status.page:46(p) C/set-custom-status.page:82(p)
+msgid ""
+"From the <gui>Contact List</gui> window, click on the drop-down list at the "
+"top."
+msgstr ""
+"No <gui>Kontaktu saraksts</gui> loga, izvēlies krītošo izvēlni, kura ir "
+"augšpusē."
+
+#: C/set-custom-status.page:52(p)
+msgid ""
+"Select the status you want to add a custom message to. You have to select "
+"the one identified with the label <gui>Custom Message</gui>."
+msgstr ""
+"Izvēlies statusu, kuram vēlies iestatīt pielāgotu ziņojumu. Tev vajag "
+"izvēlēties to, kurš ir apzīmēts kā <gui>Pielāgots ziņojums</gui>."
+
+#: C/set-custom-status.page:58(p)
+msgid ""
+"Enter your custom message in the text box at the top of the window, and "
+"press <key>Enter</key> to set the message."
+msgstr ""
+"Ievadi savu pielāgoto ziņojumu teksta laukā, loga augšpusē un nospied "
+"taustiņu <key>Enter</key>, lai šo ziņojumu iestatītu."
+
+#: C/set-custom-status.page:64(p)
+msgid ""
+"If you want to set the custom message as a favorite, saving it in order to "
+"use it again, click on the little heart on the right of the text box where "
+"you wrote your custom message."
+msgstr ""
+"Ja vēlies saglabāt pielāgoto ziņojumu, lai to izmantotu atkal vēlāk, spied "
+"uz mazo sirsniņu pa labi no teksta lauka, kurā ievadījāt pielāgoto ziņojumu."
+
+#: C/set-custom-status.page:69(p)
+msgid ""
+"If you do not do it, the custom message will not be available the next time "
+"you use <app>Empathy</app>. It will be saved only for the current session."
+msgstr ""
+"Ja to neizdarīsi, pielāgotais ziņojums nebūs pieejams, nākamreiz "
+"atverot <app>Empathy</app>. Tas tiks saglabāts tikai šajā sesijā."
+
+#: C/set-custom-status.page:78(title)
+msgid "Edit and remove a custom message"
+msgstr "Rediģēt un izņemt pielāgotu ziņojumu"
+
+#: C/set-custom-status.page:88(p)
+msgid "Select <gui>Edit Custom Message</gui>."
+msgstr "Izvēlies <gui>Labot pielāgotos ziņojumus</gui>."
+
+#: C/set-custom-status.page:95(p)
+msgid "To edit a custom message:"
+msgstr "Lai labotu pielāgoto ziņojumu:"
+
+#: C/set-custom-status.page:100(p)
+msgid ""
+"From the <gui>Saved Presets</gui> box, select the status message you want to "
+"edit and double-click on it."
+msgstr ""
+"No <gui>Saglabātie iepriekšnoteiktie</gui> kastes, izvēlies statusa ziņojumu, "
+"kuru vēlies labot, un veic uz tā dubultklikšķi."
+
+#: C/set-custom-status.page:106(p)
+msgid "Type the new custom message and press <key>Enter</key> to modify it."
+msgstr ""
+"Ievadi jaunu pielāgoto ziņojumu un nospied <key>Enter</key>, lai to mainītu."
+
+#: C/set-custom-status.page:113(p)
+msgid "To remove a custom message:"
+msgstr "Lai izņemtu pielāgoto ziņojumu:"
+
+#: C/set-custom-status.page:118(p)
+msgid ""
+"From the <gui>Saved Presets</gui> box, select the status message you want to "
+"remove."
+msgstr ""
+"No <gui>Saglabātie iepriekšnoteiktie</gui> kastes, izvēlies statusa ziņojumu, "
+"kuru vēlies izņemt."
+
+#: C/set-custom-status.page:124(p)
+msgid "Click on the <gui>Remove</gui> button."
+msgstr "Nospied uz <gui>Izņemt</gui> pogas."
+
+#: C/set-custom-status.page:133(p)
+msgid "When finished, click on <gui>Close</gui>."
+msgstr "Kad esi pabeidzis, spied uz <gui>Aizvērt</gui>."
+
+#: C/set-custom-status.page:140(p)
+msgid ""
+"When you edit a custom message, it will not be set as the current status "
+"message. You will need to select it from the <gui>Contact List</gui> window."
+msgstr ""
+"Rediģējot pielāgotu ziņojumu, tas netiks iestatīts kā pašreizējā statusa "
+"ziņojums. Tas jāizvēlas no <gui>Kontaktu saraksta</gui> loga."
+
+#: C/send-message.page:8(desc)
+msgid "Send a message to one of your contacts."
+msgstr "Sūti ziņu kādam no saviem kontaktiem."
+
+#: C/send-message.page:17(name) C/send-file.page:17(name)
+#: C/prob-conn.page:14(name) C/prob-conn-neterror.page:15(name)
+#: C/prob-conn-auth.page:17(name) C/prob-conn-acctdisabled.page:15(name)
+#: C/change-status.page:24(name) C/add-contact.page:18(name)
+msgid "Phil Bull"
+msgstr "Phil Bull"
+
+#: C/send-message.page:18(email) C/send-file.page:18(email)
+#: C/prob-conn.page:15(email) C/prob-conn-neterror.page:16(email)
+#: C/prob-conn-auth.page:18(email) C/prob-conn-acctdisabled.page:16(email)
+#: C/change-status.page:25(email) C/add-contact.page:19(email)
+msgid "philbull@gmail.com"
+msgstr "philbull@gmail.com"
+
+#: C/send-message.page:32(title)
+msgid "Send a message to someone"
+msgstr "Sūtīt kādam ziņu"
+
+#: C/send-message.page:36(p)
+msgid ""
+"From the <gui>Contact List</gui> window, double-click the name of the "
+"contact that you want to have a conversation with."
+msgstr ""
+"No <gui>Kontaktu saraksta</gui> loga, veic dubultklikšķi uz kontakta vārda, "
+"ar "
+"ko vēlies sākt sarunu."
+
+#: C/send-message.page:42(p)
+msgid ""
+"A new window will open. Type a message into the box at the bottom of the "
+"window and press <key>Enter</key> to send it."
+msgstr ""
+"Atvērsies jauns logs. Ieraksti ziņojumu teksta laukumā, loga lejasdaļā un "
+"nospied <key>Enter</key>, lai to nosūtītu."
+
+#: C/send-message.page:50(title)
+msgid "Send a message to a meta-contact"
+msgstr "Nosūtīt ziņu meta-kontaktam"
+
+#: C/send-message.page:58(p)
+msgid ""
+"Select the contact you want to have the conversation, and from the menu "
+"select <gui style=\"menuitem\">Chat</gui>."
+msgstr ""
+"Izvēlies kontaktu, ar kuru vēlies uzsākt sarunu un no izvēlnē izvēlies <gui "
+"style=\"menuitem\">Tērzēt</gui>."
+
+#: C/send-file.page:8(desc)
+msgid "Send a file from your computer to one of your contacts."
+msgstr "Nosūti failu no sava datora kādam kontaktam."
+
+#: C/send-file.page:36(title)
+msgid "Send files"
+msgstr "Sūtīt failus"
+
+#: C/send-file.page:40(p) C/favorite-rooms.page:66(p)
+msgid "From the <gui>Contact List</gui> window, perform one of the following:"
+msgstr "<gui>Kontaktu saraksta</gui> logā izpildi vienu no sekojošajā:"
+
+#: C/send-file.page:45(p)
+msgid ""
+"Right click on the contact you want to send a file to, and choose <gui>Send "
+"file</gui>."
+msgstr ""
+"Veic labo peles klikšķi uz kontakta, kuram vēlies sūtīt failu un izvēlies <"
+"gui>Sūtīt failu</gui>."
+
+#: C/send-file.page:50(p)
+msgid ""
+"Click on the contact you want to send a file, and choose <guiseq><gui>Edit</"
+"gui><gui>Contact</gui><gui>Send file</gui></guiseq>."
+msgstr ""
+"Spied uz kontakta, kuram vēlies sūtīt failu un izvēlies <guiseq><gui>Rediģēt</"
+"gui><gui>Kontakts</gui><gui>Sūtīt failu</gui></guiseq>."
+
+#: C/send-file.page:58(p)
+msgid "Select the file to send, and click on <gui>Send</gui>."
+msgstr "Izvēlies failu, kuru vēlies sūtīt, un spied uz <gui>Sūtīt</gui>."
+
+#: C/send-file.page:63(p)
+msgid "The <gui>File Transfers</gui> window will appear."
+msgstr "Parādīsies <gui>Failu pārsūtījumu</gui> logs."
+
+#: C/send-file.page:66(p)
+msgid ""
+"Wait for your contact to accept the file transfer, or click <gui>Stop</gui> "
+"to halt the transfer."
+msgstr ""
+"Gaidi, kamēr tavs kontakts pieņems faila sūtījumu, vai nospied <gui>Apturēt<"
+"/gui>, lai apstādinātu sūtīšanu."
+
+#: C/send-file.page:72(p)
+msgid ""
+"Once the transfer is finished, it is possible to close the <gui>File "
+"Transfers</gui> window."
+msgstr ""
+"Kolīdz pārsūtīšana ir pabeigta, var aizvērt <gui>Failu pārsūtījumi</gui> logu."
+
+#: C/send-file.page:80(p)
+msgid ""
+"If you have multiple finished transfers listed in the window, click on "
+"<gui>Clear</gui> to empty the list. This will only remove the files from the "
+"list and will not delete them from your computer."
+msgstr ""
+"Ja sarakstā ir vairāki pabeigti sūtījumi, spied uz <gui>Attīrīt</gui>, lai "
+"nodzēstu sarakstu. Tas tikai izdzēsīs failus no saraksta, bet ne no tava "
+"datora."
+
+#: C/send-file.page:87(p)
+msgid ""
+"It is possible to send files only using the following services: <em>Jabber</"
+"em>, <em>Google Talk</em> and <em>People Nearby</em>."
+msgstr ""
+"Failus var sūtīt, izmantojot tikai sekojošos servisus: <em>Jabber</"
+"em>, <em>Google Talk</em> un <em>People Nearby</em>."
+
+#: C/send-file.page:93(p)
+msgid ""
+"In order to send a file to someone, you need to be connected to the "
+"Internet, or to a local area network."
+msgstr ""
+"lai kādam nosūtītu failu, ir jābūt savienojumam ar internetu vai ar lokālo "
+"tīklu."
+
+#: C/salut-protocol.page:8(desc)
+msgid "Understanding the People Nearby feature."
+msgstr "People Nearby pakalpojuma saprašana."
+
+#: C/salut-protocol.page:33(title)
+msgid "What is People Nearby?"
+msgstr "Kas ir People Nearby?"
+
+#: C/salut-protocol.page:37(p)
+msgid "I'd like to see this played up a bit more."
+msgstr "Es gribētu redzēt šeit vairāk informācijas."
+
+#: C/salut-protocol.page:40(p)
+msgid ""
+"The People Nearby service is a serverless communication service: you do not "
+"need to connect and authenticate to a central server in order to use it."
+msgstr ""
+"People Nearby serviss ir bez-servera komunikācijas serviss: tev nevajag "
+"savienoties un autentificēties ar centrālo serveri, lai to izmantotu."
+
+#: C/salut-protocol.page:45(p)
+msgid ""
+"This kind of serverless messaging system is restricted to a local area "
+"network and an active Internet connection is not necessary."
+msgstr ""
+"Šāds saziņas veids ir iespējams tikai lokālajā tīklā un tam nav nepieciešams "
+"aktīvs interneta savienojums."
+
+#: C/salut-protocol.page:49(p)
+msgid ""
+"The people that use this service inside the same local area network will be "
+"auto-discovered, and it will be possible to send them messages and files as "
+"with other services."
+msgstr ""
+"Cilvēki, kuri izmanto šo servisu vienā lokālajā tīklā automātiski tiks "
+"parādīti, un tiem varēsi nosūtīt ziņas un failus tieši tā pat, kā "
+"izmantojot citus servisus."
+
+#: C/salut-protocol.page:54(p)
+msgid ""
+"All the modern local area networks should be able to support this kind of "
+"service."
+msgstr ""
+"Visiem modernajiem lokālajiem tīkliem būtu jābūt spējīgiem atbalstīt šādu "
+"servisu."
+
+#: C/remove-account.page:8(desc)
+msgid "Completely remove an account from <app>Empathy</app>."
+msgstr "Izņem kontu no <app>Empathy</app> pilnībā."
+
+#: C/remove-account.page:34(title)
+msgid "Remove an account"
+msgstr "Izņemt kontu"
+
+#: C/remove-account.page:36(p)
+msgid ""
+"You can completely remove an account from <app>Empathy</app> if you no "
+"longer wish to use the account. If you wish to use the account in "
+"<app>Empathy</app> again in the future, you will have to add your account "
+"details again."
+msgstr ""
+"Ja vairāk nevēlies izmantot savu kontu, to var pilnībā izņemt no <app>"
+"Empathy</app> lietotnes. Ja vēlēsies izmantot savu kontu atkārtoti, tev "
+"vajadzēs atkal ievadīt visu informāciju."
+
+#: C/remove-account.page:43(p) C/irc-nick-password.page:50(p)
+#: C/disable-account.page:49(p) C/add-account.page:49(p)
+msgid ""
+"From the <gui>Contact List</gui> window, choose <guiseq><gui>Edit</"
+"gui><gui>Accounts</gui></guiseq>, or press <key>F4</key>."
+msgstr ""
+"<gui>Kontaktu saraksta</gui> logā izvēlies <guiseq><gui>Rediģēt</"
+"gui><gui>Konti</gui></guiseq>, vai nospied <key>F4</key>."
+
+#: C/remove-account.page:47(p)
+msgid ""
+"Select the account you wish to remove from the accounts list on the left "
+"side of the window."
+msgstr ""
+"Izvēlies kontu, ko vēlies izņemt, no kontu saraksta kreisajā loga pusē."
+
+#: C/remove-account.page:51(p)
+msgid "Click <gui style=\"button\">-</gui>."
+msgstr "Spied <gui style=\"button\">-</gui>."
+
+#: C/remove-account.page:54(p)
+msgid ""
+"A dialog will be shown asking for confirmation. Click the <gui>Remove</gui> "
+"button to permanently remove the account."
+msgstr ""
+"Parādīsies logs, kurā tev prasīs apstiprinājumu. Spied <gui>"
+"Izņemt</gui> pogu, lai pilnībā izņemtu savu kontu."
+
+#: C/remove-account.page:60(p)
+msgid ""
+"Even after removing an account, <app>Empathy</app> does not delete your "
+"conversation history for that account."
+msgstr ""
+"Pat pēc konta izņemšanas <app>Empathy</app> nedzēsīs tavu sarunu vēsturi."
+
+#: C/prob-conn.page:7(desc)
+msgid "Diagnose common problems connecting to an instant messaging service."
+msgstr ""
+"Identificē biežākās problēmas, kas rodas, savienojoties ar kādu TZ servisu."
+
+#: C/prob-conn.page:29(title)
+msgid "Problems connecting to an instant messaging service"
+msgstr "Problēmas, savienojoties ar TZ servisu"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/prob-conn-neterror.page:59(None) C/prob-conn-name.page:44(None)
+#: C/prob-conn-auth.page:58(None) C/account-irc.page:109(None)
+msgid "@@image: 'figures/gtk-edit.png'; md5=4f21b451732817be0604fe3e2c8da98b"
+msgstr "@@image: 'figures/gtk-edit.png'; md5=4f21b451732817be0604fe3e2c8da98b"
+
+#: C/prob-conn-neterror.page:7(desc)
+msgid ""
+"An error message which says “<gui>Network error</gui>” appears in the main "
+"window."
+msgstr ""
+"Kļūdas paziņojums, kurš saka “<gui>Tīkla kļūda</gui>” parādās galvenajā logā."
+
+#: C/prob-conn-neterror.page:34(title)
+msgid "I get a message that says “Network error”"
+msgstr "Es saņemu \"Tīkla kļūda” ziņojumu"
+
+#: C/prob-conn-neterror.page:37(cite)
+msgid "shaunm"
+msgstr "shaunm"
+
+#: C/prob-conn-neterror.page:38(p)
+msgid ""
+"Empathy no longer allows you to create an IRC account without a valid nick. "
+"I've removed the guide link. Remove the text."
+msgstr ""
+"Empathy vairāk neatļauj izveidot IRC kontu bez derīga segvārda. Esmu "
+"izņēmis pamācības saiti. Izņemiet tekstu."
+
+#: C/prob-conn-neterror.page:42(p)
+msgid ""
+"This kind of error happens when <app>Empathy</app> cannot communicate with "
+"the instant messaging service for some reason."
+msgstr ""
+"Šāda kļūda notiek tad, kad <app>Empathy</app> nevar sazināties ar TZ serveri, "
+"kāda iemesla dēļ."
+
+#: C/prob-conn-neterror.page:46(p)
+msgid ""
+"Also, this kind of error happens when you try to use an IRC account without "
+"setting a nickname."
+msgstr ""
+"Kā arī, šī kļūda notiek tad, kad mēģini izmantot IRC kontu bez segvārda "
+"iestatīšanas."
+
+#: C/prob-conn-neterror.page:53(p) C/prob-conn-auth.page:45(p)
+#: C/prob-conn-acctdisabled.page:44(p)
+msgid ""
+"Make sure that you are connected to the Internet, or to a local area network."
+msgstr "Pārliecinies, ka ir savienojums ar internetu vai ar lokālo tīklu."
+
+#: C/prob-conn-neterror.page:58(p) C/prob-conn-name.page:43(p)
+#: C/prob-conn-auth.page:57(p)
+msgid ""
+"Click the <media type=\"image\" mime=\"image/png\" src=\"figures/gtk-edit.png"
+"\">edit</media> icon in the error message."
+msgstr ""
+"Nospied uz <media type=\"image\" mime=\"image/png\" src=\"figures/gtk-edit.png"
+"\">rediģēt</media> ikonas, kļūdas paziņojumā."
+
+#: C/prob-conn-neterror.page:64(p) C/prob-conn-acctdisabled.page:60(p)
+msgid ""
+"Check in the <gui>Advanced</gui> section that all the details are correct. "
+"You should be able to find these details from the website of the messaging "
+"service."
+msgstr ""
+"Pārbaudi, ka visa informācija, <gui>Paplašināti</gui> sadaļā ir pareiza. Tev "
+"vajadzētu atrast šo informāciju mājaslapā, kuras ziņojumu servisu izmanto."
+
+#: C/prob-conn-neterror.page:79(p) C/prob-conn-name.page:65(p)
+msgid ""
+"Switch the account off, and then switch it on to try to reconnect to the "
+"service."
+msgstr ""
+"Izslēdz kontu un pēc tam atkal to ieslēdz, lai mēģinātu atkal savienoties ar "
+"servisu."
+
+#: C/prob-conn-neterror.page:87(title)
+msgid "Proxy support"
+msgstr "Starpniekserveru atbalsts"
+
+#: C/prob-conn-neterror.page:88(p)
+msgid ""
+"At the moment <app>Empathy</app> can not be configured to work with a proxy."
+msgstr ""
+"Šobrīd <app>Empathy</app> nevar nokonfigurēt tā, lai tas "
+"strādātu caur starpniekserveri."
+
+#: C/prob-conn-name.page:9(title)
+msgid "“Name in use”"
+msgstr "\"Vārds jau ir aizņemts\""
+
+#: C/prob-conn-name.page:10(desc)
+msgid ""
+"An error message which says “<gui>Name in use</gui>” appears in the main "
+"window."
+msgstr ""
+"Kļūdas paziņojums, kurš norāda \"<gui>Vārds jau ir aizņemts</gui>\" parādās "
+"galvenajā logā."
+
+#: C/prob-conn-name.page:33(title)
+msgid "I get a message that says “Name in use”"
+msgstr "Es saņemu paziņojumu, ka \"Vārds jau ir aizņemts\""
+
+#: C/prob-conn-name.page:35(p)
+msgid ""
+"This kind of error happens when you try to connect to your IRC account and "
+"you are using a nickname that is already being used by someone else on that "
+"particular network."
+msgstr ""
+"Šī kļūda notiek, kad tu mēģini savienoties ar savu IRC kontu un tu "
+"izmanto segvārdu kuru ir aizņēmis kāds cits dotajā tīklā."
+
+#: C/prob-conn-name.page:51(p)
+msgid "In the <gui>Nickname</gui> text box, type a new nickname."
+msgstr "<gui>Iesauka</gui> teksta laukā, ieraksti jaunu segvārdu."
+
+#: C/prob-conn-name.page:56(p)
+msgid ""
+"If you have registered that nickname within the network you are using, set "
+"the password for that nickname. For more information, see <link xref=\"irc-"
+"nick-password\"/>."
+msgstr ""
+"Ja esi reģistrējis segvārdu konkrētajā tīklā, kuru izmanto, uzliec tam "
+"paroli. Lai uzzinātu vairāk, lasi <link xref=\"irc-nick-password\"/>."
+
+#: C/prob-conn-auth.page:8(desc)
+msgid ""
+"An error message which says “<gui>Authentication failed</gui>” appears in "
+"the main window."
+msgstr ""
+"Kļūdas paziņojums, ka  “<gui>Autentifikācija neizdevās</gui>” "
+"parādās galvenajā logā."
+
+#: C/prob-conn-auth.page:36(title)
+msgid "I get a message that says “Authentication failed”"
+msgstr "Es saņemu paziņojumu, ka \"Autentifikācija neizdevās\""
+
+#: C/prob-conn-auth.page:38(p)
+msgid ""
+"This kind of error happens when your instant messaging service is not "
+"allowing you to connect because it does not recognize your username or "
+"password for some reason."
+msgstr ""
+"Šis kļūdas tips notiek tad, kad tavs tērzēšanas serviss neatļauj savienoties, "
+"jo neatpazīst tavu lietotājvārdu vai paroli kāda iemesla dēļ."
+
+#: C/prob-conn-auth.page:50(p)
+msgid ""
+"Make sure that you have registered an account with the service you are "
+"trying to connect to. If you do not have an account, most services will not "
+"allow you to connect."
+msgstr ""
+"Pārliecinies, ka servisam, kuram mēģini pieslēgties, ir izveidots konts. Ja "
+"tev nav izveidots konts, vairums servisu neatļaus tev ar tiem savienoties."
+
+#: C/prob-conn-auth.page:63(p) C/prob-conn-acctdisabled.page:55(p)
+msgid ""
+"Type your username and password again to make sure that they are correct."
+msgstr "Pārliecinies, ka lietotājvārdu un paroli esi ievadījis pareizi."
+
+#: C/prob-conn-auth.page:68(p)
+msgid ""
+"Deselect the <gui>Enabled</gui>, and then select it again to try to "
+"reconnect to the service."
+msgstr ""
+"Atslēdz opciju <gui>Aktivēts</gui> un tad ieslēdz to vēlreiz, lai mēģinātu "
+"atkal savienoties ar servisu."
+
+#: C/prob-conn-acctdisabled.page:7(desc)
+msgid ""
+"The instant messaging account that you want to use is not enabled in the "
+"list of accounts."
+msgstr "Tērzēšanas konts, ko vēlies izmantot, nav aktivēts kontaktu sarakstā."
+
+#: C/prob-conn-acctdisabled.page:34(title)
+msgid "My account is not enabled"
+msgstr "Mans konts nav aktivēts"
+
+#: C/prob-conn-acctdisabled.page:36(p)
+msgid ""
+"If the instant messaging account that you want to use is not enabled in the "
+"drop-down account list when you try to start a new conversation or join a "
+"room, your account details may not be correct."
+msgstr ""
+"Ja tērzēšanas konts, ko vēlies izmantot, nav aktivēts kontu sarakstā, "
+"mēģinot sākt jaunu sarunu vai pievienojoties kādai istabai, tad  "
+"informācija par tavu kontu varētu būt nepareiza."
+
+#: C/prob-conn-acctdisabled.page:49(p)
+msgid ""
+"Choose <guiseq><gui>Edit</gui><gui>Accounts</gui></guiseq> and select the "
+"account that is not working."
+msgstr ""
+"Izvēlies <guiseq><gui>Rediģēt</gui><gui>Konti</gui></guiseq> un izvēlies "
+"kontu, kurš nestrādā."
+
+#: C/prob-conn-acctdisabled.page:66(p)
+msgid "Check that the account is switched on."
+msgstr "Pārliecinies, ka konts ir ieslēgts."
+
+#: C/prev-conv.page:8(desc)
+msgid "Browse or search your previous conversations."
+msgstr "Pārlūko vai meklē savās iepriekšējās sarunās."
+
+#: C/prev-conv.page:36(title)
+msgid "View previous conversations"
+msgstr "Skatīt iepriekšējās sarunas"
+
+#: C/prev-conv.page:38(p)
+msgid ""
+"<app>Empathy</app> automatically saves all your text conversations you have "
+"with your contacts. You can <link xref=\"#search\">search through all of "
+"your previous conversations</link> or <link xref=\"#browse\">browse previous "
+"conversations</link> by contact and date."
+msgstr ""
+"<app>Empathy</app> automātiski saglabā visas teksta sarunas, kuras notiek "
+"starp kontaktiem. Tu vari <link xref=\"#search\">meklēt caur visām savām "
+"iepriekšējām sarunām</link> vai <link xref=\"#browse\">skatīt iepriekšējās "
+"sarunas</link>, šķirojot tās pēc kontakta un datuma."
+
+#: C/prev-conv.page:46(p)
+msgid ""
+"You do not need to be connected to the Internet to view and search your "
+"previous conversations."
+msgstr ""
+"Nav vajadzīgs savienojums ar internetu, lai skatītos un meklētu iepriekšējās "
+"sarunas."
+
+#: C/prev-conv.page:53(title)
+msgid "Search previous conversations"
+msgstr "Meklēt iepriekšējās sarunas"
+
+#: C/prev-conv.page:55(p)
+msgid ""
+"You can perform a full-text search through all of your previous "
+"conversations."
+msgstr ""
+"Tu vari veikt pilnu teksta meklēšanu caur visām savām iepriekšējām sarunām."
+
+#: C/prev-conv.page:59(p) C/prev-conv.page:87(p)
+msgid ""
+"From the <gui>Contact List</gui> window, choose <guiseq><gui>View</"
+"gui><gui>Previous Conversations</gui></guiseq>. Alternatively, press "
+"<key>F3</key>."
+msgstr ""
+"No <gui>Kontaktu saraksts</gui> loga, izvēlies <guiseq><gui>Skats</"
+"gui><gui>Iepriekšējās sarunas</gui></guiseq>, vai arī, spied <key>F3</key>"
+
+#: C/prev-conv.page:63(p)
+msgid ""
+"Select an account from the drop-down list in the top. A list of contacts and "
+"chat room for that account will be shown below."
+msgstr ""
+"Izvēlies kontu no saraksta augšpusē. Saraksts ar kontaktiem un "
+"tērzēšanas istabām konkrētajam kontam tiks parādīts zemāk."
+
+#: C/prev-conv.page:67(p)
+msgid ""
+"Type the text you want to search for in the <gui>Search</gui> text field."
+msgstr "Teksta laukā <gui>Meklēt</gui> ievadi tekstu, ko vēlies atrast."
+
+#: C/prev-conv.page:71(p)
+msgid ""
+"Any conversations that matched your search terms will be shown. By default, "
+"conversations are ordered by date."
+msgstr ""
+"Tiks rādīta katras saruna, kas atbilst meklētajam tekstam. Pēc noklusējuma "
+"sarunas ir kārtotas pēc datuma."
+
+#: C/prev-conv.page:80(title)
+msgid "Browse previous conversations"
+msgstr "Skatīt iepriekšējās sarunas"
+
+#: C/prev-conv.page:82(p)
+msgid ""
+"You can browse your previous conversations with your contacts or in chat "
+"rooms by date."
+msgstr ""
+"Iepriekšējās sarunas ar saviem kontaktiem vai tērzēšanas "
+"istabām var pārlūkot pēc datuma."
+
+#: C/prev-conv.page:91(p)
+msgid ""
+"Select an account from the drop-down list in the top left. A list of "
+"contacts and chat room for that account will be shown below."
+msgstr ""
+"Izvēlies kontu no izkrītošās izvēlnes augšā kreisajā pusē. Saraksts ar "
+"kontaktiem un "
+"tērzēšanas istabām konkrētajam kontam tiks parādīts zemāk."
+
+#: C/prev-conv.page:95(p)
+msgid ""
+"Select a contact or chat room to view your previous conversations from. By "
+"default the most recent conversation will be shown."
+msgstr ""
+"Izvēlies kontaktu vai tērzēšanas istabu, kuru iepriekšējās sarunas vēlies "
+"skatīties. Pēc noklusējuma, lielākā daļa pēdējo sarunu tiks parādītas."
+
+#: C/prev-conv.page:99(p)
+msgid ""
+"You can browse your conversations by date. Days on which you had a "
+"conversation with the selected contact will be shown in bold text. Click a "
+"date to select it. Click the arrows next to the month and year to browse "
+"earlier dates."
+msgstr ""
+"Savas sarunas vari skatīties, šķirojot pēc datumiem. Dienas, kurās tev ir "
+"bijusi kāda saruna ar izvēlēto kontaktu, tiks iezīmētas treknrakstā. Spied uz "
+"datuma, lai to izvēlētos. Spied uz bultiņām pie mēneša un gada, lai skatītu "
+"agrākus datumus."
+
+#: C/prev-conv.page:105(p)
+msgid ""
+"You can search for text in the conversations by typing into the search field "
+"at the top. The matching conversations will be showed."
+msgstr ""
+"Meklēt teksta sarunās var, rakstot meklēšanas lauciņā augšpusē. Tiks rādītas "
+"atbilstošās sarunas."
+
+#: C/prev-conv.page:111(p)
+msgid ""
+"You can quickly view the previous conversations with one of your contacts "
+"from the <gui>Contact List</gui> window. Simply right click the contact and "
+"choose <gui>Previous Conversations</gui>. The <gui>Previous Conversations</"
+"gui> window will open with that contact already selected."
+msgstr ""
+"Iepriekšējās sarunas ar kādu no kontaktiem var ātri apskatīt no <gui>Kontaktu "
+"saraksts</gui> loga. Spied labo peles pogu uz kontakta un izvēlies "
+"<gui>Iepriekšējās sarunas</gui>. Atvērsies <gui>Iepriekšējās sarunas</gui> "
+"logs ar sarunām ar izvēlēto kontaktu."
+
+#: C/link-contacts.page:11(desc)
+msgid "Merge and separate different contacts into a single one."
+msgstr "Apvieno un sadali dažādus kontaktus, vienā veselā."
+
+#: C/link-contacts.page:25(title)
+msgid "Combine and separate contacts"
+msgstr "Apvienot un sadalīt kontaktus"
+
+#: C/link-contacts.page:26(p)
+msgid ""
+"If one, or more, of your contacts has multiple accounts with different "
+"messaging services, you can combine these contacts into a single one."
+msgstr ""
+"Ja vienam vai vairākiem kontaktiem ir vairāki konti ar dažādiem tērzēšanas "
+"servisiem, tu vari apvienot šos kontaktus vienā."
+
+#: C/link-contacts.page:30(p)
+msgid ""
+"The resulting contact is called a <em>meta-contact</em>: a contact composed "
+"from different single contacts."
+msgstr ""
+"Iegūtais kontakts tiek saukts par <em>meta-kontaktu</em>: kontakts, "
+"savienots no vairākiem atsevišķiem kontaktiem."
+
+#: C/link-contacts.page:34(p)
+msgid ""
+"If you have a Jane Smith contact that is using three different messaging "
+"services like:"
+msgstr ""
+"Ja tev ir Ilzes Priedes kontakts, kurš izmanto trīs dažādus ziņojumu "
+"servisus, "
+"piemēram:"
+
+#: C/link-contacts.page:40(p)
+msgid "janes@facebook"
+msgstr "ilze@facebook"
+
+#: C/link-contacts.page:45(p)
+msgid "jane.smith@gmail"
+msgstr "ilze.priede@gmail"
+
+#: C/link-contacts.page:50(p)
+msgid "jane_smith@hotmail"
+msgstr "ilze_priede@hotmail"
+
+#: C/link-contacts.page:55(p)
+msgid "You can combine these contacts into a single Jane Smith one."
+msgstr "Tu vari apvienot šos kontaktus vienā vienīgā Ilzes Priedes kontaktā."
+
+#: C/link-contacts.page:60(title)
+msgid "Combining contacts"
+msgstr "Kontaktu apvienošana"
+
+#: C/link-contacts.page:63(p)
+msgid ""
+"From the <gui>Contact List</gui> window, right-click one of the contact that "
+"has different accounts, and select <gui style=\"menuitem\">Link Contacts...</"
+"gui>."
+msgstr ""
+"No <gui>Kontaktu saraksta</gui> loga, spiež labo peles pogu uz kontakta ar "
+"dažādiem kontiem un izvēlies <gui style=\"menuitem\">Saistīt kontaktus...<"
+"/gui>."
+
+#: C/link-contacts.page:70(p)
+msgid ""
+"From the left pane in the <gui>Link Contacts</gui> window, select the "
+"contacts you want to combine."
+msgstr ""
+"No kreisā paneļa, <gui>Saistīt kontaktus</gui> logā, izvēlies kontaktus, "
+"kurus vēlies apvienot."
+
+#: C/link-contacts.page:76(p)
+msgid "Click <gui style=\"button\">Link</gui>."
+msgstr "Spied uz <gui style=\"button\">Saistīt</gui>."
+
+#: C/link-contacts.page:82(p)
+#, fuzzy
+msgid ""
+"When a meta-contact has been created, the default contact that will be used "
+"to have a conversation with when you double-click on it, is the contact with "
+"the highest presence on-line."
+msgstr ""
+"Kad ir izveidots meta-kontakts, noklusētais kontakts, kurš tiks izmantots, "
+"lai sazinātos, kad uz tā veic dubultklikšķi, būs kontaklts ar augstāko "
+"klātbūtnes laiku."
+
+#: C/link-contacts.page:91(title)
+msgid "Separating contacts"
+msgstr "Kontaktu atdalīšana"
+
+#: C/link-contacts.page:94(p)
+msgid ""
+"From the <gui>Contact List</gui>, right-click the contact to separate, and "
+"select <gui style=\"menuitem\">Link Contacts...</gui>."
+msgstr ""
+"<gui>Kontaktu saraksts</gui> logā spiež labo peles pogu uz kontakta, kuru "
+"vēlies atdalīt un izvēlies <gui style=\"menuitem\">Saistīt kontaktus...</gui>."
+
+#: C/link-contacts.page:100(p)
+msgid "Click <gui style=\"button\">Unlink</gui>."
+msgstr "Spied uz <gui style=\"button\">Atsaistīt</gui>."
+
+#: C/license.page:8(desc)
+msgid "Legal information."
+msgstr "Juridiskā informācija."
+
+#: C/license.page:11(title)
+msgid "License"
+msgstr "License"
+
+#: C/license.page:12(p)
+msgid ""
+"This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
+"Unported license."
+msgstr ""
+"Šis darbs tiek izplatīts balstoties uz CreativeCommons Attribution-Share "
+"Alike 3.0 neportēto licenci."
+
+#: C/license.page:20(p)
+msgid "You are free:"
+msgstr "Tu drīksti:"
+
+#: C/license.page:25(em)
+msgid "To share"
+msgstr "Izplatīt"
+
+#: C/license.page:26(p)
+msgid "To copy, distribute and transmit the work."
+msgstr "Kopēt, izplatīt un pārraidīt šo darbu."
+
+#: C/license.page:29(em)
+msgid "To remix"
+msgstr "Pārveidot"
+
+#: C/license.page:30(p)
+msgid "To adapt the work."
+msgstr "Piemērot."
+
+#: C/license.page:33(p)
+msgid "Under the following conditions:"
+msgstr "Zem sekojošajiem noteikumiem:"
+
+#: C/license.page:38(em)
+msgid "Attribution"
+msgstr "Attiecinājums"
+
+#: C/license.page:39(p)
+msgid ""
+"You must attribute the work in the manner specified by the author or "
+"licensor (but not in any way that suggests that they endorse you or your use "
+"of the work)."
+msgstr ""
+"Tev ir obligāti jāattiecina darbs veidā, kurš to ir norādījis autors vai "
+"licencētājs (bet ne tādā veidā veidā, kas liktu noprast, ka tie "
+"atbalsta tevi vai tava darba izmantošanu)."
+
+#: C/license.page:46(em)
+msgid "Share Alike"
+msgstr "Share Alike"
+
+#: C/license.page:47(p)
+msgid ""
+"If you alter, transform, or build upon this work, you may distribute the "
+"resulting work only under the same, similar or a compatible license."
+msgstr ""
+"Ja tu pamaini, pārveido šo darbu, tu to drīksti izplatīt tikai zem šādas "
+"pašas vai savietojamas licences."
+
+#: C/license.page:53(p)
+msgid ""
+"For the full text of the license, see the <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons website</"
+"link>, or read the full <link href=\"http://creativecommons.org/licenses/by-"
+"sa/3.0/\">Commons Deed</link>."
+msgstr ""
+"Lai iegūtu pilnu licences tekstu, skaties <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons mājaslapā</"
+"link>, vai izlasi pilnu <link href=\"http://creativecommons.org/licenses/by-"
+"sa/3.0/\">aktu</link>."
+
+#: C/irc-start-conversation.page:8(desc)
+msgid "Start a conversation with an IRC contact."
+msgstr "Sākt sarunu ar IRC kontaktu."
+
+#: C/irc-start-conversation.page:30(title)
+msgid "Chat with somebody on IRC"
+msgstr "Sarakstīties ar kādu IRC lietotāju"
+
+#: C/irc-start-conversation.page:32(p)
+msgid ""
+"You can hold private conversations with other IRC users, outside of the "
+"public IRC chat rooms. To start a conversation with another IRC user:"
+msgstr ""
+"Tu vari uzturēt privātas sarunas ar citiem IRC lietotājiem, ārpus publiskajām "
+"IRC istabām. Lai sāktu sarunu ar kādu IRC lietotāju:"
+
+#: C/irc-start-conversation.page:37(p)
+msgid ""
+"In the contact list for an IRC chat room, double click the name of the user "
+"you want to chat with. Alternatively, right click the name of the user and "
+"choose <gui>Chat</gui>."
+msgstr ""
+"IRC sarakstes istabas dalībnieku sarakstā veic dubultklikšķi uz tā lietotāja "
+"segvārda, ar kuru vēlies sazināties. Kā arī var veikt labo peles klikšķi un "
+"izvēlēties <gui>Tērzēt</gui>."
+
+#: C/irc-start-conversation.page:45(p)
+msgid ""
+"The IRC room contact list is not the same as <app>Empathy</app> contact "
+"list. It contains a list of users in the IRC chat room you joined. Different "
+"rooms can have different contacts listed."
+msgstr ""
+"IRC istabu dalībnieku saraksts nav tas pats, kas <app>Empathy</app> kontaktu "
+"saraksts. Tas satur sarakstu ar lietotājiem, kuri atrodas tajā pašā istabā, "
+"kurā jūs. Dažādās istabās būs dažādi kontakti."
+
+#: C/irc-start-conversation.page:52(p)
+msgid ""
+"The IRC room contact list is usually on the right side of the IRC room "
+"window. If you do not see it, choose <guiseq><gui>Conversation</"
+"gui><gui>Show Contact List</gui></guiseq>."
+msgstr ""
+"IRC istabu kontaktu saraksts parasti atrodas istabas loga labajā pusē. Ja tu "
+"to neredzi, izvēlies <guiseq><gui>Saruna</gui><gui>Rādīt kontaktu sarakstu<"
+"/gui></guiseq>."
+
+#: C/irc-send-file.page:9(desc)
+msgid "<app>Empathy</app> does not currently support sending files using IRC."
+msgstr "<app>Empathy</app> pašlaik neatbalsta failu sūtīšanu caur IRC."
+
+#: C/irc-send-file.page:31(title)
+msgid "Send files over IRC"
+msgstr "Sūti failus caur IRC"
+
+#: C/irc-send-file.page:33(p)
+msgid "It is not currently possible to send files using IRC."
+msgstr "Pagaidām nav iespējams sūtīt failus, izmantojot IRC."
+
+#: C/irc-nick-password.page:10(desc)
+msgid "Protect your nickname to prevent other IRC users from using it."
+msgstr ""
+"Aizsargā savu segvārdu, lai neļautu citiem IRC lietotājiem to izmantot."
+
+#: C/irc-nick-password.page:33(title)
+msgid "Use a nickname password on IRC"
+msgstr "Izmantot segvārda paroli IRC tīklā"
+
+#: C/irc-nick-password.page:35(p)
+msgid ""
+"On some IRC networks, you can register your nickname with a service called "
+"NickServ. By sending special messages to NickServ, you can set your password "
+"and identify yourself. Some IRC chat rooms may not allow you to join without "
+"a registered nickname."
+msgstr ""
+"Dažos IRC tīklos, tu vari reģistrēt savu segvārdu, izmantojot servisu, sauktu "
+"par NickServ. Sūtot īpašas komandas NickServ, tu vari iestatīt paroli un "
+"identificēt sevi. Dažas IRC istabas var tev neatļaut pieslēgties, "
+"nereģistrējot segvārdu."
+
+#: C/irc-nick-password.page:40(p)
+msgid ""
+"<app>Empathy</app> does not currently support nickname registration. Some "
+"IRC networks, however, will automatically forward a <em>server password</em> "
+"to NickServ. On these networks, you can use the IRC password in "
+"<app>Empathy</app> to identify yourself to NickServ. The popular freenode "
+"network is known to have this feature."
+msgstr ""
+"<app>Empathy</app> pašlaik neatbalsta segvārdu reģistrāciju. Daži IRC tīkli "
+"automātiski nosūtīs <em>servera paroli</em> uz NickServ. Šajos tīklos tu vari "
+"izmantot IRC paroli, <app>Empathy</app> lietotnē, lai identificētu sevi "
+"NickServ servisā. Populārajam freenode tīklam ir šī funkcija."
+
+#: C/irc-nick-password.page:46(p)
+msgid "To set an IRC server password:"
+msgstr "Lai iestatītu IRC paroli:"
+
+#: C/irc-nick-password.page:54(p)
+msgid "Select the IRC account from the list on the left of the dialog."
+msgstr "Izvēlies IRC kontu no saraksta, kreisajā loga pusē."
+
+#: C/irc-nick-password.page:57(p)
+msgid ""
+"In the <gui>Password</gui> field, type the password you used to register "
+"your nikcname."
+msgstr ""
+"<gui>Parole</gui> laukā, raksti paroli, kuru izmantoji, lai reģistrētu "
+"segvārdu."
+
+#: C/irc-nick-password.page:63(p) C/import-account.page:61(p)
+#: C/add-account.page:74(p)
+msgid "Click <gui style=\"button\">Apply</gui>."
+msgstr "Spied <gui style=\"button\">Pielietot</gui>."
+
+#: C/irc-nick-password.page:69(p)
+msgid ""
+"These instructions only allow you to use a password-protected nickname on "
+"certain IRC networks. It is not currently possible to register an IRC "
+"nickname or change your nickname password using <app>Empathy</app>."
+msgstr ""
+"Šīs instrukcijas ļauj tev izmantot ar paroli aizsargātu iesauku noteiktos "
+"IRC tīklos. Uz doto brīdi nav iespējams reģistrēt IRC iesauku, vai to "
+"mainīt, izmantojot <app>Empathy</app>."
+
+#: C/irc-manage.page:9(desc)
+msgid "How to use IRC with <app>Empathy</app>."
+msgstr "Kā izmantot IRC kopā ar <app>Empathy</app>."
+
+#: C/irc-manage.page:34(title)
+msgid "Internet Relay Chat (IRC)"
+msgstr "Internet Relay Chat (IRC)"
+
+#: C/irc-manage.page:37(p) C/account-irc.page:39(p)
+msgid ""
+"You must have the <sys>telepathy-idle</sys> package installed to use IRC in "
+"<app>Empathy</app>."
+msgstr ""
+"Tev ir jāuzinstalē <sys>telepathy-idle</sys> paka, lai izmantotu IRC "
+"kopā ar <app>Empathy</app>."
+
+#: C/irc-manage.page:41(link)
+msgid "Install telepathy-idle"
+msgstr "Instalēt telepathy-idle"
+
+#: C/irc-manage.page:48(title)
+msgid "IRC Chat Rooms and Conversations"
+msgstr "IRC tērzēšanas istabas un sarunas"
+
+#: C/irc-manage.page:50(title)
+msgid "Chat Rooms and Conversations"
+msgstr "Tērzēšanas istabas un sarunas"
+
+#: C/irc-manage.page:55(title)
+msgid "Common IRC Problems"
+msgstr "Biežākās IRC problēmas"
+
+#: C/irc-manage.page:57(title) C/index.page:55(title)
+msgid "Common Problems"
+msgstr "Biežākās problēmas"
+
+#: C/irc-join-room.page:8(desc)
+msgid "Join an IRC channel."
+msgstr "Pievienojies IRC kanālam."
+
+#: C/irc-join-room.page:31(title)
+msgid "Join an IRC chat room"
+msgstr "Pievienoties IRC tērzēšanas istabai."
+
+#: C/irc-join-room.page:33(p)
+msgid ""
+"You can join IRC chat rooms (also known as IRC channels) on any IRC network "
+"you’re connected to. To connect to an IRC network, see <link xref=\"add-"
+"account\"/> and <link xref=\"account-irc\"/>."
+msgstr ""
+"Tu vari pievienoties IRC tērzēšanas istabām (zināmām kā IRC kanāliem) jebkurā "
+"IRC tīklā, kuram esi pieslēdzies. Lai pieslēgtos IRC tīklam, lasi <link "
+"xref=\"add-account\"/> un <link xref=\"account-irc\"/>."
+
+#: C/irc-join-room.page:39(p) C/group-conversations.page:58(p)
+#: C/group-conversations.page:122(p)
+msgid ""
+"From the <gui>Contact List</gui> window, choose <guiseq><gui>Room</"
+"gui><gui>Join</gui></guiseq>."
+msgstr ""
+"No <gui>Kontaktu saraksta</gui> loga, izvēlies <guiseq><gui>Istaba</"
+"gui><gui>Pievienoties</gui></guiseq>."
+
+#: C/irc-join-room.page:45(p)
+msgid ""
+"From the <gui>Account</gui> drop-down list, select the IRC account that "
+"corresponds to the network you want to use."
+msgstr ""
+"<gui>Konts</gui> izkrītošajā izvēlnē izvēlies IRC kontu, kurš atbilst "
+"tīklam, kuru vēlies izmantot."
+
+#: C/irc-join-room.page:51(p)
+msgid ""
+"In the <gui>Room</gui> text box, type the name of the channel you want to "
+"join. IRC channel names start with the hash character (<sys>#</sys>)."
+msgstr ""
+"<gui>Istaba</gui> teksta laukumā, ieraksti kanāla nosaukumu, kuram vēlies "
+"pievienoties. IRC kanālu nosaukumi sākas ar restītes zīmi (<sys>#</sys>)."
+
+#: C/irc-join-room.page:57(p)
+msgid "Click <gui>Join</gui> to enter the room."
+msgstr "Spied <gui>Pievienoties</gui>, lai pievienotos istabai."
+
+#: C/irc-join-room.page:64(p)
+msgid ""
+"To join multiple rooms, you need to repeat the steps above for each room."
+msgstr ""
+"Lai pievienotos vairākām istabām vienlaicīgi, tev nāksies atkārtot šos soļus "
+"katrai istabai."
+
+#: C/irc-join-pwd.page:9(desc)
+msgid "Enter password-protected IRC chat rooms."
+msgstr "Ieej ar paroli aizsargātās IRC tērzēšanas istabās."
+
+#: C/irc-join-pwd.page:25(title)
+msgid "Join a protected IRC chat room"
+msgstr "Pievienoties aizsargātai IRC saziņas istabai"
+
+#: C/irc-join-pwd.page:27(p)
+msgid ""
+"On some IRC networks, private IRC rooms may be protected with a password. If "
+"you know the password, use the following steps to join:"
+msgstr ""
+"Dažos IRC tīklos, privātās IRC istabas var būt aizsargātas ar paroli. Ja tu "
+"zini šo paroli, izpildi sekojošos soļus lai pievienotos:"
+
+#: C/irc-join-pwd.page:33(p)
+msgid "<link xref=\"irc-join-room\">Join the room</link> as normal."
+msgstr ""
+"<link xref=\"irc-join-room\">Pievienojies istabai</link> kā tu to parasti "
+"darītu."
+
+#: C/irc-join-pwd.page:38(p)
+msgid ""
+"Empathy will prompt you for a password. Enter the password for the IRC chat "
+"room and click <gui style=\"button\">Join</gui>."
+msgstr ""
+"Empathy tev pieprasīs paroli. Ievadi IRC istabas paroli un spied <gui "
+"style=\"button\">Pievienoties</gui>."
+
+#: C/irc-commands.page:7(desc)
+msgid "The supported IRC commands."
+msgstr "Atbalstītās IRC komandas."
+
+#: C/irc-commands.page:18(title)
+msgid "Supported IRC commands"
+msgstr "Atbalstītās IRC komandas"
+
+#: C/irc-commands.page:19(p)
+msgid ""
+"To see the list of the supported IRC commands, in a chat room type <input>/"
+"help</input> and press <key>Enter</key>."
+msgstr ""
+"Lai redzētu sarakstu ar atbalstītajām IRC komandām, tērzēšanas istabā "
+"ieraksti <input>/help</input> un nospied <key>Enter</key>."
+
+#: C/irc-commands.page:24(p)
+msgid "All commands available have a small description on their usage."
+msgstr "Visām pieejamajām komandām ir neliels to lietošanas paskaidrojums."
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/introduction.page:41(None)
+msgid ""
+"@@image: 'figures/empathy-main-window.png'; "
+"md5=54908dcb2588beddb15ef0968d2c2582"
+msgstr ""
+"@@image: 'figures/empathy-main-window.png'; "
+"md5=54908dcb2588beddb15ef0968d2c2582"
+
+#: C/introduction.page:9(desc)
+msgid "Introduction to the <app>Empathy</app> instant messenger."
+msgstr "Ievads <app>Empathy</app> tūlītējās ziņojumapmaiņas lietotnē."
+
+#: C/introduction.page:21(title)
+msgid "Introduction"
+msgstr "Ievads"
+
+#: C/introduction.page:23(p)
+msgid ""
+"<app>Empathy</app> is an instant messaging application for the GNOME "
+"Desktop. It supports text messaging, voice &amp; video calls, file "
+"transfers, and all the most used messaging systems such as MSN and Google "
+"Talk."
+msgstr ""
+"<app>Empathy</app> ir tūlītējās ziņojumapmaiņas lietotne, izveidota GNOME "
+"darbvirsmai. Tā atbalsta teksta ziņojumus, balss un video zvanus, failu "
+"sūtīšanu un visas visbiežāk izmantotās ziņojumu sistēmas, piemēram MSN un "
+"Google Talk."
+
+#: C/introduction.page:28(p)
+msgid ""
+"<app>Empathy</app> includes features that help you better collaborate while "
+"at work, and that let you easily keep in touch with your friends."
+msgstr ""
+"<app>Empathy</app> sevī ietver iespējas, kas palīdz labāk sadarboties darba "
+"vidē un kuras palīdz vieglāk sazināties ar draugiem."
+
+#: C/introduction.page:32(p)
+msgid ""
+"Using <app>Empathy</app>, you can group all the conversations in a single "
+"window, have multiple windows for different kind of conversations, easily "
+"search through your previous conversations, and share your desktop in just "
+"two clicks."
+msgstr ""
+"Izmantojot <app>Empathy</app>, tu vari sagrupēt visas notiekošās sarakstes "
+"vienā logā, vari arī katrai sarakstei atvēlēt savu logu, vienkārši meklēt "
+"cauri visām sarakstēm un dalīties ar savu darbvirsmu ar tikai diviem "
+"klikšķiem!"
+
+#: C/introduction.page:39(title)
+msgid "<gui>Contact List</gui> window"
+msgstr "<gui>Kontaktu saraksta</gui> logs"
+
+#: C/introduction.page:40(desc)
+msgid "<app>Empathy</app> main window"
+msgstr "<app>Empathy</app> galvenais logs"
+
+#: C/introduction.page:42(p)
+msgid "<app>Empathy</app> main window."
+msgstr "<app>Empathy</app> galvenais logs."
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/index.page:28(None)
+msgid ""
+"@@image: 'figures/empathy-logo.png'; md5=1afc419a644e90b16393807e35cb5cb2"
+msgstr ""
+"@@image: 'figures/empathy-logo.png'; md5=1afc419a644e90b16393807e35cb5cb2"
+
+#: C/index.page:7(title) C/index.page:8(title)
+msgid "Empathy Internet Messenger"
+msgstr "Empathy Interneta ziņotājs"
+
+#: C/index.page:27(title)
+msgid ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/empathy-logo.png\"> "
+"Empathy Internet Messenger logo </media> Empathy Internet Messenger"
+msgstr ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/empathy-logo.png\"> "
+"Empathy Interneta ziņotāja logo </media> Empathy Interneta ziņotājs"
+
+#: C/index.page:35(title)
+msgid "Account Management"
+msgstr "Kontu pārvaldnieks"
+
+#: C/index.page:39(title)
+msgid "Contact Management"
+msgstr "Kontaktu pārvaldnieks"
+
+#: C/index.page:43(title)
+msgid "Text Conversations"
+msgstr "Teksta sarunas"
+
+#: C/index.page:47(title)
+msgid "Audio and Video Conversations"
+msgstr "Audio un video sarunas"
+
+#: C/index.page:51(title)
+msgid "Advanced Actions"
+msgstr "Darbības lietpratējiem"
+
+#: C/import-account.page:10(desc)
+msgid "Import an account from another instant messaging application."
+msgstr "Importēt kontu no kādas citas tūlītējās tērzēšanas lietotnes."
+
+#: C/import-account.page:19(name)
+msgid "Peter Haslam"
+msgstr "Peter Haslam"
+
+#: C/import-account.page:20(email)
+msgid "peter.haslam@freenet.de"
+msgstr "peter.haslam@freenet.de"
+
+#: C/import-account.page:42(title)
+msgid "Import an existing account"
+msgstr "Importēt esošu kontu "
+
+#: C/import-account.page:44(p)
+msgid ""
+"The first time you run <app>Empathy</app>, it will offer to import your "
+"accounts from other instant messaging applications. Currently, the only "
+"supported application is <app>Pidgin</app>."
+msgstr ""
+"Pirmajā <app>Empathy</app> palaišanas reizē, jums piedāvās importēt kontus no "
+"citām tūlītējās tērzēšanas lietotnēm. Pagaidām vienīgā atbalstītā lietotne "
+"ir <app>Pidgin</app>."
+
+#: C/import-account.page:50(p)
+msgid ""
+"Run <app>Empathy</app> for the first time. An assistant will offer you a "
+"number of options to create new accounts."
+msgstr ""
+"Palaist <app>Empathy</app> pirmo reizi. Palīgs jums piedāvās vairākas izvēles "
+"konta izveidošanai."
+
+#: C/import-account.page:54(p)
+msgid ""
+"Select <gui>Yes, import my account details from</gui> and click "
+"<gui>Forward</gui>."
+msgstr ""
+"Izvēlies <gui>Jā, importēt konta informāciju no</gui> un spied <gui>"
+"Turpināt</gui>"
+
+#: C/import-account.page:58(p)
+msgid "Select the check box next to each account you wish to import."
+msgstr "Atzīmē katru kontu, kuru vēlies importēt."
+
+#: C/import-account.page:66(p)
+msgid ""
+"It is not currently possible to import accounts after you have completed the "
+"first-run assistant."
+msgstr ""
+"Pagaidām nevar importēt kontus pēc tam, kad esi pabeidzis pirmās "
+"palaišanas palīgu."
+
+#: C/hide-contacts.page:8(desc)
+msgid "Hide the offline contacts from your <gui>Contact List</gui>."
+msgstr "Paslēpt nesaistē esošos kontaktus no <gui>Kontaktu saraksta</gui>."
+
+#: C/hide-contacts.page:19(title)
+msgid "Hide offline contacts"
+msgstr "Paslēpt nesaistē esošos kontaktus"
+
+#: C/hide-contacts.page:21(p)
+msgid ""
+"Normally, <app>Empathy</app> shows all your contacts: those that are online, "
+"with which you can have a conversation, and also those that are offline."
+msgstr ""
+"Parasti <app>Empathy</app> parāda visus tavus kontaktus: tos, kuri ir "
+"tiešsaistē un ar kuriem tu vari sazināties, kā arī tos, kuri ir nesaistē."
+
+#: C/hide-contacts.page:25(p)
+msgid "To hide the contacts that are offline:"
+msgstr "Lai paslēptu kontaktus, kuri ir nesaistē:"
+
+#: C/hide-contacts.page:31(p)
+msgid ""
+"From the <gui>Contact List</gui> window, choose <guiseq><gui>View</"
+"gui><gui>Offline Contacts</gui></guiseq>, or press <keyseq><key>Ctrl</"
+"key><key>H</key></keyseq>."
+msgstr ""
+"No <gui>Kontaktu saraksta</gui> loga izvēlies <guiseq><gui>Skats</gui><gui>"
+"Nesaistes kontakti</gui></guiseq>, vai spied <keyseq><key>Ctrl</"
+"key><key>H</key></keyseq>."
+
+#: C/hide-contacts.page:36(p)
+msgid "To show the offline contacts again, repeat the same procedure above."
+msgstr ""
+"Lai atkal rādītu nesaistē esošos kontaktus, atkārto iepriekšējo darbību."
+
+#: C/group-conversations.page:8(desc)
+msgid "Start or join a group conversation with your contacts."
+msgstr "Sāc vai pievienojies grupas sarunai ar saviem kontaktiem."
+
+#: C/group-conversations.page:34(title)
+msgid "Group conversations"
+msgstr "Sarunas grupā"
+
+#: C/group-conversations.page:36(p)
+msgid ""
+"Group conversations permits you to have text conversations with more than "
+"one contact at the same time."
+msgstr ""
+"Grupu sarunas ļauj tev sarakstīties ar vairāk nekā vienu kontaktu vienlaicīgi."
+
+#: C/group-conversations.page:40(p)
+msgid ""
+"To have a group conversation you need to have a registered account with "
+"either Jabber or Google Talk, or a People Nearby account."
+msgstr ""
+"Lai varētu izmantot grupu sarunas, tev ir nepieciešams vai nu Jabber, vai "
+"Google Talk, vai People Nearby konts."
+
+#: C/group-conversations.page:46(p)
+msgid ""
+"You can have a group conversation only with the contacts that are using the "
+"same service as yours."
+msgstr ""
+"Grupu sarunas ir iespējamas tikai starp kontaktiem, kuri izmanto tādu pašu "
+"pakalpojumu, kā tu."
+
+#: C/group-conversations.page:54(title)
+msgid "Start a group conversation"
+msgstr "Sākt grupu sarunu"
+
+#: C/group-conversations.page:63(p)
+msgid ""
+"From the <gui>Account</gui> drop-down list, select the account you want to "
+"use for the group conversation."
+msgstr ""
+"No <gui>Konts</gui> saraksta izvēlies kontu, kuru vēlies izmantot grupas "
+"sarunā."
+
+#: C/group-conversations.page:69(p)
+msgid ""
+"In the <gui>Server</gui> text box, type the name of server in which the "
+"conversation will be hosted."
+msgstr ""
+"<gui>Serveris</gui> teksta lauciņā ieraksti tā servera nosaukumu, kurā "
+"norisināsies saruna."
+
+#: C/group-conversations.page:73(p)
+msgid "Leave it empty if it will be on the current server."
+msgstr "Atstāj lauciņu tukšu, ja sarakste notiks esošajā serverī."
+
+#: C/group-conversations.page:78(p)
+msgid ""
+"In the <gui>Room</gui> text box, type the name you want to give to the "
+"conversation."
+msgstr "<gui>Istaba</gui> teksta laukā ieraksti sev tīkamo sarunas nosaukumu."
+
+#: C/group-conversations.page:82(p)
+msgid ""
+"This will be the name of the room you are going to have a conversation. This "
+"name will be publicly available for other people to join. It is not possible "
+"to create a private room."
+msgstr ""
+"Šis būs nosaukums istabai, kurā notiks sarakste. Šo nosaukumu redzēs jebkurš "
+"lietotājs un jebkurš varēs pievienoties. Izveidot privātu sarakstes istabu "
+"nevar."
+
+#: C/group-conversations.page:90(p)
+msgid ""
+"To invite other contacts to join the group conversation, from the "
+"<gui>Contact List</gui> window, select the contact you want to invite, and "
+"perform one of the following:"
+msgstr ""
+"Lai uzaicinātu kontaktus pievienoties sarunai, no <gui>Kontaktu saraksta"
+"</gui> loga izvēlies kontaktu, kuru vēlies uzaicināt un veic vienu no "
+"sekojošajām darbībām:"
+
+#: C/group-conversations.page:97(p)
+msgid "Right-click on the contact and choose <gui>Invite to chatroom</gui>."
+msgstr ""
+"Ar labo peles pogu spied uz kontakta un izvēlies <gui>Uzaicināt uz "
+"tērzēšanas istabu</gui>."
+
+#: C/group-conversations.page:102(p)
+msgid ""
+"Choose <guiseq><gui>Edit</gui><gui>Contact</gui><gui>Invite to chatroom</"
+"gui></guiseq>."
+msgstr ""
+"Izvēlies <guiseq><gui>Rediģēt</gui><gui>Kontakts</gui><gui>Uzaicināt uz "
+"tērzēšanas istabu</gui></guiseq>."
+
+#: C/group-conversations.page:107(p)
+msgid ""
+"If you have more than one group conversation open, select the one you want "
+"to invite your contacts."
+msgstr ""
+"Ja tev ir atvērta vairāk nekā viena grupu sarakste, izvēlies to, uz kuru "
+"vēlies uzaicināt savus kontaktus."
+
+#: C/group-conversations.page:118(title)
+msgid "Join a group conversation"
+msgstr "Pievienoties grupas sarunai"
+
+#: C/group-conversations.page:128(p)
+msgid "Expand the <gui>Room List</gui> section to see all the existing rooms."
+msgstr ""
+"Izvērs <gui>Istabu saraksta</gui> nodalījumu, lai redzētu visas pieejamās "
+"istabas."
+
+#: C/group-conversations.page:133(p)
+msgid "Double-click on the name of a room to join it."
+msgstr "Veic dubultklikšķi uz istabas nosaukuma, kurai vēlies pievienoties."
+
+#: C/group-conversations.page:139(p)
+msgid ""
+"It is not possible to join all existing rooms. Some of the rooms might "
+"require a password, or might be invitation only. <app>Empathy</app> does not "
+"support these kind of rooms."
+msgstr ""
+"Visām istabām var nebūt iespējams pievienoties. Atsevišķas istabas var "
+"pieprasīt paroli, vai var būt iespējamas tikai ar ielūgumiem. <app>Empathy<"
+"/app> šāda veida istabas neatbalsta."
+
+#: C/geolocation-what-is.page:9(desc)
+msgid "Understanding geolocation."
+msgstr "Ģeogrāfiskās atrašanās vietas izpratne."
+
+#: C/geolocation-what-is.page:33(title)
+msgid "What is geolocation"
+msgstr "Kas ir ģeogrāfiskā atrašanās vieta"
+
+#: C/geolocation-what-is.page:35(p)
+msgid ""
+"Geolocation allows you to identify the real geographical location of a "
+"computer or a device connected to the Internet."
+msgstr ""
+"Ģeogrāfiskā atrašanās vieta ļauj tev identificēt esošo ģeogrāfisko atrašanās "
+"vietu kādai ierīcei vai datoram, kurš ir savienots ar internetu."
+
+#: C/geolocation-what-is.page:37(p)
+msgid "With geolocation in <app>Empathy</app> you can:"
+msgstr "Ar ģeogrāfiskās atrašanās vietu <app>Empathy</app> lietotnē tu vari:"
+
+#: C/geolocation-what-is.page:42(p)
+msgid "Publish your geographical location to your contacts."
+msgstr "Paust zināmu savu atrašanās vietu saviem kontaktiem. "
+
+#: C/geolocation-what-is.page:47(p)
+msgid "See your contacts’ geographical location and quickly contact them."
+msgstr "Uzzināt savu kontaktu atrašanās vietu un ātri sazināties ar tiem."
+
+#: C/geolocation-what-is.page:52(p)
+msgid ""
+"Set the accuracy of your location and the device used to discover your "
+"location."
+msgstr ""
+"Iestatīt savas atrašanās vietas precizitāti, kā arī iestatīt noteikšanas "
+"precizitāti ierīcei, kura nosaka tavu atrašanās vietu."
+
+#: C/geolocation-what-is.page:60(p)
+msgid ""
+"In order to see your contacts’ geographical locations, they need to use a "
+"service and an application that supports geolocation."
+msgstr ""
+"Lai redzētu savu kontaktu atrašanās vietas, viņiem ir jāizmanto"
+"servisu un lietotni, kas atbalsta ģeogrāfiskās atrašanās vietas noteikšanu."
+
+#: C/geolocation-turn.page:9(desc)
+msgid "How to activate and deactivate geolocation in <app>Empathy</app>."
+msgstr ""
+"Kā aktivizēt vai deaktivizēt atrašanās vietas noteikšanu <app>Empathy</app> "
+"lietotnē."
+
+#: C/geolocation-turn.page:33(title)
+msgid "Activate/Deactivate geolocation"
+msgstr "Aktivizēt/deaktivizēt ģeogrāfiskās atrašanās vietas noteikšanu"
+
+#: C/geolocation-turn.page:37(p)
+msgid "Choose <guiseq><gui>Edit</gui><gui>Preferences</gui></guiseq>."
+msgstr "Izvēlies <guiseq><gui>Rediģēt</gui><gui>Iestatījumi</gui></guiseq>."
+
+#: C/geolocation-turn.page:42(p)
+msgid "Select the <gui>Location</gui> tab."
+msgstr "Izvēlies <gui>Vieta</gui> cilni."
+
+#: C/geolocation-turn.page:47(p)
+msgid ""
+"Select <gui>Publish location to my contacts</gui> to activate geolocation."
+msgstr ""
+"Izvēlies <gui>Parādīt kontaktiem atrašanās vietu</gui>, lai aktivizētu "
+"ģeogrāfiskās atrašanās vietas pakalpojumu."
+
+#: C/geolocation-turn.page:50(p)
+msgid "To deactivate geolocation, deselect it."
+msgstr "Lai to deaktivizētu, noņem tās izvēli."
+
+#: C/geolocation-turn.page:55(p)
+msgid ""
+"To increase the accuracy of your position, deselect <gui>Reduce location "
+"accuracy</gui>."
+msgstr ""
+"Lai uzlabotu atrašanās vietas precizitāti, noņem izvēli <gui>Samazināt "
+"atrašanās vietas precizitāti</gui>."
+
+#: C/geolocation-turn.page:61(p)
+msgid ""
+"If you have an external device like a GPS or want to send a more accurate "
+"position, select the appropriate option in the <gui>Location sources</gui> "
+"section."
+msgstr ""
+"Ja tev ir papildu ierīce, piemēram, GPS, vai ja vēlies sūtīt vēl precīzāku "
+"atrašanās vietu, izvēlies tam piemēroto opciju <gui>Vietas avoti</gui> "
+"sadaļā."
+
+#: C/geolocation-supported.page:7(desc)
+msgid "Services that supports geolocation and compatibility."
+msgstr ""
+"Servisi, kuri atbalsta ģeogrāfiskās atrašanās vietu un to savietojamība."
+
+#: C/geolocation-supported.page:31(title)
+msgid "Supported services"
+msgstr "Atbalstītie servisi"
+
+#: C/geolocation-supported.page:33(p)
+msgid ""
+"The geolocation feature at the moment is compatible only with the Jabber "
+"service. In order to use it, you and your contacts need to have a Jabber "
+"account."
+msgstr ""
+"Ģeogrāfiskās atrašanās vietas iespēja uz doto brīdi ir saderīga tikai ar "
+"Jabber servisu. Lai to izmantotu, tev, kā arī taviem kontaktiem, ir "
+"jābūt Jabber kontam."
+
+#: C/geolocation-supported.page:39(p)
+msgid ""
+"It is necessary that also the server you are using supports the geolocation "
+"feature. Most of the Jabber servers support it. See your service website "
+"documentation for more information."
+msgstr ""
+"Arī serverim, kuru tu lieto, jāatbalsta ģeogrāfiskās atrašanās vietas "
+"noteikšanas pakalpojums. Lielākā daļa no Jabber serveriem to atbalsta. Lasi "
+"sava servisa tīmekļa vietnes dokumentāciju, lai uzzinātu vairāk."
+
+#: C/geolocation-supported.page:47(title)
+msgid "Compatibility"
+msgstr "Savietojamība"
+
+#: C/geolocation-supported.page:49(p)
+msgid ""
+"<app>Empathy</app> geolocation feature is not compatible with other "
+"geographical position services such as <em>Google Latitude</em>, <em>Yahoo "
+"Fire Eagle</em> or <em>Brightkite</em>."
+msgstr ""
+"<app>Empathy</app> ģeogrāfiskās atrašanās vietas pakalpojums nav saderīgs ar "
+"citiem šī pakalpojuma servisiem, piemēram <em>Google Latitude</em>, <em>Yahoo "
+"Fire Eagle</em> vai <em>Brightkite</em>."
+
+#: C/geolocation-privacy.page:8(desc)
+msgid "What information are sent and to who."
+msgstr "Kāda un kam informācija tiek nosūtīta."
+
+#: C/geolocation-privacy.page:32(title)
+msgid "Geolocation Privacy"
+msgstr "Ģeogrāfiskās atrašanās vietas privātums"
+
+#: C/geolocation-privacy.page:35(title)
+msgid "What information is sent"
+msgstr "Kāda informācija tiek nosūtīta"
+
+#: C/geolocation-privacy.page:36(p)
+msgid ""
+"What is possible to send is: your country, region, locality, area, street, "
+"building, floor, room, and postal code, longitude, latitude and altitude, "
+"speed and bearing."
+msgstr ""
+"Nosūtīt ir iespējams: tavu valsti, reģionu, apvidu, rajonu, ielu, ēku, stāvu, "
+"dzīvokli, pasta indeksu, garuma, platuma un augstuma grādus, ātrumu un "
+"azimutu."
+
+#: C/geolocation-privacy.page:40(p)
+msgid ""
+"The accuracy and the quantity of information about your geographical "
+"position are based on the software or on the infrastructure used to discover "
+"your position."
+msgstr ""
+"Precizitāte un daudzums, kurš tiks noteikts par tavu atrašanās vietu ir "
+"atkarīgs no programmatūras vai infrastruktūras, kura tiek izmantota, lai to "
+"noteiktu."
+
+#: C/geolocation-privacy.page:44(p)
+msgid ""
+"Different kind of networks may have different accuracy settings, and may "
+"send different information. The use of external devices such as GPS or "
+"mobile phone will increase the accuracy of the information sent."
+msgstr ""
+"Dažādiem savienojumu veidiem var būt atšķirīgi precizitātes iestatījumi un "
+"var "
+"sūtīt dažādu informāciju. Noteikšanas precizitātes uzlabosies, izmantojot "
+"ārējās ierīces, piemēram, GPS vai mobilo tālruni."
+
+#: C/geolocation-privacy.page:49(p)
+msgid ""
+"When the privacy mode is enabled, nothing more precise than your city will "
+"be sent, even if you are using an external device."
+msgstr ""
+"Ja ir aktivēts privātuma režīms, nekas vairāk par pašreizējo pilsētu netiks "
+"nosūtīts, pat ja izmanto kādu ārējo ierīci."
+
+#: C/geolocation-privacy.page:56(title)
+msgid "Who can see the information sent"
+msgstr "Kas var redzēt nosūtīto informāciju"
+
+#: C/geolocation-privacy.page:57(p)
+msgid "Only your contacts can see your geographical position."
+msgstr "Tikai tavi kontakti var redzēt tavu ģeogrāfisko atrašanās vietu,"
+
+#: C/geolocation-privacy.page:63(title)
+msgid "What is the privacy mode"
+msgstr "Kas ir privātuma režīms"
+
+#: C/geolocation-privacy.page:64(p)
+msgid ""
+"The privacy mode, enabled by default, is a reduced accuracy mode that will "
+"decrease the accuracy of the geographical position sent to your contacts."
+msgstr ""
+"Privātuma režīms, kurš ir noklusētais iestatījums, ir tas pats, kas "
+"samazināts precizitātes noteikšanas režīms, kurš samazina precizitāti tavas "
+"atrašanās vietas noteikšanā."
+
+#: C/geolocation-privacy.page:71(title)
+msgid "Privacy overview"
+msgstr "Privātuma pārskats"
+
+#: C/geolocation-privacy.page:72(p)
+msgid ""
+"Overview of the various geolocation privacy settings in <app>Empathy</app>."
+msgstr ""
+"Pārskats dažādiem ģeogrāfiskās atrašanās vietas privātuma iestatījumiem <app>"
+"Empathy></app> lietotnē."
+
+#: C/geolocation-privacy.page:77(p)
+msgid "Geolocation is not enabled by default."
+msgstr "Ģeogrāfiskās atrašanās vietas noteikšana nav aktivēta pēc noklusējuma."
+
+#: C/geolocation-privacy.page:82(p)
+msgid "Privacy mode is enabled by default."
+msgstr "Privātuma režīms ir aktivēts pēc noklusējuma."
+
+#: C/geolocation-privacy.page:87(p)
+msgid ""
+"Privacy mode prevails even when using external and more precise devices."
+msgstr ""
+"Privātuma režīms paliek aktivēts arī tad, ja izmanto kādu ārējo ierīci."
+
+#: C/geolocation-privacy.page:92(p)
+msgid "Only your contacts can see your position."
+msgstr "Tikai tavi kontakti redz tavu atrašanās vietu."
+
+#: C/geolocation-not-showing.page:8(desc)
+msgid "<app>Empathy</app> does not publish my geographical position."
+msgstr "<app>Empathy</app> nepublicē tavu ģeogrāfisko atrašanās vietu."
+
+#: C/geolocation-not-showing.page:32(title)
+msgid "Geographical position not published"
+msgstr "Ģeogrāfiskā atrašanās vieta netiek publicēta"
+
+#: C/geolocation-not-showing.page:34(p)
+msgid ""
+"If your contacts cannot see your location, <app>Empathy</app> might not be "
+"able to discover with a good margin of precision your geographical position."
+msgstr ""
+"Ja tavi kontakti neredz tavu atrašanās vietu, <app>Empathy</app>, iespējams, "
+"nav to spējusi noteikt ar labu precizitāti."
+
+#: C/geolocation-not-showing.page:38(p)
+msgid ""
+"In this case, your position will not be published, but you are still able to "
+"see the location of your contacts."
+msgstr ""
+"Šajā gadījumā tava atrašanās vieta netiek publicēta, taču tu vēl jo projām "
+"var redzēt savu kontaktu atrašanās vietas."
+
+#: C/geolocation-not-showing.page:42(p)
+msgid ""
+"If you want to publish your geographical position, you can try to use an "
+"external device such as a GPS."
+msgstr ""
+"Ja tu vēlies publicēt šo atrašanās vietu, izmēģini izmantot kādu ārējo "
+"ierīci, piemēram GPS."
+
+#: C/geolocation-not-showing.page:48(p)
+msgid ""
+"In order to publish your geographical location, your Jabber server needs to "
+"support the Personal Eventing Protocal (PEP). A list of <link href=\"http://"
+"coccinella.im/servers/servers_by_pubsub_pep.html\">servers which support "
+"PEP</link> is maintained online. Google Talk does not support this feature "
+"at this time."
+msgstr ""
+"Lai varētu publicēt savu ģeogrāfisko atrašanās vietu, tavam Jabber serverim "
+"ir jāatbalsta \"Personal Eventing Protocal (PEP)\". Saraksts ar  "
+"<link href=\"http://"
+"coccinella.im/servers/servers_by_pubsub_pep.html\">serveriem, kuri atbalsta "
+"PEP</link>, ir pieejams tiešsaistē. Google Talk pagaidām šo funkciju "
+"neatbalsta."
+
+#: C/geolocation.page:8(desc)
+msgid "Use and understand geolocation in <app>Empathy</app>."
+msgstr ""
+"Izmanto un saproti ģeogrāfisko atrašanās vietu <app>Empathy</app> lietotnē."
+
+#: C/geolocation.page:32(title)
+msgid "Geographical position"
+msgstr "Ģeogrāfiskais novietojums"
+
+#: C/geolocation.page:35(title)
+msgid "Geolocation"
+msgstr "Ģeografiskā atrašanās vieta"
+
+#: C/geolocation.page:39(title)
+msgid "Fix common problems"
+msgstr "Salabot visbiežāk sastopamās problēmas"
+
+#: C/favorite-rooms.page:10(desc)
+msgid "Set, join and manage favorite rooms."
+msgstr "Uzstādi, pievienojies un pārvaldi iecienītās istabas."
+
+#: C/favorite-rooms.page:29(title)
+msgid "Favorite rooms"
+msgstr "Iecienītās istabas"
+
+#: C/favorite-rooms.page:32(title)
+msgid "Set a room as a favorite"
+msgstr "Uzstādi istabu kā iecienīto"
+
+#: C/favorite-rooms.page:35(p)
+msgid "Join a room."
+msgstr "Pievienojies istabai."
+
+#: C/favorite-rooms.page:40(p)
+msgid ""
+"See <link xref=\"irc-join-room\"/> for more information on how to join an "
+"IRC room."
+msgstr ""
+"Skaties <link xref=\"irc-join-room\"/>, lai iegūtu vairāk informācijas par "
+"to, "
+"kā piekļūt IRC istabām."
+
+#: C/favorite-rooms.page:46(p)
+msgid ""
+"See <link xref=\"group-conversations\"/> for more information on how to "
+"start or join a group conversation."
+msgstr ""
+"Skaties <link xref=\"group-conversations\"/>, lai iegūtu vairāk informācijas "
+"par to, kā sākt vai pievienoties grupu sarunām."
+
+#: C/favorite-rooms.page:54(p)
+msgid ""
+"From the conversation window, choose <guiseq><gui>Conversation</"
+"gui><gui>Favorite Chat Room</gui></guiseq>."
+msgstr ""
+"No sarunas loga izvēlies <guiseq><gui>Saruna</"
+"gui><gui>Iecienītā tērzēšanas istaba</gui></guiseq>"
+
+#: C/favorite-rooms.page:63(title)
+msgid "Join favorite rooms"
+msgstr "Pievienoties iecienītajām istabām."
+
+#: C/favorite-rooms.page:71(p)
+msgid "Press <key>F5</key>."
+msgstr "Nospied <key>F5</key>."
+
+#: C/favorite-rooms.page:76(p)
+msgid ""
+"Choose <guiseq><gui>Room</gui><gui>Join Favorites</gui></guiseq>, to join "
+"all your favorite rooms."
+msgstr ""
+"Izvēlies <guiseq><gui>Istaba</gui><gui>Pievienoties iecienītajām</gui><"
+"/guiseq>"
+", lai pievienotos visām iecienītajām istabām."
+
+#: C/favorite-rooms.page:82(p)
+msgid "Choose <gui>Room</gui>, and select the favorite room you want to join."
+msgstr ""
+"Izvēlies <gui>Istaba</gui>, un izvēlies iecienīto istabu, kurai vēlies "
+"pievienoties."
+
+#: C/favorite-rooms.page:90(p)
+msgid ""
+"To join a favorite room, you need to be connected to the Internet and to "
+"your account."
+msgstr ""
+"Lai pievienotos kādai no iecienītajām istabām, tev ir jābūt interneta "
+"savienojumam un savam profilam."
+
+#: C/favorite-rooms.page:98(title)
+msgid "Manage favorite rooms"
+msgstr "Pārvaldīt iecienītās istabas"
+
+#: C/favorite-rooms.page:101(p)
+msgid ""
+"From the <gui>Contact List</gui> window, choose <guiseq><gui>Room</"
+"gui><gui>Manage Favorites</gui></guiseq>."
+msgstr ""
+"No <gui>Kontaktu saraksta</gui> loga, izvēlies <guiseq><gui>Istaba</"
+"gui><gui>Pārvaldīt iecienītās</gui></guiseq>."
+
+#: C/favorite-rooms.page:107(p)
+msgid ""
+"From the <gui>Account</gui> drop-down list, select the account you want to "
+"manage the favorite rooms of."
+msgstr ""
+"No <gui>Konts</gui> saraksta, izvēlies kontu, kura iecienītās istabas vēlies "
+"pārvaldīt."
+
+#: C/favorite-rooms.page:111(p)
+msgid "Select <gui>All</gui> to see all you favorite rooms."
+msgstr "Izvēlies <gui>Viss</gui>, lai redzētu visas iecienītās istabas."
+
+#: C/favorite-rooms.page:116(p)
+msgid "Select the favorite room you want to manage:"
+msgstr "Izvēlies iecienīto istabu, kuru vēlies pārvaldīt:"
+
+#: C/favorite-rooms.page:121(p)
+msgid ""
+"Select the <gui>Auto-Connect</gui> check-box in order to automatically join "
+"that room when you connect to your account."
+msgstr ""
+"Izvēlies <gui>Automātiski savienoties</gui> opciju, lai automātiski "
+"pievienotos šai istabai, kolīdz esi savienojies ar savu kontu."
+
+#: C/favorite-rooms.page:127(p)
+msgid "Click on <gui>Remove</gui> to remove the room from your favorites."
+msgstr ""
+"Nospied uz <gui>Izņemt</gui>, lai izņemtu attiecīgo istabu no iecienīto "
+"istabu "
+"saraksta."
+
+#: C/favorite-rooms.page:134(p)
+msgid "When done, click <gui>Close</gui>."
+msgstr "Kad esi pabeidzis darāmo, spied <gui>Aizvērt</gui>."
+
+#: C/disable-account.page:9(desc)
+msgid "Prevent <app>Empathy</app> from automatically logging in to an account."
+msgstr "Aizliedz <app>Empathy</app> lietotnei automātiski ieiet kontā."
+
+#: C/disable-account.page:40(title)
+msgid "Disable an account"
+msgstr "Deaktivēt kontu"
+
+#: C/disable-account.page:42(p)
+msgid ""
+"You can disable an account to prevent <app>Empathy</app> from logging in to "
+"it without removing the account entirely. You may wish to disable and re-"
+"enable an account if you only want to be logged in to the account at certain "
+"times, but you still want to use <app>Empathy</app> for other accounts."
+msgstr ""
+"Tu vari deaktivēt kontu, lai liegtu <app>Empathy</app> lietotnei ar to "
+"ierakstīties, neizdzēšot kontu pavisam. Tu vari deaktivēt un atkal aktivēt "
+"kontu, ja tajā vēlies ieiet tikai noteiktos brīžos, bet vēlies "
+"izmantot <app>Empathy</app> citiem kontiem."
+
+#: C/disable-account.page:53(p)
+msgid ""
+"Select the account you wish to disable from the accounts list on the left "
+"side of the window."
+msgstr ""
+"Izvēlies kontu, kuru vēlies atslēgt, no kontu saraksta kreisajā loga pusē."
+
+#: C/disable-account.page:57(p)
+msgid "On the right side of the window, switch it off."
+msgstr "Loga labajā pusē izslēdz ārā."
+
+#: C/disable-account.page:62(p)
+msgid "To re-enable the account, switch it on."
+msgstr "Lai atkārtoti aktivētu kontu, ieslēdz."
+
+#: C/create-account.page:9(desc)
+msgid "Register for an account with one of the supported messaging services."
+msgstr "Reģistrē kontu izmantojot vienu no atbalstītajiem ziņojumu servisiem. "
+
+#: C/create-account.page:34(title)
+msgid "Register for a new account"
+msgstr "Reģistrēt jaunu kontu"
+
+#: C/create-account.page:36(p)
+msgid ""
+"Most account types require you to create an account with a account provider "
+"before you can connect using instant messaging applications like "
+"<app>Empathy</app>. With some account providers, you can use <app>Empathy</"
+"app> to register for a new account, using the same steps as you would to "
+"<link xref=\"add-account\">add an account</link>."
+msgstr ""
+"Vairums kontu tipu pieprasa tos reģistrēt pie konta sniedzēja, pirms "
+"tu tos vari sākt izmantot TZ lietotnēs, kā <app>Empathy</app>. Pie dažiem "
+"kontu sniedzējiem vari izmantot <app>Empathy</app> lietotni, lai "
+"reģistrētu jaunu kontu, izmantojot tos pašus soļus, kurus tu izmantotu, lai <"
+"link xref=\"add-account\">pievienotu kontu</link>."
+
+#: C/create-account.page:42(p)
+msgid ""
+"This page provides information on creating a new account for various types "
+"of accounts. Your account provider should give you a login ID and a "
+"password, as well as any additional information you need to connect using "
+"<app>Empathy</app>."
+msgstr ""
+"Šī lapa sniedz informāciju par to, kā izveidot jaunu kontu, dažādiem kontu "
+"veidiem. Konta sniedzējam vajadzētu nodrošināt ar konta ID "
+"un paroli, kā arī ar papildus informāciju, kura ir nepieciešama <app>"
+"Empathy</app> izmantošanai."
+
+#: C/create-account.page:47(title)
+msgid "Facebook"
+msgstr "Facebook"
+
+#: C/create-account.page:48(p)
+msgid ""
+"Facebook is one of the most-used social networks. It allows users to create "
+"their own profile and to communicate with their friends."
+msgstr ""
+"Facebook ir viens no visplašāk izmantotajiem sociālajiem tīkliem. Tas ļauj "
+"lietotājiem izveidot pašiem savu profilu un sazināties ar saviem draugiem."
+
+#: C/create-account.page:52(p)
+msgid ""
+"To use Facebook to communicate with your friends, you will need to create a "
+"new account from the website: <link href=\"http://www.facebook.com\">www."
+"facebook.com</link>."
+msgstr ""
+"Lai izmantotu Facebook, tev būs jāizveido jauns konts viņu "
+"mājaslapā: <link href=\"http://www.facebook.com\">www."
+"facebook.com</link>."
+
+#: C/create-account.page:60(title) C/audio-video.page:170(p)
+msgid "Jabber"
+msgstr "Jabber"
+
+#: C/create-account.page:62(p)
+msgid ""
+"Jabber is an open instant messaging system. Like email, Jabber allows you to "
+"choose your account provider and communicate with all other Jabber users, "
+"regardless of their account provider."
+msgstr ""
+"Jabber ir atvērta tiešo ziņojumu sistēma. Tā pat kā epasts, Jabber ļauj tev "
+"izvēlēties tavu konta sniedzēju un sazināties ar citiem Jabber lietotājiem, "
+"neatkarīgi no viņu konta sniedzēja."
+
+#: C/create-account.page:66(p)
+msgid ""
+"You will need to create a new account with a Jabber provider. There are many "
+"free providers; one popular provider is <link href=\"http://register.jabber."
+"org/\">Jabber.org</link>."
+msgstr ""
+"Tev vajadzēs izveidot jaunu profilu, izmantojot Jabber pakalpojumu "
+"sniedzēju. Ir vairāki bezmaksas pakalpojumu sniedzēji; viens no "
+"populārākajiem ir <link href=\"http://register.jabber."
+"org/\">Jabber.org</link>."
+
+#: C/create-account.page:71(p)
+msgid ""
+"If you use Google Mail or Google Talk, you already have a Jabber account. "
+"Google Talk is a Jabber service. Simply use your Google Mail address and "
+"password in <app>Empathy</app> to connect."
+msgstr ""
+"Ja izmanto Google Mail vai Google Talk, tev jau ir Jabber konts! Google "
+"Talk ir Jabber pakalpojums. Vienkārši izmanto savu Google Mail adresi un "
+"paroli <app>Empathy</app> lietotnē, lai savienotos."
+
+#: C/create-account.page:78(title) C/audio-video.page:190(p)
+msgid "People Nearby"
+msgstr "People Nearby (cilvēki tuvumā)"
+
+#: C/create-account.page:80(p)
+msgid ""
+"You do not need to create an account with a service provider to use this "
+"feature. This service works whenever you are connected to a local network, "
+"such as a wireless hotspot. It automatically finds all other users on the "
+"network who are also using this service."
+msgstr ""
+"Tev nevajag izveidot kontu ar pakalpojumu sniedzēju, lai izmantotu šo "
+"pakalpojumu. Šis pakalpojums strādā jebkad, kad vien tu esi pieslēdzies "
+"lokālajam tīklam, piemēram bezvadu pieejas punktam (WiFi). Tas automātiski "
+"atradīs visus lietotājus tajā pašā tīklā, kuri izmanto šo servisu."
+
+#: C/create-account.page:85(p)
+msgid "For more information, see <link xref=\"salut-protocol\"/>."
+msgstr "Lai uzzinātu vairāk, skaties <link xref=\"salut-protocol\"/>."
+
+#: C/create-account.page:89(title) C/audio-video.page:205(p)
+msgid "SIP"
+msgstr "SIP"
+
+#: C/create-account.page:91(p)
+msgid ""
+"SIP is an open system which allows users to have audio and video "
+"conversations over the Internet. You need to create an account with a SIP "
+"provider. You can communicate with all other SIP users, regardless of which "
+"SIP provider they use."
+msgstr ""
+"SIP ir atvērta sistēma, kura ļauj lietotājiem sazināties audio un video veidā "
+"caur internetu. Tam ir jāizveido konts, izmantojot SIP "
+"pakalpojumu sniedzēju. Tu vari sazināties ar jebkuru SIP lietotāju, "
+"neatkarīgi no tā, kādu SIP pakalpojumu sniedzēju viņš/-a izmanto."
+
+#: C/create-account.page:97(p)
+msgid ""
+"Due to technical differences, the free <link href=\"https://www.ekiga.net/"
+"index.php?page=register\">Ekiga.net</link> service does not currently work "
+"with <app>Empathy</app>."
+msgstr ""
+"Sakarā ar tehniskām atšķirībām, bezmaksas pieejamais <link href=\"https://www."
+"ekiga.net/index.php?page=register\">Ekiga.net</link> pakalpojums nav "
+"savienojams "
+"ar <app>Empathy</app>."
+
+#: C/create-account.page:102(p)
+msgid ""
+"Some SIP providers allow you to call normal phones from your computer. "
+"Generally, you will need to subscribe to a paid service for this feature."
+msgstr ""
+"Daži SIP pakalpojumu sniedzēji ļauj tev zvanīt uz parastajiem telefoniem no "
+"tava datora. Lai šo pakalpojumu izmantotu, tev vajadzēs lietot maksas "
+"pakalpojumu."
+
+#: C/create-account.page:107(title) C/audio-video.page:165(p)
+msgid "IRC"
+msgstr "IRC"
+
+#: C/create-account.page:109(p)
+msgid ""
+"You do not need to register for an account to use IRC. Although you specify "
+"a nickname when you add an IRC account to <app>Empathy</app>, this nickname "
+"is only established each time you connect. If another user is using the "
+"nickname, you will need to choose a new nickname."
+msgstr ""
+"Tev nevajag reģistrēt kontu, lai izmantotu IRC. Tomēr tu vari norādīt sev "
+"tīkamu lietotājvārdu, kad pievieno IRC kontu <app>Empathy</app> "
+"lietotnei. Šis lietotājvārds tiek izveidots tikai katru reizi, kamēr tu esi "
+"pieslēdzies. Ja kāds cits jau izmanto tavu lietotājvārdu, tev nāksies "
+"izvēlēties kādu citu."
+
+#: C/create-account.page:114(p)
+msgid ""
+"Some IRC networks use a service called NickServ to allow users to protect "
+"their nicknames. See <link xref=\"irc-nick-password\"/> for more information."
+msgstr ""
+"Daži IRC kanāli izmanto pakalpojumu, sauktu par NickServ, lai ļautu "
+"lietotājiem aizsargāt viņu lietotājvārdus. Lasi <link "
+"xref=\"irc-nick-password\"/>, lai uzzinātu vairāk."
+
+#: C/create-account.page:117(p)
+msgid ""
+"Some IRC servers are password protected. You will need to know the password "
+"to connect to these servers. Generally, these are private IRC networks."
+msgstr ""
+"Daži IRC serveri ir aizsargāti ar paroli. Lai pieslēgtos šiem serveriem, tev "
+"vajadzēs paroli. Pārsvarā šādi serveri ir privātie IRC tīkli."
+
+#: C/create-account.page:122(title)
+msgid "Proprietary Services"
+msgstr "Īpašnieka servisi"
+
+#: C/create-account.page:124(p)
+msgid ""
+"There are many proprietary instant messaging services that have been "
+"developed by different companies or organizations. <app>Empathy</app> allows "
+"you to connect to an existing account for most popular services. To create a "
+"new account with one of these services, you will need to visit the service’s "
+"web site and agree to its terms of use."
+msgstr ""
+"Pastāv vairāki īpašnieka TZ servisi kurus ir izstrādājušas dažādas kompānijas "
+"vai organizācijas. <app>Empathy</app> ļauj tev savienoties ar jau esošu "
+"kontu vairumam populārāko servisu. Lai izveidotu jaunu kontu ar "
+"kādu no šiem servisiem, tev vajadzēs apmeklēt attiecīgā servisa mājaslapu un "
+"piekrist tās lietošanas noteikumiem."
+
+#: C/create-account.page:133(link) C/audio-video.page:135(p)
+msgid "AIM"
+msgstr "AIM"
+
+#: C/create-account.page:138(link) C/audio-video.page:160(p)
+msgid "ICQ"
+msgstr "ICQ"
+
+#: C/create-account.page:143(link) C/audio-video.page:175(p)
+msgid "MSN"
+msgstr "MSN"
+
+#: C/create-account.page:148(link) C/audio-video.page:210(p)
+msgid "Yahoo!"
+msgstr "Yahoo!"
+
+#: C/change-status.page:9(desc)
+msgid "Change your status to advertise your availability to your contacts."
+msgstr "Maini savu statusu, lai paziņotu savu pieejamību kontaktiem."
+
+#: C/change-status.page:39(title)
+msgid "Change your status"
+msgstr "Mainīt savu statusu"
+
+#: C/change-status.page:41(p)
+msgid ""
+"You can set your status to indicate your availability to your contacts. "
+"<app>Empathy</app> allows you to select from a list of defined statuses."
+msgstr ""
+"Tu vari iestatīt savu statusu, lai paziņotu par savu pieejamību kontaktiem. "
+"<app>Empathy</app> ļauj tev izvēlēties kādu statusu no iepriekš "
+"sagatavota saraksta."
+
+#: C/change-status.page:46(p)
+msgid ""
+"Click on the drop-down list at the top of the <gui>Contact List</gui> window."
+msgstr "Nospied uz izkrītošā saraksta <gui>Kontaktu saraksta</gui> loga augšā."
+
+#: C/change-status.page:51(p)
+msgid "Select a status from the list."
+msgstr "Izvēlies statusu no saraksta."
+
+#: C/change-status.page:57(p)
+msgid ""
+"See <link xref=\"status-icons\"/> for a list of the built-in statuses and "
+"what they mean. You can also <link xref=\"set-custom-status\">add custom "
+"status messages</link> to provide more information about your availability "
+"to your contacts."
+msgstr ""
+"Skati <link xref=\"status-icons\"/>, lai uzzinātu vairāk par iebūvētajiem  "
+"statusiem un ko tie nozīmē. Tu vari arī <link xref=\"set-custom-status\">"
+"pievienot statusa ziņojumus</link>, lai saviem kontaktiem nodotu vairāk "
+"informācijas par savu pieejamību."
+
+#: C/change-status.page:63(p)
+msgid ""
+"If you do not use your computer for a while, or if the screensaver is on, "
+"the status will be automatically set to Away."
+msgstr ""
+"Ja kādu laiku neizmanto datoru, vai ja ir ieslēgts ekrānsaudzētājs, tavs "
+"statuss automātiski nomainīsies uz \"Prom\"."
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/audio-video.page:58(None)
+msgid ""
+"@@image: 'figures/audio-input-microphone.png'; "
+"md5=8d89026b66a263a3bc5b1f0665948567"
+msgstr ""
+"@@image: 'figures/audio-input-microphone.png'; "
+"md5=8d89026b66a263a3bc5b1f0665948567"
+
+#: C/audio-video.page:8(desc)
+msgid ""
+"Information on when it is possible to have an audio or video conversation."
+msgstr "Informācija par to, kad ir iespējama audio vai video saziņa."
+
+#: C/audio-video.page:32(title)
+msgid "Audio and video support"
+msgstr "Audio un video atbalsts"
+
+#: C/audio-video.page:34(p)
+msgid ""
+"You can only have audio and video conversation with contacts who are using "
+"an application which also supports this feature. When your contacts support "
+"audio or video conversations, you will see the following icons next to their "
+"names in the contact list:"
+msgstr ""
+"Audio on video sarunas ir iespējamas tikai starp kontaktiem, kuri izmanto "
+"lietotni, kura atbalsta šo iespēju. Ja tavi kontakti ir pieejami audio vai "
+"video zvanam, pie viņu vārdiem kontaktu sarakstā jūs redzēsiet sekojošas "
+"ikonas:"
+
+#: C/audio-video.page:43(p)
+msgid "Icon"
+msgstr "Ikona"
+
+#: C/audio-video.page:48(p)
+msgid "Description"
+msgstr "Apraksts"
+
+#: C/audio-video.page:58(media)
+msgid "Icon for audio conversation"
+msgstr "Ikona audio sarunai"
+
+#: C/audio-video.page:64(p)
+msgid "The contact is able to have an audio conversation."
+msgstr "Šis kontakts ir pieejams audio sarunai."
+
+#: C/audio-video.page:70(media)
+msgid "Icon for video conversation"
+msgstr "Ikona video sarunai"
+
+#: C/audio-video.page:76(p)
+msgid "The contact is able to have a video conversation."
+msgstr "Šis kontakts ir pieejams video sarunai."
+
+#: C/audio-video.page:83(p)
+msgid ""
+"In order to have an audio conversation, you need to have a sound card that "
+"is supported by your operating system, and a working microphone."
+msgstr ""
+"Lai varētu sazināties caur audio, tev ir vajadzīga skaņas karte, kuru "
+"savukārt atbalsta tava operetētājsistēma, kā arī ir nepieciešams arī "
+"mikrofons."
+
+#: C/audio-video.page:87(p)
+msgid ""
+"In order to have a video conversation, you need to have a webcam that is "
+"supported by your operating system, and a working microphone."
+msgstr ""
+"Lai varētu sazināties caur video, tev ir vajadzīga tīmekļa kamera, kuru "
+"atbalsta tava operētājsistēma, kā arī strādājošs mikrofons."
+
+#: C/audio-video.page:95(title)
+msgid "Supported Account Types"
+msgstr "Atbalstītie kontu veidi"
+
+#: C/audio-video.page:97(p)
+msgid ""
+"You can only have audio and video conversations using accounts on certain "
+"supported services. The following table lists whether audio and video is "
+"supported for each type of account."
+msgstr ""
+"Video un audio sarunas ir pieejamas, izmantojot kontus, kuri ir piesaistīti "
+"konkrētam, atbalstītam servisam. Sekojošā tabula norāda vai audio un video "
+"saziņa ir pieejama katram kontu tipam: "
+
+#: C/audio-video.page:102(p)
+msgid ""
+"Account types are provided by plugins. Your system may not have all of the "
+"following types available, or it may have types not listed here. Updated "
+"plugins may make audio or video conversations possible on account types that "
+"are listed as unsupported here."
+msgstr ""
+"Kontu tipus nodrošina spraudņi. Tavai sistēmai varētu nebūt pieejami visi "
+"šeit "
+"uzskaitītie tipi, vai arī tev var būt tādi tipi, kuri nav uzskaitīti šeit. "
+"Atjaunināti spraudņi var padarīt audi un video saziņu iespējamu starp kontu "
+"tipiem, kuri ir uzskaitīti kā neatbalstīti."
+
+#: C/audio-video.page:110(p)
+#, fuzzy
+msgid ""
+"I'd like to do tables like this using nothing for No and ✔ for Yes, but we "
+"need to look at the accessibility impact. I've <link href=\"http://mail."
+"gnome.org/archives/gnome-doc-list/2009-September/msg00006.html\">asked the "
+"accessibility team</link> for input."
+msgstr ""
+"Es vēlētos veidot šāda veida tabulas, neizmantojot neko Nē vietā un ✔ Jā "
+"vietā, taču mums jāņem vērā, ka tas var ieteikmēt pieejamību. Es esmu <link "
+"href=\"http://mail."
+"gnome.org/archives/gnome-doc-list/2009-September/msg00006.html\">pajautājis "
+"pieejamības komandai</link> par so gadījumu."
+
+#: C/audio-video.page:118(p)
+#, fuzzy
+msgid ""
+"There's recent work on telepathy-butterfly and papyon to support audio and "
+"video for MSN. It might be released in time for 2.28, but since it doesn't "
+"follow the Gnome release schedule, I can't be sure. If it looks like it's "
+"going to ship, let's mark it Yes."
+msgstr ""
+"Pēdējā laikā tiek strādāts pie telepathy-butterfy un papyon, lai tie "
+"atbalstītu audio saziņu, un pie MSN, lai tas atbalstītu video saziņu. Šis "
+"darbs varētu tikt pabeigts laikā, lai palaistu to kopā ar 2.28 versiju, taču "
+"tā, kā tas neseko Gnome palaišanas grafikiem, es neesmu par to pārliecināts. "
+"Ja tas izskatās, ka būs gatavs, atzīmēsim to kā Jā."
+
+#: C/audio-video.page:128(p)
+msgid "Service"
+msgstr "Serviss"
+
+#: C/audio-video.page:129(p)
+msgid "Audio"
+msgstr "Audio"
+
+#: C/audio-video.page:130(p)
+msgid "Video"
+msgstr "Video "
+
+#: C/audio-video.page:136(p) C/audio-video.page:137(p)
+#: C/audio-video.page:141(p) C/audio-video.page:142(p)
+#: C/audio-video.page:146(p) C/audio-video.page:147(p)
+#: C/audio-video.page:156(p) C/audio-video.page:157(p)
+#: C/audio-video.page:161(p) C/audio-video.page:162(p)
+#: C/audio-video.page:166(p) C/audio-video.page:167(p)
+#: C/audio-video.page:181(p) C/audio-video.page:182(p)
+#: C/audio-video.page:186(p) C/audio-video.page:187(p)
+#: C/audio-video.page:191(p) C/audio-video.page:192(p)
+#: C/audio-video.page:196(p) C/audio-video.page:197(p)
+#: C/audio-video.page:201(p) C/audio-video.page:202(p)
+#: C/audio-video.page:211(p) C/audio-video.page:212(p)
+#: C/audio-video.page:216(p) C/audio-video.page:217(p)
+msgid "No"
+msgstr "Nē"
+
+#: C/audio-video.page:140(p)
+msgid "Facebook Chat"
+msgstr "Facebook tērzēšana"
+
+#: C/audio-video.page:145(p)
+msgid "gadugadu"
+msgstr "gadugadu"
+
+#: C/audio-video.page:150(p)
+msgid "Google Talk"
+msgstr "Google Talk"
+
+#: C/audio-video.page:151(p) C/audio-video.page:152(p)
+#: C/audio-video.page:171(p) C/audio-video.page:172(p)
+#: C/audio-video.page:176(p) C/audio-video.page:177(p)
+#: C/audio-video.page:206(p) C/audio-video.page:207(p)
+msgid "Yes"
+msgstr "Jā"
+
+#: C/audio-video.page:155(p)
+msgid "Groupwise"
+msgstr "Groupwise"
+
+#: C/audio-video.page:180(p)
+msgid "myspace"
+msgstr "myspace"
+
+#: C/audio-video.page:185(p)
+msgid "qq"
+msgstr "qq"
+
+#: C/audio-video.page:195(p)
+msgid "sametime"
+msgstr "sametime"
+
+#: C/audio-video.page:200(p)
+msgid "silc"
+msgstr "silc"
+
+#: C/audio-video.page:215(p)
+msgid "zephyr"
+msgstr "zephyr"
+
+#: C/audio-call.page:9(desc)
+msgid "Call your contacts over the Internet."
+msgstr "Zvani saviem kontaktiem caur internetu."
+
+#: C/audio-call.page:27(title)
+msgid "Start an audio conversation"
+msgstr "Sākt audio saziņu"
+
+#: C/audio-call.page:29(p)
+msgid ""
+"You can call your contacts and have an audio conversation with them. This "
+"features only works with certain types of accounts, and it requires the "
+"other person to have an application that supports audio calls."
+msgstr ""
+"Tu vari zvanīt saviem kontaktiem un uzturēt audio saziņu ar tiem. Šī iespēja "
+"strādā tikai ar noteiktiem kontu tipiem un pieprasa, lai tavam sarunas "
+"biedram "
+"arī būtu lietotne, kas atbalsta audio zvanus."
+
+#: C/audio-call.page:34(p)
+msgid ""
+"From the <gui>Contact List</gui> window, click the <media type=\"image\" "
+"mime=\"image/png\" src=\"figures/camera-web.png\">video call</media> icon "
+"next to the name of the contact you wish to call and choose <gui style="
+"\"menuitem\">Audio Call</gui>."
+msgstr ""
+"<gui>Kontaktu saraksta</gui> logā nospied uz <media type=\"image\" "
+"mime=\"image/png\" src=\"figures/camera-web.png\">video zvans</media> ikonas "
+"pie kontakta vārda, ar kuru tu vēlies sazināties, un izvēlies <gui style="
+"\"menuitem\">Audio zvans</gui>."
+
+#: C/audio-call.page:55(p)
+msgid ""
+"To turn an audio conversation into a video conversation, choose <guiseq><gui "
+"style=\"menu\">Video</gui><gui style=\"menuitem\">Video On</gui></guiseq>."
+msgstr ""
+"Lai audio zvanu pārvērstu video zvanā, izvēlies <guiseq><gui "
+"style=\"menu\">Video</gui><gui style=\"menuitem\">Ieslēgt video</gui><"
+"/guiseq>."
+
+#: C/audio-call.page:63(title)
+msgid "Start an audio conversation with a meta-contact"
+msgstr "Sākt audio saziņu ar meta-kontaktu"
+
+#: C/audio-call.page:71(p)
+msgid ""
+"Select the contact you want to have the conversation, and from the menu "
+"select <gui style=\"menuitem\">Audio Call</gui>."
+msgstr ""
+"Izvēlies kontaktu, ar kuru vēlies sazināties un no izvēlnes paņem <gui "
+"style=\"menuitem\">Audio zvans</gui>."
+
+#: C/add-contact.page:9(desc)
+msgid "Add someone to the contact list."
+msgstr "Pievieno kādu kontaktu sarakstam."
+
+#: C/add-contact.page:33(title)
+msgid "Add someone to your list of contacts"
+msgstr "Pievienot7 kādu savam kontaktu sarakstam"
+
+#: C/add-contact.page:37(p)
+msgid "Choose <guiseq><gui>Chat</gui><gui>Add Contact</gui></guiseq>."
+msgstr ""
+"Izvēlies <guiseq><gui>Tērzēšana</gui><gui>Pievienot kontaktu</gui></guiseq>."
+
+#: C/add-contact.page:40(p)
+msgid ""
+"From the <gui>Account</gui> drop-down list, select the account you wish to "
+"use to connect to your contact. Your contact will need to be using the same "
+"service as the account you select."
+msgstr ""
+"<gui>Kontu</gui> sarakstā izvēlies kontu, kuru izmantosi, lai savienotos "
+"ar savu kontaktu. Tavam kontaktam vajadzēs izmantot to pašu servisu, "
+"kuru izmanto tu."
+
+#: C/add-contact.page:45(p)
+msgid ""
+"In the <gui>Identifier</gui> field, enter your contact’s login ID, username, "
+"screen name, or other appropriate identifier for the service type."
+msgstr ""
+"<gui>Identifikators</gui> lauciņā, ievadi sava kontakta lietotāja ID, "
+"lietotājvārdu, ekrāna vārdu vai kādu citu servisam pieejamu identifikatoru."
+
+#: C/add-contact.page:49(p)
+msgid ""
+"In the <gui>Alias</gui> field, type your contact’s name as you would like it "
+"to appear in your contact list."
+msgstr ""
+"<gui>Pseidonīms</gui> lauciņā, ieraksti to vārdu, ar kuru vēlies attēlot "
+"kontaktu savā sarakstā."
+
+#: C/add-contact.page:53(p)
+msgid "Click <gui>Add</gui> to add the person to your list of contacts."
+msgstr ""
+"Spied uz <gui>Pievienot</gui>, lai pievienotu personu kontaktu sarakstam."
+
+#: C/add-contact.page:61(p)
+msgid ""
+"To add a new person to your list of contacts, you need to be connected to "
+"the Internet and to your account."
+msgstr ""
+"Lai pievienotu jaunu personu kontaktu sarakstam, ir jābūt savienotam ar "
+"internetu un savu kontu."
+
+#: C/add-account.page:9(desc)
+msgid "Add a new account to <app>Empathy</app>."
+msgstr "Pievienot jaunu kontu <app>Empathy</app> lietotnei."
+
+#: C/add-account.page:40(title)
+msgid "Add a new account"
+msgstr "Pievienot jaunu kontu"
+
+#: C/add-account.page:42(p)
+msgid ""
+"You can add instant messaging accounts from any supported service to "
+"communicate with all of your contacts in <app>Empathy</app>. For some "
+"account providers, these steps will also allow you to register for a new "
+"account. For more details, see <link xref=\"create-account\"/>."
+msgstr ""
+"Tu vari pievienot TZ kontus no jebkura atbalstītā servisa, lai sazinātos ar "
+"visiem saviem kontaktiem <app>Empathy</app> lietotne. Dažiem kontu "
+"sniedzējiem šie soļi ļaus piereģistrēt jaunu kontu. Plašākai informācijai, "
+"lasi <link xref=\"create-account\"/>."
+
+#: C/add-account.page:53(p)
+msgid "Click <gui style=\"button\">+</gui>."
+msgstr "Spied <gui style=\"button\">+</gui>."
+
+#: C/add-account.page:58(p)
+msgid ""
+"From the <gui>Protocol</gui> drop-down list, select the type of account you "
+"wish to add."
+msgstr ""
+"<gui>Protokola</gui> sarakstā, izvēlies konta tipu, kuru vēlies pievienot."
+
+#: C/add-account.page:62(p)
+msgid ""
+"If you do not already have a registered account, select <gui>Create a new "
+"account on the server</gui>. This feature is not available for all account "
+"types, and may not work with some account providers. See <link xref=\"create-"
+"account\"/> for more information."
+msgstr ""
+"Ja tev vēl nav izveidots konts, izvēlies <gui>Izveidot jaunu kontu uz šī "
+"servera</gui>. Šī iespēja nav pieejama visiem kontu tipiem un var nedarboties "
+"ar dažiem kontu sniedzējiem. Plašākai informācijai, lasi <link xref=\"create-"
+"account\"/>."
+
+#: C/add-account.page:69(p)
+msgid ""
+"Enter the required information. For most accounts, you will only need a "
+"login ID and a password. Some accounts may require additional information. "
+"See <link xref=\"accounts-window#details\"/>for more information."
+msgstr ""
+"Ievadi vajadzīgo informāciju. Vairumam kontu vajag norādīt tikai lietotāja ID "
+"un paroli. Dažiem kontiem vajag norādīt papildu informāciju. Skati "
+"<link xref=\"accounts-window#details\"/>, lai uzzinātu vairāk."
+
+#: C/add-account.page:81(p)
+msgid ""
+"To change the name that identifies the account in the <gui>Accounts</gui> "
+"window, select the account from the list on the left and either click on the "
+"name or press the space bar. Edit the account name and press <key>Enter</"
+"key> when you’re finished."
+msgstr ""
+"Lai nomainītu vārdu, kurš identificē kontu, <gui>Kontu</gui> logā, izvēlies "
+"kontu no saraksta kreisajā pusē un vai nu nospied uz vārda, vai nospied "
+"atstarpes taustiņu. Rediģē konta vārdu un spied <key>Enter</key>, kad esi "
+"pabeidzis."
+
+#: C/accounts-window.page:11(desc)
+msgid "Add, modify, and delete accounts."
+msgstr "Pievieno, modificē un dzēs kontus."
+
+#: C/accounts-window.page:33(title)
+msgid "Accounts Window"
+msgstr "Kontu logs"
+
+#: C/accounts-window.page:35(p)
+msgid ""
+"The <gui>Accounts</gui> window allows you to add, modify, and delete "
+"accounts."
+msgstr "<gui>Kontu</gui> logs ļauj pievienot, modificēt un izdzēst kontus."
+
+#: C/accounts-window.page:43(title)
+msgid "Account Details"
+msgstr "Konta informācija"
+
+#: C/accounts-window.page:44(p)
+msgid ""
+"For most types of accounts, you can simply enter a login ID and a password. "
+"Certain accounts or account types, however, may require additional "
+"information."
+msgstr ""
+"Vairumam kontu tipu, tu vari vienkārši ievadīt lietotāja ID un "
+"paroli. Savukārt daži konti vai kontu tipi var pieprasīt papildu "
+"informāciju."
+
+#: C/account-jabber.page:7(desc)
+msgid "Advanced options for Jabber and Google Talk accounts."
+msgstr "Paplašinātas iespējas Jabber un Google Talk kontiem."
+
+#: C/account-jabber.page:29(title)
+msgid "Jabber account details"
+msgstr "Jabber konta informācija"
+
+#: C/account-jabber.page:31(p)
+msgid ""
+"Most Jabber accounts will require only a login ID and a password to connect. "
+"For some accounts or on certain types of networks, you may need to enter "
+"additional information in the <gui>Advanced</gui> section. Normally, you "
+"will not need to use the advanced options below. For general instructions on "
+"adding an account, see <link xref=\"add-account\"/>."
+msgstr ""
+"Vairums Jabber kontu pieprasīs tikai lietotāja ID un paroli lai pieslēgtos. "
+"Dažiem kontiem, vai atrodoties dažādos tīklos, tev var tikt pieprasīts "
+"ievadīt papildu informāciju <gui>Paplašināti</gui> sadaļā. Parasti tev "
+"nevajadzēs izmantot paplašinātās iespējas, kas minētas zemāk. Vispārīgām "
+"instrukcijām kontu pievienošanā, skaties <link xref=\"add-account\"/>."
+
+#: C/account-jabber.page:39(p)
+msgid ""
+"Google Talk is a type of Jabber account. These instructions hold for Google "
+"Talk accounts as well."
+msgstr ""
+"Google Talk ir Jabber tipa konts. Šīs instrukcijas der arī Google Talk "
+"kontiem."
+
+#: C/account-jabber.page:45(gui)
+msgid "Encryption required (TLS/SSL)"
+msgstr "Nepieciešama šifrēšana (TLS/SSL)"
+
+#: C/account-jabber.page:46(gui)
+msgid "Ignore SSL certificate errors"
+msgstr "Ignorēt SSL sertifikāta kļūdas"
+
+#: C/account-jabber.page:47(p)
+msgid ""
+"Whenever possible, communication between <app>Empathy</app> and the Jabber "
+"server is encrypted. If encrypted communication is not possible, messages "
+"may be sent unencrypted. Select <gui>Encryption required</gui> to prevent "
+"<app>Empathy</app> from communicating with the Jabber server when encryption "
+"is not possible."
+msgstr ""
+"Kad vien tas ir iespējams, saziņa caur <app>Empathy</app> un Jabber serveriem "
+"ir šifrēta. Ja šifrēta saruna nav iespējama, ziņas var tikt nosūtītas "
+"nešifrētā veidā. Izvēlies <gui>Šifrēšana pieprasīta</gui>, lai aizliegtu <app>"
+"Empathy</app> lietotnei sazināties ar Jabber serveri, kad šifrēšana nav "
+"iespējama."
+
+#: C/account-jabber.page:52(p)
+msgid ""
+"Some Jabber servers may encrypt data using invalid certificates, or using "
+"certificates from unknown authorities. If you trust the server you are "
+"connecting to, you can select <gui>Ignore SSL certificate errors</gui> to "
+"allow encrypted communication with invalid certificates."
+msgstr ""
+"Daži Jabber serveri var iešifrēt datus, izmantojot nederīgus sertifikātus, "
+"vai izmantojot sertifikātus no neatpazīstamiem veidotājiem. Ja tu uzticies "
+"serverim, kuram pieslēdzies, vari izvēlēties <gui>Ignorēt SSL sertifikāta "
+"kļūdas</gui>, lai atļautu iešifrētu saziņu, izmantojot nederīgus sertifikātus."
+
+#: C/account-jabber.page:59(gui)
+msgid "Resource"
+msgstr "Resurss"
+
+#: C/account-jabber.page:60(gui)
+msgid "Priority"
+msgstr "Prioritāte"
+
+#: C/account-jabber.page:61(p)
+msgid ""
+"If you have multiple applications (for instance, on separate computers) "
+"connected to your account at the same time, you can set a resource to "
+"uniquely identify each one. By default, <app>Empathy</app> will use "
+"<input>Telepathy</input> as the resource."
+msgstr ""
+"Ja ar tavu kontu ir savienojušās vairākas lietotnes reizē (piemēram, uz "
+"atsevišķiem datoriem), tu vari iestatīt kādu no resursiem, kurš unikāli "
+"identificēs katru pieslēgto lietotni. Pēc noklusējuma <app>Empathy</app> "
+"izmantos <input>Telepathy</input> kā resursu."
+
+#: C/account-jabber.page:65(p)
+msgid ""
+"You can set the priority to specify which application should receive "
+"incoming messages from your contacts. New messages will be sent to the "
+"application with the highest priority."
+msgstr ""
+"Tu vari uzstādīt prioritātes, kuras noteiks, kurai lietotnei vajadzētu "
+"saņemt ziņas no kontaktiem. Jaunas ziņas tiks nosūtītas uz lietotni ar "
+"augstāko uzstādīto prioritāti."
+
+#: C/account-jabber.page:70(gui)
+msgid "Override server settings"
+msgstr "Aizstāt servera iestatījumus"
+
+#: C/account-jabber.page:71(p)
+msgid ""
+"<app>Empathy</app> will use default settings to connect to the Jabber server "
+"based on your login ID. For some Jabber servers, you will need to enter "
+"custom server settings manually. These settings should be provided for you "
+"by your Jabber provider."
+msgstr ""
+"<app>Empathy</app> izmantos noklusētos iestatījumus, lai savienotos ar Jabber "
+"serveri, balstītus uz tavu lietotāja ID. Dažiem Jabber serveriem, serveru "
+"iestatījumus tev vajadzēs ievadīt pašam. Ar šiem iestatījumiem tevi vajadzētu "
+"nodrošināt tavam Jabber pakalpojumu sniedzējam."
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/account-irc.page:106(None)
+msgid "@@image: 'figures/gtk-add.png'; md5=a856b499d8d4681b70b5ce6f25bc5c6d"
+msgstr "@@image: 'figures/gtk-add.png'; md5=a856b499d8d4681b70b5ce6f25bc5c6d"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/account-irc.page:112(None)
+msgid "@@image: 'figures/gtk-remove.png'; md5=215e3a325a3dd619874e35c30a018bb6"
+msgstr ""
+"@@image: 'figures/gtk-remove.png'; md5=215e3a325a3dd619874e35c30a018bb6"
+
+#: C/account-irc.page:8(desc)
+msgid "Additional information necessary for connecting to IRC networks."
+msgstr "Papildu informācija, lai pieslēgtos IRC tīkliem."
+
+#: C/account-irc.page:31(title)
+msgid "IRC account details"
+msgstr "IRC konta informācija"
+
+#: C/account-irc.page:33(p)
+msgid ""
+"IRC accounts require different information than many other types of "
+"accounts. To create an IRC account, you must specify at least an IRC network "
+"and a nickname. This page details the information you can provide for an IRC "
+"account."
+msgstr ""
+"IRC konti pieprasa cita veida informāciju, nekā vairāki citi kontu tipi. Lai "
+"izveidotu IRC kontu, tev vajag norādīt vismaz IRC tīklu un savu iesauku. "
+"Šī lapa detalizētāk parāda informāciju, kuru vari sniegt IRC kontam."
+
+#: C/account-irc.page:45(gui) C/account-irc.page:120(gui)
+msgid "Network"
+msgstr "Tīkls"
+
+#: C/account-irc.page:46(p)
+msgid ""
+"IRC is an open system that allows people to run separate IRC networks. Each "
+"network is distinct and has its own users and chat rooms. <app>Empathy</app> "
+"lists the most popular networks in the <gui>Network</gui> drop-down list. "
+"You can add additional networks. See <link xref=\"#networks\"/> below."
+msgstr ""
+"IRC ir atvērta sistēma, kura ļauj cilvēkiem reizē darbināt vairākus IRC "
+"tīklus. Katrs tīkls ir atšķirīgs un tam ir katram savi lietotāji un "
+"tērzēšanas "
+"istabas. <app>Empathy</app> norādīs pašus populārākos tīklus, <gui>Tīkls</gui>"
+" sarakstā. Tu vari pievienot papildus tīklu, lasi vairāk - <link "
+"xref=\"#networks\"/>."
+
+#: C/account-irc.page:53(gui)
+msgid "Nickname"
+msgstr "Iesauka"
+
+#: C/account-irc.page:54(p)
+msgid ""
+"Your nickname is your unique name on the IRC network. Only one person on a "
+"network may use a given nickname. If you get an error message that says "
+"<link xref=\"prob-conn-name\" role=\"error-msg\"/> you will need to change "
+"your nickname."
+msgstr ""
+"Tava iesauka ir unikāls vārds IRC tīklā. Tikai viena persona tīklā var "
+"izmantot vienu iesauku. Ja saņemsi kļūdas paziņojumu, kurš saka <link "
+"xref=\"prob-conn-name\" role=\"error-msg\"/>, tev vajadzēs nomainīt iesauku."
+
+#: C/account-irc.page:60(gui)
+msgid "Password"
+msgstr "Parole"
+
+#: C/account-irc.page:61(p)
+msgid ""
+"Some servers, particularly those on private networks, require a password to "
+"connect. If you are authorized to use the network, the network "
+"administrators should provide you with a password."
+msgstr ""
+"Daži serveri, lielākoties privātajos tīklos, pieprasa paroli, lai pieslēgtos. "
+"Ja tev ir pilnvarojums konkrētā tīkla izmantošanai, administratoram "
+"vajadzētu tev iedot paroli."
+
+#: C/account-irc.page:65(title)
+msgid "NickServ Passwords"
+msgstr "NickServ paroles"
+
+#: C/account-irc.page:66(p)
+msgid ""
+"On some networks, nicknames can be registered using a service known as "
+"NickServ. <app>Empathy</app> does not directly support nickname passwords. "
+"On some networks, including the popular freenode network, server passwords "
+"are automatically forwarded to NickServ, allowing you to set this field to "
+"identify yourself with NickServ. See <link xref=\"irc-nick-password\"/> for "
+"more details."
+msgstr ""
+"Dažos serveros iesaukas var reģistrēt, izmantojot pakalpojumu NickServ."
+" <app>Empathy</app> tiešā veidā neatbalsta iesauku paroles. Dažos tīklos, "
+"tajā skaitā arī populārajā freenode tīklā, serveru paroles tiek automātiski "
+"pārvirzītas uz NickServ, ļaujot tev uzstādīt sevis atpazīšanu ar NickServ. "
+"Lasi <link xref=\"irc-nick-password\"/>, lai uzzinātu vairāk."
+
+#: C/account-irc.page:76(gui)
+msgid "Real name"
+msgstr "Īstais vārds"
+
+#: C/account-irc.page:77(p)
+msgid ""
+"You can provide your real name in addition to your nickname. Other users "
+"will be able to see this when they view your information."
+msgstr ""
+"Papildus iesaukai, tu vari norādīt arī savu īsto vārdu. Citi lietotāji to "
+"varēs redzēt, skatoties tavu profila informāciju."
+
+#: C/account-irc.page:81(gui)
+msgid "Quit message"
+msgstr "Iziešanas ziņa"
+
+#: C/account-irc.page:82(p)
+msgid ""
+"When you go offline, a quit message is sent to all the chat rooms you’re in "
+"and to all the users you’re having a private conversation with. Use this "
+"field to provide a custom quit message."
+msgstr ""
+"Kad tu izej nesaistē, iziešanas ziņa tiks nosūtīta visām sarakstes istabām, "
+"kurās tu esi, kā arī visiem lietotājiem, ar kuriem tev ir privāta saruna. "
+"Izmanto šo lauku, lai norādītu sevis izvēlētu iziešanas ziņu."
+
+#: C/account-irc.page:94(title)
+msgid "IRC Networks"
+msgstr "IRC tīkli"
+
+#: C/account-irc.page:97(title)
+msgid "Networks"
+msgstr "Tīkli"
+
+#: C/account-irc.page:99(p)
+msgid ""
+"<app>Empathy</app> includes a list of popular IRC networks. If you wish to "
+"another IRC network, you can add it to the list. You can also modify "
+"networks and remove them from the list."
+msgstr ""
+"<app>Empathy</app> iekļauj sarakstu ar populāriem IRC tīkliem. Ja "
+"vēlies redzēt kādu citu tīklu, iekļauj to sarakstā. Tu vari arī rediģēt un "
+"izņemt tīklus no saraksta."
+
+#: C/account-irc.page:104(p)
+msgid ""
+"To add a network to the list, click <media type=\"image\" mime=\"image/png\" "
+"src=\"figures/gtk-add.png\" width=\"16\" height=\"16\">Add</media>."
+msgstr ""
+"Lai pievienotu tīklu sarakstam, spied uz <media type=\"image\" "
+"mime=\"image/png\" "
+"src=\"figures/gtk-add.png\" width=\"16\" height=\"16\">Pievienot</media>."
+
+#: C/account-irc.page:107(p)
+msgid ""
+"To modify a network in the list, select the network and click <media type="
+"\"image\" mime=\"image/png\" src=\"figures/gtk-edit.png\" width=\"16\" "
+"height=\"16\">Edit</media>."
+msgstr ""
+"Lai rediģētu tīklu no saraksta, izvēlies to un spied uz <media type="
+"\"image\" mime=\"image/png\" src=\"figures/gtk-edit.png\" width=\"16\" "
+"height=\"16\">Rediģēt</media>."
+
+#: C/account-irc.page:110(p)
+msgid ""
+"To remove a network from the list, select the network and click <media type="
+"\"image\" mime=\"image/png\" src=\"figures/gtk-remove.png\" width=\"16\" "
+"height=\"16\">Remove</media>."
+msgstr ""
+"Lai izņemtu kādu tīklu no saraksta, izvēlies to un spied uz <media type="
+"\"image\" mime=\"image/png\" src=\"figures/gtk-remove.png\" width=\"16\" "
+"height=\"16\">Izņemt</media>."
+
+#: C/account-irc.page:115(p)
+msgid ""
+"When adding or modifying a network, you can enter the following information:"
+msgstr ""
+"Pievienojot vai rediģējot kādu tīklu, tu vari ievadīt sekojošo informāciju:"
+
+#: C/account-irc.page:121(p)
+msgid ""
+"This is the name of the network as you want it to appear in the list of "
+"networks."
+msgstr "Šis ir vārds, ar kuru tīkls tiks parādīts sarakstā."
+
+#: C/account-irc.page:125(gui)
+msgid "Charset"
+msgstr "Rakstzīmju kopa"
+
+#: C/account-irc.page:126(p)
+msgid ""
+"This specifies the character encoding that is typically used on this "
+"network. A character encoding is a specific way of recording characters "
+"internally in a computer. There are many character encodings, and you need "
+"to use the same character encoding as other users to see their messages "
+"correctly."
+msgstr ""
+"Šis norāda rakstzīmju kodējumu, kurš tiek izmantots uz konkrētā tīkla. "
+"Rakstzīmju kodējums ir specifisks veids rakstzīmju ierakstīšanai datorā. Ir "
+"vairāki rakstzīmju kodējuma veidi un tev vajag izmantot tādu pašu kodējumu, "
+"kā citiem lietotājiem, lai varētu redzēt viņu ziņojumus pareizi."
+
+#. Translators: Recommend character encodings that are common
+#.             for your language.
+#: C/account-irc.page:135(p)
+msgid ""
+"By default, <app>Empathy</app> uses UTF-8, a modern character encoding that "
+"can handle text from most of the world's languages. Another common encoding "
+"for English and some other Western languages is ISO-8859-1."
+msgstr ""
+"Pēc noklusējuma, <app>Empathy</app> izmanto UTF-8, modernu rakstzīmju "
+"kodējumu, kurš var apstrādāt lielāko daļu pasaules valodu tekstus. Vēl "
+"viens sastopams kodējums angļu un dažām rietumu valodām ir ISO-8859-1."
+
+#: C/account-irc.page:141(gui)
+msgid "Servers"
+msgstr "Serveri"
+
+#: C/account-irc.page:142(p)
+msgid ""
+"An IRC network may have many servers you can connect to. When you are "
+"connected to a server on a particular network, you can communicate with all "
+"users on all other servers on that network. You can add and remove servers "
+"for this network using the <gui>Add</gui> and <gui>Remove</gui> buttons."
+msgstr ""
+"Vienā IRC tīklā var būs daudzi serveri, kuriem tu vari pieslēgties. Kad esi "
+"pieslēdzies serverim konkrētā tīklā, tu vari sazināties ar visiem "
+"lietotājiem visos pārējos serveros, tajā pašā tīklā. Tu vari pievienot vai "
+"noņemt serverus no konkrētā tīkla, izmantojot  <gui>Pievienot</gui> un <gui>"
+"Izņemt</gui> pogas."
+
+#: C/account-irc.page:147(p)
+msgid ""
+"When a server is selected, click the field under <gui>Server</gui> or "
+"<gui>Port</gui> to edit it. Alternatively, use the left and right arrow keys "
+"to focus the field, and press the space bar to begin editing."
+msgstr ""
+"Kad ir izvēlēts serveris, nospied uz lauciņa zem <gui>Serveris</gui> vai <gui>"
+"Ports</gui>, lai to rediģētu. Vēl viens variants ir izmantot kreiso vai labo "
+"virziena taustiņu, lai fokusētos uz lauciņa, un nospiest atstarpes taustiņu, "
+"lai "
+"sāktu rediģēt."
+
+#: C/account-irc.page:151(p)
+msgid ""
+"Select the check box in the <gui>SSL</gui> column to encrypt all "
+"communication with a server. Note that this does not prevent other users on "
+"the network from seeing what you write on public chat rooms."
+msgstr ""
+"Izvēlies lauciņu zem <gui>SSL</gui> kolonnas, lai šifrētu visu komunikāciju "
+"ar "
+"serveri. Piezīme: tas neattur citus lietotājus tīklā redzēt to, ko tu raksti "
+"publiskajās tērzēšanas istabās."
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: C/index.page:0(None)
+msgid "translator-credits"
+msgstr ""
+"Viesturs Ružāns; viesty@exs.lv; 2011\n"
+"Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>"
+
+

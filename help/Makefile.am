@@ -61,4 +61,4 @@ HELP_FILES = \
 	status-icons.page \
 	video-call.page
 
-HELP_LINGUAS = ca cs de el en_GB es eu fi fr gl hu it pl ru sl sv zh_CN
+HELP_LINGUAS = ca cs de el en_GB es eu fi fr gl hu lv it pl ru sl sv zh_CN
