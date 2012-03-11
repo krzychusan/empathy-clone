@@ -11,19 +11,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: lv\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=empathy&keywords=I18N+L10N&component=General\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=empath"
+"y&keywords=I18N+L10N&component=General\n"
 "POT-Creation-Date: 2012-02-03 11:58+0000\n"
-"PO-Revision-Date: 2012-03-11 22:25+0200\n"
+"PO-Revision-Date: 2012-03-11 22:57+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 "X-Generator: Lokalize 1.2\n"
-"Language: lv\n"
 
 #: ../data/empathy.desktop.in.in.h:1
 msgid "Chat on Google Talk, Facebook, MSN and many other chat services"
@@ -93,6 +93,8 @@ msgstr "Kontaktu saraksta kārtošanas kritērijs"
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:11
 msgid "D-Bus object path of the last account selected to join a room."
 msgstr ""
+"D-Bus objektu ceļš pēdējam kontam, kas tika izvēlēts, lai savienotos ar "
+"istabu."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:12
 msgid "Default camera device to use in video calls, e.g. /dev/video0."
@@ -185,6 +187,7 @@ msgstr "Slēpt galveno logu."
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:33
 msgid "Last account selected in Join Room dialog"
 msgstr ""
+"Pēdējais konts, kas tika izvēlēts dialoglodziņā \"Pievienoties istabai\""
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:34
 msgid "Nick completed character"
@@ -364,8 +367,8 @@ msgid ""
 "Whether connectivity managers should be used to automatically disconnect/"
 "reconnect."
 msgstr ""
-"Vai vajadzētu izmantot savienojumu pārvaldnieku, lai automātiski atvienotos/"
-"savienotos."
+"Vai vajadzētu izmantot savienojumu pārvaldnieku, lai automātiski "
+"atvienotos/savienotos."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:75
 msgid ""
@@ -479,7 +482,6 @@ msgid "Whether to use the theme for chat rooms."
 msgstr "Vai izmantot tēmu tērzēšanas istabās."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:100
-#, fuzzy
 #| msgid ""
 #| "Which criterion to use when sorting the contact list. Default is to sort "
 #| "by the contact's name with the value \"name\". A value of \"state\" will "
@@ -490,8 +492,9 @@ msgid ""
 "the contact list by name."
 msgstr ""
 "Kuru kritēriju izmantot, kārtojot kontaktu sarakstu. Noklusētā vērtība ir "
-"\"name\" - kārtot pēc kontakta vārda. Vērtība \"state\" kārtos kontaktus pēc "
-"to statusa."
+"\"state\" - kārtot pēc kontakta statusa. Vērtība \"name\" kārtos kontaktus "
+"pēc to "
+"vārda."
 
 #: ../data/empathy-accounts.desktop.in.in.h:1
 msgid "Manage Messaging and VoIP accounts"
@@ -707,13 +710,12 @@ msgstr ""
 
 #: ../libempathy/empathy-utils.c:373
 msgid "Your software is too old"
-msgstr ""
+msgstr "Jūsu programmatūra ir pārāk veca"
 
 #: ../libempathy/empathy-utils.c:375
-#, fuzzy
 #| msgid "Interval (seconds)"
 msgid "Internal error"
-msgstr "Intervāls (sekundēs)"
+msgstr "Iekšēja kļūda"
 
 #: ../libempathy/empathy-utils.c:534
 msgid "People Nearby"
@@ -1091,8 +1093,8 @@ msgid ""
 msgstr ""
 "Šeit vajadzīgs lietotāja vārds, nevis e-pasta adrese.\n"
 "Ja jūsu konts atrodams facebook.com/<b>saule</b>, ievadiet <b>saule</b>.\n"
-"Ja jums nav Facebook lietotāja vārda, varat to izvēlēties <a href=\"http://"
-"www.facebook.com/username/\">šajā lapā</a>."
+"Ja jums nav Facebook lietotāja vārda, varat to izvēlēties <a "
+"href=\"http://www.facebook.com/username/\">šajā lapā</a>."
 
 #: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:17
 msgid "Use old SS_L"
@@ -1327,7 +1329,7 @@ msgstr "Šis protokols neatbalsta ārkārtas zvanus"
 
 #: ../libempathy-gtk/empathy-call-utils.c:59
 msgid "You don't have enough credit in order to place this call"
-msgstr ""
+msgstr "Jums nepietiek kredītā, lai veiktu šo zvanu"
 
 #: ../libempathy-gtk/empathy-chat.c:710
 msgid "Failed to open private chat"
@@ -1440,10 +1442,11 @@ msgstr "Kļūda, sūtot ziņojumu: %s"
 #. translators: error used when user doesn't have enough credit on his
 #. * account to send the message.
 #: ../libempathy-gtk/empathy-chat.c:1553
-#, fuzzy, c-format
+#, c-format
 #| msgid "insufficient balance to send message"
 msgid "insufficient balance to send message. <a href='%s'>Top up</a>."
-msgstr "nepietiekama bilance, lai nosūtītu ziņojumu"
+msgstr ""
+"nepietiekama bilance, lai nosūtītu ziņojumu. <a href='%s'>Uzpildīt</a>."
 
 #: ../libempathy-gtk/empathy-chat.c:1593
 msgid "not capable"
@@ -1483,10 +1486,10 @@ msgid "Topic set to: %s"
 msgstr "Temats ir: %s"
 
 #: ../libempathy-gtk/empathy-chat.c:1700
-#, fuzzy, c-format
+#, c-format
 #| msgid "Topic set to: %s"
 msgid "Topic set by %s to: %s"
-msgstr "Temats ir: %s"
+msgstr "Tematu iestatīja %s un tas ir ir: %s"
 
 #. No need to display this 'event' is no topic can be defined anyway
 #: ../libempathy-gtk/empathy-chat.c:1705
@@ -1927,34 +1930,29 @@ msgid "Unable to save avatar"
 msgstr "Nevar saglabāt attēlu"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:104
-#, fuzzy
 #| msgid "Full name:"
 msgid "Full name"
-msgstr "Vārds, uzvārds:"
+msgstr "Vārds, uzvārds"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:105
-#, fuzzy
 #| msgid "Phone number:"
 msgid "Phone number"
-msgstr "Tālruņa numurs:"
+msgstr "Tālruņa numurs"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:106
-#, fuzzy
 #| msgid "E-mail address:"
 msgid "E-mail address"
-msgstr "E-pasta adrese:"
+msgstr "E-pasta adrese"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:107
-#, fuzzy
 #| msgid "Website:"
 msgid "Website"
-msgstr "Tīmekļa vietne:"
+msgstr "Tīmekļa vietne"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:108
-#, fuzzy
 #| msgid "Birthday:"
 msgid "Birthday"
-msgstr "Dzimšanas diena:"
+msgstr "Dzimšanas diena"
 
 #. Note to translators: this is the caption for a string of the form "5
 #. * minutes ago", and refers to the time since the contact last interacted
@@ -1974,44 +1972,38 @@ msgid "Away message:"
 msgstr "Ziņa, kad projām:"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:132
-#, fuzzy
 #| msgid "Work"
 msgid "work"
-msgstr "Darbs"
+msgstr "darbs"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:133
-#, fuzzy
 #| msgid "Romeo"
 msgid "home"
-msgstr "Lāčplēsis"
+msgstr "mājas"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:134
-#, fuzzy
 #| msgid "Mobile"
 msgid "mobile"
-msgstr "Mobilais"
+msgstr "mobilais"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:135
-#, fuzzy
 #| msgid "Favorite"
 msgid "voice"
-msgstr "Iecienītais"
+msgstr "balss"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:136
-#, fuzzy
 #| msgid "Preferences"
 msgid "preferred"
-msgstr "Iestatījumi"
+msgstr "vēlamais"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:137
 msgid "postal"
-msgstr ""
+msgstr "pasta"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:138
-#, fuzzy
 #| msgid "Appearance"
 msgid "parcel"
-msgstr "Izskats"
+msgstr "sainis"
 
 #: ../libempathy-gtk/empathy-contact-widget.ui.h:1
 msgid "<b>Location</b> at (date)\t"
@@ -2518,67 +2510,60 @@ msgid "page 2"
 msgstr "lapa 2"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:83
-#, fuzzy
 #| msgid "The specified contact is offline"
 msgid "The contact is offline"
-msgstr "Norādītais kontakts ir nesaistē"
+msgstr "Kontakts ir nesaistē"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:85
-#, fuzzy
 #| msgid "The specified contact is not valid"
 msgid "The specified contact is either invalid or unknown"
-msgstr "Norādītais kontakts ir nav derīgs"
+msgstr "Norādītais kontakts ir nav derīgs vai nav zināms"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:87
-#, fuzzy
 #| msgid "Topic not supported on this conversation"
 msgid "The contact does not support this kind of conversation"
-msgstr "Šai sarunai temats nav atbalstīts"
+msgstr "Kontakts neatbalsta šāda veida sarunas"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:89
 msgid "The requested functionality is not implemented for this protocol"
-msgstr ""
+msgstr "Šajā protokolā nav implementēta pieprasītā funkcionalitāte"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:95
 msgid "Could not start a conversation with the given contact"
-msgstr ""
+msgstr "Nevarēja uzsākt sarunu ar doto kontaktu"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:97
 msgid "You are banned from this channel"
-msgstr ""
+msgstr "Jūs esat izraidīts no šī kanāla"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:99
 msgid "This channel is full"
-msgstr ""
+msgstr "Kanāls ir pilns"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:101
-#, fuzzy
 #| msgid "You have been invited to join %s"
 msgid "You must be invited to join this channel"
-msgstr "Jūs ielūdza pievienoties %s"
+msgstr "Jums jāsaņem uzaicinājums, lai pievienotos šim kanālam"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:103
-#, fuzzy
 #| msgid "Contact disconnected"
 msgid "Can't proceed while disconnected"
-msgstr "Kontakts atvienojies"
+msgstr "Nevar turpināt, kamēr ir atvienots"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:105
-#, fuzzy
 #| msgid "permission denied"
 msgid "Permission denied"
-msgstr "atļauja liegta"
+msgstr "Atļauja liegta"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:111
-#, fuzzy
 #| msgid "There was an error starting the call"
 msgid "There was an error starting the conversation"
-msgstr "Gadījās kļūda, sākot zvanu"
+msgstr "Gadījās kļūda, sākot sarunu"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:290
 #: ../libempathy-gtk/empathy-new-call-dialog.c:202
 msgid "Enter a contact identifier or phone number:"
-msgstr ""
+msgstr "Ievadiet kontakta identifikatoru vai tālruņa numuru:"
 
 #. Tweak the dialog
 #: ../libempathy-gtk/empathy-new-message-dialog.c:333
@@ -2587,7 +2572,6 @@ msgstr "Jauna saruna"
 
 #. add video button
 #: ../libempathy-gtk/empathy-new-call-dialog.c:225
-#, fuzzy
 #| msgctxt "menu item"
 #| msgid "_Video Call"
 msgid "_Video Call"
@@ -2595,22 +2579,21 @@ msgstr "_Video zvans"
 
 #. add audio button
 #: ../libempathy-gtk/empathy-new-call-dialog.c:235
-#, fuzzy
 #| msgctxt "menu item"
 #| msgid "_Audio Call"
 msgid "_Audio Call"
-msgstr "_Zvans"
+msgstr "Zv_ans"
 
 #. Tweak the dialog
 #: ../libempathy-gtk/empathy-new-call-dialog.c:245
 msgid "New Call"
-msgstr "Zvans"
+msgstr "Jauns zvans"
 
 #: ../libempathy-gtk/empathy-bad-password-dialog.c:130
-#, fuzzy, c-format
+#, c-format
 #| msgid "Authentication failed"
 msgid "Authentification failed for account <b>%s</b>"
-msgstr "Autentifikācija neizdevās"
+msgstr "Autentifikācija neizdevās kontam <b>%s</b>"
 
 #: ../libempathy-gtk/empathy-base-password-dialog.c:224
 #: ../libempathy-gtk/empathy-password-dialog.c:134
@@ -2815,7 +2798,7 @@ msgstr "Turpināt"
 
 #: ../libempathy-gtk/empathy-tls-dialog.c:287
 msgid "Untrusted connection"
-msgstr ""
+msgstr "Neuzticams savienojums"
 
 #: ../libempathy-gtk/empathy-tls-dialog.c:288
 msgid "This connection is untrusted. Would you like to continue anyway?"
@@ -3304,22 +3287,21 @@ msgid "Offline — Account Disabled"
 msgstr "Nesaistē — konts deaktivēts"
 
 #: ../src/empathy-accounts-dialog.c:530
-#, fuzzy
 #| msgid "Connection has been refused"
 msgid "Edit Connection Parameters"
-msgstr "Savienojums tika atteikts"
+msgstr "Rediģēt savienojuma parametrus"
 
 #: ../src/empathy-accounts-dialog.c:693
 msgid "Failed to retrieve your personal information from the server."
-msgstr ""
+msgstr "Neizdevās saņemt jūsu personīgo informāciju no servera."
 
 #: ../src/empathy-accounts-dialog.c:699
 msgid "Go online to edit your personal information."
-msgstr ""
+msgstr "Dodieties tiešsaistē, lai rediģētu savu personīgo informāciju."
 
 #: ../src/empathy-accounts-dialog.c:784
 msgid "_Edit Connection Parameters..."
-msgstr ""
+msgstr "R_ediģēt savienojuma parametrus..."
 
 #: ../src/empathy-accounts-dialog.c:1289
 #, c-format
@@ -3476,7 +3458,6 @@ msgstr "Multiraides grupas IP adreses"
 #: ../src/empathy-streamed-media-window.c:1841
 #: ../src/empathy-streamed-media-window.c:1844
 #: ../src/empathy-streamed-media-window.c:1847
-#, fuzzy
 #| msgid "Unknown"
 msgctxt "codec"
 msgid "Unknown"
@@ -3548,8 +3529,8 @@ msgid ""
 "\">report this bug</a> and attach logs gathered from the 'Debug' window in "
 "the Help menu."
 msgstr ""
-"Kādā Telepathy sastāvdaļā noticis kas negaidīts. Lūdzu, <a href=\"%s"
-"\">ziņojiet par šo kļūdu</a>, pievienojot ierakstus no 'Atkļūdot' loga "
+"Kādā Telepathy sastāvdaļā noticis kas negaidīts. Lūdzu, <a href=\"%"
+"s\">ziņojiet par šo kļūdu</a>, pievienojot ierakstus no 'Atkļūdot' loga "
 "Palīdzības izvēlnē."
 
 #: ../src/empathy-streamed-media-window.c:2280
@@ -3707,10 +3688,9 @@ msgid "_View"
 msgstr "_Skats"
 
 #: ../src/empathy-chat-window.c:285
-#, fuzzy
 #| msgid "Hide the main window."
 msgid "Close this window?"
-msgstr "Slēpt galveno logu."
+msgstr "Aizvērt šo logu?"
 
 #: ../src/empathy-chat-window.c:290
 #, c-format
@@ -3718,6 +3698,8 @@ msgid ""
 "Closing this window will leave %s. You will not receive any further messages "
 "until you rejoin it."
 msgstr ""
+"Šī loga aizvēršana pametīs %s. Jūs nesaņemsiet jaunus ziņojumus, kamēr atkal "
+"nepievienosities."
 
 #: ../src/empathy-chat-window.c:301
 #, c-format
@@ -3728,30 +3710,40 @@ msgid_plural ""
 "Closing this window will leave %u chat rooms. You will not receive any "
 "further messages until you rejoin them."
 msgstr[0] ""
+"Šī loga aizvēršana pametīs %u tērzēšanas istabu. Jūs nesaņemsiet jaunus "
+"ziņojumus, kamēr atkal "
+"nepievienosities."
 msgstr[1] ""
+"Šī loga aizvēršana pametīs %u tērzēšanas istabas. Jūs nesaņemsiet jaunus "
+"ziņojumus, kamēr atkal "
+"nepievienosities."
 msgstr[2] ""
+"Šī loga aizvēršana pametīs %u tērzēšanas istabas. Jūs nesaņemsiet jaunus "
+"ziņojumus, kamēr atkal "
+"nepievienosities."
 
 #: ../src/empathy-chat-window.c:310
-#, fuzzy, c-format
+#, c-format
 #| msgid "Level "
 msgid "Leave %s?"
-msgstr "Līmenis "
+msgstr "Pamest %s?"
 
 #: ../src/empathy-chat-window.c:311
 msgid ""
 "You will not receive any further messages from this chat room until you "
 "rejoin it."
 msgstr ""
+"Jūs nesaņemsiet jaunus ziņojumus no šīs tērzēšanas istabas, kamēr atkal "
+"nepievienosities."
 
 #: ../src/empathy-chat-window.c:330
 msgid "Close window"
-msgstr ""
+msgstr "Aizvērt logu"
 
 #: ../src/empathy-chat-window.c:330
-#, fuzzy
 #| msgid "Level "
 msgid "Leave room"
-msgstr "Līmenis "
+msgstr "Pamest istabu"
 
 #: ../src/empathy-chat-window.c:636 ../src/empathy-chat-window.c:656
 #, c-format
@@ -4122,7 +4114,7 @@ msgstr "Atvienot"
 
 #: ../src/empathy-roster-window.c:644
 msgid "You need to setup an account to see contacts here."
-msgstr ""
+msgstr "Lai šeit redzētu kontaktus, jāiestata konts."
 
 #: ../src/empathy-roster-window.c:660
 msgid "No match found"
@@ -4132,10 +4124,11 @@ msgstr "Nav atrastu rezultātu"
 #, c-format
 msgid "Sorry, %s accounts can’t be used until your %s software is updated."
 msgstr ""
+"Diemžēl %s kontus nevar izmantot, kamēr %s programmatūra nav atjaunināta."
 
 #: ../src/empathy-roster-window.c:831
 msgid "Update software..."
-msgstr ""
+msgstr "Atjaunināt programmatūru..."
 
 #: ../src/empathy-roster-window.c:837 ../src/empathy-roster-window.c:954
 msgid "Close"
@@ -4171,23 +4164,22 @@ msgstr "Kontakts"
 
 #: ../src/empathy-roster-window.c:2131
 msgid "You need to enable one of your accounts to see contacts here."
-msgstr ""
+msgstr "Lai šeit redzētu kontaktus, jums jāaktivē kāds no saviem kontiem."
 
 #. translators: argument is an account name
 #: ../src/empathy-roster-window.c:2139
 #, c-format
 msgid "You need to enable %s to see contacts here."
-msgstr ""
+msgstr "Lai šeit redzētu kontaktus, jums jāaktivē %s."
 
 #: ../src/empathy-roster-window.c:2419
 msgid "Contact List"
 msgstr "Kontaktu saraksts"
 
 #: ../src/empathy-roster-window.ui.h:1
-#, fuzzy
 #| msgid "_Accounts"
 msgid "Account settings"
-msgstr "_Konti"
+msgstr "Konta iestatījumi"
 
 #: ../src/empathy-roster-window-menubar.ui.h:1
 msgid "Contacts on a _Map"
@@ -4354,7 +4346,6 @@ msgid "New conversation"
 msgstr "Jauna saruna"
 
 #: ../src/empathy-preferences.c:169
-#, fuzzy
 #| msgid "Contact goes online"
 msgid "Contact comes online"
 msgstr "Kontakts parādās tiešsaistē"
@@ -4523,7 +4514,7 @@ msgstr "Pareizrakstības pārbaude"
 
 #: ../src/empathy-preferences.ui.h:26
 msgid "Start chats in:"
-msgstr ""
+msgstr "Sākt tērzēšanu:"
 
 #: ../src/empathy-preferences.ui.h:27
 msgid ""
@@ -4537,7 +4528,7 @@ msgstr "Tēmas"
 
 #: ../src/empathy-preferences.ui.h:29
 msgid "Use _echo cancellation to improve call quality"
-msgstr ""
+msgstr "Li_etot atbalss atcelšanu, lai uzlabotu zvana kvalitāti"
 
 #: ../src/empathy-preferences.ui.h:30
 msgid "Variant:"
@@ -4578,11 +4569,11 @@ msgstr "Samazināt atrašanās vietas p_recizitāti"
 
 #: ../src/empathy-preferences.ui.h:40
 msgid "new _windows"
-msgstr ""
+msgstr "jaunos _logos"
 
 #: ../src/empathy-preferences.ui.h:41
 msgid "new ta_bs"
-msgstr ""
+msgstr "jaunās _cilnēs"
 
 #: ../src/empathy-status-icon.ui.h:2
 msgid "Status"
@@ -4730,8 +4721,7 @@ msgstr ""
 msgid ""
 "Don't display any dialogs unless there are only \"People Nearby\" accounts"
 msgstr ""
-"Nerādīt nekādus dialogus, izņemot, ja ir tikai \"Tuvumā esošie cilvēki\" "
-"konti"
+"Nerādīt nekādus dialogus, izņemot, ja ir tikai \"Tuvumā esošie cilvēki\" konti"
 
 #: ../src/empathy-accounts.c:191
 msgid "Initially select given account (eg, gabble/jabber/foo_40example_2eorg0)"
@@ -4743,10 +4733,9 @@ msgid "<account-id>"
 msgstr "<konta-ID>"
 
 #: ../src/empathy-accounts.c:196
-#, fuzzy
 #| msgid "Show Balance in contact list"
 msgid "Show account assistant"
-msgstr "Rādīt bilanci kontaktu sarakstā"
+msgstr "Rādīt kontu asistentu"
 
 #: ../src/empathy-accounts.c:202
 msgid "- Empathy Accounts"
@@ -4840,27 +4829,25 @@ msgstr "%s — %d:%02dm"
 #: ../src/empathy-call-window.c:3207
 #, c-format
 msgid "Your current balance is %s."
-msgstr ""
+msgstr "Jūsu pašreizējā bilance ir %s."
 
 #: ../src/empathy-call-window.c:3211
 msgid "Sorry, you don’t have enough credit for that call."
-msgstr ""
+msgstr "Diemžēl jums nepietiek kredīta, lai veiktu šo zvanu."
 
 #: ../src/empathy-call-window.c:3213
-#, fuzzy
 #| msgid "Top Up..."
 msgid "Top Up"
-msgstr "Uzpildīt ..."
+msgstr "Uzpildīt"
 
 #: ../libempathy-gtk/empathy-search-bar.c:243
 msgid "_Match case"
 msgstr "_Reģistru sakritība"
 
 #: ../libempathy-gtk/empathy-new-account-dialog.c:166
-#, fuzzy
 #| msgid "New account"
 msgid "Adding new account"
-msgstr "Jauns konts"
+msgstr "Jauna kontu pievienošana"
 
 #~ msgid "Call volume"
 #~ msgstr "Zvana skaļums"
@@ -5086,8 +5073,7 @@ msgstr "Jauns konts"
 #~ msgid ""
 #~ "The username for SIP authentication, if different from the SIP URI\n"
 #~ "username."
-#~ msgstr ""
-#~ "Lietotāja vārds SIP autentifikācijai, ja atšķirīgs no SIP URI vārda."
+#~ msgstr "Lietotāja vārds SIP autentifikācijai, ja atšķirīgs no SIP URI vārda."
 
 #~ msgid ""
 #~ "Update the registration binding if the external address for the client is "
