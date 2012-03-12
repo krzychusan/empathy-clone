@@ -230,7 +230,7 @@ empathy_connection_managers_listed_cb (TpConnectionManager * const *cms,
   for (iter = cms ; iter != NULL && *iter != NULL; iter++)
     {
       /* only list cms that didn't hit errors */
-      if (tp_connection_manager_is_ready (*iter))
+      if (tp_proxy_is_prepared (*iter, TP_CONNECTION_MANAGER_FEATURE_CORE))
         priv->cms = g_list_prepend (priv->cms, g_object_ref (*iter));
     }
 
