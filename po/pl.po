@@ -7,10 +7,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: empathy\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=empathy&keywords=I18N+L10N&component=General\n"
-"POT-Creation-Date: 2012-03-10 07:51+0000\n"
-"PO-Revision-Date: 2012-03-10 18:28+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-12 17:04+0100\n"
+"PO-Revision-Date: 2012-03-12 17:05+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -40,7 +39,7 @@ msgstr "Rozmawianie przez Google Talk, Facebook, MSN i wiele innych usług"
 
 #. Tweak the dialog
 #: ../data/empathy-accounts.desktop.in.in.h:1
-#: ../src/empathy-accounts-dialog.c:2450
+#: ../src/empathy-accounts-dialog.c:2454
 msgid "Messaging and VoIP Accounts"
 msgstr "Konta komunikatora i VoIP"
 
@@ -821,6 +820,20 @@ msgstr[2] "%d miesięcy emu"
 #: ../libempathy/empathy-time.c:142
 msgid "in the future"
 msgstr "w przyszłości"
+
+#: ../libempathy/empathy-keyring.c:75
+msgid "Password not found"
+msgstr "Nie odnaleziono hasła"
+
+#: ../libempathy/empathy-keyring.c:218
+#, c-format
+msgid "IM account password for %s (%s)"
+msgstr "Hasło konta komunikatora dla %s (%s)"
+
+#: ../libempathy/empathy-keyring.c:253
+#, c-format
+msgid "Password for chatroom '%s' on account %s (%s)"
+msgstr "Hasło dla pokoju rozmowy \"%s\" na koncie %s (%s)"
 
 #: ../libempathy-gtk/empathy-account-chooser.c:692
 msgid "All accounts"
@@ -1682,27 +1695,27 @@ msgstr "Rozmowa"
 msgid "%s (SMS)"
 msgstr "%s (SMS)"
 
-#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:264
+#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:262
 msgid "Unknown or invalid identifier"
 msgstr "Nieznany lub nieprawidłowy identyfikator"
 
-#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:266
+#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:264
 msgid "Contact blocking temporarily unavailable"
 msgstr "Blokowanie kontaktów jest tymczasowo niedostępne"
 
-#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:268
+#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:266
 msgid "Contact blocking unavailable"
 msgstr "Blokowanie kontaktów jest niedostępne"
 
-#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:270
+#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:268
 msgid "Permission Denied"
 msgstr "Brak dostępu"
 
-#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:274
+#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:272
 msgid "Could not block contact"
 msgstr "Nie można zablokować kontaktu"
 
-#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:612
+#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:610
 msgid "Edit Blocked Contacts"
 msgstr "Modyfikacja zablokowanych kontaktów"
 
@@ -3102,32 +3115,32 @@ msgstr ""
 msgid "Offline — Account Disabled"
 msgstr "Offline — konto jest wyłączone"
 
-#: ../src/empathy-accounts-dialog.c:572
+#: ../src/empathy-accounts-dialog.c:574
 msgid "Edit Connection Parameters"
 msgstr "Modyfikacja parametrów połączenia"
 
-#: ../src/empathy-accounts-dialog.c:735
+#: ../src/empathy-accounts-dialog.c:739
 msgid "Failed to retrieve your personal information from the server."
 msgstr "Pobranie informacji osobistych z serwera się nie powiodło."
 
-#: ../src/empathy-accounts-dialog.c:741
+#: ../src/empathy-accounts-dialog.c:745
 msgid "Go online to edit your personal information."
 msgstr "Proszę przejść do trybu online, aby modyfikować informacje osobiste."
 
-#: ../src/empathy-accounts-dialog.c:826
+#: ../src/empathy-accounts-dialog.c:830
 msgid "_Edit Connection Parameters..."
 msgstr "_Modyfikuj parametry połączenia..."
 
-#: ../src/empathy-accounts-dialog.c:1322
+#: ../src/empathy-accounts-dialog.c:1326
 #, c-format
 msgid "Do you want to remove %s from your computer?"
 msgstr "Na pewno usunąć \"%s\" z komputera?"
 
-#: ../src/empathy-accounts-dialog.c:1326
+#: ../src/empathy-accounts-dialog.c:1330
 msgid "This will not remove your account on the server."
 msgstr "Nie usunie to konta na serwerze."
 
-#: ../src/empathy-accounts-dialog.c:1562
+#: ../src/empathy-accounts-dialog.c:1566
 msgid ""
 "You are about to select another account, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -3136,23 +3149,23 @@ msgstr ""
 "utratę zmian. Na pewno kontynuować?"
 
 #. Menu items: to enabled/disable the account
-#: ../src/empathy-accounts-dialog.c:1738
+#: ../src/empathy-accounts-dialog.c:1742
 msgid "_Enable"
 msgstr "_Włączone"
 
-#: ../src/empathy-accounts-dialog.c:1739
+#: ../src/empathy-accounts-dialog.c:1743
 msgid "_Disable"
 msgstr "Wyłą_czone"
 
-#: ../src/empathy-accounts-dialog.c:2122
+#: ../src/empathy-accounts-dialog.c:2126
 msgid "_Skip"
 msgstr "_Pomiń"
 
-#: ../src/empathy-accounts-dialog.c:2126
+#: ../src/empathy-accounts-dialog.c:2130
 msgid "_Connect"
 msgstr "P_ołącz"
 
-#: ../src/empathy-accounts-dialog.c:2303
+#: ../src/empathy-accounts-dialog.c:2307
 msgid ""
 "You are about to close the window, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -4640,7 +4653,7 @@ msgstr ""
 
 #. Translators: this is an "Info" label. It should be as short
 #. * as possible.
-#: ../src/empathy-call-window.c:1136 ../src/empathy-call-window.c:1159
+#: ../src/empathy-call-window.c:1140 ../src/empathy-call-window.c:1162
 msgid "i"
 msgstr "i"
 
