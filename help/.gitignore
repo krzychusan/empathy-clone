@@ -1,5 +1,6 @@
 *.mo
 *.omf
+*/*.stamp
 ca/*.page
 ca/*.xml
 cs/*.page
@@ -24,6 +25,7 @@ hu/*.page
 hu/*.xml
 it/*.page
 it/*.xml
+lv/*.page
 pl/*.page
 pl/*.xml
 ru/*.page
@@ -34,4 +36,3 @@ sv/*.page
 sv/*.xml
 zh_CN/*.page
 zh_CN/*.xml
-*/*.stamp
