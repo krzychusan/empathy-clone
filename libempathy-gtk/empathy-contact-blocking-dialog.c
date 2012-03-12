@@ -27,8 +27,6 @@
 
 #include <libempathy/empathy-utils.h>
 
-#include <libempathy/empathy-tp-contact-list.h>
-
 #include <libempathy-gtk/empathy-account-chooser.h>
 #include <libempathy-gtk/empathy-ui-utils.h>
 
