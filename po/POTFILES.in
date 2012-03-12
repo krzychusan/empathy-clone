@@ -10,6 +10,7 @@ libempathy/empathy-message.c
 libempathy/empathy-tp-contact-list.c
 libempathy/empathy-utils.c
 libempathy/empathy-time.c
+libempathy/empathy-keyring.c
 
 libempathy-gtk/empathy-account-chooser.c
 libempathy-gtk/empathy-account-widget.c

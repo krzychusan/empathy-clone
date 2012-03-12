@@ -18,6 +18,8 @@
 
 #include "config.h"
 
+#include <glib/gi18n-lib.h>
+
 #include "empathy-keyring.h"
 
 #include <string.h>
@@ -70,7 +72,7 @@ find_items_cb (GnomeKeyringResult result,
   if (list == NULL)
     {
       g_simple_async_result_set_error (simple, TP_ERROR,
-          TP_ERROR_DOES_NOT_EXIST, "Password not found");
+          TP_ERROR_DOES_NOT_EXIST, _("Password not found"));
       goto out;
     }
 
@@ -213,7 +215,7 @@ empathy_keyring_set_account_password_async (TpAccount *account,
 
   DEBUG ("Remembering password for %s", account_id);
 
-  name = g_strdup_printf ("IM account password for %s (%s)",
+  name = g_strdup_printf (_("IM account password for %s (%s)"),
       tp_account_get_display_name (account), account_id);
 
   gnome_keyring_store_password (&account_keyring_schema, NULL, name, password,
@@ -248,7 +250,7 @@ empathy_keyring_set_room_password_async (TpAccount *account,
 
   DEBUG ("Remembering password for room '%s' on account '%s'", id, account_id);
 
-  name = g_strdup_printf ("Password for chatroom '%s' on account %s (%s)",
+  name = g_strdup_printf (_("Password for chatroom '%s' on account %s (%s)"),
       id, tp_account_get_display_name (account), account_id);
 
   gnome_keyring_store_password (&room_keyring_schema, NULL, name, password,
