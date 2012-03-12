@@ -53,6 +53,7 @@
 #include "empathy-share-my-desktop.h"
 #include "empathy-call-utils.h"
 #include "empathy-individual-store-channel.h"
+#include "empathy-individual-information-dialog.h"
 
 #define DEBUG_FLAG EMPATHY_DEBUG_CONTACT
 #include <libempathy/empathy-debug.h>
@@ -1364,7 +1365,24 @@ static void
 individual_info_menu_item_activate_cb (GtkMenuItem *item,
     FolksIndividual *individual)
 {
-  start_gnome_contacts (individual, TRUE);
+  EmpathyIndividualManager *mgr;
+
+  mgr = empathy_individual_manager_dup_singleton ();
+
+  /* Only use gnome-contacts if that's a 'real' individual we got from
+   * Folks (and so the individual manager knows about it). If not that's a
+   * MUC contact and we use the simple dialog. */
+  if (empathy_individual_manager_lookup_member (mgr,
+        folks_individual_get_id (individual)) != NULL)
+    {
+      start_gnome_contacts (individual, TRUE);
+    }
+  else
+    {
+      empathy_individual_information_dialog_show (individual, NULL);
+    }
+
+  g_object_unref (mgr);
 }
 
 static GtkWidget *
