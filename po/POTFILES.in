@@ -7,7 +7,6 @@ data/org.gnome.Empathy.gschema.xml.in
 
 libempathy/empathy-ft-handler.c
 libempathy/empathy-message.c
-libempathy/empathy-tp-contact-list.c
 libempathy/empathy-utils.c
 libempathy/empathy-time.c
 libempathy/empathy-keyring.c
