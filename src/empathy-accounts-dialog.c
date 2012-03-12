@@ -568,6 +568,8 @@ account_dialog_create_edit_params_dialog (EmpathyAccountsDialog *dialog)
   GtkWidget *subdialog, *content, *content_area, *align;
 
   settings = accounts_dialog_model_get_selected_settings (dialog);
+  if (settings == NULL)
+    return;
 
   subdialog = gtk_dialog_new_with_buttons (_("Edit Connection Parameters"),
       GTK_WINDOW (dialog),
@@ -701,6 +703,8 @@ account_dialow_show_edit_params_dialog (EmpathyAccountsDialog *dialog,
   TpStorageRestrictionFlags storage_restrictions;
 
   settings = accounts_dialog_model_get_selected_settings (dialog);
+  if (settings == NULL)
+    return;
 
   account = empathy_account_settings_get_account (settings);
   g_return_if_fail (account != NULL);
