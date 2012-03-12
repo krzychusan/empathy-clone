@@ -10,14 +10,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: empathy master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=empathy&keywords=I18N+L10N&component=General\n"
-"POT-Creation-Date: 2012-03-07 14:21+0000\n"
-"PO-Revision-Date: 2012-03-07 18:37+0100\n"
+"POT-Creation-Date: 2012-03-12 11:23+0000\n"
+"PO-Revision-Date: 2012-03-12 12:36+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenščina <gnome-si@googlegroups.com>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
 "X-Poedit-Language: Slovenian\n"
 "X-Poedit-Country: SLOVENIA\n"
@@ -760,6 +760,20 @@ msgstr[3] "Pred %d meseci"
 msgid "in the future"
 msgstr "v prihodnosti"
 
+#: ../libempathy/empathy-keyring.c:75
+msgid "Password not found"
+msgstr "Gesla ni mogoče najti"
+
+#: ../libempathy/empathy-keyring.c:218
+#, c-format
+msgid "IM account password for %s (%s)"
+msgstr "Geslo računa hipnega sporočanja za %s (%s)"
+
+#: ../libempathy/empathy-keyring.c:253
+#, c-format
+msgid "Password for chatroom '%s' on account %s (%s)"
+msgstr "Geslo za klepetalnico '%s' na računu %s (%s)"
+
 #: ../libempathy-gtk/empathy-account-chooser.c:692
 msgid "All accounts"
 msgstr "Vsi računi"
@@ -1474,7 +1488,7 @@ msgstr "Vstavi smeška"
 
 #. send button
 #: ../libempathy-gtk/empathy-chat.c:2438
-#: ../libempathy-gtk/empathy-ui-utils.c:1867
+#: ../libempathy-gtk/empathy-ui-utils.c:1880
 msgid "_Send"
 msgstr "_Pošlji"
 
@@ -2152,36 +2166,36 @@ msgstr "_Povabi v klepetalnico"
 msgid "_Add Contact…"
 msgstr "_Dodaj stik ..."
 
-#: ../libempathy-gtk/empathy-individual-view.c:2306
+#: ../libempathy-gtk/empathy-individual-view.c:2304
 msgid "Delete and _Block"
 msgstr "Izbriši in _blokiraj"
 
-#: ../libempathy-gtk/empathy-individual-view.c:2341
+#: ../libempathy-gtk/empathy-individual-view.c:2339
 #, c-format
 msgid "Do you really want to remove the group '%s'?"
 msgstr "Ali zares želite odstraniti skupino '%s'?"
 
-#: ../libempathy-gtk/empathy-individual-view.c:2344
+#: ../libempathy-gtk/empathy-individual-view.c:2342
 msgid "Removing group"
 msgstr "Odstranjevanje skupine"
 
 #. Remove
-#: ../libempathy-gtk/empathy-individual-view.c:2399
-#: ../libempathy-gtk/empathy-individual-view.c:2603
+#: ../libempathy-gtk/empathy-individual-view.c:2397
+#: ../libempathy-gtk/empathy-individual-view.c:2601
 msgid "_Remove"
 msgstr "_Odstrani"
 
-#: ../libempathy-gtk/empathy-individual-view.c:2476
+#: ../libempathy-gtk/empathy-individual-view.c:2474
 #, c-format
 msgid "Do you really want to remove the contact '%s'?"
 msgstr "Ali zares želite odstraniti stik '%s'?"
 
-#: ../libempathy-gtk/empathy-individual-view.c:2485
+#: ../libempathy-gtk/empathy-individual-view.c:2483
 #, c-format
 msgid "Do you really want to remove the linked contact '%s'? Note that this will remove all the contacts which make up this linked contact."
 msgstr "Ali res želite odstraniti povezan stik '%s'? S tem bo odstranjeni tudi vsi stiki, ki so opredeljeni kot povezani."
 
-#: ../libempathy-gtk/empathy-individual-view.c:2497
+#: ../libempathy-gtk/empathy-individual-view.c:2495
 msgid "Removing contact"
 msgstr "Odstranjevanje stika"
 
@@ -2690,24 +2704,24 @@ msgstr "Zapomni si izbor za prihodnje povezave"
 msgid "Certificate Details"
 msgstr "Podrobnosti potrdila"
 
-#: ../libempathy-gtk/empathy-ui-utils.c:1741
+#: ../libempathy-gtk/empathy-ui-utils.c:1754
 msgid "Unable to open URI"
 msgstr "Ni mogoče odpreti naslova URI"
 
-#: ../libempathy-gtk/empathy-ui-utils.c:1859
+#: ../libempathy-gtk/empathy-ui-utils.c:1872
 msgid "Select a file"
 msgstr "Izbor datoteke"
 
-#: ../libempathy-gtk/empathy-ui-utils.c:1934
+#: ../libempathy-gtk/empathy-ui-utils.c:1947
 msgid "Insufficient free space to save file"
 msgstr "Ni dovolj prostora za shranjevanje datoteke"
 
-#: ../libempathy-gtk/empathy-ui-utils.c:1942
+#: ../libempathy-gtk/empathy-ui-utils.c:1955
 #, c-format
 msgid "%s of free space are required to save this file, but only %s is available. Please choose another location."
 msgstr "%s prostora mora biti na voljo za shranjevanje te datoteke, vendar je na voljo le %s. Izbrati bo treba drugo mesto."
 
-#: ../libempathy-gtk/empathy-ui-utils.c:1986
+#: ../libempathy-gtk/empathy-ui-utils.c:1999
 #, c-format
 msgid "Incoming file from %s"
 msgstr "Prihajajoča datoteka od %s"
