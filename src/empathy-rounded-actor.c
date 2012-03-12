@@ -75,15 +75,12 @@ empathy_rounded_actor_class_init (EmpathyRoundedActorClass *klass)
 }
 
 ClutterActor *
-empathy_rounded_actor_new (void)
+empathy_rounded_actor_new (guint round_factor)
 {
-  return CLUTTER_ACTOR (
+  EmpathyRoundedActor *self = EMPATHY_ROUNDED_ACTOR (
     g_object_new (EMPATHY_TYPE_ROUNDED_ACTOR, NULL));
-}
 
-void
-empathy_rounded_actor_set_round_factor (EmpathyRoundedActor *self,
-    guint round_factor)
-{
   self->priv->round_factor = round_factor;
+
+  return CLUTTER_ACTOR (self);
 }

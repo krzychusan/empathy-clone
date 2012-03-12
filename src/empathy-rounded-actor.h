@@ -59,10 +59,7 @@ GType empathy_rounded_actor_get_type (void);
   (G_TYPE_INSTANCE_GET_CLASS ((obj), EMPATHY_TYPE_ROUNDED_ACTOR, \
     EmpathyRoundedActorClass))
 
-ClutterActor *empathy_rounded_actor_new (void);
-
-void empathy_rounded_actor_set_round_factor (EmpathyRoundedActor *self,
-    guint round_factor);
+ClutterActor *empathy_rounded_actor_new (guint round_factor);
 
 G_END_DECLS
 
