@@ -3182,10 +3182,12 @@ empathy_call_window_state_changed_cb (EmpathyCallHandler *handler,
   TpCallChannel *call;
   gboolean can_send_video;
 
-  if (state == TP_CALL_STATE_ENDED &&
-      !tp_strdiff (reason, TP_ERROR_STR_INSUFFICIENT_BALANCE))
+  if (state == TP_CALL_STATE_ENDED)
     {
-      show_balance_error (self);
+      DEBUG ("Call ended: %s", (reason != NULL && reason[0] != '\0') ? reason : "unspecified reason");
+      empathy_call_window_disconnected (self, TRUE);
+      if (!tp_strdiff (reason, TP_ERROR_STR_INSUFFICIENT_BALANCE))
+          show_balance_error (self);
       return;
     }
 
@@ -3982,9 +3984,10 @@ static void
 empathy_call_window_hangup_cb (gpointer object,
     EmpathyCallWindow *self)
 {
+  /* stopping the call will put it the ENDED state and
+   * from state_changed_cb we'll reconfigure the window
+   */
   empathy_call_handler_stop_call (self->priv->handler);
-
-  empathy_call_window_disconnected (self, TRUE);
 }
 
 static void
