@@ -86,12 +86,12 @@
             </style>
             <child>
               <object class="GtkToolButton" id="remove-button">
-                <property name="stock_id">gtk-remove</property>
+                <property name="tooltip-text" translatable="yes">Remove</property>
                 <property name="visible">True</property>
-                <property name="sensitive">False</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="tooltip-text" translatable="yes">Remove</property>
+                <property name="icon_name">list-remove-symbolic</property>
+                <property name="use_underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -101,6 +101,7 @@
           </object>
           <packing>
             <property name="expand">False</property>
+            <property name="fill">False</property>
             <property name="position">1</property>
           </packing>
         </child>
@@ -142,11 +143,5 @@
         <property name="position">2</property>
       </packing>
     </child>
-  </object>
-  <object class="GtkSizeGroup" id="sizegroup1">
-    <widgets>
-      <widget name="add-button"/>
-      <widget name="remove-button"/>
-    </widgets>
   </object>
 </interface>

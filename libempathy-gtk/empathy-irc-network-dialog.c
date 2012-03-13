@@ -460,6 +460,8 @@ empathy_irc_network_dialog_show (EmpathyIrcNetwork *network,
   GtkTreeSelection *selection;
   GtkTreeViewColumn *column;
   gchar *filename;
+  GtkWidget *sw, *toolbar;
+  GtkStyleContext *context;
 
   g_return_val_if_fail (network != NULL, NULL);
 
@@ -488,6 +490,8 @@ empathy_irc_network_dialog_show (EmpathyIrcNetwork *network,
       "button_remove", &dialog->button_remove,
       "button_up", &dialog->button_up,
       "button_down", &dialog->button_down,
+      "scrolledwindow_network_server", &sw,
+      "toolbar_network_server", &toolbar,
       NULL);
   g_free (filename);
 
@@ -506,6 +510,9 @@ empathy_irc_network_dialog_show (EmpathyIrcNetwork *network,
       GTK_TREE_VIEW (dialog->treeview_servers),
       -1, _("Server"), renderer, "text", COL_ADR,
       NULL);
+  column = gtk_tree_view_get_column (GTK_TREE_VIEW (dialog->treeview_servers),
+      0);
+  gtk_tree_view_column_set_expand (column, TRUE);
 
   /* port */
   adjustment = (GtkAdjustment *) gtk_adjustment_new (6667, 1, G_MAXUINT16,
@@ -521,9 +528,6 @@ empathy_irc_network_dialog_show (EmpathyIrcNetwork *network,
       GTK_TREE_VIEW (dialog->treeview_servers),
       -1, _("Port"), renderer, "text", COL_PORT,
       NULL);
-  column = gtk_tree_view_get_column (GTK_TREE_VIEW (dialog->treeview_servers),
-      1);
-  gtk_tree_view_column_set_expand (column, TRUE);
 
   /* SSL */
   renderer = gtk_cell_renderer_toggle_new ();
@@ -567,6 +571,13 @@ empathy_irc_network_dialog_show (EmpathyIrcNetwork *network,
   gtk_window_set_transient_for (GTK_WINDOW (dialog->dialog),
       GTK_WINDOW (parent));
   gtk_window_set_modal (GTK_WINDOW (dialog->dialog), TRUE);
+
+  /* join the add/remove toolbar to the treeview */
+  context = gtk_widget_get_style_context (sw);
+  gtk_style_context_set_junction_sides (context, GTK_JUNCTION_BOTTOM);
+
+  context = gtk_widget_get_style_context (toolbar);
+  gtk_style_context_set_junction_sides (context, GTK_JUNCTION_TOP);
 
   irc_network_dialog_network_update_buttons (dialog);
   gtk_widget_show_all (dialog->dialog);
