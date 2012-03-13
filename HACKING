@@ -20,5 +20,16 @@ channel to handle. For example:
 Debugging can be turned on using EMPATHY_DEBUG=all and logged to a file
 with EMPATHY_LOGFILE=/tmp/empathy.log
 
+Sometimes you may want to load the locally compiled version of some GStreamer
+plugin (e.g. Farstream) instead of the system installed one. To do so, just
+set the GST_PLUGIN_PATH environment variable to tell GStreamer where your
+plugins are located and the GST_PLUGIN_LOADING_WHITELIST to avoid conflicts
+with system installed plugins. It's also a good idea to use GST_REGISTRY to
+avoid clobbering your default GStreamer registry. For example you can
+export these before launching the empathy processes as shown above:
+  export GST_PLUGIN_LOADING_WHITELIST=gstreamer:gst-plugins-base:gst-plugins-good:libnice:valve:siren:autoconvert:rtpmux:dtmf:mimic:shm
+  export GST_PLUGIN_PATH=/path/to/your/custom/lib/gstreamer-0.10
+  export GST_REGISTRY=/tmp/gstreamer.registry
+
 See http://live.gnome.org/Empathy/ about coding style conventions.
 See also http://live.gnome.org/Empathy/Git to read about our git workflow.
