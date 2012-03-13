@@ -42,6 +42,7 @@
 #include <libempathy/empathy-time.h>
 #include <libempathy/empathy-utils.h>
 
+#include "empathy-calendar-button.h"
 #include "empathy-contact-widget.h"
 #include "empathy-contactinfo-utils.h"
 #include "empathy-account-chooser.h"
@@ -251,33 +252,30 @@ contact_widget_details_changed_cb (GtkEntry *entry,
 }
 
 static void
-contact_widget_bday_changed_cb (GtkCalendar *calendar,
+contact_widget_bday_changed_cb (EmpathyCalendarButton *button,
+    GDate *date,
     EmpathyContactWidget *self)
 {
-  guint year, month, day;
-  GDate *date;
-  gchar tmp[255];
   const gchar *strv[] = { NULL, NULL };
   TpContactInfoField *field;
 
   self->details_changed = TRUE;
 
-  field = g_object_get_data ((GObject *) calendar, DATA_FIELD);
+  field = g_object_get_data ((GObject *) button, DATA_FIELD);
   g_assert (field != NULL);
 
-  gtk_calendar_get_date (calendar, &year, &month, &day);
-  date = g_date_new_dmy (day, month+1, year);
+  if (date != NULL)
+    {
+      gchar tmp[255];
 
-  gtk_calendar_clear_marks (calendar);
-  gtk_calendar_mark_day (calendar, g_date_get_day (date));
+      g_date_strftime (tmp, sizeof (tmp), EMPATHY_DATE_FORMAT_DISPLAY_SHORT,
+          date);
+      strv[0] = tmp;
+    }
 
-  g_date_strftime (tmp, sizeof (tmp), EMPATHY_DATE_FORMAT_DISPLAY_SHORT, date);
-  strv[0] = tmp;
   if (field->field_value != NULL)
     g_strfreev (field->field_value);
   field->field_value = g_strdupv ((GStrv) strv);
-
-  g_date_free (date);
 }
 
 static void contact_widget_details_notify_cb (EmpathyContactWidget *information);
@@ -424,7 +422,8 @@ contact_widget_details_update_edit (EmpathyContactWidget *information)
       /* Add Value */
       if (!tp_strdiff (field->field_name, "bday"))
         {
-          w = gtk_calendar_new ();
+          w = empathy_calendar_button_new ();
+
           if (field->field_value[0])
             {
               GDate date;
@@ -432,24 +431,18 @@ contact_widget_details_update_edit (EmpathyContactWidget *information)
               g_date_set_parse (&date, field->field_value[0]);
               if (g_date_valid (&date))
                 {
-                  gtk_calendar_select_day (GTK_CALENDAR (w),
-                      g_date_get_day (&date));
-                  gtk_calendar_select_month (GTK_CALENDAR (w),
-                      g_date_get_month (&date) - 1, g_date_get_year (&date));
-                  gtk_calendar_mark_day (GTK_CALENDAR (w),
-                      g_date_get_day (&date));
+                  empathy_calendar_button_set_date (EMPATHY_CALENDAR_BUTTON (w),
+                      &date);
                 }
             }
 
           gtk_grid_attach (GTK_GRID (information->grid_details),
               w, 1, n_rows, 1, 1);
-          gtk_widget_show (w);
+          gtk_widget_show_all (w);
 
           g_object_set_data ((GObject *) w, DATA_FIELD, field);
 
-          g_signal_connect (w, "day-selected",
-            G_CALLBACK (contact_widget_bday_changed_cb), information);
-          g_signal_connect (w, "month-changed",
+          g_signal_connect (w, "date-changed",
             G_CALLBACK (contact_widget_bday_changed_cb), information);
         }
       else
