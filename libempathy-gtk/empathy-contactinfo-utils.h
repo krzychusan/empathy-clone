@@ -34,7 +34,8 @@ const char **empathy_contact_info_get_field_names (guint *nnames);
 gboolean empathy_contact_info_lookup_field (const gchar *field_name,
     const gchar **title, EmpathyContactInfoFormatFunc *linkify);
 char *empathy_contact_info_field_label (const char *field_name,
-    GStrv parameters);
+    GStrv parameters,
+    gboolean show_parameters);
 
 gint empathy_contact_info_field_cmp (TpContactInfoField *field1,
     TpContactInfoField *field2);

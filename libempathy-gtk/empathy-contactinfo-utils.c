@@ -213,14 +213,18 @@ build_parameters_string (GStrv parameters)
 
 char *
 empathy_contact_info_field_label (const char *field_name,
-    GStrv parameters)
+    GStrv parameters,
+    gboolean show_parameters)
 {
   char *ret;
   const char *title;
-  char *join = build_parameters_string (parameters);
+  char *join = NULL;
 
   if (!empathy_contact_info_lookup_field (field_name, &title, NULL))
     return NULL;
+
+  if (show_parameters)
+    join = build_parameters_string (parameters);
 
   if (join != NULL)
     ret = g_strdup_printf ("%s (%s):", title, join);

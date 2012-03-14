@@ -267,7 +267,7 @@ details_update_show (EmpathyIndividualWidget *self,
 
       /* Add Title */
       title = empathy_contact_info_field_label (field->field_name,
-          field->parameters);
+          field->parameters, TRUE);
       title_widget = gtk_label_new (title);
 
       /* Add Value */

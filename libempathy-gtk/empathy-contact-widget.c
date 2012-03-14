@@ -409,9 +409,13 @@ contact_widget_details_update_edit (EmpathyContactWidget *information)
 
       /* Add Title */
       title = empathy_contact_info_field_label (field->field_name,
-          field->parameters);
+          field->parameters,
+          (spec->flags & TP_CONTACT_INFO_FIELD_FLAG_PARAMETERS_EXACT));
       w = gtk_label_new (title);
       g_free (title);
+
+      /* TODO: if TP_CONTACT_INFO_FIELD_FLAG_PARAMETERS_EXACT is not set we
+       * should allow user to tag the vCard fields (bgo#672034) */
 
       gtk_grid_attach (GTK_GRID (information->grid_details),
           w, 0, n_rows, 1, 1);
@@ -529,7 +533,7 @@ contact_widget_details_update_show (EmpathyContactWidget *information)
 
       /* Add Title */
       title = empathy_contact_info_field_label (field->field_name,
-          field->parameters);
+          field->parameters, TRUE);
       title_widget = gtk_label_new (title);
       g_free (title);
 
