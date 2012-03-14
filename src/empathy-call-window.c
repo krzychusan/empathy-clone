@@ -1082,9 +1082,9 @@ create_video_preview (EmpathyCallWindow *self)
 
   priv->video_preview_sink = gst_element_factory_make ("cluttersink", NULL);
   if (priv->video_preview_sink == NULL)
-    g_error ("Missing cluttersink");
-  else
-    g_object_set (priv->video_preview_sink, "texture", preview, NULL);
+      g_error ("Missing cluttersink, check your clutter-gst installation");
+  g_object_set (priv->video_preview_sink, "texture", preview, NULL);
+  g_object_add_weak_pointer (G_OBJECT (priv->video_preview_sink), (gpointer) &priv->video_preview_sink);
 
   /* Add a little offset to the video preview */
   layout = clutter_bin_layout_new (CLUTTER_BIN_ALIGNMENT_CENTER,
@@ -3626,7 +3626,8 @@ empathy_call_window_bus_message (GstBus *bus, GstMessage *message,
                   start_call (self);
               }
           }
-        if (GST_MESSAGE_SRC (message) == GST_OBJECT (priv->video_preview_sink))
+        if (priv->video_preview_sink != NULL &&
+            GST_MESSAGE_SRC (message) == GST_OBJECT (priv->video_preview_sink))
           {
             gst_message_parse_state_changed (message, NULL, &newstate,
                 &pending);
