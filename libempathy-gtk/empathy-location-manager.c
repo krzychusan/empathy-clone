@@ -476,7 +476,8 @@ update_resources (EmpathyLocationManager *self)
 }
 
 static void
-create_client_set_requirements_cb (GeoclueMasterClient *client,
+create_position_cb (GeoclueMasterClient *client,
+    GeocluePosition *position,
     GError *error,
     gpointer userdata)
 {
@@ -484,19 +485,11 @@ create_client_set_requirements_cb (GeoclueMasterClient *client,
 
   if (error != NULL)
     {
-      DEBUG ("set_requirements failed: %s", error->message);
+      DEBUG ("Failed to create GeocluePosition: %s", error->message);
       return;
     }
 
-  /* Get updated when the position is changes */
-  self->priv->gc_position = geoclue_master_client_create_position (
-      self->priv->gc_client, &error);
-  if (self->priv->gc_position == NULL)
-    {
-      DEBUG ("Failed to create GeocluePosition: %s", error->message);
-      g_error_free (error);
-      return;
-    }
+  self->priv->gc_position = position;
 
   g_signal_connect (G_OBJECT (self->priv->gc_position), "position-changed",
       G_CALLBACK (position_changed_cb), self);
@@ -515,6 +508,25 @@ create_client_set_requirements_cb (GeoclueMasterClient *client,
       G_CALLBACK (address_changed_cb), self);
 
   self->priv->geoclue_is_setup = TRUE;
+}
+
+static void
+create_client_set_requirements_cb (GeoclueMasterClient *client,
+    GError *error,
+    gpointer userdata)
+{
+  EmpathyLocationManager *self = userdata;
+
+  if (error != NULL)
+    {
+      DEBUG ("set_requirements failed: %s", error->message);
+      g_error_free (error);
+      return;
+    }
+
+  /* Get updated when the position is changes */
+  geoclue_master_client_create_position_async (self->priv->gc_client,
+      create_position_cb, self);
 }
 
 static void
