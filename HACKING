@@ -27,7 +27,7 @@ plugins are located and the GST_PLUGIN_LOADING_WHITELIST to avoid conflicts
 with system installed plugins. It's also a good idea to use GST_REGISTRY to
 avoid clobbering your default GStreamer registry. For example you can
 export these before launching the empathy processes as shown above:
-  export GST_PLUGIN_LOADING_WHITELIST=gstreamer:gst-plugins-base:gst-plugins-good:libnice:valve:siren:autoconvert:rtpmux:dtmf:mimic:shm
+  export GST_PLUGIN_LOADING_WHITELIST=gstreamer:gst-plugins-base:gst-plugins-good:libnice:farstream:gst-plugins-bad:gst-plugins-ugly:gst-ffmpeg
   export GST_PLUGIN_PATH=/path/to/your/custom/lib/gstreamer-0.10
   export GST_REGISTRY=/tmp/gstreamer.registry
 
