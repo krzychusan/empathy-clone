@@ -788,7 +788,8 @@ account_dialog_got_self_contact (TpConnection *conn,
       EMPATHY_CONTACT_WIDGET_EDIT_ALIAS |
       EMPATHY_CONTACT_WIDGET_EDIT_AVATAR |
       EMPATHY_CONTACT_WIDGET_NO_STATUS |
-      EMPATHY_CONTACT_WIDGET_EDIT_DETAILS);
+      EMPATHY_CONTACT_WIDGET_EDIT_DETAILS |
+      EMPATHY_CONTACT_WIDGET_NO_ACCOUNT);
 
   gtk_box_pack_start (GTK_BOX (priv->dialog_content), alig, TRUE, TRUE, 0);
   gtk_container_add (GTK_CONTAINER (alig), editor);

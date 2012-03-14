@@ -103,6 +103,7 @@ typedef struct
   GtkWidget *vbox_avatar;
   GtkWidget *favourite_checkbox;
   GtkWidget *label_details;
+  GtkWidget *label_left_account;
 
   /* Location */
   GtkWidget *vbox_location;
@@ -1403,7 +1404,7 @@ contact_widget_contact_update (EmpathyContactWidget *information)
               contact_widget_change_contact, information);
         }
     }
-  else
+  else if ((information->flags & EMPATHY_CONTACT_WIDGET_NO_ACCOUNT) == 0)
     {
       if (account)
         {
@@ -1585,6 +1586,11 @@ contact_widget_contact_setup (EmpathyContactWidget *information)
             G_CALLBACK (contact_widget_change_contact),
             information);
     }
+  else if (information->flags & EMPATHY_CONTACT_WIDGET_NO_ACCOUNT)
+    {
+      /* Don't display the account */
+      gtk_widget_hide (information->label_left_account);
+    }
   else
     {
       /* Pack the protocol icon with the account name in an hbox */
@@ -1606,11 +1612,14 @@ contact_widget_contact_setup (EmpathyContactWidget *information)
           information->label_account, FALSE, TRUE, 0);
     }
 
-  gtk_grid_attach (GTK_GRID (information->grid_contact),
-      information->widget_account,
-      1, 0, 1, 1);
+  if (information->widget_account != NULL)
+    {
+      gtk_grid_attach (GTK_GRID (information->grid_contact),
+          information->widget_account,
+          1, 0, 1, 1);
 
-  gtk_widget_show (information->widget_account);
+      gtk_widget_show (information->widget_account);
+    }
 
   /* Set up avatar chooser/display */
   if (information->flags & EMPATHY_CONTACT_WIDGET_EDIT_AVATAR)
@@ -1761,6 +1770,7 @@ empathy_contact_widget_new (EmpathyContact *contact,
        "grid_client", &information->grid_client,
        "hbox_client_requested", &information->hbox_client_requested,
        "label_details", &information->label_details,
+       "label_left_account", &information->label_left_account,
        NULL);
   g_free (filename);
 
