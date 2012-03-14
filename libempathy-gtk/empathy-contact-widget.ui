@@ -12,7 +12,7 @@
         <child>
           <object class="GtkLabel" id="label_left_account">
             <property name="visible">True</property>
-            <property name="xalign">0</property>
+            <property name="xalign">1</property>
             <property name="label" translatable="yes">Account:</property>
           </object>
           <packing>
@@ -21,7 +21,7 @@
         <child>
           <object class="GtkLabel" id="label655">
             <property name="visible">True</property>
-            <property name="xalign">0</property>
+            <property name="xalign">1</property>
             <property name="label" translatable="yes" comments="Identifier to connect to Instant Messaging network">Identifier:</property>
           </object>
           <packing>
@@ -32,7 +32,7 @@
         <child>
           <object class="GtkLabel" id="label_alias">
             <property name="visible">True</property>
-            <property name="xalign">0</property>
+            <property name="xalign">1</property>
             <property name="label" translatable="yes">Alias:</property>
           </object>
           <packing>
@@ -258,7 +258,7 @@
                     <child>
                       <object class="GtkLabel" id="label668">
                         <property name="visible">True</property>
-                        <property name="xalign">0</property>
+                        <property name="xalign">1</property>
                         <property name="yalign">0</property>
                         <property name="label" translatable="yes">OS:</property>
                       </object>
@@ -269,7 +269,7 @@
                     <child>
                       <object class="GtkLabel" id="label667">
                         <property name="visible">True</property>
-                        <property name="xalign">0</property>
+                        <property name="xalign">1</property>
                         <property name="yalign">0</property>
                         <property name="label" translatable="yes">Version:</property>
                       </object>
@@ -280,7 +280,7 @@
                     <child>
                       <object class="GtkLabel" id="label666">
                         <property name="visible">True</property>
-                        <property name="xalign">0</property>
+                        <property name="xalign">1</property>
                         <property name="yalign">0</property>
                         <property name="label" translatable="yes">Client:</property>
                       </object>

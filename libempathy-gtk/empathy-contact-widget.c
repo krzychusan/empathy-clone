@@ -421,7 +421,7 @@ contact_widget_details_update_edit (EmpathyContactWidget *information)
       gtk_grid_attach (GTK_GRID (information->grid_details),
           w, 0, n_rows, 1, 1);
 
-      gtk_misc_set_alignment (GTK_MISC (w), 0, 0.5);
+      gtk_misc_set_alignment (GTK_MISC (w), 1, 0.5);
       gtk_widget_show (w);
 
       /* Add Value */
