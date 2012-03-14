@@ -433,21 +433,32 @@ initial_position_cb (GeocluePosition *position,
     }
 }
 
-static gboolean
-set_requirements (EmpathyLocationManager *self)
+static void
+set_requirements (EmpathyLocationManager *self,
+    GeoclueSetRequirementsCallback callback)
 {
-  GError *error = NULL;
+  geoclue_master_client_set_requirements_async (self->priv->gc_client,
+      GEOCLUE_ACCURACY_LEVEL_COUNTRY, 0, FALSE, self->priv->resources,
+      callback, self);
+}
 
-  if (!geoclue_master_client_set_requirements (self->priv->gc_client,
-          GEOCLUE_ACCURACY_LEVEL_COUNTRY, 0, FALSE, self->priv->resources,
-          &error))
+static void
+update_resources_set_requirements_cb (GeoclueMasterClient *client,
+    GError *error,
+    gpointer userdata)
+{
+  EmpathyLocationManager *self = userdata;
+
+  if (error != NULL)
     {
       DEBUG ("set_requirements failed: %s", error->message);
-      g_error_free (error);
-      return FALSE;
+      return;
     }
 
-  return TRUE;
+  geoclue_address_get_address_async (self->priv->gc_address,
+      initial_address_cb, self);
+  geoclue_position_get_position_async (self->priv->gc_position,
+      initial_position_cb, self);
 }
 
 static void
@@ -461,19 +472,11 @@ update_resources (EmpathyLocationManager *self)
   /* As per Geoclue bug #15126, using NONE results in no address
    * being found as geoclue-manual report an empty address with
    * accuracy = NONE */
-  if (!set_requirements (self))
-    return;
-
-  geoclue_address_get_address_async (self->priv->gc_address,
-      initial_address_cb, self);
-  geoclue_position_get_position_async (self->priv->gc_position,
-      initial_position_cb, self);
+  set_requirements (self, update_resources_set_requirements_cb);
 }
 
 static void
-create_client_cb (GeoclueMaster *master,
-    GeoclueMasterClient *client,
-    char *object_path,
+create_client_set_requirements_cb (GeoclueMasterClient *client,
     GError *error,
     gpointer userdata)
 {
@@ -481,16 +484,9 @@ create_client_cb (GeoclueMaster *master,
 
   if (error != NULL)
     {
-      DEBUG ("Failed to create GeoclueMasterClient: %s", error->message);
+      DEBUG ("set_requirements failed: %s", error->message);
       return;
     }
-
-  /* @client seems be (transfer full) looking at the geoclue code; yeah for
-   * undocumented API... */
-  self->priv->gc_client = client;
-
- if (!set_requirements (self))
-    return;
 
   /* Get updated when the position is changes */
   self->priv->gc_position = geoclue_master_client_create_position (
@@ -519,7 +515,28 @@ create_client_cb (GeoclueMaster *master,
       G_CALLBACK (address_changed_cb), self);
 
   self->priv->geoclue_is_setup = TRUE;
+}
 
+static void
+create_client_cb (GeoclueMaster *master,
+    GeoclueMasterClient *client,
+    char *object_path,
+    GError *error,
+    gpointer userdata)
+{
+  EmpathyLocationManager *self = userdata;
+
+  if (error != NULL)
+    {
+      DEBUG ("Failed to create GeoclueMasterClient: %s", error->message);
+      return;
+    }
+
+  /* @client seems be (transfer full) looking at the geoclue code; yeah for
+   * undocumented API... */
+  self->priv->gc_client = client;
+
+  set_requirements (self, create_client_set_requirements_cb);
 }
 
 static void
