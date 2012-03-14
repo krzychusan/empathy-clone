@@ -476,6 +476,28 @@ update_resources (EmpathyLocationManager *self)
 }
 
 static void
+create_address_cb (GeoclueMasterClient *client,
+    GeoclueAddress *address,
+    GError *error,
+    gpointer userdata)
+{
+  EmpathyLocationManager *self = userdata;
+
+  if (error != NULL)
+    {
+      DEBUG ("Failed to create GeoclueAddress: %s", error->message);
+      return;
+    }
+
+  self->priv->gc_address = address;
+
+  g_signal_connect (G_OBJECT (self->priv->gc_address), "address-changed",
+      G_CALLBACK (address_changed_cb), self);
+
+  self->priv->geoclue_is_setup = TRUE;
+}
+
+static void
 create_position_cb (GeoclueMasterClient *client,
     GeocluePosition *position,
     GError *error,
@@ -495,19 +517,8 @@ create_position_cb (GeoclueMasterClient *client,
       G_CALLBACK (position_changed_cb), self);
 
   /* Get updated when the address changes */
-  self->priv->gc_address = geoclue_master_client_create_address (
-      self->priv->gc_client, &error);
-  if (self->priv->gc_address == NULL)
-    {
-      DEBUG ("Failed to create GeoclueAddress: %s", error->message);
-      g_error_free (error);
-      return;
-    }
-
-  g_signal_connect (G_OBJECT (self->priv->gc_address), "address-changed",
-      G_CALLBACK (address_changed_cb), self);
-
-  self->priv->geoclue_is_setup = TRUE;
+  geoclue_master_client_create_address_async (self->priv->gc_client,
+      create_address_cb, self);
 }
 
 static void
