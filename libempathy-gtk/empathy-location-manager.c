@@ -471,24 +471,25 @@ update_resources (EmpathyLocationManager *self)
 }
 
 static void
-setup_geoclue (EmpathyLocationManager *self)
+create_client_cb (GeoclueMaster *master,
+    GeoclueMasterClient *client,
+    char *object_path,
+    GError *error,
+    gpointer userdata)
 {
-  GeoclueMaster *master;
-  GError *error = NULL;
+  EmpathyLocationManager *self = userdata;
 
-  DEBUG ("Setting up Geoclue");
-  master = geoclue_master_get_default ();
-  self->priv->gc_client = geoclue_master_create_client (master, NULL, &error);
-  g_object_unref (master);
-
-  if (self->priv->gc_client == NULL)
+  if (error != NULL)
     {
-      DEBUG ("Failed to GeoclueMasterClient: %s", error->message);
-      g_error_free (error);
+      DEBUG ("Failed to create GeoclueMasterClient: %s", error->message);
       return;
     }
 
-  if (!set_requirements (self))
+  /* @client seems be (transfer full) looking at the geoclue code; yeah for
+   * undocumented API... */
+  self->priv->gc_client = client;
+
+ if (!set_requirements (self))
     return;
 
   /* Get updated when the position is changes */
@@ -518,7 +519,21 @@ setup_geoclue (EmpathyLocationManager *self)
       G_CALLBACK (address_changed_cb), self);
 
   self->priv->geoclue_is_setup = TRUE;
+
 }
+
+static void
+setup_geoclue (EmpathyLocationManager *self)
+{
+  GeoclueMaster *master;
+
+  DEBUG ("Setting up Geoclue");
+  master = geoclue_master_get_default ();
+
+  geoclue_master_create_client_async (master, create_client_cb, self);
+
+  g_object_unref (master);
+ }
 
 static void
 publish_cb (GSettings *gsettings_loc,
