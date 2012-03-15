@@ -1791,6 +1791,15 @@ finally:
 }
 
 static void
+reload_account_widget (EmpathyAccountsDialog *self)
+{
+  EmpathyAccountSettings *settings;
+
+  settings = accounts_dialog_model_get_selected_settings (self);
+  accounts_dialog_update_settings (self, settings);
+}
+
+static void
 accounts_dialog_connection_changed_cb (TpAccount *account,
     guint old_status,
     guint current,
@@ -1904,6 +1913,40 @@ accounts_dialog_account_display_name_changed_cb (TpAccount *account,
 }
 
 static void
+conn_prepare_cb (GObject *source,
+    GAsyncResult *result,
+    gpointer user_data)
+{
+  EmpathyAccountsDialog *self = user_data;
+
+  reload_account_widget (self);
+}
+
+static void
+accounts_dialog_notify_connection_cb (TpAccount *account,
+    GParamSpec *spec,
+    EmpathyAccountsDialog *self)
+{
+  TpConnection *conn;
+  if (!account_is_selected (self, account))
+    return;
+
+  conn = tp_account_get_connection (account);
+  if (conn == NULL)
+    {
+      reload_account_widget (self);
+    }
+  else
+    {
+      /* Wait for this feature so TpConnection will have fetch the
+       * self handle */
+      GQuark features[] = { TP_CONNECTION_FEATURE_CONNECTED, 0 };
+
+      tp_proxy_prepare_async (conn, features, conn_prepare_cb, self);
+    }
+}
+
+static void
 accounts_dialog_add_account (EmpathyAccountsDialog *dialog,
     TpAccount *account)
 {
@@ -1968,6 +2011,8 @@ accounts_dialog_add_account (EmpathyAccountsDialog *dialog,
       G_CALLBACK (accounts_dialog_connection_changed_cb), dialog, 0);
   tp_g_signal_connect_object (account, "presence-changed",
       G_CALLBACK (accounts_dialog_presence_changed_cb), dialog, 0);
+  tp_g_signal_connect_object (account, "notify::connection",
+      G_CALLBACK (accounts_dialog_notify_connection_cb), dialog, 0);
 
   g_object_unref (settings);
 }
