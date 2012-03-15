@@ -277,6 +277,32 @@ install_haze_cb (GObject *source,
     }
 }
 
+static gboolean
+account_is_selected (EmpathyAccountsDialog *dialog,
+    TpAccount *account)
+{
+  EmpathyAccountsDialogPriv *priv = GET_PRIV (dialog);
+  GtkTreeSelection *selection;
+  GtkTreeModel *model;
+  GtkTreeIter iter;
+  TpAccount *selected_account;
+
+  if (account == NULL)
+    return FALSE;
+
+  selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (priv->treeview));
+
+  if (!gtk_tree_selection_get_selected (selection, &model, &iter))
+    return FALSE;
+
+  gtk_tree_model_get (model, &iter, COL_ACCOUNT, &selected_account, -1);
+
+  if (selected_account != NULL)
+    g_object_unref (selected_account);
+
+  return account == selected_account;
+}
+
 static void
 accounts_dialog_update_status_infobar (EmpathyAccountsDialog *dialog,
     TpAccount *account)
@@ -286,28 +312,13 @@ accounts_dialog_update_status_infobar (EmpathyAccountsDialog *dialog,
   guint                     status;
   guint                     reason;
   guint                     presence;
-  GtkTreeView               *view;
-  GtkTreeModel              *model;
-  GtkTreeSelection          *selection;
-  GtkTreeIter               iter;
-  TpAccount                 *selected_account;
   gboolean                  account_enabled;
   gboolean                  creating_account;
   TpStorageRestrictionFlags storage_restrictions = 0;
   gboolean display_switch = TRUE;
 
-  view = GTK_TREE_VIEW (priv->treeview);
-  selection = gtk_tree_view_get_selection (view);
-
-  if (!gtk_tree_selection_get_selected (selection, &model, &iter))
-    return;
-
-  gtk_tree_model_get (model, &iter, COL_ACCOUNT, &selected_account, -1);
-  if (selected_account != NULL)
-    g_object_unref (selected_account);
-
   /* do not update the infobar when the account is not selected */
-  if (account != selected_account)
+  if (!account_is_selected (dialog, account))
     return;
 
   if (account != NULL)
