@@ -452,6 +452,7 @@ update_resources_set_requirements_cb (GeoclueMasterClient *client,
   if (error != NULL)
     {
       DEBUG ("set_requirements failed: %s", error->message);
+      g_error_free (error);
       return;
     }
 
@@ -486,6 +487,7 @@ create_address_cb (GeoclueMasterClient *client,
   if (error != NULL)
     {
       DEBUG ("Failed to create GeoclueAddress: %s", error->message);
+      g_error_free (error);
       return;
     }
 
@@ -508,6 +510,7 @@ create_position_cb (GeoclueMasterClient *client,
   if (error != NULL)
     {
       DEBUG ("Failed to create GeocluePosition: %s", error->message);
+      g_error_free (error);
       return;
     }
 
@@ -552,6 +555,7 @@ create_client_cb (GeoclueMaster *master,
   if (error != NULL)
     {
       DEBUG ("Failed to create GeoclueMasterClient: %s", error->message);
+      g_error_free (error);
       return;
     }
 
