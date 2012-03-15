@@ -620,12 +620,18 @@ empathy_protocol_chooser_create_account_settings (EmpathyProtocolChooser *self)
     }
   else if (!tp_strdiff (service, "facebook"))
     {
+      gchar *fallback_servers[] = {
+          "chat.facebook.com:443",
+          NULL };
+
       empathy_account_settings_set_icon_name_async (settings, "im-facebook",
           NULL, NULL);
       empathy_account_settings_set_boolean (settings, "require-encryption",
           TRUE);
       empathy_account_settings_set_string (settings, "server",
           "chat.facebook.com");
+      empathy_account_settings_set_strv (settings, "fallback-servers",
+          fallback_servers);
     }
 
 out:

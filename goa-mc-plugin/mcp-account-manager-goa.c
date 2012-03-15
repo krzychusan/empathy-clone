@@ -137,6 +137,8 @@ get_tp_parameters (GoaAccount *account)
       PARAM ("param-account", "chat.facebook.com");
       PARAM ("param-server", "chat.facebook.com");
       PARAM ("param-require-encryption", "true");
+      PARAM ("param-fallback-servers",
+          "chat.facebook.com:443");
     }
   else if (!tp_strdiff (type, "windows_live"))
     {
