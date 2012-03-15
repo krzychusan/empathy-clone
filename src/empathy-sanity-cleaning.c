@@ -38,7 +38,7 @@
  * If the number stored in gsettings is lower than it, all the tasks will
  * be executed.
  */
-#define SANITY_CLEANING_NUMBER 1
+#define SANITY_CLEANING_NUMBER 2
 
 static void
 account_update_parameters_cb (GObject *source,
@@ -101,11 +101,52 @@ fix_xmpp_account_priority (TpAccountManager *am)
 }
 
 static void
+set_facebook_account_fallback_server (TpAccountManager *am)
+{
+  GList *accounts, *l;
+
+  accounts = tp_account_manager_get_valid_accounts (am);
+  for (l = accounts; l != NULL; l = g_list_next (l))
+    {
+      TpAccount *account = l->data;
+      GHashTable *params;
+      gchar *fallback_servers[] = {
+          "chat.facebook.com:443",
+          NULL };
+
+      if (tp_strdiff (tp_account_get_service (account), "facebook"))
+        continue;
+
+      params = (GHashTable *) tp_account_get_parameters (account);
+      if (params == NULL)
+        continue;
+
+      if (tp_asv_get_strv (params, "fallback-servers") != NULL)
+        continue;
+
+      DEBUG ("Setting chat.facebook.com:443 as a fallback on account '%s'",
+          tp_account_get_path_suffix (account));
+
+      params = tp_asv_new (
+          "fallback-servers", G_TYPE_STRV, fallback_servers,
+          NULL);
+
+      tp_account_update_parameters_async (account, params, NULL,
+          account_update_parameters_cb, NULL);
+
+      g_hash_table_unref (params);
+    }
+
+  g_list_free (accounts);
+}
+
+static void
 run_sanity_cleaning_tasks (TpAccountManager *am)
 {
   DEBUG ("Starting sanity cleaning tasks");
 
   fix_xmpp_account_priority (am);
+  set_facebook_account_fallback_server (am);
 }
 
 static void
