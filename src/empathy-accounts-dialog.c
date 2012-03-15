@@ -821,7 +821,8 @@ account_dialog_create_dialog_content (EmpathyAccountsDialog *dialog,
   if (account != NULL)
     conn = tp_account_get_connection (account);
 
-  if (conn != NULL)
+  if (conn != NULL &&
+      tp_proxy_get_invalidated (conn) == NULL)
     {
       empathy_tp_contact_factory_get_from_handle (conn,
           tp_connection_get_self_handle (conn),
