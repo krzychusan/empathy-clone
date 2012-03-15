@@ -2420,12 +2420,17 @@ empathy_call_window_present (EmpathyCallWindow *self,
 {
   g_return_if_fail (EMPATHY_IS_CALL_HANDLER (handler));
 
-  tp_clear_object (&self->priv->handler);
-  self->priv->handler = g_object_ref (handler);
-  empathy_call_window_connect_handler (self);
-
   empathy_window_present (GTK_WINDOW (self));
-  empathy_call_window_restart_call (self);
+
+  if (self->priv->call_state == DISCONNECTED)
+    {
+      /* start a new call if one is not already in progress */
+      tp_clear_object (&self->priv->handler);
+      self->priv->handler = g_object_ref (handler);
+      empathy_call_window_connect_handler (self);
+
+      empathy_call_window_restart_call (self);
+    }
 }
 
 static void
