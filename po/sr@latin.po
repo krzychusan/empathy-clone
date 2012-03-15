@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: empathy\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=empath"
 "y&keywords=I18N+L10N&component=General\n"
-"POT-Creation-Date: 2012-03-12 11:23+0000\n"
-"PO-Revision-Date: 2012-03-13 08:42+0200\n"
+"POT-Creation-Date: 2012-03-13 22:13+0000\n"
+"PO-Revision-Date: 2012-03-15 11:03+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -49,7 +49,7 @@ msgstr ""
 
 #. Tweak the dialog
 #: ../data/empathy-accounts.desktop.in.in.h:1
-#: ../src/empathy-accounts-dialog.c:2450
+#: ../src/empathy-accounts-dialog.c:2454
 msgid "Messaging and VoIP Accounts"
 msgstr "Nalozi za dopisivanje i VoIP"
 
@@ -824,7 +824,6 @@ msgid "in the future"
 msgstr "u budućnosti"
 
 #: ../libempathy/empathy-keyring.c:75
-#| msgid "Phrase not found"
 msgid "Password not found"
 msgstr "Lozinka nije pronađena"
 
@@ -852,12 +851,12 @@ msgid "Password"
 msgstr "Lozinka"
 
 #: ../libempathy-gtk/empathy-account-widget.c:684
-#: ../libempathy-gtk/empathy-irc-network-dialog.c:507
+#: ../libempathy-gtk/empathy-irc-network-dialog.c:511
 msgid "Server"
 msgstr "Server"
 
 #: ../libempathy-gtk/empathy-account-widget.c:685
-#: ../libempathy-gtk/empathy-irc-network-dialog.c:522
+#: ../libempathy-gtk/empathy-irc-network-dialog.c:529
 msgid "Port"
 msgstr "Port"
 
@@ -868,7 +867,7 @@ msgid "%s:"
 msgstr "%s:"
 
 #: ../libempathy-gtk/empathy-account-widget.c:1398
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:10
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:14
 msgid "Username:"
 msgstr "Korisničko ime:"
 
@@ -961,7 +960,7 @@ msgstr "_Server:"
 #: ../libempathy-gtk/empathy-account-widget-generic.ui.h:1
 #: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:7
 #: ../libempathy-gtk/empathy-account-widget-icq.ui.h:8
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:11
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:15
 #: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:23
 #: ../libempathy-gtk/empathy-account-widget-msn.ui.h:7
 #: ../libempathy-gtk/empathy-account-widget-local-xmpp.ui.h:7
@@ -1073,10 +1072,32 @@ msgid "Character set:"
 msgstr "Kodni raspored:"
 
 #: ../libempathy-gtk/empathy-account-widget-irc.ui.h:4
+#: ../src/empathy-accounts-dialog.ui.h:1
+msgid "Add…"
+msgstr "Dodaj…"
+
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:5
+#: ../libempathy-gtk/empathy-contact-blocking-dialog.ui.h:3
+#: ../libempathy-gtk/empathy-status-preset-dialog.ui.h:1
+#: ../src/empathy-accounts-dialog.ui.h:2
+#: ../src/empathy-chatrooms-window.ui.h:3
+msgid "Remove"
+msgstr "Ukloni"
+
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:6
+msgid "Up"
+msgstr "Gore"
+
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:7
+#| msgid "Domain"
+msgid "Down"
+msgstr "Dole"
+
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:8
 msgid "Servers"
 msgstr "Serveri"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:5
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:9
 msgid ""
 "Most IRC servers don't need a password, so if you're not sure, don't enter a "
 "password."
@@ -1084,27 +1105,27 @@ msgstr ""
 "Većina IRC servera ne traži lozinku, zato ako niste sigurni, nemojte je "
 "unositi."
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:6
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:10
 msgid "Nickname:"
 msgstr "Nadimak:"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:7
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:11
 msgid "Password:"
 msgstr "Lozinka:"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:8
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:12
 msgid "Quit message:"
 msgstr "Poruka za kraj:"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:9
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:13
 msgid "Real name:"
 msgstr "Pravo ime:"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:12
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:16
 msgid "Which IRC network?"
 msgstr "Koja IRC mreža?"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:13
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:17
 msgid "What is your IRC nickname?"
 msgstr "Koji je vaš IRC nadimak?"
 
@@ -1693,27 +1714,27 @@ msgstr "Razgovor"
 msgid "%s (SMS)"
 msgstr "%s (SMS)"
 
-#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:264
+#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:262
 msgid "Unknown or invalid identifier"
 msgstr "Nepoznati ili neispravan identifikator"
 
-#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:266
+#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:264
 msgid "Contact blocking temporarily unavailable"
 msgstr "Blokiranje prijatelja je trenutno nedostupno"
 
-#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:268
+#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:266
 msgid "Contact blocking unavailable"
 msgstr "Blokiranje prijatelja nije dostupno"
 
-#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:270
+#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:268
 msgid "Permission Denied"
 msgstr "Pristup je zabranjen"
 
-#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:274
+#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:272
 msgid "Could not block contact"
 msgstr "Ne mogu da blokiram prijatelja"
 
-#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:612
+#: ../libempathy-gtk/empathy-contact-blocking-dialog.c:610
 msgid "Edit Blocked Contacts"
 msgstr "Izmeni blokirane prijatelje"
 
@@ -1730,13 +1751,6 @@ msgstr "Nalog:"
 #: ../libempathy-gtk/empathy-contact-blocking-dialog.ui.h:2
 msgid "Blocked Contacts"
 msgstr "Blokirani prijatelji"
-
-#: ../libempathy-gtk/empathy-contact-blocking-dialog.ui.h:3
-#: ../libempathy-gtk/empathy-status-preset-dialog.ui.h:1
-#: ../src/empathy-accounts-dialog.ui.h:2
-#: ../src/empathy-chatrooms-window.ui.h:3
-msgid "Remove"
-msgstr "Ukloni"
 
 #. Copy Link Address menu item
 #: ../libempathy-gtk/empathy-chat-text-view.c:322
@@ -2139,111 +2153,116 @@ msgstr[3] "Sledeći identitet ne može biti blokiran:"
 msgid "Edit Contact Information"
 msgstr "Izmeni podatke kontakta"
 
+#. Translators: the heading at the top of the Information dialogue
+#: ../libempathy-gtk/empathy-individual-information-dialog.c:288
+msgid "Linked Contacts"
+msgstr "Povezani prijatelji"
+
 #. Translators: this is used in the context menu for a contact. The first
 #. * parameter is a contact ID (e.g. foo@jabber.org) and the second is one
 #. * of the user's account IDs (e.g. me@hotmail.com).
-#: ../libempathy-gtk/empathy-individual-menu.c:172
+#: ../libempathy-gtk/empathy-individual-menu.c:173
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:344
+#: ../libempathy-gtk/empathy-individual-menu.c:345
 msgid "Select account to use to place the call"
 msgstr "Izaberite nalog koji će biti korišćen za poziv"
 
 #. translators: Call is a noun. This string is used in the window
 #. * title
-#: ../libempathy-gtk/empathy-individual-menu.c:348
+#: ../libempathy-gtk/empathy-individual-menu.c:349
 #: ../libempathy-gtk/empathy-log-window.ui.h:6
 #: ../src/empathy-streamed-media-window.c:1290
 #: ../src/empathy-call-window.ui.h:18
 msgid "Call"
 msgstr "Poziv"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:413
+#: ../libempathy-gtk/empathy-individual-menu.c:414
 msgid "Mobile"
 msgstr "Mobilni"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:415
+#: ../libempathy-gtk/empathy-individual-menu.c:416
 msgid "Work"
 msgstr "Posao"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:417
+#: ../libempathy-gtk/empathy-individual-menu.c:418
 msgid "HOME"
 msgstr "KUĆA"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:658
+#: ../libempathy-gtk/empathy-individual-menu.c:659
 msgid "_Block Contact"
 msgstr "_Blokiraj kontakt"
 
 #. add chat button
-#: ../libempathy-gtk/empathy-individual-menu.c:1017
+#: ../libempathy-gtk/empathy-individual-menu.c:1018
 #: ../libempathy-gtk/empathy-new-message-dialog.c:319
 #: ../src/empathy-roster-window-menubar.ui.h:1
 msgid "_Chat"
 msgstr "Ća_skanje"
 
 #. add SMS button
-#: ../libempathy-gtk/empathy-individual-menu.c:1052
+#: ../libempathy-gtk/empathy-individual-menu.c:1053
 #: ../libempathy-gtk/empathy-new-message-dialog.c:313
 msgid "_SMS"
 msgstr "_SMS"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1085
+#: ../libempathy-gtk/empathy-individual-menu.c:1086
 msgctxt "menu item"
 msgid "_Audio Call"
 msgstr "_Audio poziv"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1118
+#: ../libempathy-gtk/empathy-individual-menu.c:1119
 msgctxt "menu item"
 msgid "_Video Call"
 msgstr "_Video poziv"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1159
+#: ../libempathy-gtk/empathy-individual-menu.c:1160
 #: ../src/empathy-roster-window-menubar.ui.h:4
 msgid "_Previous Conversations"
 msgstr "_Prethodni razgovori"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1188
+#: ../libempathy-gtk/empathy-individual-menu.c:1189
 msgid "Send File"
 msgstr "Pošalji datoteku"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1218
+#: ../libempathy-gtk/empathy-individual-menu.c:1219
 msgid "Share My Desktop"
 msgstr "Podeli moju radnu površ"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1244
+#: ../libempathy-gtk/empathy-individual-menu.c:1245
 #: ../libempathy-gtk/empathy-individual-widget.c:1357
 msgid "Favorite"
 msgstr "Omiljeni"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1263
+#: ../libempathy-gtk/empathy-individual-menu.c:1264
 msgid "gnome-contacts not installed"
 msgstr "program gnomovi kontakti nije instaliran"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1266
+#: ../libempathy-gtk/empathy-individual-menu.c:1267
 msgid "Please install gnome-contacts to access contacts details."
 msgstr "Instalirajte „gnome-contacts“ da pristupite podacima kontakata."
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1380
+#: ../libempathy-gtk/empathy-individual-menu.c:1398
 msgid "Infor_mation"
 msgstr "_Podaci"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1429
+#: ../libempathy-gtk/empathy-individual-menu.c:1447
 msgctxt "Edit individual (contextual menu)"
 msgid "_Edit"
 msgstr "_Uredi"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1546
+#: ../libempathy-gtk/empathy-individual-menu.c:1564
 #: ../src/empathy-chat-window.c:1192
 msgid "Inviting you to this room"
 msgstr "Pozivam vas u ovu sobu"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1592
+#: ../libempathy-gtk/empathy-individual-menu.c:1610
 msgid "_Invite to Chat Room"
 msgstr "Pozov_i u sobu za ćaskanje"
 
-#: ../libempathy-gtk/empathy-individual-menu.c:1788
+#: ../libempathy-gtk/empathy-individual-menu.c:1806
 #: ../src/empathy-roster-window-menubar.ui.h:5
 msgid "_Add Contact…"
 msgstr "Dod_aj prijatelja…"
@@ -2323,7 +2342,7 @@ msgstr "Izaberi"
 msgid "new server"
 msgstr "novi server"
 
-#: ../libempathy-gtk/empathy-irc-network-dialog.c:535
+#: ../libempathy-gtk/empathy-irc-network-dialog.c:539
 msgid "SSL"
 msgstr "SSL"
 
@@ -3125,32 +3144,32 @@ msgstr ""
 msgid "Offline — Account Disabled"
 msgstr "Nepovezan — Nalog je onemogućen"
 
-#: ../src/empathy-accounts-dialog.c:572
+#: ../src/empathy-accounts-dialog.c:574
 msgid "Edit Connection Parameters"
 msgstr "Uredite parametre povezivanja"
 
-#: ../src/empathy-accounts-dialog.c:735
+#: ../src/empathy-accounts-dialog.c:739
 msgid "Failed to retrieve your personal information from the server."
 msgstr "Nisam uspeo da dovučem vaše lične podatke sa servera."
 
-#: ../src/empathy-accounts-dialog.c:741
+#: ../src/empathy-accounts-dialog.c:745
 msgid "Go online to edit your personal information."
 msgstr "Uspostavite vezu da uredite vaše lične podatke."
 
-#: ../src/empathy-accounts-dialog.c:826
+#: ../src/empathy-accounts-dialog.c:830
 msgid "_Edit Connection Parameters..."
 msgstr "_Uredi parametre povezivanja..."
 
-#: ../src/empathy-accounts-dialog.c:1322
+#: ../src/empathy-accounts-dialog.c:1326
 #, c-format
 msgid "Do you want to remove %s from your computer?"
 msgstr "Da li ste sigurni da želite da uklonite „%s“ sa vašeg računara?"
 
-#: ../src/empathy-accounts-dialog.c:1326
+#: ../src/empathy-accounts-dialog.c:1330
 msgid "This will not remove your account on the server."
 msgstr "Ovo neće ukloniti vaš nalog na serveru."
 
-#: ../src/empathy-accounts-dialog.c:1562
+#: ../src/empathy-accounts-dialog.c:1566
 msgid ""
 "You are about to select another account, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -3159,33 +3178,29 @@ msgstr ""
 "Da li sigurno želite da nastavite?"
 
 #. Menu items: to enabled/disable the account
-#: ../src/empathy-accounts-dialog.c:1738
+#: ../src/empathy-accounts-dialog.c:1742
 msgid "_Enable"
 msgstr "_Omogući"
 
-#: ../src/empathy-accounts-dialog.c:1739
+#: ../src/empathy-accounts-dialog.c:1743
 msgid "_Disable"
 msgstr "O_nemogući"
 
-#: ../src/empathy-accounts-dialog.c:2122
+#: ../src/empathy-accounts-dialog.c:2126
 msgid "_Skip"
 msgstr "_Preskoči"
 
-#: ../src/empathy-accounts-dialog.c:2126
+#: ../src/empathy-accounts-dialog.c:2130
 msgid "_Connect"
 msgstr "_Poveži se"
 
-#: ../src/empathy-accounts-dialog.c:2303
+#: ../src/empathy-accounts-dialog.c:2307
 msgid ""
 "You are about to close the window, which will discard\n"
 "your changes. Are you sure you want to proceed?"
 msgstr ""
 "Ovim ćete zatvoriti prozor, zanemarivši unete izmene.\n"
 "Da li sigurno želite da nastavite?"
-
-#: ../src/empathy-accounts-dialog.ui.h:1
-msgid "Add…"
-msgstr "Dodaj…"
 
 #: ../src/empathy-accounts-dialog.ui.h:3
 msgid "_Import…"
@@ -4665,7 +4680,7 @@ msgstr "%s je pokušao da vas zove, ali ste vi bili na drugoj vezi."
 
 #. Translators: this is an "Info" label. It should be as short
 #. * as possible.
-#: ../src/empathy-call-window.c:1136 ../src/empathy-call-window.c:1159
+#: ../src/empathy-call-window.c:1140 ../src/empathy-call-window.c:1162
 msgid "i"
 msgstr "i"
 
@@ -4893,9 +4908,6 @@ msgstr ""
 
 #~ msgid "Select a contact"
 #~ msgstr "Izaberite prijatelja"
-
-#~ msgid "Linked Contacts"
-#~ msgstr "Povezani prijatelji"
 
 #~ msgid "Select contacts to link"
 #~ msgstr "Izaberite prijatelja za povezivanje"
