@@ -26,8 +26,8 @@ msgstr ""
 "Project-Id-Version: empathy\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-16 22:53+0100\n"
-"PO-Revision-Date: 2012-03-08 09:07+0100\n"
-"Last-Translator: Hannie Dumoleyn <hannie@ubuntu-nl.org>\n"
+"PO-Revision-Date: 2012-03-16 22:57+0100\n"
+"Last-Translator: Wouter Bolsterlee <wbolster@gnome.org>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -104,13 +104,14 @@ msgstr "De standaardmap waar ontvangen bestanden opgeslagen worden."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:9
 msgid "Magic number used to check if sanity cleaning tasks should be run"
-msgstr ""
+msgstr "Magisch getal om te bepalen of opruimacties uitgevoerd moeten"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:10
 msgid ""
 "empathy-sanity-cleaning.c uses this number to check if the cleaning tasks "
 "should be executed or not. Users should not change this key manually."
 msgstr ""
+"empathy-sanity-cleaning.c gebruikt dit getal om te bepalen of opruimacties uitgevoerd moeten worden. Het is niet de bedoeling dat de waarde door gebruikers aangepast wordt."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:11
 msgid "Show offline contacts"
@@ -836,19 +837,18 @@ msgid "in the future"
 msgstr "in de toekomst"
 
 #: ../libempathy/empathy-keyring.c:75
-#, fuzzy
 msgid "Password not found"
-msgstr "Zoekopdracht niet gevonden"
+msgstr "Wachtwoord niet gevonden"
 
 #: ../libempathy/empathy-keyring.c:218
 #, c-format
 msgid "IM account password for %s (%s)"
-msgstr ""
+msgstr "Wachtwoord voor IM-account %s (%s)"
 
 #: ../libempathy/empathy-keyring.c:253
 #, c-format
 msgid "Password for chatroom '%s' on account %s (%s)"
-msgstr ""
+msgstr "Wachtwoord voor chatruimte ‘%s’ op account %s (%s)"
 
 #: ../libempathy-gtk/empathy-account-chooser.c:692
 msgid "All accounts"
@@ -1099,12 +1099,11 @@ msgstr "Verwijderen"
 
 #: ../libempathy-gtk/empathy-account-widget-irc.ui.h:6
 msgid "Up"
-msgstr ""
+msgstr "Omhoog"
 
 #: ../libempathy-gtk/empathy-account-widget-irc.ui.h:7
-#, fuzzy
 msgid "Down"
-msgstr "Domein"
+msgstr "Omlaag"
 
 #: ../libempathy-gtk/empathy-account-widget-irc.ui.h:8
 msgid "Servers"
@@ -3015,14 +3014,12 @@ msgid "Vietnamese"
 msgstr "Vietnamees"
 
 #: ../libempathy-gtk/empathy-calendar-button.c:66
-#, fuzzy
 msgid "Select..."
-msgstr "Selecteren"
+msgstr "Selecteren…"
 
 #: ../libempathy-gtk/empathy-calendar-button.c:154
-#, fuzzy
 msgid "_Select"
-msgstr "Selecteren"
+msgstr "_Selecteren"
 
 #: ../nautilus-sendto-plugin/empathy-nautilus-sendto.c:202
 msgid "No error message"
