@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Empathy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-13 21:46+0100\n"
-"PO-Revision-Date: 2012-03-12 22:11+0100\n"
+"POT-Creation-Date: 2012-03-18 18:43+0100\n"
+"PO-Revision-Date: 2012-03-18 18:43+0100\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -43,7 +43,7 @@ msgstr "Gestisce account di messaggistica e VoIP"
 
 #. Tweak the dialog
 #: ../data/empathy-accounts.desktop.in.in.h:2
-#: ../src/empathy-accounts-dialog.c:2454
+#: ../src/empathy-accounts-dialog.c:2512
 msgid "Messaging and VoIP Accounts"
 msgstr "Account di messaggistica e VoIP"
 
@@ -881,12 +881,12 @@ msgid "Password"
 msgstr "Password"
 
 #: ../libempathy-gtk/empathy-account-widget.c:684
-#: ../libempathy-gtk/empathy-irc-network-dialog.c:507
+#: ../libempathy-gtk/empathy-irc-network-dialog.c:511
 msgid "Server"
 msgstr "Server"
 
 #: ../libempathy-gtk/empathy-account-widget.c:685
-#: ../libempathy-gtk/empathy-irc-network-dialog.c:522
+#: ../libempathy-gtk/empathy-irc-network-dialog.c:529
 msgid "Port"
 msgstr "Porta"
 
@@ -897,7 +897,7 @@ msgid "%s:"
 msgstr "%s:"
 
 #: ../libempathy-gtk/empathy-account-widget.c:1398
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:11
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:15
 msgid "Username:"
 msgstr "Nome utente:"
 
@@ -949,7 +949,7 @@ msgstr "<b>Esempio:</b> IlMioNominativo"
 #: ../libempathy-gtk/empathy-account-widget-generic.ui.h:1
 #: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:2
 #: ../libempathy-gtk/empathy-account-widget-icq.ui.h:2
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:1
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:2
 #: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:3
 #: ../libempathy-gtk/empathy-account-widget-msn.ui.h:2
 #: ../libempathy-gtk/empathy-account-widget-local-xmpp.ui.h:1
@@ -1093,11 +1093,20 @@ msgstr "Opzioni"
 msgid "None"
 msgstr "Nessuno"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:2
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:1
+#: ../src/empathy-accounts-dialog.ui.h:1
+msgid "Add…"
+msgstr "Aggiungi..."
+
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:3
 msgid "Character set:"
 msgstr "Codifica caratteri:"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:3
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:4
+msgid "Down"
+msgstr "Giù"
+
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:5
 msgid ""
 "Most IRC servers don't need a password, so if you're not sure, don't enter a "
 "password."
@@ -1105,39 +1114,51 @@ msgstr ""
 "La maggior parte dei server IRC non necessita di una password. Se in dubbio, "
 "non inserirne alcuna."
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:4
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:6
 msgid "Network"
 msgstr "Rete"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:5
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:7
 msgid "Network:"
 msgstr "Rete:"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:6
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:8
 msgid "Nickname:"
 msgstr "Soprannome:"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:7
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:9
 msgid "Password:"
 msgstr "Password:"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:8
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:10
 msgid "Quit message:"
 msgstr "Messaggio di uscita:"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:9
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:11
 msgid "Real name:"
 msgstr "Nome reale:"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:10
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:12
+#: ../libempathy-gtk/empathy-contact-blocking-dialog.ui.h:3
+#: ../libempathy-gtk/empathy-status-preset-dialog.ui.h:1
+#: ../src/empathy-accounts-dialog.ui.h:4
+#: ../src/empathy-chatrooms-window.ui.h:3
+msgid "Remove"
+msgstr "Rimuovi"
+
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:13
 msgid "Servers"
 msgstr "Server"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:12
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:14
+msgid "Up"
+msgstr "Su"
+
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:16
 msgid "What is your IRC nickname?"
 msgstr "Qual è il soprannome IRC?"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:13
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:17
 msgid "Which IRC network?"
 msgstr "Quale rete IRC?"
 
@@ -1696,7 +1717,7 @@ msgstr "L'utente %s è ora conosciuto come %s"
 #: ../libempathy-gtk/empathy-chat.c:2994
 #: ../src/empathy-streamed-media-window.c:1888
 #: ../src/empathy-event-manager.c:1279 ../src/empathy-call-window.c:1502
-#: ../src/empathy-call-window.c:1552 ../src/empathy-call-window.c:2585
+#: ../src/empathy-call-window.c:1552 ../src/empathy-call-window.c:2590
 msgid "Disconnected"
 msgstr "Disconnessi"
 
@@ -1787,13 +1808,6 @@ msgstr "Account:"
 msgid "Blocked Contacts"
 msgstr "Contatti bloccati"
 
-#: ../libempathy-gtk/empathy-contact-blocking-dialog.ui.h:3
-#: ../libempathy-gtk/empathy-status-preset-dialog.ui.h:1
-#: ../src/empathy-accounts-dialog.ui.h:4
-#: ../src/empathy-chatrooms-window.ui.h:3
-msgid "Remove"
-msgstr "Rimuovi"
-
 #. Copy Link Address menu item
 #: ../libempathy-gtk/empathy-chat-text-view.c:322
 #: ../libempathy-gtk/empathy-webkit-utils.c:277
@@ -1881,137 +1895,137 @@ msgstr "Un messaggio di presentazione:"
 msgid "Please let me see when you're online. Thanks!"
 msgstr "Vorrei poter vedere quando sei online! Grazie!"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:569
+#: ../libempathy-gtk/empathy-contact-widget.c:567
 #: ../libempathy-gtk/empathy-individual-widget.c:304
 msgid "Channels:"
 msgstr "Canali:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:749
+#: ../libempathy-gtk/empathy-contact-widget.c:747
 #: ../libempathy-gtk/empathy-individual-widget.c:455
 msgid "Country ISO Code:"
 msgstr "Codice ISO del paese:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:751
+#: ../libempathy-gtk/empathy-contact-widget.c:749
 #: ../libempathy-gtk/empathy-individual-widget.c:457
 msgid "Country:"
 msgstr "Paese:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:753
+#: ../libempathy-gtk/empathy-contact-widget.c:751
 #: ../libempathy-gtk/empathy-individual-widget.c:459
 msgid "State:"
 msgstr "Stato:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:755
+#: ../libempathy-gtk/empathy-contact-widget.c:753
 #: ../libempathy-gtk/empathy-individual-widget.c:461
 msgid "City:"
 msgstr "Città:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:757
+#: ../libempathy-gtk/empathy-contact-widget.c:755
 #: ../libempathy-gtk/empathy-individual-widget.c:463
 msgid "Area:"
 msgstr "Area:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:759
+#: ../libempathy-gtk/empathy-contact-widget.c:757
 #: ../libempathy-gtk/empathy-individual-widget.c:465
 msgid "Postal Code:"
 msgstr "Codice postale:"
 
 # (ndt) nome di una colonna
-#: ../libempathy-gtk/empathy-contact-widget.c:761
+#: ../libempathy-gtk/empathy-contact-widget.c:759
 #: ../libempathy-gtk/empathy-individual-widget.c:467
 msgid "Street:"
 msgstr "Via:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:763
+#: ../libempathy-gtk/empathy-contact-widget.c:761
 #: ../libempathy-gtk/empathy-individual-widget.c:469
 msgid "Building:"
 msgstr "Edificio:"
 
 # (ndt) questo è prima di una casella di testo
 # in cui inserire il criterio di ricerca
-#: ../libempathy-gtk/empathy-contact-widget.c:765
+#: ../libempathy-gtk/empathy-contact-widget.c:763
 #: ../libempathy-gtk/empathy-individual-widget.c:471
 msgid "Floor:"
 msgstr "Piano:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:767
+#: ../libempathy-gtk/empathy-contact-widget.c:765
 #: ../libempathy-gtk/empathy-individual-widget.c:473
 msgid "Room:"
 msgstr "Stanza:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:769
+#: ../libempathy-gtk/empathy-contact-widget.c:767
 #: ../libempathy-gtk/empathy-individual-widget.c:475
 msgid "Text:"
 msgstr "Testo:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:771
+#: ../libempathy-gtk/empathy-contact-widget.c:769
 #: ../libempathy-gtk/empathy-individual-widget.c:477
 msgid "Description:"
 msgstr "Descrizione:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:773
+#: ../libempathy-gtk/empathy-contact-widget.c:771
 #: ../libempathy-gtk/empathy-individual-widget.c:479
 msgid "URI:"
 msgstr "URI:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:775
+#: ../libempathy-gtk/empathy-contact-widget.c:773
 #: ../libempathy-gtk/empathy-individual-widget.c:481
 msgid "Accuracy Level:"
 msgstr "Livello di precisione:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:777
+#: ../libempathy-gtk/empathy-contact-widget.c:775
 #: ../libempathy-gtk/empathy-individual-widget.c:483
 msgid "Error:"
 msgstr "Errore:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:779
+#: ../libempathy-gtk/empathy-contact-widget.c:777
 #: ../libempathy-gtk/empathy-individual-widget.c:485
 msgid "Vertical Error (meters):"
 msgstr "Errore verticale (metri):"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:781
+#: ../libempathy-gtk/empathy-contact-widget.c:779
 #: ../libempathy-gtk/empathy-individual-widget.c:487
 msgid "Horizontal Error (meters):"
 msgstr "Errore orizzontale (metri):"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:783
+#: ../libempathy-gtk/empathy-contact-widget.c:781
 #: ../libempathy-gtk/empathy-individual-widget.c:489
 msgid "Speed:"
 msgstr "Velocità:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:785
+#: ../libempathy-gtk/empathy-contact-widget.c:783
 #: ../libempathy-gtk/empathy-individual-widget.c:491
 msgid "Bearing:"
 msgstr "Orientamento:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:787
+#: ../libempathy-gtk/empathy-contact-widget.c:785
 #: ../libempathy-gtk/empathy-individual-widget.c:493
 msgid "Climb Speed:"
 msgstr "Velocità di salita:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:789
+#: ../libempathy-gtk/empathy-contact-widget.c:787
 #: ../libempathy-gtk/empathy-individual-widget.c:495
 msgid "Last Updated on:"
 msgstr "Ultimo aggiornamento:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:791
+#: ../libempathy-gtk/empathy-contact-widget.c:789
 #: ../libempathy-gtk/empathy-individual-widget.c:497
 msgid "Longitude:"
 msgstr "Longitudine:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:793
+#: ../libempathy-gtk/empathy-contact-widget.c:791
 #: ../libempathy-gtk/empathy-individual-widget.c:499
 msgid "Latitude:"
 msgstr "Latitudine:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:795
+#: ../libempathy-gtk/empathy-contact-widget.c:793
 #: ../libempathy-gtk/empathy-individual-widget.c:501
 msgid "Altitude:"
 msgstr "Altitudine:"
 
 # (ndt) nome della scheda
-#: ../libempathy-gtk/empathy-contact-widget.c:848
-#: ../libempathy-gtk/empathy-contact-widget.c:863
+#: ../libempathy-gtk/empathy-contact-widget.c:846
+#: ../libempathy-gtk/empathy-contact-widget.c:861
 #: ../libempathy-gtk/empathy-individual-widget.c:593
 #: ../libempathy-gtk/empathy-individual-widget.c:608
 #: ../src/empathy-preferences.ui.h:15
@@ -2019,32 +2033,32 @@ msgid "Location"
 msgstr "Posizione geografica"
 
 #. translators: format is "Location, $date"
-#: ../libempathy-gtk/empathy-contact-widget.c:865
+#: ../libempathy-gtk/empathy-contact-widget.c:863
 #: ../libempathy-gtk/empathy-individual-widget.c:610
 #, c-format
 msgid "%s, %s"
 msgstr "%s, il giorno %s"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:917
+#: ../libempathy-gtk/empathy-contact-widget.c:915
 #: ../libempathy-gtk/empathy-individual-widget.c:659
 msgid "%B %e, %Y at %R UTC"
 msgstr "%-d %B %Y alle %H.%M UTC"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:999
+#: ../libempathy-gtk/empathy-contact-widget.c:997
 #: ../libempathy-gtk/empathy-individual-widget.c:900
 msgid "Save Avatar"
 msgstr "Salva immagine"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:1055
+#: ../libempathy-gtk/empathy-contact-widget.c:1053
 #: ../libempathy-gtk/empathy-individual-widget.c:958
 msgid "Unable to save avatar"
 msgstr "Impossibile salvare l'immagine"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:1446
+#: ../libempathy-gtk/empathy-contact-widget.c:1444
 msgid "Personal Details"
 msgstr "Dettagli personali"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:1449
+#: ../libempathy-gtk/empathy-contact-widget.c:1447
 #: ../libempathy-gtk/empathy-contact-widget.ui.h:6
 #: ../libempathy-gtk/empathy-individual-widget.ui.h:2
 msgid "Contact Details"
@@ -2396,7 +2410,7 @@ msgstr "Seleziona"
 msgid "new server"
 msgstr "nuovo server"
 
-#: ../libempathy-gtk/empathy-irc-network-dialog.c:535
+#: ../libempathy-gtk/empathy-irc-network-dialog.c:539
 msgid "SSL"
 msgstr "SSL"
 
@@ -3067,6 +3081,15 @@ msgstr "Occidentale"
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
+#: ../libempathy-gtk/empathy-calendar-button.c:66
+msgid "Select..."
+msgstr "Seleziona..."
+
+# (ndt) nome di una colonna
+#: ../libempathy-gtk/empathy-calendar-button.c:154
+msgid "_Select"
+msgstr "_Seleziona"
+
 #: ../nautilus-sendto-plugin/empathy-nautilus-sendto.c:202
 msgid "No error message"
 msgstr "Nessun messaggio di errore"
@@ -3163,32 +3186,32 @@ msgstr "Sono presenti delle modifiche non salvate per l'account %s."
 msgid "Your new account has not been saved yet."
 msgstr "Il nuovo account non è ancora stato salvato."
 
-#: ../src/empathy-accounts-dialog.c:370
+#: ../src/empathy-accounts-dialog.c:381
 #: ../src/empathy-streamed-media-window.c:759
 #: ../src/empathy-call-window.c:1289
 msgid "Connecting…"
 msgstr "Connessione..."
 
-#: ../src/empathy-accounts-dialog.c:411
+#: ../src/empathy-accounts-dialog.c:422
 #, c-format
 msgid "Offline — %s"
 msgstr "Fuori rete — %s"
 
 # (ndt) plurale per comprendere uomini e donne
-#: ../src/empathy-accounts-dialog.c:423
+#: ../src/empathy-accounts-dialog.c:434
 #, c-format
 msgid "Disconnected — %s"
 msgstr "Disconnessi — %s"
 
-#: ../src/empathy-accounts-dialog.c:434
+#: ../src/empathy-accounts-dialog.c:445
 msgid "Offline — No Network Connection"
 msgstr "Fuori rete — Nessuna connessione di rete"
 
-#: ../src/empathy-accounts-dialog.c:441
+#: ../src/empathy-accounts-dialog.c:452
 msgid "Unknown Status"
 msgstr "Stato sconosciuto"
 
-#: ../src/empathy-accounts-dialog.c:458
+#: ../src/empathy-accounts-dialog.c:469
 msgid ""
 "This account has been disabled because it relies on an old, unsupported "
 "backend. Please install telepathy-haze and restart your session to migrate "
@@ -3198,37 +3221,37 @@ msgstr ""
 "supportato. Installare «telepathy-haze» e riavviare la sessione o migrare "
 "l'account."
 
-#: ../src/empathy-accounts-dialog.c:468
+#: ../src/empathy-accounts-dialog.c:479
 msgid "Offline — Account Disabled"
 msgstr "Fuori rete — Account disabilitato"
 
-#: ../src/empathy-accounts-dialog.c:574
+#: ../src/empathy-accounts-dialog.c:585
 msgid "Edit Connection Parameters"
 msgstr "Modifica parametri connessione"
 
-#: ../src/empathy-accounts-dialog.c:739
+#: ../src/empathy-accounts-dialog.c:750
 msgid "Failed to retrieve your personal information from the server."
 msgstr "Impossibile recuperare le informazioni personali dal server."
 
-#: ../src/empathy-accounts-dialog.c:745
+#: ../src/empathy-accounts-dialog.c:756
 msgid "Go online to edit your personal information."
 msgstr "Andare in rete per modificare le informazioni personali."
 
-#: ../src/empathy-accounts-dialog.c:830
+#: ../src/empathy-accounts-dialog.c:843
 msgid "_Edit Connection Parameters..."
 msgstr "_Modifica parametri connessione..."
 
-#: ../src/empathy-accounts-dialog.c:1326
+#: ../src/empathy-accounts-dialog.c:1339
 #, c-format
 msgid "Do you want to remove %s from your computer?"
 msgstr "Rimuovere «%s» dal computer?"
 
-#: ../src/empathy-accounts-dialog.c:1330
+#: ../src/empathy-accounts-dialog.c:1343
 msgid "This will not remove your account on the server."
 msgstr "Questo non rimuoverà l'account dal server."
 
 # (ndt) messo scartate perché il pulsante nella finestra è "Scarta"
-#: ../src/empathy-accounts-dialog.c:1566
+#: ../src/empathy-accounts-dialog.c:1579
 msgid ""
 "You are about to select another account, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -3237,34 +3260,30 @@ msgstr ""
 "effettuate verranno scartate. Procedere veramente?"
 
 #. Menu items: to enabled/disable the account
-#: ../src/empathy-accounts-dialog.c:1742
+#: ../src/empathy-accounts-dialog.c:1755
 msgid "_Enable"
 msgstr "_Abilita"
 
-#: ../src/empathy-accounts-dialog.c:1743
+#: ../src/empathy-accounts-dialog.c:1756
 msgid "_Disable"
 msgstr "_Disabilita"
 
-#: ../src/empathy-accounts-dialog.c:2126
+#: ../src/empathy-accounts-dialog.c:2184
 msgid "_Skip"
 msgstr "_Salta"
 
-#: ../src/empathy-accounts-dialog.c:2130
+#: ../src/empathy-accounts-dialog.c:2188
 msgid "_Connect"
 msgstr "_Connetti"
 
 # (ndt) messo scartate perché il pulsante nella finestra è "Scarta"
-#: ../src/empathy-accounts-dialog.c:2307
+#: ../src/empathy-accounts-dialog.c:2365
 msgid ""
 "You are about to close the window, which will discard\n"
 "your changes. Are you sure you want to proceed?"
 msgstr ""
 "Sta per essere chiusa la finestra e le modifiche\n"
 "effettuate verranno scartate. Procedere veramente?"
-
-#: ../src/empathy-accounts-dialog.ui.h:1
-msgid "Add…"
-msgstr "Aggiungi..."
 
 #: ../src/empathy-accounts-dialog.ui.h:2
 msgid "Loading account information"
@@ -3389,12 +3408,12 @@ msgid "Connected — %d:%02dm"
 msgstr "Connessi — %d.%02dm"
 
 #: ../src/empathy-streamed-media-window.c:2199
-#: ../src/empathy-call-window.c:2987
+#: ../src/empathy-call-window.c:2992
 msgid "Technical Details"
 msgstr "Dettagli tecnici"
 
 #: ../src/empathy-streamed-media-window.c:2237
-#: ../src/empathy-call-window.c:3026
+#: ../src/empathy-call-window.c:3031
 #, c-format
 msgid ""
 "%s's software does not understand any of the audio formats supported by your "
@@ -3404,7 +3423,7 @@ msgstr ""
 "supportati da questo computer"
 
 #: ../src/empathy-streamed-media-window.c:2242
-#: ../src/empathy-call-window.c:3031
+#: ../src/empathy-call-window.c:3036
 #, c-format
 msgid ""
 "%s's software does not understand any of the video formats supported by your "
@@ -3414,7 +3433,7 @@ msgstr ""
 "supportati da questo computer"
 
 #: ../src/empathy-streamed-media-window.c:2248
-#: ../src/empathy-call-window.c:3037
+#: ../src/empathy-call-window.c:3042
 #, c-format
 msgid ""
 "Can't establish a connection to %s. One of you might be on a network that "
@@ -3424,26 +3443,26 @@ msgstr ""
 "una rete che non supporta connessioni dirette."
 
 #: ../src/empathy-streamed-media-window.c:2254
-#: ../src/empathy-call-window.c:3043
+#: ../src/empathy-call-window.c:3048
 msgid "There was a failure on the network"
 msgstr "Si è verificato un problema sulla rete"
 
 # (ndt) eliminato volutamente il riferimento a computer
 #: ../src/empathy-streamed-media-window.c:2258
-#: ../src/empathy-call-window.c:3047
+#: ../src/empathy-call-window.c:3052
 msgid ""
 "The audio formats necessary for this call are not installed on your computer"
 msgstr "I formati audio necessari per eseguire la chiamata non sono installati"
 
 # (ndt) eliminato volutamente il riferimento a computer
 #: ../src/empathy-streamed-media-window.c:2261
-#: ../src/empathy-call-window.c:3050
+#: ../src/empathy-call-window.c:3055
 msgid ""
 "The video formats necessary for this call are not installed on your computer"
 msgstr "I formati video necessari per eseguire la chiamata non sono installati"
 
 #: ../src/empathy-streamed-media-window.c:2271
-#: ../src/empathy-call-window.c:3062
+#: ../src/empathy-call-window.c:3067
 #, c-format
 msgid ""
 "Something unexpected happened in a Telepathy component. Please <a href=\"%s"
@@ -3455,22 +3474,22 @@ msgstr ""
 "attraverso l'azione «Debug» presente nel menù «Aiuto»."
 
 #: ../src/empathy-streamed-media-window.c:2279
-#: ../src/empathy-call-window.c:3071
+#: ../src/empathy-call-window.c:3076
 msgid "There was a failure in the call engine"
 msgstr "Si è verificato un problema nel motore delle chiamate"
 
 #: ../src/empathy-streamed-media-window.c:2282
-#: ../src/empathy-call-window.c:3074
+#: ../src/empathy-call-window.c:3079
 msgid "The end of the stream was reached"
 msgstr "Raggiunta la fine del flusso"
 
 #: ../src/empathy-streamed-media-window.c:2322
-#: ../src/empathy-call-window.c:3114
+#: ../src/empathy-call-window.c:3119
 msgid "Can't establish audio stream"
 msgstr "Impossibile stabilire il flusso audio"
 
 #: ../src/empathy-streamed-media-window.c:2332
-#: ../src/empathy-call-window.c:3124
+#: ../src/empathy-call-window.c:3129
 msgid "Can't establish video stream"
 msgstr "Impossibile stabilire il flusso video"
 
@@ -3566,8 +3585,8 @@ msgstr "Abilita/Disabilita la trasmissione video"
 
 #: ../src/empathy-call-window.ui.h:21
 #: ../src/empathy-streamed-media-window.ui.h:18
-#: ../src/empathy-call-window.c:2537 ../src/empathy-call-window.c:2538
-#: ../src/empathy-call-window.c:2539 ../src/empathy-call-window.c:2540
+#: ../src/empathy-call-window.c:2542 ../src/empathy-call-window.c:2543
+#: ../src/empathy-call-window.c:2544 ../src/empathy-call-window.c:2545
 msgid "Unknown"
 msgstr "Sconosciuto"
 
@@ -4796,34 +4815,34 @@ msgstr "%s ha appena cercato di chiamare, ma era in corso un'altra chiamata."
 msgid "i"
 msgstr "i"
 
-#: ../src/empathy-call-window.c:2883
+#: ../src/empathy-call-window.c:2888
 msgid "On hold"
 msgstr "In attesa"
 
-#: ../src/empathy-call-window.c:2886
+#: ../src/empathy-call-window.c:2891
 msgid "Mute"
 msgstr "Muto"
 
-#: ../src/empathy-call-window.c:2888
+#: ../src/empathy-call-window.c:2893
 msgid "Duration"
 msgstr "Durata"
 
 #. Translators: 'status - minutes:seconds' the caller has been connected
-#: ../src/empathy-call-window.c:2891
+#: ../src/empathy-call-window.c:2896
 #, c-format
 msgid "%s — %d:%02dm"
 msgstr "%s — %d.%02dm"
 
-#: ../src/empathy-call-window.c:3161
+#: ../src/empathy-call-window.c:3166
 #, c-format
 msgid "Your current balance is %s."
 msgstr "Il saldo attuale è di %s."
 
-#: ../src/empathy-call-window.c:3165
+#: ../src/empathy-call-window.c:3170
 msgid "Sorry, you don’t have enough credit for that call."
 msgstr "Saldo non sufficiente per effettuare la chiamata."
 
-#: ../src/empathy-call-window.c:3167
+#: ../src/empathy-call-window.c:3172
 msgid "Top Up"
 msgstr "Ricarica"
 
