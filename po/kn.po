@@ -2442,8 +2442,8 @@ msgstr "<b>%s:</b> %s"
 #| msgid_plural "%d seconds ago"
 msgid "%s second"
 msgid_plural "%s seconds"
-msgstr[0] "%d ಸೆಕೆಂಡು"
-msgstr[1] "%d ಸೆಕೆಂಡುಗಳು"
+msgstr[0] "%s ಸೆಕೆಂಡು"
+msgstr[1] "%s ಸೆಕೆಂಡುಗಳು"
 
 #: ../libempathy-gtk/empathy-log-window.c:1378
 #, c-format
@@ -2451,8 +2451,8 @@ msgstr[1] "%d ಸೆಕೆಂಡುಗಳು"
 #| msgid_plural "%d minutes ago"
 msgid "%s minute"
 msgid_plural "%s minutes"
-msgstr[0] "%d ನಿಮಿಷ"
-msgstr[1] "%d ನಿಮಿಷಗಳು"
+msgstr[0] "%s ನಿಮಿಷ"
+msgstr[1] "%s ನಿಮಿಷಗಳು"
 
 #: ../libempathy-gtk/empathy-log-window.c:1386
 #, c-format
