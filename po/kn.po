@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=empathy&keywords=I18N+L10N&component=General\n"
 "POT-Creation-Date: 2012-03-16 10:47+0000\n"
-"PO-Revision-Date: 2012-03-19 18:33+0530\n"
+"PO-Revision-Date: 2012-03-19 21:16+0530\n"
 "Last-Translator: s\n"
 "Language-Team: Kannada <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -96,6 +96,9 @@ msgid ""
 "empathy-sanity-cleaning.c uses this number to check if the cleaning tasks "
 "should be executed or not. Users should not change this key manually."
 msgstr ""
+"ಸ್ವಚ್ಛಗೊಳಿಕೆ ಕಾರ್ಯಗಳನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸಬೇಕೆ ಅಥವ ಬೇಡವೆ ಎನ್ನುವುದನ್ನು ಪರಿಶೀಲಿಸಲು "
+"empathy-sanity-cleaning.c ಎನ್ನುವುದು ಈ ಸಂಖ್ಯೆಯನ್ನು ಬಳಸುತ್ತದೆ. ಬಳಕೆದಾರರು ಈ "
+"ಕೀಲಿಯನ್ನು ಕೈಯಾರೆ ಬದಲಾಯಿಸಬಾರದು."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:11
 msgid "Show offline contacts"
@@ -461,11 +464,11 @@ msgstr ""
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:87
 msgid "Last account selected in Join Room dialog"
-msgstr ""
+msgstr "ರೂಮ್‌ಗೆ ಸೇರ್ಪಡೆಗೊಳ್ಳು ಎನ್ನುವ ಸಂವಾದ ಚೌಕದಲ್ಲಿ ಕೊನೆಯ ಬಾರಿ ಆರಿಸಲಾದ ಖಾತೆ"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:88
 msgid "D-Bus object path of the last account selected to join a room."
-msgstr ""
+msgstr "ರೂಮ್‌ಗೆ ಸೇರ್ಪಡೆಗೊಳ್ಳುವಾಗ ಕೊನೆಯ ಬಾರಿಗೆ ಆರಿಸಲಾದ ಖಾತೆಯ D-ಬಸ್ ವಸ್ತು ಮಾರ್ಗ."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:89
 #| msgid "Camera On"
@@ -475,6 +478,7 @@ msgstr "ಕ್ಯಾಮೆರಾ ಸಾಧನ"
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:90
 msgid "Default camera device to use in video calls, e.g. /dev/video0."
 msgstr ""
+"ವೀಡಿಯೊ ಕರೆಗಳಲ್ಲಿ ಬಳಸಬೇಕಿರುವ ಪೂರ್ವನಿಯೋಜಿತ ಕ್ಯಾಮೆರಾ ಸಾಧನ, ಉದಾ. /dev/video0."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:91
 #| msgid "Camera On"
@@ -483,7 +487,7 @@ msgstr "ಕ್ಯಾಮೆರಾದ ಸ್ಥಾನ"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:92
 msgid "Position the camera preview should be during a call."
-msgstr ""
+msgstr "ಕರೆಯ ಸಮಯದಲ್ಲಿ ಕ್ಯಾಮರಾ ಮುನ್ನೋಟವು ಇರಬೇಕಿರುವ ಸ್ಥಳ."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:93
 msgid "Echo cancellation support"
@@ -491,7 +495,7 @@ msgstr "ಪ್ರತಿಧ್ವನಿ ನಿರ್ಮೂಲನಾ ಬೆಂಬ�
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:94
 msgid "Whether to enable Pulseaudio's echo cancellation filter."
-msgstr ""
+msgstr "Pulseaudio ದ ಪ್ರತಿಧ್ವನಿ ನಿರ್ಮೂಲನಾ ಶೋಧಕವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಬೇಕೆ."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:95
 msgid "Show hint about closing the main window"
@@ -839,7 +843,7 @@ msgstr "%s (%s) ಗಾಗಿನ IM ಗುಪ್ತಪದ"
 #: ../libempathy/empathy-keyring.c:253
 #, c-format
 msgid "Password for chatroom '%s' on account %s (%s)"
-msgstr ""
+msgstr "'%s' ಚಾಟ್‌ರೂಮ್‌ಗಾಗಿನ %s ಖಾತೆಯ ಗುಪ್ತಪದ (%s)"
 
 #: ../libempathy-gtk/empathy-account-chooser.c:692
 #| msgid "Accounts"
@@ -1109,6 +1113,8 @@ msgid ""
 "Most IRC servers don't need a password, so if you're not sure, don't enter a "
 "password."
 msgstr ""
+"ಹೆಚ್ಚಿನ IRC ಪೂರೈಕೆಗಣಕಗಳಿಗೆ ಗುಪ್ತಪದದ ಅಗತ್ಯವಿರುವುದಿಲ್ಲ, ನಿಮಗೆ ಖಾತ್ರಿ ಇರದೆ "
+"ಇದ್ದಲ್ಲಿ, ಗುಪ್ತಪದವನ್ನು ದಾಖಲಿಸಬೇಡಿ."
 
 #: ../libempathy-gtk/empathy-account-widget-irc.ui.h:10
 msgid "Nickname:"
@@ -2068,7 +2074,7 @@ msgstr "ಇದರಿಂದ ಸಂಪರ್ಕಿತಗೊಂಡಿದೆ:"
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:119
 #| msgid "Quit message:"
 msgid "Away message:"
-msgstr ""
+msgstr "ಇಲ್ಲಿಲ್ಲ ಎನ್ನುವ ಸಂದೇಶ:"
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:132
 #| msgid "Network"
@@ -4851,6 +4857,9 @@ msgid ""
 "You can change these details later or disable this feature by choosing <span "
 "style=\"italic\">Edit → Accounts</span> in the Contact List."
 msgstr ""
+"ಸಂಪರ್ಕ ವಿಳಾಸದಲ್ಲಿನ <span style=\"italic\">ಸಂಪಾದನೆ → ಖಾತೆಗಳು</span> ಅನ್ನು "
+"ಆರಿಸುವ ಮೂಲಕ ನೀವು ಈ ವಿವರಗಳನ್ನು ನಂತರ ಬದಲಾಯಿಸಬಹುದು ಅಥವ ಈ ಸವಲತ್ತನ್ನು "
+"ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಬಹುದು."
 
 #~ msgid "Empathy has migrated butterfly logs"
 #~ msgstr "Empathy ಯು ಬಟರ್ಫ್ಲೈ ದಾಖಲೆಗಳನ್ನು ವರ್ಗಾಯಿಸಿದೆ"
