@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=empathy&keywords=I18N+L10N&component=General\n"
 "POT-Creation-Date: 2012-03-16 10:47+0000\n"
-"PO-Revision-Date: 2012-03-19 01:14+0530\n"
+"PO-Revision-Date: 2012-03-19 18:33+0530\n"
 "Last-Translator: s\n"
 "Language-Team: Kannada <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -88,6 +88,8 @@ msgstr "ವರ್ಗಾಯಿಸಲಾದ ಕಡತಗಳನ್ನು ಉಳಿ�
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:9
 msgid "Magic number used to check if sanity cleaning tasks should be run"
 msgstr ""
+"ಸ್ವಚ್ಛಗೊಳಿಕೆ ಕಾರ್ಯಗಳನ್ನು ನಡೆಸಬೇಕೆ ಅಥವ ಬೇಡವೆ ಎಂದು ಪರಿಶೀಲಿಸಲು ಅಗತ್ಯವಿರುವ "
+"ಮಾಂತ್ರಿಕ ಸಂಖ್ಯೆ"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:10
 msgid ""
@@ -127,17 +129,15 @@ msgstr ""
 "ಸಂಪರ್ಕ ವಿಳಾಸ ಪಟ್ಟಿಯಲ್ಲಿ ಸಂಪರ್ಕಗಳಿಗಾಗಿನ ಪ್ರೊಟೊಕಾಲ್ ಅನ್ನು ತೋರಿಸಬೇಕೆ ಅಥವ ಬೇಡವೆ."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:17
-#, fuzzy
 #| msgid "Show offline contacts"
 msgid "Show Balance in contact list"
-msgstr "ಆಫ್‌ಲೈನ್ ಸಂಪರ್ಕ ವಿಳಾಸಗಳನ್ನು ತೋರಿಸು"
+msgstr "ಸಂಪರ್ಕ ವಿಳಾಸದ ಪಟ್ಟಿಯಲ್ಲಿ ಉಳಿದಿರುವುದನ್ನು ತೋರಿಸು"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:18
-#, fuzzy
 #| msgid "Whether to show protocols for contacts in the contact list."
 msgid "Whether to show account balances in the contact list."
 msgstr ""
-"ಸಂಪರ್ಕ ವಿಳಾಸ ಪಟ್ಟಿಯಲ್ಲಿ ಸಂಪರ್ಕಗಳಿಗಾಗಿನ ಪ್ರೊಟೊಕಾಲ್ ಅನ್ನು ತೋರಿಸಬೇಕೆ ಅಥವ ಬೇಡವೆ."
+"ಸಂಪರ್ಕ ವಿಳಾಸದ ಪಟ್ಟಿಯಲ್ಲಿ ಮಿಕ್ಕುಳಿದಿರುವ ಸಂಪರ್ಕಗಳನ್ನು ತೋರಿಸಬೇಕೆ ಅಥವ ಬೇಡವೆ."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:19
 msgid "Compact contact list"
@@ -198,18 +198,15 @@ msgid "Show contact groups"
 msgstr "ಸಂಪರ್ಕವಿಳಾಸಗಳ ಗುಂಪುಗಳನ್ನು ತೋರಿಸು"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:32
-#, fuzzy
 #| msgid "Whether to show protocols for contacts in the contact list."
 msgid "Whether to show groups in the contact list."
-msgstr ""
-"ಸಂಪರ್ಕ ವಿಳಾಸ ಪಟ್ಟಿಯಲ್ಲಿ ಸಂಪರ್ಕಗಳಿಗಾಗಿನ ಪ್ರೊಟೊಕಾಲ್ ಅನ್ನು ತೋರಿಸಬೇಕೆ ಅಥವ ಬೇಡವೆ."
+msgstr "ಸಂಪರ್ಕ ವಿಳಾಸ ಪಟ್ಟಿಯಲ್ಲಿನ ಗುಂಪುಗಳನ್ನು ತೋರಿಸಬೇಕೆ ಅಥವ ಬೇಡವೆ."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:33
 msgid "Contact list sort criterion"
 msgstr "ಸಂಪರ್ಕ ವಿಳಾಸದ ವಿಂಗಡಣಾ ಮಾನದಂಡ"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:34
-#, fuzzy
 #| msgid ""
 #| "Which criterion to use when sorting the contact list. Default is to sort "
 #| "by the contact's name with the value \"name\". A value of \"state\" will "
@@ -219,10 +216,10 @@ msgid ""
 "the contact's state with the value \"state\". A value of \"name\" will sort "
 "the contact list by name."
 msgstr ""
-"ಸಂಪರ್ಕಗಳ ಪಟ್ಟಿಯನ್ನು ಯಾವ ಆಧಾರದಮೇಲೆ ವಿಂಗಡಿಸಬೇಕು. \"name\" ಮೌಲ್ಯದೊಂದಿಗೆ "
+"ಸಂಪರ್ಕಗಳ ಪಟ್ಟಿಯನ್ನು ಯಾವ ಆಧಾರದಮೇಲೆ ವಿಂಗಡಿಸಬೇಕು \"state\" ಮೌಲ್ಯದೊಂದಿಗೆ "
 "ಸಂಪರ್ಕವಿಳಾದ "
-"ಹೆಸರಿನ ಆಧಾರದ ಮೇಲೆ ವಿಂಗಡಿಸುವುದು ಪೂರ್ವನಿಯೋಜಿತವಾಗಿರುತ್ತದೆ. \"state\" ಮೌಲ್ಯವು "
-"ಸಂಪರ್ಕವಿಳಾಸದ ಪಟ್ಟಿಯ ಸ್ಥಿತಿಯ ಆಧಾರದ ಮೇಲೆ ಅದನ್ನು ವಿಂಗಡಿಸುತ್ತದೆ."
+"ಸ್ಥಿತಿಯ ಆಧಾರದ ಮೇಲೆ ವಿಂಗಡಿಸುವುದು ಪೂರ್ವನಿಯೋಜಿತವಾಗಿರುತ್ತದೆ. \"state\" ಮೌಲ್ಯವು "
+"ಸಂಪರ್ಕವಿಳಾಸದ ಪಟ್ಟಿಯ ಹೆಸರಿನ ಆಧಾರದ ಮೇಲೆ ಅದನ್ನು ವಿಂಗಡಿಸುತ್ತದೆ."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:35
 msgid "Use notification sounds"
@@ -371,17 +368,15 @@ msgid "The theme that is used to display the conversation in chat windows."
 msgstr "ಚಾಟ್‌ ವಿಂಡೋಗಳಲ್ಲಿ ಸಂಭಾಷಣೆಗಳನ್ನು ತೋರಿಸಲು ಬಳಸಬೇಕಿರುವ ಪರಿಸರವಿನ್ಯಾಸ."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:69
-#, fuzzy
 #| msgid "Chat window theme"
 msgid "Chat window theme variant"
-msgstr "ಚಾಟ್ ವಿಂಡೊ ಪರಿಸರವಿನ್ಯಾಸ"
+msgstr "ಚಾಟ್ ವಿಂಡೊ ಪರಿಸರವಿನ್ಯಾಸದ ಬಗೆ"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:70
-#, fuzzy
 #| msgid "The theme that is used to display the conversation in chat windows."
 msgid ""
 "The theme variant that is used to display the conversation in chat windows."
-msgstr "ಚಾಟ್‌ ವಿಂಡೋಗಳಲ್ಲಿ ಸಂಭಾಷಣೆಗಳನ್ನು ತೋರಿಸಲು ಬಳಸಬೇಕಿರುವ ಪರಿಸರವಿನ್ಯಾಸ."
+msgstr "ಚಾಟ್‌ ವಿಂಡೋಗಳಲ್ಲಿ ಸಂಭಾಷಣೆಗಳನ್ನು ತೋರಿಸಲು ಬಳಸಬೇಕಿರುವ ಪರಿಸರವಿನ್ಯಾಸದ ಬಗೆ."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:71
 msgid "Path of the Adium theme to use"
@@ -404,7 +399,7 @@ msgstr "ವೆಬ್ ಇನ್‌ಸ್ಪೆಕ್ಟರಿನಂತಹ WebKit 
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:75
 msgid "Inform other users when you are typing to them"
-msgstr ""
+msgstr "ಬೇರೆ ಬಳಕೆದಾರರಿಗಾಗಿ ನೀವು ಟೈಪಿಸುವಾಗ ಅವರಿಗೆ ತಿಳಿಸು"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:76
 msgid ""
@@ -473,10 +468,9 @@ msgid "D-Bus object path of the last account selected to join a room."
 msgstr ""
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:89
-#, fuzzy
 #| msgid "Camera On"
 msgid "Camera device"
-msgstr "ಕ್ಯಾಮೆರಾ ಚಾಲನೆಯಲ್ಲಿದೆ"
+msgstr "ಕ್ಯಾಮೆರಾ ಸಾಧನ"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:90
 msgid "Default camera device to use in video calls, e.g. /dev/video0."
@@ -493,7 +487,7 @@ msgstr ""
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:93
 msgid "Echo cancellation support"
-msgstr ""
+msgstr "ಪ್ರತಿಧ್ವನಿ ನಿರ್ಮೂಲನಾ ಬೆಂಬಲ"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:94
 msgid "Whether to enable Pulseaudio's echo cancellation filter."
@@ -605,10 +599,10 @@ msgstr "%s ಇಂದ ಬಂದ ಕರೆಯ ತಪ್ಪಿ ಹೋಗಿದೆ"
 
 #. Translators: this is an outgoing call, e.g. 'Called Alice'
 #: ../libempathy/empathy-message.c:419
-#, fuzzy, c-format
+#, c-format
 #| msgid "Call with %s"
 msgid "Called %s"
-msgstr "%s ರವರೊಂದಿಗೆ ಕರೆ ಮಾಡು"
+msgstr "%s ರವರು ಕರೆ ಮಾಡಿದ್ದಾರೆ"
 
 #: ../libempathy/empathy-message.c:422
 #, c-format
@@ -1099,13 +1093,12 @@ msgstr "ತೆಗೆದು ಹಾಕು"
 
 #: ../libempathy-gtk/empathy-account-widget-irc.ui.h:6
 msgid "Up"
-msgstr ""
+msgstr "ಚಾಲಿತ"
 
 #: ../libempathy-gtk/empathy-account-widget-irc.ui.h:7
-#, fuzzy
 #| msgid "Domain"
 msgid "Down"
-msgstr "ಡೊಮೈನ್"
+msgstr "ಸ್ಥಗಿತ"
 
 #: ../libempathy-gtk/empathy-account-widget-irc.ui.h:8
 msgid "Servers"
@@ -1265,6 +1258,7 @@ msgstr "<b>ಉದಾಹರಣೆಗೆ:</b> user@my.sip.server"
 #: ../libempathy-gtk/empathy-account-widget-sip.ui.h:5
 msgid "Use this account to call _landlines and mobile phones"
 msgstr ""
+"ಲ್ಯಾಂಡ್‌ಲೈನ್‌ಗಳು ಮತ್ತು ಮೊಬೈಲು ಫೋನುಗಳಿಗೆ ಕರೆ ಮಾಡಲು ಈ ಖಾತೆಯನ್ನು ಬಳಸು (_l)"
 
 #: ../libempathy-gtk/empathy-account-widget-sip.ui.h:6
 msgid "NAT Traversal Options"
@@ -1420,7 +1414,7 @@ msgstr "ಈ ಪ್ರೊಟೊಕಾಲ್‌ನಲ್ಲಿ ತುರ್ತು 
 
 #: ../libempathy-gtk/empathy-call-utils.c:57
 msgid "You don't have enough credit in order to place this call"
-msgstr ""
+msgstr "ಈ ಕರೆಯನ್ನು ಇರಿಸಲು ನೀವು ಸಾಕಷ್ಟು ಕ್ರೆಡಿಟ್ ಅನ್ನು ಹೊಂದಿಲ್ಲ."
 
 #: ../libempathy-gtk/empathy-chat.c:729
 msgid "Failed to open private chat"
@@ -1435,10 +1429,10 @@ msgid "You are not allowed to change the topic"
 msgstr "ವಿಷಯವನ್ನು ಬದಲಾಯಿಸಲು ನಿಮಗೆ ಅನುಮತಿ ಇಲ್ಲ"
 
 #: ../libempathy-gtk/empathy-chat.c:992
-#, fuzzy, c-format
+#, c-format
 #| msgid "invalid contact"
 msgid "“%s” is not a valid contact ID"
-msgstr "ಅಮಾನ್ಯವಾದ ಸಂಪರ್ಕ ವಿಳಾಸ"
+msgstr "\"%s\" ಎನ್ನುವುದು ಮಾನ್ಯವಾದ ಸಂಪರ್ಕ ವಿಳಾಸ ID ಅಲ್ಲ"
 
 #: ../libempathy-gtk/empathy-chat.c:1087
 msgid "/clear: clear all messages from the current conversation"
@@ -1492,7 +1486,7 @@ msgstr ""
 
 #: ../libempathy-gtk/empathy-chat.c:1121
 msgid "/whois <contact ID>: display information about a contact"
-msgstr ""
+msgstr "/whois <contact ID>: ಸಂಪರ್ಕ ವಿಳಾಸದ ಕುರಿತಾದ ಪ್ರದರ್ಶನ ಮಾಹಿತಿ"
 
 #: ../libempathy-gtk/empathy-chat.c:1124
 msgid ""
@@ -1517,10 +1511,9 @@ msgid "Unknown command; see /help for the available commands"
 msgstr "ಗೊತ್ತಿರದ ಆಜ್ಞೆ; ಲಭ್ಯವಿರುವ ಆಜ್ಞೆಗಳಿಗಾಗಿ /help ಅನ್ನು ನೋಡಿ"
 
 #: ../libempathy-gtk/empathy-chat.c:1565
-#, fuzzy
 #| msgid "Insufficient free space to save file"
 msgid "insufficient balance to send message"
-msgstr "ಕಡತವನ್ನು ಉಳಿಸಲು ಸಾಕಷ್ಟು ಖಾಲಿ ಸ್ಥಳಗಳಿಲ್ಲ"
+msgstr "ಸಂದೇಶವನ್ನು ಕಳುಹಿಸಲು ಸಾಕಷ್ಟು ಖಾಲಿ ಬ್ಯಾಲೆನ್ಸ್‍ ಇಲ್ಲ"
 
 #: ../libempathy-gtk/empathy-chat.c:1569 ../libempathy-gtk/empathy-chat.c:1583
 #: ../libempathy-gtk/empathy-chat.c:1646
@@ -1541,6 +1534,7 @@ msgstr "ಸಂದೇಶವನ್ನು ಕಳುಹಿಸುವಲ್ಲಿ ದ�
 #, c-format
 msgid "insufficient balance to send message. <a href='%s'>Top up</a>."
 msgstr ""
+"ಸಂದೇಶವನ್ನು ಕಳುಹಿಸಲು ಸಾಕಷ್ಟು ಖಾಲಿ ಬ್ಯಾಲೆನ್ಸ್‍ ಇಲ್ಲ. <a href='%s'>ಟಾಪ್ ಅಪ್</a>."
 
 #: ../libempathy-gtk/empathy-chat.c:1617
 msgid "not capable"
@@ -1580,10 +1574,10 @@ msgid "Topic set to: %s"
 msgstr "ವಿಷಯವನ್ನು ಹೀಗೆ ಹೊಂದಿಸಲಾಗಿದೆ: %s"
 
 #: ../libempathy-gtk/empathy-chat.c:1724
-#, fuzzy, c-format
+#, c-format
 #| msgid "Topic set to: %s"
 msgid "Topic set by %s to: %s"
-msgstr "ವಿಷಯವನ್ನು ಹೀಗೆ ಹೊಂದಿಸಲಾಗಿದೆ: %s"
+msgstr "ವಿಷಯವನ್ನು %s ಗೆ ಹೊಂದಿಸಲಾಗಿದೆ: %s"
 
 #. No need to display this 'event' is no topic can be defined anyway
 #: ../libempathy-gtk/empathy-chat.c:1729
@@ -1741,15 +1735,15 @@ msgstr "%s (SMS)"
 
 #: ../libempathy-gtk/empathy-contact-blocking-dialog.c:262
 msgid "Unknown or invalid identifier"
-msgstr ""
+msgstr "ಅಜ್ಞಾತವಾದ ಅಥವ ಅಮಾನ್ಯವಾದ ಐಡೆಂಟಿಫಯರ್"
 
 #: ../libempathy-gtk/empathy-contact-blocking-dialog.c:264
 msgid "Contact blocking temporarily unavailable"
-msgstr ""
+msgstr "ಸಂಪರ್ಕ ವಿಳಾಸವನ್ನು ನಿರ್ಬಂಧಿಸುವುದು ತಾತ್ಕಾಲಿಕವಾಗಿ ಅಲಭ್ಯವಾಗಿದೆ"
 
 #: ../libempathy-gtk/empathy-contact-blocking-dialog.c:266
 msgid "Contact blocking unavailable"
-msgstr ""
+msgstr "ಸಂಪರ್ಕ ವಿಳಾಸವನ್ನು ನಿರ್ಬಂಧಿಸುವುದು ಅಲಭ್ಯವಾಗಿದೆ"
 
 #: ../libempathy-gtk/empathy-contact-blocking-dialog.c:268
 #| msgid "permission denied"
@@ -1758,13 +1752,12 @@ msgstr "ಅನುಮತಿಯನ್ನು ನಿರಾಕರಿಸಲಾಗಿ�
 
 #: ../libempathy-gtk/empathy-contact-blocking-dialog.c:272
 msgid "Could not block contact"
-msgstr ""
+msgstr "ಸಂಪರ್ಕ ವಿಳಾಸವನ್ನು ನಿರ್ಬಂಧಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ"
 
 #: ../libempathy-gtk/empathy-contact-blocking-dialog.c:610
-#, fuzzy
 #| msgid "_Blocked Contacts"
 msgid "Edit Blocked Contacts"
-msgstr "ನಿರ್ಬಂಧಿಸಲಾದ ಸಂಪರ್ಕ ವಿಳಾಸಗಳು (_B)"
+msgstr "ನಿರ್ಬಂಧಿಸಲಾದ ಸಂಪರ್ಕ ವಿಳಾಸಗಳನ್ನು ಸಂಪಾದಿಸಿ"
 
 #. Account and Identifier
 #: ../libempathy-gtk/empathy-contact-blocking-dialog.ui.h:1
@@ -1777,10 +1770,9 @@ msgid "Account:"
 msgstr "ಖಾತೆ:"
 
 #: ../libempathy-gtk/empathy-contact-blocking-dialog.ui.h:2
-#, fuzzy
 #| msgid "_Blocked Contacts"
 msgid "Blocked Contacts"
-msgstr "ನಿರ್ಬಂಧಿಸಲಾದ ಸಂಪರ್ಕ ವಿಳಾಸಗಳು (_B)"
+msgstr "ನಿರ್ಬಂಧಿಸಲಾದ ಸಂಪರ್ಕ ವಿಳಾಸಗಳು"
 
 #. Copy Link Address menu item
 #: ../libempathy-gtk/empathy-chat-text-view.c:322
@@ -1864,7 +1856,7 @@ msgstr "ನಿಮ್ಮನ್ನು ಸ್ವತಃ ಪರಿಚಯಿಸುವ 
 
 #: ../libempathy-gtk/empathy-contact-search-dialog.c:629
 msgid "Please let me see when you're online. Thanks!"
-msgstr ""
+msgstr "ನೀವು ಯಾವಾಗ ಆನ್‌ಲೈನ್‌ನಲ್ಲಿ ಇರುತ್ತೀರಿ ಎಂದು ನನಗೆ ತಿಳಿಸಿ. ಧನ್ಯವಾದಗಳು!"
 
 #: ../libempathy-gtk/empathy-contact-widget.c:567
 #: ../libempathy-gtk/empathy-individual-widget.c:304
@@ -2074,10 +2066,9 @@ msgstr "ಇದರಿಂದ ಸಂಪರ್ಕಿತಗೊಂಡಿದೆ:"
 #. FIXME: once Idle implements SimplePresence using this information, we can
 #. * and should bin this.
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:119
-#, fuzzy
 #| msgid "Quit message:"
 msgid "Away message:"
-msgstr "ಸಂದೇಶವನ್ನು ಬಿಟ್ಟುಬಿಡು:"
+msgstr ""
 
 #: ../libempathy-gtk/empathy-contactinfo-utils.c:132
 #| msgid "Network"
@@ -2312,10 +2303,9 @@ msgid "_Add Contact…"
 msgstr "ಸಂಪರ್ಕವನ್ನು ಸೇರಿಸು (_A)..."
 
 #: ../libempathy-gtk/empathy-individual-view.c:2304
-#, fuzzy
 #| msgid "Delete and Block"
 msgid "Delete and _Block"
-msgstr "ಅಳಿಸು ಹಾಗು ನಿರ್ಬಂಧಿಸು"
+msgstr "ಅಳಿಸು ಹಾಗು ನಿರ್ಬಂಧಿಸು (_B)"
 
 #: ../libempathy-gtk/empathy-individual-view.c:2339
 #, c-format
@@ -2405,16 +2395,16 @@ msgid "Search"
 msgstr "ಹುಡುಕು"
 
 #: ../libempathy-gtk/empathy-log-window.c:1148
-#, fuzzy, c-format
+#, c-format
 #| msgid "Call with %s"
 msgid "Chat in %s"
-msgstr "%s ರವರೊಂದಿಗೆ ಕರೆ ಮಾಡು"
+msgstr "%s ನಲ್ಲಿ ಚಾಟ್ ಮಾಡು"
 
 #: ../libempathy-gtk/empathy-log-window.c:1150
-#, fuzzy, c-format
+#, c-format
 #| msgid "Call with %s"
 msgid "Chat with %s"
-msgstr "%s ರವರೊಂದಿಗೆ ಕರೆ ಮಾಡು"
+msgstr "%s ರವರೊಂದಿಗೆ ಚಾಟ್ ಮಾಡು"
 
 #: ../libempathy-gtk/empathy-log-window.c:1200
 #: ../libempathy-gtk/empathy-log-window.c:1347
@@ -2457,7 +2447,7 @@ msgstr[1] "%s ನಿಮಿಷಗಳು"
 #: ../libempathy-gtk/empathy-log-window.c:1386
 #, c-format
 msgid "Call took %s, ended at %s"
-msgstr ""
+msgstr "%s ಗೆ ಕರೆಯನ್ನು ಸ್ವೀಕರಿಸಲಾಯ್ತು, %s ಗೆ ಅಂತ್ಯಗೊಳಿಸಲಾಯ್ತು"
 
 #: ../libempathy-gtk/empathy-log-window.c:1720
 msgid "Today"
@@ -2498,10 +2488,9 @@ msgid "Anything"
 msgstr "ಯಾವುದಾದರೂ"
 
 #: ../libempathy-gtk/empathy-log-window.c:3040
-#, fuzzy
 #| msgid "Set status"
 msgid "Text chats"
-msgstr "ಸ್ಥಿತಿಯನ್ನು ಹೊಂದಿಸಿ"
+msgstr "ಪಠ್ಯ ಚಾಟ್"
 
 #: ../libempathy-gtk/empathy-log-window.c:3042
 #: ../src/empathy-preferences.ui.h:25
@@ -2530,10 +2519,9 @@ msgid "What"
 msgstr "ಏನು"
 
 #: ../libempathy-gtk/empathy-log-window.c:3780
-#, fuzzy
 #| msgid "Are you sure you want to block '%s' from contacting you again?"
 msgid "Are you sure you want to delete all logs of previous conversations?"
-msgstr "'%s' ರವರು ನಿಮ್ಮನ್ನು ಮತ್ತೊಮ್ಮೆ ಸಂಪರ್ಕಿಸದಂತೆ ನಿರ್ಬಂಧಿಸಲು ಖಚಿತವೆ?"
+msgstr "ಹಿಂದಿನ ಸಂಭಾಷಣೆಯ ಎಲ್ಲಾ ದಿನಚರಿಗಳನ್ನು ಅಳಿಸಲು ನೀವು ಖಚಿತವೆ?"
 
 #: ../libempathy-gtk/empathy-log-window.c:3784
 #| msgid "C_lear"
@@ -2583,28 +2571,26 @@ msgid "<span size=\"x-large\">Loading...</span>"
 msgstr "<span size=\"x-large\">ಲೋಡ್ ಆಗುತ್ತಿದೆ...</span>"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:83
-#, fuzzy
 #| msgid "The selected contact is offline."
 msgid "The contact is offline"
-msgstr "ಆಯ್ಕೆ ಮಾಡಲಾದ ಸಂಪರ್ಕವಿಳಾಸವು ಆಫ್‌ಲೈನಿನಲ್ಲಿದೆ."
+msgstr "ಸಂಪರ್ಕವಿಳಾಸವು ಆಫ್‌ಲೈನಿನಲ್ಲಿದೆ."
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:85
 msgid "The specified contact is either invalid or unknown"
-msgstr ""
+msgstr "ಸೂಚಿಲಾದ ಸಂಪರ್ಕವಿಳಾಸವು ಅಮಾನ್ಯವಾಗಿದೆ ಅಥವ ಅಜ್ಞಾತವಾಗಿದೆ"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:87
-#, fuzzy
 #| msgid "Topic not supported on this conversation"
 msgid "The contact does not support this kind of conversation"
-msgstr "ಈ ಸಂಭಾಷಣೆಯಲ್ಲಿ ವಿಷಯಕ್ಕೆ ಬೆಂಬಲವಿಲ್ಲ"
+msgstr "ಈ ಬಗೆಯ ಸಂಭಾಷಣೆಯನ್ನು ಸಂಪರ್ಕ ವಿಳಾಸವು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:89
 msgid "The requested functionality is not implemented for this protocol"
-msgstr ""
+msgstr "ಮನವಿ ಸಲ್ಲಿಸಲಾದ ಸವಲತ್ತನ್ನು ಈ ಪ್ರೊಟೊಕಾಲ್‌ನಲ್ಲಿ ಅಳವಡಿಸಲಾಗಿಲ್ಲ"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:95
 msgid "Could not start a conversation with the given contact"
-msgstr ""
+msgstr "ನೀಡಲಾದ ಸಂಪರ್ಕವಿಳಾಸದೊಂದಿಗೆ ಸಂಭಾಷಣೆಯನ್ನು ಆರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:97
 msgid "You are banned from this channel"
@@ -2630,15 +2616,14 @@ msgid "Permission denied"
 msgstr "ಅನುಮತಿಯನ್ನು ನಿರಾಕರಿಸಲಾಗಿದೆ"
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:111
-#, fuzzy
 #| msgid "There was an error while creating the account."
 msgid "There was an error starting the conversation"
-msgstr "ಖಾತೆಯನ್ನು ರಚಿಸುವಾಗ ಒಂದು ದೋಷವು ಎದುರಾಗಿದೆ."
+msgstr "ಸಂಭಾಷಣೆಯನ್ನು ಆರಂಭಿಸುವಾಗ ಒಂದು ದೋಷವು ಎದುರಾಗಿದೆ."
 
 #: ../libempathy-gtk/empathy-new-message-dialog.c:290
 #: ../libempathy-gtk/empathy-new-call-dialog.c:200
 msgid "Enter a contact identifier or phone number:"
-msgstr ""
+msgstr "ಸಂಪರ್ಕ ವಿಳಾಸದ ಗುರುತು ಅಥವ ದೂರವಾಣಿ ಸಂಖ್ಯೆಯನ್ನು ದಾಖಲಿಸಿ:"
 
 #. Tweak the dialog
 #: ../libempathy-gtk/empathy-new-message-dialog.c:333
@@ -2737,10 +2722,9 @@ msgid "_Next"
 msgstr "ಮುಂದಿನ (_N)"
 
 #: ../libempathy-gtk/empathy-search-bar.ui.h:4
-#, fuzzy
 #| msgid "Match case"
 msgid "Mat_ch case"
-msgstr "ಕೇಸ್ ಅನ್ನು ತಾಳೆ ಮಾಡು"
+msgstr "ಕೇಸ್ ಅನ್ನು ತಾಳೆ ಮಾಡು (_c)"
 
 #: ../libempathy-gtk/empathy-search-bar.ui.h:5
 msgid "Phrase not found"
@@ -2791,10 +2775,10 @@ msgid "Edit Custom Messages"
 msgstr "ಕಸ್ಟಮ್ ಸಂದೇಶಗಳನ್ನು ಸಂಪಾದಿಸಿ"
 
 #: ../libempathy-gtk/empathy-theme-adium.c:1051
-#, fuzzy, c-format
+#, c-format
 #| msgid "Message received"
 msgid "Message edited at %s"
-msgstr "ಸಂದೇಶವನ್ನು ಸ್ವೀಕರಿಸಲಾಗಿದೆ"
+msgstr "ಸಂದೇಶವನ್ನು %s ಗೆ ಬದಲಿಸಲಾಗಿದೆ"
 
 #: ../libempathy-gtk/empathy-theme-adium.c:1757
 #| msgid "N_ormal Size"
@@ -3222,6 +3206,9 @@ msgid ""
 "backend. Please install telepathy-haze and restart your session to migrate "
 "the account."
 msgstr ""
+"ಈ ಖಾತೆಯು ಹಳೆಯದಾದ, ಬೆಂಬಲವಿರದ ಬ್ಯಾಕೆಂಡನ್ನು ನಂಬಿಕೊಂಡಿರುವ ಕಾರಣದಿಂದ ಅದನ್ನು "
+"ಅಶಕ್ತಗೊಳಿಸಲಾಗಿದೆ. ದಯವಿಟ್ಟು telepathy-haze ಅನ್ನು ಅನುಸ್ಥಾಪಿಸಿ ನಂತರ ಖಾತೆಯನ್ನು "
+"ವರ್ಗಾವಣೆ ಮಾಡಲು ಅಧಿವೇಶನವನ್ನು ಮರಳಿ ಆರಂಭಿಸಿ."
 
 #: ../src/empathy-accounts-dialog.c:479
 msgid "Offline — Account Disabled"
@@ -3234,7 +3221,7 @@ msgstr "ಸಂಪರ್ಕದ ನಿಯತಾಂಕಗಳನ್ನು ಸಂಪ�
 
 #: ../src/empathy-accounts-dialog.c:750
 msgid "Failed to retrieve your personal information from the server."
-msgstr ""
+msgstr "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಯನ್ನು ಹಿಂದಕ್ಕೆ ಪಡೆಯುವಲ್ಲಿ ವಿಫಲಗೊಂಡಿದೆ."
 
 #: ../src/empathy-accounts-dialog.c:756
 msgid "Go online to edit your personal information."
@@ -3585,19 +3572,17 @@ msgstr "ಡಯಲ್‍ಪ್ಯಾಡನ್ನು ತೋರಿಸು"
 
 #: ../src/empathy-call-window.ui.h:21
 msgid "Display the dialpad"
-msgstr ""
+msgstr "ಡಯಲ್ಪ್ಯಾಡ್ ಅನ್ನು ತೋರಿಸು"
 
 #: ../src/empathy-call-window.ui.h:22
-#, fuzzy
 #| msgid "Send _Video"
 msgid "Send Video"
-msgstr "ವಿಡಿಯೋ ಅನ್ನು ಕಳುಹಿಸು (_V)"
+msgstr "ವಿಡಿಯೋವನ್ನು ಕಳುಹಿಸು"
 
 #: ../src/empathy-call-window.ui.h:23
-#, fuzzy
 #| msgid "Toggle audio transmission"
 msgid "Toggle video transmission"
-msgstr "ಆಡಿಯೊ ವರ್ಗಾವಣೆಯನ್ನು ಟಾಗಲ್ ಮಾಡು"
+msgstr "ವಿಡಿಯೊ ವರ್ಗಾವಣೆಯನ್ನು ಟಾಗಲ್ ಮಾಡು"
 
 #: ../src/empathy-call-window.ui.h:24
 #: ../src/empathy-streamed-media-window.ui.h:11
@@ -3642,10 +3627,9 @@ msgid "Audio"
 msgstr "ಆಡಿಯೋ"
 
 #: ../src/empathy-chat-window.c:289
-#, fuzzy
 #| msgid "Hide the main window."
 msgid "Close this window?"
-msgstr "ಮುಖ್ಯ ವಿಂಡೋವನ್ನು ಅಡಗಿಸು."
+msgstr "ಈ ವಿಂಡೋವನ್ನು ಮುಚ್ಚಬೇಕೆ?"
 
 #: ../src/empathy-chat-window.c:294
 #, c-format
@@ -3653,6 +3637,8 @@ msgid ""
 "Closing this window will leave %s. You will not receive any further messages "
 "until you rejoin it."
 msgstr ""
+"ಈ ಕಿಟಕಿಯನ್ನು ಮುಚ್ಚುವುದರಿಂದ ನೀವು %s ಇಂದ ನಿರ್ಗಮಿಸಿದಂತಾಗುತ್ತದೆ. ಅದನ್ನು ಮರಳಿ "
+"ಸೇರುವವರೆಗೆ ನಿಮಗೆ ಯಾವುದೆ ಸಂದೇಶಗಳು ದೊರೆಯುವುದಿಲ್ಲ."
 
 #: ../src/empathy-chat-window.c:305
 #, c-format
@@ -3663,29 +3649,34 @@ msgid_plural ""
 "Closing this window will leave %u chat rooms. You will not receive any "
 "further messages until you rejoin them."
 msgstr[0] ""
+"ಈ ಕಿಟಕಿಯನ್ನು ಮುಚ್ಚುವುದರಿಂದ ನೀವು ಚಾಟ್‌ ಕೋಣೆಯಿಂದ ನಿರ್ಗಮಿಸಿದಂತಾಗುತ್ತದೆ. ಅದನ್ನು "
+"ಮರಳಿ ಸೇರುವವರೆಗೆ ನಿಮಗೆ ಯಾವುದೆ ಸಂದೇಶಗಳು ದೊರೆಯುವುದಿಲ್ಲ."
 msgstr[1] ""
+"ಈ ಕಿಟಕಿಯನ್ನು ಮುಚ್ಚುವುದರಿಂದ ನೀವು %u ಚಾಟ್‌ ಕೋಣೆಗಳಿಂದ ನಿರ್ಗಮಿಸಿದಂತಾಗುತ್ತದೆ. "
+"ಅದನ್ನು ಮರಳಿ ಸೇರುವವರೆಗೆ ನಿಮಗೆ ಯಾವುದೆ ಸಂದೇಶಗಳು ದೊರೆಯುವುದಿಲ್ಲ."
 
 #: ../src/empathy-chat-window.c:314
-#, fuzzy, c-format
+#, c-format
 #| msgid "Level "
 msgid "Leave %s?"
-msgstr "ಸ್ತರ"
+msgstr "%s ಇಂದ ನಿರ್ಗಮಿಸಬೇಕೆ?"
 
 #: ../src/empathy-chat-window.c:315
 msgid ""
 "You will not receive any further messages from this chat room until you "
 "rejoin it."
 msgstr ""
+"ಈ ಚಾಟ್‌ ಕೋಣೆಗೆ ನೀವು ಮರಳಿ ಸೇರುವವರೆಗೆ ನಿಮಗೆ ಇದರಿಂದ ಯಾವುದೆ ಸಂದೇಶಗಳು "
+"ದೊರೆಯುವುದಿಲ್ಲ."
 
 #: ../src/empathy-chat-window.c:334
 msgid "Close window"
-msgstr ""
+msgstr "ಕಿಟಕಿಯನ್ನು ಮುಚ್ಚು"
 
 #: ../src/empathy-chat-window.c:334
-#, fuzzy
 #| msgid "Level "
 msgid "Leave room"
-msgstr "ಸ್ತರ"
+msgstr "ಕೋಣೆಯಿಂದ ನಿರ್ಗಮಿಸು"
 
 #: ../src/empathy-chat-window.c:640 ../src/empathy-chat-window.c:660
 #, c-format
@@ -3717,15 +3708,15 @@ msgstr[1] "%s (ಎಲ್ಲರಿಂದಲೂ ಓದದೆ ಇರುವ %d)"
 
 #: ../src/empathy-chat-window.c:892
 msgid "SMS:"
-msgstr ""
+msgstr "SMS:"
 
 #: ../src/empathy-chat-window.c:902
-#, fuzzy, c-format
+#, c-format
 #| msgid "Typing a message."
 msgid "Sending %d message"
 msgid_plural "Sending %d messages"
-msgstr[0] "ಒಂದು ಸಂದೇಶವನ್ನು ನಮೂದಿಸಲಾಗುತ್ತಿದೆ."
-msgstr[1] "ಒಂದು ಸಂದೇಶವನ್ನು ನಮೂದಿಸಲಾಗುತ್ತಿದೆ."
+msgstr[0] "%d ಸಂದೇಶವನ್ನು ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ"
+msgstr[1] "%d ಸಂದೇಶಗಳನ್ನು ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ"
 
 #: ../src/empathy-chat-window.c:924
 msgid "Typing a message."
@@ -3837,11 +3828,11 @@ msgstr "ತಿರಸ್ಕರಿಸು(_R)"
 
 #: ../src/empathy-event-manager.c:563 ../src/empathy-event-manager.c:571
 msgid "_Answer"
-msgstr "ಉತ್ತರ(_A)"
+msgstr "ಉತ್ತರ (_A)"
 
 #: ../src/empathy-event-manager.c:571
 msgid "_Answer with video"
-msgstr ""
+msgstr "ವೀಡಿಯೊದೊಂದಿಗೆ ಉತ್ತರಿಸು (_A)"
 
 #: ../src/empathy-event-manager.c:731 ../src/empathy-event-manager.c:764
 #: ../src/empathy-call-window.c:1525
@@ -4020,10 +4011,9 @@ msgstr ""
 "ಪೂರ್ಣಗೊಂಡ, ರದ್ದುಗೊಳಿಸಲಾದ ಹಾಗು ವಿಫಲಗೊಂಡ ಕಡತವರ್ಗಾವಣೆಗಳನ್ನು ಪಟ್ಟಿಯಿಂದ ತೆಗೆದು ಹಾಕು"
 
 #: ../src/empathy-import-dialog.c:76
-#, fuzzy
 #| msgid "Import"
 msgid "_Import"
-msgstr "ಆಮದು"
+msgstr "ಆಮದು (_I)"
 
 #: ../src/empathy-import-dialog.c:88
 msgid ""
@@ -4061,6 +4051,7 @@ msgstr "ಸಂಪರ್ಕ ಕಡಿದು ಹಾಕು"
 #: ../src/empathy-roster-window.c:657
 msgid "You need to setup an account to see contacts here."
 msgstr ""
+"ಸಂಪರ್ಕ ವಿಳಾಸಗಳು ಇಲ್ಲಿ ಕಾಣಿಸಬೇಕೆಂದರೆ ನೀವು ಒಂದು ಖಾತೆಯನ್ನು ಸಿದ್ಧಗೊಳಿಸಬೇಕು."
 
 #: ../src/empathy-roster-window.c:673
 msgid "No match found"
@@ -4070,10 +4061,11 @@ msgstr "ಯಾವುದೂ ತಾಳೆಯಾಗುತ್ತಿಲ್ಲ"
 #, c-format
 msgid "Sorry, %s accounts can’t be used until your %s software is updated."
 msgstr ""
+"ಕ್ಷಮಿಸಿ,%s ಖಾತೆಯನ್ನು %s ತಂತ್ರಾಂಶವು ಅಪ್‌ಡೇಟ್ ಆಗುವವರೆಗೆ ಬಳಸಲು ಸಾಧ್ಯವಿರುವುದಿಲ್ಲ."
 
 #: ../src/empathy-roster-window.c:849
 msgid "Update software..."
-msgstr ""
+msgstr "ತಂತ್ರಾಂಶವನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡು..."
 
 #: ../src/empathy-roster-window.c:855 ../src/empathy-roster-window.c:972
 msgid "Close"
@@ -4092,18 +4084,17 @@ msgstr "ಖಾತೆಯನ್ನು ಸಂಪಾದಿಸು"
 #: ../src/empathy-roster-window.c:1110
 #, c-format
 msgid "Top up %s (%s)..."
-msgstr ""
+msgstr "%s ಟಾಪ್ ಅಪ್ (%s)..."
 
 #: ../src/empathy-roster-window.c:1156
-#, fuzzy
 #| msgid "Salut account is created"
 msgid "Top up account credit"
-msgstr "Salut ಖಾತೆಯನ್ನು ರಚಿಸಲಾಗಿದೆ"
+msgstr "ಖಾತೆಯ ಕ್ರೆಡಿಟ್ ಅನ್ನು ಟಾಪ್ ಅಪ್ ಮಾಡಿ"
 
 #. top up button
 #: ../src/empathy-roster-window.c:1228
 msgid "Top Up..."
-msgstr ""
+msgstr "ಟಾಪ್ ಅಪ್..."
 
 #: ../src/empathy-roster-window.c:1952
 msgid "Contact"
@@ -4112,22 +4103,22 @@ msgstr "ಸಂಪರ್ಕ ವಿಳಾಸ"
 #: ../src/empathy-roster-window.c:2150
 msgid "You need to enable one of your accounts to see contacts here."
 msgstr ""
+"ಸಂಪರ್ಕ ವಿಳಾಸಗಳು ಇಲ್ಲಿ ಕಾಣಿಸಬೇಕೆಂದರೆ ನಿಮ್ಮ ಒಂದು ಖಾತೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಬೇಕು."
 
 #. translators: argument is an account name
 #: ../src/empathy-roster-window.c:2158
 #, c-format
 msgid "You need to enable %s to see contacts here."
-msgstr ""
+msgstr "ಸಂಪರ್ಕ ವಿಳಾಸಗಳು ಇಲ್ಲಿ ಕಾಣಿಸಬೇಕೆಂದರೆ %s ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಬೇಕು."
 
 #: ../src/empathy-roster-window.c:2460
 msgid "Contact List"
 msgstr "ವಿಳಾಸ ಪಟ್ಟಿ"
 
 #: ../src/empathy-roster-window.ui.h:1
-#, fuzzy
 #| msgid "Accounts"
 msgid "Account settings"
-msgstr "ಖಾತೆಗಳು"
+msgstr "ಖಾತೆಯ ಸಿದ್ಧತೆಗಳು"
 
 #: ../src/empathy-roster-window-menubar.ui.h:2
 #: ../src/empathy-status-icon.ui.h:2
@@ -4157,7 +4148,7 @@ msgstr "ಪ್ರೊಟೋಕಾಲ್‌ಗಳನ್ನು ತೋರಿಸು (
 
 #: ../src/empathy-roster-window-menubar.ui.h:10
 msgid "Credit Balance"
-msgstr ""
+msgstr "ಬಾಕಿ ಇರುವ ಕ್ರೆಡಿಟ್"
 
 #: ../src/empathy-roster-window-menubar.ui.h:11
 msgid "Contacts on a _Map"
@@ -4299,10 +4290,9 @@ msgid "New conversation"
 msgstr "ಹೊಸ ಸಂಭಾಷಣೆ"
 
 #: ../src/empathy-preferences.c:169
-#, fuzzy
 #| msgid "Contact goes online"
 msgid "Contact comes online"
-msgstr "ಸಂಪರ್ಕವು ಆನ್‌ಲೈನಿಗೆ ತೆರಳಿದ್ದಾರೆ"
+msgstr "ಸಂಪರ್ಕವು ಆನ್‌ಲೈನಿಗೆ ಬಂದಾಗ"
 
 #: ../src/empathy-preferences.c:170
 msgid "Contact goes offline"
@@ -4322,17 +4312,15 @@ msgstr "ಭಾಷೆ"
 
 #. translators: Contact name for the chat theme preview
 #: ../src/empathy-preferences.c:726
-#, fuzzy
 #| msgid "Client:"
 msgid "Juliet"
-msgstr "ಕ್ಲೈಂಟ್:"
+msgstr "ಜ್ಯೂಲಿಯೆಟ್"
 
 #. translators: Contact name for the chat theme preview
 #: ../src/empathy-preferences.c:733
-#, fuzzy
 #| msgid "Room"
 msgid "Romeo"
-msgstr "ರೂಮ್"
+msgstr "ರೋಮಿಯೊ"
 
 #. translators: Quote from Romeo & Julier, for chat theme preview
 #: ../src/empathy-preferences.c:739
@@ -4361,10 +4349,9 @@ msgstr ""
 
 #. translators: Quote from Romeo & Julier, for chat theme preview
 #: ../src/empathy-preferences.c:755
-#, fuzzy
 #| msgid "%s has disconnected"
 msgid "Juliet has disconnected"
-msgstr "%s ದೊಂದಿಗಿನ ಸಂಪರ್ಕ ಕಡಿದು ಹೋಗಿದೆ"
+msgstr "ಜ್ಯೂಲಿಯಟ್‌ನೊಂದಿಗಿನ ಸಂಪರ್ಕ ಕಡಿದು ಹೋಗಿದೆ"
 
 #: ../src/empathy-preferences.c:1159
 msgid "Preferences"
@@ -4384,15 +4371,15 @@ msgstr "ಗೋಚರಿಕೆ"
 
 #: ../src/empathy-preferences.ui.h:4
 msgid "Start chats in:"
-msgstr ""
+msgstr "ಚಾಟ್‌ಗಳನ್ನು ಇಲ್ಲಿ ಆರಂಭಿಸಿ:"
 
 #: ../src/empathy-preferences.ui.h:5
 msgid "new ta_bs"
-msgstr ""
+msgstr "ಹೊಸ ಪುಟಗಳು (_b)"
 
 #: ../src/empathy-preferences.ui.h:6
 msgid "new _windows"
-msgstr ""
+msgstr "ಹೊಸ ಕಿಟಕಿಗಳು (_w)"
 
 #: ../src/empathy-preferences.ui.h:7
 msgid "Display incoming events in the notification area"
@@ -4458,7 +4445,7 @@ msgstr "ಧ್ವನಿಗಳು"
 
 #: ../src/empathy-preferences.ui.h:22
 msgid "Use _echo cancellation to improve call quality"
-msgstr ""
+msgstr "ಕರೆಯ ಗುಣಮಟ್ಟವನ್ನು ಉತ್ತಮಗೊಳಿಸಲು ಪ್ರತಿಧ್ವನಿ ನಿರ್ಮೂಲನೆಯನ್ನು ಬಳಸಿ"
 
 #: ../src/empathy-preferences.ui.h:23
 msgid ""
@@ -4528,10 +4515,9 @@ msgid "Chat Th_eme:"
 msgstr "ಚಾಟ್‌ ಪರಿಸರವಿನ್ಯಾಸ‌(_e):"
 
 #: ../src/empathy-preferences.ui.h:40
-#, fuzzy
 #| msgid "Bearing:"
 msgid "Variant:"
-msgstr "ಬಿಯರಿಂಗ್:"
+msgstr "ಬಗೆ:"
 
 #: ../src/empathy-preferences.ui.h:41
 msgid "Themes"
@@ -4603,21 +4589,23 @@ msgstr "ಉಳಿಸು"
 
 #: ../src/empathy-debug-window.c:1667
 msgid "Pastebin link"
-msgstr ""
+msgstr "ಪೇಸ್ಟ್‍ಬಿನ್ ಕೊಂಡಿ"
 
 #: ../src/empathy-debug-window.c:1676
 msgid "Pastebin response"
-msgstr ""
+msgstr "ಪೇಸ್ಟ್‍ಬಿನ್ ಪ್ರತಿಕ್ರಿಯೆ"
 
 #: ../src/empathy-debug-window.c:1680
-#, fuzzy, c-format
+#, c-format
 #| msgid "%s:"
 msgid "%s"
-msgstr "%s:"
+msgstr "%s"
 
 #: ../src/empathy-debug-window.c:1683
 msgid "Data too large for a single paste. Please save logs to file."
 msgstr ""
+"ಒಂದೇ ಬಾರಿ ಅಂಟಿಸಲು ದತ್ತಾಂಶವು ಬಹಳ ದೊಡ್ಡದಾಗಿದೆ. ದಯವಿಟ್ಟು ದಿನಚರಿಗಳನ್ನು ಕಡತಕ್ಕೆ "
+"ಉಳಿಸಿ."
 
 #: ../src/empathy-debug-window.c:1912
 msgid "Debug Window"
@@ -4625,7 +4613,7 @@ msgstr "ದೋಷ ನಿವಾರಣಾ ವಿಂಡೊ"
 
 #: ../src/empathy-debug-window.c:1970
 msgid "Send to pastebin"
-msgstr ""
+msgstr "ಪೇಸ್ಟ್‍ಬಿನ್‌ಗೆ ಕಳುಹಿಸು"
 
 #: ../src/empathy-debug-window.c:2009
 msgid "Pause"
@@ -4725,13 +4713,12 @@ msgstr "Empathy ಖಾತೆಗಳು"
 
 #: ../src/empathy-debugger.c:69
 msgid "Show a particular service"
-msgstr ""
+msgstr "ನಿರ್ದಿಷ್ಟ ಸೇವೆಯನ್ನು ತೋರಿಸು"
 
 #: ../src/empathy-debugger.c:74
-#, fuzzy
 #| msgid "Empathy Debugger"
 msgid "- Empathy Debugger"
-msgstr "Empathy ದೋಷನಿವಾರಕ"
+msgstr " - Empathy ದೋಷನಿವಾರಕ"
 
 #: ../src/empathy-debugger.c:113
 msgid "Empathy Debugger"
@@ -4758,7 +4745,7 @@ msgstr "ನಿಮ್ಮ ಹೆಸರು"
 
 #: ../src/empathy-notifications-approver.c:213
 msgid "Answer with video"
-msgstr ""
+msgstr "ವಿಡಿಯೊದೊಂದಿಗೆ ಉತ್ತರಿಸು"
 
 #: ../src/empathy-notifications-approver.c:221
 #: ../src/empathy-notifications-approver.c:231
@@ -4774,10 +4761,9 @@ msgstr "ಅಂಗೀಕರಿಸು"
 #. * bubble when Empathy is asking for an account password; clicking on it
 #. * brings the password popup.
 #: ../src/empathy-notifications-approver.c:246
-#, fuzzy
 #| msgid "Preview"
 msgid "Provide"
-msgstr "ಮುನ್ನೋಟ"
+msgstr "ಒದಗಿಸು"
 
 #: ../src/empathy-call-observer.c:132
 #, c-format
@@ -4790,64 +4776,60 @@ msgstr ""
 #. * as possible.
 #: ../src/empathy-call-window.c:1140 ../src/empathy-call-window.c:1162
 msgid "i"
-msgstr ""
+msgstr "i"
 
 #: ../src/empathy-call-window.c:2888
 msgid "On hold"
-msgstr ""
+msgstr "ತಡೆಹಿಡಿಯಲಾಗಿದೆ"
 
 #: ../src/empathy-call-window.c:2891
 msgid "Mute"
-msgstr ""
+msgstr "ಮೂಕ"
 
 #: ../src/empathy-call-window.c:2893
-#, fuzzy
 #| msgid "Location"
 msgid "Duration"
-msgstr "ಸ್ಥಳ"
+msgstr "ಕಾಲಾವಧಿ"
 
 #. Translators: 'status - minutes:seconds' the caller has been connected
 #: ../src/empathy-call-window.c:2896
-#, fuzzy, c-format
+#, c-format
 #| msgid "Connected — %d:%02dm"
 msgid "%s — %d:%02dm"
-msgstr "ಸಂಪರ್ಕಿತಗೊಂಡಿದೆ — %d:%02dm"
+msgstr "%s — %d:%02dm"
 
 #: ../src/empathy-call-window.c:3166
 #, c-format
 msgid "Your current balance is %s."
-msgstr ""
+msgstr "ನಿಮ್ಮ ಪ್ರಸಕ್ತ ಬ್ಯಾಲೆನ್ಸ್‍ %s."
 
 #: ../src/empathy-call-window.c:3170
 msgid "Sorry, you don’t have enough credit for that call."
-msgstr ""
+msgstr "ಈ ಕರೆಗಾಗಿ ನೀವು ಸಾಕಷ್ಟು ಕ್ರೆಡಿಟ್ ಅನ್ನು ಹೊಂದಿಲ್ಲ."
 
 #: ../src/empathy-call-window.c:3172
 msgid "Top Up"
-msgstr ""
+msgstr "ಟಾಪ್ ಅಪ್"
 
 #: ../libempathy-gtk/empathy-search-bar.c:243
-#, fuzzy
 #| msgid "Match case"
 msgid "_Match case"
-msgstr "ಕೇಸ್ ಅನ್ನು ತಾಳೆ ಮಾಡು"
+msgstr "ಕೇಸ್ ಅನ್ನು ತಾಳೆ ಮಾಡು (_M)"
 
 #: ../libempathy-gtk/empathy-new-account-dialog.c:144
 msgid "What kind of chat account do you have?"
 msgstr "ಯಾವ ಬಗೆಯ ಚಾಟ್ ಖಾತೆಯನ್ನು ನೀವು ಹೊಂದಿದ್ದೀರಿ?"
 
 #: ../libempathy-gtk/empathy-new-account-dialog.c:166
-#, fuzzy
 #| msgid "New account"
 msgid "Adding new account"
-msgstr "ಹೊಸ ಖಾತೆ"
+msgstr "ಹೊಸ ಖಾತೆಯನ್ನು ಸೇರಿಸುವಿಕೆ"
 
 #: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:77
 msgid "People nearby"
 msgstr "ಹತ್ತಿರದ ಜನರು"
 
 #: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:150
-#, fuzzy
 #| msgid ""
 #| "Empathy can automatically discover and chat with the people connected on "
 #| "the same network as you. If you want to use this feature, please check "
@@ -4862,10 +4844,7 @@ msgstr ""
 "ಪತ್ತೆ "
 "ಮಾಡುತ್ತದೆ ಹಾಗು ನೀವು ಅವರೊಂದಿಗೆ ಚಾಟ್ ಮಾಡಲು ಅನುವು ಮಾಡಿಕೊಡುತ್ತದೆ. ನೀವು ಈ "
 "ಸವಲತ್ತನ್ನು "
-"ಬಳಸಲು ಬಯಸಿದಲ್ಲಿ, ಈ ಕೆಳಗಿನ ವಿವರಗಳು ಸರಿ ಇವೆಯೆ ಎಂದು ಪರಿಶೀಲಿಸಿ. ನೀವು ಈ ವಿವರಗಳನ್ನು "
-"ನಂತರವೂ ಸಹ ಸುಲಭವಾಗಿ ಬದಲಾಯಿಸಬಹುದಾಗಿರುತ್ತದೆ ಅಥವ 'ಖಾತೆಗಳು' ಸಂವಾದಚೌಕವನ್ನು "
-"ಬಳಸಿಕೊಂಡು "
-"ಈ ಸವಲತ್ತನ್ನು ಅಶಕ್ತಗೊಳಿಸಬಹುದಾಗಿರುತ್ತದೆ."
+"ಬಳಸಲು ಬಯಸಿದಲ್ಲಿ, ಈ ಕೆಳಗಿನ ವಿವರಗಳು ಸರಿ ಇವೆಯೆ ಎಂದು ಪರಿಶೀಲಿಸಿ."
 
 #: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:183
 msgid ""
