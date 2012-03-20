@@ -880,7 +880,7 @@ msgstr "Mot de passe du compte de messagerie instantanée pour %s (%s)"
 #: ../libempathy/empathy-keyring.c:253
 #, c-format
 msgid "Password for chatroom '%s' on account %s (%s)"
-msgstr "Mot de passe pour le salon de discussion « %s » sur le compte %s (%s)"
+msgstr "Mot de passe pour le salon de discussion « %s » sur le compte %s (%s)"
 
 #: ../libempathy-gtk/empathy-account-chooser.c:692
 msgid "All accounts"
