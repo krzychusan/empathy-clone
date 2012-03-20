@@ -206,7 +206,7 @@ PKG_CHECK_MODULES(EMPATHY_CALL,
    farstream-0.1
    telepathy-farstream >= $TELEPATHY_FARSTREAM_REQUIRED
    clutter-1.0 >= $CLUTTER_REQUIRED
-   clutter-gtk-1.0
+   clutter-gtk-1.0 >= $CLUTTER_GTK_REQUIRED
    clutter-gst-1.0 >= $CLUTTER_GST_REQUIRED
 ])
 
