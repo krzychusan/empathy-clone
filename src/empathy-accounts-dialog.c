@@ -2465,6 +2465,7 @@ accounts_dialog_build_ui (EmpathyAccountsDialog *dialog)
   gtk_widget_show (priv->infobar);
 
   grid = gtk_grid_new ();
+  gtk_grid_set_column_spacing (GTK_GRID (grid), 6);
   gtk_container_add (
       GTK_CONTAINER (gtk_info_bar_get_content_area (
           GTK_INFO_BAR (priv->infobar))),
