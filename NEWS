@@ -1,3 +1,71 @@
+NEW in 3.3.92 (20/03/2012)
+=============
+
+Dependencies:
+ • GTK+ ≥ 3.3.6
+ • clutter-gst ≥ 1.5.2
+ • clutter-gtk ≥ 0.90.3
+ • geoclue ≥ 0.12 (optional)
+ • champlain-0.12 (optional)
+
+Bugs fixed:
+ - Fixed #671718, Rendering artifacts in the call window (Emanuele Aina)
+ - Fixed #671720, The video preview is not rounded the same way as its highlight rectangle (Emanuele Aina)
+ - Fixed #671931, Crash receiving a call on a already disconnected empathy call window (Emanuele Aina)
+ - Fixed #672063, Crash on hangup in audio-only video call (Emanuele Aina)
+ - Fixed #616159, Should try to get icons from EMPATHY_SRCDIR (Emanuele Aina)
+ - Fixed #671035, Accounts dialog doesn't update when account goes online (Guillaume Desmottes)
+ - Fixed #671547, MUC: make F9 toggle the contact list sidebar (Will Thompson)
+ - Fixed #671644, Border overflows not taken in account when drawing Clutter actors in empathy-call (Emanuele Aina)
+ - Fixed #671790, empathy-accounts crashed with SIGSEGV in empathy_account_settings_get_account() (Guillaume Desmottes)
+ - Fixed #671875, Untranslated strings in libempathy/empathy-keyring.c (Gabor Kelemen)
+ - Fixed #671884, Information display of group chat contacts and irc contacts broken (Guillaume Desmottes)
+ - Fixed #671914, Receiving Files via XMPP isn't working
+ - Fixed #671981, Should replace the birthday calendar by a button (Guillaume Desmottes)
+ - Fixed #671983, Hide stupid vCard field roles (Guillaume Desmottes)
+ - Fixed #671994, Contact list only appears after several seconds (Guillaume Desmottes)
+ - Fixed #672036, Remove account info (Guillaume Desmottes)
+ - Fixed #672037, Right align contact info fields (Guillaume Desmottes)
+ - Fixed #672120, Set chat.facebook.com:443 as fallback server (Guillaume Desmottes)
+
+Translations:
+ - Updated as Translation (Nilamdyuti Goswami)
+ - Updated be Translation (Ihar Hrachyshka)
+ - Updated bg Translation (Alexander Shopov)
+ - Updated ca Translation (Gil Forcada)
+ - Updated ca@valencia Translation (Carles Ferrando)
+ - Updated cs Translation (Marek Černocký)
+ - Updated en_GB Translation (Bruce Cowan)
+ - Updated eo Translation (Kristjan SCHMIDT)
+ - Updated es Translation (Daniel Mustieles)
+ - Updated et Translation (Mattias Põldaru)
+ - Updated eu Translation (Inaki Larranaga Murgoitio)
+ - Updated fi Translation (Timo Jyrinki)
+ - Updated gl Translation (Fran Diéguez)
+ - Updated hu Translation (Gabor Kelemen)
+ - Updated it Translation (Milo Casagrande)
+ - Updated kn Translation (Shankar Prasad)
+ - Updated ko Translation (Seong-ho Cho)
+ - Updated lt Translation (Aurimas Černius)
+ - Updated lv Translation (Rudolfs Mazurs)
+ - Updated ml Translation (Praveen Arimbrathodiyil)
+ - Updated nb Translation (Kjartan Maraas)
+ - Updated nl Translation (Wouter Bolsterlee, Hannie Dumoleyn)
+ - Updated pa Translation (A S Alam)
+ - Updated pl Translation (Piotr Drąg)
+ - Updated pt_BR Translation (Djavan Fagundes)
+ - Updated ru Translation (Yuri Kozlov, Yuri Myasoedov)
+ - Updated sl Translation (Matej Urbančič)
+ - Updated sr@latin Translation (Мирослав Николић)
+ - Updated sr Translation (Мирослав Николић)
+ - Updated sv Translation (Daniel Nylander)
+ - Updated uk Translation (Daniel Korostil)
+
+Documentation translations:
+ - Updated hu Documentation translation (Gabor Kelemen)
+ - Updated lv Documentation translation (Viesturs Ružāns)
+ - Updated sl Documentation translation (Andrej Žnidaršič)
+
 NEW in 3.3.91 (06/03/2012)
 =============
 
