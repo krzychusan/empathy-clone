@@ -28,7 +28,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=empathy&keywords=I18N+L10N&component=General\n"
 "POT-Creation-Date: 2012-03-16 10:47+0000\n"
-"PO-Revision-Date: 2012-03-20 21:07+0800\n"
+"PO-Revision-Date: 2012-03-20 17:15+0000\n"
 "Last-Translator: YunQiang Su <wzssyqa@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -99,9 +99,8 @@ msgid "The default folder to save file transfers in."
 msgstr "保存传送文件的默认文件夹。"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:9
-#, fuzzy
 msgid "Magic number used to check if sanity cleaning tasks should be run"
-msgstr "用于检测是否应该执行智能清理任务的魔术数字"
+msgstr "用于检测是否应该执行智能清理任务的幻数"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:10
 msgid ""
@@ -790,12 +789,12 @@ msgstr "未找到密码"
 #: ../libempathy/empathy-keyring.c:218
 #, c-format
 msgid "IM account password for %s (%s)"
-msgstr ""
+msgstr "IM 帐号 %s (%s) 的密码"
 
 #: ../libempathy/empathy-keyring.c:253
 #, c-format
 msgid "Password for chatroom '%s' on account %s (%s)"
-msgstr ""
+msgstr "帐号 %2$s (%3$s) 的聊天室 %1$s 密码"
 
 #: ../libempathy-gtk/empathy-account-chooser.c:692
 msgid "All accounts"
@@ -1046,13 +1045,11 @@ msgstr "删除"
 
 #: ../libempathy-gtk/empathy-account-widget-irc.ui.h:6
 msgid "Up"
-msgstr ""
+msgstr "在线"
 
 #: ../libempathy-gtk/empathy-account-widget-irc.ui.h:7
-#, fuzzy
-#| msgid "Domain"
 msgid "Down"
-msgstr "域"
+msgstr "离线"
 
 #: ../libempathy-gtk/empathy-account-widget-irc.ui.h:8
 msgid "Servers"
