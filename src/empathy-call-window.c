@@ -83,8 +83,6 @@
 #define SELF_VIDEO_SECTION_BORDER SELF_VIDEO_SECTION_MARGIN*2
 
 #define FLOATING_TOOLBAR_OPACITY 192
-#define FLOATING_TOOLBAR_WIDTH 280
-#define FLOATING_TOOLBAR_HEIGHT 36
 #define FLOATING_TOOLBAR_SPACING 20
 
 /* The avatar's default width and height are set to the same value because we
@@ -157,10 +155,6 @@ struct _EmpathyCallWindowPriv
   ClutterActor *preview_rectangle2;
   ClutterActor *preview_rectangle3;
   ClutterActor *preview_rectangle4;
-  ClutterActor *preview_rectangle_box1;
-  ClutterActor *preview_rectangle_box2;
-  ClutterActor *preview_rectangle_box3;
-  ClutterActor *preview_rectangle_box4;
   ClutterActor *preview_spinner_actor;
   GtkWidget *preview_spinner_widget;
   GtkWidget *video_container;
@@ -187,6 +181,15 @@ struct _EmpathyCallWindowPriv
   /* The main box covering all the stage, contaning remote avatar/video */
   ClutterActor *video_box;
   ClutterLayoutManager *video_layout;
+
+  /* A Box layout manager containing a bin for previews
+   * and the floating toolbar */
+  ClutterActor *overlay_box;
+  ClutterLayoutManager *overlay_layout;
+
+  /* Bin layout for the previews */
+  ClutterActor *preview_box;
+  ClutterLayoutManager *preview_layout;
 
   /* Coordinates of the preview drag event's start. */
   PreviewPosition preview_pos;
@@ -368,10 +371,10 @@ empathy_call_window_raise_actors (EmpathyCallWindow *self)
 {
   clutter_actor_raise_top (self->priv->floating_toolbar);
 
-  clutter_actor_raise_top (self->priv->preview_rectangle_box1);
-  clutter_actor_raise_top (self->priv->preview_rectangle_box2);
-  clutter_actor_raise_top (self->priv->preview_rectangle_box3);
-  clutter_actor_raise_top (self->priv->preview_rectangle_box4);
+  clutter_actor_raise_top (self->priv->preview_rectangle1);
+  clutter_actor_raise_top (self->priv->preview_rectangle2);
+  clutter_actor_raise_top (self->priv->preview_rectangle3);
+  clutter_actor_raise_top (self->priv->preview_rectangle4);
 }
 
 static void
@@ -628,72 +631,46 @@ empathy_call_window_preview_hidden_button_clicked_cb (GtkButton *button,
 
 static ClutterActor *
 empathy_call_window_create_preview_rectangle (EmpathyCallWindow *self,
-    ClutterActor **box,
     ClutterBinAlignment x,
     ClutterBinAlignment y)
 {
-  ClutterLayoutManager *layout1, *layout2;
-  EmpathyRoundedRectangle *rectangle;
-  ClutterActor *box1, *box2;
+  ClutterActor *rectangle;
 
-  layout1 = clutter_bin_layout_new (CLUTTER_BIN_ALIGNMENT_CENTER,
-      CLUTTER_BIN_ALIGNMENT_START);
+  rectangle = CLUTTER_ACTOR (empathy_rounded_rectangle_new (
+      SELF_VIDEO_SECTION_WIDTH, SELF_VIDEO_SECTION_HEIGHT,
+      PREVIEW_ROUND_FACTOR));
 
-  box1 = clutter_box_new (layout1);
+  clutter_bin_layout_add (CLUTTER_BIN_LAYOUT (self->priv->preview_layout),
+      rectangle, x, y);
+  clutter_actor_hide (rectangle);
 
-  *box = box1;
-
-  rectangle = empathy_rounded_rectangle_new (
-      SELF_VIDEO_SECTION_WIDTH + 2 * SELF_VIDEO_SECTION_MARGIN,
-      SELF_VIDEO_SECTION_HEIGHT + 2 * SELF_VIDEO_SECTION_MARGIN,
-      PREVIEW_ROUND_FACTOR);
-
-  clutter_actor_set_size (box1,
-      SELF_VIDEO_SECTION_WIDTH + 2 * SELF_VIDEO_SECTION_MARGIN,
-      SELF_VIDEO_SECTION_HEIGHT + 2 * SELF_VIDEO_SECTION_MARGIN +
-      FLOATING_TOOLBAR_HEIGHT + FLOATING_TOOLBAR_SPACING);
-
-  layout2 = clutter_bin_layout_new (CLUTTER_BIN_ALIGNMENT_CENTER,
-      CLUTTER_BIN_ALIGNMENT_CENTER);
-
-  /* We have a box with the margins and the video in the middle inside
-   * a bigger box with an extra bottom margin so we're not on top of
-   * the floating toolbar. */
-  box2 = clutter_box_new (layout2);
-
-  clutter_actor_set_size (box2,
-      SELF_VIDEO_SECTION_WIDTH + 2 * SELF_VIDEO_SECTION_MARGIN,
-      SELF_VIDEO_SECTION_HEIGHT + 2 * SELF_VIDEO_SECTION_MARGIN);
-
-  clutter_container_add_actor (CLUTTER_CONTAINER (box1), box2);
-  clutter_container_add_actor (CLUTTER_CONTAINER (box2), CLUTTER_ACTOR (rectangle));
-
-  clutter_bin_layout_add (CLUTTER_BIN_LAYOUT (self->priv->video_layout),
-      box1, x, y);
-
-  clutter_actor_hide (CLUTTER_ACTOR (rectangle));
-
-  return CLUTTER_ACTOR (rectangle);
+  return rectangle;
 }
 
 static void
 empathy_call_window_create_preview_rectangles (EmpathyCallWindow *self)
 {
+  ClutterActor *box;
+
+  self->priv->preview_layout = clutter_bin_layout_new (
+      CLUTTER_BIN_ALIGNMENT_CENTER, CLUTTER_BIN_ALIGNMENT_CENTER);
+  self->priv->preview_box = box = clutter_box_new (self->priv->preview_layout);
+
+  clutter_box_layout_pack (CLUTTER_BOX_LAYOUT (self->priv->overlay_layout),
+      box, TRUE, TRUE, TRUE,
+      CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_START);
+
   self->priv->preview_rectangle1 =
       empathy_call_window_create_preview_rectangle (self,
-          &self->priv->preview_rectangle_box1,
           CLUTTER_BIN_ALIGNMENT_START, CLUTTER_BIN_ALIGNMENT_START);
   self->priv->preview_rectangle2 =
       empathy_call_window_create_preview_rectangle (self,
-          &self->priv->preview_rectangle_box2,
           CLUTTER_BIN_ALIGNMENT_START, CLUTTER_BIN_ALIGNMENT_END);
   self->priv->preview_rectangle3 =
       empathy_call_window_create_preview_rectangle (self,
-          &self->priv->preview_rectangle_box3,
           CLUTTER_BIN_ALIGNMENT_END, CLUTTER_BIN_ALIGNMENT_START);
   self->priv->preview_rectangle4 =
       empathy_call_window_create_preview_rectangle (self,
-          &self->priv->preview_rectangle_box4,
           CLUTTER_BIN_ALIGNMENT_END, CLUTTER_BIN_ALIGNMENT_END);
 }
 
@@ -716,10 +693,10 @@ empathy_call_window_get_preview_coordinates (EmpathyCallWindow *self,
   guint ret_x = 0, ret_y = 0;
   ClutterGeometry box;
 
-  if (!clutter_actor_has_allocation (self->priv->video_box))
+  if (!clutter_actor_has_allocation (self->priv->preview_box))
     goto out;
 
-  clutter_actor_get_geometry (self->priv->video_box, &box);
+  clutter_actor_get_geometry (self->priv->preview_box, &box);
 
   switch (pos)
     {
@@ -734,15 +711,13 @@ empathy_call_window_get_preview_coordinates (EmpathyCallWindow *self,
       case PREVIEW_POS_BOTTOM_LEFT:
         ret_x = SELF_VIDEO_SECTION_MARGIN;
         ret_y = box.height - SELF_VIDEO_SECTION_MARGIN
-            - SELF_VIDEO_SECTION_HEIGHT
-            - FLOATING_TOOLBAR_HEIGHT - FLOATING_TOOLBAR_SPACING;
+            - SELF_VIDEO_SECTION_HEIGHT;
         break;
       case PREVIEW_POS_BOTTOM_RIGHT:
         ret_x = box.width - SELF_VIDEO_SECTION_MARGIN
             - SELF_VIDEO_SECTION_WIDTH;
         ret_y = box.height - SELF_VIDEO_SECTION_MARGIN
-            - SELF_VIDEO_SECTION_HEIGHT - FLOATING_TOOLBAR_HEIGHT
-            - FLOATING_TOOLBAR_SPACING;
+            - SELF_VIDEO_SECTION_HEIGHT;
         break;
       default:
         g_warn_if_reached ();
@@ -764,10 +739,10 @@ empathy_call_window_get_preview_position (EmpathyCallWindow *self,
   ClutterGeometry box;
   PreviewPosition pos = PREVIEW_POS_NONE;
 
-  if (!clutter_actor_has_allocation (self->priv->video_box))
+  if (!clutter_actor_has_allocation (self->priv->preview_box))
     return pos;
 
-  clutter_actor_get_geometry (self->priv->video_box, &box);
+  clutter_actor_get_geometry (self->priv->preview_box, &box);
 
   if (0 + SELF_VIDEO_SECTION_MARGIN <= event_x &&
       event_x <= (0 + SELF_VIDEO_SECTION_MARGIN + (gint) SELF_VIDEO_SECTION_WIDTH) &&
@@ -785,15 +760,15 @@ empathy_call_window_get_preview_position (EmpathyCallWindow *self,
     }
   else if (0 + SELF_VIDEO_SECTION_MARGIN <= event_x &&
       event_x <= (0 + SELF_VIDEO_SECTION_MARGIN + (gint) SELF_VIDEO_SECTION_WIDTH) &&
-      box.height - SELF_VIDEO_SECTION_MARGIN - FLOATING_TOOLBAR_HEIGHT - FLOATING_TOOLBAR_SPACING >= event_y &&
-      event_y >= (box.height - SELF_VIDEO_SECTION_MARGIN - FLOATING_TOOLBAR_HEIGHT - FLOATING_TOOLBAR_SPACING - (gint) SELF_VIDEO_SECTION_HEIGHT))
+      box.height - SELF_VIDEO_SECTION_MARGIN >= event_y &&
+      event_y >= (box.height - SELF_VIDEO_SECTION_MARGIN - (gint) SELF_VIDEO_SECTION_HEIGHT))
     {
       pos = PREVIEW_POS_BOTTOM_LEFT;
     }
   else if (box.width - SELF_VIDEO_SECTION_MARGIN >= event_x &&
       event_x >= (box.width - SELF_VIDEO_SECTION_MARGIN - (gint) SELF_VIDEO_SECTION_WIDTH) &&
-      box.height - 2 * SELF_VIDEO_SECTION_MARGIN - FLOATING_TOOLBAR_HEIGHT - FLOATING_TOOLBAR_SPACING >= event_y &&
-      event_y >= (box.height - SELF_VIDEO_SECTION_MARGIN - FLOATING_TOOLBAR_HEIGHT - FLOATING_TOOLBAR_SPACING - (gint) SELF_VIDEO_SECTION_HEIGHT))
+      box.height - 2 * SELF_VIDEO_SECTION_MARGIN >= event_y &&
+      event_y >= (box.height - SELF_VIDEO_SECTION_MARGIN - (gint) SELF_VIDEO_SECTION_HEIGHT))
     {
       pos = PREVIEW_POS_BOTTOM_RIGHT;
     }
@@ -832,7 +807,7 @@ static void
 empathy_call_window_move_video_preview (EmpathyCallWindow *self,
     PreviewPosition pos)
 {
-  ClutterBinLayout *layout = CLUTTER_BIN_LAYOUT (self->priv->video_layout);
+  ClutterBinLayout *layout = CLUTTER_BIN_LAYOUT (self->priv->preview_layout);
 
   DEBUG ("moving the video preview to %d", pos);
 
@@ -1089,9 +1064,8 @@ static void
 create_video_preview (EmpathyCallWindow *self)
 {
   EmpathyCallWindowPriv *priv = GET_PRIV (self);
-  ClutterLayoutManager *layout, *layout_center, *layout_end;
+  ClutterLayoutManager *layout;
   ClutterActor *preview;
-  ClutterActor *box;
   ClutterActor *b;
   ClutterAction *action;
   GtkWidget *button;
@@ -1115,12 +1089,11 @@ create_video_preview (EmpathyCallWindow *self)
 
   /* Add a little offset to the video preview */
   layout = clutter_bin_layout_new (CLUTTER_BIN_ALIGNMENT_CENTER,
-      CLUTTER_BIN_ALIGNMENT_START);
+      CLUTTER_BIN_ALIGNMENT_CENTER);
   priv->video_preview = clutter_box_new (layout);
   clutter_actor_set_size (priv->video_preview,
       SELF_VIDEO_SECTION_WIDTH + 2 * SELF_VIDEO_SECTION_MARGIN,
-      SELF_VIDEO_SECTION_HEIGHT + 2 * SELF_VIDEO_SECTION_MARGIN +
-      FLOATING_TOOLBAR_HEIGHT + FLOATING_TOOLBAR_SPACING);
+      SELF_VIDEO_SECTION_HEIGHT + 2 * SELF_VIDEO_SECTION_MARGIN);
 
   /* Spinner for when changing the camera device */
   priv->preview_spinner_widget = gtk_spinner_new ();
@@ -1142,20 +1115,10 @@ create_video_preview (EmpathyCallWindow *self)
   clutter_actor_set_opacity (priv->preview_spinner_actor, 128);
   clutter_actor_hide (priv->preview_spinner_actor);
 
-  /* We have a box with the margins and the video in the middle inside
-   * a bigger box with an extra bottom margin so we're not on top of
-   * the floating toolbar. */
-  layout_center = clutter_bin_layout_new (CLUTTER_BIN_ALIGNMENT_CENTER,
-      CLUTTER_BIN_ALIGNMENT_CENTER);
-  box = clutter_box_new (layout_center);
-  clutter_actor_set_size (box,
-      SELF_VIDEO_SECTION_WIDTH + 2 * SELF_VIDEO_SECTION_MARGIN,
-      SELF_VIDEO_SECTION_HEIGHT + 2 * SELF_VIDEO_SECTION_MARGIN);
-
-  clutter_container_add_actor (CLUTTER_CONTAINER (box), preview);
-  clutter_container_add_actor (CLUTTER_CONTAINER (box),
+  clutter_container_add_actor (CLUTTER_CONTAINER (priv->video_preview),
+      preview);
+  clutter_container_add_actor (CLUTTER_CONTAINER (priv->video_preview),
       priv->preview_spinner_actor);
-  clutter_container_add_actor (CLUTTER_CONTAINER (priv->video_preview), box);
 
   g_object_set (priv->video_preview_sink,
       "sync", FALSE,
@@ -1167,18 +1130,13 @@ create_video_preview (EmpathyCallWindow *self)
   button = gtk_button_new_with_label (_("i"));
   priv->preview_shown_button = b = gtk_clutter_actor_new_with_contents (button);
   clutter_actor_set_size (b, 24, 24);
+  clutter_actor_set_margin_right (b, 4);
+  clutter_actor_set_margin_bottom (b, 2);
   bin = gtk_clutter_actor_get_widget (GTK_CLUTTER_ACTOR (b));
   gtk_widget_override_background_color (bin, GTK_STATE_FLAG_NORMAL, &transparent);
 
-  layout_end = clutter_bin_layout_new (CLUTTER_BIN_ALIGNMENT_END,
-      CLUTTER_BIN_ALIGNMENT_END);
-  box = clutter_box_new (layout_end);
-  clutter_actor_set_size (box,
-      SELF_VIDEO_SECTION_WIDTH - 4,
-      SELF_VIDEO_SECTION_HEIGHT - 2);
-
-  clutter_container_add_actor (CLUTTER_CONTAINER (box), b);
-  clutter_container_add_actor (CLUTTER_CONTAINER (priv->video_preview), box);
+  clutter_bin_layout_add (CLUTTER_BIN_LAYOUT (layout), b,
+      CLUTTER_BIN_ALIGNMENT_END, CLUTTER_BIN_ALIGNMENT_END);
 
   g_signal_connect (button, "clicked",
       G_CALLBACK (empathy_call_window_preview_button_clicked_cb),
@@ -1191,7 +1149,7 @@ create_video_preview (EmpathyCallWindow *self)
   clutter_actor_set_size (b, 24, 24);
   gtk_widget_override_background_color (bin, GTK_STATE_FLAG_NORMAL, &transparent);
 
-  clutter_bin_layout_add (CLUTTER_BIN_LAYOUT (priv->video_layout),
+  clutter_bin_layout_add (CLUTTER_BIN_LAYOUT (priv->preview_layout),
       priv->preview_hidden_button,
       CLUTTER_BIN_ALIGNMENT_START,
       CLUTTER_BIN_ALIGNMENT_END);
@@ -1204,7 +1162,7 @@ create_video_preview (EmpathyCallWindow *self)
       G_CALLBACK (empathy_call_window_preview_hidden_button_clicked_cb),
       self);
 
-  clutter_bin_layout_add (CLUTTER_BIN_LAYOUT (priv->video_layout),
+  clutter_bin_layout_add (CLUTTER_BIN_LAYOUT (priv->preview_layout),
       priv->video_preview,
       CLUTTER_BIN_ALIGNMENT_START,
       CLUTTER_BIN_ALIGNMENT_END);
@@ -1493,20 +1451,6 @@ empathy_call_window_destroyed_cb (GtkWidget *object,
 }
 
 static void
-empathy_call_window_stage_allocation_changed_cb (ClutterActor *stage,
-    GParamSpec *pspec,
-    ClutterBindConstraint *constraint)
-{
-  ClutterActorBox allocation;
-
-  clutter_actor_get_allocation_box (stage, &allocation);
-
-  clutter_bind_constraint_set_offset (constraint,
-      allocation.y2 - allocation.y1 -
-      FLOATING_TOOLBAR_SPACING - FLOATING_TOOLBAR_HEIGHT);
-}
-
-static void
 empathy_call_window_incoming_call_response_cb (GtkDialog *dialog,
     gint response_id,
     EmpathyCallWindow *self)
@@ -1742,6 +1686,16 @@ empathy_call_window_init (EmpathyCallWindow *self)
   clutter_container_add_actor (CLUTTER_CONTAINER (priv->video_box),
       remote_avatar);
 
+  /* create the overlay box */
+  priv->overlay_layout = clutter_box_layout_new ();
+  clutter_box_layout_set_vertical (
+      CLUTTER_BOX_LAYOUT (priv->overlay_layout), TRUE);
+  priv->overlay_box = clutter_box_new (priv->overlay_layout);
+
+  clutter_bin_layout_add (CLUTTER_BIN_LAYOUT (priv->video_layout),
+      priv->overlay_box,
+      CLUTTER_BIN_ALIGNMENT_FILL, CLUTTER_BIN_ALIGNMENT_FILL);
+
   empathy_call_window_create_preview_rectangles (self);
 
   gtk_box_pack_start (GTK_BOX (priv->content_hbox),
@@ -1754,30 +1708,16 @@ empathy_call_window_init (EmpathyCallWindow *self)
   create_video_input (self);
 
   priv->floating_toolbar = empathy_rounded_actor_new (2);
+  clutter_actor_set_margin_bottom (priv->floating_toolbar, FLOATING_TOOLBAR_SPACING);
 
   gtk_widget_reparent (priv->bottom_toolbar,
       gtk_clutter_actor_get_widget (GTK_CLUTTER_ACTOR (priv->floating_toolbar)));
 
-  constraint = clutter_bind_constraint_new (
-      gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (priv->video_container)),
-      CLUTTER_BIND_Y, 0);
+  clutter_box_layout_pack (CLUTTER_BOX_LAYOUT (priv->overlay_layout),
+      priv->floating_toolbar, FALSE, FALSE, FALSE,
+      CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_END);
 
-  clutter_actor_add_constraint (priv->floating_toolbar, constraint);
-
-  g_signal_connect (
-      gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (priv->video_container)),
-      "notify::allocation",
-      G_CALLBACK (empathy_call_window_stage_allocation_changed_cb),
-      constraint);
-
-  clutter_actor_set_size (priv->floating_toolbar,
-      FLOATING_TOOLBAR_WIDTH, FLOATING_TOOLBAR_HEIGHT);
   clutter_actor_set_opacity (priv->floating_toolbar, FLOATING_TOOLBAR_OPACITY);
-
-  clutter_bin_layout_add (CLUTTER_BIN_LAYOUT (priv->video_layout),
-      priv->floating_toolbar,
-      CLUTTER_BIN_ALIGNMENT_CENTER,
-      CLUTTER_BIN_ALIGNMENT_END);
 
   clutter_actor_raise_top (priv->floating_toolbar);
 
