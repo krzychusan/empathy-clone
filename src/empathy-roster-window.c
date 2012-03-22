@@ -2425,7 +2425,7 @@ hide_contacts_loading (EmpathyRosterWindow *self)
 {
   gtk_spinner_stop (GTK_SPINNER (self->priv->spinner_loading));
 
-  display_page_contact_list (self);
+  set_notebook_page (self);
 }
 
 static void
