@@ -1434,7 +1434,7 @@ chat_window_help_contents_activate_cb (GtkAction         *action,
 {
 	EmpathyChatWindowPriv *priv = GET_PRIV (window);
 
-	empathy_url_show (priv->dialog, "ghelp:empathy");
+	empathy_url_show (priv->dialog, "help:empathy");
 }
 
 static void

@@ -1701,7 +1701,7 @@ empathy_make_absolute_url_len (const gchar *url,
 {
 	g_return_val_if_fail (url != NULL, NULL);
 
-	if (g_str_has_prefix (url, "ghelp:") ||
+	if (g_str_has_prefix (url, "help:") ||
 	    g_str_has_prefix (url, "mailto:") ||
 	    strstr (url, ":/")) {
 		return g_strndup (url, len);

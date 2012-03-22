@@ -2052,7 +2052,7 @@ static void
 roster_window_help_contents_cb (GtkAction *action,
     EmpathyRosterWindow *self)
 {
-  empathy_url_show (GTK_WIDGET (self), "ghelp:empathy");
+  empathy_url_show (GTK_WIDGET (self), "help:empathy");
 }
 
 static gboolean
