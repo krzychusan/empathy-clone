@@ -45,7 +45,7 @@ draw_cb (ClutterCairoTexture *canvas,
   EmpathyRoundedRectangle *self = EMPATHY_ROUNDED_RECTANGLE (canvas);
   guint width, height;
   guint border_width;
-  guint tmp_alpha;
+  gdouble tmp_alpha;
   gdouble radius;
 
   width = self->priv->width;
@@ -55,14 +55,13 @@ draw_cb (ClutterCairoTexture *canvas,
 
   /* compute the composited opacity of the actor taking into
    * account the opacity of the color set by the user */
-  tmp_alpha = clutter_actor_get_paint_opacity (CLUTTER_ACTOR (self))
-            * self->priv->border_color.alpha
-            / 255;
+  tmp_alpha = (clutter_actor_get_paint_opacity (CLUTTER_ACTOR (self))
+               * self->priv->border_color.alpha) / 255.;
 
   cairo_set_source_rgba (cr,
-      self->priv->border_color.red,
-      self->priv->border_color.green,
-      self->priv->border_color.blue,
+      self->priv->border_color.red / 255.,
+      self->priv->border_color.green / 255.,
+      self->priv->border_color.blue / 255.,
       tmp_alpha);
 
   cairo_set_line_width (cr, border_width);
