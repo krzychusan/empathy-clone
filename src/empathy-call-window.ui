@@ -253,9 +253,10 @@
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="bottom_toolbar">
+          <object class="GtkToolbar" id="bottom_toolbar">
             <property name="visible">True</property>
-            <property name="homogeneous">False</property>
+            <property name="show_arrow">False</property>
+            <property name="name">CallFloatingToolbar</property>
             <child>
               <object class="GtkToggleToolButton" id="camera">
                 <property name="visible">True</property>
@@ -264,10 +265,6 @@
                 <property name="sensitive">False</property>
                 <property name="tooltip_text" translatable="yes">Toggle video transmission</property>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-              </packing>
             </child>
             <child>
               <object class="GtkToolItem" id="toolitem3">
@@ -279,10 +276,6 @@
                   </object>
                 </child>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-              </packing>
             </child>
             <child>
               <object class="GtkToggleToolButton" id="microphone">
@@ -292,13 +285,10 @@
                 <property name="icon_name">gnome-stock-mic</property>
                 <property name="tooltip_text" translatable="yes">Toggle audio transmission</property>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-              </packing>
             </child>
             <child>
-              <object class="GtkToolItem" id="toolbar_space2">
+              <object class="GtkSeparatorToolItem" id="toolbutton2">
+                <property name="draw">False</property>
                 <property name="visible">True</property>
               </object>
               <packing>
@@ -311,25 +301,13 @@
                 <child>
                   <object class="GtkLabel" id="status_label">
                     <property name="visible">True</property>
+                    <property name="margin_left">10</property>
+                    <property name="margin_right">10</property>
                   </object>
                 </child>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkSeparatorToolItem" id="toolbutton2">
-                <property name="draw">False</property>
-                <property name="visible">True</property>
-              </object>
             </child>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="position">4</property>
-          </packing>
         </child>
       </object>
 

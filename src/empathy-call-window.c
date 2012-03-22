@@ -1559,6 +1559,8 @@ empathy_call_window_init (EmpathyCallWindow *self)
   ClutterConstraint *constraint;
   ClutterActor *remote_avatar;
   GtkStyleContext *context;
+  GtkCssProvider *provider;
+  GdkRGBA transparent = { 0., 0., 0., 0. };
   GdkRGBA rgba;
   ClutterColor bg;
 
@@ -1619,6 +1621,17 @@ empathy_call_window_init (EmpathyCallWindow *self)
     "menupreviewmaximise", "activate", empathy_call_window_maximise_camera_cb,
     "menupreviewswap", "activate", empathy_call_window_swap_camera_cb,
     NULL);
+
+  /* FIXME: we should use a stock "OSD" style class for the toolbar,
+   * once it's available in GTK+/Adwaita.
+   */
+  provider = gtk_css_provider_new ();
+  gtk_css_provider_load_from_data (provider,
+      "#CallFloatingToolbar { border-radius: 6px; }", -1, NULL);
+  gtk_style_context_add_provider (
+      gtk_widget_get_style_context (priv->bottom_toolbar),
+      GTK_STYLE_PROVIDER (provider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+  g_object_unref (provider);
 
   gtk_action_set_sensitive (priv->menu_fullscreen, FALSE);
 
@@ -1707,8 +1720,11 @@ empathy_call_window_init (EmpathyCallWindow *self)
   create_audio_input (self);
   create_video_input (self);
 
-  priv->floating_toolbar = empathy_rounded_actor_new (2);
-  clutter_actor_set_margin_bottom (priv->floating_toolbar, FLOATING_TOOLBAR_SPACING);
+  priv->floating_toolbar = gtk_clutter_actor_new ();
+  gtk_widget_override_background_color (
+      gtk_clutter_actor_get_widget (
+          GTK_CLUTTER_ACTOR (priv->floating_toolbar)),
+      GTK_STATE_FLAG_NORMAL, &transparent);
 
   gtk_widget_reparent (priv->bottom_toolbar,
       gtk_clutter_actor_get_widget (GTK_CLUTTER_ACTOR (priv->floating_toolbar)));
