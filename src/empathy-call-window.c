@@ -324,6 +324,16 @@ static gboolean empathy_call_window_bus_message (GstBus *bus,
   GstMessage *message, gpointer user_data);
 
 static void
+make_background_transparent (GtkClutterActor *actor)
+{
+  GdkRGBA transparent = { 0., 0., 0., 0. };
+  GtkWidget *widget;
+
+  widget = gtk_clutter_actor_get_widget (actor);
+  gtk_widget_override_background_color (widget, GTK_STATE_FLAG_NORMAL, &transparent);
+}
+
+static void
 empathy_call_window_show_hangup_button (EmpathyCallWindow *self,
     gboolean show)
 {
@@ -1070,8 +1080,6 @@ create_video_preview (EmpathyCallWindow *self)
   ClutterAction *action;
   GtkWidget *button;
   PreviewPosition pos;
-  GdkRGBA transparent = { 0., 0., 0., 0. };
-  GtkWidget *bin;
 
   g_assert (priv->video_preview == NULL);
 
@@ -1100,10 +1108,7 @@ create_video_preview (EmpathyCallWindow *self)
   priv->preview_spinner_actor = empathy_rounded_actor_new (PREVIEW_ROUND_FACTOR);
 
   g_object_set (priv->preview_spinner_widget, "expand", TRUE, NULL);
-  gtk_widget_override_background_color (
-      gtk_clutter_actor_get_widget (
-          GTK_CLUTTER_ACTOR (priv->preview_spinner_actor)),
-      GTK_STATE_FLAG_NORMAL, &transparent);
+  make_background_transparent (GTK_CLUTTER_ACTOR (priv->preview_spinner_actor));
   gtk_widget_show (priv->preview_spinner_widget);
 
   gtk_container_add (
@@ -1132,8 +1137,7 @@ create_video_preview (EmpathyCallWindow *self)
   clutter_actor_set_size (b, 24, 24);
   clutter_actor_set_margin_right (b, 4);
   clutter_actor_set_margin_bottom (b, 2);
-  bin = gtk_clutter_actor_get_widget (GTK_CLUTTER_ACTOR (b));
-  gtk_widget_override_background_color (bin, GTK_STATE_FLAG_NORMAL, &transparent);
+  make_background_transparent (GTK_CLUTTER_ACTOR (b));
 
   clutter_bin_layout_add (CLUTTER_BIN_LAYOUT (layout), b,
       CLUTTER_BIN_ALIGNMENT_END, CLUTTER_BIN_ALIGNMENT_END);
@@ -1147,7 +1151,7 @@ create_video_preview (EmpathyCallWindow *self)
   button = gtk_button_new_with_label (_("i"));
   priv->preview_hidden_button = b = gtk_clutter_actor_new_with_contents (button);
   clutter_actor_set_size (b, 24, 24);
-  gtk_widget_override_background_color (bin, GTK_STATE_FLAG_NORMAL, &transparent);
+  make_background_transparent (GTK_CLUTTER_ACTOR (b));
 
   clutter_bin_layout_add (CLUTTER_BIN_LAYOUT (priv->preview_layout),
       priv->preview_hidden_button,
@@ -1560,7 +1564,6 @@ empathy_call_window_init (EmpathyCallWindow *self)
   ClutterActor *remote_avatar;
   GtkStyleContext *context;
   GtkCssProvider *provider;
-  GdkRGBA transparent = { 0., 0., 0., 0. };
   GdkRGBA rgba;
   ClutterColor bg;
 
@@ -1721,10 +1724,7 @@ empathy_call_window_init (EmpathyCallWindow *self)
   create_video_input (self);
 
   priv->floating_toolbar = gtk_clutter_actor_new ();
-  gtk_widget_override_background_color (
-      gtk_clutter_actor_get_widget (
-          GTK_CLUTTER_ACTOR (priv->floating_toolbar)),
-      GTK_STATE_FLAG_NORMAL, &transparent);
+  make_background_transparent (GTK_CLUTTER_ACTOR (priv->floating_toolbar));
 
   gtk_widget_reparent (priv->bottom_toolbar,
       gtk_clutter_actor_get_widget (GTK_CLUTTER_ACTOR (priv->floating_toolbar)));
