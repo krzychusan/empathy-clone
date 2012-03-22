@@ -184,8 +184,7 @@ struct _EmpathyCallWindowPriv
 
   ClutterState *transitions;
 
-  /* The box that contains self and remote avatar and video
-     input/output. When we redial, we destroy and re-create the box */
+  /* The main box covering all the stage, contaning remote avatar/video */
   ClutterActor *video_box;
   ClutterLayoutManager *video_layout;
 
@@ -1701,7 +1700,7 @@ empathy_call_window_init (EmpathyCallWindow *self)
   gtk_box_pack_start (GTK_BOX (priv->pane), priv->content_hbox,
       TRUE, TRUE, 0);
 
-  /* avatar/video box */
+  /* main contents remote avatar/video box */
   priv->video_layout = clutter_bin_layout_new (CLUTTER_BIN_ALIGNMENT_CENTER,
       CLUTTER_BIN_ALIGNMENT_CENTER);
 
