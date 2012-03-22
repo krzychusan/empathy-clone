@@ -214,7 +214,7 @@
                         </child>
                         <child>
                           <object class="GtkToolButton" id="button_up">
-                            <property name="tooltip-text" translatable="yes">Up</property>
+                            <property name="tooltip-text" translatable="yes" comments="Translators: tooltip on a 'Go Up' button used to sort IRC servers by priority">Up</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
@@ -226,7 +226,7 @@
                         </child>
                         <child>
                           <object class="GtkToolButton" id="button_down">
-                            <property name="tooltip-text" translatable="yes">Down</property>
+                            <property name="tooltip-text" translatable="yes" comments="Translators: tooltip on a 'Go Down' button used to sort IRC servers by priority">Down</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
