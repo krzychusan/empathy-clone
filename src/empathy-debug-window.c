@@ -1677,7 +1677,7 @@ debug_window_pastebin_callback (SoupSession *session,
 
       if (!tp_str_empty (buffer->data))
         gtk_message_dialog_format_secondary_markup (GTK_MESSAGE_DIALOG (dialog),
-            _("%s"), buffer->data);
+            "%s", buffer->data);
       else
         gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
             _("Data too large for a single paste. Please save logs to file."));
