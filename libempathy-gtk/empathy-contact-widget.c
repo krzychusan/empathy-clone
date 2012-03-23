@@ -1404,18 +1404,23 @@ contact_widget_contact_update (EmpathyContactWidget *information)
               contact_widget_change_contact, information);
         }
     }
-  else if ((information->flags & EMPATHY_CONTACT_WIDGET_NO_ACCOUNT) == 0)
+  else
     {
-      if (account)
+      if ((information->flags & EMPATHY_CONTACT_WIDGET_NO_ACCOUNT) == 0)
         {
-          const gchar *name;
+          if (account)
+            {
+              const gchar *name;
 
-          name = tp_account_get_display_name (account);
-          gtk_label_set_label (GTK_LABEL (information->label_account), name);
+              name = tp_account_get_display_name (account);
+              gtk_label_set_label (GTK_LABEL (information->label_account),
+                  name);
 
-          name = tp_account_get_icon_name (account);
-          gtk_image_set_from_icon_name (GTK_IMAGE (information->image_account),
-              name, GTK_ICON_SIZE_MENU);
+              name = tp_account_get_icon_name (account);
+              gtk_image_set_from_icon_name (
+                  GTK_IMAGE (information->image_account),
+                  name, GTK_ICON_SIZE_MENU);
+            }
         }
     }
 
