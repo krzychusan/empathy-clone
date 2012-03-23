@@ -1406,6 +1406,9 @@ contact_widget_contact_update (EmpathyContactWidget *information)
     }
   else
     {
+      empathy_avatar_chooser_set_account (
+          EMPATHY_AVATAR_CHOOSER (information->widget_avatar), account);
+
       if ((information->flags & EMPATHY_CONTACT_WIDGET_NO_ACCOUNT) == 0)
         {
           if (account)
