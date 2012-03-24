@@ -2348,7 +2348,7 @@ dialog_response_cb (GtkWidget *widget,
 
   if (response_id == GTK_RESPONSE_HELP)
     {
-      empathy_url_show (widget, "help:empathy?accounts-window");
+      empathy_url_show (widget, "help:empathy/accounts-window");
     }
   else if (response_id == GTK_RESPONSE_CLOSE ||
       response_id == GTK_RESPONSE_DELETE_EVENT)

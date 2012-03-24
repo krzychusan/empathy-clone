@@ -1383,7 +1383,7 @@ static void
 empathy_call_window_contents_cb (GtkAction *action,
     EmpathyCallWindow *self)
 {
-  empathy_url_show (GTK_WIDGET (self), "help:empathy?audio-video");
+  empathy_url_show (GTK_WIDGET (self), "help:empathy/audio-video");
 }
 
 static void
