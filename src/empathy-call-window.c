@@ -3625,14 +3625,15 @@ empathy_call_window_bus_message (GstBus *bus, GstMessage *message,
           GError *error = NULL;
           GstElement *gst_error;
           gchar *debug;
+          gchar *name;
 
           gst_message_parse_error (message, &error, &debug);
           gst_error = GST_ELEMENT (GST_MESSAGE_SRC (message));
 
           g_message ("Element error: %s -- %s\n", error->message, debug);
 
-          if (g_str_has_prefix (gst_element_get_name (gst_error),
-                VIDEO_INPUT_ERROR_PREFIX))
+          name = gst_element_get_name (gst_error);
+          if (g_str_has_prefix (name, VIDEO_INPUT_ERROR_PREFIX))
             {
               /* Remove the video input and continue */
               if (priv->video_input != NULL)
@@ -3643,6 +3644,7 @@ empathy_call_window_bus_message (GstBus *bus, GstMessage *message,
             {
               empathy_call_window_disconnected (self, TRUE);
             }
+          g_free (name);
           g_error_free (error);
           g_free (debug);
         }
