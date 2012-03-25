@@ -1,0 +1,3425 @@
+# Japanese translation for empathy.
+# Copyright (C) 2011 empathy's COPYRIGHT HOLDER
+# This file is distributed under the same license as the empathy package.
+# Mako N <mako@pasero.net>, 2012.
+#
+# GLOSSARIES:
+# call	通話、呼び出し、呼び出す
+# choose	選ぶ
+# select	指定する
+# contact	相手先
+# contact list	相手先の一覧
+# metacontact	メタ相手先
+# chat	チャット
+# conversation	会話
+# chat room	談話室
+# room	談話室
+# text	文字
+# audio	音声
+# video	ビデオ、映像
+# identifier	名称
+# status	在席状況
+# People Nearby	(訳さない)
+# geolocation	位置情報
+# location	場所
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: empathy master\n"
+"POT-Creation-Date: 2012-03-24 22:41+0000\n"
+"PO-Revision-Date: 2012-03-25 11:00+0900\n"
+"Last-Translator: Mako N <mako@pasero.net>\n"
+"Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "Mako N <mako@pasero.net>, 2012"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#.
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/index.page:28(media)
+msgctxt "_"
+msgid ""
+"external ref='figures/empathy-logo.png' "
+"md5='1afc419a644e90b16393807e35cb5cb2'"
+msgstr ""
+"external ref='figures/empathy-logo.png' "
+"md5='1afc419a644e90b16393807e35cb5cb2'"
+
+#: C/index.page:7(info/title)
+msgctxt "link"
+msgid "Empathy Internet Messenger"
+msgstr "Empathy インターネットメッセンジャー"
+
+#: C/index.page:8(info/title)
+msgctxt "text"
+msgid "Empathy Internet Messenger"
+msgstr "Empathy インターネットメッセンジャー"
+
+#: C/index.page:19(credit/name) C/add-account.page:21(credit/name)
+#: C/audio-call.page:19(credit/name) C/audio-video.page:17(credit/name)
+#: C/create-account.page:19(credit/name)
+#: C/disable-account.page:21(credit/name)
+#: C/favorite-rooms.page:14(credit/name) C/geolocation.page:17(credit/name)
+#: C/geolocation-not-showing.page:17(credit/name)
+#: C/geolocation-privacy.page:17(credit/name)
+#: C/geolocation-supported.page:16(credit/name)
+#: C/geolocation-turn.page:18(credit/name)
+#: C/geolocation-what-is.page:18(credit/name)
+#: C/group-conversations.page:19(credit/name)
+#: C/hide-contacts.page:11(credit/name) C/import-account.page:23(credit/name)
+#: C/introduction.page:13(credit/name) C/irc-commands.page:10(credit/name)
+#: C/irc-join-pwd.page:17(credit/name) C/irc-join-room.page:16(credit/name)
+#: C/irc-manage.page:19(credit/name) C/irc-nick-password.page:18(credit/name)
+#: C/irc-send-file.page:16(credit/name)
+#: C/irc-start-conversation.page:15(credit/name)
+#: C/link-contacts.page:15(credit/name) C/prev-conv.page:17(credit/name)
+#: C/prob-conn-acctdisabled.page:19(credit/name)
+#: C/prob-conn-auth.page:21(credit/name) C/prob-conn-name.page:18(credit/name)
+#: C/prob-conn-neterror.page:19(credit/name)
+#: C/remove-account.page:19(credit/name) C/salut-protocol.page:18(credit/name)
+#: C/send-file.page:21(credit/name) C/set-custom-status.page:19(credit/name)
+#: C/share-desktop.page:14(credit/name) C/status-icons.page:16(credit/name)
+#: C/video-call.page:22(credit/name)
+msgid "Milo Casagrande"
+msgstr "Milo Casagrande"
+
+#: C/index.page:23(license/p) C/account-irc.page:20(license/p)
+#: C/account-jabber.page:18(license/p) C/accounts-window.page:22(license/p)
+#: C/add-account.page:29(license/p) C/add-contact.page:22(license/p)
+#: C/audio-call.page:23(license/p) C/audio-video.page:21(license/p)
+#: C/change-status.page:28(license/p) C/create-account.page:23(license/p)
+#: C/disable-account.page:29(license/p) C/favorite-rooms.page:18(license/p)
+#: C/geolocation.page:21(license/p)
+#: C/geolocation-not-showing.page:21(license/p)
+#: C/geolocation-privacy.page:21(license/p)
+#: C/geolocation-supported.page:20(license/p)
+#: C/geolocation-turn.page:22(license/p)
+#: C/geolocation-what-is.page:22(license/p)
+#: C/group-conversations.page:23(license/p) C/hide-contacts.page:15(license/p)
+#: C/import-account.page:31(license/p) C/introduction.page:17(license/p)
+#: C/irc-commands.page:14(license/p) C/irc-join-pwd.page:21(license/p)
+#: C/irc-join-room.page:20(license/p) C/irc-manage.page:23(license/p)
+#: C/irc-nick-password.page:22(license/p) C/irc-send-file.page:20(license/p)
+#: C/irc-start-conversation.page:19(license/p)
+#: C/link-contacts.page:19(license/p) C/prev-conv.page:25(license/p)
+#: C/prob-conn-acctdisabled.page:23(license/p)
+#: C/prob-conn-auth.page:25(license/p) C/prob-conn-name.page:22(license/p)
+#: C/prob-conn-neterror.page:23(license/p) C/prob-conn.page:18(license/p)
+#: C/remove-account.page:23(license/p) C/salut-protocol.page:22(license/p)
+#: C/send-file.page:25(license/p) C/send-message.page:21(license/p)
+#: C/set-custom-status.page:23(license/p) C/share-desktop.page:22(license/p)
+#: C/status-icons.page:24(license/p) C/video-call.page:26(license/p)
+msgid "Creative Commons Share Alike 3.0"
+msgstr "クリエイティブ・コモンズ・ライセンス 継承 3.0"
+
+#: C/index.page:27(page/title)
+msgid ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/empathy-logo.png\"> "
+"Empathy Internet Messenger logo </media> Empathy Internet Messenger"
+msgstr ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/empathy-logo.png\"> "
+"Empathy インターネットメッセンジャーのロゴ </media> Empathy インターネット"
+"メッセンジャー"
+
+#: C/index.page:35(section/title)
+msgid "Account Management"
+msgstr "アカウントの管理"
+
+#: C/index.page:39(section/title)
+msgid "Contact Management"
+msgstr "相手先の管理"
+
+#: C/index.page:43(section/title)
+msgid "Text Conversations"
+msgstr "文字による会話"
+
+#: C/index.page:47(section/title)
+msgid "Audio and Video Conversations"
+msgstr "音声とビデオによる会話"
+
+#: C/index.page:51(section/title)
+msgid "Advanced Actions"
+msgstr "高度な操作"
+
+#: C/index.page:55(section/title) C/irc-manage.page:57(section/title)
+msgid "Common Problems"
+msgstr "よくある問題"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/account-irc.page:106(media)
+msgctxt "_"
+msgid ""
+"external ref='figures/gtk-add.png' md5='a856b499d8d4681b70b5ce6f25bc5c6d'"
+msgstr ""
+"external ref='figures/gtk-add.png' md5='a856b499d8d4681b70b5ce6f25bc5c6d'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#.
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#.
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#.
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/account-irc.page:109(media) C/prob-conn-auth.page:58(media)
+#: C/prob-conn-name.page:44(media) C/prob-conn-neterror.page:59(media)
+msgctxt "_"
+msgid ""
+"external ref='figures/gtk-edit.png' md5='4f21b451732817be0604fe3e2c8da98b'"
+msgstr ""
+"external ref='figures/gtk-edit.png' md5='4f21b451732817be0604fe3e2c8da98b'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/account-irc.page:112(media)
+msgctxt "_"
+msgid ""
+"external ref='figures/gtk-remove.png' md5='215e3a325a3dd619874e35c30a018bb6'"
+msgstr ""
+"external ref='figures/gtk-remove.png' md5='215e3a325a3dd619874e35c30a018bb6'"
+
+#: C/account-irc.page:8(info/desc)
+msgid "Additional information necessary for connecting to IRC networks."
+msgstr "IRC ネットワークに接続する際に必要な追加情報。"
+
+#: C/account-irc.page:16(credit/name) C/account-jabber.page:14(credit/name)
+#: C/accounts-window.page:18(credit/name) C/add-account.page:25(credit/name)
+#: C/disable-account.page:25(credit/name)
+#: C/import-account.page:27(credit/name) C/prev-conv.page:21(credit/name)
+#: C/status-icons.page:20(credit/name)
+msgid "Shaun McCance"
+msgstr "Shaun McCance"
+
+#: C/account-irc.page:31(page/title)
+msgid "IRC account details"
+msgstr "IRC アカウントの詳細"
+
+#: C/account-irc.page:33(page/p)
+msgid ""
+"IRC accounts require different information than many other types of "
+"accounts. To create an IRC account, you must specify at least an IRC network "
+"and a nickname. This page details the information you can provide for an IRC "
+"account."
+msgstr ""
+"IRC アカウントには、他の多くのアカウントの種類とは異なる情報が必要です。IRC "
+"アカウントを作成するには、少なくとも IRC ネットワークとニックネームを決める必"
+"要があります。このページは、IRC アカウントのための情報を詳しく解説します。"
+
+#: C/account-irc.page:39(note/p) C/irc-manage.page:37(note/p)
+msgid ""
+"You must have the <sys>telepathy-idle</sys> package installed to use IRC in "
+"<app>Empathy</app>."
+msgstr ""
+"<app>Empathy</app> で IRC を使うには、<sys>telepathy-idle</sys> パッケージを"
+"インストールする必要があります。"
+
+#: C/account-irc.page:45(item/title) C/account-irc.page:120(item/title)
+msgid "<gui>Network</gui>"
+msgstr "<gui>ネットワーク</gui>"
+
+#: C/account-irc.page:46(item/p)
+msgid ""
+"IRC is an open system that allows people to run separate IRC networks. Each "
+"network is distinct and has its own users and chat rooms. <app>Empathy</app> "
+"lists the most popular networks in the <gui>Network</gui> drop-down list. "
+"You can add additional networks. See <link xref=\"#networks\"/> below."
+msgstr ""
+"IRC はオープンなシステムであり、様々な IRC ネットワークが存在します。それぞれ"
+"のネットワークは切り離されており、それぞれにユーザーがいて、談話室がありま"
+"す。<app>Empathy</app> は、<gui>ネットワーク</gui> ドロップダウンリストに主な"
+"人気のあるネットワークの一覧を表示します。ネットワークを追加することができま"
+"す。以下の <link xref=\"#networks\"/> を参照してください。"
+
+#: C/account-irc.page:53(item/title)
+msgid "<gui>Nickname</gui>"
+msgstr "<gui>ニックネーム</gui>"
+
+#: C/account-irc.page:54(item/p)
+msgid ""
+"Your nickname is your unique name on the IRC network. Only one person on a "
+"network may use a given nickname. If you get an error message that says "
+"<link xref=\"prob-conn-name\" role=\"error-msg\"/> you will need to change "
+"your nickname."
+msgstr ""
+"ニックネームは、IRC ネットワーク上で唯一のものです。ひとつのネットワークでは"
+"一人だけがそのニックネームを使います。もし <link xref=\"prob-conn-name\" "
+"role=\"error-msg\"/> というエラーメッセージが出たら、ニックネームを変更する必"
+"要があります。"
+
+#: C/account-irc.page:60(item/title)
+msgid "<gui>Password</gui>"
+msgstr "<gui>パスワード</gui>"
+
+#: C/account-irc.page:61(item/p)
+msgid ""
+"Some servers, particularly those on private networks, require a password to "
+"connect. If you are authorized to use the network, the network "
+"administrators should provide you with a password."
+msgstr ""
+"サーバーによっては、特にプライベートなネットワークでは、接続にパスワードを要"
+"求します。そのようなネットワークの使用を認められる場合、ネットワーク管理者が"
+"パスワードを提供するはずです。"
+
+#: C/account-irc.page:65(note/title)
+msgid "NickServ Passwords"
+msgstr "NickServ のパスワード"
+
+#: C/account-irc.page:66(note/p)
+msgid ""
+"On some networks, nicknames can be registered using a service known as "
+"NickServ. <app>Empathy</app> does not directly support nickname passwords. "
+"On some networks, including the popular freenode network, server passwords "
+"are automatically forwarded to NickServ, allowing you to set this field to "
+"identify yourself with NickServ. See <link xref=\"irc-nick-password\"/> for "
+"more details."
+msgstr ""
+"いくつかのネットワークでは、NickServ というサービスでニックネームを登録できま"
+"す。<app>Empathy</app> は直接にはニックネームのパスワードをサポートしません。"
+"人気のある freenode などのいくつかのネットワークでは、サーバーのパスワードを"
+"自動的に NickServ に送り、NickServ での個人認証に、この項を使用します。詳しく"
+"は <link xref=\"irc-nick-password\"/> を参照してください。"
+
+#: C/account-irc.page:76(item/title)
+msgid "<gui>Real name</gui>"
+msgstr "<gui>実名</gui>"
+
+#: C/account-irc.page:77(item/p)
+msgid ""
+"You can provide your real name in addition to your nickname. Other users "
+"will be able to see this when they view your information."
+msgstr ""
+"ニックネームに加えて、実名を提供できます。ほかのユーザーは、あなたの情報を表"
+"示する場合に、これを見ることができます。"
+
+#: C/account-irc.page:81(item/title)
+msgid "<gui>Quit message</gui>"
+msgstr "<gui>終了時メッセージ</gui>"
+
+#: C/account-irc.page:82(item/p)
+msgid ""
+"When you go offline, a quit message is sent to all the chat rooms you’re in "
+"and to all the users you’re having a private conversation with. Use this "
+"field to provide a custom quit message."
+msgstr ""
+"オフラインになるとき、参加しているすべての談話室とプライベート会話中のすべて"
+"の相手先に、終了時のメッセージを送ります。この項は、独自設定の終了時メッセー"
+"ジを提供する場合に使います。"
+
+#: C/account-irc.page:94(info/title)
+msgctxt "link"
+msgid "IRC Networks"
+msgstr "IRC ネットワーク"
+
+#: C/account-irc.page:97(section/title)
+msgid "Networks"
+msgstr "ネットワーク"
+
+#: C/account-irc.page:99(section/p)
+msgid ""
+"<app>Empathy</app> includes a list of popular IRC networks. If you wish to "
+"another IRC network, you can add it to the list. You can also modify "
+"networks and remove them from the list."
+msgstr ""
+"<app>Empathy</app> は、主な IRC ネットワークの一覧を持っています。それ以外の"
+"ネットワークを追加することができます。一覧にあるネットワークの変更や削除もで"
+"きます。"
+
+#: C/account-irc.page:104(item/p)
+msgid ""
+"To add a network to the list, click <media type=\"image\" mime=\"image/png\" "
+"src=\"figures/gtk-add.png\" width=\"16\" height=\"16\">Add</media>."
+msgstr ""
+"一覧にネットワークを追加するには、<media type=\"image\" mime=\"image/png\" "
+"src=\"figures/gtk-add.png\" width=\"16\" height=\"16\">追加</media> をクリッ"
+"クします。"
+
+#: C/account-irc.page:107(item/p)
+msgid ""
+"To modify a network in the list, select the network and click <media type="
+"\"image\" mime=\"image/png\" src=\"figures/gtk-edit.png\" width=\"16\" "
+"height=\"16\">Edit</media>."
+msgstr ""
+"一覧のネットワークを変更するには、ネットワークを指定し、<media type=\"image"
+"\" mime=\"image/png\" src=\"figures/gtk-edit.png\" width=\"16\" height=\"16"
+"\">編集</media>をクリックします。"
+
+#: C/account-irc.page:110(item/p)
+msgid ""
+"To remove a network from the list, select the network and click <media type="
+"\"image\" mime=\"image/png\" src=\"figures/gtk-remove.png\" width=\"16\" "
+"height=\"16\">Remove</media>."
+msgstr ""
+"一覧のネットワークを削除するには、ネットワークを指定し、<media type=\"image"
+"\" mime=\"image/png\" src=\"figures/gtk-remove.png\" width=\"16\" height=\"16"
+"\">削除</media>をクリックします。"
+
+#: C/account-irc.page:115(section/p)
+msgid ""
+"When adding or modifying a network, you can enter the following information:"
+msgstr "ネットワークの追加や変更の場合、次の情報を入力できます。"
+
+#: C/account-irc.page:121(item/p)
+msgid ""
+"This is the name of the network as you want it to appear in the list of "
+"networks."
+msgstr "ネットワークの一覧に表示される、そのネットワークの名前です。"
+
+# 元の語 Charset によらず、「文字エンコーディング」と訳す
+#: C/account-irc.page:125(item/title)
+msgid "<gui>Charset</gui>"
+msgstr "<gui>文字エンコーディング</gui>"
+
+#: C/account-irc.page:126(item/p)
+msgid ""
+"This specifies the character encoding that is typically used on this "
+"network. A character encoding is a specific way of recording characters "
+"internally in a computer. There are many character encodings, and you need "
+"to use the same character encoding as other users to see their messages "
+"correctly."
+msgstr ""
+"このネットワークで主として使われる文字エンコーディングを指定します。文字エン"
+"コーディングは、コンピューターの内部に文字を記録する方法のことです。多くの文"
+"字エンコーディングがありますが、ほかのユーザーのメッセージを正しく表示するに"
+"は、そのユーザーと同じ文字エンコーディングを使う必要があります。"
+
+#: C/account-irc.page:135(item/p)
+msgid ""
+"By default, <app>Empathy</app> uses UTF-8, a modern character encoding that "
+"can handle text from most of the world's languages. Another common encoding "
+"for English and some other Western languages is ISO-8859-1."
+msgstr ""
+"デフォルトでは、<app>Empathy</app> は UTF-8 を使います。UTF-8 は世界中の言語"
+"の大部分を扱うことのできる文字エンコーディングです。英語およびその他の西欧言"
+"語に共通の別の文字エンコーディングは ISO-8859-1 です。"
+
+#: C/account-irc.page:141(item/title)
+msgid "<gui>Servers</gui>"
+msgstr "<gui>サーバー</gui>"
+
+#: C/account-irc.page:142(item/p)
+msgid ""
+"An IRC network may have many servers you can connect to. When you are "
+"connected to a server on a particular network, you can communicate with all "
+"users on all other servers on that network. You can add and remove servers "
+"for this network using the <gui>Add</gui> and <gui>Remove</gui> buttons."
+msgstr ""
+"ひとつの IRC ネットワークに接続可能なサーバーが数多くあることがあります。ある"
+"ネットワークのひとつのサーバーに接続すれば、そのネットワークのほかのすべての"
+"サーバーのすべてのユーザーと交流できます。このネットワークで使用するサーバー"
+"を、<gui>追加</gui> と <gui>削除</gui> ボタンで、追加・削除できます。"
+
+#: C/account-irc.page:147(item/p)
+msgid ""
+"When a server is selected, click the field under <gui>Server</gui> or "
+"<gui>Port</gui> to edit it. Alternatively, use the left and right arrow keys "
+"to focus the field, and press the space bar to begin editing."
+msgstr ""
+"サーバーを指定して、<gui>サーバー</gui> や <gui>ポート</gui> の下の項をクリッ"
+"クして編集します。別の方法として、左右の矢印キーで項を指し、スペースバーを押"
+"して編集を始めます。"
+
+#: C/account-irc.page:151(item/p)
+msgid ""
+"Select the check box in the <gui>SSL</gui> column to encrypt all "
+"communication with a server. Note that this does not prevent other users on "
+"the network from seeing what you write on public chat rooms."
+msgstr ""
+"<gui>SSL</gui> の列のボックスをチェックすると、サーバーとのすべての通信を暗号"
+"化します。これは、公開の談話室に書いたものをネットワークのほかのユーザーが見"
+"ることを妨げないことに注意してください。"
+
+#: C/account-jabber.page:7(info/desc)
+msgid "Advanced options for Jabber and Google Talk accounts."
+msgstr "Jabber や Google トークのアカウントの詳細オプションについて。"
+
+#: C/account-jabber.page:29(page/title)
+msgid "Jabber account details"
+msgstr "Jabber アカウントの詳細"
+
+#: C/account-jabber.page:31(page/p)
+msgid ""
+"Most Jabber accounts will require only a login ID and a password to connect. "
+"For some accounts or on certain types of networks, you may need to enter "
+"additional information in the <gui>Advanced</gui> section. Normally, you "
+"will not need to use the advanced options below. For general instructions on "
+"adding an account, see <link xref=\"add-account\"/>."
+msgstr ""
+"ほとんどの Jabber アカウントは、ログイン ID とパスワードだけが必要です。いく"
+"つかのアカウントやネットワークの種類では、<gui>詳細</gui> セクションに追加情"
+"報を入力する必要があります。通常、以下の詳細情報は必要ありません。一般的なア"
+"カウントの追加の説明は、<link xref=\"add-account\"/> を参照してください。"
+
+#: C/account-jabber.page:39(note/p)
+msgid ""
+"Google Talk is a type of Jabber account. These instructions hold for Google "
+"Talk accounts as well."
+msgstr ""
+"Google トークは、Jabber アカウントの一種です。この説明は Google トークについ"
+"ても当てはまります。"
+
+#: C/account-jabber.page:45(item/title)
+msgid "<gui>Encryption required (TLS/SSL)</gui>"
+msgstr "<gui>TLS/SSL での暗号化が必要</gui>"
+
+#: C/account-jabber.page:46(item/title)
+msgid "<gui>Ignore SSL certificate errors</gui>"
+msgstr "<gui>SSL の証明書に関連するエラーは無視</gui>"
+
+#: C/account-jabber.page:47(item/p)
+msgid ""
+"Whenever possible, communication between <app>Empathy</app> and the Jabber "
+"server is encrypted. If encrypted communication is not possible, messages "
+"may be sent unencrypted. Select <gui>Encryption required</gui> to prevent "
+"<app>Empathy</app> from communicating with the Jabber server when encryption "
+"is not possible."
+msgstr ""
+"可能な限り、<app>Empathy</app> と Jabber サーバーの通信は暗号化されます。暗号"
+"化通信ができない場合、メッセージは暗号化されずに送られます。<gui>暗号化が必要"
+"</gui> を指定すると、暗号化ができない場合には <app>Empathy</app> と Jabber "
+"サーバーとの通信を行いません。"
+
+#: C/account-jabber.page:52(item/p)
+msgid ""
+"Some Jabber servers may encrypt data using invalid certificates, or using "
+"certificates from unknown authorities. If you trust the server you are "
+"connecting to, you can select <gui>Ignore SSL certificate errors</gui> to "
+"allow encrypted communication with invalid certificates."
+msgstr ""
+"Jabber サーバーのなかには、有効でない証明書や不明の認証局の証明書を使って暗号"
+"化するものがあります。そのサーバーを信頼して接続するには、<gui>SSL の証明書に"
+"関連するエラーは無視</gui> を指定し、有効でない証明書で暗号化通信を行うことが"
+"できます。"
+
+#: C/account-jabber.page:59(item/title)
+msgid "<gui>Resource</gui>"
+msgstr "<gui>リソース</gui>"
+
+#: C/account-jabber.page:60(item/title)
+msgid "<gui>Priority</gui>"
+msgstr "<gui>優先度</gui>"
+
+#: C/account-jabber.page:61(item/p)
+msgid ""
+"If you have multiple applications (for instance, on separate computers) "
+"connected to your account at the same time, you can set a resource to "
+"uniquely identify each one. By default, <app>Empathy</app> will use "
+"<input>Telepathy</input> as the resource."
+msgstr ""
+"複数のアプリケーション (たとえば、別のコンピューター) を使って、ひとつのアカ"
+"ウントに同時に接続する場合、それぞれを区別するためにリソースを設定することが"
+"できます。デフォルトで、<app>Empathy</app> はリソースとして "
+"<input>Telepathy</input> を使います。"
+
+#: C/account-jabber.page:65(item/p)
+msgid ""
+"You can set the priority to specify which application should receive "
+"incoming messages from your contacts. New messages will be sent to the "
+"application with the highest priority."
+msgstr ""
+"相手先からのメッセージをどちらのアプリケーションで受け取るか、優先度を設定で"
+"きます。新しいメッセージは優先度の高いほうに送られます。"
+
+#: C/account-jabber.page:70(item/title)
+msgid "<gui>Override server settings</gui>"
+msgstr "<gui>サーバーの設定を上書き</gui>"
+
+#: C/account-jabber.page:71(item/p)
+msgid ""
+"<app>Empathy</app> will use default settings to connect to the Jabber server "
+"based on your login ID. For some Jabber servers, you will need to enter "
+"custom server settings manually. These settings should be provided for you "
+"by your Jabber provider."
+msgstr ""
+"<app>Empathy</app> は、ログイン ID に基づき、デフォルトの設定で Jabber サー"
+"バーに接続しようとします。なかには手動でサーバー設定を入力する必要がある "
+"Jabber サーバーもあります。これらの設定情報は Jabber プロバイダーから配布され"
+"るはずです。"
+
+#: C/accounts-window.page:11(info/desc)
+msgid "Add, modify, and delete accounts."
+msgstr "アカウントを追加、変更、削除します。"
+
+#: C/accounts-window.page:33(page/title)
+msgid "Accounts Window"
+msgstr "アカウントウィンドウ"
+
+#: C/accounts-window.page:35(page/p)
+msgid ""
+"The <gui>Accounts</gui> window allows you to add, modify, and delete "
+"accounts."
+msgstr ""
+"<gui>アカウント</gui> ウィンドウで、アカウントを追加、変更、削除できます。"
+
+#: C/accounts-window.page:43(section/title)
+msgid "Account Details"
+msgstr "アカウントの詳細"
+
+#: C/accounts-window.page:44(section/p)
+msgid ""
+"For most types of accounts, you can simply enter a login ID and a password. "
+"Certain accounts or account types, however, may require additional "
+"information."
+msgstr ""
+"ほとんどのアカウントの種類で、ログイン ID とパスワードを入力するだけです。し"
+"かし、それに加えて情報が必要なアカウントやアカウントの種類もあります。"
+
+#: C/add-account.page:9(info/desc)
+msgid "Add a new account to <app>Empathy</app>."
+msgstr "<app>Empathy</app> に新しいアカウントを追加します。"
+
+#: C/add-account.page:40(page/title)
+msgid "Add a new account"
+msgstr "新規アカウントの追加"
+
+#: C/add-account.page:42(page/p)
+msgid ""
+"You can add instant messaging accounts from any supported service to "
+"communicate with all of your contacts in <app>Empathy</app>. For some "
+"account providers, these steps will also allow you to register for a new "
+"account. For more details, see <link xref=\"create-account\"/>."
+msgstr ""
+"<app>Empathy</app> でさまざまな相手先と連絡を取るために、<app>Empathy</app> "
+"がサポートするインスタントメッセージのアカウントを追加することができます。い"
+"くつかのアカウント発行元では、この段階で新規アカウントの作成もできます。詳し"
+"くは<link xref=\"create-account\"/>を参照してください。"
+
+#: C/add-account.page:49(item/p) C/disable-account.page:49(item/p)
+#: C/irc-nick-password.page:50(item/p) C/remove-account.page:43(item/p)
+msgid ""
+"From the <gui>Contact List</gui> window, choose <guiseq><gui>Edit</gui> "
+"<gui>Accounts</gui></guiseq>, or press <key>F4</key>."
+msgstr ""
+"<gui>相手先の一覧</gui> ウィンドウから、<guiseq><gui>編集</gui> <gui>アカウン"
+"ト</gui></guiseq> を選ぶか、<key>F4</key> を押します。"
+
+#: C/add-account.page:53(item/p)
+msgid "Click <gui style=\"button\">+</gui>."
+msgstr "<gui style=\"button\">+</gui> をクリックします。"
+
+# Protocol は廃止されたようだ
+#: C/add-account.page:58(item/p)
+msgid ""
+"From the <gui>Protocol</gui> drop-down list, select the type of account you "
+"wish to add."
+msgstr ""
+"<gui>プロトコル</gui> ドロップダウンリストから、追加するアカウントの種類を選"
+"びます。"
+
+#: C/add-account.page:62(item/p)
+msgid ""
+"If you do not already have a registered account, select <gui>Create a new "
+"account on the server</gui>. This feature is not available for all account "
+"types, and may not work with some account providers. See <link xref=\"create-"
+"account\"/> for more information."
+msgstr ""
+"登録済みのアカウントをまだ持っていないなら、<gui>サーバーで新しいアカウントを"
+"作る</gui>を選びます。この機能はすべてのアカウントの種類で利用できるわけでは"
+"ありませんし、アカウント配布元によっては機能しません。詳しくは <link xref="
+"\"create-account\"/> を参照してください。"
+
+#: C/add-account.page:69(item/p)
+msgid ""
+"Enter the required information. For most accounts, you will only need a "
+"login ID and a password. Some accounts may require additional information. "
+"See <link xref=\"accounts-window#details\"/>for more information."
+msgstr ""
+"必要な情報を入力します。ほとんどのアカウントでは、ログイン ID とパスワードの"
+"みが必要です。さらに追加情報が必要なアカウントもあります。詳しくは <link "
+"xref=\"accounts-window#details\"/> を参照してください。"
+
+# Apply は廃止されたようだ。
+#: C/add-account.page:74(item/p) C/import-account.page:61(item/p)
+#: C/irc-nick-password.page:63(item/p)
+msgid "Click <gui style=\"button\">Apply</gui>."
+msgstr "<gui style=\"button\">適用</gui> をクリックします。"
+
+#: C/add-account.page:81(note/p)
+msgid ""
+"To change the name that identifies the account in the <gui>Accounts</gui> "
+"window, select the account from the list on the left and either click on the "
+"name or press the space bar. Edit the account name and press <key>Enter</"
+"key> when you’re finished."
+msgstr ""
+"<gui>アカウント</gui> ウィンドウで、アカウントを識別するための名前を変更する"
+"には、左側の一覧でアカウントを選び、名前をクリックするかスペースバーを押しま"
+"す。アカウント名を編集し、終わったら <key>Enter</key> を押します。"
+
+#: C/add-contact.page:9(info/desc)
+msgid "Add someone to the contact list."
+msgstr "だれかを相手先の一覧に追加します。"
+
+#: C/add-contact.page:18(credit/name) C/change-status.page:24(credit/name)
+#: C/prob-conn-acctdisabled.page:15(credit/name)
+#: C/prob-conn-auth.page:17(credit/name)
+#: C/prob-conn-neterror.page:15(credit/name) C/prob-conn.page:14(credit/name)
+#: C/send-file.page:17(credit/name) C/send-message.page:17(credit/name)
+msgid "Phil Bull"
+msgstr "Phil Bull"
+
+#: C/add-contact.page:33(page/title)
+msgid "Add someone to your list of contacts"
+msgstr "相手先の一覧への追加"
+
+#: C/add-contact.page:37(item/p)
+msgid "Choose <guiseq><gui>Chat</gui><gui>Add Contact</gui></guiseq>."
+msgstr ""
+"<guiseq><gui>チャット</gui><gui>相手先を追加</gui></guiseq>を選びます。"
+
+#: C/add-contact.page:40(item/p)
+msgid ""
+"From the <gui>Account</gui> drop-down list, select the account you wish to "
+"use to connect to your contact. Your contact will need to be using the same "
+"service as the account you select."
+msgstr ""
+"<gui>アカウント</gui> ドロップダウンリストから、相手先に接続したいアカウント"
+"を指定します。相手先は、そのアカウントと同じサービスを利用していることが必要"
+"です。"
+
+#: C/add-contact.page:45(item/p)
+msgid ""
+"In the <gui>Identifier</gui> field, enter your contact’s login ID, username, "
+"screen name, or other appropriate identifier for the service type."
+msgstr ""
+"<gui>名称</gui> 欄に、相手先のログイン ID、ユーザー名、スクリーン名など、サー"
+"ビスの種類に応じた適切な名称を入力します。"
+
+#: C/add-contact.page:49(item/p)
+msgid ""
+"In the <gui>Alias</gui> field, type your contact’s name as you would like it "
+"to appear in your contact list."
+msgstr "<gui>別名</gui> 欄に、相手先の一覧に表示させたい名前を入力します。"
+
+#: C/add-contact.page:53(item/p)
+msgid "Click <gui>Add</gui> to add the person to your list of contacts."
+msgstr "<gui>追加</gui> をクリックして、相手先の一覧にその人を追加します。"
+
+#: C/add-contact.page:61(note/p)
+msgid ""
+"To add a new person to your list of contacts, you need to be connected to "
+"the Internet and to your account."
+msgstr ""
+"相手先の一覧に新しい人を追加するには、インターネットに接続し、その相手先に接"
+"続していることが必要です。"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#.
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#.
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/audio-call.page:36(media) C/audio-video.page:70(media)
+#: C/video-call.page:39(media)
+msgctxt "_"
+msgid ""
+"external ref='figures/camera-web.png' md5='8166b4372f25b78cbf5a64fe2eac2ce5'"
+msgstr ""
+"external ref='figures/camera-web.png' md5='8166b4372f25b78cbf5a64fe2eac2ce5'"
+
+#: C/audio-call.page:9(info/desc)
+msgid "Call your contacts over the Internet."
+msgstr "インターネットで通話します。"
+
+#: C/audio-call.page:27(page/title)
+msgid "Start an audio conversation"
+msgstr "音声会話の開始"
+
+#: C/audio-call.page:29(page/p)
+msgid ""
+"You can call your contacts and have an audio conversation with them. This "
+"features only works with certain types of accounts, and it requires the "
+"other person to have an application that supports audio calls."
+msgstr ""
+"相手先と音声会話ができます。この機能は、アカウントの種類が対応しており、相手"
+"先が音声通話をサポートしたアプリケーションを使用している場合にのみ働きます。"
+
+#: C/audio-call.page:34(item/p)
+msgid ""
+"From the <gui>Contact List</gui> window, click the <media type=\"image\" "
+"mime=\"image/png\" src=\"figures/camera-web.png\">video call</media> icon "
+"next to the name of the contact you wish to call and choose <gui style="
+"\"menuitem\">Audio Call</gui>."
+msgstr ""
+"<gui>相手先の一覧</gui> ウィンドウから、通話したい相手先の名前の横にある"
+"<media type=\"image\" mime=\"image/png\" src=\"figures/camera-web.png"
+"\">video call</media> アイコンをクリックし、<gui style=\"menuitem\">音声通話"
+"</gui> を選びます。"
+
+#: C/audio-call.page:42(item/p) C/video-call.page:44(item/p)
+msgid ""
+"A new window will open. When the connection is established, you will see "
+"<gui>Connected</gui> at the bottom of the window, along with the total "
+"conversation time."
+msgstr ""
+"新しいウィンドウが開きます。接続が確立すると、ウィンドウの最下部に<gui>オンラ"
+"イン</gui> と表示され、その脇に会話時間も表示されます。"
+
+#: C/audio-call.page:48(item/p) C/video-call.page:49(item/p)
+msgid "To end the conversation, click on <gui style=\"button\">Hang up</gui>."
+msgstr ""
+"会話を終了するには、<gui style=\"button\">接続を切る</gui>をクリックします。"
+
+#: C/audio-call.page:55(note/p)
+msgid ""
+"To turn an audio conversation into a video conversation, choose <guiseq><gui "
+"style=\"menu\">Video</gui> <gui style=\"menuitem\">Video On</gui></guiseq>."
+msgstr ""
+"音声会話をビデオ会話に切り替えるには、<guiseq><gui style=\"menu\">ビデオ</"
+"gui> <gui style=\"menuitem\">ビデオ入</gui></guiseq>を選びます。"
+
+#: C/audio-call.page:63(section/title)
+msgid "Start an audio conversation with a meta-contact"
+msgstr "メタ相手先との音声会話の開始"
+
+#: C/audio-call.page:66(item/p) C/send-message.page:53(item/p)
+#: C/video-call.page:64(item/p)
+msgid ""
+"From the <gui>Contact List</gui> window, right-click on the meta-contact."
+msgstr "<gui>相手先の一覧</gui> ウィンドウから、メタ相手先を右クリックします。"
+
+#: C/audio-call.page:71(item/p)
+msgid ""
+"Select the contact you want to have the conversation, and from the menu "
+"select <gui style=\"menuitem\">Audio Call</gui>."
+msgstr ""
+"会話したい相手先を選び、メニューから <gui style=\"menuitem\">音声会話</gui> "
+"を指定します。"
+
+#: C/audio-call.page:78(note/p) C/send-message.page:65(note/p)
+#: C/video-call.page:76(note/p)
+msgid ""
+"To recognize if a contact is a <em>meta-contact</em>, move your mouse on a "
+"contact in the <gui>Contact List</gui> window, and stop over it for a "
+"second: a small pop-up message will appear showing the number of the "
+"contacts that form the meta-contact."
+msgstr ""
+"<em>メタ相手先</em>かどうかを調べるには、<gui>相手先の一覧</gui> ウィンドウの"
+"相手先の上にマウスを移動し、数秒間その上に止めます。小さなポップアップ・メッ"
+"セージが現れ、メタ相手先に含まれる相手先の数が表示されます。"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/audio-video.page:58(media)
+msgctxt "_"
+msgid ""
+"external ref='figures/audio-input-microphone.png' "
+"md5='8d89026b66a263a3bc5b1f0665948567'"
+msgstr ""
+"external ref='figures/audio-input-microphone.png' "
+"md5='8d89026b66a263a3bc5b1f0665948567'"
+
+#: C/audio-video.page:8(info/desc)
+msgid ""
+"Information on when it is possible to have an audio or video conversation."
+msgstr "音声またはビデオの会話はどのようなときに可能かについての情報。"
+
+#: C/audio-video.page:32(page/title)
+msgid "Audio and video support"
+msgstr "音声とビデオのサポート"
+
+#: C/audio-video.page:34(page/p)
+msgid ""
+"You can only have audio and video conversation with contacts who are using "
+"an application which also supports this feature. When your contacts support "
+"audio or video conversations, you will see the following icons next to their "
+"names in the contact list:"
+msgstr ""
+"音声およびビデオの会話ができるのは、この機能をサポートしたアプリケーションを"
+"使用している相手先のみです。相手先が音声またはビデオの会話をサポートしている"
+"場合、相手先の一覧で、相手先の名前の横に次のようなアイコンが表示されます。"
+
+#: C/audio-video.page:43(td/p)
+msgid "Icon"
+msgstr "アイコン"
+
+#: C/audio-video.page:48(td/p)
+msgid "Description"
+msgstr "説明"
+
+#: C/audio-video.page:57(td/p)
+msgid ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/audio-input-"
+"microphone.png\"> Icon for audio conversation </media>"
+msgstr ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/audio-input-"
+"microphone.png\"> 音声通話のアイコン </media>"
+
+#: C/audio-video.page:64(td/p)
+msgid "The contact is able to have an audio conversation."
+msgstr "この相手先は音声会話が可能です。"
+
+#: C/audio-video.page:69(td/p)
+msgid ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/camera-web.png\"> "
+"Icon for video conversation </media>"
+msgstr ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/camera-web.png\"> ビデ"
+"オ会話のアイコン </media>"
+
+#: C/audio-video.page:76(td/p)
+msgid "The contact is able to have a video conversation."
+msgstr "この相手先はビデオ会話が可能です。"
+
+#: C/audio-video.page:83(note/p)
+msgid ""
+"In order to have an audio conversation, you need to have a sound card that "
+"is supported by your operating system, and a working microphone."
+msgstr ""
+"音声会話を行うためには、OS がサポートしているサウンドカード、およびマイクロ"
+"フォンが必要です。"
+
+#: C/audio-video.page:87(note/p)
+msgid ""
+"In order to have a video conversation, you need to have a webcam that is "
+"supported by your operating system, and a working microphone."
+msgstr ""
+"ビデオ会話を行うためには、OS がサポートしているウェブカメラ、およびマイクロ"
+"フォンが必要です。"
+
+#: C/audio-video.page:95(section/title)
+msgid "Supported Account Types"
+msgstr "サポートされているアカウントの種類"
+
+#: C/audio-video.page:97(section/p)
+msgid ""
+"You can only have audio and video conversations using accounts on certain "
+"supported services. The following table lists whether audio and video is "
+"supported for each type of account."
+msgstr ""
+"音声およびビデオの会話ができるのは、この機能をサポートしているサービスのアカ"
+"ウントを使用している場合のみです。次の表に、それぞれのアカウントの種類が音声"
+"とビデオをサポートしているかを示します。"
+
+#: C/audio-video.page:102(note/p)
+msgid ""
+"Account types are provided by plugins. Your system may not have all of the "
+"following types available, or it may have types not listed here. Updated "
+"plugins may make audio or video conversations possible on account types that "
+"are listed as unsupported here."
+msgstr ""
+"アカウントの種類は、プラグインが提供します。次の表のすべてが有効でない、また"
+"は表にない種類が有効である場合があります。この表でサポートされないとなってい"
+"るアカウントの種類でも、プラグインを更新すると音声またはビデオの会話が可能と"
+"なる場合があります。"
+
+#: C/audio-video.page:128(td/p)
+msgid "Service"
+msgstr "サービス名"
+
+#: C/audio-video.page:129(td/p)
+msgid "Audio"
+msgstr "音声"
+
+#: C/audio-video.page:130(td/p)
+msgid "Video"
+msgstr "ビデオ"
+
+#: C/audio-video.page:135(td/p)
+msgid "AIM"
+msgstr "AIM"
+
+#: C/audio-video.page:136(td/p) C/audio-video.page:137(td/p)
+#: C/audio-video.page:141(td/p) C/audio-video.page:142(td/p)
+#: C/audio-video.page:146(td/p) C/audio-video.page:147(td/p)
+#: C/audio-video.page:156(td/p) C/audio-video.page:157(td/p)
+#: C/audio-video.page:161(td/p) C/audio-video.page:162(td/p)
+#: C/audio-video.page:166(td/p) C/audio-video.page:167(td/p)
+#: C/audio-video.page:181(td/p) C/audio-video.page:182(td/p)
+#: C/audio-video.page:186(td/p) C/audio-video.page:187(td/p)
+#: C/audio-video.page:191(td/p) C/audio-video.page:192(td/p)
+#: C/audio-video.page:196(td/p) C/audio-video.page:197(td/p)
+#: C/audio-video.page:201(td/p) C/audio-video.page:202(td/p)
+#: C/audio-video.page:211(td/p) C/audio-video.page:212(td/p)
+#: C/audio-video.page:216(td/p) C/audio-video.page:217(td/p)
+msgid "No"
+msgstr "不可"
+
+#: C/audio-video.page:140(td/p)
+msgid "Facebook Chat"
+msgstr "Facebook Chat"
+
+#: C/audio-video.page:145(td/p)
+msgid "gadugadu"
+msgstr "gadugadu"
+
+#: C/audio-video.page:150(td/p)
+msgid "Google Talk"
+msgstr "Google トーク"
+
+#: C/audio-video.page:151(td/p) C/audio-video.page:152(td/p)
+#: C/audio-video.page:171(td/p) C/audio-video.page:172(td/p)
+#: C/audio-video.page:176(td/p) C/audio-video.page:177(td/p)
+#: C/audio-video.page:206(td/p) C/audio-video.page:207(td/p)
+msgid "Yes"
+msgstr "可"
+
+#: C/audio-video.page:155(td/p)
+msgid "Groupwise"
+msgstr "Groupwise"
+
+#: C/audio-video.page:160(td/p)
+msgid "ICQ"
+msgstr "ICQ"
+
+#: C/audio-video.page:165(td/p) C/create-account.page:107(section/title)
+msgid "IRC"
+msgstr "IRC"
+
+#: C/audio-video.page:170(td/p) C/create-account.page:60(section/title)
+msgid "Jabber"
+msgstr "Jabber"
+
+#: C/audio-video.page:175(td/p)
+msgid "MSN"
+msgstr "MSN"
+
+#: C/audio-video.page:180(td/p)
+msgid "myspace"
+msgstr "myspace"
+
+#: C/audio-video.page:185(td/p)
+msgid "qq"
+msgstr "qq"
+
+#: C/audio-video.page:190(td/p) C/create-account.page:78(section/title)
+msgid "People Nearby"
+msgstr "People Nearby"
+
+#: C/audio-video.page:195(td/p)
+msgid "sametime"
+msgstr "sametime"
+
+#: C/audio-video.page:200(td/p)
+msgid "silc"
+msgstr "silc"
+
+#: C/audio-video.page:205(td/p) C/create-account.page:89(section/title)
+msgid "SIP"
+msgstr "SIP"
+
+#: C/audio-video.page:210(td/p)
+msgid "Yahoo!"
+msgstr "Yahoo!"
+
+#: C/audio-video.page:215(td/p)
+msgid "zephyr"
+msgstr "zephyr"
+
+#: C/change-status.page:9(info/desc)
+msgid "Change your status to advertise your availability to your contacts."
+msgstr "相手先に自分の状態を知らせるために、在席状況を変更します。"
+
+#: C/change-status.page:39(page/title)
+msgid "Change your status"
+msgstr "在席状況の変更"
+
+#: C/change-status.page:41(page/p)
+msgid ""
+"You can set your status to indicate your availability to your contacts. "
+"<app>Empathy</app> allows you to select from a list of defined statuses."
+msgstr ""
+"相手先にあなたの状態を示すため、在席状況を設定できます。<app>Empathy</app> で"
+"は、定義済みの在席状況から選択できます。"
+
+#: C/change-status.page:46(item/p)
+msgid ""
+"Click on the drop-down list at the top of the <gui>Contact List</gui> window."
+msgstr ""
+"<gui>相手先の一覧</gui> ウィンドウの最上部のドロップダウンリストをクリックし"
+"ます。"
+
+#: C/change-status.page:51(item/p)
+msgid "Select a status from the list."
+msgstr "一覧から在席状況を選択します。"
+
+#: C/change-status.page:57(page/p)
+msgid ""
+"See <link xref=\"status-icons\"/> for a list of the built-in statuses and "
+"what they mean. You can also <link xref=\"set-custom-status\">add custom "
+"status messages</link> to provide more information about your availability "
+"to your contacts."
+msgstr ""
+"定義済みの在席状況とその意味は <link xref=\"status-icons\"/> を参照してくださ"
+"い。<link xref=\"set-custom-status\">独自の在席状況メッセージを追加</link> し"
+"て、相手先にあなたの状態について詳しく示すこともできます。"
+
+#: C/change-status.page:63(note/p)
+msgid ""
+"If you do not use your computer for a while, or if the screensaver is on, "
+"the status will be automatically set to Away."
+msgstr ""
+"一定時間コンピューターを操作しない場合、またはスクリーンセーバーが動いている"
+"場合、在席状況は自動的に「離席中」になります。"
+
+#: C/create-account.page:9(info/desc)
+msgid "Register for an account with one of the supported messaging services."
+msgstr "対応しているメッセージングサービスにアカウントを登録します。"
+
+#: C/create-account.page:34(page/title)
+msgid "Register for a new account"
+msgstr "新しいアカウントの登録"
+
+#: C/create-account.page:36(page/p)
+msgid ""
+"Most account types require you to create an account with a account provider "
+"before you can connect using instant messaging applications like "
+"<app>Empathy</app>. With some account providers, you can use <app>Empathy</"
+"app> to register for a new account, using the same steps as you would to "
+"<link xref=\"add-account\">add an account</link>."
+msgstr ""
+"ほとんどのアカウントの種類は、<app>Empathy</app> のようなインスタントメッセー"
+"ジング・アプリケーションで接続する前にアカウント配布元でアカウントを作成して"
+"おく必要があります。アカウント配布元によっては、<app>Empathy</app> を使って、"
+"<link xref=\"add-account\">アカウントの追加</link> と同じ手順で、新しいアカウ"
+"ントを登録することができます。"
+
+#: C/create-account.page:42(page/p)
+msgid ""
+"This page provides information on creating a new account for various types "
+"of accounts. Your account provider should give you a login ID and a "
+"password, as well as any additional information you need to connect using "
+"<app>Empathy</app>."
+msgstr ""
+"このページは、種々のアカウントの新規作成についての情報を提供します。アカウン"
+"ト配布元はログイン ID とパスワード、それに <app>Empathy</app> を用いて接続す"
+"るのに必要な追加の情報を提供するでしょう。"
+
+#: C/create-account.page:47(section/title)
+msgid "Facebook"
+msgstr "Facebook"
+
+#: C/create-account.page:48(section/p)
+msgid ""
+"Facebook is one of the most-used social networks. It allows users to create "
+"their own profile and to communicate with their friends."
+msgstr ""
+"Facebook は最もよく利用されているソーシャルネットワークのひとつです。ユーザー"
+"は自身のプロフィールを作成でき、友人たちと交流できます。"
+
+#: C/create-account.page:52(section/p)
+msgid ""
+"To use Facebook to communicate with your friends, you will need to create a "
+"new account from the website: <link href=\"http://www.facebook.com\">www."
+"facebook.com</link>."
+msgstr ""
+"Facebook を利用して友人たちと交流するには、ウェブサイト <link href=\"http://"
+"www.facebook.com\">www.facebook.com</link> で新しくアカウントを作成する必要が"
+"あります。"
+
+#: C/create-account.page:62(section/p)
+msgid ""
+"Jabber is an open instant messaging system. Like email, Jabber allows you to "
+"choose your account provider and communicate with all other Jabber users, "
+"regardless of their account provider."
+msgstr ""
+"Jabber はオープンなインスタントメッセージング・システムです。電子メールのよう"
+"に、アカウント配布元を選ぶことができ、その配布元に関係なく、すべての Jabber "
+"ユーザーと交流できます。"
+
+#: C/create-account.page:66(section/p)
+msgid ""
+"You will need to create a new account with a Jabber provider. There are many "
+"free providers; one popular provider is <link href=\"http://register.jabber."
+"org/\">Jabber.org</link>."
+msgstr ""
+"Jabber アカウントの配布元でアカウントを作成する必要があります。多くの無料の配"
+"布元があります。人気の配布元のひとつは <link href=\"http://register.jabber."
+"org/\">Jabber.org</link> です。"
+
+#: C/create-account.page:71(note/p)
+msgid ""
+"If you use Google Mail or Google Talk, you already have a Jabber account. "
+"Google Talk is a Jabber service. Simply use your Google Mail address and "
+"password in <app>Empathy</app> to connect."
+msgstr ""
+"Google Mail や Google トークを使っているなら、すでに Jabber アカウントを持っ"
+"ていることになります。Google トークは Jabber サービスのひとつです。"
+"<app>Empathy</app> での接続に、単に Google Mail アドレスとパスワードを使って"
+"ください。"
+
+#: C/create-account.page:80(section/p)
+msgid ""
+"You do not need to create an account with a service provider to use this "
+"feature. This service works whenever you are connected to a local network, "
+"such as a wireless hotspot. It automatically finds all other users on the "
+"network who are also using this service."
+msgstr ""
+"この機能を使うために新しいアカウントを作成する必要はありません。このサービス"
+"はローカルネットワークに接続 (無線ホットスポットなど) すると働きます。その"
+"ネットワークに接続してこのサービスを利用している他のすべてのユーザーを自動的"
+"に見つけます。"
+
+#: C/create-account.page:85(section/p)
+msgid "For more information, see <link xref=\"salut-protocol\"/>."
+msgstr "詳しい情報は <link xref=\"salut-protocol\"/> を参照してください。"
+
+#: C/create-account.page:91(section/p)
+msgid ""
+"SIP is an open system which allows users to have audio and video "
+"conversations over the Internet. You need to create an account with a SIP "
+"provider. You can communicate with all other SIP users, regardless of which "
+"SIP provider they use."
+msgstr ""
+"SIP は、インターネット上で音声・映像の会話ができるオープンなシステムです。"
+"SIP プロバイダーでアカウントを作成する必要があります。どの SIP プロバイダーを"
+"利用しているかに関係なく、すべての SIP ユーザーと交流できます。"
+
+#: C/create-account.page:97(note/p)
+msgid ""
+"Due to technical differences, the free <link href=\"https://www.ekiga.net/"
+"index.php?page=register\">Ekiga.net</link> service does not currently work "
+"with <app>Empathy</app>."
+msgstr ""
+"技術的な差異のため、無料の <link href=\"https://www.ekiga.net/index.php?"
+"page=register\">Ekiga.net</link> サービスは現在のところ <app>Empathy</app> で"
+"は使えません。"
+
+#: C/create-account.page:102(section/p)
+msgid ""
+"Some SIP providers allow you to call normal phones from your computer. "
+"Generally, you will need to subscribe to a paid service for this feature."
+msgstr ""
+"いくつかの SIP プロバイダーでは、あなたのコンピューターから通常の電話への通話"
+"ができます。一般に、この機能のためには有料サービスの契約が必要です。"
+
+#: C/create-account.page:109(section/p)
+msgid ""
+"You do not need to register for an account to use IRC. Although you specify "
+"a nickname when you add an IRC account to <app>Empathy</app>, this nickname "
+"is only established each time you connect. If another user is using the "
+"nickname, you will need to choose a new nickname."
+msgstr ""
+"IRC を利用するために、アカウントを登録する必要はありません。<app>Empathy</"
+"app> に IRC のアカウントを追加する際にニックネームを指定しますが、このニック"
+"ネームは接続するたびに確立されます。もし別のユーザーがそのニックネームを使っ"
+"ていたら、新しいニックネームを選ぶ必要があります。"
+
+#: C/create-account.page:114(section/p)
+msgid ""
+"Some IRC networks use a service called NickServ to allow users to protect "
+"their nicknames. See <link xref=\"irc-nick-password\"/> for more information."
+msgstr ""
+"ユーザーのニックネームを保護するために、NickServ というサービスを使っている "
+"IRC ネットワークもあります。詳しくは <link xref=\"irc-nick-password\"/> を参"
+"照してください。"
+
+#: C/create-account.page:117(section/p)
+msgid ""
+"Some IRC servers are password protected. You will need to know the password "
+"to connect to these servers. Generally, these are private IRC networks."
+msgstr ""
+"いくつかの IRC サーバーはパスワードで保護されています。それらのサーバーに接続"
+"するにはパスワードを知っている必要があります。一般に、パスワードは IRC ネット"
+"ワークが配布します。"
+
+#: C/create-account.page:122(section/title)
+msgid "Proprietary Services"
+msgstr "プロプライエタリなサービス"
+
+#: C/create-account.page:124(section/p)
+msgid ""
+"There are many proprietary instant messaging services that have been "
+"developed by different companies or organizations. <app>Empathy</app> allows "
+"you to connect to an existing account for most popular services. To create a "
+"new account with one of these services, you will need to visit the service’s "
+"web site and agree to its terms of use."
+msgstr ""
+"各々の企業・団体で開発されたプロプライエタリなインスタントメッセージング・"
+"サービスは数多くあります。<app>Empathy</app> を使って主要なサービスの既存のア"
+"カウントに接続できます。これらのサービスの新しいアカウントを作成するには、"
+"サービスのウェブサイトに行き、利用条件に同意する必要があります。"
+
+#: C/create-account.page:132(item/p)
+msgid "<link href=\"http://dashboard.aim.com/aim\">AIM</link>"
+msgstr "<link href=\"http://dashboard.aim.com/aim\">AIM</link>"
+
+#: C/create-account.page:137(item/p)
+msgid "<link href=\"https://www.icq.com/register/\">ICQ</link>"
+msgstr "<link href=\"https://www.icq.com/register/\">ICQ</link>"
+
+#: C/create-account.page:142(item/p)
+msgid "<link href=\"https://accountservices.passport.net\">MSN</link>"
+msgstr "<link href=\"https://accountservices.passport.net\">MSN</link>"
+
+#: C/create-account.page:147(item/p)
+msgid "<link href=\"https://login.yahoo.com/config/login\">Yahoo!</link>"
+msgstr "<link href=\"https://login.yahoo.com/config/login\">Yahoo!</link>"
+
+#: C/disable-account.page:9(info/desc)
+msgid "Prevent <app>Empathy</app> from automatically logging in to an account."
+msgstr "<app>Empathy</app> が自動的にアカウントにログインすることを止めます。"
+
+#: C/disable-account.page:40(page/title)
+msgid "Disable an account"
+msgstr "アカウントの無効化"
+
+#: C/disable-account.page:42(page/p)
+msgid ""
+"You can disable an account to prevent <app>Empathy</app> from logging in to "
+"it without removing the account entirely. You may wish to disable and re-"
+"enable an account if you only want to be logged in to the account at certain "
+"times, but you still want to use <app>Empathy</app> for other accounts."
+msgstr ""
+"アカウントを完全に削除することなく、<app>Empathy</app> がログインしないよう、"
+"アカウントを無効化することができます。あるアカウントは無効化しておき、望むと"
+"きだけ有効化したい、しかし <app>Empathy</app> で別のアカウントを使い続けたい"
+"という場合です。"
+
+#: C/disable-account.page:53(item/p)
+msgid ""
+"Select the account you wish to disable from the accounts list on the left "
+"side of the window."
+msgstr ""
+"ウィンドウの左側のアカウント一覧から、無効化したいアカウントを指定します。"
+
+#: C/disable-account.page:57(item/p)
+msgid "On the right side of the window, switch it off."
+msgstr "ウィンドウの右側で、スイッチをオフにします。"
+
+#: C/disable-account.page:62(page/p)
+msgid "To re-enable the account, switch it on."
+msgstr "アカウントをふたたび有効化するには、スイッチをオンにします。"
+
+#: C/favorite-rooms.page:10(info/desc)
+msgid "Set, join and manage favorite rooms."
+msgstr "お気に入りの談話室を設定し、参加し、管理します。"
+
+#: C/favorite-rooms.page:29(page/title)
+msgid "Favorite rooms"
+msgstr "お気に入りの談話室"
+
+#: C/favorite-rooms.page:32(section/title)
+msgid "Set a room as a favorite"
+msgstr "談話室をお気に入りとして設定"
+
+#: C/favorite-rooms.page:35(item/p)
+msgid "Join a room."
+msgstr "談話室に参加します。"
+
+#: C/favorite-rooms.page:40(item/p)
+msgid ""
+"See <link xref=\"irc-join-room\"/> for more information on how to join an "
+"IRC room."
+msgstr ""
+"IRC の談話室に参加する方法の詳細は <link xref=\"irc-join-room\"/> を参照して"
+"ください。"
+
+#: C/favorite-rooms.page:46(item/p)
+msgid ""
+"See <link xref=\"group-conversations\"/> for more information on how to "
+"start or join a group conversation."
+msgstr ""
+"グループ会話の開始または参加の方法の詳細は <link xref=\"group-conversations"
+"\"/> を参照してください。"
+
+#: C/favorite-rooms.page:54(item/p)
+msgid ""
+"From the conversation window, choose <guiseq><gui>Conversation</"
+"gui><gui>Favorite Chat Room</gui></guiseq>."
+msgstr ""
+"会話ウィンドウから、<guiseq><gui>会話</gui><gui>お気に入りの談話室</gui></"
+"guiseq> を選びます。"
+
+#: C/favorite-rooms.page:63(section/title)
+msgid "Join favorite rooms"
+msgstr "お気に入りの談話室の追加"
+
+#: C/favorite-rooms.page:66(item/p) C/send-file.page:40(item/p)
+msgid "From the <gui>Contact List</gui> window, perform one of the following:"
+msgstr "<gui>相手先の一覧</gui> ウィンドウから、次のいずれかを実行します:"
+
+#: C/favorite-rooms.page:71(item/p)
+msgid "Press <key>F5</key>."
+msgstr "<key>F5</key> を押します。"
+
+#: C/favorite-rooms.page:76(item/p)
+msgid ""
+"Choose <guiseq><gui>Room</gui><gui>Join Favorites</gui></guiseq>, to join "
+"all your favorite rooms."
+msgstr ""
+"<guiseq><gui>談話室</gui><gui>お気に入りに追加</gui></guiseq> を選び、お気に"
+"入りの談話室を追加します。"
+
+#: C/favorite-rooms.page:82(item/p)
+msgid "Choose <gui>Room</gui>, and select the favorite room you want to join."
+msgstr "<gui>談話室</gui> を選び、追加したいお気に入りの談話室を指定します。"
+
+#: C/favorite-rooms.page:90(note/p)
+msgid ""
+"To join a favorite room, you need to be connected to the Internet and to "
+"your account."
+msgstr ""
+"お気に入りの談話室を追加するには、インターネットに接続し、自分のアカウントに"
+"接続している必要があります。"
+
+#: C/favorite-rooms.page:98(section/title)
+msgid "Manage favorite rooms"
+msgstr "お気に入りの談話室の管理"
+
+#: C/favorite-rooms.page:101(item/p)
+msgid ""
+"From the <gui>Contact List</gui> window, choose <guiseq><gui>Room</"
+"gui><gui>Manage Favorites</gui></guiseq>."
+msgstr ""
+"<gui>相手先の一覧</gui> ウィンドウから、<guiseq><gui>談話室</gui><gui>お気に"
+"入りの管理</gui></guiseq> を選びます。"
+
+#: C/favorite-rooms.page:107(item/p)
+msgid ""
+"From the <gui>Account</gui> drop-down list, select the account you want to "
+"manage the favorite rooms of."
+msgstr ""
+"<gui>アカウント</gui> ドロップダウンリストから、お気に入りの談話室の管理を行"
+"いたいアカウントを選びます。"
+
+#: C/favorite-rooms.page:111(item/p)
+msgid "Select <gui>All</gui> to see all you favorite rooms."
+msgstr ""
+"<gui>すべてのアカウント</gui> を選ぶと、すべてのお気に入りの談話室を見ること"
+"ができます。"
+
+#: C/favorite-rooms.page:116(item/p)
+msgid "Select the favorite room you want to manage:"
+msgstr "管理したいお気に入りの談話室を選びます:"
+
+#: C/favorite-rooms.page:121(item/p)
+msgid ""
+"Select the <gui>Auto-Connect</gui> check-box in order to automatically join "
+"that room when you connect to your account."
+msgstr ""
+"<gui>自動サインイン</gui> チェックボックスは、アカウントに接続したときに自動"
+"的に参加する場合に選びます。"
+
+#: C/favorite-rooms.page:127(item/p)
+msgid "Click on <gui>Remove</gui> to remove the room from your favorites."
+msgstr ""
+"<gui>削除</gui> をクリックすると、お気に入りからその談話室を削除します。"
+
+#: C/favorite-rooms.page:134(item/p)
+msgid "When done, click <gui>Close</gui>."
+msgstr "終わったら、<gui>閉じる</gui> をクリックします。"
+
+#: C/geolocation.page:8(info/desc)
+msgid "Use and understand geolocation in <app>Empathy</app>."
+msgstr "<app>Empathy</app> での位置情報を理解し、使います。"
+
+#: C/geolocation.page:32(page/title)
+msgid "Geographical position"
+msgstr "地理的な位置"
+
+#: C/geolocation.page:35(section/title)
+msgid "Geolocation"
+msgstr "位置情報"
+
+#: C/geolocation.page:39(section/title)
+msgid "Fix common problems"
+msgstr "よくある問題の解決"
+
+#: C/geolocation-not-showing.page:8(info/desc)
+msgid "<app>Empathy</app> does not publish my geographical position."
+msgstr "<app>Empathy</app> が地理的な位置を公開しません。"
+
+#: C/geolocation-not-showing.page:32(page/title)
+msgid "Geographical position not published"
+msgstr "地理的な位置が公開されない"
+
+#: C/geolocation-not-showing.page:34(page/p)
+msgid ""
+"If your contacts cannot see your location, <app>Empathy</app> might not be "
+"able to discover with a good margin of precision your geographical position."
+msgstr ""
+"相手先があなたの位置を見ることができない場合、<app>Empathy</app> は地理的な位"
+"置を十分な精度で検出できていない可能性があります。"
+
+#: C/geolocation-not-showing.page:38(page/p)
+msgid ""
+"In this case, your position will not be published, but you are still able to "
+"see the location of your contacts."
+msgstr ""
+"この場合、あなたの位置情報は公開されません。しかし、相手先の位置を見ることは"
+"できます。"
+
+#: C/geolocation-not-showing.page:42(page/p)
+msgid ""
+"If you want to publish your geographical position, you can try to use an "
+"external device such as a GPS."
+msgstr ""
+"地理的な位置を公開したい場合、GPS のような外部デバイスを使用してください。"
+
+#: C/geolocation-not-showing.page:48(note/p)
+msgid ""
+"In order to publish your geographical location, your Jabber server needs to "
+"support the Personal Eventing Protocal (PEP). A list of <link href=\"http://"
+"coccinella.im/servers/servers_by_pubsub_pep.html\">servers which support "
+"PEP</link> is maintained online. Google Talk does not support this feature "
+"at this time."
+msgstr ""
+"地理的な位置を公開するためには、Jabber サーバーが個人イベントプロトコル "
+"(PEP) をサポートしている必要があります。 <link href=\"http://coccinella.im/"
+"servers/servers_by_pubsub_pep.html\">PEP をサポートしているサーバー</link> の"
+"一覧がオンラインでメンテナンスされています。Google トークは現在、この機能をサ"
+"ポートしていません。"
+
+#: C/geolocation-privacy.page:8(info/desc)
+msgid "What information are sent and to who."
+msgstr "だれに何の情報が送られるか。"
+
+#: C/geolocation-privacy.page:32(page/title)
+msgid "Geolocation Privacy"
+msgstr "位置情報のプライバシー"
+
+#: C/geolocation-privacy.page:35(section/title)
+msgid "What information is sent"
+msgstr "何の情報が送られるか"
+
+#: C/geolocation-privacy.page:36(section/p)
+msgid ""
+"What is possible to send is: your country, region, locality, area, street, "
+"building, floor, room, and postal code, longitude, latitude and altitude, "
+"speed and bearing."
+msgstr ""
+"国、地域(州・県)、市、区、通り(町丁名・番地)、建物、階、部屋番号、また郵便番"
+"号、経度、緯度、高度、移動の速度・方角の情報が送られる可能性があります。"
+
+#: C/geolocation-privacy.page:40(section/p)
+msgid ""
+"The accuracy and the quantity of information about your geographical "
+"position are based on the software or on the infrastructure used to discover "
+"your position."
+msgstr ""
+"地理的な位置の情報の精度と質はソフトウェアや、位置を検出するインフラストラク"
+"チャに依存します。"
+
+#: C/geolocation-privacy.page:44(section/p)
+msgid ""
+"Different kind of networks may have different accuracy settings, and may "
+"send different information. The use of external devices such as GPS or "
+"mobile phone will increase the accuracy of the information sent."
+msgstr ""
+"ネットワークによって精度は異なり、送られる情報は異なります。GPS や携帯電話の"
+"ような外部デバイスを利用して、情報の精度を上げることができます。"
+
+#: C/geolocation-privacy.page:49(section/p)
+msgid ""
+"When the privacy mode is enabled, nothing more precise than your city will "
+"be sent, even if you are using an external device."
+msgstr ""
+"プライバシーモードが有効化されている場合、たとえ外部デバイスを使用していて"
+"も、市より細かな情報は送られません。"
+
+#: C/geolocation-privacy.page:56(section/title)
+msgid "Who can see the information sent"
+msgstr "だれが送られた情報を見るか"
+
+#: C/geolocation-privacy.page:57(section/p)
+msgid "Only your contacts can see your geographical position."
+msgstr "あなたの相手先のみが地理的な位置を見ることができます。"
+
+#: C/geolocation-privacy.page:63(section/title)
+msgid "What is the privacy mode"
+msgstr "プライバシーモードとは何か"
+
+#: C/geolocation-privacy.page:64(section/p)
+msgid ""
+"The privacy mode, enabled by default, is a reduced accuracy mode that will "
+"decrease the accuracy of the geographical position sent to your contacts."
+msgstr ""
+"プライバシーモードはデフォルトで有効化されています。これは、相手先に送る地理"
+"的な位置の精度を落とすものです。"
+
+#: C/geolocation-privacy.page:71(section/title)
+msgid "Privacy overview"
+msgstr "プライバシーの概説"
+
+#: C/geolocation-privacy.page:72(section/p)
+msgid ""
+"Overview of the various geolocation privacy settings in <app>Empathy</app>."
+msgstr "<app>Empathy</app> での位置情報の設定は、まとめると次のとおりです。"
+
+#: C/geolocation-privacy.page:77(item/p)
+msgid "Geolocation is not enabled by default."
+msgstr "デフォルトで、位置情報は有効化されていません。"
+
+#: C/geolocation-privacy.page:82(item/p)
+msgid "Privacy mode is enabled by default."
+msgstr "デフォルトで、プライバシーモードは有効化されています。"
+
+#: C/geolocation-privacy.page:87(item/p)
+msgid ""
+"Privacy mode prevails even when using external and more precise devices."
+msgstr ""
+"プライバシーモードは、外部デバイスやより精確なデバイスを使用している場合でも"
+"優先します。"
+
+#: C/geolocation-privacy.page:92(item/p)
+msgid "Only your contacts can see your position."
+msgstr "あなたの相手先のみがあなたの位置を見ることができます。"
+
+#: C/geolocation-supported.page:7(info/desc)
+msgid "Services that supports geolocation and compatibility."
+msgstr "位置情報をサポートしているサービスと、互換性について。"
+
+#: C/geolocation-supported.page:31(page/title)
+msgid "Supported services"
+msgstr "サポートしているサービス"
+
+#: C/geolocation-supported.page:33(page/p)
+msgid ""
+"The geolocation feature at the moment is compatible only with the Jabber "
+"service. In order to use it, you and your contacts need to have a Jabber "
+"account."
+msgstr ""
+"現在のところ、位置情報の機能は Jabber サービスでのみ互換性があります。この機"
+"能を使うには、自分と相手先は Jabber アカウントを持っている必要があります。"
+
+#: C/geolocation-supported.page:39(note/p)
+msgid ""
+"It is necessary that also the server you are using supports the geolocation "
+"feature. Most of the Jabber servers support it. See your service website "
+"documentation for more information."
+msgstr ""
+"使っているサーバーもまた位置情報の機能をサポートしている必要があります。多く"
+"の Jabber サーバーがこれをサポートしています。詳しくは使用しているサーバーの"
+"ウェブサイトを参照してください。"
+
+#: C/geolocation-supported.page:47(section/title)
+msgid "Compatibility"
+msgstr "互換性"
+
+#: C/geolocation-supported.page:49(section/p)
+msgid ""
+"<app>Empathy</app> geolocation feature is not compatible with other "
+"geographical position services such as <em>Google Latitude</em>, <em>Yahoo "
+"Fire Eagle</em> or <em>Brightkite</em>."
+msgstr ""
+"<app>Empathy</app> の位置情報の機能は、<em>Google Latitude</em>、<em>Yahoo "
+"Fire Eagle</em>、<em>Brightkite</em> などのような他の地理的位置情報サービスと"
+"の互換性はありません。"
+
+#: C/geolocation-turn.page:9(info/desc)
+msgid "How to activate and deactivate geolocation in <app>Empathy</app>."
+msgstr "<app>Empathy</app> での位置情報の有効化/無効化の方法です。"
+
+#: C/geolocation-turn.page:33(page/title)
+msgid "Activate/Deactivate geolocation"
+msgstr "位置情報の有効化と無効化"
+
+#: C/geolocation-turn.page:37(item/p)
+msgid "Choose <guiseq><gui>Edit</gui><gui>Preferences</gui></guiseq>."
+msgstr "<guiseq><gui>編集</gui><gui>設定</gui></guiseq> を選びます。"
+
+#: C/geolocation-turn.page:42(item/p)
+msgid "Select the <gui>Location</gui> tab."
+msgstr "<gui>場所</gui> タブを指定します。"
+
+#: C/geolocation-turn.page:47(item/p)
+msgid ""
+"Select <gui>Publish location to my contacts</gui> to activate geolocation."
+msgstr "<gui>相手先に場所を公開する</gui> を指定し、位置情報を有効化します。"
+
+#: C/geolocation-turn.page:50(item/p)
+msgid "To deactivate geolocation, deselect it."
+msgstr "無効化するには、この指定を解除します。"
+
+#: C/geolocation-turn.page:55(item/p)
+msgid ""
+"To increase the accuracy of your position, deselect <gui>Reduce location "
+"accuracy</gui>."
+msgstr ""
+"自分の場所の精度を上げるには、<gui>場所の精度を下げる</gui> の指定を解除しま"
+"す。"
+
+#: C/geolocation-turn.page:61(item/p)
+msgid ""
+"If you have an external device like a GPS or want to send a more accurate "
+"position, select the appropriate option in the <gui>Location sources</gui> "
+"section."
+msgstr ""
+"GPS のような外部デバイスを持っているか、より精確な位置を通知したい場合、<gui>"
+"場所のソース</gui> で適切なオプションを指定します。"
+
+#: C/geolocation-what-is.page:9(info/desc)
+msgid "Understanding geolocation."
+msgstr "位置情報について理解します。"
+
+#: C/geolocation-what-is.page:33(page/title)
+msgid "What is geolocation"
+msgstr "位置情報とは何か"
+
+#: C/geolocation-what-is.page:35(page/p)
+msgid ""
+"Geolocation allows you to identify the real geographical location of a "
+"computer or a device connected to the Internet."
+msgstr ""
+"位置情報とは、インターネットに接続しているコンピューターまたはデバイスの現実"
+"の地理的な場所を同定するものです。"
+
+#: C/geolocation-what-is.page:37(page/p)
+msgid "With geolocation in <app>Empathy</app> you can:"
+msgstr "<app>Empathy</app> では、位置情報について次のことができます。"
+
+#: C/geolocation-what-is.page:42(item/p)
+msgid "Publish your geographical location to your contacts."
+msgstr "相手先に自分の地理的な場所を公開できます。"
+
+#: C/geolocation-what-is.page:47(item/p)
+msgid "See your contacts’ geographical location and quickly contact them."
+msgstr "相手先の地理的位置を知ることができ、速やかに接触できます。"
+
+#: C/geolocation-what-is.page:52(item/p)
+msgid ""
+"Set the accuracy of your location and the device used to discover your "
+"location."
+msgstr "場所の精度を設定できます。場所を検出するデバイスを設定できます。"
+
+#: C/geolocation-what-is.page:60(note/p)
+msgid ""
+"In order to see your contacts’ geographical locations, they need to use a "
+"service and an application that supports geolocation."
+msgstr ""
+"相手先の位置情報を知るためには、相手先が位置情報をサポートするサービスとアプ"
+"リケーションを使っている必要があります。"
+
+#: C/group-conversations.page:8(info/desc)
+msgid "Start or join a group conversation with your contacts."
+msgstr "複数の相手先とグループ会話を始める、または参加します。"
+
+#: C/group-conversations.page:34(page/title)
+msgid "Group conversations"
+msgstr "グループ会話"
+
+#: C/group-conversations.page:36(page/p)
+msgid ""
+"Group conversations permits you to have text conversations with more than "
+"one contact at the same time."
+msgstr "グループ会話は、2人以上の相手先と同時に文字による会話を行うことです。"
+
+#: C/group-conversations.page:40(page/p)
+msgid ""
+"To have a group conversation you need to have a registered account with "
+"either Jabber or Google Talk, or a People Nearby account."
+msgstr ""
+"グループ会話を行うには、Jabber もしくは Google トークのいずれか、または "
+"People Nearby の登録済のアカウントが必要です。"
+
+#: C/group-conversations.page:46(note/p)
+msgid ""
+"You can have a group conversation only with the contacts that are using the "
+"same service as yours."
+msgstr "あなたと同じサービスを使っている相手先とのみグループ会話ができます。"
+
+#: C/group-conversations.page:54(section/title)
+msgid "Start a group conversation"
+msgstr "グループ会話の開始"
+
+#: C/group-conversations.page:58(item/p)
+#: C/group-conversations.page:122(item/p) C/irc-join-room.page:39(item/p)
+msgid ""
+"From the <gui>Contact List</gui> window, choose <guiseq><gui>Room</"
+"gui><gui>Join</gui></guiseq>."
+msgstr ""
+"<gui>相手先の一覧</gui> ウィンドウから、<guiseq><gui>談話室</gui><gui>参加</"
+"gui></guiseq> を選びます。"
+
+#: C/group-conversations.page:63(item/p)
+msgid ""
+"From the <gui>Account</gui> drop-down list, select the account you want to "
+"use for the group conversation."
+msgstr ""
+"<gui>アカウント</gui> ドロップダウンリストから、グループ会話に用いるアカウン"
+"トを指定します。"
+
+#: C/group-conversations.page:69(item/p)
+msgid ""
+"In the <gui>Server</gui> text box, type the name of server in which the "
+"conversation will be hosted."
+msgstr ""
+"<gui>サーバー</gui> 欄に、グループ会話をホストするサーバーを入力します。"
+
+#: C/group-conversations.page:73(item/p)
+msgid "Leave it empty if it will be on the current server."
+msgstr "現在のサーバー(訳注: アカウントと同じサーバー)の場合は、空欄にします。"
+
+#: C/group-conversations.page:78(item/p)
+msgid ""
+"In the <gui>Room</gui> text box, type the name you want to give to the "
+"conversation."
+msgstr "<gui>談話室</gui> 欄に、グループ会話に付ける名前を入力します。"
+
+#: C/group-conversations.page:82(note/p)
+msgid ""
+"This will be the name of the room you are going to have a conversation. This "
+"name will be publicly available for other people to join. It is not possible "
+"to create a private room."
+msgstr ""
+"これは、グループ会話を行う談話室の名前になります。この名前は、参加するほかの"
+"人に公開されます。非公開の談話室を作成することはできません。"
+
+#: C/group-conversations.page:90(item/p)
+msgid ""
+"To invite other contacts to join the group conversation, from the "
+"<gui>Contact List</gui> window, select the contact you want to invite, and "
+"perform one of the following:"
+msgstr ""
+"グループ会話に参加するようほかの相手先を招待するには、<gui>相手先の一覧</"
+"gui> ウィンドウから、招待したい相手先を指定し、次のいずれかを行います:"
+
+#: C/group-conversations.page:97(item/p)
+msgid "Right-click on the contact and choose <gui>Invite to chatroom</gui>."
+msgstr "相手先を右クリックし、<gui>談話室に招待する</gui> を選びます。"
+
+#: C/group-conversations.page:102(item/p)
+msgid ""
+"Choose <guiseq><gui>Edit</gui><gui>Contact</gui><gui>Invite to chatroom</"
+"gui></guiseq>."
+msgstr ""
+"<guiseq><gui>編集</gui><gui>相手先</gui><gui>談話室に招待する</gui></guiseq> "
+"を選びます。"
+
+#: C/group-conversations.page:107(item/p)
+msgid ""
+"If you have more than one group conversation open, select the one you want "
+"to invite your contacts."
+msgstr ""
+"2つ以上のグループ会話を行なっている場合、相手先を招待したいグループ会話を指定"
+"します。"
+
+#: C/group-conversations.page:118(section/title)
+msgid "Join a group conversation"
+msgstr "グループ会話に参加"
+
+#: C/group-conversations.page:128(item/p)
+msgid "Expand the <gui>Room List</gui> section to see all the existing rooms."
+msgstr ""
+"<gui>談話室の一覧</gui> を展開すると、すべての談話室を見ることができます。"
+
+#: C/group-conversations.page:133(item/p)
+msgid "Double-click on the name of a room to join it."
+msgstr "談話室の名前をダブルクリックして、その談話室に参加します。"
+
+#: C/group-conversations.page:139(section/p)
+msgid ""
+"It is not possible to join all existing rooms. Some of the rooms might "
+"require a password, or might be invitation only. <app>Empathy</app> does not "
+"support these kind of rooms."
+msgstr ""
+"すべての談話室に参加できるわけではありません。パスワードが必要な談話室や、招"
+"待のみの談話室があります。<app>Empathy</app> はこのような談話室をサポートして"
+"いません。"
+
+#: C/hide-contacts.page:8(info/desc)
+msgid "Hide the offline contacts from your <gui>Contact List</gui>."
+msgstr "<gui>相手先の一覧</gui> で、オフラインの相手先を隠します。"
+
+#: C/hide-contacts.page:19(page/title)
+msgid "Hide offline contacts"
+msgstr "オフラインの相手先を隠す"
+
+#: C/hide-contacts.page:21(page/p)
+msgid ""
+"Normally, <app>Empathy</app> shows all your contacts: those that are online, "
+"with which you can have a conversation, and also those that are offline."
+msgstr ""
+"通常、<app>Empathy</app> はすべての相手先を表示します。つまり、会話をすること"
+"のできるオンラインの相手先と、オフラインの相手先です。"
+
+#: C/hide-contacts.page:25(page/p)
+msgid "To hide the contacts that are offline:"
+msgstr "オフラインの相手先を隠すには、次の手順で行います。"
+
+#: C/hide-contacts.page:31(item/p)
+msgid ""
+"From the <gui>Contact List</gui> window, choose <guiseq><gui>View</gui> "
+"<gui>Offline Contacts</gui></guiseq>, or press <keyseq><key>Ctrl</key> "
+"<key>H</key></keyseq>."
+msgstr ""
+"<gui>相手先の一覧</gui> ウィンドウから、<guiseq><gui>表示</gui> <gui>オフライ"
+"ンの相手先を表示</gui></guiseq> を選ぶか、<keyseq><key>Ctrl</key> <key>H</"
+"key></keyseq> を押します。"
+
+#: C/hide-contacts.page:36(item/p)
+msgid "To show the offline contacts again, repeat the same procedure above."
+msgstr "オフラインの相手先をふたたび表示するには、上記と同じ手順を行います。"
+
+#: C/import-account.page:10(info/desc)
+msgid "Import an account from another instant messaging application."
+msgstr ""
+"別のインスタントメッセージング・アプリケーションからアカウントをインポートし"
+"ます。"
+
+#: C/import-account.page:19(credit/name)
+msgid "Peter Haslam"
+msgstr "Peter Haslam"
+
+#: C/import-account.page:42(page/title)
+msgid "Import an existing account"
+msgstr "既存のアカウントのインポート"
+
+#: C/import-account.page:44(page/p)
+msgid ""
+"The first time you run <app>Empathy</app>, it will offer to import your "
+"accounts from other instant messaging applications. Currently, the only "
+"supported application is <app>Pidgin</app>."
+msgstr ""
+"はじめて <app>Empathy</app> が実行される際、別のインスタントメッセージング・"
+"アプリケーションからアカウントをインポートするかを尋ねます。現在のところ、サ"
+"ポートしているアプリケーションは <app>Pidgin</app> のみです。"
+
+#: C/import-account.page:50(item/p)
+msgid ""
+"Run <app>Empathy</app> for the first time. An assistant will offer you a "
+"number of options to create new accounts."
+msgstr ""
+"はじめて <app>Empathy</app> を実行します。アシスタント画面が開き、新しいアカ"
+"ウントを作成するためにいくつか質問があります。"
+
+#: C/import-account.page:54(item/p)
+msgid ""
+"Select <gui>Yes, import my account details from</gui> and click "
+"<gui>Forward</gui>."
+msgstr ""
+"<gui>はい、アカウントの詳細をインポートします</gui> を指定し、<gui>次へ</"
+"gui> をクリックします。"
+
+#: C/import-account.page:58(item/p)
+msgid "Select the check box next to each account you wish to import."
+msgstr "インポートしたいアカウントのチェックボックスを指定します。"
+
+#: C/import-account.page:66(note/p)
+msgid ""
+"It is not currently possible to import accounts after you have completed the "
+"first-run assistant."
+msgstr ""
+"現在のところ、はじめての起動時のアシスタントを完了して以後に、アカウントをイ"
+"ンポートすることはできません。"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/introduction.page:41(media)
+msgctxt "_"
+msgid ""
+"external ref='figures/empathy-main-window.png' "
+"md5='54908dcb2588beddb15ef0968d2c2582'"
+msgstr ""
+"external ref='figures/empathy-main-window.png' "
+"md5='54908dcb2588beddb15ef0968d2c2582'"
+
+#: C/introduction.page:9(info/desc)
+msgid "Introduction to the <app>Empathy</app> instant messenger."
+msgstr "<app>Empathy</app> インスタントメッセンジャーを紹介します。"
+
+#: C/introduction.page:21(page/title)
+msgid "Introduction"
+msgstr "はじめに"
+
+#: C/introduction.page:23(page/p)
+msgid ""
+"<app>Empathy</app> is an instant messaging application for the GNOME "
+"Desktop. It supports text messaging, voice &amp; video calls, file "
+"transfers, and all the most used messaging systems such as MSN and Google "
+"Talk."
+msgstr ""
+"<app>Empathy</app> は、GNOME デスクトップのインスタントメッセージングのアプリ"
+"ケーションです。文字によるメッセージング、音声とビデオによる会話、ファイル転"
+"送をサポートしています。また、MSN や Google トークのような主要なメッセージン"
+"グシステムに対応しています。"
+
+#: C/introduction.page:28(page/p)
+msgid ""
+"<app>Empathy</app> includes features that help you better collaborate while "
+"at work, and that let you easily keep in touch with your friends."
+msgstr ""
+"<app>Empathy</app> は、仕事においてはよりよく共同作業を助ける機能を持っていま"
+"す。それはまた、友人たちとのつながりを保ちつづけることを容易にします。"
+
+#: C/introduction.page:32(page/p)
+msgid ""
+"Using <app>Empathy</app>, you can group all the conversations in a single "
+"window, have multiple windows for different kind of conversations, easily "
+"search through your previous conversations, and share your desktop in just "
+"two clicks."
+msgstr ""
+"<app>Empathy</app> を使って、すべての会話をひとつのウィンドウにまとめたり、会"
+"話の種類ごとに複数のウィンドウを開いたり、簡単に過去の会話から検索したり、"
+"たった 2 クリックでデスクトップを共有したりできます。"
+
+#: C/introduction.page:39(figure/title)
+msgid "<gui>Contact List</gui> window"
+msgstr "<gui>相手先の一覧</gui> ウィンドウ"
+
+#: C/introduction.page:40(figure/desc)
+msgid "<app>Empathy</app> main window"
+msgstr "<app>Empathy</app> の主ウィンドウ"
+
+#: C/introduction.page:42(media/p)
+msgid "<app>Empathy</app> main window."
+msgstr "<app>Empathy</app> の主ウィンドウです。"
+
+#: C/irc-commands.page:7(info/desc)
+msgid "The supported IRC commands."
+msgstr "サポートしている IRC コマンドです。"
+
+#: C/irc-commands.page:18(page/title)
+msgid "Supported IRC commands"
+msgstr "サポートしている IRC コマンド"
+
+#: C/irc-commands.page:19(page/p)
+msgid ""
+"To see the list of the supported IRC commands, in a chat room type <input>/"
+"help</input> and press <key>Enter</key>."
+msgstr ""
+"サポートしている IRC コマンドの一覧を見るには、談話室で<input>/help</input> "
+"と入力して <key>Enter</key> を押します。"
+
+#: C/irc-commands.page:24(note/p)
+msgid "All commands available have a small description on their usage."
+msgstr "すべてのコマンドに使い方の簡単な説明が付いています。"
+
+#: C/irc-join-pwd.page:9(info/desc)
+msgid "Enter password-protected IRC chat rooms."
+msgstr "パスワードで保護された IRC 談話室に参加します。"
+
+#: C/irc-join-pwd.page:25(page/title)
+msgid "Join a protected IRC chat room"
+msgstr "保護された IRC 談話室への参加"
+
+#: C/irc-join-pwd.page:27(page/p)
+msgid ""
+"On some IRC networks, private IRC rooms may be protected with a password. If "
+"you know the password, use the following steps to join:"
+msgstr ""
+"IRC ネットワークに、パスワードで保護されたプライベートな IRC 談話室があること"
+"があります。パスワードを知っていれば、次の手順で参加します。"
+
+#: C/irc-join-pwd.page:33(item/p)
+msgid "<link xref=\"irc-join-room\">Join the room</link> as normal."
+msgstr ""
+"通常と同じように <link xref=\"irc-join-room\">談話室に参加します</link>。"
+
+# Empathy に <app>タグが抜けていると思う
+#: C/irc-join-pwd.page:38(item/p)
+msgid ""
+"Empathy will prompt you for a password. Enter the password for the IRC chat "
+"room and click <gui style=\"button\">Join</gui>."
+msgstr ""
+"<app>Empathy</app> はパスワードを入力するよう促します。IRC 談話室のパスワード"
+"を入力し、<gui style=\"button\">参加</gui> をクリックします。"
+
+#: C/irc-join-room.page:8(info/desc)
+msgid "Join an IRC channel."
+msgstr "IRC チャンネルに参加します。"
+
+#: C/irc-join-room.page:31(page/title)
+msgid "Join an IRC chat room"
+msgstr "IRC 談話室への参加"
+
+#: C/irc-join-room.page:33(page/p)
+msgid ""
+"You can join IRC chat rooms (also known as IRC channels) on any IRC network "
+"you’re connected to. To connect to an IRC network, see <link xref=\"add-"
+"account\"/> and <link xref=\"account-irc\"/>."
+msgstr ""
+"接続している IRC ネットワーク上の IRC 談話室 (IRC チャンネルとも言います) に"
+"参加できます。IRC ネットワークに参加するには、<link xref=\"add-account\"/> お"
+"よび <link xref=\"account-irc\"/> を参照してください。"
+
+#: C/irc-join-room.page:45(item/p)
+msgid ""
+"From the <gui>Account</gui> drop-down list, select the IRC account that "
+"corresponds to the network you want to use."
+msgstr ""
+"<gui>アカウント</gui> ドロップダウンリストから、使いたいネットワークに対応す"
+"る IRC アカウントを指定します。"
+
+#: C/irc-join-room.page:51(item/p)
+msgid ""
+"In the <gui>Room</gui> text box, type the name of the channel you want to "
+"join. IRC channel names start with the hash character (<sys>#</sys>)."
+msgstr ""
+"<gui>談話室</gui> 欄に、参加したいチャンネルの名前を入力します。IRC チャンネ"
+"ルの名前はハッシュ (<sys>#</sys>) で始まります。"
+
+#: C/irc-join-room.page:57(item/p)
+msgid "Click <gui>Join</gui> to enter the room."
+msgstr "<gui>参加</gui> をクリックして、談話室に入ります。"
+
+#: C/irc-join-room.page:64(note/p)
+msgid ""
+"To join multiple rooms, you need to repeat the steps above for each room."
+msgstr ""
+"複数の談話室に参加するには、それぞれの談話室について上記の手順を繰り返しま"
+"す。"
+
+#: C/irc-manage.page:9(info/desc)
+msgid "How to use IRC with <app>Empathy</app>."
+msgstr "<app>Empathy</app> で IRC を使う方法"
+
+#: C/irc-manage.page:34(page/title)
+msgid "Internet Relay Chat (IRC)"
+msgstr "インターネット・リレー・チャット (IRC)"
+
+#: C/irc-manage.page:41(when/p)
+msgid ""
+"<link action=\"install:telepathy-idle\" xref=\"index\" style=\"button"
+"\">Install telepathy-idle</link>"
+msgstr ""
+"<link action=\"install:telepathy-idle\" xref=\"index\" style=\"button"
+"\">telepathy-idle のインストール</link>"
+
+#: C/irc-manage.page:48(info/title)
+msgctxt "link"
+msgid "IRC Chat Rooms and Conversations"
+msgstr "IRC 談話室と会話"
+
+#: C/irc-manage.page:50(section/title)
+msgid "Chat Rooms and Conversations"
+msgstr "談話室と会話"
+
+#: C/irc-manage.page:55(info/title)
+msgctxt "link"
+msgid "Common IRC Problems"
+msgstr "IRC のよくある問題"
+
+#: C/irc-nick-password.page:10(info/desc)
+msgid "Protect your nickname to prevent other IRC users from using it."
+msgstr "他の IRC ユーザーに使われないよう、ニックネームを保護します。"
+
+#: C/irc-nick-password.page:33(page/title)
+msgid "Use a nickname password on IRC"
+msgstr "IRC でのニックネームのパスワードの使用"
+
+#: C/irc-nick-password.page:35(page/p)
+msgid ""
+"On some IRC networks, you can register your nickname with a service called "
+"NickServ. By sending special messages to NickServ, you can set your password "
+"and identify yourself. Some IRC chat rooms may not allow you to join without "
+"a registered nickname."
+msgstr ""
+"いくつかの IRC ネットワークでは、NickServ というサービスでニックネームを登録"
+"することができます。NickServ に特別のメッセージを送ることにより、パスワードの"
+"設定や自分自身の認証ができます。ニックネームを登録しないと参加を許可しない "
+"IRC 談話室もあります。"
+
+#: C/irc-nick-password.page:40(page/p)
+msgid ""
+"<app>Empathy</app> does not currently support nickname registration. Some "
+"IRC networks, however, will automatically forward a <em>server password</em> "
+"to NickServ. On these networks, you can use the IRC password in "
+"<app>Empathy</app> to identify yourself to NickServ. The popular freenode "
+"network is known to have this feature."
+msgstr ""
+"<app>Empathy</app> は現在、ニックネームの登録をサポートしていません、しかし、"
+"自動的に <em>サーバーのパスワード</em> を NickServ に送る IRC ネットワークも"
+"あります。そのようなネットワークでは、<app>Empathy</app> の IRC パスワードを "
+"NickServ での自身の認証に使うことができます。人気のある freenode ネットワーク"
+"はこの機能を持っています。"
+
+#: C/irc-nick-password.page:46(page/p)
+msgid "To set an IRC server password:"
+msgstr "次の手順で、IRC サーバーのパスワードを設定します。"
+
+#: C/irc-nick-password.page:54(item/p)
+msgid "Select the IRC account from the list on the left of the dialog."
+msgstr "ダイアログの左側の一覧から、IRC アカウントを指定します。"
+
+#: C/irc-nick-password.page:57(item/p)
+msgid ""
+"In the <gui>Password</gui> field, type the password you used to register "
+"your nikcname."
+msgstr ""
+"<gui>パスワード</gui> 欄に、ニックネームの登録に使うパスワードを入力します。"
+
+#: C/irc-nick-password.page:69(note/p)
+msgid ""
+"These instructions only allow you to use a password-protected nickname on "
+"certain IRC networks. It is not currently possible to register an IRC "
+"nickname or change your nickname password using <app>Empathy</app>."
+msgstr ""
+"この説明によってできることは、ある IRC ネットワークでのパスワードで保護される"
+"ニックネームの使用にすぎません。現在、<app>Empathy</app> を使って IRC ニック"
+"ネームの登録やそのパスワードの変更はできません。"
+
+#: C/irc-send-file.page:9(info/desc)
+msgid "<app>Empathy</app> does not currently support sending files using IRC."
+msgstr ""
+"<app>Empathy</app> は現在、IRC でのファイル転送をサポートしていません。"
+
+#: C/irc-send-file.page:31(page/title)
+msgid "Send files over IRC"
+msgstr "IRC でのファイル転送"
+
+#: C/irc-send-file.page:33(page/p)
+msgid "It is not currently possible to send files using IRC."
+msgstr "現在、IRC でのファイル転送はできません。"
+
+#: C/irc-start-conversation.page:8(info/desc)
+msgid "Start a conversation with an IRC contact."
+msgstr "IRC の相手先との会話の開始"
+
+#: C/irc-start-conversation.page:30(page/title)
+msgid "Chat with somebody on IRC"
+msgstr "IRC でのチャット"
+
+#: C/irc-start-conversation.page:32(page/p)
+msgid ""
+"You can hold private conversations with other IRC users, outside of the "
+"public IRC chat rooms. To start a conversation with another IRC user:"
+msgstr ""
+"公開の IRC 談話室の外で、IRC ユーザーとプライベートなチャットをすることができ"
+"ます。次の手順で、IRC ユーザーと会話を開始します。"
+
+#: C/irc-start-conversation.page:37(item/p)
+msgid ""
+"In the contact list for an IRC chat room, double click the name of the user "
+"you want to chat with. Alternatively, right click the name of the user and "
+"choose <gui>Chat</gui>."
+msgstr ""
+"IRC 談話室の相手先の一覧で、チャットしたい相手先の名前をダブルクリックしま"
+"す。別の方法として、名前を右クリックして <gui>チャット</gui> を選びます。"
+
+#: C/irc-start-conversation.page:45(item/p)
+msgid ""
+"The IRC room contact list is not the same as <app>Empathy</app> contact "
+"list. It contains a list of users in the IRC chat room you joined. Different "
+"rooms can have different contacts listed."
+msgstr ""
+"IRC 談話室の相手先の一覧は、<app>Empathy</app> の相手先の一覧と同じものではあ"
+"りません。参加している談話室のユーザーの一覧です。別の談話室では別の一覧にな"
+"ります。"
+
+#: C/irc-start-conversation.page:52(item/p)
+msgid ""
+"The IRC room contact list is usually on the right side of the IRC room "
+"window. If you do not see it, choose <guiseq><gui>Conversation</"
+"gui><gui>Show Contact List</gui></guiseq>."
+msgstr ""
+"通常、IRC 談話室の相手先の一覧は、IRC 談話室のウィンドウの右側にあります。表"
+"示されていなければ、<guiseq><gui>会話</gui><gui>相手先の一覧の表示</gui></"
+"guiseq> を選びます。"
+
+#: C/license.page:8(info/desc)
+msgid "Legal information."
+msgstr "法的事項です。"
+
+#: C/license.page:11(page/title)
+msgid "License"
+msgstr "ライセンス"
+
+#: C/license.page:12(page/p)
+msgid ""
+"This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
+"Unported license."
+msgstr ""
+"この文書はクリエイティブ・コモンズ 表示 - 継承 3.0 非移植 ライセンスの下に提"
+"供されています。"
+
+#: C/license.page:20(page/p)
+msgid "You are free:"
+msgstr "あなたは以下の条件に従う場合に限り、自由に"
+
+# 次の文とセット。空っぽにすると原文が表示されてしまうので、空白をひとつ置く。
+#: C/license.page:25(item/title)
+msgid "<em>To share</em>"
+msgstr " "
+
+#: C/license.page:26(item/p)
+msgid "To copy, distribute and transmit the work."
+msgstr "本作品を複製、頒布、展示、実演することができます。 "
+
+# 次の文とセット。空っぽにすると原文が表示されてしまうので、空白をひとつ置く。
+#: C/license.page:29(item/title)
+msgid "<em>To remix</em>"
+msgstr " "
+
+#: C/license.page:30(item/p)
+msgid "To adapt the work."
+msgstr "二次的著作物を作成することができます。 "
+
+#: C/license.page:33(page/p)
+msgid "Under the following conditions:"
+msgstr "あなたの従うべき条件は以下の通りです。"
+
+#: C/license.page:38(item/title)
+msgid "<em>Attribution</em>"
+msgstr "<em>表示</em>"
+
+# 括弧書きの部分はどうする?
+#: C/license.page:39(item/p)
+msgid ""
+"You must attribute the work in the manner specified by the author or "
+"licensor (but not in any way that suggests that they endorse you or your use "
+"of the work)."
+msgstr "あなたは原著作者のクレジットを表示しなければなりません。"
+
+#: C/license.page:46(item/title)
+msgid "<em>Share Alike</em>"
+msgstr "<em>継承</em>"
+
+#: C/license.page:47(item/p)
+msgid ""
+"If you alter, transform, or build upon this work, you may distribute the "
+"resulting work only under the same, similar or a compatible license."
+msgstr ""
+"もしあなたがこの作品を改変、変形または加工した場合、あなたはその結果生じた作"
+"品をこの作品と同一の許諾条件の下でのみ頒布することができます。 "
+
+#: C/license.page:53(page/p)
+msgid ""
+"For the full text of the license, see the <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons website</"
+"link>, or read the full <link href=\"http://creativecommons.org/licenses/by-"
+"sa/3.0/\">Commons Deed</link>."
+msgstr ""
+"このライセンスの全文は <link href=\"http://creativecommons.org/licenses/by-"
+"sa/3.0/legalcode\">CreativeCommons website</link> を参照してください。また"
+"は、<link href=\"http://creativecommons.org/licenses/by-sa/3.0/\">コモンズ証"
+"</link> の全文を参照してください。"
+
+#: C/link-contacts.page:11(info/desc)
+msgid "Merge and separate different contacts into a single one."
+msgstr "別々の相手先をひとつの相手先にまとめたり分離したりします。"
+
+#: C/link-contacts.page:25(page/title)
+msgid "Combine and separate contacts"
+msgstr "相手先の結合と分離"
+
+#: C/link-contacts.page:26(page/p)
+msgid ""
+"If one, or more, of your contacts has multiple accounts with different "
+"messaging services, you can combine these contacts into a single one."
+msgstr ""
+"相手先の一人が、別々のメッセージングサービスで複数のアカウントを持っている場"
+"合、これらの相手先をひとつにまとめることができます。"
+
+#: C/link-contacts.page:30(page/p)
+msgid ""
+"The resulting contact is called a <em>meta-contact</em>: a contact composed "
+"from different single contacts."
+msgstr ""
+"そのまとめたものを <em>メタ相手先</em>と呼びます。メタ相手先は、個々の相手先"
+"で構成された相手先のことです。"
+
+#: C/link-contacts.page:34(page/p)
+msgid ""
+"If you have a Jane Smith contact that is using three different messaging "
+"services like:"
+msgstr ""
+"Jane Smith という相手先がいて、次のように3つの別のメッセージングサービスを"
+"使っていたとします。"
+
+#: C/link-contacts.page:40(item/p)
+msgid "janes@facebook"
+msgstr "janes@facebook"
+
+#: C/link-contacts.page:45(item/p)
+msgid "jane.smith@gmail"
+msgstr "jane.smith@gmail"
+
+#: C/link-contacts.page:50(item/p)
+msgid "jane_smith@hotmail"
+msgstr "jane_smith@hotmail"
+
+#: C/link-contacts.page:55(page/p)
+msgid "You can combine these contacts into a single Jane Smith one."
+msgstr ""
+"これらの相手先をJane Smith というひとつの相手先にまとめることができます。"
+
+#: C/link-contacts.page:60(section/title)
+msgid "Combining contacts"
+msgstr "相手先の結合"
+
+#: C/link-contacts.page:63(item/p)
+msgid ""
+"From the <gui>Contact List</gui> window, right-click one of the contact that "
+"has different accounts, and select <gui style=\"menuitem\">Link Contacts...</"
+"gui>."
+msgstr ""
+"<gui>相手先の一覧</gui> ウィンドウから、複数のアカウントを持つ相手先を右ク"
+"リックして、<gui style=\"menuitem\">相手先をリンク…</gui> を指定します。"
+
+#: C/link-contacts.page:70(item/p)
+msgid ""
+"From the left pane in the <gui>Link Contacts</gui> window, select the "
+"contacts you want to combine."
+msgstr ""
+"<gui>相手先をリンク</gui> ウィンドウの左欄から、結合したい相手先を指定しま"
+"す。"
+
+#: C/link-contacts.page:76(item/p)
+msgid "Click <gui style=\"button\">Link</gui>."
+msgstr "<gui style=\"button\">リンク</gui> をクリックします。"
+
+# highest presence on-line がよくわからない。
+#: C/link-contacts.page:82(note/p)
+#, fuzzy
+msgid ""
+"When a meta-contact has been created, the default contact that will be used "
+"to have a conversation with when you double-click on it, is the contact with "
+"the highest presence on-line."
+msgstr ""
+"メタ相手先が作成されると、ダブルクリックで会話を開始するデフォルトの相手先"
+"は、オンラインの最も上にある相手先になります。"
+
+#: C/link-contacts.page:91(section/title)
+msgid "Separating contacts"
+msgstr "相手先の分離"
+
+#: C/link-contacts.page:94(item/p)
+msgid ""
+"From the <gui>Contact List</gui>, right-click the contact to separate, and "
+"select <gui style=\"menuitem\">Link Contacts...</gui>."
+msgstr ""
+"<gui>相手先の一覧</gui> から、分離したい相手先を右クリックして<gui style="
+"\"menuitem\">相手先をリンク…</gui> を指定します。"
+
+#: C/link-contacts.page:100(item/p)
+msgid "Click <gui style=\"button\">Unlink</gui>."
+msgstr "<gui style=\"button\">リンクを外す</gui> をクリックします。"
+
+#: C/prev-conv.page:8(info/desc)
+msgid "Browse or search your previous conversations."
+msgstr "会話の履歴を閲覧したり検索します。"
+
+#: C/prev-conv.page:36(page/title)
+msgid "View previous conversations"
+msgstr "過去の会話の表示"
+
+#: C/prev-conv.page:38(page/p)
+msgid ""
+"<app>Empathy</app> automatically saves all your text conversations you have "
+"with your contacts. You can <link xref=\"#search\">search through all of "
+"your previous conversations</link> or <link xref=\"#browse\">browse previous "
+"conversations</link> by contact and date."
+msgstr ""
+"<app>Empathy</app> は自動的に、相手先とともにすべての文字による会話を保存しま"
+"す。相手先や日付によって、<link xref=\"#search\">会話の履歴すべてを検索する</"
+"link>、または<link xref=\"#browse\">会話の履歴を閲覧する</link> ことができま"
+"す。"
+
+#: C/prev-conv.page:46(note/p)
+msgid ""
+"You do not need to be connected to the Internet to view and search your "
+"previous conversations."
+msgstr ""
+"会話の履歴の閲覧や検索には、インターネットに接続している必要はありません。"
+
+#: C/prev-conv.page:53(section/title)
+msgid "Search previous conversations"
+msgstr "会話の履歴の検索"
+
+#: C/prev-conv.page:55(section/p)
+msgid ""
+"You can perform a full-text search through all of your previous "
+"conversations."
+msgstr "会話の履歴のすべてにわたって、全文検索を行うことができます。"
+
+#: C/prev-conv.page:59(item/p) C/prev-conv.page:87(item/p)
+msgid ""
+"From the <gui>Contact List</gui> window, choose <guiseq><gui>View</gui> "
+"<gui>Previous Conversations</gui></guiseq>. Alternatively, press <key>F3</"
+"key>."
+msgstr ""
+"<gui>相手先の一覧</gui> ウィンドウから、<guiseq><gui>表示</gui> <gui>会話の履"
+"歴</gui></guiseq> を選びます。または、<key>F3</key> を押します。"
+
+#: C/prev-conv.page:63(item/p)
+msgid ""
+"Select an account from the drop-down list in the top. A list of contacts and "
+"chat room for that account will be shown below."
+msgstr ""
+"最上部のドロップダウンリストからアカウントを指定します。その下に、そのアカウ"
+"ントに対応する相手先の一覧および談話室の一覧が表示されます。"
+
+#: C/prev-conv.page:67(item/p)
+msgid ""
+"Type the text you want to search for in the <gui>Search</gui> text field."
+msgstr "<gui>検索</gui> 欄に、検索したい語句を入力します。"
+
+#: C/prev-conv.page:71(item/p)
+msgid ""
+"Any conversations that matched your search terms will be shown. By default, "
+"conversations are ordered by date."
+msgstr ""
+"検索語句にマッチした会話がすべて表示されます。デフォルトで日付順に並びます。"
+
+#: C/prev-conv.page:80(section/title)
+msgid "Browse previous conversations"
+msgstr "会話の履歴の閲覧"
+
+#: C/prev-conv.page:82(section/p)
+msgid ""
+"You can browse your previous conversations with your contacts or in chat "
+"rooms by date."
+msgstr "相手先または談話室の会話の履歴を、日付ごとに閲覧できます。"
+
+#: C/prev-conv.page:91(item/p)
+msgid ""
+"Select an account from the drop-down list in the top left. A list of "
+"contacts and chat room for that account will be shown below."
+msgstr ""
+"上段左のドロップダウンリストから相手先を選びます。アカウントに対応する相手先"
+"と談話室が表示されます。"
+
+#: C/prev-conv.page:95(item/p)
+msgid ""
+"Select a contact or chat room to view your previous conversations from. By "
+"default the most recent conversation will be shown."
+msgstr ""
+"会話の履歴を表示させたい相手先または談話室を選びます。デフォルトでは直近の会"
+"話が表示されます。"
+
+#: C/prev-conv.page:99(item/p)
+msgid ""
+"You can browse your conversations by date. Days on which you had a "
+"conversation with the selected contact will be shown in bold text. Click a "
+"date to select it. Click the arrows next to the month and year to browse "
+"earlier dates."
+msgstr ""
+"日付ごとに会話の履歴を閲覧できます。選んだ相手先との会話を含む日付が太字で表"
+"示されます。日付を選んでクリックします。次の月や年の矢印をクリックすると、よ"
+"り古い日付を閲覧できます。"
+
+#: C/prev-conv.page:105(section/p)
+msgid ""
+"You can search for text in the conversations by typing into the search field "
+"at the top. The matching conversations will be showed."
+msgstr ""
+"最上部の検索フィールドに入力して、会話の語句を検索できます。マッチしたものが"
+"表示されます。"
+
+#: C/prev-conv.page:111(note/p)
+msgid ""
+"You can quickly view the previous conversations with one of your contacts "
+"from the <gui>Contact List</gui> window. Simply right click the contact and "
+"choose <gui>Previous Conversations</gui>. The <gui>Previous Conversations</"
+"gui> window will open with that contact already selected."
+msgstr ""
+"<gui>相手先の一覧</gui> ウィンドウから、ある相手先の会話の履歴をすばやく表示"
+"することができます。相手先を右クリックして <gui>会話の履歴</gui> を選ぶだけで"
+"す。その相手先が選択された状態で <gui>会話の履歴</gui> ウィンドウが開きます。"
+
+#: C/prob-conn-acctdisabled.page:7(info/desc)
+msgid ""
+"The instant messaging account that you want to use is not enabled in the "
+"list of accounts."
+msgstr ""
+"アカウントの一覧で、使いたいインスタントメッセージングのアカウントが有効に"
+"なっていません。"
+
+#: C/prob-conn-acctdisabled.page:34(page/title)
+msgid "My account is not enabled"
+msgstr "アカウントが有効ではありません"
+
+#: C/prob-conn-acctdisabled.page:36(page/p)
+msgid ""
+"If the instant messaging account that you want to use is not enabled in the "
+"drop-down account list when you try to start a new conversation or join a "
+"room, your account details may not be correct."
+msgstr ""
+"新しい会話を始めようとしたり談話室に参加しようとする際に、ドロップダウンのア"
+"カウントの一覧で、使いたいインスタントメッセージングのアカウントが有効になっ"
+"ていない場合は、アカウントの詳細情報が正しくない可能性があります。"
+
+#: C/prob-conn-acctdisabled.page:44(item/p) C/prob-conn-auth.page:45(item/p)
+#: C/prob-conn-neterror.page:53(item/p)
+msgid ""
+"Make sure that you are connected to the Internet, or to a local area network."
+msgstr ""
+"インターネットまたはローカルエリアネットワークに接続していることを確認しま"
+"す。"
+
+#: C/prob-conn-acctdisabled.page:49(item/p)
+msgid ""
+"Choose <guiseq><gui>Edit</gui><gui>Accounts</gui></guiseq> and select the "
+"account that is not working."
+msgstr ""
+"<guiseq><gui>編集</gui><gui>アカウント</gui></guiseq> を選び、問題のあるアカ"
+"ウントを指定します。"
+
+#: C/prob-conn-acctdisabled.page:55(item/p) C/prob-conn-auth.page:63(item/p)
+msgid ""
+"Type your username and password again to make sure that they are correct."
+msgstr "ユーザー名とパスワードを、もう一度正しいことを確認して、入力します。"
+
+#: C/prob-conn-acctdisabled.page:60(item/p)
+#: C/prob-conn-neterror.page:64(item/p)
+msgid ""
+"Check in the <gui>Advanced</gui> section that all the details are correct. "
+"You should be able to find these details from the website of the messaging "
+"service."
+msgstr ""
+"<gui>詳細</gui> セクションのすべての情報が正しいことを確認します。これらの情"
+"報は、メッセージングサービスのウェブサイトで確認できるでしょう。"
+
+#: C/prob-conn-acctdisabled.page:66(item/p)
+msgid "Check that the account is switched on."
+msgstr "アカウントのスイッチがオンであることを確認します。"
+
+#: C/prob-conn-auth.page:8(info/desc)
+msgid ""
+"An error message which says “<gui>Authentication failed</gui>” appears in "
+"the main window."
+msgstr ""
+"「<gui>認証に失敗しました</gui>」というエラーメッセージが主ウィンドウに表示さ"
+"れます。"
+
+#: C/prob-conn-auth.page:36(page/title)
+msgid "I get a message that says “Authentication failed”"
+msgstr "「認証に失敗しました」というメッセージが表示されます。"
+
+#: C/prob-conn-auth.page:38(page/p)
+msgid ""
+"This kind of error happens when your instant messaging service is not "
+"allowing you to connect because it does not recognize your username or "
+"password for some reason."
+msgstr ""
+"この種のエラーは、何らかの理由でユーザー名またはパスワードを認識できず、イン"
+"スタントメッセージング・サービスに接続できなかった場合に起こります。"
+
+#: C/prob-conn-auth.page:50(item/p)
+msgid ""
+"Make sure that you have registered an account with the service you are "
+"trying to connect to. If you do not have an account, most services will not "
+"allow you to connect."
+msgstr ""
+"接続しようとしているサービスのアカウントが登録されていることを確認します。ア"
+"カウントがなければ、ほとんどのサービスは接続できません。"
+
+#: C/prob-conn-auth.page:57(item/p) C/prob-conn-name.page:43(item/p)
+#: C/prob-conn-neterror.page:58(item/p)
+msgid ""
+"Click the <media type=\"image\" mime=\"image/png\" src=\"figures/gtk-edit.png"
+"\">edit</media> icon in the error message."
+msgstr ""
+"エラーメッセージの <media type=\"image\" mime=\"image/png\" src=\"figures/"
+"gtk-edit.png\">edit</media> アイコンをクリックします。"
+
+#: C/prob-conn-auth.page:68(item/p)
+msgid ""
+"Deselect the <gui>Enabled</gui>, and then select it again to try to "
+"reconnect to the service."
+msgstr "<gui>有効化</gui> をいったん外し、再び指定して、サービスに接続します。"
+
+#: C/prob-conn-name.page:9(info/title)
+msgctxt "link:error-msg"
+msgid "“Name in use”"
+msgstr "「名前は使用中です」"
+
+#: C/prob-conn-name.page:10(info/desc)
+msgid ""
+"An error message which says “<gui>Name in use</gui>” appears in the main "
+"window."
+msgstr ""
+"「<gui>名前は使用中です</gui>」というエラーメッセージが主ウィンドウに表示され"
+"ます。"
+
+#: C/prob-conn-name.page:33(page/title)
+msgid "I get a message that says “Name in use”"
+msgstr "「名前は使用中です」というメッセージが表示されます"
+
+#: C/prob-conn-name.page:35(page/p)
+msgid ""
+"This kind of error happens when you try to connect to your IRC account and "
+"you are using a nickname that is already being used by someone else on that "
+"particular network."
+msgstr ""
+"この種のエラーは、IRC アカウントで接続しようとして、そのネットワークですでに"
+"だれかが使用しているニックネームを使おうとした場合に起こります。"
+
+#: C/prob-conn-name.page:51(item/p)
+msgid "In the <gui>Nickname</gui> text box, type a new nickname."
+msgstr "<gui>ニックネーム</gui> 欄に、新しいニックネームを入力します。"
+
+#: C/prob-conn-name.page:56(item/p)
+msgid ""
+"If you have registered that nickname within the network you are using, set "
+"the password for that nickname. For more information, see <link xref=\"irc-"
+"nick-password\"/>."
+msgstr ""
+"そのネットワークで使うニックネームを登録している場合、そのニックネームに対応"
+"するパスワードを設定します。詳しくは <link xref=\"irc-nick-password\"/> を参"
+"照してください。"
+
+#: C/prob-conn-name.page:65(item/p) C/prob-conn-neterror.page:79(item/p)
+msgid ""
+"Switch the account off, and then switch it on to try to reconnect to the "
+"service."
+msgstr "アカウントのスイッチをオフにして再びオンにし、サービスに再接続します。"
+
+#: C/prob-conn-neterror.page:7(info/desc)
+msgid ""
+"An error message which says “<gui>Network error</gui>” appears in the main "
+"window."
+msgstr ""
+"「<gui>ネットワークのエラーです</gui>」というエラーメッセージが主ウィンドウに"
+"表示されます。"
+
+#: C/prob-conn-neterror.page:34(page/title)
+msgid "I get a message that says “Network error”"
+msgstr "「ネットワークのエラーです」というメッセージが表示されます"
+
+#: C/prob-conn-neterror.page:42(page/p)
+msgid ""
+"This kind of error happens when <app>Empathy</app> cannot communicate with "
+"the instant messaging service for some reason."
+msgstr ""
+"この種のエラーは、何らかの理由で <app>Empathy</app> がインスタントメッセージ"
+"ング・サービスに接続できない場合に起こります。"
+
+#: C/prob-conn-neterror.page:46(page/p)
+msgid ""
+"Also, this kind of error happens when you try to use an IRC account without "
+"setting a nickname."
+msgstr ""
+"また、IRC アカウントを、ニックネームの設定をせずに使おうとする場合にも起こり"
+"ます。"
+
+#: C/prob-conn-neterror.page:87(section/title)
+msgid "Proxy support"
+msgstr "プロキシのサポート"
+
+#: C/prob-conn-neterror.page:88(section/p)
+msgid ""
+"At the moment <app>Empathy</app> can not be configured to work with a proxy."
+msgstr ""
+"現在のところ、<app>Empathy</app> はプロキシの利用についての設定はできません。"
+
+#: C/prob-conn.page:7(info/desc)
+msgid "Diagnose common problems connecting to an instant messaging service."
+msgstr ""
+"インスタントメッセージング・サービスへの接続に関する共通の問題を診断します。"
+
+#: C/prob-conn.page:29(page/title)
+msgid "Problems connecting to an instant messaging service"
+msgstr "インスタントメッセージング・サービスへの接続に関する問題"
+
+#: C/remove-account.page:8(info/desc)
+msgid "Completely remove an account from <app>Empathy</app>."
+msgstr "<app>Empathy</app> からアカウントを完全に削除します。"
+
+#: C/remove-account.page:34(page/title)
+msgid "Remove an account"
+msgstr "アカウントの削除"
+
+#: C/remove-account.page:36(page/p)
+msgid ""
+"You can completely remove an account from <app>Empathy</app> if you no "
+"longer wish to use the account. If you wish to use the account in "
+"<app>Empathy</app> again in the future, you will have to add your account "
+"details again."
+msgstr ""
+"そのアカウントをもう使うことがないのなら、<app>Empathy</app> からアカウントを"
+"完全に削除することができます。将来またそのアカウントを <app>Empathy</app> で"
+"使いたくなったら、再びアカウントの詳細を追加する必要があります。"
+
+#: C/remove-account.page:47(item/p)
+msgid ""
+"Select the account you wish to remove from the accounts list on the left "
+"side of the window."
+msgstr ""
+"ウィンドウの左側のアカウントの一覧から、削除したいアカウントを指定します。"
+
+#: C/remove-account.page:51(item/p)
+msgid "Click <gui style=\"button\">-</gui>."
+msgstr "<gui style=\"button\">-</gui> をクリックします。"
+
+#: C/remove-account.page:54(item/p)
+msgid ""
+"A dialog will be shown asking for confirmation. Click the <gui>Remove</gui> "
+"button to permanently remove the account."
+msgstr ""
+"確認のダイアログが表示されます。<gui>削除</gui> ボタンをクリックして、恒久的"
+"にアカウントを削除します。"
+
+#: C/remove-account.page:60(note/p)
+msgid ""
+"Even after removing an account, <app>Empathy</app> does not delete your "
+"conversation history for that account."
+msgstr ""
+"アカウントを削除しても、<app>Empathy</app> はそのアカウントの会話の履歴は削除"
+"しません。"
+
+#: C/salut-protocol.page:8(info/desc)
+msgid "Understanding the People Nearby feature."
+msgstr "People Nearby 機能について理解します。"
+
+#: C/salut-protocol.page:33(page/title)
+msgid "What is People Nearby?"
+msgstr "People Nearby とは何か"
+
+#: C/salut-protocol.page:40(page/p)
+msgid ""
+"The People Nearby service is a serverless communication service: you do not "
+"need to connect and authenticate to a central server in order to use it."
+msgstr ""
+"People Nearby は、サーバーレスのコミュニケーションサービスです。これを使う場"
+"合に中央サーバーへの接続や認証は必要ありません。"
+
+#: C/salut-protocol.page:45(page/p)
+msgid ""
+"This kind of serverless messaging system is restricted to a local area "
+"network and an active Internet connection is not necessary."
+msgstr ""
+"この種のサーバーレスのメッセージングシステムは、ローカルエリアネットワークに"
+"制限され、したがって、インターネットに接続している必要はありません。"
+
+#: C/salut-protocol.page:49(page/p)
+msgid ""
+"The people that use this service inside the same local area network will be "
+"auto-discovered, and it will be possible to send them messages and files as "
+"with other services."
+msgstr ""
+"同じローカルエリアネットワーク内でこのサービスを使用している人を自動的に発見"
+"します。他のサービスと同様、メッセージやファイルをその人たちに送ることができ"
+"ます。"
+
+# もっとこなれた訳にしたい。
+#: C/salut-protocol.page:54(page/p)
+#, fuzzy
+msgid ""
+"All the modern local area networks should be able to support this kind of "
+"service."
+msgstr ""
+"すべての現代的なローカルエリアネットワークは、この種のサービスをサポートする"
+"ことができるはずです。"
+
+#: C/send-file.page:8(info/desc)
+msgid "Send a file from your computer to one of your contacts."
+msgstr "あなたのコンピューターから相手先のひとりにファイルを送ります。"
+
+#: C/send-file.page:36(page/title)
+msgid "Send files"
+msgstr "ファイルの送信"
+
+#: C/send-file.page:45(item/p)
+msgid ""
+"Right click on the contact you want to send a file to, and choose <gui>Send "
+"file</gui>."
+msgstr ""
+"ファイルを送りたい相手先を右クリックし、<gui>ファイルの送信</gui>を選びます。"
+
+#: C/send-file.page:50(item/p)
+msgid ""
+"Click on the contact you want to send a file, and choose <guiseq><gui>Edit</"
+"gui> <gui>Contact</gui><gui>Send file</gui></guiseq>."
+msgstr ""
+"ファイルを送りたい相手先をクリックし、<guiseq><gui>編集</gui> <gui>相手先</"
+"gui><gui>ファイルの送信</gui></guiseq>を選びます。"
+
+#: C/send-file.page:58(item/p)
+msgid "Select the file to send, and click on <gui>Send</gui>."
+msgstr "送信するファイルを指定し、<gui>送信</gui> をクリックします。"
+
+#: C/send-file.page:63(item/p)
+msgid "The <gui>File Transfers</gui> window will appear."
+msgstr "<gui>ファイル転送</gui> ウィンドウが開きます。"
+
+#: C/send-file.page:66(item/p)
+msgid ""
+"Wait for your contact to accept the file transfer, or click <gui>Stop</gui> "
+"to halt the transfer."
+msgstr ""
+"相手先がファイル転送を承諾するのを待ちます。そうでなければ、<gui>停止</gui> "
+"をクリックして転送を中断します。"
+
+#: C/send-file.page:72(item/p)
+msgid ""
+"Once the transfer is finished, it is possible to close the <gui>File "
+"Transfers</gui> window."
+msgstr ""
+"転送が終了したら、<gui>ファイル転送</gui> ウィンドウを閉じてもかまいません。"
+
+#: C/send-file.page:80(note/p)
+msgid ""
+"If you have multiple finished transfers listed in the window, click on "
+"<gui>Clear</gui> to empty the list. This will only remove the files from the "
+"list and will not delete them from your computer."
+msgstr ""
+"転送済みファイルの一覧がウィンドウに表示されている場合、<gui>消去</gui> をク"
+"リックして一覧を空にすることができます。これは一覧からファイルを削除するだけ"
+"で、コンピューターからは削除されません。"
+
+#: C/send-file.page:87(note/p)
+msgid ""
+"It is possible to send files only using the following services: <em>Jabber</"
+"em>, <em>Google Talk</em> and <em>People Nearby</em>."
+msgstr ""
+"ファイル転送は次のサービスでのみ可能です: <em>Jabber</em>、<em>Google トーク"
+"</em>、<em>People Nearby</em>"
+
+#: C/send-file.page:93(note/p)
+msgid ""
+"In order to send a file to someone, you need to be connected to the "
+"Internet, or to a local area network."
+msgstr ""
+"ファイルを転送するためには、インターネットまたはローカルエリアネットワークに"
+"接続している必要があります。"
+
+#: C/send-message.page:8(info/desc)
+msgid "Send a message to one of your contacts."
+msgstr "相手先の一人にメッセージを送ります。"
+
+#: C/send-message.page:32(page/title)
+msgid "Send a message to someone"
+msgstr "メッセージの送信"
+
+#: C/send-message.page:36(item/p)
+msgid ""
+"From the <gui>Contact List</gui> window, double-click the name of the "
+"contact that you want to have a conversation with."
+msgstr ""
+"<gui>相手先の一覧</gui> ウィンドウから、会話をしたい相手先の名前をダブルク"
+"リックします。"
+
+#: C/send-message.page:42(item/p)
+msgid ""
+"A new window will open. Type a message into the box at the bottom of the "
+"window and press <key>Enter</key> to send it."
+msgstr ""
+"新しいウィンドウが開きます。ウィンドウの一番下の部分の欄にメッセージを入力"
+"し、<key>Enter</key> を押して、メッセージを送信します。"
+
+#: C/send-message.page:50(section/title)
+msgid "Send a message to a meta-contact"
+msgstr "メタ相手先へのメッセージの送信"
+
+#: C/send-message.page:58(item/p)
+msgid ""
+"Select the contact you want to have the conversation, and from the menu "
+"select <gui style=\"menuitem\">Chat</gui>."
+msgstr ""
+"会話をしたい相手先を選び、メニューから<gui style=\"menuitem\">チャット</gui> "
+"を指定します。"
+
+#: C/set-custom-status.page:9(info/desc)
+msgid "Add, edit or delete personal messages for your status."
+msgstr "在席状況の個人的メッセージを追加、編集、削除します。"
+
+#: C/set-custom-status.page:15(credit/name)
+msgid "Jim Campbell"
+msgstr "Jim Campbell"
+
+#: C/set-custom-status.page:34(page/title)
+msgid "Set a custom message"
+msgstr "独自メッセージの設定"
+
+#: C/set-custom-status.page:36(page/p)
+msgid ""
+"Sometimes you may want to set a custom message for your status, for example "
+"to let people know that you will be unavailable for a certain period of time."
+msgstr ""
+"在席状況について独自のメッセージを設定したくなるときがあります。たとえば、不"
+"在の期間を正確に知らせたい場合などです。"
+
+#: C/set-custom-status.page:40(page/p)
+msgid ""
+"It is possible to set a custom message based on the different statuses "
+"available."
+msgstr "在席状況ごとに独自のメッセージを設定できます。"
+
+#: C/set-custom-status.page:46(item/p) C/set-custom-status.page:82(item/p)
+msgid ""
+"From the <gui>Contact List</gui> window, click on the drop-down list at the "
+"top."
+msgstr ""
+"<gui>相手先の一覧</gui> ウィンドウから、最上部のドロップダウンリストをクリッ"
+"クします。"
+
+#: C/set-custom-status.page:52(item/p)
+msgid ""
+"Select the status you want to add a custom message to. You have to select "
+"the one identified with the label <gui>Custom Message</gui>."
+msgstr ""
+"独自のメッセージを設定したい在席状況を選びます。<gui>独自のメッセージ</gui> "
+"というラベルの付いているものを選ぶ必要があります。"
+
+#: C/set-custom-status.page:58(item/p)
+msgid ""
+"Enter your custom message in the text box at the top of the window, and "
+"press <key>Enter</key> to set the message."
+msgstr ""
+"ウィンドウ最上部のテキスト欄に独自のメッセージを入力し、<key>Enter</key> を押"
+"してメッセージを設定します。"
+
+#: C/set-custom-status.page:64(item/p)
+msgid ""
+"If you want to set the custom message as a favorite, saving it in order to "
+"use it again, click on the little heart on the right of the text box where "
+"you wrote your custom message."
+msgstr ""
+"その独自メッセージを再利用するためにお気に入りとして保存するには、メッセージ"
+"を入力した欄の右端にある小さなハート印をクリックします。"
+
+#: C/set-custom-status.page:69(item/p)
+msgid ""
+"If you do not do it, the custom message will not be available the next time "
+"you use <app>Empathy</app>. It will be saved only for the current session."
+msgstr ""
+"この操作を行わない場合、次に <app>Empathy</app> を使う際にはこの独自メッセー"
+"ジは失われています。現在のセッションのあいだのみ保存されます。"
+
+#: C/set-custom-status.page:78(section/title)
+msgid "Edit and remove a custom message"
+msgstr "独自メッセージの編集と削除"
+
+#: C/set-custom-status.page:88(item/p)
+msgid "Select <gui>Edit Custom Message</gui>."
+msgstr "<gui>独自のメッセージを編集</gui> を選びます。"
+
+#: C/set-custom-status.page:95(item/p)
+msgid "To edit a custom message:"
+msgstr "独自メッセージの編集"
+
+# Saved Presets は廃止されたようだ。
+#: C/set-custom-status.page:100(item/p)
+msgid ""
+"From the <gui>Saved Presets</gui> box, select the status message you want to "
+"edit and double-click on it."
+msgstr ""
+"<gui>保存済み独自メッセージ</gui> の欄から、編集する状況メッセージを選び、ダ"
+"ブルクリックします。"
+
+#: C/set-custom-status.page:106(item/p)
+msgid "Type the new custom message and press <key>Enter</key> to modify it."
+msgstr ""
+"新しい独自メッセージを入力し、<key>Enter</key> を押して変更を保存します。"
+
+#: C/set-custom-status.page:113(item/p)
+msgid "To remove a custom message:"
+msgstr "独自メッセージの削除"
+
+#: C/set-custom-status.page:118(item/p)
+msgid ""
+"From the <gui>Saved Presets</gui> box, select the status message you want to "
+"remove."
+msgstr "<gui>Saved Presets</gui> の欄から、削除する状況メッセージを選びます。"
+
+#: C/set-custom-status.page:124(item/p)
+msgid "Click on the <gui>Remove</gui> button."
+msgstr "<gui>削除</gui> ボタンをクリックします。"
+
+#: C/set-custom-status.page:133(item/p)
+msgid "When finished, click on <gui>Close</gui>."
+msgstr "終わったら、<gui>閉じる</gui> をクリックします。"
+
+#: C/set-custom-status.page:140(note/p)
+msgid ""
+"When you edit a custom message, it will not be set as the current status "
+"message. You will need to select it from the <gui>Contact List</gui> window."
+msgstr ""
+"独自メッセージを編集しても、現在の状況メッセージとしては設定されません。<gui>"
+"相手先の一覧</gui> から、その編集したメッセージを選ぶ必要があります。"
+
+#: C/share-desktop.page:7(info/desc)
+msgid "Show your desktop to your contacts."
+msgstr "相手先にあなたのデスクトップを表示します。"
+
+#: C/share-desktop.page:18(credit/name)
+msgid "Ekaterina Gerasimova"
+msgstr "Ekaterina Gerasimova"
+
+#: C/share-desktop.page:33(page/title)
+msgid "Share your desktop"
+msgstr "デスクトップの共有"
+
+#: C/share-desktop.page:35(page/p)
+msgid ""
+"It is possible to share your desktop with some of your contacts. You can use "
+"this functionality to show your desktop to your contacts to, for example, "
+"ask for help or help your contacts resolve a problem."
+msgstr ""
+"あなたのデスクトップを相手先と共有できます。この機能で、あなたのデスクトップ"
+"を相手先に見せることができ、たとえば、問題解決の手助けを求めたり、また相手先"
+"を手助けすることができます。"
+
+#: C/share-desktop.page:42(note/p)
+msgid ""
+"To be able to share your desktop, you need to have a VNC server, which has "
+"support for the feature, installed on your system. <app>Vino</app>, the "
+"GNOME VNC server, has the required support."
+msgstr ""
+"デスクトップを共有するには この機能をサポートしている VNC サーバーがシステム"
+"にインストールされていることが必要です。GNOME の VNC サーバー <app>Vino</"
+"app> はこの要件を満たしています。"
+
+#: C/share-desktop.page:51(item/p)
+msgid "From the <gui>Contact List</gui> window, do one of the following:"
+msgstr "<gui>相手先の一覧</gui> ウィンドウから、次のいずれかを行います。"
+
+#: C/share-desktop.page:56(item/p)
+msgid ""
+"Select the contact you want to share your desktop with and choose "
+"<guiseq><gui>Edit</gui><gui>Contact</gui> <gui>Share My Desktop</gui></"
+"guiseq>."
+msgstr ""
+"デスクトップを共有したい相手先を指定し、<guiseq><gui>編集</gui><gui>相手先</"
+"gui> <gui>デスクトップの共有</gui></guiseq> を選びます。"
+
+#: C/share-desktop.page:63(item/p)
+msgid ""
+"Right-click on the name of the contact you want to share your desktop with "
+"and select <gui>Share My Desktop</gui>."
+msgstr ""
+"デスクトップを共有したい相手先の名前で右クリックし、<gui>デスクトップの共有</"
+"gui> を指定します。"
+
+#: C/share-desktop.page:71(item/p)
+msgid ""
+"An invitation to view your desktop will be sent to the contact you have "
+"selected. To view your desktop, they will need to accept it."
+msgstr ""
+"あなたのデスクトップを見るよう、指定した相手先に招待が送られます。相手先は、"
+"その招待を受諾するとあなたのデスクトップを見ることができます。"
+
+#: C/share-desktop.page:77(item/p)
+msgid ""
+"You can disconnect the contact from your computer using your desktop sharing "
+"application."
+msgstr "デスクトップ共有アプリケーションで、相手先の接続を切ることができます。"
+
+#: C/share-desktop.page:82(note/p)
+msgid ""
+"For more information about how to use the remote desktop sharing "
+"application, refer to its help."
+msgstr ""
+"リモートデスクトップ共有アプリケーションの詳細な情報は、そのヘルプを参照して"
+"ください。"
+
+#: C/share-desktop.page:90(page/p)
+msgid ""
+"When you share your desktop with someone else, it is possible to experience "
+"system performance slowdown and low Internet speed."
+msgstr ""
+"デスクトップをだれかと共有しているとき、システムの体感速度は遅くなり、イン"
+"ターネットの速度も遅くなります。"
+
+#: C/share-desktop.page:96(note/p)
+msgid ""
+"Some of your contacts may not be able to use this feature. It is necessary "
+"for them to have version 2.28, or newer, of <app>Empathy</app> and a "
+"compatible remote desktop viewer application installed in their system."
+msgstr ""
+"相手先によってはこの機能を使えない場合があります。相手先には <app>Empathy</"
+"app> のバージョン 2.28 またはそれ以降が必要です。また、相手先のシステムに互換"
+"性のあるリモートデスクトップビューアーがインストールされている必要がありま"
+"す。"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/status-icons.page:39(media)
+msgctxt "_"
+msgid ""
+"external ref='figures/available.png' md5='2196b2f0ad4ce26fdb7b9d48e75d1947'"
+msgstr ""
+"external ref='figures/available.png' md5='2196b2f0ad4ce26fdb7b9d48e75d1947'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/status-icons.page:45(media)
+msgctxt "_"
+msgid "external ref='figures/busy.png' md5='15eb2adff5faedf97b0cb9105d09410a'"
+msgstr "external ref='figures/busy.png' md5='15eb2adff5faedf97b0cb9105d09410a'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/status-icons.page:53(media)
+msgctxt "_"
+msgid "external ref='figures/away.png' md5='9c504d6ffa0cf1a9cc8933d16e1bea33'"
+msgstr "external ref='figures/away.png' md5='9c504d6ffa0cf1a9cc8933d16e1bea33'"
+
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#.
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/status-icons.page:62(media) C/status-icons.page:69(media)
+msgctxt "_"
+msgid ""
+"external ref='figures/offline.png' md5='c5b0c21181cbd6e13f8909243c0fa964'"
+msgstr ""
+"external ref='figures/offline.png' md5='c5b0c21181cbd6e13f8909243c0fa964'"
+
+#: C/status-icons.page:7(info/desc)
+msgid "Understanding the various statuses and status icons."
+msgstr "在席状況とアイコンについて理解します。"
+
+#: C/status-icons.page:35(page/title)
+msgid "Status Types and Icons"
+msgstr "在席状況の種類とアイコン"
+
+#: C/status-icons.page:39(item/title)
+msgid ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/available.png"
+"\">Available icon</media> <gui>Available</gui>"
+msgstr ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/available.png\">在席中"
+"アイコン</media> <gui>在席中</gui>"
+
+#: C/status-icons.page:41(item/p)
+msgid ""
+"Use the <em>Available</em> status when you are at your computer and able to "
+"chat with your contacts. You can set a custom message for this status."
+msgstr ""
+"<em>在席中</em> は、コンピューターのところにいて、相手先とチャットできるとき"
+"に使います。この在席状況について独自のメッセージを設定できます。"
+
+#: C/status-icons.page:45(item/title)
+msgid ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/busy.png\">Busy icon</"
+"media> <gui>Busy</gui>"
+msgstr ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/busy.png\">取り込み中"
+"アイコン</media> <gui>取り込み中</gui>"
+
+#: C/status-icons.page:47(item/p)
+msgid ""
+"Use the <em>Busy</em> status to let your contacts know that you don’t want "
+"to chat right now. They can still contact you, for instance if they have "
+"something urgent they need to discuss. By default, <app>Empathy</app> will "
+"not use notification bubbles and sounds when you are busy. You can set a "
+"custom message for this status."
+msgstr ""
+"<em>取り込み中</em> は、いますぐチャットしたくないことを相手先に知らせる場合"
+"に使います。相手先は何か緊急に話したい場合には連絡してくることができます。デ"
+"フォルトでは、取り込み中の場合に <app>Empathy</app> は通知ポップアップを表示"
+"せず、サウンドも鳴らしません。この在席状況について独自のメッセージを設定でき"
+"ます。"
+
+#: C/status-icons.page:53(item/title)
+msgid ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/away.png\">Away icon</"
+"media> <gui>Away</gui>"
+msgstr ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/away.png\">離席中アイ"
+"コン</media> <gui>離席中</gui>"
+
+#: C/status-icons.page:55(item/p)
+msgid ""
+"Use the <em>Away</em> status when you are going away from your computer. "
+"<app>Empathy</app> automatically sets your status to Away if you do not use "
+"your computer for a while, or if your screensaver is on. By default, "
+"<app>Empathy</app> will not use notification bubbles and sounds when you are "
+"away. You can set a custom message for this status."
+msgstr ""
+"<em>離席中</em> は、コンピューターを離れているときに使います。しばらくコン"
+"ピューターの操作がない場合、またはスクリーンセーバーが動いているときに "
+"<app>Empathy</app> は自動的に在席状況を離席中にします。デフォルトでは、離席中"
+"の場合に <app>Empathy</app> は通知ポップアップを表示せず、サウンドも鳴らしま"
+"せん。この在席状況について独自のメッセージを設定できます。"
+
+#: C/status-icons.page:62(item/title)
+msgid ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/offline.png\">Offline "
+"icon</media> <gui>Invisible</gui>"
+msgstr ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/offline.png\">オフライ"
+"ン・アイコン</media> <gui>隠れ中</gui>"
+
+#: C/status-icons.page:64(item/p)
+msgid ""
+"When you set your status to <em>Invisible</em>, you will appear as offline "
+"to your contacts. You will still be connected to your accounts, and you "
+"still see your contacts’ statuses and start conversations with them."
+msgstr ""
+"在席状況を <em>隠れ中</em> にすると、相手先にはオフラインとして表示されます。"
+"アカウントには接続しており、相手の在席状況を見たり会話を始めることができま"
+"す。"
+
+#: C/status-icons.page:69(item/title)
+msgid ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/offline.png\">Offline "
+"icon</media> <gui>Offline</gui>"
+msgstr ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/offline.png\">オフライ"
+"ン・アイコン</media> <gui>オフライン</gui>"
+
+#: C/status-icons.page:71(item/p)
+msgid ""
+"Setting your status to <em>Offline</em> disconnects you from all of your "
+"accounts."
+msgstr ""
+"在席状況を <em>オフライン</em> にすると、すべてのアカウントを切断します。"
+
+#: C/video-call.page:10(info/desc)
+msgid "Start a video conversation with one of your contacts."
+msgstr "相手先の一人とビデオ会話を始めます。"
+
+#: C/video-call.page:29(page/title)
+msgid "Start a video conversation"
+msgstr "ビデオ会話の開始"
+
+#: C/video-call.page:31(page/p)
+msgid ""
+"If you have a webcam, you can call your contacts and have a video "
+"conversation with them. This feature only works with certain types of "
+"accounts, and it requires the other person to have an application that "
+"supports video calls."
+msgstr ""
+"ウェブカメラを持っている場合、相手先を呼び出してビデオ会話を行うことができま"
+"す。この機能は、それに適したアカウントを持っている場合にのみ、かつ相手先がビ"
+"デオ会話をサポートしているアプリケーションを持っている場合に働きます。"
+
+#: C/video-call.page:38(item/p)
+msgid ""
+"From the <gui>Contact List</gui> window, click the <media type=\"image\" "
+"mime=\"image/png\" src=\"figures/camera-web.png\">video call</media> icon "
+"next to the name of the contact you wish to call and choose <gui style="
+"\"menuitem\">Video Call</gui>."
+msgstr ""
+"<gui>相手先の一覧</gui> ウィンドウから、通話したい相手先の名前の横にある"
+"<media type=\"image\" mime=\"image/png\" src=\"figures/camera-web.png\">ビデ"
+"オ通話</media> アイコンをクリックし、<gui style=\"menuitem\">ビデオ通話</"
+"gui> を選びます。"
+
+#: C/video-call.page:55(note/p)
+msgid ""
+"To turn a video conversation into an audio conversation, choose <guiseq><gui "
+"style=\"menu\">Video</gui><gui style=\"menuitem\">Video Off</gui></guiseq>."
+msgstr ""
+"ビデオ会話を音声会話に切り替えるには、<guiseq><gui style=\"menu\">ビデオ</"
+"gui><gui style=\"menuitem\">ビデオ切</gui></guiseq>を選びます。"
+
+#: C/video-call.page:61(section/title)
+msgid "Start a video conversation with a meta-contact"
+msgstr "メタ相手先とのビデオ会話の開始"
+
+#: C/video-call.page:69(item/p)
+msgid ""
+"Select the contact you want to have the conversation, and from the menu "
+"select <gui style=\"menuitem\">Video Call</gui>."
+msgstr ""
+"会話をしたい相手先を選び、メニューから <gui style=\"menuitem\">ビデオ通話</"
+"gui> を指定します。"
+
+#~ msgid "milo@ubuntu.com"
+#~ msgstr "milo@ubuntu.com"
+
+#~ msgid "shaunm@gnome.org"
+#~ msgstr "shaunm@gnome.org"
+
+#~ msgid "Available icon"
+#~ msgstr "在席アイコン"
+
+#~ msgid "Available"
+#~ msgstr "在席中"
+
+#~ msgid "Busy icon"
+#~ msgstr "取り込み中アイコン"
+
+#~ msgid "Busy"
+#~ msgstr "取り込み中"
+
+#~ msgid "Away icon"
+#~ msgstr "離席中アイコン"
+
+#~ msgid "Away"
+#~ msgstr "離席中"
+
+#~ msgid "Offline icon"
+#~ msgstr "オフライン・アイコン"
+
+#~ msgid "Invisible"
+#~ msgstr "隠れ中"
+
+#~ msgid "Offline"
+#~ msgstr "オフライン"
+
+#~ msgid "kittykat3756@gmail.com"
+#~ msgstr "kittykat3756@gmail.com"
+
+#~ msgid "jwcampbell@gmail.com"
+#~ msgstr "jwcampbell@gmail.com"
+
+#~ msgid "philbull@gmail.com"
+#~ msgstr "philbull@gmail.com"
+
+#~ msgid "Install telepathy-idle"
+#~ msgstr "telepathy-idle のインストール"
+
+#~ msgid "peter.haslam@freenet.de"
+#~ msgstr "peter.haslam@freenet.de"
+
+#~ msgid "Icon for audio conversation"
+#~ msgstr "音声会話のアイコン"
+
+#~ msgid "Icon for video conversation"
+#~ msgstr "ビデオ会話のアイコン"
+
+#~ msgid "Resource"
+#~ msgstr "リソース"
+
+#~ msgid "Priority"
+#~ msgstr "優先度"
+
+#~ msgid "Network"
+#~ msgstr "ネットワーク"
+
+#~ msgid "Nickname"
+#~ msgstr "ニックネーム"
+
+#~ msgid "Password"
+#~ msgstr "パスワード"
+
+#~ msgid "Quit message"
+#~ msgstr "終了時のメッセージ"
+
+# #元の語によらず、(説明の内容に従って)「文字エンコーディング」と訳す。
+#~ msgid "Charset"
+#~ msgstr "文字エンコーディング"
+
+#~ msgid "Servers"
+#~ msgstr "サーバー"
+
+#~ msgid "Edit, remove and add a custom message"
+#~ msgstr "独自メッセージの編集、削除、追加"
