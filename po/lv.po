@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: lv\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=empathy&keywords=I18N+L10N&component=General\n"
-"POT-Creation-Date: 2012-03-13 10:20+0000\n"
-"PO-Revision-Date: 2012-03-13 17:27+0200\n"
+"POT-Creation-Date: 2012-03-22 09:58+0000\n"
+"PO-Revision-Date: 2012-03-24 18:44+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgstr ""
 
 #. Tweak the dialog
 #: ../data/empathy-accounts.desktop.in.in.h:1
-#: ../src/empathy-accounts-dialog.c:2454
+#: ../src/empathy-accounts-dialog.c:2513
 msgid "Messaging and VoIP Accounts"
 msgstr "Ziņojumapmaiņas un IP balss pārraides konti"
 
@@ -93,90 +93,91 @@ msgstr "Empathy noklusētā lejupielādes mape"
 msgid "The default folder to save file transfers in."
 msgstr "Noklusētā mape, kurā saglabāt saņemtos failus."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:9
+#. translators: Automatic tasks which are run once to port/update account settings. Ideally, this shouldn't be exposed to users at all, we just use a gsettings key here as an optimization to only run it only once.
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:10
 msgid "Magic number used to check if sanity cleaning tasks should be run"
 msgstr ""
 "Maģiskais skaitlis, ko izmanto, lai pārbaudītu, vai ir jāveic veselā saprāta "
 "apkope"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:10
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:11
 msgid ""
 "empathy-sanity-cleaning.c uses this number to check if the cleaning tasks "
 "should be executed or not. Users should not change this key manually."
 msgstr ""
-"empathy-sanity-cleaning.c izmanto šo skaitli, lai pārbaudītu, vai būtu jāveic "
-"uzkopšanas darbi. Lietotājam nevajadzētu pašam šo skaitli mainīt."
+"empathy-sanity-cleaning.c izmanto šo skaitli, lai pārbaudītu, vai būtu "
+"jāveic uzkopšanas darbi. Lietotājam nevajadzētu pašam šo skaitli mainīt."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:11
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:12
 msgid "Show offline contacts"
 msgstr "Rādīt nesaistes kontaktus"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:12
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:13
 msgid "Whether to show contacts that are offline in the contact list."
 msgstr "Vai rādīt kontaktu sarakstā kontaktus, kuri ir nesaistē."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:13
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:14
 msgid "Show avatars"
 msgstr "Rādīt attēlus"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:14
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:15
 msgid ""
 "Whether to show avatars for contacts in the contact list and chat windows."
 msgstr "Vai rādīt kontaktu attēlus kontaktu sarakstā un tērzēšanas logos."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:15
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:16
 msgid "Show protocols"
 msgstr "Rādīt protokolus"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:16
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:17
 msgid "Whether to show protocols for contacts in the contact list."
 msgstr "Vai rādīt protokolus kontaktu sarakstā un tērzēšanas logos."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:17
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:18
 msgid "Show Balance in contact list"
 msgstr "Rādīt bilanci kontaktu sarakstā"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:18
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:19
 msgid "Whether to show account balances in the contact list."
 msgstr "Vai rādīt kontu bilanci kontaktu sarakstā."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:19
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:20
 msgid "Compact contact list"
 msgstr "Kompakts kontaktu saraksts"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:20
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:21
 msgid "Whether to show the contact list in compact mode."
 msgstr "Vai rādīt kontaktu sarakstu kompaktajā režīmā."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:21
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:22
 msgid "Hide main window"
 msgstr "Slēpt galveno logu"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:22
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:23
 msgid "Hide the main window."
 msgstr "Slēpt galveno logu."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:23
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:24
 msgid "Default directory to select an avatar image from"
 msgstr "Noklusētā mape, no kuras izvēlēties lietotāja attēlu"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:24
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:25
 msgid "The last directory that an avatar image was chosen from."
 msgstr "Pēdējā mape, no kuras tika ņemts lietotāja attēls."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:25
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:26
 msgid "Open new chats in separate windows"
 msgstr "Atvērt jaunas sarakstes atsevišķos logos"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:26
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:27
 msgid "Always open a separate chat window for new chats."
 msgstr "Vienmēr atvērt jaunu tērzēšanas logu jaunām sarakstēm."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:27
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:28
 msgid "Display incoming events in the status area"
 msgstr "Rādīt ienākošos notikumus statusa laukā"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:28
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:29
 msgid ""
 "Display incoming events in the status area. If false, present them to the "
 "user immediately."
@@ -184,29 +185,27 @@ msgstr ""
 "Rādīt ienākošos notikumus statusa laukā. Ja nepatiess, lietotājam tos rādīt "
 "nekavējoties."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:29
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:30
 msgid "The position for the chat window side pane"
 msgstr "Tērzēšanas loga sānu rūts novietojums"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:30
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:31
 msgid "The stored position (in pixels) of the chat window side pane."
 msgstr "Tērzēšanas loga sānu paneļa saglabātais novietojums (pikseļos)"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:31
-#| msgid "Show contact list in rooms"
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:32
 msgid "Show contact groups"
 msgstr "Rādīt kontaktu grupas"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:32
-#| msgid "Whether to show account balances in the contact list."
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:33
 msgid "Whether to show groups in the contact list."
 msgstr "Vai rādīt kontaktu grupas kontaktu sarakstā."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:33
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:34
 msgid "Contact list sort criterion"
 msgstr "Kontaktu saraksta kārtošanas kritērijs"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:34
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:35
 msgid ""
 "Which criterion to use when sorting the contact list. Default is to sort by "
 "the contact's state with the value \"state\". A value of \"name\" will sort "
@@ -216,100 +215,100 @@ msgstr ""
 "\"state\" - kārtot pēc kontakta statusa. Vērtība \"name\" kārtos kontaktus "
 "pēc to vārda."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:35
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:36
 msgid "Use notification sounds"
 msgstr "Lietot skaņas paziņojumus"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:36
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:37
 msgid "Whether to play a sound to notify of events."
 msgstr "Vai atskaņot skaņu, lai paziņotu par notikumiem."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:37
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:38
 msgid "Disable sounds when away"
 msgstr "Atslēgt skaņu, kad esmu projām"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:38
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:39
 msgid "Whether to play sound notifications when away or busy."
 msgstr "Vai atskaņot skaņas paziņojumu, kad esmu prom vai aizņemts."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:39
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:40
 msgid "Play a sound for incoming messages"
 msgstr "Atskaņot skaņu ienākošajiem ziņojumiem"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:40
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:41
 msgid "Whether to play a sound to notify of incoming messages."
 msgstr "Vai atskaņot skaņu, lai paziņotu par ienākošajiem ziņojumiem."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:41
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:42
 msgid "Play a sound for outgoing messages"
 msgstr "Atskaņot skaņu izejošajiem ziņojumiem"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:42
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:43
 msgid "Whether to play a sound to notify of outgoing messages."
 msgstr "Vai atskaņot skaņu, lai paziņotu par izejošajiem ziņojumiem."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:43
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:44
 msgid "Play a sound for new conversations"
 msgstr "Atskaņot skaņu jaunām sarunām"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:44
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:45
 msgid "Whether to play a sound to notify of new conversations."
 msgstr "Vai atskaņot skaņu, lai paziņotu par jaunām sarunām."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:45
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:46
 msgid "Play a sound when a contact logs in"
 msgstr "Atskaņot skaņu, kad kontakts ienāk"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:46
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:47
 msgid "Whether to play a sound to notify of contacts logging into the network."
 msgstr "Vai atskaņot skaņu, lai paziņotu, ka kontakts ir pieteicies tīklā."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:47
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:48
 msgid "Play a sound when a contact logs out"
 msgstr "Atskaņot skaņu, kad kontakts iziet"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:48
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:49
 msgid ""
 "Whether to play a sound to notify of contacts logging out of the network."
 msgstr "Vai atskaņot skaņu, lai paziņotu, ka kontakts ir izgājis no tīkla."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:49
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:50
 msgid "Play a sound when we log in"
 msgstr "Atskaņot skaņu, kad mēs ieejam"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:50
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:51
 msgid "Whether to play a sound when logging into a network."
 msgstr "Vai atskaņot skaņu, piesakoties tīklā."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:51
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:52
 msgid "Play a sound when we log out"
 msgstr "Atskaņot skaņu, kad mēs izejam"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:52
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:53
 msgid "Whether to play a sound when logging out of a network."
 msgstr "Vai atskaņot skaņu, izejot no tīkla."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:53
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:54
 msgid "Enable popup notifications for new messages"
 msgstr "Ieslēgt izlecošos paziņojumus jauniem ziņojumiem"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:54
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:55
 msgid "Whether to show a popup notification when receiving a new message."
 msgstr "Vai rādīt izlecošo paziņojumu, kad saņem jaunu ziņojumu."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:55
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:56
 msgid "Disable popup notifications when away"
 msgstr "Izslēgt izlecošos paziņojumus, kad esmu projām"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:56
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:57
 msgid "Whether to show popup notifications when away or busy."
 msgstr "Vai rādīt izlecošos paziņojumus, kad esmu prom vai aizņemts."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:57
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:58
 msgid "Pop up notifications if the chat isn't focused"
 msgstr "Rādīt izlecošo paziņojumu, ja tērzēšanas logs nav fokusēts"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:58
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:59
 msgid ""
 "Whether to show a popup notification when receiving a new message even if "
 "the chat is already opened, but not focused."
@@ -317,79 +316,79 @@ msgstr ""
 "Vai rādīt izlecošo paziņojumu, saņemot jaunu ziņojumu, kad tērzēšanas logs "
 "jau ir atvērts, bet nav fokusēts."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:59
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:60
 msgid "Pop up notifications when a contact logs in"
 msgstr "Rādīt paziņojumu izlecošajā logā, kad ienāk kontakts"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:60
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:61
 msgid "Whether to show a popup notification when a contact goes online."
 msgstr "Vai rādīt izlecošo paziņojumu, kad kontakts parādās tiešsaistē."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:61
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:62
 msgid "Pop up notifications when a contact logs out"
 msgstr "Rādīt paziņojumu izlecošajā logā, kad iziet kontakts"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:62
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:63
 msgid "Whether to show a popup notification when a contact goes offline."
 msgstr "Vai rādīt izlecošo paziņojumu, kad kontakts iziet."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:63
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:64
 msgid "Use graphical smileys"
 msgstr "Lietot grafiskos smaidiņus"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:64
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:65
 msgid "Whether to convert smileys into graphical images in conversations."
 msgstr "Vai sarunās smaidiņus pārveidot par grafiskiem attēliem."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:65
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:66
 msgid "Show contact list in rooms"
 msgstr "Rādīt kontaktu sarakstu istabās"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:66
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:67
 msgid "Whether to show the contact list in chat rooms."
 msgstr "Vai rādīt kontaktu sarakstu tērzēšanas istabās."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:67
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:68
 msgid "Chat window theme"
 msgstr "Tērzēšanas loga tēma"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:68
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:69
 msgid "The theme that is used to display the conversation in chat windows."
 msgstr "Tēma, kuru izmantot, lai attēlotu sarunas tērzēšanas logos."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:69
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:70
 msgid "Chat window theme variant"
 msgstr "Tērzēšanas loga tēmas variants"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:70
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:71
 msgid ""
 "The theme variant that is used to display the conversation in chat windows."
 msgstr "Tēmas variants, kuru izmantot, lai attēlotu sarunas tērzēšanas logos."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:71
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:72
 msgid "Path of the Adium theme to use"
 msgstr "Ceļš uz lietojamo Adium tēmu"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:72
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:73
 msgid "Path of the Adium theme to use if the theme used for chat is Adium."
 msgstr "Ceļš uz Adium tēmu, ja tādu izmanto šajā tērzēšanā."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:73
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:74
 msgid "Enable WebKit Developer Tools"
 msgstr "Ieslēgt WebKit izstrādes rīkus"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:74
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:75
 msgid ""
 "Whether WebKit developer tools, such as the Web Inspector, should be enabled."
 msgstr ""
 "Vai WebKit izstrādes rīkiem, piemēram, Web Inspector, vajadzētu būt "
 "ieslēgtiem."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:75
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:76
 msgid "Inform other users when you are typing to them"
 msgstr "Informēt citus lietotājus par to, kad veicat rakstīšanu"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:76
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:77
 msgid ""
 "Whether to send the 'composing' or 'paused' chat states. Does not currently "
 "affect the 'gone' state."
@@ -397,39 +396,39 @@ msgstr ""
 "Vai sūtīt 'raksta' vai 'pauzēts' tērzēšanas stāvokļus. Pašlaik neietekmē "
 "'prom' stāvokli."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:77
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:78
 msgid "Use theme for chat rooms"
 msgstr "Lietot tēmu tērzēšanas istabās"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:78
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:79
 msgid "Whether to use the theme for chat rooms."
 msgstr "Vai izmantot tēmu tērzēšanas istabās."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:79
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:80
 msgid "Spell checking languages"
 msgstr "Pareizrakstības pārbaudes valodas"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:80
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:81
 msgid ""
 "Comma-separated list of spell checker languages to use (e.g. \"en, fr, nl\")."
 msgstr ""
 "Valodu saraksts, ko izmantot pareizrakstības pārbaudei (piemēram: en, fr, "
 "nl)."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:81
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:82
 msgid "Enable spell checker"
 msgstr "Ieslēgt pareizrakstības pārbaudi"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:82
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:83
 msgid ""
 "Whether to check words typed against the languages you want to check with."
 msgstr "Vai pārbaudīt uzrakstīto vārdu piederību izvēlētajām valodām."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:83
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:84
 msgid "Nick completed character"
 msgstr "Iesaukas pabeigšanas rakstzīme"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:84
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:85
 msgid ""
 "Character to add after nickname when using nick completion (tab) in group "
 "chat."
@@ -437,56 +436,56 @@ msgstr ""
 "Rakstzīme, ko pievienot pēc iesaukas, lietojot Tab iesauku pabeigšanai grupu "
 "tērzēšanā."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:85
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:86
 msgid "Empathy should use the avatar of the contact as the chat window icon"
 msgstr "Empathy vajadzētu izmantot kontakta attēlu kā tērzēšanas loga ikonu"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:86
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:87
 msgid ""
 "Whether Empathy should use the avatar of the contact as the chat window icon."
 msgstr ""
 "Vai Empathy vajadzētu izmantot kontakta attēlu kā tērzēšanas loga ikonu."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:87
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:88
 msgid "Last account selected in Join Room dialog"
 msgstr ""
 "Pēdējais konts, kas tika izvēlēts dialoglodziņā \"Pievienoties istabai\""
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:88
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:89
 msgid "D-Bus object path of the last account selected to join a room."
 msgstr ""
 "D-Bus objektu ceļš pēdējam kontam, kas tika izvēlēts, lai savienotos ar "
 "istabu."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:89
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:90
 msgid "Camera device"
 msgstr "Kameras ierīce"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:90
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:91
 msgid "Default camera device to use in video calls, e.g. /dev/video0."
 msgstr "Noklusētā kamera, ko izmantot video zvaniem, piem. /dev/video0."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:91
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:92
 msgid "Camera position"
 msgstr "Kameras novietojums"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:92
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:93
 msgid "Position the camera preview should be during a call."
 msgstr "Novietojums, kādā jābūt kameras priekšskatījumam zvana laikā."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:93
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:94
 msgid "Echo cancellation support"
 msgstr "Atbalss atcelšanas atbalsts"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:94
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:95
 msgid "Whether to enable Pulseaudio's echo cancellation filter."
 msgstr "Vai aktivēt Pulseaudio atbalss atcelšanas filtru."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:95
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:96
 msgid "Show hint about closing the main window"
 msgstr "Rādīt norādi par galvenā loga aizvēršanu"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:96
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:97
 msgid ""
 "Whether to show the message dialog about closing the main window with the "
 "'x' button in the title bar."
@@ -494,44 +493,44 @@ msgstr ""
 "Vai rādīt ziņojuma dialogu par galvenā loga aizvēršanu ar 'x' pogu "
 "virsraksta joslā."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:97
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:98
 msgid "Empathy can publish the user's location"
 msgstr "Empathy drīkst publicēt lietotāja atrašanās vietu"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:98
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:99
 msgid "Whether Empathy can publish the user's location to their contacts."
 msgstr "Vai Empathy drīkst publicēt lietotāja atrašanās vietu viņa kontaktiem."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:99
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:100
 msgid "Empathy can use the network to guess the location"
 msgstr "Empathy drīkst izmantot tīklu, lai uzminētu atrašanās vietu"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:100
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:101
 msgid "Whether Empathy can use the network to guess the location."
 msgstr "Vai Empathy drīkst izmantot tīklu, lai uzminētu atrašanās vietu."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:101
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:102
 msgid "Empathy can use the cellular network to guess the location"
 msgstr "Empathy drīkst izmantot mobilo tīklu, lai uzminētu atrašanās vietu"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:102
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:103
 msgid "Whether Empathy can use the cellular network to guess the location."
 msgstr ""
 "Vai Empathy drīkst izmantot mobilo tīklu, lai uzminētu atrašanās vietu."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:103
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:104
 msgid "Empathy can use the GPS to guess the location"
 msgstr "Empathy drīkst izmantot GPS, lai uzminētu atrašanās vietu"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:104
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:105
 msgid "Whether Empathy can use the GPS to guess the location."
 msgstr "Vai Empathy drīkst izmantot GPS, lai uzminētu atrašanās vietu."
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:105
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:106
 msgid "Empathy should reduce the location's accuracy"
 msgstr "Empathy vajadzētu samazināt atrašanās vietas precizitāti"
 
-#: ../data/org.gnome.Empathy.gschema.xml.in.h:106
+#: ../data/org.gnome.Empathy.gschema.xml.in.h:107
 msgid ""
 "Whether Empathy should reduce the location's accuracy for privacy reasons."
 msgstr ""
@@ -702,7 +701,6 @@ msgid "Connection has been lost"
 msgstr "Savienojums pārtrūka"
 
 #: ../libempathy/empathy-utils.c:355
-#| msgid "This resource is already connected to the server"
 msgid "This account is already connected to the server"
 msgstr "Šis konts jau ir savienots ar serveri"
 
@@ -817,7 +815,6 @@ msgid "in the future"
 msgstr "nākotnē"
 
 #: ../libempathy/empathy-keyring.c:75
-#| msgid "Phrase not found"
 msgid "Password not found"
 msgstr "Parole nav atrasta"
 
@@ -845,12 +842,12 @@ msgid "Password"
 msgstr "Parole"
 
 #: ../libempathy-gtk/empathy-account-widget.c:684
-#: ../libempathy-gtk/empathy-irc-network-dialog.c:507
+#: ../libempathy-gtk/empathy-irc-network-dialog.c:511
 msgid "Server"
 msgstr "Serveris"
 
 #: ../libempathy-gtk/empathy-account-widget.c:685
-#: ../libempathy-gtk/empathy-irc-network-dialog.c:522
+#: ../libempathy-gtk/empathy-irc-network-dialog.c:529
 msgid "Port"
 msgstr "Ports"
 
@@ -861,7 +858,7 @@ msgid "%s:"
 msgstr "%s:"
 
 #: ../libempathy-gtk/empathy-account-widget.c:1398
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:10
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:16
 msgid "Username:"
 msgstr "Lietotājvārds:"
 
@@ -954,7 +951,7 @@ msgstr "_Serveris:"
 #: ../libempathy-gtk/empathy-account-widget-generic.ui.h:1
 #: ../libempathy-gtk/empathy-account-widget-groupwise.ui.h:7
 #: ../libempathy-gtk/empathy-account-widget-icq.ui.h:8
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:11
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:17
 #: ../libempathy-gtk/empathy-account-widget-jabber.ui.h:23
 #: ../libempathy-gtk/empathy-account-widget-msn.ui.h:7
 #: ../libempathy-gtk/empathy-account-widget-local-xmpp.ui.h:7
@@ -1066,10 +1063,34 @@ msgid "Character set:"
 msgstr "Rakstzīmju kopa:"
 
 #: ../libempathy-gtk/empathy-account-widget-irc.ui.h:4
+#: ../src/empathy-accounts-dialog.ui.h:1
+msgid "Add…"
+msgstr "Pievienot..."
+
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:5
+#: ../libempathy-gtk/empathy-contact-blocking-dialog.ui.h:3
+#: ../libempathy-gtk/empathy-status-preset-dialog.ui.h:1
+#: ../src/empathy-accounts-dialog.ui.h:2
+#: ../src/empathy-chatrooms-window.ui.h:3
+msgid "Remove"
+msgstr "Izņemt"
+
+#. Translators: tooltip on a 'Go Up' button used to sort IRC servers by priority
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:7
+msgid "Up"
+msgstr "Augšup"
+
+#. Translators: tooltip on a 'Go Down' button used to sort IRC servers by priority
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:9
+#| msgid "Domain"
+msgid "Down"
+msgstr "Lejup"
+
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:10
 msgid "Servers"
 msgstr "Serveris"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:5
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:11
 msgid ""
 "Most IRC servers don't need a password, so if you're not sure, don't enter a "
 "password."
@@ -1077,27 +1098,27 @@ msgstr ""
 "Vairums IRC serveru nepieprasa paroli; ja neesat pārliecināts, neievadiet "
 "paroli."
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:6
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:12
 msgid "Nickname:"
 msgstr "Iesauka:"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:7
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:13
 msgid "Password:"
 msgstr "Parole:"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:8
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:14
 msgid "Quit message:"
 msgstr "Iziešanas ziņojums:"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:9
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:15
 msgid "Real name:"
 msgstr "Īstais vārds:"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:12
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:18
 msgid "Which IRC network?"
 msgstr "Kurš IRC tīkls?"
 
-#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:13
+#: ../libempathy-gtk/empathy-account-widget-irc.ui.h:19
 msgid "What is your IRC nickname?"
 msgstr "Kāds ir jūsu IRC ekrāna vārds?"
 
@@ -1638,7 +1659,7 @@ msgstr "%s tagad saucas %s"
 #: ../libempathy-gtk/empathy-chat.c:2994
 #: ../src/empathy-streamed-media-window.c:1888
 #: ../src/empathy-event-manager.c:1279 ../src/empathy-call-window.c:1502
-#: ../src/empathy-call-window.c:1552 ../src/empathy-call-window.c:2585
+#: ../src/empathy-call-window.c:1552 ../src/empathy-call-window.c:2590
 msgid "Disconnected"
 msgstr "Atvienots"
 
@@ -1726,13 +1747,6 @@ msgstr "Konts:"
 msgid "Blocked Contacts"
 msgstr "Bloķētie kontakti"
 
-#: ../libempathy-gtk/empathy-contact-blocking-dialog.ui.h:3
-#: ../libempathy-gtk/empathy-status-preset-dialog.ui.h:1
-#: ../src/empathy-accounts-dialog.ui.h:2
-#: ../src/empathy-chatrooms-window.ui.h:3
-msgid "Remove"
-msgstr "Izņemt"
-
 #. Copy Link Address menu item
 #: ../libempathy-gtk/empathy-chat-text-view.c:322
 #: ../libempathy-gtk/empathy-webkit-utils.c:277
@@ -1818,133 +1832,133 @@ msgstr "Ziņojums, ar kuru iepazīstināt ar sevi:"
 msgid "Please let me see when you're online. Thanks!"
 msgstr "Lūdzu, ļaujiet man redzēt, kad esat tiešsaistē. Paldies!"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:569
+#: ../libempathy-gtk/empathy-contact-widget.c:567
 #: ../libempathy-gtk/empathy-individual-widget.c:304
 msgid "Channels:"
 msgstr "Kanāli:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:749
+#: ../libempathy-gtk/empathy-contact-widget.c:747
 #: ../libempathy-gtk/empathy-individual-widget.c:455
 msgid "Country ISO Code:"
 msgstr "Valsts ISO kods:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:751
+#: ../libempathy-gtk/empathy-contact-widget.c:749
 #: ../libempathy-gtk/empathy-individual-widget.c:457
 msgid "Country:"
 msgstr "Valsts:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:753
+#: ../libempathy-gtk/empathy-contact-widget.c:751
 #: ../libempathy-gtk/empathy-individual-widget.c:459
 msgid "State:"
 msgstr "Stāvoklis:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:755
+#: ../libempathy-gtk/empathy-contact-widget.c:753
 #: ../libempathy-gtk/empathy-individual-widget.c:461
 msgid "City:"
 msgstr "Pilsēta:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:757
+#: ../libempathy-gtk/empathy-contact-widget.c:755
 #: ../libempathy-gtk/empathy-individual-widget.c:463
 msgid "Area:"
 msgstr "Reģions:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:759
+#: ../libempathy-gtk/empathy-contact-widget.c:757
 #: ../libempathy-gtk/empathy-individual-widget.c:465
 msgid "Postal Code:"
 msgstr "Pasta indekss:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:761
+#: ../libempathy-gtk/empathy-contact-widget.c:759
 #: ../libempathy-gtk/empathy-individual-widget.c:467
 msgid "Street:"
 msgstr "Iela:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:763
+#: ../libempathy-gtk/empathy-contact-widget.c:761
 #: ../libempathy-gtk/empathy-individual-widget.c:469
 msgid "Building:"
 msgstr "Ēka:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:765
+#: ../libempathy-gtk/empathy-contact-widget.c:763
 #: ../libempathy-gtk/empathy-individual-widget.c:471
 msgid "Floor:"
 msgstr "Stāvs:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:767
+#: ../libempathy-gtk/empathy-contact-widget.c:765
 #: ../libempathy-gtk/empathy-individual-widget.c:473
 msgid "Room:"
 msgstr "Istaba:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:769
+#: ../libempathy-gtk/empathy-contact-widget.c:767
 #: ../libempathy-gtk/empathy-individual-widget.c:475
 msgid "Text:"
 msgstr "Teksts:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:771
+#: ../libempathy-gtk/empathy-contact-widget.c:769
 #: ../libempathy-gtk/empathy-individual-widget.c:477
 msgid "Description:"
 msgstr "Apraksts:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:773
+#: ../libempathy-gtk/empathy-contact-widget.c:771
 #: ../libempathy-gtk/empathy-individual-widget.c:479
 msgid "URI:"
 msgstr "URI:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:775
+#: ../libempathy-gtk/empathy-contact-widget.c:773
 #: ../libempathy-gtk/empathy-individual-widget.c:481
 msgid "Accuracy Level:"
 msgstr "Precizitātes līmenis:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:777
+#: ../libempathy-gtk/empathy-contact-widget.c:775
 #: ../libempathy-gtk/empathy-individual-widget.c:483
 msgid "Error:"
 msgstr "Kļūda:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:779
+#: ../libempathy-gtk/empathy-contact-widget.c:777
 #: ../libempathy-gtk/empathy-individual-widget.c:485
 msgid "Vertical Error (meters):"
 msgstr "Vertikālā kļūda (metros):"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:781
+#: ../libempathy-gtk/empathy-contact-widget.c:779
 #: ../libempathy-gtk/empathy-individual-widget.c:487
 msgid "Horizontal Error (meters):"
 msgstr "Horizontālā kļūda (metros):"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:783
+#: ../libempathy-gtk/empathy-contact-widget.c:781
 #: ../libempathy-gtk/empathy-individual-widget.c:489
 msgid "Speed:"
 msgstr "Ātrums:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:785
+#: ../libempathy-gtk/empathy-contact-widget.c:783
 #: ../libempathy-gtk/empathy-individual-widget.c:491
 msgid "Bearing:"
 msgstr "Peilējums:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:787
+#: ../libempathy-gtk/empathy-contact-widget.c:785
 #: ../libempathy-gtk/empathy-individual-widget.c:493
 msgid "Climb Speed:"
 msgstr "Kāpšanas ātrums:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:789
+#: ../libempathy-gtk/empathy-contact-widget.c:787
 #: ../libempathy-gtk/empathy-individual-widget.c:495
 msgid "Last Updated on:"
 msgstr "Pēdējo reizi atjaunināts:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:791
+#: ../libempathy-gtk/empathy-contact-widget.c:789
 #: ../libempathy-gtk/empathy-individual-widget.c:497
 msgid "Longitude:"
 msgstr "Garums:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:793
+#: ../libempathy-gtk/empathy-contact-widget.c:791
 #: ../libempathy-gtk/empathy-individual-widget.c:499
 msgid "Latitude:"
 msgstr "Platums:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:795
+#: ../libempathy-gtk/empathy-contact-widget.c:793
 #: ../libempathy-gtk/empathy-individual-widget.c:501
 msgid "Altitude:"
 msgstr "Augstums:"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:848
-#: ../libempathy-gtk/empathy-contact-widget.c:863
+#: ../libempathy-gtk/empathy-contact-widget.c:846
+#: ../libempathy-gtk/empathy-contact-widget.c:861
 #: ../libempathy-gtk/empathy-individual-widget.c:593
 #: ../libempathy-gtk/empathy-individual-widget.c:608
 #: ../src/empathy-preferences.ui.h:35
@@ -1952,33 +1966,32 @@ msgid "Location"
 msgstr "Vieta"
 
 #. translators: format is "Location, $date"
-#: ../libempathy-gtk/empathy-contact-widget.c:865
+#: ../libempathy-gtk/empathy-contact-widget.c:863
 #: ../libempathy-gtk/empathy-individual-widget.c:610
 #, c-format
 msgid "%s, %s"
 msgstr "%s, %s"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:917
+#: ../libempathy-gtk/empathy-contact-widget.c:915
 #: ../libempathy-gtk/empathy-individual-widget.c:659
 msgid "%B %e, %Y at %R UTC"
 msgstr "%B %e, %Y %R UTC"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:999
+#: ../libempathy-gtk/empathy-contact-widget.c:997
 #: ../libempathy-gtk/empathy-individual-widget.c:900
 msgid "Save Avatar"
 msgstr "Saglabāt attēlu"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:1055
+#: ../libempathy-gtk/empathy-contact-widget.c:1053
 #: ../libempathy-gtk/empathy-individual-widget.c:958
 msgid "Unable to save avatar"
 msgstr "Nevar saglabāt attēlu"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:1446
-#| msgid "Technical Details"
+#: ../libempathy-gtk/empathy-contact-widget.c:1444
 msgid "Personal Details"
 msgstr "Personīgā informācija"
 
-#: ../libempathy-gtk/empathy-contact-widget.c:1449
+#: ../libempathy-gtk/empathy-contact-widget.c:1447
 #: ../libempathy-gtk/empathy-contact-widget.ui.h:6
 #: ../libempathy-gtk/empathy-individual-widget.ui.h:3
 msgid "Contact Details"
@@ -2215,7 +2228,6 @@ msgid "Favorite"
 msgstr "Iecienītais"
 
 #: ../libempathy-gtk/empathy-individual-menu.c:1264
-#| msgid "telepathy-salut not installed"
 msgid "gnome-contacts not installed"
 msgstr "gnome-contacts nav instalēts"
 
@@ -2322,7 +2334,7 @@ msgstr "Izvēlēties"
 msgid "new server"
 msgstr "jauns serveris"
 
-#: ../libempathy-gtk/empathy-irc-network-dialog.c:535
+#: ../libempathy-gtk/empathy-irc-network-dialog.c:539
 msgid "SSL"
 msgstr "SSL"
 
@@ -2769,7 +2781,6 @@ msgid "Certificate hostname: %s"
 msgstr "Sertifikāta datora nosaukums: %s"
 
 #: ../libempathy-gtk/empathy-tls-dialog.c:281
-#| msgid "Continue"
 msgid "C_ontinue"
 msgstr "T_urpināt"
 
@@ -2982,6 +2993,18 @@ msgstr "Rietumu"
 msgid "Vietnamese"
 msgstr "Vjetnamiešu"
 
+#: ../libempathy-gtk/empathy-calendar-button.c:66
+#| msgctxt "verb in a column header displaying group names"
+#| msgid "Select"
+msgid "Select..."
+msgstr "Izvēlieties..."
+
+#: ../libempathy-gtk/empathy-calendar-button.c:154
+#| msgctxt "verb in a column header displaying group names"
+#| msgid "Select"
+msgid "_Select"
+msgstr "Izvēlietie_s: "
+
 #: ../nautilus-sendto-plugin/empathy-nautilus-sendto.c:202
 msgid "No error message"
 msgstr "Nav kļūdas paziņojuma"
@@ -3078,31 +3101,31 @@ msgstr "Kontam %s ir nesaglabātas izmaiņas."
 msgid "Your new account has not been saved yet."
 msgstr "Jaunais konts vēl nav saglabāts."
 
-#: ../src/empathy-accounts-dialog.c:370
+#: ../src/empathy-accounts-dialog.c:381
 #: ../src/empathy-streamed-media-window.c:759
 #: ../src/empathy-call-window.c:1289
 msgid "Connecting…"
 msgstr "Savienojas..."
 
-#: ../src/empathy-accounts-dialog.c:411
+#: ../src/empathy-accounts-dialog.c:422
 #, c-format
 msgid "Offline — %s"
 msgstr "Nesaistē — %s"
 
-#: ../src/empathy-accounts-dialog.c:423
+#: ../src/empathy-accounts-dialog.c:434
 #, c-format
 msgid "Disconnected — %s"
 msgstr "Atvienots — %s"
 
-#: ../src/empathy-accounts-dialog.c:434
+#: ../src/empathy-accounts-dialog.c:445
 msgid "Offline — No Network Connection"
 msgstr "Nesaistē — nav tīkla savienojuma"
 
-#: ../src/empathy-accounts-dialog.c:441
+#: ../src/empathy-accounts-dialog.c:452
 msgid "Unknown Status"
 msgstr "Nezināms statuss"
 
-#: ../src/empathy-accounts-dialog.c:458
+#: ../src/empathy-accounts-dialog.c:469
 msgid ""
 "This account has been disabled because it relies on an old, unsupported "
 "backend. Please install telepathy-haze and restart your session to migrate "
@@ -3112,36 +3135,36 @@ msgstr ""
 "Lūdzu, uzinstalējiet telepathy-haze un pārstartējiet sesiju, lai migrētu šo "
 "kontu."
 
-#: ../src/empathy-accounts-dialog.c:468
+#: ../src/empathy-accounts-dialog.c:479
 msgid "Offline — Account Disabled"
 msgstr "Nesaistē — konts deaktivēts"
 
-#: ../src/empathy-accounts-dialog.c:574
+#: ../src/empathy-accounts-dialog.c:585
 msgid "Edit Connection Parameters"
 msgstr "Rediģēt savienojuma parametrus"
 
-#: ../src/empathy-accounts-dialog.c:739
+#: ../src/empathy-accounts-dialog.c:750
 msgid "Failed to retrieve your personal information from the server."
 msgstr "Neizdevās saņemt jūsu personīgo informāciju no servera."
 
-#: ../src/empathy-accounts-dialog.c:745
+#: ../src/empathy-accounts-dialog.c:756
 msgid "Go online to edit your personal information."
 msgstr "Dodieties tiešsaistē, lai rediģētu savu personīgo informāciju."
 
-#: ../src/empathy-accounts-dialog.c:830
+#: ../src/empathy-accounts-dialog.c:843
 msgid "_Edit Connection Parameters..."
 msgstr "R_ediģēt savienojuma parametrus..."
 
-#: ../src/empathy-accounts-dialog.c:1326
+#: ../src/empathy-accounts-dialog.c:1339
 #, c-format
 msgid "Do you want to remove %s from your computer?"
 msgstr "Vai vēlaties izņemt %s no sava datora?"
 
-#: ../src/empathy-accounts-dialog.c:1330
+#: ../src/empathy-accounts-dialog.c:1343
 msgid "This will not remove your account on the server."
 msgstr "Tas neizņems jūsu kontu no servera."
 
-#: ../src/empathy-accounts-dialog.c:1566
+#: ../src/empathy-accounts-dialog.c:1579
 msgid ""
 "You are about to select another account, which will discard\n"
 "your changes. Are you sure you want to proceed?"
@@ -3150,34 +3173,29 @@ msgstr ""
 "Vai tiešām vēlaties turpināt?"
 
 #. Menu items: to enabled/disable the account
-#: ../src/empathy-accounts-dialog.c:1742
+#: ../src/empathy-accounts-dialog.c:1755
 msgid "_Enable"
 msgstr "I_eslēgt"
 
-#: ../src/empathy-accounts-dialog.c:1743
+#: ../src/empathy-accounts-dialog.c:1756
 msgid "_Disable"
 msgstr "_Atslēgt"
 
-#: ../src/empathy-accounts-dialog.c:2126
+#: ../src/empathy-accounts-dialog.c:2184
 msgid "_Skip"
 msgstr "Izlai_st"
 
-#: ../src/empathy-accounts-dialog.c:2130
-#| msgid "Connected"
+#: ../src/empathy-accounts-dialog.c:2188
 msgid "_Connect"
 msgstr "_Savienoties"
 
-#: ../src/empathy-accounts-dialog.c:2307
+#: ../src/empathy-accounts-dialog.c:2365
 msgid ""
 "You are about to close the window, which will discard\n"
 "your changes. Are you sure you want to proceed?"
 msgstr ""
 "Ja tagad aizvērsiet logu, tas izmetīs jūsu izmaiņas.\n"
 "Vai tiešām vēlaties turpināt?"
-
-#: ../src/empathy-accounts-dialog.ui.h:1
-msgid "Add…"
-msgstr "Pievienot..."
 
 #: ../src/empathy-accounts-dialog.ui.h:3
 msgid "_Import…"
@@ -3196,7 +3214,6 @@ msgstr ""
 "kuru vēlaties izmantot."
 
 #: ../src/empathy-accounts-dialog.ui.h:6
-#| msgid "No protocol installed"
 msgid "No protocol backends installed"
 msgstr "Protokola aizmugure nav uzinstalēta"
 
@@ -3300,12 +3317,12 @@ msgid "Connected — %d:%02dm"
 msgstr "Savienojies — %d:%02dm"
 
 #: ../src/empathy-streamed-media-window.c:2199
-#: ../src/empathy-call-window.c:2987
+#: ../src/empathy-call-window.c:2992
 msgid "Technical Details"
 msgstr "Tehniskā informācija"
 
 #: ../src/empathy-streamed-media-window.c:2237
-#: ../src/empathy-call-window.c:3026
+#: ../src/empathy-call-window.c:3031
 #, c-format
 msgid ""
 "%s's software does not understand any of the audio formats supported by your "
@@ -3315,7 +3332,7 @@ msgstr ""
 "audio formātiem"
 
 #: ../src/empathy-streamed-media-window.c:2242
-#: ../src/empathy-call-window.c:3031
+#: ../src/empathy-call-window.c:3036
 #, c-format
 msgid ""
 "%s's software does not understand any of the video formats supported by your "
@@ -3325,7 +3342,7 @@ msgstr ""
 "video formātiem"
 
 #: ../src/empathy-streamed-media-window.c:2248
-#: ../src/empathy-call-window.c:3037
+#: ../src/empathy-call-window.c:3042
 #, c-format
 msgid ""
 "Can't establish a connection to %s. One of you might be on a network that "
@@ -3335,24 +3352,24 @@ msgstr ""
 "kurā nav atļauti tiešie savienojumi."
 
 #: ../src/empathy-streamed-media-window.c:2254
-#: ../src/empathy-call-window.c:3043
+#: ../src/empathy-call-window.c:3048
 msgid "There was a failure on the network"
 msgstr "Gadījās tīkla kļūme"
 
 #: ../src/empathy-streamed-media-window.c:2258
-#: ../src/empathy-call-window.c:3047
+#: ../src/empathy-call-window.c:3052
 msgid ""
 "The audio formats necessary for this call are not installed on your computer"
 msgstr "Šim zvanam vajadzīgie audio formāti nav instalēti jūsu datorā"
 
 #: ../src/empathy-streamed-media-window.c:2261
-#: ../src/empathy-call-window.c:3050
+#: ../src/empathy-call-window.c:3055
 msgid ""
 "The video formats necessary for this call are not installed on your computer"
 msgstr "Šim zvanam vajadzīgie video formāti nav instalēti jūsu datorā"
 
 #: ../src/empathy-streamed-media-window.c:2271
-#: ../src/empathy-call-window.c:3062
+#: ../src/empathy-call-window.c:3067
 #, c-format
 msgid ""
 "Something unexpected happened in a Telepathy component. Please <a href=\"%s"
@@ -3364,22 +3381,22 @@ msgstr ""
 "Palīdzības izvēlnē."
 
 #: ../src/empathy-streamed-media-window.c:2279
-#: ../src/empathy-call-window.c:3071
+#: ../src/empathy-call-window.c:3076
 msgid "There was a failure in the call engine"
 msgstr "Zvanu dzinī gadījās kļūme"
 
 #: ../src/empathy-streamed-media-window.c:2282
-#: ../src/empathy-call-window.c:3074
+#: ../src/empathy-call-window.c:3079
 msgid "The end of the stream was reached"
 msgstr "Tika sasniegtas plūsmas beigas"
 
 #: ../src/empathy-streamed-media-window.c:2322
-#: ../src/empathy-call-window.c:3114
+#: ../src/empathy-call-window.c:3119
 msgid "Can't establish audio stream"
 msgstr "Nevar izveidot audio plūsmu"
 
 #: ../src/empathy-streamed-media-window.c:2332
-#: ../src/empathy-call-window.c:3124
+#: ../src/empathy-call-window.c:3129
 msgid "Can't establish video stream"
 msgstr "Nevar izveidot video plūsmu"
 
@@ -3492,8 +3509,8 @@ msgstr "Iekodēšanas kodeks:"
 
 #: ../src/empathy-call-window.ui.h:28
 #: ../src/empathy-streamed-media-window.ui.h:21
-#: ../src/empathy-call-window.c:2537 ../src/empathy-call-window.c:2538
-#: ../src/empathy-call-window.c:2539 ../src/empathy-call-window.c:2540
+#: ../src/empathy-call-window.c:2542 ../src/empathy-call-window.c:2543
+#: ../src/empathy-call-window.c:2544 ../src/empathy-call-window.c:2545
 msgid "Unknown"
 msgstr "Nezināms"
 
@@ -3904,7 +3921,6 @@ msgstr ""
 "Izņemt pabeigtos, atceltos un neizdevušos failu pārsūtījumus no saraksta"
 
 #: ../src/empathy-import-dialog.c:76
-#| msgid "Import"
 msgid "_Import"
 msgstr "_Importēt"
 
@@ -4479,12 +4495,6 @@ msgstr "Pastebin saite"
 msgid "Pastebin response"
 msgstr "Pastebin atbilde"
 
-#: ../src/empathy-debug-window.c:1680
-#, c-format
-#| msgid "%s:"
-msgid "%s"
-msgstr "%s"
-
 #: ../src/empathy-debug-window.c:1683
 msgid "Data too large for a single paste. Please save logs to file."
 msgstr ""
@@ -4660,34 +4670,34 @@ msgstr "%s tikko mēģināja piezvanīt, bet jūs jau piedalījāties citā saru
 msgid "i"
 msgstr "i"
 
-#: ../src/empathy-call-window.c:2883
+#: ../src/empathy-call-window.c:2888
 msgid "On hold"
 msgstr "Aizturēts"
 
-#: ../src/empathy-call-window.c:2886
+#: ../src/empathy-call-window.c:2891
 msgid "Mute"
 msgstr "Apklusināt"
 
-#: ../src/empathy-call-window.c:2888
+#: ../src/empathy-call-window.c:2893
 msgid "Duration"
 msgstr "Ilgums"
 
 #. Translators: 'status - minutes:seconds' the caller has been connected
-#: ../src/empathy-call-window.c:2891
+#: ../src/empathy-call-window.c:2896
 #, c-format
 msgid "%s — %d:%02dm"
 msgstr "%s — %d:%02dm"
 
-#: ../src/empathy-call-window.c:3161
+#: ../src/empathy-call-window.c:3166
 #, c-format
 msgid "Your current balance is %s."
 msgstr "Jūsu pašreizējā bilance ir %s."
 
-#: ../src/empathy-call-window.c:3165
+#: ../src/empathy-call-window.c:3170
 msgid "Sorry, you don’t have enough credit for that call."
 msgstr "Diemžēl jums nepietiek kredīta, lai veiktu šo zvanu."
 
-#: ../src/empathy-call-window.c:3167
+#: ../src/empathy-call-window.c:3172
 msgid "Top Up"
 msgstr "Uzpildīt"
 
@@ -4708,11 +4718,6 @@ msgid "People nearby"
 msgstr "Tuvumā esošie cilvēki"
 
 #: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:150
-#| msgid ""
-#| "Empathy can automatically discover and chat with the people connected on "
-#| "the same network as you. If you want to use this feature, please check "
-#| "that the details below are correct. You can easily change these details "
-#| "later or disable this feature by using the 'Accounts' dialog"
 msgid ""
 "Empathy can automatically discover and chat with the people connected on the "
 "same network as you. If you want to use this feature, please check that the "
@@ -4720,8 +4725,7 @@ msgid ""
 msgstr ""
 "Empathy var automātiski atrast tērzēšanai cilvēkus jūsu lokālajā tīklā. Ja "
 "vēlaties lietot šo iespēju, lūdzu, pārliecinieties, ka norādītā informācija "
-"ir "
-"pareiza"
+"ir pareiza"
 
 #: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:183
 msgid ""
@@ -4730,6 +4734,10 @@ msgid ""
 msgstr ""
 "Jūs varat mainīt šo informāciju vēlāk vai deaktivēt šo iespēju, izvēloties "
 "<span style=\"italic\">Rediģēt → Konti</span> kontaktu sarakstā."
+
+#~| msgid "%s:"
+#~ msgid "%s"
+#~ msgstr "%s"
 
 #~ msgid "Select contacts to link"
 #~ msgstr "Izvēlēties kontaktus, ko saistīt"
