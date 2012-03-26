@@ -1,3 +1,39 @@
+NEW in 3.4.0 (26/03/2012)
+============
+Bugs fixed:
+ - Fixed #672504, Account banner should have some minimum spacing (Cosimo Cecchi)
+ - Fixed #672506, When no accounts are enabled at startup, window flashes welcome screen then goes blank (Guillaume Desmottes)
+ - Fixed #672508, "Advanced" scrolled window does not have border (Cosimo Cecchi)
+ - Fixed #672596, help doesn't work (Guillaume Desmottes)
+ - Fixed #672608, Please add translator comment (Guillaume Desmottes)
+ - Fixed #672633, Changing avatar does nothing (Guillaume Desmottes)
+ - Fixed #672828, Crash when trying to accept a subscription request (Guillaume Desmottes)
+
+Translations:
+ - Updated be Translation (Ihar Hrachyshka)
+ - Updated crh Translation (Reşat SABIQ)
+ - Updated da Translation (Kenneth Nielsen)
+ - Updated de Translation (Mario Blättermann)
+ - Updated fi Translation (Timo Jyrinki)
+ - Updated fr Translation (Bruno Brouard)
+ - Updated gu Translation (Sweta Kothari)
+ - Updated he Translation (Yaron Shahrabani)
+ - Updated hi Translation (Rajesh Ranjan)
+ - Updated ja Translation (Jiro Matsuzawa, Mako N)
+ - Updated lv Translation (Rudolfs Mazurs)
+ - Updated pa Translation (A S Alam)
+ - Updated pt_BR Translation (Antonio Fernandes C. Neto)
+ - Updated pt Translation (Duarte Loreto)
+ - Updated te Translation (Sasi Bhushan Boddepalli)
+ - Updated vi Translation (Nguyễn Thái Ngọc Duy)
+ - Updated zh_CN Translation (Automatic Mirroring, EL8LatSPQ)
+ - Updated zh_HK Translation (Cheng-Chia Tseng)
+ - Updated zh_TW Translation (Cheng-Chia Tseng)
+
+Documentation translations:
+ - Updated ja Documentation translation (Mako N)
+ - Updated te Documentation translation (Sasi Bhushan)
+
 NEW in 3.3.92 (20/03/2012)
 =============
 
