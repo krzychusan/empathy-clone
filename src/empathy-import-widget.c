@@ -92,24 +92,15 @@ import_widget_account_id_in_list (GList *accounts,
 }
 
 static void
-account_manager_prepared_cb (GObject *source_object,
-    GAsyncResult *result,
-    gpointer user_data)
+import_widget_add_accounts_to_model (EmpathyImportWidget *self)
 {
-  TpAccountManager *manager = TP_ACCOUNT_MANAGER (source_object);
-  EmpathyImportWidget *self = user_data;
+  TpAccountManager *manager;
   GtkTreeModel *model;
   GtkTreeIter iter;
   GList *l;
   EmpathyImportWidgetPriv *priv = GET_PRIV (self);
-  GError *error = NULL;
 
-  if (!tp_proxy_prepare_finish (manager, result, &error))
-    {
-      DEBUG ("Failed to prepare account manager: %s", error->message);
-      g_error_free (error);
-      return;
-    }
+  manager = tp_account_manager_dup ();
 
   model = gtk_tree_view_get_model (GTK_TREE_VIEW (priv->treeview));
 
@@ -147,18 +138,8 @@ account_manager_prepared_cb (GObject *source_object,
           COL_SOURCE, data->source,
           COL_ACCOUNT_DATA, data,
           -1);
+
     }
-}
-
-static void
-import_widget_add_accounts_to_model (EmpathyImportWidget *self)
-{
-  TpAccountManager *manager;
-
-  manager = tp_account_manager_dup ();
-
-  tp_proxy_prepare_async (manager, NULL,
-      account_manager_prepared_cb, self);
 
   g_object_unref (manager);
 }
