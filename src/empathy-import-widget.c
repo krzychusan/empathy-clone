@@ -62,6 +62,7 @@ enum {
 typedef struct {
   GtkWidget *vbox;
   GtkWidget *treeview;
+  GtkWidget *scrolledwindow;
 
   GList *accounts;
   EmpathyImportApplication app_id;
@@ -91,6 +92,8 @@ import_widget_account_id_in_list (GList *accounts,
   return FALSE;
 }
 
+#define MAX_TREEVIEW_HEIGHT 300
+
 static void
 import_widget_add_accounts_to_model (EmpathyImportWidget *self)
 {
@@ -99,6 +102,7 @@ import_widget_add_accounts_to_model (EmpathyImportWidget *self)
   GtkTreeIter iter;
   GList *l;
   EmpathyImportWidgetPriv *priv = GET_PRIV (self);
+  gint min, natural;
 
   manager = tp_account_manager_dup ();
 
@@ -140,6 +144,11 @@ import_widget_add_accounts_to_model (EmpathyImportWidget *self)
           -1);
 
     }
+
+  /* Display as much rows as possible */
+  gtk_widget_get_preferred_height (priv->treeview, &min, &natural);
+  gtk_widget_set_size_request (priv->scrolledwindow, -1,
+      MIN (natural, MAX_TREEVIEW_HEIGHT));
 
   g_object_unref (manager);
 }
@@ -434,6 +443,7 @@ do_constructed (GObject *obj)
   gui = empathy_builder_get_file (filename,
       "widget_vbox", &priv->vbox,
       "treeview", &priv->treeview,
+      "scrolledwindow", &priv->scrolledwindow,
       NULL);
 
   g_free (filename);
