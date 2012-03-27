@@ -141,7 +141,6 @@ validate_destination (NstPlugin *plugin,
                       gchar **error)
 {
   EmpathyContact *contact = NULL;
-  gboolean ret = TRUE;
 
   contact = get_selected_contact (contact_widget);
 
