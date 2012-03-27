@@ -1753,7 +1753,6 @@ add_date_if_needed (EmpathyLogWindow *self,
   GtkTreeModel *model;
   GtkListStore *store;
   gchar *text;
-  GtkTreeIter iter;
 
   model = gtk_tree_view_get_model (GTK_TREE_VIEW (
         log_window->priv->treeview_when));
@@ -1767,8 +1766,7 @@ add_date_if_needed (EmpathyLogWindow *self,
 
   text = format_date_for_display (date);
 
-  gtk_list_store_append (store, &iter);
-  gtk_list_store_set (store, &iter,
+  gtk_list_store_insert_with_values (store, NULL, -1,
       COL_WHEN_DATE, date,
       COL_WHEN_TEXT, text,
       COL_WHEN_ICON, CALENDAR_ICON,
@@ -1858,7 +1856,6 @@ add_event_to_store (EmpathyLogWindow *self,
     TplEntity *entity)
 {
   GtkListStore *store;
-  GtkTreeIter iter;
   TplEntityType type = tpl_entity_get_entity_type (entity);
   EmpathyContact *contact;
   const gchar *name;
@@ -1873,8 +1870,7 @@ add_event_to_store (EmpathyLogWindow *self,
   name = empathy_contact_get_alias (contact);
   sort_key = g_utf8_collate_key (name, -1);
 
-  gtk_list_store_append (store, &iter);
-  gtk_list_store_set (store, &iter,
+  gtk_list_store_insert_with_values (store, NULL, -1,
       COL_WHO_TYPE, COL_TYPE_NORMAL,
       COL_WHO_ICON, room ? EMPATHY_IMAGE_GROUP_MESSAGE
                          : EMPATHY_IMAGE_AVATAR_DEFAULT,
