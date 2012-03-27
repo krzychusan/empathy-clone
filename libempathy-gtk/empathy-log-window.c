@@ -1853,6 +1853,43 @@ populate_dates_from_search_hits (GList *accounts,
 }
 
 static void
+add_event_to_store (EmpathyLogWindow *self,
+    TpAccount *account,
+    TplEntity *entity)
+{
+  GtkListStore *store;
+  GtkTreeIter iter;
+  TplEntityType type = tpl_entity_get_entity_type (entity);
+  EmpathyContact *contact;
+  const gchar *name;
+  gchar *sort_key;
+  gboolean room = type == TPL_ENTITY_ROOM;
+
+  store = GTK_LIST_STORE (gtk_tree_view_get_model (
+        GTK_TREE_VIEW (log_window->priv->treeview_who)));
+
+  contact = empathy_contact_from_tpl_contact (account, entity);
+
+  name = empathy_contact_get_alias (contact);
+  sort_key = g_utf8_collate_key (name, -1);
+
+  gtk_list_store_append (store, &iter);
+  gtk_list_store_set (store, &iter,
+      COL_WHO_TYPE, COL_TYPE_NORMAL,
+      COL_WHO_ICON, room ? EMPATHY_IMAGE_GROUP_MESSAGE
+                         : EMPATHY_IMAGE_AVATAR_DEFAULT,
+      COL_WHO_NAME, name,
+      COL_WHO_NAME_SORT_KEY, sort_key,
+      COL_WHO_ID, tpl_entity_get_identifier (entity),
+      COL_WHO_ACCOUNT, account,
+      COL_WHO_TARGET, entity,
+      -1);
+
+  g_free (sort_key);
+  g_object_unref (contact);
+}
+
+static void
 populate_entities_from_search_hits (void)
 {
   EmpathyAccountChooser *account_chooser;
@@ -1891,32 +1928,7 @@ populate_entities_from_search_hits (void)
       gtk_tree_model_foreach (model, model_has_entity, hit);
       if (!has_element)
         {
-          TplEntityType type = tpl_entity_get_entity_type (hit->target);
-          EmpathyContact *contact;
-          const gchar *name;
-          gchar *sort_key;
-          gboolean room = type == TPL_ENTITY_ROOM;
-
-          contact = empathy_contact_from_tpl_contact (hit->account,
-              hit->target);
-
-          name = empathy_contact_get_alias (contact);
-          sort_key = g_utf8_collate_key (name, -1);
-
-          gtk_list_store_append (store, &iter);
-          gtk_list_store_set (store, &iter,
-              COL_WHO_TYPE, COL_TYPE_NORMAL,
-              COL_WHO_ICON, room ? EMPATHY_IMAGE_GROUP_MESSAGE
-                                 : EMPATHY_IMAGE_AVATAR_DEFAULT,
-              COL_WHO_NAME, name,
-              COL_WHO_NAME_SORT_KEY, sort_key,
-              COL_WHO_ID, tpl_entity_get_identifier (hit->target),
-              COL_WHO_ACCOUNT, hit->account,
-              COL_WHO_TARGET, hit->target,
-              -1);
-
-          g_free (sort_key);
-          g_object_unref (contact);
+          add_event_to_store (log_window, hit->account, hit->target);
         }
     }
 
@@ -2362,32 +2374,7 @@ log_manager_got_entities_cb (GObject *manager,
 
   for (l = entities; l; l = l->next)
     {
-      TplEntity *entity = TPL_ENTITY (l->data);
-      TplEntityType type = tpl_entity_get_entity_type (entity);
-      EmpathyContact *contact;
-      const gchar *name;
-      gchar *sort_key;
-      gboolean room = type == TPL_ENTITY_ROOM;
-
-      contact = empathy_contact_from_tpl_contact (ctx->account, entity);
-
-      name = empathy_contact_get_alias (contact);
-      sort_key = g_utf8_collate_key (name, -1);
-
-      gtk_list_store_append (store, &iter);
-      gtk_list_store_set (store, &iter,
-          COL_WHO_TYPE, COL_TYPE_NORMAL,
-          COL_WHO_ICON, room ? EMPATHY_IMAGE_GROUP_MESSAGE
-                             : EMPATHY_IMAGE_AVATAR_DEFAULT,
-          COL_WHO_NAME, name,
-          COL_WHO_NAME_SORT_KEY, sort_key,
-          COL_WHO_ID, tpl_entity_get_identifier (entity),
-          COL_WHO_ACCOUNT, ctx->account,
-          COL_WHO_TARGET, entity,
-          -1);
-
-      g_free (sort_key);
-      g_object_unref (contact);
+      add_event_to_store (ctx->self, ctx->account, l->data);
 
       if (ctx->self->priv->selected_account != NULL &&
           !tp_strdiff (tp_proxy_get_object_path (ctx->account),
