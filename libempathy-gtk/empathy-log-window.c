@@ -1747,6 +1747,37 @@ format_date_for_display (GDate *date)
 }
 
 static void
+add_date_if_needed (EmpathyLogWindow *self,
+    GDate *date)
+{
+  GtkTreeModel *model;
+  GtkListStore *store;
+  gchar *text;
+  GtkTreeIter iter;
+
+  model = gtk_tree_view_get_model (GTK_TREE_VIEW (
+        log_window->priv->treeview_when));
+  store = GTK_LIST_STORE (model);
+
+  /* Add the date if it's not already there */
+  has_element = FALSE;
+  gtk_tree_model_foreach (model, model_has_date, date);
+  if (has_element)
+    return;
+
+  text = format_date_for_display (date);
+
+  gtk_list_store_append (store, &iter);
+  gtk_list_store_set (store, &iter,
+      COL_WHEN_DATE, date,
+      COL_WHEN_TEXT, text,
+      COL_WHEN_ICON, CALENDAR_ICON,
+      -1);
+
+  g_free (text);
+}
+
+static void
 populate_dates_from_search_hits (GList *accounts,
     GList *targets)
 {
@@ -1790,20 +1821,7 @@ populate_dates_from_search_hits (GList *accounts,
         if (!found)
           continue;
 
-      /* Add the date if it's not already there */
-      has_element = FALSE;
-      gtk_tree_model_foreach (model, model_has_date, hit->date);
-      if (!has_element)
-        {
-          gchar *text = format_date_for_display (hit->date);
-
-          gtk_list_store_append (store, &iter);
-          gtk_list_store_set (store, &iter,
-              COL_WHEN_DATE, hit->date,
-              COL_WHEN_TEXT, text,
-              COL_WHEN_ICON, CALENDAR_ICON,
-              -1);
-        }
+      add_date_if_needed (log_window, hit->date);
     }
 
   if (gtk_tree_model_get_iter_first (model, &iter))
@@ -3434,24 +3452,7 @@ log_manager_got_dates_cb (GObject *manager,
 
   for (l = dates; l != NULL; l = l->next)
     {
-      GDate *date = l->data;
-
-      /* Add the date if it's not already there */
-      has_element = FALSE;
-      gtk_tree_model_foreach (model, model_has_date, date);
-      if (!has_element)
-        {
-          gchar *text = format_date_for_display (date);
-
-          gtk_list_store_append (store, &iter);
-          gtk_list_store_set (store, &iter,
-              COL_WHEN_DATE, date,
-              COL_WHEN_TEXT, text,
-              COL_WHEN_ICON, CALENDAR_ICON,
-              -1);
-
-          g_free (text);
-        }
+      add_date_if_needed (log_window, l->data);
     }
 
   if (gtk_tree_model_get_iter_first (model, &iter))
