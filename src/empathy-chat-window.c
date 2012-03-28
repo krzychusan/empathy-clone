@@ -1568,9 +1568,14 @@ chat_window_show_or_update_notification (EmpathyChatWindow *window,
 				EMPATHY_NOTIFY_MANAGER_CAP_X_CANONICAL_APPEND, "1");
 		}
 
-		notify_notification_set_hint (notification,
-			EMPATHY_NOTIFY_MANAGER_CAP_CATEGORY,
-			g_variant_new_string ("im.received"));
+		{
+			const gchar *category = empathy_chat_is_room (chat)
+				? "x-empathy.im.mentioned"
+				: "im.received";
+			notify_notification_set_hint (notification,
+				EMPATHY_NOTIFY_MANAGER_CAP_CATEGORY,
+				g_variant_new_string (category));
+		}
 	}
 
 	pixbuf = empathy_notify_manager_get_pixbuf_for_notification (priv->notify_mgr,
