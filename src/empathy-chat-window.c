@@ -1570,8 +1570,8 @@ chat_window_show_or_update_notification (EmpathyChatWindow *window,
 
 		{
 			const gchar *category = empathy_chat_is_room (chat)
-				? "x-empathy.im.mentioned"
-				: "im.received";
+				? EMPATHY_NOTIFICATION_CATEGORY_MENTIONED
+				: EMPATHY_NOTIFICATION_CATEGORY_CHAT;
 			notify_notification_set_hint (notification,
 				EMPATHY_NOTIFY_MANAGER_CAP_CATEGORY,
 				g_variant_new_string (category));
