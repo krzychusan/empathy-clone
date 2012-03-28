@@ -185,6 +185,7 @@ add_notification_actions (EmpathyNotificationsApprover *self,
 
   switch (self->priv->event->type) {
     case EMPATHY_EVENT_TYPE_CHAT:
+    case EMPATHY_EVENT_TYPE_MENTIONED:
       notify_notification_add_action (notification,
         "respond", _("Respond"), (NotifyActionCallback) notification_approve_cb,
           self, NULL);
@@ -265,6 +266,7 @@ notification_is_urgent (EmpathyNotificationsApprover *self,
     case EMPATHY_EVENT_TYPE_TRANSFER:
     case EMPATHY_EVENT_TYPE_INVITATION:
     case EMPATHY_EVENT_TYPE_AUTH:
+    case EMPATHY_EVENT_TYPE_MENTIONED:
       return TRUE;
 
     case EMPATHY_EVENT_TYPE_SUBSCRIPTION:
@@ -276,30 +278,25 @@ notification_is_urgent (EmpathyNotificationsApprover *self,
   return FALSE;
 }
 
-/* Use x-empathy as prefix for unofficial categories
- * http://www.galago-project.org/specs/notification/0.9/x211.html */
 static const gchar *
 get_category_for_event_type (EmpathyEventType type)
 {
+#define CASE(x) \
+    case EMPATHY_EVENT_TYPE_##x: \
+      return EMPATHY_NOTIFICATION_CATEGORY_##x;
   switch (type) {
-    case EMPATHY_EVENT_TYPE_CHAT:
-      return "im.received";
-    case EMPATHY_EVENT_TYPE_PRESENCE_ONLINE:
-      return "presence.online";
-    case EMPATHY_EVENT_TYPE_PRESENCE_OFFLINE:
-      return "presence.offline";
-    case EMPATHY_EVENT_TYPE_VOIP:
-    case EMPATHY_EVENT_TYPE_CALL:
-      return "x-empathy.call.incoming";
-    case EMPATHY_EVENT_TYPE_TRANSFER:
-      return "x-empathy.transfer.incoming";
-    case EMPATHY_EVENT_TYPE_INVITATION:
-      return "x-empathy.im.room-invitation";
-    case EMPATHY_EVENT_TYPE_AUTH:
-      return "x-empathy.network.auth-request";
-    case EMPATHY_EVENT_TYPE_SUBSCRIPTION:
-      return "x-empathy.im.subscription-request";
+    CASE(CHAT)
+    CASE(PRESENCE_ONLINE)
+    CASE(PRESENCE_OFFLINE)
+    CASE(VOIP)
+    CASE(CALL)
+    CASE(TRANSFER)
+    CASE(INVITATION)
+    CASE(AUTH)
+    CASE(SUBSCRIPTION)
+    CASE(MENTIONED)
   }
+#undef CASE
 
   return NULL;
 }

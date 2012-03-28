@@ -43,6 +43,21 @@ G_BEGIN_DECLS
 #define EMPATHY_NOTIFY_MANAGER_CAP_X_CANONICAL_PRIVATE_SYNCHRONOUS "x-canonical-private-synchronous"
 #define EMPATHY_NOTIFY_MANAGER_CAP_X_CANONICAL_TRUNCATION          "x-canonical-truncation"
 
+/* Categories associated with EMPATHY_NOTIFY_MANAGER_CAP_CATEGORY.
+ * Uses x-empathy as prefix for unofficial categories. See
+ * http://www.galago-project.org/specs/notification/0.9/x211.html */
+#define EMPATHY_NOTIFICATION_CATEGORY_CHAT             "im.received"
+#define EMPATHY_NOTIFICATION_CATEGORY_PRESENCE_ONLINE  "presence.online"
+#define EMPATHY_NOTIFICATION_CATEGORY_PRESENCE_OFFLINE "presence.offline"
+/* Yes, these two are the same. */
+#define EMPATHY_NOTIFICATION_CATEGORY_VOIP             "x-empathy.call.incoming"
+#define EMPATHY_NOTIFICATION_CATEGORY_CALL             "x-empathy.call.incoming"
+#define EMPATHY_NOTIFICATION_CATEGORY_TRANSFER         "x-empathy.transfer.incoming"
+#define EMPATHY_NOTIFICATION_CATEGORY_INVITATION       "x-empathy.im.room-invitation"
+#define EMPATHY_NOTIFICATION_CATEGORY_AUTH             "x-empathy.network.auth-request"
+#define EMPATHY_NOTIFICATION_CATEGORY_SUBSCRIPTION     "x-empathy.im.subscription-request"
+#define EMPATHY_NOTIFICATION_CATEGORY_MENTIONED        "x-empathy.im.mentioned"
+
 #define EMPATHY_TYPE_NOTIFY_MANAGER         (empathy_notify_manager_get_type ())
 #define EMPATHY_NOTIFY_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), EMPATHY_TYPE_NOTIFY_MANAGER, EmpathyNotifyManager))
 #define EMPATHY_NOTIFY_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), EMPATHY_TYPE_NOTIFY_MANAGER, EmpathyNotifyManagerClass))
