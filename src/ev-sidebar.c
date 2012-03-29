@@ -301,8 +301,7 @@ ev_sidebar_add_page (EvSidebar   *ev_sidebar,
 	gtk_widget_show (main_widget);	
 	gtk_notebook_append_page (GTK_NOTEBOOK (ev_sidebar->priv->notebook), main_widget, NULL);
 
-	gtk_list_store_append (GTK_LIST_STORE (model), &iter);
-	gtk_list_store_set (GTK_LIST_STORE (model), &iter,
+	gtk_list_store_insert_with_values (GTK_LIST_STORE (model), &iter, -1,
 			    PAGE_COLUMN_ID, page_id,
 			    PAGE_COLUMN_TITLE, title,
 			    -1);
