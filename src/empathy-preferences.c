@@ -506,7 +506,6 @@ preferences_languages_add (EmpathyPreferences *preferences)
 	}
 
 	for (l = codes; l; l = l->next) {
-		GtkTreeIter  iter;
 		const gchar *code;
 		const gchar *name;
 
@@ -516,8 +515,7 @@ preferences_languages_add (EmpathyPreferences *preferences)
 			continue;
 		}
 
-		gtk_list_store_append (store, &iter);
-		gtk_list_store_set (store, &iter,
+		gtk_list_store_insert_with_values (store, NULL, -1,
 				    COL_LANG_CODE, code,
 				    COL_LANG_NAME, name,
 				    -1);
