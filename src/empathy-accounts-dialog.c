@@ -1974,19 +1974,24 @@ accounts_dialog_add_account (EmpathyAccountsDialog *dialog,
       if (gtk_tree_selection_count_selected_rows (selection) == 0)
         selected = TRUE;
 
-      gtk_list_store_append (GTK_LIST_STORE (model), &iter);
+      gtk_list_store_insert_with_values (GTK_LIST_STORE (model), &iter, -1,
+          COL_NAME, name,
+          COL_STATUS, status,
+          COL_ACCOUNT, account,
+          COL_ACCOUNT_SETTINGS, settings,
+          -1);
     }
   else
     {
       selected = gtk_tree_selection_iter_is_selected (selection, &iter);
-    }
 
-  gtk_list_store_set (GTK_LIST_STORE (model), &iter,
-      COL_NAME, name,
-      COL_STATUS, status,
-      COL_ACCOUNT, account,
-      COL_ACCOUNT_SETTINGS, settings,
-      -1);
+      gtk_list_store_set (GTK_LIST_STORE (model), &iter,
+          COL_NAME, name,
+          COL_STATUS, status,
+          COL_ACCOUNT, account,
+          COL_ACCOUNT_SETTINGS, settings,
+          -1);
+    }
 
   if (selected)
     {
