@@ -377,17 +377,6 @@ dtmf_start_tone_cb (EmpathyDialpadWidget *dialpad,
 }
 
 static void
-empathy_call_window_raise_actors (EmpathyCallWindow *self)
-{
-  clutter_actor_raise_top (self->priv->floating_toolbar);
-
-  clutter_actor_raise_top (self->priv->preview_rectangle1);
-  clutter_actor_raise_top (self->priv->preview_rectangle2);
-  clutter_actor_raise_top (self->priv->preview_rectangle3);
-  clutter_actor_raise_top (self->priv->preview_rectangle4);
-}
-
-static void
 empathy_call_window_show_video_output (EmpathyCallWindow *self,
     gboolean show)
 {
@@ -396,7 +385,7 @@ empathy_call_window_show_video_output (EmpathyCallWindow *self,
 
   gtk_widget_set_visible (self->priv->remote_user_avatar_widget, !show);
 
-  empathy_call_window_raise_actors (self);
+  clutter_actor_raise_top (self->priv->overlay_box);
 }
 
 static void
@@ -3234,7 +3223,7 @@ empathy_call_window_show_video_output_cb (gpointer user_data)
     {
       gtk_widget_hide (self->priv->remote_user_avatar_widget);
       clutter_actor_show (self->priv->video_output);
-      empathy_call_window_raise_actors (self);
+      clutter_actor_raise_top (self->priv->overlay_box);
     }
 
   return FALSE;
