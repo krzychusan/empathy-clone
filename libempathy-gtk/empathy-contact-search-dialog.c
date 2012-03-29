@@ -275,13 +275,10 @@ _search_results_received (TpContactSearch *searcher,
   for (l = results; l != NULL; l = l->next)
     {
       TpContactSearchResult *result = l->data;
-      GtkTreeIter iter;
-
-      gtk_list_store_append (priv->store, &iter);
 
       name = tp_contact_search_result_get_field (result, "fn");
 
-      gtk_list_store_set (priv->store, &iter,
+      gtk_list_store_insert_with_values (priv->store, NULL, -1,
           NAME_COLUMN, name ? name->field_value[0] : NULL,
           LOGIN_COLUMN, tp_contact_search_result_get_identifier (result),
           -1);
