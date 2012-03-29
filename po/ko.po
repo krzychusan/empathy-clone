@@ -8,17 +8,19 @@
 #
 # 참고:
 # - 이 프로그램의 이름인 "Empathy"는 "엠퍼시"라고 음역
-# - "IM"은 메신저라고 번역
 # - 관련 용어 통일
+#   - IM, instance messenger -> 메신저
+#   - SMS -> 단문 문자
 #   - audio -> 음성, Video -> 영상
-#   - member -> 구성원
-#   - chat room -> 대화방
-#   - chat window -> 대화 표시창 (대화창 dialog와 구분)
-#   - join -> 입장하다 ("join a chat room")
 #   - away -> 자리 비움
 #   - busy -> 다른 용무 중
+#   - chat room -> 대화방
+#   - chat window -> 대화 표시창 (대화창 dialog와 구분)
+#   - connection manager -> "연결 관리" (관리자라고 쓰지 말 것)
+#   - join -> 입장하다 ("join a chat room")
+#   - member -> 구성원
 #   - offline -> 연결 중지, 연결 중지 상태, 연결 끊기다
-#   - SMS -> 단문 문자
+#   - top up -> 잔액 충전
 # - 기타 고유 명사 음역
 #   - Adium -> 에이디엄 (OS X용 메신저)
 #   - Facebook -> 페이스북
@@ -32,11 +34,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: empathy\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=empathy&keywords=I18N+L10N&component=General\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=empathy&keywords=I18N+L10N&component=General\n"
 "POT-Creation-Date: 2012-03-22 09:58+0000\n"
-"PO-Revision-Date: 2012-03-27 01:22+0900\n"
-"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
+"PO-Revision-Date: 2012-03-30 03:59+0900\n"
+"Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,13 +74,13 @@ msgstr "메신저 및 VoIP 계정 관리"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:1
 msgid "Connection managers should be used"
-msgstr "연결 관리자를 사용합니다"
+msgstr "연결 관리를 사용"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:2
 msgid ""
 "Whether connectivity managers should be used to automatically disconnect/"
 "reconnect."
-msgstr "연결 관리자를 이용해 연결을 자동으로 끊고 다시 연결할 지 여부."
+msgstr "연결 관리를 이용해 연결을 자동으로 끊고 다시 연결할 지 여부."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:3
 msgid "Empathy should auto-connect on startup"
@@ -109,15 +110,13 @@ msgstr "전송 받은 파일을 저장할 기본 폴더."
 #. translators: Automatic tasks which are run once to port/update account settings. Ideally, this shouldn't be exposed to users at all, we just use a gsettings key here as an optimization to only run it only once.
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:10
 msgid "Magic number used to check if sanity cleaning tasks should be run"
-msgstr "매직 넘버는 완전 소거 작업을 실행해야 하는지를 점검할 때 사용합니다"
+msgstr "설정 확인 작업을 실행해야 할지 여부를 확인하는 용도로 사용하는 매직 넘버"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:11
 msgid ""
 "empathy-sanity-cleaning.c uses this number to check if the cleaning tasks "
 "should be executed or not. Users should not change this key manually."
-msgstr ""
-"empathy-sanity-cleaning.c 는 소거 작업을 실행해야 하는지를 검사하기 위해 이 "
-"숫자를 사용합니다. 사용자가 이 키를 직접 바꾸지 않는 것이 좋습니다."
+msgstr "empathy-sanity-cleaning.c에서 설정 확인 작업을 실행해야 하는지 검사할 때 이 숫자를 사용합니다. 사용자는 이 키를 수동으로 바꾸지 않아야 합니다."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:12
 msgid "Show offline contacts"
@@ -206,11 +205,11 @@ msgstr "대화 가장자리 창의 저장한 위치 (픽셀 단위)."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:32
 msgid "Show contact groups"
-msgstr "연락처 그룹 보이기"
+msgstr "연락처 그룹 표시"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:33
 msgid "Whether to show groups in the contact list."
-msgstr "연락처 목록에 그룹을 보일지에 대한 여부입니다."
+msgstr "연락처 목록에 그룹을 표시할지 여부."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:34
 msgid "Contact list sort criterion"
@@ -227,7 +226,7 @@ msgstr ""
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:36
 msgid "Use notification sounds"
-msgstr "알리는 소리 사용"
+msgstr "알림 소리 내기"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:37
 msgid "Whether to play a sound to notify of events."
@@ -235,7 +234,7 @@ msgstr "이벤트를 알릴 때 소리를 낼지 여부."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:38
 msgid "Disable sounds when away"
-msgstr "자리 비움일 때 소리 사용하지 않기"
+msgstr "자리 비움일 때 소리 내지 않기"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:39
 msgid "Whether to play sound notifications when away or busy."
@@ -400,9 +399,7 @@ msgstr "다른 사용자에게 내용을 전달하려면 알려주십시오"
 msgid ""
 "Whether to send the 'composing' or 'paused' chat states. Does not currently "
 "affect the 'gone' state."
-msgstr ""
-"'작성중' 또는 '멈춤' 대화상태를 보낼지에 대한 여부입니다. 현재 '보냄' 상태에 "
-"대해서는 영향을 주지 않습니다."
+msgstr "'작성 중' 또는 '멈춤' 대화상태를 보낼지 여부. 현재 '보냄' 상태에 대해서는 영향을 주지 않습니다."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:78
 msgid "Use theme for chat rooms"
@@ -503,15 +500,15 @@ msgstr "사용자의 위치를 연락처에 있는 사람들에게 공개할지 
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:100
 msgid "Empathy can use the network to guess the location"
-msgstr "네트워크를 사용해 위치를 파악할 수 있습니다"
+msgstr "네트워크를 사용해 위치 파악"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:101
 msgid "Whether Empathy can use the network to guess the location."
-msgstr "네트워크를 이용해 위치를 파악할지 여부."
+msgstr "네트워크를 이용해 위치를 추측할지 파악."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:102
 msgid "Empathy can use the cellular network to guess the location"
-msgstr "휴대전화 네트워크를 사용해 위치를 파악할 수 있습니다"
+msgstr "휴대전화 네트워크를 사용해 위치 파악"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:103
 msgid "Whether Empathy can use the cellular network to guess the location."
@@ -519,7 +516,7 @@ msgstr "휴대전화 네트워크를 이용해 위치를 파악할지 여부."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:104
 msgid "Empathy can use the GPS to guess the location"
-msgstr "GPS를 이용해 위치를 파악할 수 있습니다"
+msgstr "GPS를 이용해 위치 파악"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:105
 msgid "Whether Empathy can use the GPS to guess the location."
@@ -527,7 +524,7 @@ msgstr "GPS를 이용해 위치를 파악할지 여부."
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:106
 msgid "Empathy should reduce the location's accuracy"
-msgstr "위치를 부정확하게 만듭니다"
+msgstr "위치를 부정확하게 만들기"
 
 #: ../data/org.gnome.Empathy.gschema.xml.in.h:107
 msgid ""
@@ -735,7 +732,7 @@ msgstr ""
 
 #: ../libempathy/empathy-utils.c:373
 msgid "Your software is too old"
-msgstr "여러분의 소프트웨어가 너무 오래되었습니다"
+msgstr "소프트웨어가 너무 오래되었습니다"
 
 #: ../libempathy/empathy-utils.c:375
 msgid "Internal error"
@@ -1492,13 +1489,13 @@ msgstr "메시지를 보내는데 오류, '%s': %s"
 msgid "Error sending message: %s"
 msgstr "메시지를 보내는데 오류: %s"
 
+# 주의: top up - 잔액 충전한다는 뜻
 #. translators: error used when user doesn't have enough credit on his
 #. * account to send the message.
 #: ../libempathy-gtk/empathy-chat.c:1577
 #, c-format
 msgid "insufficient balance to send message. <a href='%s'>Top up</a>."
-msgstr ""
-"메시지를 보내는데 필요한 잔액이 부족합니다. <a href='%s'>위로 올립니다</a>."
+msgstr "메시지를 보내는데 필요한 잔액이 부족합니다. <a href='%s'>잔액 충전</a>."
 
 #: ../libempathy-gtk/empathy-chat.c:1617
 msgid "not capable"
@@ -2553,7 +2550,7 @@ msgstr "새 호출"
 #: ../libempathy-gtk/empathy-bad-password-dialog.c:130
 #, c-format
 msgid "Authentification failed for account <b>%s</b>"
-msgstr "<b>%s</b> 계정에 대한 인증 실패"
+msgstr "<b>%s</b> 계정 인증 실패"
 
 #: ../libempathy-gtk/empathy-base-password-dialog.c:224
 #: ../libempathy-gtk/empathy-password-dialog.c:134
@@ -3105,21 +3102,22 @@ msgstr ""
 msgid "Offline — Account Disabled"
 msgstr "연결 중지 상태 — 계정 사용하지 않음"
 
+# 주의: 창 제목, 문장으로 번역하지 않는다
 #: ../src/empathy-accounts-dialog.c:585
 msgid "Edit Connection Parameters"
-msgstr "연결 인자를 편집합니다"
+msgstr "연결 설정 편집"
 
 #: ../src/empathy-accounts-dialog.c:750
 msgid "Failed to retrieve your personal information from the server."
-msgstr "서버로부터 여러붙의 개인 정보를 가져오는데 실패했습니다."
+msgstr "서버로부터 개인 정보를 가져오는데 실패했습니다."
 
 #: ../src/empathy-accounts-dialog.c:756
 msgid "Go online to edit your personal information."
-msgstr "여러분의 개인 정보를 편집하려면 온라인으로 이동하십시오."
+msgstr "개인 정보를 편집하려면 온라인으로 이동하십시오."
 
 #: ../src/empathy-accounts-dialog.c:843
 msgid "_Edit Connection Parameters..."
-msgstr "연결 인수 편집(_E)..."
+msgstr "연결 설정 편집(_E)..."
 
 #: ../src/empathy-accounts-dialog.c:1339
 #, c-format
@@ -3938,16 +3936,16 @@ msgstr "계정 편집"
 #: ../src/empathy-roster-window.c:1110
 #, c-format
 msgid "Top up %s (%s)..."
-msgstr "%s 올리기 (%s)..."
+msgstr "%s 잔액 충전 (%s)..."
 
 #: ../src/empathy-roster-window.c:1156
 msgid "Top up account credit"
-msgstr "계정 크레디트 올리기"
+msgstr "계정 크레디트 충전"
 
 #. top up button
 #: ../src/empathy-roster-window.c:1228
 msgid "Top Up..."
-msgstr "올리기..."
+msgstr "잔액 충전..."
 
 #: ../src/empathy-roster-window.c:1952
 msgid "Contact"
@@ -3955,7 +3953,7 @@ msgstr "연락처"
 
 #: ../src/empathy-roster-window.c:2150
 msgid "You need to enable one of your accounts to see contacts here."
-msgstr "이 연락처를 보려면 여러분의 계정 중 하나를 활성화 해야 합니다."
+msgstr "이 연락처를 보려면 계정 중 하나를 활성화 해야 합니다."
 
 #. translators: argument is an account name
 #: ../src/empathy-roster-window.c:2158
@@ -4512,7 +4510,7 @@ msgstr "단계"
 msgid ""
 "The selected connection manager does not support the remote debugging "
 "extension."
-msgstr "선택한 연결 관리자는 원격 디버깅 확장 기능을 지원하지 않습니다."
+msgstr "선택한 연결 관리는 원격 디버깅 확장 기능을 지원하지 않습니다."
 
 #: ../src/empathy-invite-participant-dialog.c:202
 #: ../src/empathy-invite-participant-dialog.c:230
@@ -4644,9 +4642,10 @@ msgstr "현재 잔액은 %s 입니다."
 msgid "Sorry, you don’t have enough credit for that call."
 msgstr "죄송하지만, 전화를 걸 잔고가 부족합니다."
 
+# 주의: 돈이 모자라서 충전해야 할 때 누르는 단추
 #: ../src/empathy-call-window.c:3172
 msgid "Top Up"
-msgstr "위로 올리기"
+msgstr "잔액 충전"
 
 #: ../libempathy-gtk/empathy-search-bar.c:243
 msgid "_Match case"
