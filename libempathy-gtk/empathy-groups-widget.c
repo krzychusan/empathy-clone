@@ -151,7 +151,6 @@ populate_data (EmpathyGroupsWidget *self)
 {
   EmpathyGroupsWidgetPriv *priv = GET_PRIV (self);
   EmpathyConnectionAggregator *aggregator;
-  GtkTreeIter iter;
   GeeSet *member_groups;
   GList *all_groups, *l;
 
@@ -176,8 +175,7 @@ populate_data (EmpathyGroupsWidget *self)
       enabled = gee_collection_contains (GEE_COLLECTION (member_groups),
           group_str);
 
-      gtk_list_store_append (priv->group_store, &iter);
-      gtk_list_store_set (priv->group_store, &iter,
+      gtk_list_store_insert_with_values (priv->group_store, NULL, -1,
           COL_NAME, group_str,
           COL_EDITABLE, TRUE,
           COL_ENABLED, enabled,
@@ -236,13 +234,11 @@ add_group_button_clicked_cb (GtkButton *button,
    EmpathyGroupsWidget *self)
 {
   EmpathyGroupsWidgetPriv *priv = GET_PRIV (self);
-  GtkTreeIter iter;
   const gchar *group;
 
   group = gtk_entry_get_text (GTK_ENTRY (priv->add_group_entry));
 
-  gtk_list_store_append (priv->group_store, &iter);
-  gtk_list_store_set (priv->group_store, &iter,
+  gtk_list_store_insert_with_values (priv->group_store, NULL, -1,
       COL_NAME, group,
       COL_ENABLED, TRUE,
       -1);
