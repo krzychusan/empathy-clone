@@ -617,7 +617,6 @@ new_chatroom_dialog_new_room_cb (EmpathyTpRoomlist        *room_list,
 				 EmpathyNewChatroomDialog *dialog)
 {
 	GtkListStore     *store;
-	GtkTreeIter       iter;
 	gchar            *members;
 	gchar            *tooltip;
 	const gchar      *need_password;
@@ -645,8 +644,7 @@ new_chatroom_dialog_new_room_cb (EmpathyTpRoomlist        *room_list,
 	need_password = (empathy_chatroom_get_need_password (chatroom) ?
 		GTK_STOCK_DIALOG_AUTHENTICATION : NULL);
 
-	gtk_list_store_append (store, &iter);
-	gtk_list_store_set (store, &iter,
+	gtk_list_store_insert_with_values (store, NULL, -1,
 			    COL_NEED_PASSWORD, need_password,
 			    COL_INVITE_ONLY, invite_only,
 			    COL_NAME, empathy_chatroom_get_name (chatroom),
