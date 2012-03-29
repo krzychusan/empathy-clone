@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=empathy&keywords=I18N+L10N&component=General\n"
 "POT-Creation-Date: 2012-03-28 08:16+0000\n"
-"PO-Revision-Date: 2012-03-28 21:14+0530\n"
+"PO-Revision-Date: 2012-03-29 14:21+0530\n"
 "Last-Translator: Manoj Kumar Giri <mgiri@redhat.com>\n"
 "Language-Team: Oriya <oriya-it@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -3307,13 +3307,12 @@ msgstr "ଅସଂଯୋଜିତ"
 
 #: ../src/empathy-accounts-dialog.c:445
 msgid "Offline — No Network Connection"
-msgstr ""
+msgstr "ଅଫଲାଇନ  —  କୌଣସି ନେଟୱର୍କ ସଂଯୋଗ ନାହିଁ"
 
 #: ../src/empathy-accounts-dialog.c:452
-#, fuzzy
 #| msgid "Unknown reason"
 msgid "Unknown Status"
-msgstr "ଅଜ୍ଞାତ କାରଣ"
+msgstr "ଅଜ୍ଞାତ  ସ୍ଥିତି"
 
 #: ../src/empathy-accounts-dialog.c:469
 msgid ""
@@ -3324,11 +3323,11 @@ msgstr ""
 
 #: ../src/empathy-accounts-dialog.c:479
 msgid "Offline — Account Disabled"
-msgstr ""
+msgstr "ଅଫଲାଇନ — ଏହି ଖାତାକୁ ନିଷ୍କ୍ରିୟ କରାଯାଇଛି"
 
 #: ../src/empathy-accounts-dialog.c:585
 msgid "Edit Connection Parameters"
-msgstr ""
+msgstr "ସଂଯୋଗ ପ୍ରାଚଳଗୁଡ଼ିକୁ ସମ୍ପାଦନ କରନ୍ତୁ"
 
 #: ../src/empathy-accounts-dialog.c:750
 msgid "Failed to retrieve your personal information from the server."
@@ -3340,7 +3339,7 @@ msgstr ""
 
 #: ../src/empathy-accounts-dialog.c:843
 msgid "_Edit Connection Parameters..."
-msgstr ""
+msgstr "ସଂଯୋଗ ପ୍ରାଚଳଗୁଡ଼ିକୁ ସମ୍ପାଦନ କରନ୍ତୁ (_E)..."
 
 #: ../src/empathy-accounts-dialog.c:1339
 #, fuzzy, c-format
@@ -3366,24 +3365,22 @@ msgstr ""
 
 #. Menu items: to enabled/disable the account
 #: ../src/empathy-accounts-dialog.c:1755
-#, fuzzy
 #| msgid "Enabled"
 msgid "_Enable"
-msgstr "ସକ୍ରିୟ"
+msgstr "ସକ୍ରିୟ (_E)"
 
 #: ../src/empathy-accounts-dialog.c:1756
 msgid "_Disable"
-msgstr ""
+msgstr "ନିଷ୍କ୍ରିୟ (_D)"
 
 #: ../src/empathy-accounts-dialog.c:2184
 msgid "_Skip"
-msgstr ""
+msgstr "ଏଡାଇ ଦିଅନ୍ତୁ (_S)"
 
 #: ../src/empathy-accounts-dialog.c:2188
-#, fuzzy
 #| msgid "Connected"
 msgid "_Connect"
-msgstr "ସଂଯୋଗିତ"
+msgstr "ସଂଯୋଗ କରନ୍ତୁ (_C)"
 
 #: ../src/empathy-accounts-dialog.c:2365
 #, fuzzy
@@ -3398,16 +3395,14 @@ msgstr ""
 "ଆପଣ ନିଶ୍ଚିତ କି ଆପଣ ଅଗ୍ରସର ହେବାକୁ ଚାହୁଁଛନ୍ତି?"
 
 #: ../src/empathy-accounts-dialog.ui.h:3
-#, fuzzy
 #| msgid "Import"
 msgid "_Import…"
-msgstr "ଆୟତ କରନ୍ତୁ"
+msgstr "ଆମଦାନି କରନ୍ତୁ (_I)…"
 
 #: ../src/empathy-accounts-dialog.ui.h:4
-#, fuzzy
 #| msgid "Edit Contact Information"
 msgid "Loading account information"
-msgstr "ସମ୍ପର୍କ ସୂଚନା ସମ୍ପାଦିତ କରନ୍ତୁ"
+msgstr "ଖାତାସୂଚନା ଧାରଣ କରୁଅଛି"
 
 #: ../src/empathy-accounts-dialog.ui.h:5
 msgid ""
@@ -3420,31 +3415,27 @@ msgstr ""
 
 #: ../src/empathy-accounts-dialog.ui.h:6
 msgid "No protocol backends installed"
-msgstr ""
+msgstr "କୌଣସି ପ୍ରଟୋକଲ ପୃଷ୍ଠଭୂମି ସ୍ଥାପିତ ହୋଇନାହିଁ"
 
 #: ../src/empathy-auth-client.c:288
-#, fuzzy
 #| msgid "- Empathy IM Client"
 msgid " - Empathy authentication client"
-msgstr "- Empathy IM ଗ୍ରାହକ"
+msgstr "- Empathy ବୈଧିକରଣ ଗ୍ରାହକ"
 
 #: ../src/empathy-auth-client.c:304
-#, fuzzy
 #| msgid "Authentication failed"
 msgid "Empathy authentication client"
-msgstr "ବୈଧିକରଣ ବିଫଳ"
+msgstr "Empathy ବୈଧିକରଣ ଗ୍ରାହକ"
 
 #: ../src/empathy-av.c:118 ../src/empathy-call.c:201
-#, fuzzy
 #| msgid "- Empathy IM Client"
 msgid "- Empathy Audio/Video Client"
-msgstr "- Empathy IM ଗ୍ରାହକ"
+msgstr "- Empathy ଧ୍ୱନି/ଭିଡ଼ିଓ ଗ୍ରାହକ"
 
 #: ../src/empathy-av.c:134 ../src/empathy-call.c:223
-#, fuzzy
 #| msgid "Empathy IM Client"
 msgid "Empathy Audio/Video Client"
-msgstr "Empathy IM କ୍ଲାଏଣ୍ଟ"
+msgstr "Empathy ଧ୍ୱନି/ଭିଡ଼ିଓ ଗ୍ରାହକ"
 
 #: ../src/empathy-streamed-media-window.c:434
 msgid "Contrast"
@@ -3479,10 +3470,9 @@ msgid "Dialpad"
 msgstr "ଡାଏଲ ପ୍ଯାଡ"
 
 #: ../src/empathy-streamed-media-window.c:1142
-#, fuzzy
 #| msgid "Contact Details"
 msgid "Details"
-msgstr "ଯୋଗାଯୋଗ ବିବରଣୀ"
+msgstr "ବିସ୍ତୃତ ବିବରଣୀ"
 
 #. translators: Call is a noun and %s is the contact name. This string
 #. * is used in the window title
@@ -3490,7 +3480,7 @@ msgstr "ଯୋଗାଯୋଗ ବିବରଣୀ"
 #: ../src/empathy-call-window.c:1872
 #, c-format
 msgid "Call with %s"
-msgstr ""
+msgstr "%s ସହିତ ଡ଼ାକନ୍ତୁ"
 
 #: ../src/empathy-streamed-media-window.c:1444
 #: ../src/empathy-call-window.c:2116
@@ -3521,7 +3511,6 @@ msgstr ""
 #: ../src/empathy-streamed-media-window.c:1840
 #: ../src/empathy-streamed-media-window.c:1843
 #: ../src/empathy-streamed-media-window.c:1846
-#, fuzzy
 #| msgctxt "file transfer percent"
 #| msgid "Unknown"
 msgctxt "codec"
@@ -3532,14 +3521,13 @@ msgstr "ଅଜଣା"
 #: ../src/empathy-streamed-media-window.c:2138
 #, c-format
 msgid "Connected — %d:%02dm"
-msgstr ""
+msgstr "ସଂଯୁକ୍ତ — %d:%02dm"
 
 #: ../src/empathy-streamed-media-window.c:2199
 #: ../src/empathy-call-window.c:2975
-#, fuzzy
 #| msgid "Contact Details"
 msgid "Technical Details"
-msgstr "ଯୋଗାଯୋଗ ବିବରଣୀ"
+msgstr "ଯାନ୍ତ୍ରିକ ବିବରଣୀ"
 
 #: ../src/empathy-streamed-media-window.c:2237
 #: ../src/empathy-call-window.c:3014
@@ -3568,7 +3556,7 @@ msgstr ""
 #: ../src/empathy-streamed-media-window.c:2254
 #: ../src/empathy-call-window.c:3031
 msgid "There was a failure on the network"
-msgstr ""
+msgstr "ଏହି ନେଟୱର୍କରେ ଏକ ବିଫଳ ହୋଇଥିଲା"
 
 #: ../src/empathy-streamed-media-window.c:2258
 #: ../src/empathy-call-window.c:3035
@@ -3617,18 +3605,17 @@ msgid "_Call"
 msgstr "_କଲ"
 
 #: ../src/empathy-call-window.ui.h:3
-#, fuzzy
 #| msgid "Megaphone"
 msgid "_Microphone"
-msgstr "Megaphone"
+msgstr "ମାଇକ୍ରୋଫୋନ (_M)"
 
 #: ../src/empathy-call-window.ui.h:4
 msgid "_Camera"
-msgstr ""
+msgstr "କ୍ୟାମେରା (_C)"
 
 #: ../src/empathy-call-window.ui.h:5
 msgid "_Settings"
-msgstr ""
+msgstr "ବିନ୍ଯାସ (_S)"
 
 #: ../src/empathy-call-window.ui.h:6
 #: ../src/empathy-roster-window-menubar.ui.h:17
@@ -3653,7 +3640,7 @@ msgstr "ତୃଟିମୁକ୍ତ କରନ୍ତୁ (_D)"
 
 #: ../src/empathy-call-window.ui.h:10
 msgid "Swap camera"
-msgstr ""
+msgstr "Swap କ୍ଯାମେରା"
 
 #: ../src/empathy-call-window.ui.h:11
 msgid "Minimise me"
@@ -3665,7 +3652,7 @@ msgstr ""
 
 #: ../src/empathy-call-window.ui.h:13
 msgid "Disable camera"
-msgstr ""
+msgstr "କ୍ୟାମେରାକୁ ନିଷ୍କ୍ରିୟ କରନ୍ତୁ"
 
 #: ../src/empathy-call-window.ui.h:14
 #: ../src/empathy-streamed-media-window.ui.h:2
@@ -3678,19 +3665,18 @@ msgid "Hang up current call"
 msgstr ""
 
 #: ../src/empathy-call-window.ui.h:16
-#, fuzzy
 #| msgctxt "menu item"
 #| msgid "_Video Call"
 msgid "Video call"
-msgstr "ଭିଡିଓ ଡାକ (_V)"
+msgstr "ଭିଡିଓ ଡାକରା"
 
 #: ../src/empathy-call-window.ui.h:17
 msgid "Start a video call"
-msgstr ""
+msgstr "ଭିଡିଓ ଡାକରା ଆରମ୍ଭ କରନ୍ତୁ"
 
 #: ../src/empathy-call-window.ui.h:19
 msgid "Start an audio call"
-msgstr ""
+msgstr "ଧ୍ୱନି ଡାକରା ଆରମ୍ଭ କରନ୍ତୁ"
 
 #: ../src/empathy-call-window.ui.h:20
 #, fuzzy
@@ -3703,7 +3689,6 @@ msgid "Display the dialpad"
 msgstr ""
 
 #: ../src/empathy-call-window.ui.h:22
-#, fuzzy
 #| msgid "Send video"
 msgid "Send Video"
 msgstr "ଭିଡ଼ିଓ ପଠାନ୍ତୁ"
@@ -3731,7 +3716,6 @@ msgstr ""
 #: ../src/empathy-streamed-media-window.ui.h:21
 #: ../src/empathy-call-window.c:2525 ../src/empathy-call-window.c:2526
 #: ../src/empathy-call-window.c:2527 ../src/empathy-call-window.c:2528
-#, fuzzy
 #| msgctxt "file transfer percent"
 #| msgid "Unknown"
 msgid "Unknown"
@@ -3750,20 +3734,18 @@ msgstr ""
 #: ../src/empathy-call-window.ui.h:31
 #: ../src/empathy-streamed-media-window.ui.h:24
 msgid "Local Candidate:"
-msgstr ""
+msgstr "ସ୍ଥାନୀୟ ବ୍ୟକ୍ତି:"
 
 #: ../src/empathy-call-window.ui.h:32 ../src/empathy-preferences.ui.h:24
 #: ../src/empathy-streamed-media-window.ui.h:25
-#, fuzzy
 #| msgid "Send Audio"
 msgid "Audio"
-msgstr "ଧ୍ବନି ପଠାନ୍ତୁ"
+msgstr "ଧ୍ବନି"
 
 #: ../src/empathy-chat-window.c:289
-#, fuzzy
 #| msgid "Hide the main window."
 msgid "Close this window?"
-msgstr "ମୁଖ୍ଯ ୱିଣ୍ଡୋ ଲୁଚାନ୍ତୁ"
+msgstr "ଏହି ୱିଣ୍ଡୋକୁ ବନ୍ଦ କରିବେ କି?"
 
 #: ../src/empathy-chat-window.c:294
 #, c-format
@@ -3784,10 +3766,10 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../src/empathy-chat-window.c:314
-#, fuzzy, c-format
+#, c-format
 #| msgid "Level "
 msgid "Leave %s?"
-msgstr "ସ୍ତର"
+msgstr "%s କୁ ତ୍ୟାଗ କରିବେ କି?"
 
 #: ../src/empathy-chat-window.c:315
 msgid ""
@@ -3797,27 +3779,26 @@ msgstr ""
 
 #: ../src/empathy-chat-window.c:334
 msgid "Close window"
-msgstr ""
+msgstr "ୱିଣ୍ଡୋ ବନ୍ଦ କରନ୍ତୁ"
 
 #: ../src/empathy-chat-window.c:334
-#, fuzzy
 #| msgid "Level "
 msgid "Leave room"
-msgstr "ସ୍ତର"
+msgstr "ଖାଲିସ୍ଥାନ ଛାଡ଼ନ୍ତୁ"
 
 #: ../src/empathy-chat-window.c:640 ../src/empathy-chat-window.c:660
 #, c-format
 msgid "%s (%d unread)"
 msgid_plural "%s (%d unread)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s (%d ଅପଠିତ)"
+msgstr[1] "%s (%d ଅପଠିତ)"
 
 #: ../src/empathy-chat-window.c:652
 #, c-format
 msgid "%s (and %u other)"
 msgid_plural "%s (and %u others)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s (ଏବଂ %u ଅନ୍ୟାନ୍ୟ)"
+msgstr[1] "%s (ଏବଂ %u ଅନ୍ୟାନ୍ୟ)"
 
 #: ../src/empathy-chat-window.c:668
 #, c-format
@@ -3835,47 +3816,43 @@ msgstr[1] ""
 
 #: ../src/empathy-chat-window.c:892
 msgid "SMS:"
-msgstr ""
+msgstr "SMS:"
 
 #: ../src/empathy-chat-window.c:902
-#, fuzzy, c-format
+#, c-format
 #| msgid "Typing a message."
 msgid "Sending %d message"
 msgid_plural "Sending %d messages"
-msgstr[0] "ଏକ ସନ୍ଦେଶ ଟାଇପ କରୁଅଛି."
-msgstr[1] "ଏକ ସନ୍ଦେଶ ଟାଇପ କରୁଅଛି."
+msgstr[0] "%d ସନ୍ଦେଶ ପଠାଉଛି"
+msgstr[1] "%d ସନ୍ଦେଶଗୁଡ଼ିକୁ ପଠାଉଛି"
 
 #: ../src/empathy-chat-window.c:924
 msgid "Typing a message."
 msgstr "ଏକ ସନ୍ଦେଶ ଟାଇପ କରୁଅଛି."
 
 #: ../src/empathy-chat-window.ui.h:1
-#, fuzzy
 #| msgid "Conversation"
 msgid "_Conversation"
-msgstr "କଥୋପକଥନ"
+msgstr "ବାର୍ତ୍ତାଳାପ (_C)"
 
 #: ../src/empathy-chat-window.ui.h:2
-#, fuzzy
 #| msgid "Clean"
 msgid "C_lear"
 msgstr "ସଫା କରନ୍ତୁ (_l)"
 
 #: ../src/empathy-chat-window.ui.h:3
-#, fuzzy
 #| msgid "Insert Smiley"
 msgid "Insert _Smiley"
 msgstr "ସ୍ମାଇଲି ଭର୍ତ୍ତି କରନ୍ତୁ (_S)"
 
 #: ../src/empathy-chat-window.ui.h:4
-#, fuzzy
 #| msgid "_Invite to chatroom"
 msgid "_Favorite Chat Room"
 msgstr "ମନପସନ୍ଦ ଚାର୍ଟ କଠୋରି (_F)"
 
 #: ../src/empathy-chat-window.ui.h:5
 msgid "Notify for All Messages"
-msgstr ""
+msgstr "ସମସ୍ତ ସନ୍ଦେଶଗୁଡ଼ିକ ପାଇଁ ସୂଚାନ୍ତୁ"
 
 #: ../src/empathy-chat-window.ui.h:6 ../src/empathy-status-icon.ui.h:1
 msgid "_Show Contact List"
@@ -3886,10 +3863,9 @@ msgid "Invite _Participant…"
 msgstr ""
 
 #: ../src/empathy-chat-window.ui.h:8
-#, fuzzy
 #| msgid "Contact"
 msgid "C_ontact"
-msgstr "ସମ୍ପର୍କ"
+msgstr "ସମ୍ପର୍କ (_o)"
 
 #: ../src/empathy-chat-window.ui.h:10
 msgid "_Tabs"
@@ -3905,7 +3881,7 @@ msgstr "ପରବର୍ତ୍ତି ଟ୍ୟାବ (_N)"
 
 #: ../src/empathy-chat-window.ui.h:13
 msgid "_Undo Close Tab"
-msgstr ""
+msgstr "ଟ୍ୟାବ ବନ୍ଦ କରିବାକୁ ବାତିଲ କରନ୍ତୁ (_U)"
 
 #: ../src/empathy-chat-window.ui.h:14
 msgid "Move Tab _Left"
@@ -3936,10 +3912,9 @@ msgid "Manage Favorite Rooms"
 msgstr "ମନପସନ୍ଦ କଠୋରିଗୁଡ଼ିକୁ ପରିଚାଳନା କରନ୍ତୁ"
 
 #: ../src/empathy-event-manager.c:522
-#, fuzzy
 #| msgid "Incoming voice call"
 msgid "Incoming video call"
-msgstr "ଆସୁଥିବା ସ୍ୱର କଲ"
+msgstr "ଆସୁଥିବା ଭିଡ଼ିଓ କଲ"
 
 #: ../src/empathy-event-manager.c:522 ../src/empathy-call-window.c:1494
 msgid "Incoming call"
@@ -4023,10 +3998,9 @@ msgid "Incoming file transfer from %s"
 msgstr "%sରୁ ଆସୁଥିବା ଫାଇଲ ସ୍ଥାନାନ୍ତରଣ"
 
 #: ../src/empathy-event-manager.c:1146 ../src/empathy-roster-window.c:374
-#, fuzzy
 #| msgid "Password:"
 msgid "Password required"
-msgstr "ପ୍ରବେଶ ସଙ୍କେତ:"
+msgstr "ପ୍ରବେଶ ସଙ୍କେତ ଆବଶ୍ଯକ"
 
 #: ../src/empathy-event-manager.c:1216
 #, c-format
@@ -4062,7 +4036,7 @@ msgstr "ଅଜଣା"
 #: ../src/empathy-ft-manager.c:273
 #, c-format
 msgid "%s of %s at %s/s"
-msgstr ""
+msgstr "%s ର %s  %s/s ଠାରେ"
 
 #: ../src/empathy-ft-manager.c:274
 #, c-format
@@ -4095,11 +4069,11 @@ msgstr ""
 #: ../src/empathy-ft-manager.c:346
 #, c-format
 msgid "Error sending \"%s\" to %s"
-msgstr ""
+msgstr "\"%s\" କୁ %s ଠାକୁ ପଠାଇବାରେ ତ୍ରୁଟି"
 
 #: ../src/empathy-ft-manager.c:349
 msgid "Error sending a file"
-msgstr ""
+msgstr "ଫାଇଲ ପଠାଇବାରେ ତୃଟି"
 
 #. translators: first %s is filename, second %s
 #. * is the contact name
@@ -4154,10 +4128,9 @@ msgid "Remove completed, canceled and failed file transfers from the list"
 msgstr "କାଢ଼ିବା ସମ୍ପୂର୍ଣ୍ଣ ହୋଇଛି, ତାଲିକାରୁ ବାତିଲ ଏବଂ ବିଫଳ ଫାଇଲ ସ୍ଥାନାନ୍ତରଣ"
 
 #: ../src/empathy-import-dialog.c:76
-#, fuzzy
 #| msgid "Import"
 msgid "_Import"
-msgstr "ଆୟତ କରନ୍ତୁ"
+msgstr "ଆମଦାନି କରନ୍ତୁ (_I)"
 
 #: ../src/empathy-import-dialog.c:88
 msgid ""
@@ -4186,26 +4159,23 @@ msgid "Source"
 msgstr "ଉତ୍ସ"
 
 #: ../src/empathy-roster-window.c:391
-#, fuzzy
 #| msgid "Password:"
 msgid "Provide Password"
-msgstr "ପ୍ରବେଶ ସଙ୍କେତ:"
+msgstr "ପ୍ରବେଶ ସଙ୍କେତ ପ୍ରଦାନ କରନ୍ତୁ"
 
 #: ../src/empathy-roster-window.c:397
-#, fuzzy
 #| msgid "Disconnected"
 msgid "Disconnect"
-msgstr "ଅସଂଯୋଜିତ"
+msgstr "ସଂଯୋଗ ବିଚ୍ଛିନ୍ନ ହୋଇଛି"
 
 #: ../src/empathy-roster-window.c:657
 msgid "You need to setup an account to see contacts here."
 msgstr ""
 
 #: ../src/empathy-roster-window.c:673
-#, fuzzy
 #| msgid "No topic defined"
 msgid "No match found"
-msgstr "କୌଣସି ବିଷୟ ବ୍ୟାଖ୍ୟା କରାଯାଇନାହିଁ"
+msgstr "କୌଣସି ମେଳକ ନାହିଁ"
 
 #: ../src/empathy-roster-window.c:783
 #, c-format
@@ -4214,32 +4184,29 @@ msgstr ""
 
 #: ../src/empathy-roster-window.c:849
 msgid "Update software..."
-msgstr ""
+msgstr "ସଫ୍ଟୱେରକୁ ଅଦ୍ୟତନ କରନ୍ତୁ..."
 
 #: ../src/empathy-roster-window.c:855 ../src/empathy-roster-window.c:972
-#, fuzzy
 #| msgid "Clean"
 msgid "Close"
-msgstr "ସଫା"
+msgstr "ବନ୍ଦକରନ୍ତୁ"
 
 #: ../src/empathy-roster-window.c:960
-#, fuzzy
 #| msgid "Disconnected"
 msgid "Reconnect"
-msgstr "ଅସଂଯୋଜିତ"
+msgstr "ପୁନଃସଂଯୋଗ କରନ୍ତୁ"
 
 #: ../src/empathy-roster-window.c:966
-#, fuzzy
 #| msgid "_Edit account"
 msgid "Edit Account"
-msgstr "ଖାତା ସମ୍ପାଦନ କରନ୍ତୁ (_E)"
+msgstr "ଖାତା ସମ୍ପାଦନ କରନ୍ତୁ"
 
 #. Translators: this string will be something like:
 #. * Top up My Account ($1.23)..."
 #: ../src/empathy-roster-window.c:1110
 #, c-format
 msgid "Top up %s (%s)..."
-msgstr ""
+msgstr "ଟପଅପ %s (%s)..."
 
 #: ../src/empathy-roster-window.c:1156
 #, fuzzy
@@ -4250,7 +4217,7 @@ msgstr "ସେଲ୍ୟୁଟ ଖାତା ନିର୍ମିତ ହୋଇଛି
 #. top up button
 #: ../src/empathy-roster-window.c:1228
 msgid "Top Up..."
-msgstr ""
+msgstr "ଟପଅପ..."
 
 #: ../src/empathy-roster-window.c:1952
 msgid "Contact"
@@ -4271,22 +4238,20 @@ msgid "Contact List"
 msgstr "ସମ୍ପର୍କ ତାଲିକା"
 
 #: ../src/empathy-roster-window.ui.h:1
-#, fuzzy
 #| msgid "Accounts"
 msgid "Account settings"
-msgstr "ଆକାଉଣ୍ଟଗୁଡିକ"
+msgstr "ଆକାଉଣ୍ଟ ସେଟିଙ୍ଗଗୁଡିକ"
 
 #: ../src/empathy-roster-window-menubar.ui.h:2
 #: ../src/empathy-status-icon.ui.h:2
-#, fuzzy
 #| msgid "New Conversation"
 msgid "_New Conversation…"
-msgstr "ନୁଆ କଥୋପକଥନ"
+msgstr "ନୁଆ କଥୋପକଥନ (_N)..."
 
 #: ../src/empathy-roster-window-menubar.ui.h:3
 #: ../src/empathy-status-icon.ui.h:3
 msgid "New _Call…"
-msgstr ""
+msgstr "ନୂଆ କଲ (_C)…"
 
 #: ../src/empathy-roster-window-menubar.ui.h:6
 #, fuzzy
@@ -4296,17 +4261,16 @@ msgstr "ସମ୍ପର୍କ ତାଲିକା ଦେଖନ୍ତୁ (_S)"
 
 #: ../src/empathy-roster-window-menubar.ui.h:7
 msgid "_File Transfers"
-msgstr ""
+msgstr "ଫାଇଲ ସ୍ଥାନାନ୍ତରଣ (_F)"
 
 #: ../src/empathy-roster-window-menubar.ui.h:8
 msgid "_Offline Contacts"
-msgstr ""
+msgstr "ଅଫଲାଇନ ସମ୍ପର୍କଗୁଡ଼ିକ (_O)"
 
 #: ../src/empathy-roster-window-menubar.ui.h:9
-#, fuzzy
 #| msgid "Protocol"
 msgid "Show P_rotocols"
-msgstr "ପ୍ରୋଟୋକଲ"
+msgstr "ପ୍ରୋଟୋକଲଗୁଡ଼ିକୁ ଦର୍ଶାନ୍ତୁ (_r)"
 
 #: ../src/empathy-roster-window-menubar.ui.h:10
 msgid "Credit Balance"
@@ -4327,28 +4291,24 @@ msgid "_Blocked Contacts"
 msgstr "ନୂତନ ସମ୍ପର୍କ"
 
 #: ../src/empathy-roster-window-menubar.ui.h:15
-#, fuzzy
 #| msgid "Preferences"
 msgid "P_references"
-msgstr "ପସନ୍ଦ"
+msgstr "ପସନ୍ଦ (_r)"
 
 #: ../src/empathy-roster-window-menubar.ui.h:16
-#, fuzzy
 #| msgid "Contact List"
 msgid "Find in Contact _List"
-msgstr "ସମ୍ପର୍କ ତାଲିକା"
+msgstr "ସମ୍ପର୍କ ତାଲିକାରେ ଖୋଜନ୍ତୁ (_L)"
 
 #: ../src/empathy-roster-window-menubar.ui.h:18
-#, fuzzy
 #| msgid "Sort by _name"
 msgid "Sort by _Name"
-msgstr "ଦ୍ବାରା ସଜାଅ _ନାମ"
+msgstr "ନାମ ଅନୁଯାୟୀ  ସଜାଡ଼ନ୍ତୁ (_N)"
 
 #: ../src/empathy-roster-window-menubar.ui.h:19
-#, fuzzy
 #| msgid "Sort by s_tate"
 msgid "Sort by _Status"
-msgstr "ଅବସ୍ଥା ହିସାବରେ ସଜାଡ଼ନ୍ତୁ (_t)"
+msgstr "ସ୍ଥିତି ଅନୁଯାୟୀ  ସଜାଡ଼ନ୍ତୁ (_S)"
 
 #: ../src/empathy-roster-window-menubar.ui.h:20
 msgid "Normal Size With _Avatars"
@@ -4356,21 +4316,20 @@ msgstr ""
 
 #: ../src/empathy-roster-window-menubar.ui.h:21
 msgid "N_ormal Size"
-msgstr ""
+msgstr "ସାଧାରଣ ଆକାର (_o)"
 
 #: ../src/empathy-roster-window-menubar.ui.h:22
 msgid "_Compact Size"
-msgstr ""
+msgstr "ସଂଗୁପ୍ତ ଆକାର (_C)"
 
 #: ../src/empathy-roster-window-menubar.ui.h:23
 msgid "_Room"
 msgstr "କକ୍ଷ (_R)"
 
 #: ../src/empathy-roster-window-menubar.ui.h:24
-#, fuzzy
 #| msgid "_Join"
 msgid "_Join…"
-msgstr "ଯୋଗଦାନ କରନ୍ତୁ (_J)"
+msgstr "ଯୋଗଦାନ କରନ୍ତୁ (_J)..."
 
 #: ../src/empathy-roster-window-menubar.ui.h:25
 msgid "Join _Favorites"
@@ -4382,7 +4341,7 @@ msgstr "ମନପସନ୍ଦଗୁଡ଼ିକୁ ପରିଚାଳନ କର�
 
 #: ../src/empathy-new-chatroom-dialog.c:369
 msgid "Chat Room"
-msgstr ""
+msgstr "ଚାଟ କକ୍ଷ"
 
 #: ../src/empathy-new-chatroom-dialog.c:385
 msgid "Members"
@@ -4419,7 +4378,7 @@ msgstr ""
 
 #: ../src/empathy-new-chatroom-dialog.ui.h:1
 msgid "Join Room"
-msgstr ""
+msgstr "କକ୍ଷରେ ଅଂଶଗ୍ରହଣ କରନ୍ତୁ "
 
 #: ../src/empathy-new-chatroom-dialog.ui.h:3
 msgid ""
@@ -4486,17 +4445,15 @@ msgstr "ଭାଷା"
 
 #. translators: Contact name for the chat theme preview
 #: ../src/empathy-preferences.c:726
-#, fuzzy
 #| msgid "Client:"
 msgid "Juliet"
-msgstr "ଗ୍ରାହକ:"
+msgstr "ଜୁଲିଏଟ"
 
 #. translators: Contact name for the chat theme preview
 #: ../src/empathy-preferences.c:733
-#, fuzzy
 #| msgid "Room"
 msgid "Romeo"
-msgstr "କକ୍ଷ"
+msgstr "ରୋମିଓ"
 
 #. translators: Quote from Romeo & Julier, for chat theme preview
 #: ../src/empathy-preferences.c:739
@@ -4525,10 +4482,9 @@ msgstr ""
 
 #. translators: Quote from Romeo & Julier, for chat theme preview
 #: ../src/empathy-preferences.c:755
-#, fuzzy
 #| msgid "%s has disconnected"
 msgid "Juliet has disconnected"
-msgstr "%s ସମ୍ପର୍କ ବିଚ୍ଛିନ୍ନ ହୋଇଛି"
+msgstr "ଜୁଲିଏଟ ସହିତ ସମ୍ପର୍କ ବିଚ୍ଛିନ୍ନ ହୋଇଛି"
 
 #: ../src/empathy-preferences.c:1159
 msgid "Preferences"
@@ -4552,11 +4508,11 @@ msgstr ""
 
 #: ../src/empathy-preferences.ui.h:5
 msgid "new ta_bs"
-msgstr ""
+msgstr "ନୂତନ ଟ୍ୟାବଗୁଡ଼ିକ (_b)"
 
 #: ../src/empathy-preferences.ui.h:6
 msgid "new _windows"
-msgstr ""
+msgstr "ନୂତନ ୱିଣ୍ଡୋଗୁଡ଼ିକ (_w)"
 
 #: ../src/empathy-preferences.ui.h:7
 msgid "Display incoming events in the notification area"
@@ -4658,29 +4614,30 @@ msgstr "ଗୋପନୀଯତା"
 
 #: ../src/empathy-preferences.ui.h:31
 msgid "_GPS"
-msgstr ""
+msgstr "GPS (_G)"
 
 #: ../src/empathy-preferences.ui.h:32
-#, fuzzy
 #| msgid "Megaphone"
 msgid "_Cellphone"
-msgstr "Megaphone"
+msgstr "ସେଲଫୋନ (_C)"
 
 #: ../src/empathy-preferences.ui.h:33
 msgid "_Network (IP, Wi-Fi)"
-msgstr ""
+msgstr "ନେଟୱର୍କ (_N) (IP, Wi-Fi)"
 
 #: ../src/empathy-preferences.ui.h:34
-#, fuzzy
 #| msgid "Location"
 msgid "Location sources:"
-msgstr "ଅବସ୍ଥାନ"
+msgstr "ଅବସ୍ଥାନ ଉତ୍ସଗୁଡ଼ିକ:"
 
 #: ../src/empathy-preferences.ui.h:36
 msgid ""
 "The list of languages reflects only the languages for which you have a "
 "dictionary installed."
 msgstr ""
+"ଯେଉଁ ଭାଷା ପାଇଁ ଆପଣ ଅଭିଧାନ ସ୍ଥାପନ କରିଛନ୍ତି କେବଳ ସେହି ଭାଷାଗୁଡ଼ିକର ତାଲିକା ଏଠାରେ "
+"ପ୍ରତିଫଳିତ "
+"ହୋଇଥାଏ।"
 
 #: ../src/empathy-preferences.ui.h:37
 msgid "Enable spell checking for languages:"
@@ -4695,10 +4652,9 @@ msgid "Chat Th_eme:"
 msgstr "ଚାର୍ଟ ପ୍ରସଙ୍ଗ (_e):"
 
 #: ../src/empathy-preferences.ui.h:40
-#, fuzzy
 #| msgid "Bearing:"
 msgid "Variant:"
-msgstr "ବେରିଙ୍ଗ:"
+msgstr "ପ୍ରକାର:"
 
 #: ../src/empathy-preferences.ui.h:41
 msgid "Themes"
@@ -4714,29 +4670,26 @@ msgstr "ବିଦାୟ ନିଅନ୍ତୁ (_Q)"
 
 #: ../src/empathy-streamed-media-window.ui.h:3
 msgid "Redial"
-msgstr ""
+msgstr "ପୁଣି ଡାଏଲ କରନ୍ତୁ"
 
 #: ../src/empathy-streamed-media-window.ui.h:4
 msgid "V_ideo"
-msgstr ""
+msgstr "ଭିଡ଼ିଓ (_i)"
 
 #: ../src/empathy-streamed-media-window.ui.h:5
-#, fuzzy
 #| msgid "Video input"
 msgid "Video Off"
-msgstr "ଭିଡ଼ିଓ ନିବେଶ"
+msgstr "ଭିଡ଼ିଓ ଅଫ"
 
 #: ../src/empathy-streamed-media-window.ui.h:6
-#, fuzzy
 #| msgid "Video preview"
 msgid "Video Preview"
 msgstr "ଭିଡିଓ ପୂର୍ବଦୃଶ୍ଯ"
 
 #: ../src/empathy-streamed-media-window.ui.h:7
-#, fuzzy
 #| msgid "Video input"
 msgid "Video On"
-msgstr "ଭିଡ଼ିଓ ନିବେଶ"
+msgstr "ଭିଡ଼ିଓ ଅନ"
 
 #: ../src/empathy-streamed-media-window.ui.h:10
 #, fuzzy
@@ -4746,17 +4699,16 @@ msgstr "ସୁସଂଗତ ସମ୍ପର୍କ ତାଲିକା"
 
 #: ../src/empathy-streamed-media-window.ui.h:13
 msgid "Camera Off"
-msgstr ""
+msgstr "କ୍ଯାମେରା ଅଫ"
 
 #: ../src/empathy-streamed-media-window.ui.h:14
 msgid "Disable camera and stop sending video"
 msgstr ""
 
 #: ../src/empathy-streamed-media-window.ui.h:15
-#, fuzzy
 #| msgid "Video preview"
 msgid "Preview"
-msgstr "ଭିଡିଓ ପୂର୍ବଦୃଶ୍ଯ"
+msgstr "ପୂର୍ବଦୃଶ୍ଯ"
 
 #: ../src/empathy-streamed-media-window.ui.h:16
 msgid "Enable camera but don't send video"
@@ -4764,7 +4716,7 @@ msgstr ""
 
 #: ../src/empathy-streamed-media-window.ui.h:17
 msgid "Camera On"
-msgstr ""
+msgstr "କ୍ଯାମେରା ଅନ"
 
 #: ../src/empathy-streamed-media-window.ui.h:18
 msgid "Enable camera and send video"
@@ -4863,7 +4815,7 @@ msgstr ""
 
 #: ../src/empathy-invite-participant-dialog.c:226
 msgid "Invite"
-msgstr ""
+msgstr "ନିମନ୍ତ୍ରଣ କରନ୍ତୁ"
 
 #: ../src/empathy-accounts.c:180
 msgid "Don't display any dialogs; do any work (eg, importing) and exit"
@@ -4879,22 +4831,19 @@ msgid "Initially select given account (eg, gabble/jabber/foo_40example_2eorg0)"
 msgstr ""
 
 #: ../src/empathy-accounts.c:190
-#, fuzzy
 #| msgid "Account"
 msgid "<account-id>"
-msgstr "ହିସାବ ଖାତା"
+msgstr "<account-id>"
 
 #: ../src/empathy-accounts.c:195
-#, fuzzy
 #| msgid "Import Accounts"
 msgid "- Empathy Accounts"
-msgstr "ଖାତାଗୁଡ଼ିକୁ ଆମଦାନି କରନ୍ତୁ"
+msgstr "- Empathy ଖାତାଗୁଡ଼ିକ"
 
 #: ../src/empathy-accounts.c:231
-#, fuzzy
 #| msgid "Import Accounts"
 msgid "Empathy Accounts"
-msgstr "ଖାତାଗୁଡ଼ିକୁ ଆମଦାନି କରନ୍ତୁ"
+msgstr "Empathy ଖାତାଗୁଡ଼ିକ"
 
 #: ../src/empathy-debugger.c:69
 msgid "Show a particular service"
@@ -4902,36 +4851,33 @@ msgstr ""
 
 #: ../src/empathy-debugger.c:74
 msgid "- Empathy Debugger"
-msgstr ""
+msgstr "- Empathy ତ୍ରୁଟି ନିବାରକ"
 
 #: ../src/empathy-debugger.c:113
 msgid "Empathy Debugger"
-msgstr ""
+msgstr "Empathy ତ୍ରୁଟି ନିବାରକ"
 
 #: ../src/empathy-chat.c:109
-#, fuzzy
 #| msgid "- Empathy IM Client"
 msgid "- Empathy Chat Client"
-msgstr "- Empathy IM ଗ୍ରାହକ"
+msgstr "- Empathy ଚାର୍ଟ ଗ୍ରାହକ"
 
 #: ../src/empathy-notifications-approver.c:189
 msgid "Respond"
-msgstr ""
+msgstr "ଉତ୍ତର ଦିଅନ୍ତୁ"
 
 #: ../src/empathy-notifications-approver.c:203
 #: ../src/empathy-call-window.c:1504
-#, fuzzy
 #| msgid "_Reject"
 msgid "Reject"
-msgstr "ଅସ୍ୱୀକାର କରନ୍ତୁ (_R)"
+msgstr "ଅସ୍ୱୀକାର କରନ୍ତୁ"
 
 #: ../src/empathy-notifications-approver.c:208
 #: ../src/empathy-notifications-approver.c:213
 #: ../src/empathy-call-window.c:1505
-#, fuzzy
 #| msgid "_Answer"
 msgid "Answer"
-msgstr "ଉତ୍ତର ଦିଅନ୍ତୁ (_A)"
+msgstr "ଉତ୍ତର ଦିଅନ୍ତୁ"
 
 #: ../src/empathy-notifications-approver.c:213
 msgid "Answer with video"
@@ -4939,24 +4885,22 @@ msgstr ""
 
 #: ../src/empathy-notifications-approver.c:221
 #: ../src/empathy-notifications-approver.c:231
-#, fuzzy
 #| msgid "_Decline"
 msgid "Decline"
-msgstr "_ଅସ୍ବୀକାର"
+msgstr "ହ୍ରାସ କର"
 
 #: ../src/empathy-notifications-approver.c:225
 #: ../src/empathy-notifications-approver.c:236
-#, fuzzy
 #| msgid "Account"
 msgid "Accept"
-msgstr "ହିସାବ ଖାତା"
+msgstr "ଗ୍ରହଣ  କରନ୍ତୁ"
 
 #. translators: the 'Provide' button is displayed in a notification
 #. * bubble when Empathy is asking for an account password; clicking on it
 #. * brings the password popup.
 #: ../src/empathy-notifications-approver.c:246
 msgid "Provide"
-msgstr ""
+msgstr "ପ୍ରଦାନ କରନ୍ତୁ"
 
 #: ../src/empathy-call-observer.c:132
 #, c-format
@@ -4967,7 +4911,7 @@ msgstr ""
 #. * as possible.
 #: ../src/empathy-call-window.c:1135 ../src/empathy-call-window.c:1151
 msgid "i"
-msgstr ""
+msgstr "i"
 
 #: ../src/empathy-call-window.c:2871
 msgid "On hold"
@@ -4975,19 +4919,18 @@ msgstr ""
 
 #: ../src/empathy-call-window.c:2874
 msgid "Mute"
-msgstr ""
+msgstr "ମୁକ"
 
 #: ../src/empathy-call-window.c:2876
-#, fuzzy
 #| msgid "Croatian"
 msgid "Duration"
-msgstr "କ୍ରୋଏସିଆନ"
+msgstr "ଅବଧି"
 
 #. Translators: 'status - minutes:seconds' the caller has been connected
 #: ../src/empathy-call-window.c:2879
 #, c-format
 msgid "%s — %d:%02dm"
-msgstr ""
+msgstr "%s — %d:%02dm"
 
 #: ../src/empathy-call-window.c:3149
 #, c-format
@@ -5000,21 +4943,20 @@ msgstr ""
 
 #: ../src/empathy-call-window.c:3155
 msgid "Top Up"
-msgstr ""
+msgstr "ଟପ ଅପ"
 
 #: ../libempathy-gtk/empathy-search-bar.c:243
 msgid "_Match case"
-msgstr ""
+msgstr "ଅକ୍ଷର ପ୍ରକାର ମିଳାନ୍ତୁ (_M)"
 
 #: ../libempathy-gtk/empathy-new-account-dialog.c:144
 msgid "What kind of chat account do you have?"
 msgstr ""
 
 #: ../libempathy-gtk/empathy-new-account-dialog.c:166
-#, fuzzy
 #| msgid "_Edit account"
 msgid "Adding new account"
-msgstr "ଖାତା ସମ୍ପାଦନ କରନ୍ତୁ (_E)"
+msgstr "ନୂତନ ଖାତା ଯୋଗ କରୁଅଛି"
 
 #: ../libempathy-gtk/empathy-local-xmpp-assistant-widget.c:77
 msgid "People nearby"
