@@ -136,7 +136,6 @@ empathy_account_widget_sip_build (EmpathyAccountWidget *self,
   else
     {
       GtkListStore *store;
-      GtkTreeIter iter;
       GtkCellRenderer *renderer;
       GtkToggleButton *checkbutton_tel;
 
@@ -202,17 +201,17 @@ empathy_account_widget_sip_build (EmpathyAccountWidget *self,
       gtk_cell_layout_add_attribute (
           GTK_CELL_LAYOUT (settings->combobox_transport), renderer, "text", 1);
 
-      gtk_list_store_append (store, &iter);
-      gtk_list_store_set (store, &iter, 0, "auto", 1, _("Auto"), -1);
+      gtk_list_store_insert_with_values (store, NULL, -1,
+          0, "auto", 1, _("Auto"), -1);
 
-      gtk_list_store_append (store, &iter);
-      gtk_list_store_set (store, &iter, 0, "udp", 1, _("UDP"), -1);
+      gtk_list_store_insert_with_values (store, NULL, -1,
+          0, "udp", 1, _("UDP"), -1);
 
-      gtk_list_store_append (store, &iter);
-      gtk_list_store_set (store, &iter, 0, "tcp", 1, _("TCP"), -1);
+      gtk_list_store_insert_with_values (store, NULL, -1,
+          0, "tcp", 1, _("TCP"), -1);
 
-      gtk_list_store_append (store, &iter);
-      gtk_list_store_set (store, &iter, 0, "tls", 1, _("TLS"), -1);
+      gtk_list_store_insert_with_values (store, NULL, -1,
+          0, "tls", 1, _("TLS"), -1);
 
       empathy_account_widget_setup_widget (self, settings->combobox_transport,
           "transport");
@@ -235,21 +234,21 @@ empathy_account_widget_sip_build (EmpathyAccountWidget *self,
           GTK_CELL_LAYOUT (settings->combobox_keep_alive_mechanism), renderer,
           "text", 1);
 
-      gtk_list_store_append (store, &iter);
-      gtk_list_store_set (store, &iter, 0, "auto", 1, _("Auto"), -1);
+      gtk_list_store_insert_with_values (store, NULL, -1,
+          0, "auto", 1, _("Auto"), -1);
 
-      gtk_list_store_append (store, &iter);
       /* translators: this string is very specific to SIP's internal; maybe
        * best to keep the English version. */
-      gtk_list_store_set (store, &iter, 0, "register", 1, _("Register"), -1);
+      gtk_list_store_insert_with_values (store, NULL, -1,
+          0, "register", 1, _("Register"), -1);
 
-      gtk_list_store_append (store, &iter);
       /* translators: this string is very specific to SIP's internal; maybe
        * best to keep the English version. */
-      gtk_list_store_set (store, &iter, 0, "options", 1, _("Options"), -1);
+      gtk_list_store_insert_with_values (store, NULL, -1,
+          0, "options", 1, _("Options"), -1);
 
-      gtk_list_store_append (store, &iter);
-      gtk_list_store_set (store, &iter, 0, "none", 1, _("None"), -1);
+      gtk_list_store_insert_with_values (store, NULL, -1,
+          0, "none", 1, _("None"), -1);
 
       g_signal_connect (settings->combobox_keep_alive_mechanism, "changed",
           G_CALLBACK (keep_alive_mechanism_combobox_change_cb), settings);
