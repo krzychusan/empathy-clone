@@ -348,8 +348,7 @@ chatrooms_window_model_add (EmpathyChatroomsWindow *window,
 	model = gtk_tree_view_get_model (view);
 	store = GTK_LIST_STORE (model);
 
-	gtk_list_store_append (store, &iter);
-	gtk_list_store_set (store, &iter,
+	gtk_list_store_insert_with_values (store, &iter, -1,
 			    COL_NAME, empathy_chatroom_get_name (chatroom),
 			    COL_ROOM, empathy_chatroom_get_room (chatroom),
 			    COL_AUTO_CONNECT, empathy_chatroom_get_auto_connect (chatroom),
