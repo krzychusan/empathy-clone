@@ -99,7 +99,6 @@ import_widget_add_accounts_to_model (EmpathyImportWidget *self)
 {
   TpAccountManager *manager;
   GtkTreeModel *model;
-  GtkTreeIter iter;
   GList *l;
   EmpathyImportWidgetPriv *priv = GET_PRIV (self);
   gint min, natural;
@@ -133,9 +132,7 @@ import_widget_add_accounts_to_model (EmpathyImportWidget *self)
 
       g_list_free (accounts);
 
-      gtk_list_store_append (GTK_LIST_STORE (model), &iter);
-
-      gtk_list_store_set (GTK_LIST_STORE (model), &iter,
+      gtk_list_store_insert_with_values (GTK_LIST_STORE (model), NULL, -1,
           COL_IMPORT, import,
           COL_PROTOCOL, data->protocol,
           COL_NAME, g_value_get_string (value),
