@@ -303,6 +303,23 @@ account_is_selected (EmpathyAccountsDialog *dialog,
   return account == selected_account;
 }
 
+static gboolean
+account_can_be_enabled (TpAccount *account)
+{
+  TpStorageRestrictionFlags storage_restrictions;
+
+  storage_restrictions = tp_account_get_storage_restrictions (account);
+  if (storage_restrictions & TP_STORAGE_RESTRICTION_FLAG_CANNOT_SET_ENABLED)
+    return FALSE;
+
+  /* Butterfly accounts shouldn't be used any more */
+  if (!tp_strdiff (tp_account_get_connection_manager (account),
+        "butterfly"))
+    return FALSE;
+
+  return TRUE;
+}
+
 static void
 accounts_dialog_update_status_infobar (EmpathyAccountsDialog *dialog,
     TpAccount *account)
@@ -314,7 +331,6 @@ accounts_dialog_update_status_infobar (EmpathyAccountsDialog *dialog,
   guint                     presence;
   gboolean                  account_enabled;
   gboolean                  creating_account;
-  TpStorageRestrictionFlags storage_restrictions = 0;
   gboolean display_switch = TRUE;
 
   /* do not update the infobar when the account is not selected */
@@ -341,14 +357,7 @@ accounts_dialog_update_status_infobar (EmpathyAccountsDialog *dialog,
       if (!account_enabled)
         presence = TP_CONNECTION_PRESENCE_TYPE_OFFLINE;
 
-      storage_restrictions = tp_account_get_storage_restrictions (account);
-      if (storage_restrictions & TP_STORAGE_RESTRICTION_FLAG_CANNOT_SET_ENABLED)
-        display_switch = FALSE;
-
-      /* Butterfly accounts shouldn't be used any more */
-      if (!tp_strdiff (tp_account_get_connection_manager (account),
-            "butterfly"))
-        display_switch = FALSE;
+      display_switch = account_can_be_enabled (account);
     }
   else
     {
