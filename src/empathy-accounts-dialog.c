@@ -220,26 +220,25 @@ accounts_dialog_status_infobar_set_message (EmpathyAccountsDialog *dialog,
 }
 
 static void
-accounts_dialog_enable_account_cb (GObject *account,
+accounts_dialog_enable_account_cb (GObject *object,
     GAsyncResult *result,
     gpointer user_data)
 {
+  TpAccount *account = TP_ACCOUNT (object);
   GError *error = NULL;
+  TpAccountManager *am;
 
-  tp_account_set_enabled_finish (TP_ACCOUNT (account), result, &error);
-
-  if (error != NULL)
+  if (!tp_account_set_enabled_finish (account, result, &error))
     {
       DEBUG ("Could not enable the account: %s", error->message);
       g_error_free (error);
+      return;
     }
-  else
-    {
-      TpAccountManager *am = tp_account_manager_dup ();
 
-      empathy_connect_new_account (TP_ACCOUNT (account), am);
-      g_object_unref (am);
-    }
+  am = tp_account_manager_dup ();
+
+  empathy_connect_new_account (account, am);
+  g_object_unref (am);
 }
 
 static void
