@@ -1771,16 +1771,24 @@ accounts_dialog_treeview_button_press_event_cb (GtkTreeView *view,
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), item_enable);
   gtk_menu_shell_append (GTK_MENU_SHELL (menu), item_disable);
 
-  if (tp_account_is_enabled (account))
+  if (account_can_be_enabled (account))
     {
-      tp_g_signal_connect_object (item_disable, "activate",
-          G_CALLBACK (accounts_dialog_treeview_enabled_cb), account, 0);
-      gtk_widget_set_sensitive (item_enable, FALSE);
+      if (tp_account_is_enabled (account))
+        {
+          tp_g_signal_connect_object (item_disable, "activate",
+              G_CALLBACK (accounts_dialog_treeview_enabled_cb), account, 0);
+          gtk_widget_set_sensitive (item_enable, FALSE);
+        }
+      else
+        {
+          tp_g_signal_connect_object (item_enable, "activate",
+              G_CALLBACK (accounts_dialog_treeview_enabled_cb), account, 0);
+          gtk_widget_set_sensitive (item_disable, FALSE);
+        }
     }
   else
     {
-      tp_g_signal_connect_object (item_enable, "activate",
-          G_CALLBACK (accounts_dialog_treeview_enabled_cb), account, 0);
+      gtk_widget_set_sensitive (item_enable, FALSE);
       gtk_widget_set_sensitive (item_disable, FALSE);
     }
 
