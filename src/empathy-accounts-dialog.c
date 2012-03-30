@@ -225,6 +225,7 @@ accounts_dialog_enable_account_cb (GObject *object,
     gpointer user_data)
 {
   TpAccount *account = TP_ACCOUNT (object);
+  gboolean enable = GPOINTER_TO_UINT (user_data);
   GError *error = NULL;
   TpAccountManager *am;
 
@@ -235,10 +236,14 @@ accounts_dialog_enable_account_cb (GObject *object,
       return;
     }
 
-  am = tp_account_manager_dup ();
+  /* tp_account_is_enabled() is not updated yet at this point */
+  if (enable)
+    {
+      am = tp_account_manager_dup ();
 
-  empathy_connect_new_account (account, am);
-  g_object_unref (am);
+      empathy_connect_new_account (account, am);
+      g_object_unref (am);
+    }
 }
 
 static void
@@ -248,6 +253,7 @@ accounts_dialog_enable_switch_active_cb (GtkSwitch *sw,
 {
   EmpathyAccountSettings *settings;
   TpAccount *account;
+  gboolean enable;
 
   settings = accounts_dialog_model_get_selected_settings (dialog);
   if (settings == NULL)
@@ -257,8 +263,10 @@ accounts_dialog_enable_switch_active_cb (GtkSwitch *sw,
   if (account == NULL)
     return;
 
-  tp_account_set_enabled_async (account, gtk_switch_get_active (sw),
-      accounts_dialog_enable_account_cb, NULL);
+  enable = gtk_switch_get_active (sw);
+
+  tp_account_set_enabled_async (account, enable,
+      accounts_dialog_enable_account_cb, GUINT_TO_POINTER (enable));
 }
 
 static void
