@@ -1727,7 +1727,8 @@ accounts_dialog_treeview_enabled_cb (GtkMenuItem *item,
   gboolean enabled;
 
   enabled = tp_account_is_enabled (account);
-  tp_account_set_enabled_async (account, !enabled, NULL, NULL);
+
+  enable_and_connect_account (account, !enabled);
 }
 
 static gboolean
