@@ -247,6 +247,14 @@ accounts_dialog_enable_account_cb (GObject *object,
 }
 
 static void
+enable_and_connect_account (TpAccount *account,
+    gboolean enable)
+{
+  tp_account_set_enabled_async (account, enable,
+      accounts_dialog_enable_account_cb, GUINT_TO_POINTER (enable));
+}
+
+static void
 accounts_dialog_enable_switch_active_cb (GtkSwitch *sw,
     GParamSpec *spec,
     EmpathyAccountsDialog *dialog)
@@ -265,8 +273,7 @@ accounts_dialog_enable_switch_active_cb (GtkSwitch *sw,
 
   enable = gtk_switch_get_active (sw);
 
-  tp_account_set_enabled_async (account, enable,
-      accounts_dialog_enable_account_cb, GUINT_TO_POINTER (enable));
+  enable_and_connect_account (account, enable);
 }
 
 static void
